@@ -339,6 +339,10 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual(len(result["matches"]), 1)
         context = gm_runtime.refresh_context(self.campaign, write=False)
         self.assertLess(context["context_bytes"], gm_runtime.CONTEXT_BUDGET_BYTES)
+        real_campaign = gm_runtime.ROOT / "campaigns" / "lucan"
+        if real_campaign.exists():
+            real_context = gm_runtime.refresh_context(real_campaign, write=False)
+            self.assertFalse(any(Path(ref).is_absolute() for ref in real_context["active_refs"]))
 
     def test_automatic_fiction_turn_does_not_roll(self) -> None:
         request = {

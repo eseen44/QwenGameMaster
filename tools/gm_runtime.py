@@ -827,12 +827,14 @@ def recover_turn(
 
 
 def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
-    def contextual_ref(relative: str) -> str:
-        path = campaign_root / relative
+    def project_ref(path: Path) -> str:
         try:
             return path.resolve().relative_to(ROOT.resolve()).as_posix()
         except ValueError:
             return str(path.resolve())
+
+    def contextual_ref(relative: str) -> str:
+        return project_ref(campaign_root / relative)
 
     refs: list[str] = [
         contextual_ref("context/scene.yaml"),
@@ -848,7 +850,7 @@ def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
         participant_id = participant.get("id") if isinstance(participant, dict) else participant
         ref = by_id.get(participant_id)
         if isinstance(ref, str):
-            refs.append(str(resolve_campaign_ref(campaign_root, ref).resolve()))
+            refs.append(project_ref(resolve_campaign_ref(campaign_root, ref)))
     for ref in scene.get("active_refs", []):
         if isinstance(ref, str):
             refs.append(ref)
