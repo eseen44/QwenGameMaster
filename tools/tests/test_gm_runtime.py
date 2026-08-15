@@ -344,6 +344,17 @@ class GameMasterRuntimeTests(unittest.TestCase):
             real_context = gm_runtime.refresh_context(real_campaign, write=False)
             self.assertFalse(any(Path(ref).is_absolute() for ref in real_context["active_refs"]))
 
+    def test_inline_json_request_and_outcome_inputs(self) -> None:
+        parser = gm_runtime.build_parser()
+        preview_args = parser.parse_args(
+            ["turn", "preview", "--request-json", '{"turn_id":"inline","declared_action":"Rozgląda się."}']
+        )
+        self.assertEqual(gm_runtime.input_from_args(preview_args, "request")["turn_id"], "inline")
+        commit_args = parser.parse_args(
+            ["turn", "commit", "inline", "--outcome-json", '{"intent_achieved":true}']
+        )
+        self.assertTrue(gm_runtime.input_from_args(commit_args, "outcome")["intent_achieved"])
+
     def test_automatic_fiction_turn_does_not_roll(self) -> None:
         request = {
             "turn_id": "turn_obvious",

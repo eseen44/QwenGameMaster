@@ -1,15 +1,15 @@
 schema_version: 1
 id: pc_lucan
 object_type: entity_instance
-status: needs_review
+status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 3
-position: {location_id: loc_varkhen_chamber, zone_id: chamber}
+revision: 4
+position: {location_id: loc_city_wall_hideout, zone_id: container_wall_hideout}
 integrity: {current: 19, maximum: 19}
 resources:
   lucan_necrotic_energy: {current: 14, capacity: 15, comfortable_capacity: 12, overload_expansion: 3, campaign_calibration: true, decision_status: approved}
 conditions:
   - {id: post_varkhen_energy_pressure, stacks: 1, magnitude: 35, source_event_id: milestone_045_varkhen_takeover, reason: current_energy_above_old_comfortable_capacity}
 status_flags: [living, conscious, post_overload_stable, permanently_expanded_reservoir, above_old_comfortable_capacity]
-last_event_id: milestone_045_varkhen_takeover
-source_refs: [source_luka_b_fragment#line:11251-11409]
+last_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_luka_b_fragment#line:11251-11409, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

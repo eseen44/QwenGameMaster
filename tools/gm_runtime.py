@@ -1094,6 +1094,29 @@ def load_input(path: Path) -> dict[str, Any]:
     return load_yaml(path)
 
 
+def load_json_input(value: str, label: str) -> dict[str, Any]:
+    try:
+        document = json.loads(value)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"{label} must be valid JSON: {exc.msg}") from exc
+    if not isinstance(document, dict):
+        raise RuntimeError(f"{label} JSON root must be an object")
+    return document
+
+
+def add_structured_input(parser: argparse.ArgumentParser, name: str) -> None:
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(f"--{name}", type=Path)
+    group.add_argument(f"--{name}-json", dest=f"{name}_json")
+
+
+def input_from_args(args: argparse.Namespace, name: str) -> dict[str, Any]:
+    inline = getattr(args, f"{name}_json", None)
+    if inline is not None:
+        return load_json_input(inline, f"--{name}-json")
+    return load_input(getattr(args, name))
+
+
 def add_campaign_root(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--campaign-root", type=Path, default=DEFAULT_CAMPAIGN_ROOT)
 
@@ -1110,13 +1133,13 @@ def build_parser() -> argparse.ArgumentParser:
     turn_commands = turn.add_subparsers(dest="turn_command", required=True)
     for name in ("preview", "resolve"):
         item = turn_commands.add_parser(name)
-        item.add_argument("--request", type=Path, required=True)
+        add_structured_input(item, "request")
         add_campaign_root(item)
         if name == "resolve":
             add_noncanonical(item)
     commit = turn_commands.add_parser("commit")
     commit.add_argument("turn_id")
-    commit.add_argument("--outcome", type=Path, required=True)
+    add_structured_input(commit, "outcome")
     add_campaign_root(commit)
     add_noncanonical(commit)
     abort = turn_commands.add_parser("abort")
@@ -1167,12 +1190,12 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.command == "turn":
             if args.turn_command == "preview":
-                result = preview_turn(campaign_root, load_input(args.request))
+                result = preview_turn(campaign_root, input_from_args(args, "request"))
             elif args.turn_command == "resolve":
-                result = resolve_turn(campaign_root, load_input(args.request), args.allow_noncanonical)
+                result = resolve_turn(campaign_root, input_from_args(args, "request"), args.allow_noncanonical)
             elif args.turn_command == "commit":
                 result = commit_turn(
-                    campaign_root, args.turn_id, load_input(args.outcome), args.allow_noncanonical
+                    campaign_root, args.turn_id, input_from_args(args, "outcome"), args.allow_noncanonical
                 )
             elif args.turn_command == "abort":
                 result = abort_turn(campaign_root, args.turn_id, args.reason, args.allow_noncanonical)
