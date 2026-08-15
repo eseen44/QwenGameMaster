@@ -1,0 +1,14 @@
+schema_version: 1
+id: effect_numb
+object_type: effect
+status: calibration_fixture
+name: Numb
+vector: neuromuscular
+application_rating: 31
+stacking:
+  maximum_stacks: 4
+  per_stack: {mobility: -5, coordination: -7}
+  thresholds: {1: impaired, 2: slowed, 3: partially_immobilized, 4: immobilized}
+resource_cost: {pool: lucan_necrotic_energy, units: 0.1}
+visibility: {magical_trace: faint, mundane_target_usually_identifies_curse: false}
+limitations: [ordinary_mode_not_equivalent_to_overcharged_cast, strong_target_requires_stacks_or_external_leverage]

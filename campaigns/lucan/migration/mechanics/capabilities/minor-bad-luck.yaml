@@ -1,0 +1,19 @@
+schema_version: 1
+id: capability_lucan_minor_bad_luck
+object_type: capability
+status: proposed_calibrated
+name: Pomniejsza klątwa pecha
+pattern_tier: 0
+tags: [curse, environment, complication]
+casting_profile: {subtle: true, quick: true, low_cost: true, culturally_misrecognized_as_coincidence: common, magical_trace: faint}
+delivery:
+  method: curse
+  range_m: 10
+  requirements: [perceivable_target_or_situation, plausible_instability]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 27}
+effects: [effect_lucan_minor_bad_luck]
+limits: {cannot_create_impossible_accident: true, narrator_resolves_affected_arrangement: true}
+weaknesses: [stable_environment, precise_outcome_required, collateral_complications, alert_magic_literate_observer, repeated_pattern_recognition]
+source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]

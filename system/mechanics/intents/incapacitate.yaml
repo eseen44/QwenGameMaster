@@ -1,0 +1,10 @@
+schema_version: 1
+id: intent_incapacitate
+object_type: intent
+status: active_system_rule
+name: Incapacitate target
+paths:
+  - id: neuromuscular_suppression
+    effect_ref: effect_numb
+    rating_path: effect.application_rating
+    defense_path: target.resistances.neuromuscular

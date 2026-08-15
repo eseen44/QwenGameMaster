@@ -1,0 +1,24 @@
+schema_version: 1
+id: fixture_spidey
+name: Spidey calibration build
+object_type: build
+status: proposed_calibration
+base_ref: archetype_tiny_spider
+layers:
+  - role_infiltrator
+  - gimmick_necrotic_ambusher
+  - modifier_necromantic_animation
+  - modifier_spidey_physical_upgrades
+  - modifier_spidey_secondary_venom
+  - modifier_death_anchor
+  - weakness_direct_combat
+  - weakness_area_attacks
+classification:
+  operational_rank: D
+  direct_combat: E
+  prepared_threat: C
+overrides:
+  controller_ref: pc_lucan
+  provenance:
+    status: calibration_from_historical_feats
+    canon_activation: forbidden_until_package_approval

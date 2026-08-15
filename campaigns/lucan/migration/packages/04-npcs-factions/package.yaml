@@ -1,0 +1,466 @@
+schema_version: 1
+package_id: migration_package_04_npcs_factions
+name: NPC i frakcje
+revision: 29
+status: approved
+depends_on:
+  - migration_package_01_timeline
+confirmed:
+  - id: fact_mara_teln_initial_profile
+    claim: Mara Teln jest C-rankową rangerką, używa łuku i krótkiego miecza, mało mówi i uważnie obserwuje otoczenie.
+    category: npc
+    source_refs:
+      - source_luka_a_fragment#line:797-805
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/mara-teln.yaml
+    proposed_value:
+      guild_rank: C
+      role: ranger
+      equipment:
+        - bow
+        - short_sword
+      observed_traits:
+        - quiet
+        - observant
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_boros_keld_initial_profile
+    claim: Boros Keld jest C-rankowym wojownikiem w cięższej zbroi, walczy tarczą i toporem oraz zachowuje się spokojnie i praktycznie.
+    category: npc
+    source_refs:
+      - source_luka_a_fragment#line:797-805
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/boros-keld.yaml
+    proposed_value:
+      guild_rank: C
+      role: warrior
+      equipment:
+        - shield
+        - axe
+      observed_traits:
+        - calm
+        - practical
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_halven_rusk_initial_profile
+    claim: Halven Rusk jest około pięćdziesięcioletnim miejskim inspektorem infrastruktury i zagrożeń podziemnych, wyposażonym w lampę, notes, kredę i krótki miecz.
+    category: npc
+    source_refs:
+      - source_luka_a_fragment#line:807-818
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/halven-rusk.yaml
+    proposed_value:
+      role: municipal_underground_hazards_inspector
+      approximate_age: 50
+      equipment:
+        - lamp
+        - notebook
+        - chalk
+        - short_sword
+      armor: none_observed
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_cutoff_witnesses_mara_boros
+    claim: Mara i Boros są bezpośrednimi świadkami brutalnego obezwładnienia Varkhena, jego widocznego słabnięcia podczas bezpośredniego kontaktu magicznego Lucana oraz ustanowienia przez Lucana przewagi; nie znają pełnego mechanizmu tego kontaktu i nie otrzymują automatycznie wiedzy z późniejszej rozmowy.
+    category: npc_knowledge
+    source_refs: [source_luka_b_fragment#line:11251-11409]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs
+    proposed_value: {combat_witnesses: [npc_mara_teln, npc_boros_keld], witnessed_effect: varkhen_weakened_during_lucan_contact, witnessed_mechanism: unknown, forbidden_private_conversation_knowledge: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_named_character_roster_v1
+    claim: Nazwane postacie niebędące Lucanem ani kontrolowanymi bytami to Mara, Boros, Halven Rusk, Seraphine Vale, Oren, Varkhen, Darrik, Teren, Marael, Odran i Halvek; Veyr jest nazwiskiem Lucana, a nie imieniem maga ognia.
+    category: npc
+    source_refs: [source_luka_b_fragment#line:317-11409, source_user_decisions_current#decision:significant_named_npcs]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/index.yaml
+    proposed_value: {full_agents: [npc_mara_teln, npc_boros_keld, npc_seraphine_vale, npc_oren, npc_varkhen_mind], specialists: [npc_halven_rusk, npc_darrik], light_named: [npc_teren, npc_marael, npc_odran, npc_halvek_wagonman]}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_odran_limited_cemetery_contact
+    claim: Odran jest dozorcą murów i odpływów cmentarza. Spotkał Lucana podczas rozmowy z grabarzami, zaoferował praktyczną pomoc i usłyszał, że Gildia może dofinansować cmentarz; do zapowiedzianego ponownego spotkania nie doszło i Odran nie zna późniejszych sekretów operacji.
+    category: npc_knowledge
+    source_refs: [source_user_decisions_current#correction:odran-limited-cemetery-contact]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/odran.yaml
+    proposed_value: {contact_status: met_once_no_followup, knows_investigation: true, knows_possible_guild_funding: true, knows_later_cemetery_secrets: false}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_received_tannery_evidence
+    claim: Po operacji w garbarni Lucan przekazał Seraphine dokumenty obciążające właściciela; zeznania Lucana, Mary i Borosa uruchomiły również wewnętrzne sprawdzenie kompetencji Ruska.
+    category: npc_knowledge
+    source_refs: [source_user_decisions_current#correction:tannery-report-seraphine-rusk-inquiry-and-d-rank]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {knows_tannery_owner_coverup: true, knows_rusk_inquiry_origin: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_received_preoperation_cemetery_report
+    claim: Przed nocnym wejściem Lucan osobiście złożył Seraphine i starszemu rangą członkowi Gildii raport obejmujący rozległe uszkodzenia i podziemia cmentarza, skupiska energii śmierci, dwa zgłoszone nieumarłe stworzenia, brak młodego strażnika, możliwy handel zwłokami, wpływ na pracownika kancelarii oraz ryzyko śledztwa Inkwizycji. Seraphine zna treść raportu jako twierdzenia Lucana, nie jako automatycznie potwierdzoną prawdę.
+    category: npc_knowledge
+    source_refs: [source_luka_b_fragment#line:6810-6955, source_user_decisions_current#correction:guild-report-before-cemetery-night]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {received_cemetery_report: true, missing_young_guard_reported: true, inquisition_risk_reported: true, alleged_undead_count: 2, allegation_source: lucan_not_independently_verified}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_cemetery_office_worker_proxy
+    claim: Nienazwany pracownik kancelarii cmentarza znajdował się pod wpływem hipnozy lub funkcjonalnie podobnego oddziaływania i posłużył nieznanej osobie jako proxy w rozmowie z Lucanem. Nie należy utożsamiać wiedzy ani agendy pracownika z wiedzą i agendą jego rozmówcy.
+    category: npc_knowledge
+    source_refs: [source_luka_b_fragment#line:6143-6905, source_user_decisions_current#correction:cemetery-office-worker-hypnotized-proxy]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/fixtures/cemetery-office-worker.yaml
+    proposed_value: {name: unknown, role: cemetery_office_worker, influenced_by: hypnosis_or_similar, proxy_for: unknown_actor, agency_during_exchange: constrained_or_uncertain}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_amateur_corpse_shipment_handler
+    claim: Nienazwany młody zarządca wysyłki był totalnym amatorem nekromancji wyszkolonym jedynie do ręcznego prowadzenia przygotowanych, niemal bezwolnych ciał na wóz. Nie kontrolował pełnoprawnych autonomicznych zombie. Został przełamany subtelnymi klątwami Lucana, ogłuszony przez Borosa, związany i pozostawiony żywy jako źródło informacji oraz dowód.
+    category: npc
+    source_refs: [source_luka_b_fragment#line:7565-8010, source_user_decisions_current#calibration:handler-corpses-are-weak-transport-puppets]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/fixtures/corpse-shipment-handler.yaml
+    proposed_value: {name: unknown, importance: fixture, necromancy: narrow_amateur_transport_puppetry, state: captured_alive_bound, autonomous_undead_control: false}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_observed_profile
+    claim: Seraphine Vale jest A-rankową srebrnowłosą kontrolerką/antymagiem w lekkim pancerzu, używającą rapiera, krótkiej różdżki i pieczęci ochronnych.
+    category: npc
+    source_refs: [source_luka_b_fragment#line:6812-6921, source_luka_b_fragment#line:8695-8718]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {guild_rank: A, role: controller_antimage}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_oren_role_and_death
+    claim: Oren przez około trzydzieści jeden lat był związany z systemem cmentarza, kierował logistyką nieumarłych i zginął przy sercu podczas kontrolowanej próby.
+    category: npc
+    source_refs: [source_luka_b_fragment#line:7734-11173]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/oren.yaml
+    proposed_value: {role: necromantic_logistics_operator, state: dead}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_remained_at_heart_site
+    claim: Seraphine została przy sercu z ekspertami podczas walki; zeszła do komory dopiero po przejęciu Varkhena, więc zna jego stan, śluby i dobrowolny układ, ale nie była świadkiem samego ataku.
+    category: npc_knowledge
+    source_refs: [source_compiled_historical_run#line:12869-12885, source_compiled_historical_run#line:13140-13438]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {current_location_id: loc_varkhen_chamber, last_confirmed_event_id: milestone_047_seraphine_risk_disclosure, witnessed_varkhen_assault: false, witnessed_oath_compact: true, participated_in_private_risk_conversation: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_faction_state_at_cutoff
+    claim: Gildia jest aktywnie zaangażowana w incydent cmentarny, służby miejskie mają fragmentaryczne informacje, a sieć logistyczna Orena została pozbawiona przywódcy i ciężko rozbita, lecz nie dowiedziono zniszczenia wszystkich jej kontaktów.
+    category: faction
+    source_refs: [source_luka_b_fragment#line:7487-11173]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/entities/factions
+    proposed_value: {active_factions: [faction_lumaria_adventurers_guild, faction_lumaria_civic_services, faction_oren_corpse_network, faction_lumaria_church], background_threats: [faction_inquisition]}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+proposed:
+  - id: fact_major_city_interest_groups_added
+    claim: "Akt trzeci uwzględnia siedem dużych bloków interesu: Magistrat, rody szlacheckie, Akademię, konsorcja kupieckie, Straż miejską, podziemne sieci oraz zakony mieczowe. Straż jest odrębną siłą operacyjną, a zakony mieczowe luźną siecią hierarchicznych grup rycerskich, nie automatycznie religijną instytucją."
+    category: faction_design
+    source_refs: [source_user_decisions_current#direction:major_city_interest_groups, source_user_decisions_current#direction:martial_orders_as_major_city_interest]
+    confidence: confirmed
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/entities/factions
+    proposed_value: [faction_lumaria_magistracy, faction_lumaria_noble_estates, faction_lumaria_magical_academy, faction_lumaria_merchant_consortium, faction_lumaria_civic_services, faction_lumaria_criminal_networks, faction_lumaria_martial_orders]
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_all_npc_cards_accepted
+    claim: "Użytkownik zatwierdził całą sekcję NPC: Borosa, pełnych agentów, postacie historyczne, lekkie postacie nazwane oraz nienazwane fixture'y. Karty pozostają kandydatami do atomowej aktywacji wraz z całym pakietem."
+    category: npc
+    source_refs: [source_user_decisions_current#approval:all_npc_cards]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs
+    proposed_value: accepted_pending_package_activation
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_darrik_card_accepted
+    claim: "Użytkownik zatwierdził kartę Darrika jako postaci historycznej: głównego grabarza, który rozpoznał Lucana, próbował zaalarmować strażników i zginął podczas pierwszej masakry na cmentarzu."
+    category: npc
+    source_refs: [source_user_decisions_current#approval:darrik_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/darrik.yaml
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_oren_card_accepted
+    claim: "Użytkownik zatwierdził kartę Orena: długotrwałego operatora logistycznego cmentarza, a zarazem ofiary pasożytniczej więzi ze źródłem; Oren zginął jawnie na powierzchni cmentarza podczas kontrolowanej próby."
+    category: npc
+    source_refs: [source_user_decisions_current#approval:oren_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/oren.yaml
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_varkhen_card_accepted
+    claim: "Użytkownik zatwierdził kartę Varkhena i relację Varkhen → Lucan: Varkhen jest honorowym, pryncypialnym partnerem kontraktowym bez urazy po przegranej; formalna więź Lucana pozostaje nieegzekwowana i nieprzetestowana."
+    category: npc_and_relationship
+    source_refs: [source_user_decisions_current#approval:varkhen_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: [campaigns/lucan/entities/npcs/varkhen.yaml, campaigns/lucan/relationships/varkhen--lucan.yaml]
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_rusk_card_accepted
+    claim: "Użytkownik zatwierdził kartę Halvena Ruska i relację Rusk → Lucan: Rusk jest drobnym, urzędniczo-komicznym antagonistą, ograniczonym przez hierarchię Gildii i pozbawionym samodzielnej siły sprawczej na wielką skalę."
+    category: npc_and_relationship
+    source_refs: [source_user_decisions_current#approval:rusk_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: [campaigns/lucan/entities/npcs/halven-rusk.yaml, campaigns/lucan/relationships/rusk--lucan.yaml]
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_card_accepted
+    claim: "Użytkownik zatwierdził kartę Seraphine Vale oraz czteroosiową relację Seraphine → Lucan: osobiste zaangażowanie i wysoka wiara w jego osąd współistnieją z warunkową osłoną oraz niskim zaufaniem do pełnej dyskrecji."
+    category: npc_and_relationship
+    source_refs: [source_user_decisions_current#approval:seraphine_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: [campaigns/lucan/entities/npcs/seraphine-vale.yaml, campaigns/lucan/relationships/seraphine--lucan.yaml]
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_mara_card_accepted
+    claim: "Użytkownik zatwierdził kartę Mary Teln oraz czteroosiową relację Mara → Lucan: pozytywna, ostrożna współpraca oparta na wspólnej historii i zaufaniu do osądu Lucana; Mara nie zna mechaniki jego kontaktu z Varkhenem."
+    category: npc_and_relationship
+    source_refs: [source_user_decisions_current#approval:mara_card]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: [campaigns/lucan/entities/npcs/mara-teln.yaml, campaigns/lucan/relationships/mara--lucan.yaml]
+    proposed_value: accepted
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_combat_witness_knowledge_boundary
+    claim: "Mara i Boros mogą opisać fizyczne obezwładnienie Varkhena oraz jego słabnięcie podczas kontaktu Lucana, ale nie mogą wiarygodnie zeznać, że rozumieją wysysanie energii ani że sam kontakt przesądził o wyniku walki."
+    category: npc_knowledge_boundary
+    source_refs: [source_compiled_historical_run#line:13020-13135, source_user_decisions_current#correction:boros_cannot_infer_drain_mechanic]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs
+    proposed_value: {mechanism_knowledge: false, visible_effect_knowledge: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_relationship_cards_four_axes
+    claim: "Ważne relacje osobiste są kierunkowymi kartami czterech osi: współpracy, wiary w osąd, zaufania do dyskrecji i osobistego stosunku. Długi, dźwignie i ograniczenia są zapisywane obok osi, a reputacja instytucji pozostaje oddzielna."
+    category: relationship_system
+    source_refs: [source_user_decisions_current#approval:four_axis_relationship_cards]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/relationships
+    proposed_value: {axes: [cooperation, judgment_confidence, discretion_trust, personal_regard], personal_vs_institutional: separate}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_rusk_comic_minor_antagonist
+    claim: "Rusk jest drobnym, urzędniczo-komicznym antagonistą: może utrudniać życie Lucanowi złośliwością, formalizmem i własnym urazem, ale nie jest samodzielnym niszczycielem świata ani osobistym nemezis. W sprawach istotnych podporządkowuje się Gildii i hierarchii."
+    category: npc_portrayal
+    source_refs: [source_user_decisions_current#direction:rusk_comic_minor_antagonist]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/halven-rusk.yaml
+    proposed_value: {tone: comic_minor_antagonist, threat_scope: bureaucratic_friction_and_small_scale_spite}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_varkhen_honor_and_directness
+    claim: "Varkhen jest pryncypialny, honorowy i prostoduszny: myśli bezpośrednio, ocenia czyny oraz dotrzymane układy, a skomplikowana polityka i magiczna technologia nie są jego mocną stroną. Nie ma urazy za przegraną z Lucanem, ponieważ zachował życie i wolę, a następnie dostał propozycję współpracy przy własnej przysiędze."
+    category: npc_portrayal
+    source_refs: [source_user_decisions_current#direction:varkhen_honor_directness_no_resentment]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/varkhen.yaml
+    proposed_value: {attitude: honorable_cautious_contractual_ally, score: 35}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_personal_investment
+    claim: "Seraphine może traktować Lucana jako więcej niż użyteczne narzędzie: widzi jego skuteczność, inicjatywę i potencjał, pobłaża części dziwactw oraz inwestuje w możliwość realnego układu. Jej ostrożność wynika z ryzyka politycznego i potrzeby szczerości, nie z odmowy uznania Lucana za podmiot. Konkretna przyszła forma tej więzi pozostaje wynikiem gry."
+    category: npc_relationship
+    source_refs: [source_user_decisions_current#direction:seraphine_personal_investment]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {attitude: personally_invested_conditional_ally, score: 35, future_form: emergent}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_named_npc_mechanical_calibration_v1
+    claim: Pełni agenci i potrzebni specjaliści mają kandydackie obiekty 0–100; lekkie nazwane postacie dziedziczą zwykły archetyp człowieka zamiast otrzymywać wymyślone indywidualne statystyki.
+    category: npc
+    source_refs: [source_user_decisions_current#decision:history_as_stress_test]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/migration/mechanics/objects
+    proposed_value: {replay_cases: 32, policy: tiered_npc_weight}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_varkhen_attitude_calibration
+    claim: Brutalny napad pozostawia nieufność, ale pytanie o śluby, dobrowolny układ i późniejsza szczera rozmowa normalizują relację. Varkhen jest ostrożnym, sucho komentującym partnerem kontraktowym, nie aktywnym wrogiem ani posłusznym sługą.
+    category: npc_relationship
+    source_refs: [source_luka_b_fragment#line:11251-12012, source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/varkhen.yaml
+    proposed_value: {attitude: guarded_contractual_dry_cooperation, score: 0}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_seraphine_risk_knowledge_at_cutoff
+    claim: Seraphine zna trop kapłana współpracującego z Orenem, wykryty zdalny rozkaz dotyczący zwłok oraz przyznanie Lucana do dwóch naznaczonych ciał w kaplicy i dwóch na wysypisku. Nie zna jeszcze odpowiedzi, czy ciała na wysypisku nadal istnieją.
+    category: npc_knowledge
+    source_refs: [source_luka_b_fragment#line:11841-12012]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    proposed_value: {knows_marked_corpses: 4, exact_spidey_order: unknown, dump_body_status: unanswered}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_act_three_investigating_factions
+    claim: Ogólnym kierunkiem następnego aktu jest instytucjonalne rozliczenie nagromadzonych kryzysów. Gildia, Kościół, Straż/służby miejskie, środowisko magiczne i władza miejska mogą walczyć o jurysdykcję, informacje i interpretację Lucana; dokładny skład, sojusze i przebieg nie są ustalone. Inkwizycja pozostaje możliwą groźbą w tle.
+    category: faction
+    source_refs: [source_user_decisions_current#direction:act_three_city_governance_dynamics]
+    confidence: confirmed_general_direction
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/planning/act-03-inquest.yaml
+    proposed_value: {likely_stakeholders: [faction_lumaria_adventurers_guild, faction_lumaria_church, faction_lumaria_civic_services, stakeholder_magical_establishment, stakeholder_city_government], alliances_and_plot: emergent, background_threat: faction_inquisition}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_act_three_past_witness_model
+    claim: Wątek przeszłości Lucana musi pojawić się w akcie przez konkretną osobę albo aktywny ślad prowadzący do żywej relacji. Nauczyciele, dawni znajomi, osoby z okresu bezdomności i rodzina są możliwą obsadą, lecz ich wybór, kolejność i moment pozostają elastyczne; świadectwo nie jest automatycznie obiektywną prawdą.
+    category: npc_and_faction_design
+    source_refs: [source_user_decisions_current#direction:act_three_past_witnesses]
+    confidence: confirmed_required_thread
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/planning/act-03-witness-framework.yaml
+    proposed_value: {required_thread: lucans_past_enters_present, possible_witnesses: [former_teacher, former_acquaintance, homelessness_contact, possible_family], explicit_choice_required: [former_fiancee, defining_rival], mandatory_sequence: false, testimony_is_not_automatic_truth: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_act_three_intrigue_network
+    claim: Oba wątki mają przeciąć się w sieci intryg. Decyzje Lucana powinny określać, komu daje informacje, lojalność, przysługi i dostęp; mają tworzyć konkretnych współpracowników, długi, sekrety, rywali i przynajmniej jednego aktywnego przeciwnika wynikającego z rozegranych strat lub zdrad.
+    category: relationship_and_faction_design
+    source_refs: [source_user_decisions_current#direction:act_three_required_threads_and_intrigue_network]
+    confidence: confirmed_design_requirement
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/planning/act-03-intrigue-network.yaml
+    proposed_value: {required_threads_intersect: true, relationship_choices_have_tradeoffs: true, universal_approval_path: false, personal_and_institutional_stances_separate: true}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_necromancy_illegal_and_church_hostile
+    claim: "Praktykowanie nekromancji jest nielegalne, choć sama zdolność, wiedza lub możliwość jej nauczenia nie stanowi automatycznie przestępstwa. Nekromantyczna ingerencja w zwierzęta jest świecką szarą strefą zależną od gatunku, stanu życia, skali i użycia: pies może stanowić prawdopodobne przestępstwo, natomiast mały, pierwotnie żywy pająk jest trudny do sklasyfikowania i udowodnienia. Kościół nie uznaje tej szarej strefy i fanatycznie zwalcza praktykę; Varkhen pozostaje jednoznacznym przypadkiem wysokiego ryzyka."
+    category: faction_and_law
+    source_refs: [source_user_decisions_current#canon:necromancy_illegal_ability_not_illegal_church_fanatically_hostile, source_user_decisions_current#canon:animal_necromancy_gray_zone]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: worlds/solmara/lore/necromancy-law.yaml
+    proposed_value: {practice: illegal, capacity_or_knowledge: not_illegal_by_itself, animal_modification: secular_gray_zone, small_living_spider: difficult_to_classify, church_attitude: fanatically_hostile_without_gray_zone, public_varkhen_control: crisis_trigger}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_ephemeral_city_groups_required
+    claim: Oprócz głównych instytucji co najmniej dwie poboczne grupy miejskie mają pojawić się krótko, ale materialnie, reprezentując konkretne koszty lub interesy związane z kryzysem. Ich tożsamość zostanie dobrana do skutków rozegranych zdarzeń i nie musi tworzyć stałych pełnych frakcji.
+    category: faction_design
+    source_refs: [source_user_decisions_current#direction:brief_additional_city_groups]
+    confidence: confirmed_design_requirement
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/planning/act-03-city-power-dynamics.yaml
+    proposed_value: {minimum_distinct_ephemeral_groups: 2, material_presence: true, fixed_identity_now: false}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+  - id: fact_fragmented_medieval_legal_order
+    claim: "Porządek prawny jest średniowieczny, fragmentaryczny, antropocentryczny i oparty na nakładających się dekretach, zwyczaju, przywilejach, prawie cechowym, jurysdykcji Kościoła oraz uznaniu urzędników. Nie ustanawia uniwersalnych praw zwierząt, orków ani wszystkich istot rozumnych. Duże grupy używają prawa instrumentalnie: walczą o właściwy sąd, dowody, klasyfikację, immunitet i precedens. Granica między golemem, konstruktem, chowańcem, zmodyfikowanym zwierzęciem i nieumarłym jest sporna; Akademia ma interes w jej przesuwaniu, a Kościół broni szerokiej konserwatywnej definicji nekromancji."
+    category: law_and_faction_conflict
+    source_refs: [source_user_decisions_current#canon:medieval_fragmented_anthropocentric_law, source_user_decisions_current#canon:construct_golem_boundary_conflict, source_user_decisions_current#canon:major_groups_use_law_instrumentally]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: worlds/solmara/lore/legal-order.yaml
+    proposed_value: {law: fragmented_status_based, universal_nonhuman_rights: absent, major_groups_use_law: instrumentally, construct_necromancy_boundary: contested, academy_interest: boundary_expansion, church_interest: conservative_restriction}
+    conflict_ids: []
+    package_id: migration_package_04_npcs_factions
+    status: proposed
+conflicts: []
+missing:
+  - Dokładny końcowy stan Odrana nie został pokazany w źródle.
+  - Konkretne koszty i pełny repertuar antymagii Seraphine są kalibracją, bo historia pokazuje profil i interwencje, lecz nie katalog zaklęć.
+  - Nienazwane ważne role pozostają fixture'ami; nie otrzymają wymyślonych kanonicznych imion.
+approval:
+  required: true
+  current_revision_status: approved
+revision_notes:
+  - Rewizja 29 została zatwierdzona przez użytkownika jako pełny pakiet NPC i frakcji.
+  - Rewizja 29: dodano duże bloki interesu miasta oraz rozdzielono Straż operacyjną od Magistratu; pogrzebnicy pozostają częścią drobnej szarej strefy, nie pełną frakcją władzy.
+  - Rewizja 28: użytkownik zatwierdził całą sekcję NPC; poprawiono także bieżącą agendę Borosa, aby nie zakładała już aktywnego przygważdżania Varkhena.
+  - Rewizja 18 klasyfikuje młodego zarządcę wysyłki jako nienazwanego amatora od wąskiej procedury prowadzenia marionetek transportowych, nie kompetentnego nekromantę ani kontrolera prawdziwych zombie.
+  - Rewizja 17 odtwarza przedoperacyjny raport Lucana dla Seraphine i rozdziela zgłoszone przez niego twierdzenia od faktów niezależnie potwierdzonych przez Gildię.
+  - Rewizja 16 dodaje nienazwanego pracownika kancelarii jako zahipnotyzowane proxy nieznanego rozmówcy i rozdziela jego własną wiedzę od wiedzy osoby prowadzącej rozmowę.
+  - Rewizja 15 dopisuje Seraphine jako odbiorczynię dowodów z garbarni oraz osobę znającą źródło wewnętrznego postępowania dotyczącego Ruska.
+  - Rewizja 14 zapisuje ograniczony kontakt Odrana z Lucanem bez dopisywania późniejszej współpracy ani wiedzy o finałowej operacji.
+  - Rewizja 13 doprecyzowuje, że duże grupy nie tylko podlegają prawu, lecz instrumentalnie używają jurysdykcji, dowodów, wyjątków i precedensów przeciw rywalom.
+  - Rewizja 12 dodaje fragmentaryczny, statusowy porządek prawny oraz konflikt Akademii z Kościołem o definicję konstruktu, golema, chowańca i nieumarłego.
+  - Rewizja 11 dodaje świecką szarą strefę nekromantycznych modyfikacji zwierząt: Spidey jest trudny do sklasyfikowania, choć Kościół nadal potępia go doktrynalnie.
+  - Rewizja 10 utrwala nielegalność praktyki nekromancji, fanatyczną wrogość Kościoła i kryzysowy skutek publicznego ujawnienia kontroli Varkhena.
+  - Dodano obowiązkową krótką obecność co najmniej dwóch pobocznych grup miejskich z konkretnym interesem lub kosztem.
+  - Rewizja 9 czyni oba wątki obowiązkowymi składnikami aktu, pozostawiając narratorowi ich kolejność i konfigurację, oraz dodaje trwałą sieć sojuszy, długów i wrogości.
+  - Rewizja 8 obniża plan aktu z ustalonego wątku do ogólnego kierunku i dodaje konflikt kompetencji między instytucjami zarządzającymi miastem.
+  - Rewizja 7 dodaje perspektywicznych świadków przeszłości Lucana i mechanizm zmiany ocen obecnych NPC oraz instytucji.
+  - Rewizja 6 kanonizuje całą prywatną rozmowę, wiedzę Seraphine o czterech ciałach oraz trop kapłana i Orena.
+  - Dodano Kościół jako przyszłego równoległego śledczego i Inkwizycję jako warunkową groźbę w tle.
+  - Relację Varkhena znormalizowano do neutralnej, ostrożnej współpracy kontraktowej (0), bez zmiany jego wolnej woli.
+  - Rewizja 5 uwzględnia przybycie Seraphine po walce, rozmowę o ślubach i pieczęciach oraz dobrowolny układ Varkhena.
+  - Relację Varkhena zmieniono z aktywnej, upokorzonej wrogości na ostrożny układ z zalążkiem szacunku; formalna więź kontroli pozostaje oddzielna i nieprzetestowana.
+  - Naprawiono położenie i wiedzę Seraphine: została przy sercu i nie była świadkiem przejęcia Varkhena.
+  - Ograniczono wiedzę Mary do obserwowalnego wysysania; technika odległego transferu przez pająki pozostaje jej podejrzeniem.
+  - Skorygowano identyfikatory przejęcia Varkhena z nieistniejącego milestone_055 na milestone_045.
+  - Dodano stan Gildii, służb miejskich i rozbitej sieci logistycznej Orena bez automatycznego współdzielenia wiedzy NPC.

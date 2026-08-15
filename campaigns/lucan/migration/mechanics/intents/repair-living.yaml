@@ -1,0 +1,10 @@
+schema_version: 1
+id: intent_repair_living_tissue
+object_type: intent
+status: proposed_system_extension
+name: Napraw żywą tkankę energią życia
+paths:
+  - id: basic_living_tissue_repair
+    effect_vector: living_tissue_repair
+    rating_path: effect.application_rating
+    defense_path: target.thresholds.basic_tissue_repair_difficulty

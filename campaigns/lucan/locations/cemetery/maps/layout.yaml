@@ -1,0 +1,29 @@
+schema_version: 1
+location_id: loc_cemetery
+status: accepted_estimated_geometry
+canvas: {width_px: 900, height_px: 600, margin_px: 50}
+scale: {unit: abstract_meter, pixels_per_unit: 20, bar_units: 10}
+orientation: {north: up}
+zones:
+  - {id: zone_grounds, shape: rectangle, x_m: 0, y_m: 0, width_m: 36, height_m: 24, player_visible: true, measurement: estimated}
+  - {id: zone_south_gate, shape: rectangle, x_m: 16, y_m: 23, width_m: 4, height_m: 1, player_visible: true}
+  - {id: zone_west_wall, shape: rectangle, x_m: 0, y_m: 3, width_m: 1, height_m: 15, player_visible: true}
+  - {id: zone_chapel, shape: rectangle, x_m: 5, y_m: 3, width_m: 8, height_m: 6, player_visible: true}
+  - {id: zone_north_collapse, shape: rectangle, x_m: 20, y_m: 1, width_m: 7, height_m: 4, player_visible: true}
+  - {id: zone_north_ramp, shape: rectangle, x_m: 29, y_m: 3, width_m: 5, height_m: 3, player_visible: true}
+  - {id: zone_buried_old_network, shape: rectangle, x_m: 10, y_m: 10, width_m: 18, height_m: 8, player_visible: true, measurement: estimated, visibility_note: approximate_extent_detected_by_geo_not_exact_passage_geometry}
+features:
+  - {id: feature_graves, zone_id: zone_grounds, kind: broken_cover_field, x_m: 2, y_m: 2, player_visible: true}
+  - {id: feature_chapel, zone_id: zone_chapel, kind: building, x_m: 5, y_m: 3, player_visible: true}
+  - {id: feature_collapse, zone_id: zone_north_collapse, kind: unstable_descent, x_m: 20, y_m: 1, player_visible: true}
+  - {id: feature_ramp, zone_id: zone_north_ramp, kind: underground_logistics_exit, x_m: 29, y_m: 3, player_visible: true}
+  - {id: feature_west_web_post, zone_id: zone_west_wall, kind: sparse_web_monitor, x_m: 0, y_m: 8, player_visible: true}
+  - {id: feature_buried_network, zone_id: zone_buried_old_network, kind: unresolved_old_structure, x_m: 10, y_m: 10, player_visible: false}
+  - {id: feature_geo_many_voids_and_earth_collapses, zone_id: zone_buried_old_network, kind: geo_detected_discontinuous_voids_tunnels_and_collapses, x_m: 10, y_m: 10, player_visible: true, measurement: estimated}
+  - {id: feature_geo_west_wall_tunnel, zone_id: zone_west_wall, kind: geo_detected_technical_tunnel, x_m: 0, y_m: 12, player_visible: true, measurement: estimated}
+  - {id: feature_map_marked_unnamed_tomb, zone_id: zone_grounds, kind: specific_unnamed_tomb_marked_by_proxy, x_m: 22, y_m: 5, player_visible: true, measurement: estimated, coordinate_note: original_map_mark_confirmed_but_exact_position_not_recovered_from_text}
+connections:
+  - {id: connection_cemetery_city, from_zone: zone_south_gate, to_location: loc_lumaria, player_visible: true}
+  - {id: connection_collapse_descent, from_zone: zone_north_collapse, to_location: loc_varkhen_chamber, player_visible: true}
+  - {id: connection_chapel, from_zone: zone_chapel, to_location: loc_cemetery_chapel, player_visible: true}
+  - {id: connection_north_ramp, from_zone: zone_north_ramp, to_location: loc_cemetery_underworks, player_visible: true}

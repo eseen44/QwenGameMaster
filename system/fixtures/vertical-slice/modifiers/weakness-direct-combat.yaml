@@ -1,0 +1,11 @@
+schema_version: 1
+id: weakness_direct_combat
+object_type: modifier
+status: calibration_fixture
+name: Weak in direct combat
+adjustments:
+  ratings.physical_force: -2
+  ratings.durability: -3
+  defenses.vitality: -2
+append:
+  traits: [direct_combat_is_a_failure_mode]

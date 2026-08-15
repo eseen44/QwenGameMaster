@@ -1,0 +1,10 @@
+schema_version: 1
+id: loc_city_wall_hideout
+name: Opuszczona baszta przy murze
+status: accepted_by_user_pending_package_activation
+world_ref: worlds/solmara
+type: hideout
+orientation: {north: along_outer_wall, confidence: estimated}
+connections: [{id: connection_wall_access, zone_id: zone_entry, leads_to: loc_lumaria_wall, travel_time: needs_review}]
+map_refs: {layout: campaigns/lucan/locations/wall-hideout/maps/layout.yaml, gm: campaigns/lucan/locations/wall-hideout/maps/gm.svg, player: campaigns/lucan/locations/wall-hideout/maps/player.svg}
+source_refs: [source_user_decisions_current#correction:wall-hideout-critical-find]

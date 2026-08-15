@@ -1,0 +1,18 @@
+schema_version: 1
+id: modifier_spidey_secondary_venom
+object_type: modifier
+status: calibration_fixture
+name: Implanted marsh-viper fangs and on-demand paralytic toxin gland
+overrides:
+  resources:
+    paralytic_toxin_reservoir:
+      current: 4
+      capacity: 4
+      production:
+        mode: on_demand
+        rate: one_dose_per_6_hours
+        interval_seconds: 21600
+        units: 1
+        requires: [functional_implanted_gland, fed_or_energized_state]
+append:
+  traits: [implanted_snake_fangs, separate_paralytic_gland, on_demand_toxin_generation]

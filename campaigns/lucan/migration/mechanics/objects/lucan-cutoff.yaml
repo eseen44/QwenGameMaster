@@ -1,0 +1,54 @@
+schema_version: 1
+id: candidate_pc_lucan_cutoff
+object_type: entity
+status: proposed_calibrated
+name: Lucan bezpośrednio po przejęciu Varkhena — kandydat mechaniczny
+classification: {guild_rank: D, direct_physical: E, prepared_operational_peak: C}
+anatomy: {neck_diameter_cm: 11}
+ratings: {physical_force: 16, mobility: 19, reflexes: 18, stealth: 27, durability: 17}
+defenses: {vitality: 19, awareness: 29, mobility: 19, anatomical_severing: 31}
+resistances: {venom: 20, necrotic: 34, neuromuscular: 23, mental: 26}
+resources:
+  lucan_necrotic_energy:
+    current: 14
+    capacity: 15
+    comfortable_capacity: 12
+    overload_expansion: 3
+    campaign_calibration: true
+    cutoff_value_requires_state_reconstruction: false
+    approved_by: migration_package_02_lucan_revision_14
+thresholds: {basic_tissue_repair_difficulty: 5, basic_body_overdrive_difficulty: 12}
+capabilities:
+  - capability_lucan_bone_chill
+  - capability_lucan_bone_chill_ranged
+  - capability_lucan_minor_hex
+  - capability_lucan_numb
+  - capability_lucan_numb_overcharged
+  - capability_lucan_confusion
+  - capability_lucan_misnotice
+  - capability_lucan_minor_bad_luck
+  - capability_lucan_necromantic_probe
+  - capability_lucan_necromantic_control
+  - capability_lucan_direct_drain
+  - capability_lucan_network_energy_transfer
+  - capability_lucan_grave_sense
+  - capability_lucan_stone_sense
+  - capability_lucan_geo_protocol
+  - capability_lucan_corpse_stitch
+  - capability_lucan_death_anchor
+  - capability_lucan_grave_ward
+  - capability_lucan_borrowed_sense
+  - capability_lucan_saber_strike
+  - capability_lucan_saber_cold_channel
+  - capability_lucan_basic_self_repair
+  - capability_lucan_vital_overdrive
+traits: [living, warlock, knowledge_driven, preparation_driven, network_supported]
+provenance:
+  source_refs:
+    - source_luka_b_fragment#line:3869-5339
+    - source_luka_b_fragment#line:7002-7298
+    - source_luka_b_fragment#line:9096-9233
+    - source_luka_b_fragment#line:11251-11409
+  replay_ref: campaign_lucan_replay_v1
+  unmodeled_known_capabilities: []
+  active_canon: false

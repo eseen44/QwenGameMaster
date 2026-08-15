@@ -1,0 +1,13 @@
+schema_version: 1
+id: webber_cemetery_office_dead
+object_type: entity_instance
+status: historical_dead
+definition_ref: candidate_webber_monitor
+revision: 2
+position: {location_id: loc_cemetery, zone_id: discarded_from_office}
+integrity: {current: 0, maximum: 13}
+resources: {necrotic_reservoir: {current: 0, capacity: 6}}
+conditions: [{id: destroyed, stacks: 1, magnitude: 100, source_event_id: milestone_037_office_webber_crushed}]
+status_flags: [dead, crushed, discarded, responsible_actor_unknown, intentionality_unknown]
+last_event_id: milestone_037_office_webber_crushed
+source_refs: [source_luka_b_fragment#line:5543-5559, source_luka_b_fragment#line:6143-6552, source_user_decisions_current#correction:cemetery-office-proxy-bargain-and-map-marked-tomb]

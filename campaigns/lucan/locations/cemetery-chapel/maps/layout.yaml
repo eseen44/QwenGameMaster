@@ -1,0 +1,20 @@
+schema_version: 1
+location_id: loc_cemetery_chapel
+status: accepted_estimated_geometry
+canvas: {width_px: 700, height_px: 480, margin_px: 50}
+scale: {unit: meter, pixels_per_unit: 40, bar_units: 2}
+orientation: {north: up}
+zones:
+  - {id: zone_nave, shape: rectangle, x_m: 0, y_m: 0, width_m: 10, height_m: 7, player_visible: true, measurement: estimated}
+  - {id: zone_altar, shape: rectangle, x_m: 3.5, y_m: 0.5, width_m: 3, height_m: 1.5, player_visible: true}
+  - {id: zone_sacristy, shape: rectangle, x_m: 0, y_m: 0, width_m: 3, height_m: 3, player_visible: true}
+  - {id: zone_stairs, shape: rectangle, x_m: 0.5, y_m: 2, width_m: 1.5, height_m: 2, player_visible: true}
+  - {id: zone_ritual_channels, shape: rectangle, x_m: 3, y_m: -1, width_m: 4, height_m: 1, player_visible: false}
+features:
+  - {id: feature_altar_lever, zone_id: zone_altar, kind: known_mechanism, x_m: 4, y_m: 1, player_visible: true}
+  - {id: feature_two_corpses, zone_id: zone_nave, kind: bodies, x_m: 6, y_m: 4, player_visible: true}
+  - {id: feature_stairs, zone_id: zone_stairs, kind: downward_stairs, x_m: 1, y_m: 2, player_visible: true}
+  - {id: feature_ritual_channels, zone_id: zone_ritual_channels, kind: embedded_old_ritual, x_m: 3, y_m: -1, player_visible: false}
+connections:
+  - {id: connection_chapel_cemetery, from_zone: zone_nave, to_location: loc_cemetery, player_visible: true}
+  - {id: connection_sacristy_stairs, from_zone: zone_stairs, to_location: loc_cemetery_underworks, player_visible: true}

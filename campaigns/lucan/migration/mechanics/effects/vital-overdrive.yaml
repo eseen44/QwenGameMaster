@@ -1,0 +1,13 @@
+schema_version: 1
+id: effect_lucan_vital_overdrive
+object_type: effect
+status: proposed_calibrated
+name: Krótki zryw siły i szybkości
+vector: temporary_physical_enhancement
+application_rating: 30
+condition_ref: condition_lucan_vital_overdrive
+duration: {mode: one_brief_burst, maximum_actions: 1}
+resource_cost: {pool: lucan_necrotic_energy, units: 1}
+enhancement_profile: {physical_force: 12, mobility: 10, reflexes: 6}
+limitations: [not_permanent, cannot_stack, no_wall_punching_or_superhuman_durability, repeated_use_accumulates_strain]
+source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]

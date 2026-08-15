@@ -1,0 +1,323 @@
+schema_version: 1
+id: campaign_lucan_replay_v1
+object_type: replay
+status: calibration_replay
+revision: 8
+name: Reprezentatywny replay kampanii Lucana
+coverage:
+  start: first_rat_animation
+  end: varkhen_takeover
+  mode: representative_mechanical_scenes
+  full_narrative_reconstruction: false
+cases:
+  - id: replay_001_first_fresh_rat_animation
+    source_refs: [source_in_character_partial#line:231-270]
+    actor: fixture_lucan_early
+    capability: capability_lucan_early_animation
+    target: fixture_fresh_rat_corpse
+    intent: intent_animate_corpse
+    expected: {verdict: contested, roll_allowed: true, best_path: fresh_corpse_animation}
+  - id: replay_002_old_cemetery_corpse_rejected
+    source_refs: [source_in_character_partial#line:289-341]
+    actor: fixture_lucan_early
+    capability: capability_lucan_early_animation
+    target: fixture_old_human_corpse
+    intent: intent_animate_corpse
+    expected: {verdict: impossible, roll_allowed: false}
+  - id: replay_003_early_spidey_kills_sleeping_human_by_necrosis
+    source_refs: [source_luka_a_fragment#line:517-725]
+    actor: fixture_spidey_early
+    capability: capability_necrotic_spider_bite
+    target: fixture_human
+    intent: intent_kill
+    conditions: [condition_sleeping]
+    expected: {verdict: conditional, roll_allowed: true, best_path: necrotic_deterioration}
+  - id: replay_004_spidey_cannot_decapitate_horse
+    source_refs: [source_user_decisions_current#mechanics:horse-decapitation-example]
+    actor: fixture_spidey
+    capability: capability_spidey_bite
+    target: fixture_horse
+    intent: intent_decapitate
+    expected: {verdict: impossible, roll_allowed: false}
+  - id: replay_005_bone_chill_exploits_mutated_rat
+    source_refs: [source_in_character_partial#line:1142-1200]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_bone_chill
+    target: fixture_mutated_rat
+    intent: intent_harm
+    conditions: [condition_distracted_by_allies, condition_known_cold_weakness]
+    expected: {verdict: conditional, roll_allowed: true, best_path: cold_shock}
+  - id: replay_005b_ranged_bone_chill_is_weaker_and_costs_two
+    source_refs: [source_luka_b_fragment#line:407-412, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_bone_chill_ranged
+    target: fixture_mutated_rat
+    intent: intent_harm
+    conditions: [condition_distracted_by_allies, condition_known_cold_weakness]
+    expected: {verdict: conditional, roll_allowed: true, best_path: cold_shock}
+  - id: replay_004b_spidey_can_select_paralytic_toxin
+    source_refs: [source_luka_b_fragment#line:4214-4906]
+    actor: candidate_companion_spidey
+    capability: capability_spidey_bite
+    target: fixture_human
+    intent: intent_apply_condition
+    expected: {verdict: conditional, roll_allowed: true, best_path: apply_paralytic_toxin}
+  - id: replay_006_numb_on_rusk_is_a_contested_stack
+    source_refs: [source_luka_b_fragment#line:2137-2165]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_numb
+    target: fixture_rusk
+    intent: intent_apply_condition
+    expected: {verdict: contested, roll_allowed: true, best_path: apply_numb}
+  - id: replay_006b_minor_hex_is_separate_coordination_cantrip
+    source_refs: [source_luka_a_fragment#line:509-515, source_luka_b_fragment#line:420-436]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_minor_hex
+    target: fixture_rusk
+    intent: intent_apply_condition
+    expected: {verdict: contested, roll_allowed: true, best_path: apply_minor_hex}
+  - id: replay_007_single_numb_does_not_auto_stop_rat_ogre
+    source_refs: [source_luka_b_fragment#line:2137-2510]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_numb
+    target: fixture_rat_ogre
+    intent: intent_apply_condition
+    expected: {verdict: contested, roll_allowed: true, best_path: apply_numb}
+  - id: replay_008_first_direct_drain_needs_restrained_access
+    source_refs: [source_luka_b_fragment#line:980-1156]
+    actor: fixture_lucan_mid
+    capability: capability_lucan_direct_drain
+    target: fixture_chained_specimen
+    intent: intent_drain_energy
+    conditions: [condition_physically_restrained]
+    expected: {verdict: conditional, roll_allowed: true, best_path: direct_energy_drain}
+  - id: replay_009_confusion_on_isolated_handler
+    source_refs: [source_luka_b_fragment#line:7400-7800]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_confusion
+    target: fixture_corpse_handler
+    intent: intent_apply_condition
+    expected: {verdict: conditional, roll_allowed: true, best_path: apply_confusion}
+  - id: replay_010_control_young_undead_guard
+    source_refs: [source_luka_b_fragment#line:7002-7298]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_necromantic_control
+    target: fixture_young_undead_guard
+    intent: intent_control_undead
+    expected: {verdict: conditional, roll_allowed: true, best_path: necromantic_control}
+  - id: replay_011_full_stone_wall_resists_pick
+    source_refs: [source_luka_b_fragment#line:7002-7298]
+    actor: fixture_boros
+    capability: capability_boros_pick_strike
+    target: fixture_stone_wall
+    intent: intent_breach
+    expected: {verdict: possible_only_with_new_leverage, roll_allowed: false}
+  - id: replay_012_selected_weak_masonry_can_be_breached
+    source_refs: [source_luka_b_fragment#line:7002-7298]
+    actor: fixture_boros
+    capability: capability_boros_pick_strike
+    target: fixture_stone_wall
+    intent: intent_breach
+    conditions: [condition_weak_masonry_point]
+    expected: {verdict: contested, roll_allowed: true, best_path: structural_trauma}
+  - id: replay_013_varkhen_cannot_be_overpowered_raw
+    source_refs: [source_luka_b_fragment#line:11251-11397]
+    actor: fixture_boros
+    capability: capability_boros_pick_strike
+    target: fixture_varkhen
+    intent: intent_breach
+    expected: {verdict: impossible, roll_allowed: false}
+  - id: replay_014_varkhen_body_becomes_vulnerable_after_stacking
+    source_refs: [source_luka_b_fragment#line:11251-11397]
+    actor: fixture_boros
+    capability: capability_boros_pick_strike
+    target: fixture_varkhen
+    intent: intent_breach
+    conditions: [condition_varkhen_dormant, condition_varkhen_numbed, condition_varkhen_pinned, condition_recovery_suppressed]
+    expected: {verdict: conditional, roll_allowed: true, best_path: structural_trauma}
+  - id: replay_015_varkhen_resists_raw_direct_drain
+    source_refs: [source_luka_b_fragment#line:11251-11397]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_direct_drain
+    target: fixture_varkhen
+    intent: intent_drain_energy
+    expected: {verdict: impossible, roll_allowed: false}
+  - id: replay_016_varkhen_drain_requires_anchor_and_network
+    source_refs: [source_luka_b_fragment#line:11251-11397]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_direct_drain
+    target: fixture_varkhen
+    intent: intent_drain_energy
+    conditions: [condition_varkhen_dormant, condition_exposed_necrotic_anchor, condition_spider_network_dispersal]
+    expected: {verdict: contested, roll_allowed: true, best_path: direct_energy_drain}
+  - id: replay_017_geo_reads_death_signature_separately
+    source_refs: [source_luka_b_fragment#line:5224-5339, source_luka_b_fragment#line:11207-11251]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_geo_protocol
+    target: candidate_old_crypt_structure
+    intent: intent_detect_death
+    expected: {verdict: conditional, roll_allowed: true, best_path: death_signature_scan}
+  - id: replay_018_geo_reads_stone_structure_separately
+    source_refs: [source_luka_b_fragment#line:4214-4335, source_luka_b_fragment#line:11207-11251]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_geo_protocol
+    target: candidate_old_crypt_structure
+    intent: intent_detect_structure
+    expected: {verdict: conditional, roll_allowed: true, best_path: structural_scan}
+  - id: replay_019_corpse_stitch_repairs_but_needs_setup
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_corpse_stitch
+    target: candidate_damaged_minor_undead
+    intent: intent_repair_undead
+    expected: {verdict: conditional, roll_allowed: true, best_path: corpse_stitch_repair}
+  - id: replay_020_death_anchor_is_prepared_not_instant
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_death_anchor
+    target: candidate_damaged_minor_undead
+    intent: intent_anchor_undead
+    expected: {verdict: conditional, roll_allowed: true, best_path: death_anchor_binding}
+  - id: replay_021_grave_ward_requires_inscription
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_grave_ward
+    target: candidate_old_crypt_structure
+    intent: intent_create_ward
+    expected: {verdict: conditional, roll_allowed: true, best_path: inscribe_grave_ward}
+  - id: replay_022_borrowed_sense_uses_existing_link
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_borrowed_sense
+    target: candidate_damaged_minor_undead
+    intent: intent_borrow_sense
+    expected: {verdict: conditional, roll_allowed: true, best_path: establish_sensory_link}
+  - id: replay_023_lucan_saber_is_ordinary_contested_violence
+    source_refs: [source_luka_b_fragment#line:3541-3657, source_luka_b_fragment#line:4702-4780]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_saber_strike
+    target: fixture_human
+    intent: intent_harm
+    expected: {verdict: contested, roll_allowed: true, best_path: direct_trauma}
+  - id: replay_024_mara_reliably_kills_exposed_d_rank_rat
+    source_refs: [source_luka_b_fragment#line:392-512]
+    actor: candidate_npc_mara_teln
+    capability: capability_mara_bow_shot
+    target: fixture_mutated_rat
+    intent: intent_harm
+    expected: {verdict: automatic_with_cost, roll_allowed: false, best_path: direct_trauma}
+  - id: replay_025_boros_can_hurt_but_not_dominate_rat_ogre
+    source_refs: [source_luka_b_fragment#line:2192-2510]
+    actor: candidate_npc_boros_keld
+    capability: capability_boros_axe_strike
+    target: fixture_rat_ogre
+    intent: intent_harm
+    expected: {verdict: contested, roll_allowed: true, best_path: direct_trauma}
+  - id: replay_026_seraphine_disarms_unprepared_lucan
+    source_refs: [source_luka_b_fragment#line:11001-11018]
+    actor: candidate_npc_seraphine_vale
+    capability: capability_seraphine_rapier_control
+    target: candidate_pc_lucan_cutoff
+    intent: intent_disarm
+    expected: {verdict: automatic, roll_allowed: false, best_path: precision_disarm}
+  - id: replay_027_overcharged_numb_on_oren_needs_voluntary_first_access
+    source_refs: [source_luka_b_fragment#line:10835-11105]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb_overcharged
+    target: candidate_npc_oren
+    intent: intent_apply_condition
+    conditions: [condition_voluntary_first_curse_application]
+    expected: {verdict: conditional, roll_allowed: true, best_path: apply_numb_overcharged}
+  - id: replay_028_amateur_handler_puppets_transport_corpse_without_fishing_for_rolls
+    source_refs: [source_luka_b_fragment#line:7565-8010, source_user_decisions_current#calibration:handler-corpses-are-weak-transport-puppets]
+    actor: fixture_corpse_handler
+    capability: capability_amateur_corpse_puppetry
+    target: fixture_transport_corpse
+    intent: intent_control_undead
+    expected: {verdict: automatic, roll_allowed: false, best_path: necromantic_control}
+  - id: replay_029_oren_cannot_raw_control_varkhen
+    source_refs: [source_luka_b_fragment#line:11207-11409]
+    actor: candidate_npc_oren
+    capability: capability_oren_necromantic_control
+    target: fixture_varkhen
+    intent: intent_control_undead
+    expected: {verdict: possible_only_with_new_leverage, roll_allowed: false, best_path: necromantic_control}
+  - id: replay_030_rusk_reads_physical_structure_given_time
+    source_refs: [source_luka_b_fragment#line:330-606]
+    actor: candidate_npc_halven_rusk
+    capability: capability_rusk_infrastructure_survey
+    target: candidate_old_crypt_structure
+    intent: intent_detect_structure
+    expected: {verdict: conditional, roll_allowed: true, best_path: structural_scan}
+  - id: replay_031_numb_reliably_impairs_darrik_without_inventing_magic_immunity
+    source_refs: [source_luka_b_fragment#line:3168-3301]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb
+    target: candidate_npc_darrik
+    intent: intent_apply_condition
+    expected: {verdict: conditional, roll_allowed: true, best_path: apply_numb}
+  - id: replay_032_subtle_numb_bypasses_active_response_of_unaware_ordinary_human
+    source_refs: [source_user_decisions_current#calibration:subtle-curse-cantrips-against-unprepared-ordinary-targets]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb
+    target: fixture_human
+    intent: intent_apply_condition
+    conditions: [condition_unaware_of_subtle_curse]
+    expected: {verdict: automatic_with_cost, roll_allowed: false, best_path: apply_numb}
+  - id: replay_033_recognized_numb_on_ordinary_human_is_not_automatic
+    source_refs: [source_user_decisions_current#calibration:recognition-restores-active-defense]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb
+    target: fixture_human
+    intent: intent_apply_condition
+    expected: {verdict: conditional, roll_allowed: true, best_path: apply_numb}
+  - id: replay_034_prepared_seraphine_blocks_minor_numb_without_fishing_for_roll
+    source_refs: [source_user_decisions_current#calibration:prepared-significant-agent-defends-against-cantrip]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb
+    target: candidate_npc_seraphine_vale
+    intent: intent_apply_condition
+    expected: {verdict: impossible, roll_allowed: false, best_path: apply_numb}
+  - id: replay_035_numb_is_only_contested_nuisance_during_cumulative_varkhen_suppression
+    source_refs: [source_luka_b_fragment#line:11251-11397, source_user_decisions_current#calibration:varkhen-numb-only-cumulative-nuisance]
+    actor: fixture_lucan_cemetery
+    capability: capability_lucan_numb
+    target: fixture_varkhen
+    intent: intent_apply_condition
+    conditions: [condition_varkhen_dormant, condition_varkhen_pinned, condition_cumulative_ancient_undead_suppression]
+    expected: {verdict: contested, roll_allowed: true, best_path: apply_numb}
+  - id: replay_036_basic_self_repair_is_first_level_spell
+    source_refs: [source_luka_b_fragment#line:9190-9233, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_basic_self_repair
+    target: candidate_pc_lucan_cutoff
+    intent: intent_repair_living_tissue
+    expected: {verdict: automatic_with_cost, roll_allowed: false, best_path: basic_living_tissue_repair}
+  - id: replay_037_vital_overdrive_is_one_action_first_level_spell
+    source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+    actor: candidate_pc_lucan_cutoff
+    capability: capability_lucan_vital_overdrive
+    target: candidate_pc_lucan_cutoff
+    intent: intent_temporary_physical_enhancement
+    expected: {verdict: automatic_with_cost, roll_allowed: false, best_path: vital_overdrive_burst}
+  - id: replay_038_collector_overflow_enables_continuous_bone_chill_cone
+    mode: amplify
+    source_refs: [source_luka_b_fragment#line:9096-9233, source_user_decisions_current#calibration:bruteforce-metamagic-and-optimized-higher-spells]
+    capability: capability_lucan_bone_chill
+    target_tier: 6
+    axes: [intensity, area, range, persistence]
+    expertise: 32
+    available_energy: 5000
+    channel_intervals: 3
+    linked_channel_capacity: 20
+    energy_source: collector_overflow
+    expected: {verdict: conditional, roll_allowed: true, energy.source: collector_overflow, energy.draws_from_personal_reserve: false, energy.required: 3072, energy.required_per_interval: 1024, channeling.continuous: true, channeling.flow_per_second: 170.666666667, channeling.load_ratio: 8.533333333, channeling.load_state: extreme_overload_permanent_change_possible}
+  - id: replay_039_global_bone_chill_is_possible_but_absurdly_inefficient
+    mode: amplify
+    source_refs: [source_user_decisions_current#calibration:bruteforce-metamagic-and-optimized-higher-spells]
+    capability: capability_lucan_bone_chill
+    target_tier: 10
+    axes: [intensity, area, range, duration, persistence]
+    expertise: 85
+    available_energy: 300000
+    expected: {verdict: conditional, roll_allowed: true, technically_possible: true, special_education_required: false, energy.required: 262144, energy.cost_ratio_to_optimized: 512.0}

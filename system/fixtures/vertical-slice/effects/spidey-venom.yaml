@@ -1,0 +1,18 @@
+schema_version: 1
+id: effect_spidey_paralytic_toxin
+object_type: effect
+status: calibration_fixture
+name: Spidey on-demand marsh-viper paralytic toxin
+vector: paralytic_toxin
+application_rating: 37
+initial_magnitude: 10
+progression:
+  interval_minutes: 15
+  magnitude_per_interval: 4
+  maximum_magnitude: 36
+stacking:
+  maximum_stacks: 3
+  per_stack: {mobility: -7, coordination: -8, breathing: -4}
+  thresholds: {1: numbness, 2: muscular_weakness, 3: partial_paralysis_and_respiratory_risk}
+countermeasures: [antivenom, rapid_treatment, toxin_metabolism]
+resource_cost: {pool: paralytic_toxin_reservoir, units: 1}

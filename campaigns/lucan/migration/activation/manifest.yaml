@@ -1,0 +1,11 @@
+schema_version: 1
+id: lucan_activation_manifest_v1
+object_type: migration_activation_manifest
+status: approved
+writes:
+  - target: context/scene.yaml
+    source: migration/activation/staged/scene.yaml
+  - target: context/active.yaml
+    source: migration/activation/staged/active.yaml
+notes:
+  - Aktywuje tylko aktualną scenę i minimalny kontekst. Surowe źródła migracji ani gałąź niekanoniczna nie są ładowane.

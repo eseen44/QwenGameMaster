@@ -1,0 +1,27 @@
+schema_version: 1
+id: capability_spidey_bite
+object_type: capability
+status: calibration_fixture
+name: Spidey bite
+tags: [contact, bite, trauma, severing]
+delivery:
+  method: bite
+  reach_cm: 4
+  activation: quick
+  requirements: [reach_contact, exposed_or_penetrable_tissue]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings:
+  accuracy: 40
+  penetration: 44
+  tissue_trauma: 30
+  severing: 19
+limits:
+  maximum_severable_diameter_cm: 6
+effects: [effect_spidey_necrosis, effect_spidey_paralytic_toxin]
+effect_selection:
+  mode: one_payload_per_bite
+  controlled_on_demand: true
+  payloads:
+    - {id: native_necrotic_secretion, effect_ref: effect_spidey_necrosis, delivery: enlarged_chelicerae}
+    - {id: marsh_viper_paralytic_toxin, effect_ref: effect_spidey_paralytic_toxin, delivery: implanted_snake_fangs}

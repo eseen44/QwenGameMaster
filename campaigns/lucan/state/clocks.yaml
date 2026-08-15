@@ -1,0 +1,12 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: accepted_by_user_pending_package_activation
+clocks:
+  - id: clock_inquisition_attention
+    label: Zainteresowanie Inkwizycji
+    status: dormant_event_trigger_only
+    progress: 0
+    threshold: uncalibrated
+    last_source_event_id: milestone_047_seraphine_risk_disclosure
+    trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+    note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.

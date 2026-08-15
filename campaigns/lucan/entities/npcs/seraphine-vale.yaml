@@ -1,0 +1,40 @@
+schema_version: 1
+id: npc_seraphine_vale
+name: Seraphine Vale
+status: active
+review_status: active
+importance: full_agent
+role: guild_controller_antimage
+guild_rank: A
+lifecycle: {state: alive, last_confirmed_event_id: milestone_047_seraphine_risk_disclosure}
+mechanics_ref: candidate_npc_seraphine_vale
+current_location_id: loc_lumaria_guild_basement
+appearance: [silver_hair, light_armor, rapier, short_wand, protective_seals]
+relationship_ref: campaigns/lucan/relationships/seraphine--lucan.yaml
+portrayal:
+  reading_of_lucan: "Seraphine nie traktuje Lucana wyłącznie jako użytecznego narzędzia. Dostrzega jego skuteczność, inicjatywę i potencjał, pobłaża części dziwactw oraz świadomie inwestuje w możliwość, że pozostanie kimś, z kim da się budować układ."
+  boundary: "Nie oznacza to ślepego zaufania ani z góry określonej relacji romantycznej czy rodzinnej. Jej wymaganie szczerości dotyczy kosztu osłaniania Lucana przed instytucjami, nie zaprzeczenia jego podmiotowości."
+knowledge:
+  confirmed:
+    - {fact_id: fact_seraphine_received_tannery_evidence, source_event_id: milestone_022_owner_exposed_and_detained, claim: Lucan przekazał Seraphine dokumenty dowodzące, że właściciel garbarni wcześniej znał skalę zagrożenia i próbował zlecić zniszczenie śladów.}
+    - {fact_id: fact_seraphine_knows_rusk_inquiry_origin, source_event_id: milestone_022_owner_exposed_and_detained, claim: Zeznania Lucana, Mary i Borosa uruchomiły wewnętrzne sprawdzenie kompetencji Ruska po operacji w garbarni.}
+    - {fact_id: fact_seraphine_knows_lucan_cemetery_report, source_event_id: milestone_036_cemetery_conversations_and_missing_guard, claim: Lucan wykrywa pustki i skupiska śmierci oraz podejrzewał handel zwłokami.}
+    - {fact_id: fact_seraphine_received_preoperation_cemetery_report, source_event_id: milestone_037b_guild_cemetery_report_and_support, claim: Lucan zgłosił rozległe tunele i pustki, dwa odrębne nieumarłe stworzenia, brak ciała młodego strażnika, możliwy handel zwłokami, wpływ na pracownika kancelarii oraz ryzyko Inkwizycji. Seraphine zna to jako raport Lucana; oba zgłoszone przypadki odpowiadały wykryciom przy zachodnim murze i za ścianą piwnicy kaplicy.}
+    - {fact_id: fact_seraphine_knows_lucan_uses_numb, source_event_id: milestone_044_oren_containment_and_kill_attempt, claim: Lucan potrafi nakładać niewidoczne odrętwienie i użył go na Orenie.}
+    - {fact_id: fact_seraphine_saw_lucan_leave_heart_site, source_event_id: milestone_044b_oren_termination_and_energy_sample, claim: Lucan odszedł od serca ku północnemu osuwisku razem z Marą i Borosem; Seraphine została z ekspertami i kulą.}
+    - {fact_id: fact_seraphine_arrived_after_varkhen_assault, source_event_id: milestone_046_varkhen_oath_compact, claim: Seraphine zeszła do komory dopiero po walce; zastała Varkhena unieruchomionego i ciężko uszkodzonego.}
+    - {fact_id: fact_seraphine_knows_three_seals, source_event_id: milestone_046_varkhen_oath_compact, claim: Varkhen ujawnił jej pierwszą złamaną, drugą naruszoną i trzecią słabnącą pieczęć.}
+    - {fact_id: fact_seraphine_conditionally_accepts_varkhen, source_event_id: milestone_046_varkhen_oath_compact, claim: Seraphine warunkowo dopuszcza dobrowolne towarzyszenie Varkhena, jeśli nie morduje ludzi i pomaga zabezpieczyć pieczęcie.}
+    - {fact_id: fact_seraphine_knows_priest_visited_varkhen_with_oren, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Varkhen zeznał, że kapłan znał właściwe wejście, kontrolował pieczęcie i podczas ostatniej wizyty przyszedł z Orenem.}
+    - {fact_id: fact_seraphine_knows_remote_corpse_order, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Varkhen ujawnił, że Lucan wydał zdalny rozkaz dotyczący zwłok; Seraphine nie zna jego dokładnej treści.}
+    - {fact_id: fact_seraphine_knows_spider_network_exists, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Seraphine rozpoznaje, że Lucan posiada nekromantyczną sieć pająków, lecz nie otrzymuje automatycznie jej pełnej liczebności, parametrów ani lokalizacji.}
+    - {fact_id: fact_seraphine_knows_four_marked_corpses, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Lucan przyznał, że dwie ofiary w kaplicy i dwie na wysypisku noszą jego ślad.}
+    - {fact_id: fact_seraphine_offers_conditional_cover, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Seraphine chce pomocy Lucana i deklaruje osłonę przed Gildią oraz możliwą Inkwizycją pod warunkiem szczerego ujawnienia ryzyka.}
+    - {fact_id: fact_seraphine_saw_ring_taken_from_varkhen_sarcophagus, source_event_id: event_act_02_closeout_interlude_import, claim: Seraphine widziała, jak Lucan zabiera jeden magiczny drobiazg z sarkofagu Varkhena; nie ma automatycznej wiedzy o jego późniejszej identyfikacji.}
+    - {fact_id: fact_seraphine_moved_varkhen_to_guild_basement, source_event_id: event_act_02_closeout_interlude_import, claim: Seraphine wyprowadziła Varkhena z osuwiska, umieściła go w piwnicy gildii i zaczęła pytać, kto formalnie odpowiada za jego podporządkowanie.}
+  suspicions:
+    - {id: suspicion_lucan_has_hidden_necromantic_support, basis_event_ids: [milestone_043a_logistics_collector_overload], confidence: high}
+  false_beliefs: []
+  forbidden_without_source: [whether_dump_bodies_still_exist, exact_spidey_order_text, final_guild_or_church_verdict]
+agenda: [get_truth_about_remaining_bodies, secure_three_seals, contain_necromantic_escalation, shield_city_and_group, find_viable_way_to_protect_lucan_and_city_without_formal_escalation]
+source_refs: [source_luka_b_fragment#line:6812-6921, source_luka_b_fragment#line:8334-12012, source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

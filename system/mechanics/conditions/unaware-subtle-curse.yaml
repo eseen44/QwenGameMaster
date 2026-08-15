@@ -1,0 +1,11 @@
+schema_version: 1
+id: condition_unaware_of_subtle_curse
+object_type: condition
+status: approved_system_rule
+name: Cel nie rozpoznaje subtelnego cantripu jako ataku
+adjustments:
+  target.defenses.awareness: -10
+  target.resistances.mental: -10
+  target.resistances.neuromuscular: -10
+limitations: [not_for_alert_magic_literate_or_warded_targets, removed_after_reliable_recognition_of_attack_pattern]
+source_refs: [source_user_decisions_current#calibration:subtle-curse-cantrips-against-unprepared-ordinary-targets]

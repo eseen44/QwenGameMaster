@@ -1,0 +1,14 @@
+schema_version: 1
+id: capability_lucan_necromantic_control
+object_type: capability
+status: replay_calibration
+name: Necromantic control
+tags: [necromancy, control]
+delivery:
+  method: necromantic_link
+  range_m: 6
+  requirements: [undead_target, line_of_effect]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 33}
+effects: [effect_necromantic_control]

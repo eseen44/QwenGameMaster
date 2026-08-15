@@ -1,0 +1,31 @@
+schema_version: 1
+location_id: loc_cemetery_underworks
+status: accepted_estimated_geometry
+canvas: {width_px: 1100, height_px: 680, margin_px: 50}
+scale: {unit: meter, pixels_per_unit: 18, bar_units: 5}
+orientation: {north: schematic_up, note: passages_shifted_during_events}
+zones:
+  - {id: zone_wagon_hall, shape: rectangle, x_m: 40, y_m: 27, width_m: 13, height_m: 7, player_visible: true, measurement: estimated}
+  - {id: zone_handler_station, shape: rectangle, x_m: 29, y_m: 27, width_m: 8, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_side_store, shape: rectangle, x_m: 18, y_m: 25, width_m: 8, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_lower_crypt, shape: rectangle, x_m: 30, y_m: 16, width_m: 14, height_m: 7, player_visible: true, measurement: estimated}
+  - {id: zone_chapel_link, shape: rectangle, x_m: 2, y_m: 26, width_m: 7, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_service_tunnel, shape: rectangle, x_m: 11, y_m: 27, width_m: 5, height_m: 3, player_visible: true, measurement: estimated}
+  - {id: zone_leaking_collector, shape: rectangle, x_m: 48, y_m: 17, width_m: 9, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_relay_chamber, shape: rectangle, x_m: 32, y_m: 6, width_m: 10, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_heart_approach, shape: ellipse, cx_m: 18, cy_m: 8, rx_m: 7, ry_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_old_lower_route, shape: rectangle, x_m: 48, y_m: 5, width_m: 8, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_unresolved_sealed_depths, shape: rectangle, x_m: 58, y_m: 4, width_m: 3, height_m: 7, player_visible: false, measurement: unknown}
+features:
+  - {id: feature_wagon_tracks, zone_id: zone_wagon_hall, kind: logistics_tracks, x_m: 44, y_m: 30, player_visible: true}
+  - {id: feature_fresh_service_wall, zone_id: zone_leaking_collector, kind: newer_masonry, x_m: 48, y_m: 20, player_visible: true}
+  - {id: feature_collector, zone_id: zone_leaking_collector, kind: life_energy_collector, x_m: 52, y_m: 20, player_visible: true}
+  - {id: feature_relay, zone_id: zone_relay_chamber, kind: necromantic_relay, x_m: 36, y_m: 9, player_visible: true}
+  - {id: feature_heart_route, zone_id: zone_heart_approach, kind: oldest_mausoleum_heart_route, x_m: 18, y_m: 8, player_visible: true}
+  - {id: feature_self_closing_masonry, zone_id: zone_service_tunnel, kind: shifting_passage, x_m: 13, y_m: 28, player_visible: true}
+  - {id: feature_unknown_lower_seal, zone_id: zone_unresolved_sealed_depths, kind: unresolved_old_structure, x_m: 59, y_m: 7, player_visible: false}
+connections:
+  - {id: connection_north_ramp, from_zone: zone_wagon_hall, to_location: loc_cemetery, player_visible: true}
+  - {id: connection_chapel_stairs, from_zone: zone_chapel_link, to_location: loc_cemetery_chapel, player_visible: true}
+  - {id: connection_oldest_mausoleum, from_zone: zone_heart_approach, to_location: loc_cemetery, player_visible: true}
+  - {id: connection_varkhen_collapse, from_zone: zone_old_lower_route, to_location: loc_varkhen_chamber, player_visible: true}

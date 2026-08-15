@@ -1,0 +1,31 @@
+schema_version: 1
+id: core_capability_scale
+object_type: scale
+status: approved_system_rule
+logarithmic: true
+range: {minimum: 0, maximum: 100}
+rank_bands:
+  - {id: below_E, typical_min: 0, typical_max: 9, narrow_signature_max: 19}
+  - {id: E, typical_min: 10, typical_max: 24, narrow_signature_max: 34}
+  - {id: D, typical_min: 20, typical_max: 39, narrow_signature_max: 49}
+  - {id: C, typical_min: 35, typical_max: 54, narrow_signature_max: 64}
+  - {id: B, typical_min: 50, typical_max: 74, narrow_signature_max: 84}
+  - {id: A, typical_min: 70, typical_max: 89, narrow_signature_max: 94}
+  - {id: S, typical_min: 85, typical_max: 100, narrow_signature_max: 100}
+margin_bands:
+  - {id: overwhelming, minimum: 25, verdict: automatic}
+  - {id: dominant, minimum: 15, verdict: automatic_with_cost}
+  - {id: clear_edge, minimum: 5, verdict: conditional}
+  - {id: comparable, minimum: -4, verdict: contested}
+  - {id: disadvantaged, minimum: -14, verdict: contested}
+  - {id: needs_leverage, minimum: -24, verdict: possible_only_with_new_leverage}
+  - {id: different_class, minimum: -100, verdict: impossible}
+generation_constraints:
+  required_meaningful_weaknesses: 2
+  maximum_narrow_signatures: 2
+  signature_above_typical_requires: [setup, resource_cost, narrow_target, delayed_effect, serious_failure_mode]
+rules:
+  - A rating is channel-specific and never an overall power level.
+  - About thirty points represent roughly an order-of-magnitude change in practical effect.
+  - Victory over a higher-rated entity does not transfer its rating to the victor.
+  - Hard anatomical or geometric limits override the margin table.

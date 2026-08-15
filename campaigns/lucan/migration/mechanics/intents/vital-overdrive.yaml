@@ -1,0 +1,10 @@
+schema_version: 1
+id: intent_temporary_physical_enhancement
+object_type: intent
+status: proposed_system_extension
+name: Uzyskaj krótki zryw siły i szybkości
+paths:
+  - id: vital_overdrive_burst
+    effect_vector: temporary_physical_enhancement
+    rating_path: effect.application_rating
+    defense_path: target.thresholds.basic_body_overdrive_difficulty

@@ -1,0 +1,33 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+shared_resources: []
+caches:
+  - id: cache_cemetery_north_bushes
+    status: retrieved_unexamined
+    owner_id: pc_lucan
+    established_by: [companion_spidey, webber_anchored]
+    location_id: loc_city_wall_hideout
+    zone_id: container_interlude_loot_pile
+    contents:
+      - {id: necromantic_preservative, quantity: 1, unit: container}
+      - {id: ritual_salt, quantity: 1, unit: packet}
+      - {id: corpse_drying_powder, quantity: 1, unit: packet}
+      - {id: decay_suppressing_vial, quantity: 2, unit: vial}
+      - {id: necromantic_conduction_agent, quantity: 1, unit: vial}
+      - {id: small_ritual_tool_set, quantity: 1, unit: set}
+    exclusions:
+      - silver_ritual_dagger_remained_with_expedition
+      - letters_and_black_ledger_transferred_to_guild
+      - unopened_pouch_carried_by_lucan
+      - wagon_side_compartment_silver_not_taken
+    source_event_id: event_act_02_closeout_interlude_import
+    approval_ref: migration_package_03_companions_revision_5
+evidence:
+  - {id: evidence_varkhen_chamber_damage, state: present, location_id: loc_varkhen_chamber, source_event_id: milestone_045_varkhen_takeover}
+witnesses:
+  - {id: npc_mara_teln, witnessed_event_id: milestone_045_varkhen_takeover}
+  - {id: npc_boros_keld, witnessed_event_id: milestone_045_varkhen_takeover}
+  - {id: npc_seraphine_vale, witnessed_event_id: milestone_047_seraphine_risk_disclosure}
+wanted_status: []
+transactions: []

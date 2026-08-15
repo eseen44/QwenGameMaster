@@ -1,0 +1,85 @@
+schema_version: 1
+id: act_03_city_power_dynamics
+status: required_thread_flexible_cast_and_alliances
+purpose: Modelować reakcję instytucji, które uważają się za współodpowiedzialne za Lumarię i żądają wyjaśnienia nagromadzenia kryzysów w jednym miesiącu.
+crisis_dossier:
+  incidents_to_account_for:
+    - mutated_rats_and_tannery_underworks
+    - public_disorder_and_operational_chaos
+    - murders_and_missing_bodies
+    - corpse_trafficking_network
+    - cemetery_undead_escalation
+    - collector_heart_and_three_seals
+    - ancient_undead_varkhen
+  shared_question: Dlaczego te kryzysy nastąpiły niemal jednocześnie, które były powiązane i dlaczego miejskie systemy nie wykryły ich wcześniej?
+likely_stakeholders_not_fixed_cast:
+  - id: faction_lumaria_adventurers_guild
+    claims: [operational_expertise, authority_over_adventurers, credit_for_response]
+    fears: [liability, loss_of_autonomy, exposure_of_internal_failures]
+  - id: faction_lumaria_church
+    claims: [authority_over_cemetery_death_magic_and_seals, moral_jurisdiction]
+    fears: [implicated_priest, doctrinal_scandal, inquisition_escalation]
+  - id: faction_lumaria_civic_services
+    claims: [public_order, criminal_investigation, bodies_and_evidence, municipal_safety]
+    fears: [appearing_incompetent, uncontrolled_adventurers, hidden_casualties]
+  - id: faction_lumaria_magistracy
+    claims: [civil_jurisdiction, budgets, official_record, power_to_convene_inquiry]
+    fears: [panic, political_blame, trade_disruption, competing_armed_authorities]
+  - id: faction_lumaria_noble_estates
+    claims: [patronage, private_retinues, estate_rights, prestige]
+    fears: [property_exposure, loss_of_status, rival_house_advantage]
+  - id: faction_lumaria_magical_academy
+    claims: [technical_authority, magical_education_records, right_to_assess_dangerous_practice, authority_to_distinguish_constructs_familiars_and_undead]
+    fears: [unlicensed_technique, reputational_link_to_lucans_education, church_defining_magic_policy, precedent_restricting_golems_homunculi_and_bioconstructs]
+    incentives: [push_classification_boundaries, protect_academic_privileges, inspect_or_claim_access_to_spidey]
+  - id: faction_lumaria_merchant_consortium
+    claims: [credit, trade_routes, commercial_records, council_influence]
+    fears: [route_disruption, panic, new_levies, association_with_corpse_traffic]
+  - id: faction_lumaria_criminal_networks
+    claims: [street_information, illicit_logistics, hidden_routes]
+    fears: [cross_institutional_inquiry, route_closure, exposed_contacts]
+  - id: faction_lumaria_martial_orders
+    claims: [disciplined_armed_force, independent_chain_of_command, protection_contracts]
+    fears: [uncontrolled_undead, loss_of_privilege, rival_order_advantage]
+  - id: stakeholder_additional_city_bloc
+    canonical_status: required_ephemeral_presence_flexible_identity
+    possible_forms: [burial_workers, healers_or_sanitation, sewer_and_masonry_workers, merchant_interests, property_owners, poor_district_representatives]
+    minimum_distinct_groups_during_act: 2
+    expected_presence: one_or_two_material_scenes_each
+    inclusion_rule: Wybrać grupy, którym skutki kryzysu dają konkretny interes, wiedzę albo koszt; nie muszą stawać się stałymi pełnymi frakcjami.
+conflict_axes:
+  - jurisdiction_over_lucan
+  - secret_custody_concealment_or_destruction_of_varkhen
+  - authority_over_seals_and_underground_infrastructure
+  - custody_of_corpses_records_and_wagon_evidence
+  - secular_classification_of_spidey_and_the_webber_network
+  - boundary_between_construct_golem_familiar_and_undead
+  - public_story_of_who_saved_or_endangered_the_city
+  - responsibility_for_prior_detection_failures
+  - whether_to_reward_recruit_monitor_restrict_prosecute_or_hide_lucan
+  - control_of_forum_evidence_and_legal_classification
+dynamics_rules:
+  - Nie istnieje jedna automatyczna koalicja „władz”; instytucje wymieniają informacje selektywnie i bronią własnych kompetencji.
+  - Wspólny strach może chwilowo łączyć grupy, ale sukces jednej strony może być polityczną stratą drugiej.
+  - Nekromancja jest nielegalna; spór dotyczy dowodów, jurysdykcji, skali reakcji, tajemnicy i tego, kto poniesie polityczny koszt egzekwowania prawa albo jego ukrycia.
+  - Zwierzęca szara strefa pozwala środowisku magicznemu, Straży i Kościołowi odmiennie klasyfikować Spideya; nie rozmywa jednoznacznej nielegalności kontrolowania Varkhena.
+  - Akademia lub analogiczna instytucja nie jest bezinteresownym ekspertem: broni definicji pozostawiających przestrzeń dla własnych golemów, homunkulusów i eksperymentów.
+  - Fragmentaryczne prawo pozwala stronom walczyć także o to, który przywilej, sąd albo zwyczaj ma pierwszeństwo.
+  - Duże grupy używają prawa instrumentalnie: próbują przejąć postępowanie, wybrać korzystną procedurę, chronić własnych ludzi i zmienić kwalifikację czynu bez jawnego negowania zakazu.
+  - Ochrona Lucana przez instytucję jest układem politycznym i źródłem długu, nie obiektywnym uniewinnieniem.
+  - Główne zagrożenie aktu jest systemowe: wezwania, klasyfikacje, zatrzymanie dowodu, procedury, audyty, kontrakty i koalicje. Pojedyncza postać może je reprezentować i prywatnie nie znosić Lucana, ale nie czyni to Lucana osobistym nemezis ani nie zastępuje instytucjonalnej przyczyny konfliktu.
+legal_power_resources:
+  - custody_of_evidence
+  - access_to_witnesses_and_records
+  - charter_or_religious_jurisdiction
+  - expert_classification
+  - patronage_and_immunity
+  - public_narrative
+  - armed_enforcement
+  - ability_to_create_or_block_precedent
+  - Stanowiska, sojusze i skład przesłuchujących powstają w grze z informacji, nacisków i działań Lucana; nie są ustalonym scenariuszem.
+  - Nowa grupa wchodzi do wątku tylko z własnym interesem i kosztem, nie po to, by sztucznie zagęścić obsadę.
+  - Co najmniej dwie poboczne grupy miejskie mają pojawić się choćby krótko, aby pokazać społeczne koszty kryzysu poza głównymi instytucjami.
+legal_and_secrecy_baseline_ref: worlds/solmara/lore/necromancy-law.yaml
+legal_order_ref: worlds/solmara/lore/legal-order.yaml
+source_refs: [source_user_decisions_current#direction:act_three_city_governance_dynamics]

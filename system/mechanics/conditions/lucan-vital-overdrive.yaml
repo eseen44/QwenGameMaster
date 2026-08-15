@@ -1,0 +1,13 @@
+schema_version: 1
+id: condition_lucan_vital_overdrive
+object_type: condition
+status: approved_system_rule
+name: Vital Overdrive — pojedynczy zryw
+adjustments:
+  actor.ratings.physical_force: 12
+  actor.ratings.mobility: 10
+  actor.ratings.reflexes: 6
+duration: {maximum_actions: 1, expires_after_burst: true}
+stacking: {maximum_stacks: 1}
+limitations: [no_durability_bonus, no_anatomical_immunity, repeated_activation_creates_strain_condition]
+source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]

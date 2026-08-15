@@ -1,0 +1,19 @@
+schema_version: 1
+id: rel_rusk_to_lucan
+status: needs_review
+review_status: accepted_by_user_pending_package_activation
+subject_id: npc_halven_rusk
+target_id: pc_lucan
+layer: personal
+stance: bureaucratically_hostile_but_limited
+axes: {cooperation: -5, judgment_confidence: 20, discretion_trust: -20, personal_regard: -35}
+reasons: [rusk_was_saved_during_tannery_crisis, rusk_suspects_lucan_sabotaged_escape, repeated_embarrassment_and_bureaucratic_friction]
+obligations: []
+shared_secrets: []
+leverage: {held_by_subject: [routine_reports_and_procedural_objections], held_by_target: [knowledge_of_rusks_incompetence_and_unreliability]}
+constraints: [guild_chain_of_command, lack_of_independent_power]
+history:
+  - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_comic_minor_antagonist_scope}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
+last_event_id: milestone_043_return_with_seraphine_to_northwest_logistics
+source_refs: [source_user_decisions_current#approval:rusk_card]

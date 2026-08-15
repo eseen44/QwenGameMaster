@@ -1,0 +1,58 @@
+schema_version: 1
+id: act_03_inquest
+name: Kim właściwie jest Lucan Veyr?
+status: general_direction_not_fixed_plot
+possible_activation_conditions:
+  - adventure_two_formally_closed
+  - rewards_and_guild_work_settled
+  - short_downtime_completed_or_started
+premise: Po nagromadzeniu kryzysów miejskie instytucje próbują zrozumieć Lucana, własne zaniedbania i wzajemny podział odpowiedzialności. Śledztwa Gildii i Kościoła są prawdopodobnym rdzeniem, ale skład stron, sojusze i przebieg nie są ustalone.
+past_witness_framework_ref: campaigns/lucan/planning/act-03-witness-framework.yaml
+city_power_dynamics_ref: campaigns/lucan/planning/act-03-city-power-dynamics.yaml
+intrigue_network_ref: campaigns/lucan/planning/act-03-intrigue-network.yaml
+necromancy_legal_baseline_ref: worlds/solmara/lore/necromancy-law.yaml
+legal_order_ref: worlds/solmara/lore/legal-order.yaml
+required_threads:
+  - institutional_city_crisis_and_competing_authorities
+  - lucans_past_entering_the_present
+thread_configuration:
+  order_and_timing: narrator_decides_from_pacing_and_consequences
+  intersection_required: true
+  exact_witnesses_and_faction_configuration: emergent
+central_questions:
+  - Czy Lucana należy nagrodzić, obserwować, wykorzystać, uwięzić, zabić czy pozwolić sprawie ucichnąć?
+  - Czy uratowanie miasta równoważy sekretną nekromancję, ofiary i manipulowanie świadkami?
+  - Kto próbuje chronić Lucana, kto chce go wykorzystać, a kto uzna go za ryzyko nie do zaakceptowania?
+likely_initial_stakeholders: [faction_lumaria_adventurers_guild, faction_lumaria_church, faction_lumaria_civic_services, faction_lumaria_magistracy, faction_lumaria_noble_estates, faction_lumaria_magical_academy, faction_lumaria_merchant_consortium, faction_lumaria_criminal_networks, faction_lumaria_martial_orders]
+ephemeral_city_groups:
+  required_minimum_distinct: 2
+  role: brief_but_material_views_of_the_crisis_outside_main_institutions
+background_threat: {faction_id: faction_inquisition, active_at_start: false, escalation_possible: true}
+tone:
+  priority: [relationships, reputation, testimony, institutional_conflict, moral_ambiguity, black_humor]
+  de_emphasize: [continuous_high_fantasy_escalation, repeated_dungeon_crawls, raw_power_progression, default_combat_escalation]
+activity_model:
+  default: [politics, investigation, social_pressure, bargaining, surveillance, espionage]
+  combat: exception_that_requires_a_specific_in_world_cause
+structure:
+  mode: emergent_institutional_and_relational_investigation
+  verdict_preselected: false
+  lucan_retains_agency: true
+  evidence_can_be_interpreted_differently_by_each_faction: true
+  past_enters_through: [witnesses, academy_records, guild_records, church_inquiries, old_debts_and_contacts]
+  witness_use: optional_and_selected_when_it_changes_current_relationships_or_institutional_positions
+audience_development:
+  existing_npcs: [npc_seraphine_vale, npc_mara_teln, npc_boros_keld, npc_halven_rusk, companion_varkhen]
+  institutional_audiences: [guild_elders_not_yet_named, church_authorities_not_yet_named, watch_or_civic_authority_not_yet_named, magical_establishment_not_yet_defined, city_government_not_yet_defined]
+  rule: Każda ważna informacja o przeszłości powinna zmienić przynajmniej jedną ocenę, relację, strategię albo proponowany werdykt.
+notes:
+  - Krótki okres urlopowy ma oddzielić akty i pozwolić światu przetworzyć konsekwencje.
+  - Inkwizycja działa jako groźba polityczna; nie pojawia się automatycznie bez eskalacji lub formalnego zawiadomienia.
+  - Akt nie ma odkryć jednej „prawdziwej etykiety” Lucana, lecz pokazać, jak różni ludzie budują konkurencyjne obrazy tej samej osoby.
+  - To kierunek i model sił, nie gotowy wątek, lista obowiązkowych scen ani ustalona kolejność świadków.
+  - Oba główne wątki muszą pojawić się w akcie i przeciąć; elastyczny jest sposób, moment i obsada tego przecięcia.
+  - Akt ma pozostawić Lucana wewnątrz trwałej sieci współpracy, długów, sekretów i wrogości wynikających z jego decyzji.
+  - Nekromancja pozostaje nielegalna, a Kościół fanatycznie wrogi jej praktyce; polityka dotyczy dowodu, tajemnicy, jurysdykcji i egzekwowania, nie zmiany tego prawa.
+  - Publiczne wiarygodne ujawnienie formalnej kontroli Varkhena jest eskalacją kryzysową, nie zwykłym punktem debaty.
+  - Stan pieczęci jest długoterminowym zobowiązaniem i zapowiedzią przyszłych questów, nie aktywnym zegarem; sam upływ czasu aktu trzeciego nie może wywołać ich awarii.
+source_refs: [source_user_decisions_current#direction:act_three_parallel_investigations]

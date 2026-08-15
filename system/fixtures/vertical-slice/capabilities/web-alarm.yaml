@@ -1,0 +1,10 @@
+schema_version: 1
+id: capability_sparse_web_alarm
+object_type: capability
+status: approved_generation_component
+name: Sparse web alarm
+tags: [detection, web, passive]
+delivery: {method: sparse_area_web, requirements: [deployed_threads, local_contact_with_network]}
+ratings: {detection: 36, coverage: 34, precision: 18}
+effects: []
+limits: {detects: [thread_break, strong_vibration], does_not_detect: [speech, magic, poison_transfer]}

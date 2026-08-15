@@ -1,0 +1,33 @@
+schema_version: 1
+id: companion_swarm_example
+name: Example swarm
+status: draft
+entity_kind: companion
+representation:
+  mode: group
+  count: 12
+  member_ids: []
+  can_split: true
+  split_rule: Named or permanently modified members receive separate companion files.
+controller:
+  entity_id: pc_example
+  control_type: commanded
+  strength: stable
+  autonomy: simple_orders
+  can_refuse: false
+  can_break: true
+  break_conditions: []
+link:
+  active: true
+  range: local_area
+  maintenance_cost: null
+  communication:
+    - simple_sensory_signal
+state:
+  location_ref: null
+  condition: stable
+  casualties: 0
+  modifications: []
+abilities: []
+last_updated_event_id: null
+

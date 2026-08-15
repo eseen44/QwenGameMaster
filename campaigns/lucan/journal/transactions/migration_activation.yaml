@@ -1,0 +1,203 @@
+schema_version: 1
+id: migration_activation
+object_type: migration_activation_transaction
+status: committed
+created_at: '2026-08-15T03:26:10+02:00'
+prepared_writes:
+- path: campaign.yaml
+  before_hash: 7bff7f85c17fd362243cefecfe443319b945ae3b73521e41db8f3ec7855f0354
+  after_hash: 7bff7f85c17fd362243cefecfe443319b945ae3b73521e41db8f3ec7855f0354
+  document:
+    schema_version: 1
+    id: campaign_lucan
+    name: Lucan
+    status: active
+    world_ref: worlds/solmara
+    player_character_ref: campaigns/lucan/player/character.yaml
+    active_context_ref: campaigns/lucan/context/active.yaml
+    created_for_system: true
+    notes:
+    - Stan kampanii nie został jeszcze zmigrowany z historii rozgrywki.
+    - Brak wartości oznacza brak zatwierdzonego faktu, a nie wartość zerową.
+- path: context/active.yaml
+  before_hash: f0b17d14c84a9e92e4bf7742b5c6eee0db0bc8719f1d3801fd9b4df8399772d7
+  after_hash: 6dfab9a00d14e6f868a57559717a511c0b0a46434ea6558cd233e58c3aba6a18
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_ref: campaigns/lucan/context/scene.yaml
+    always_load:
+    - system/narrator.md
+    - system/player-agency.md
+    load_when_testing:
+    - system/tests.md
+    - system/character-score.md
+    - system/capabilities.md
+    load_when_time_matters:
+    - system/pacing.md
+    load_when_location_changes:
+    - system/locations-and-maps.md
+    load_when_social_stakes_matter:
+    - system/social-intrigue.md
+    load_when_necromancy_legality_matters:
+    - worlds/solmara/lore/legal-order.yaml
+    - worlds/solmara/lore/necromancy-law.yaml
+    - campaigns/lucan/state/secrets.yaml
+    active_refs:
+    - campaigns/lucan/context/scene.yaml
+    - campaigns/lucan/state/time.yaml
+    - campaigns/lucan/state/clocks.yaml
+    - campaigns/lucan/state/objectives.yaml
+    - campaigns/lucan/locations/varkhen-chamber/location.yaml
+    - campaigns/lucan/state/instances/pc-lucan.yaml
+    - campaigns/lucan/state/instances/varkhen.yaml
+    - campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    - campaigns/lucan/entities/npcs/varkhen.yaml
+    - campaigns/lucan/companions/varkhen.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/locations/varkhen-chamber/state.yaml
+    - campaigns/lucan/state/secrets.yaml
+    search_terms:
+    - Seraphine
+    - Varkhen
+    - wysypisko
+    - cztery ciała
+    - kaplica
+    - pieczęcie
+    - kontrola
+    last_refreshed_event_id: milestone_047_seraphine_risk_disclosure
+    context_bytes: 0
+    context_budget_bytes: 40960
+- path: context/scene.yaml
+  before_hash: c49ca3721b38cee1231328a2faefceda0b6eca68cd7c6c2f60ec46dc683f4ea4
+  after_hash: 10626fe0e76c6e981b612b3a60b7dc1c2447b8a4a4e359859c5e306d9bcc4af1
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_varkhen_takeover_aftermath
+    location_ref: campaigns/lucan/locations/varkhen-chamber/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 2
+      reason: Fizyczna walka wygasła; szczerość Lucana wobec Seraphine zadecyduje
+        o zaufaniu i kształcie osłony instytucjonalnej.
+    participants:
+    - pc_lucan
+    - npc_seraphine_vale
+    - companion_varkhen
+    pressures:
+    - seraphine_waiting_for_dump_body_answer
+    - pending_spidey_chapel_order
+    - long_term_three_seal_oath
+    - lucan_energy_saturation
+    - damaged_varkhen
+    - possible_institutional_scrutiny
+    immediate_facts:
+    - varkhen_formal_control_link_is_unenforced
+    - seraphine_knows_of_four_bodies_bearing_lucans_trace
+    - varkhen_oath_compact_is_voluntary
+    immediate_questions:
+    - Czy te dwa ciała nadal są na wysypisku?
+    pending_world_reactions: []
+    last_event_id: milestone_047_seraphine_risk_disclosure
+    active_refs:
+    - campaigns/lucan/entities/npcs/seraphine-vale.yaml
+    - campaigns/lucan/entities/npcs/varkhen.yaml
+    - campaigns/lucan/companions/varkhen.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/locations/varkhen-chamber/state.yaml
+    - campaigns/lucan/state/secrets.yaml
+    opening_recap_ref: campaigns/lucan/migration/packages/07-resume-scene/opening-recap.md
+    opening_recap_pending: true
+    notes:
+    - Pierwsza normalna tura ma najpierw podać jednorazową narrację z opening_recap_ref,
+      bez przesuwania czasu.
+- path: migration/migration.yaml
+  before_hash: ec383659524d022171bb6c424426bc9efb5b9e6c2214e6e1587fbba3d83d9b87
+  after_hash: 271270923c2a08080d87e2f5443b1755d1acff601937dfb25bef2c8b090cf5aa
+  document:
+    schema_version: 1
+    migration_id: migration_lucan_history_v1
+    campaign_id: campaign_lucan
+    status: activated
+    canonical_cutoff:
+      description: Kanon obejmuje cały dostępny dialog po przejęciu Varkhena i kończy
+        się na pytaniu Seraphine, czy dwa ciała na wysypisku nadal tam są.
+      include_event: seraphine_risk_disclosure_and_exposed_spider_order
+      exclude_after:
+      - future_unplayed_resolution_of_seraphines_question
+      - rewards_and_formal_closure_of_adventure_two
+      source_refs:
+      - source_user_decisions_current#planning_decision:varkhen_cutoff
+      - source_luka_b_fragment#line:11207-12012
+      - source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation
+    activation:
+      mode: atomic_after_all_packages
+      required_packages:
+      - migration_package_01_timeline
+      - migration_package_02_lucan
+      - migration_package_03_companions
+      - migration_package_04_npcs_factions
+      - migration_package_05_locations
+      - migration_package_06_world_state
+      - migration_package_07_resume_scene
+      active: true
+      activated_at: '2026-08-15T03:26:10+02:00'
+      activation_event_id: event_migration_activation
+    blockers: []
+    waived_requirements:
+    - id: full_chat_completeness_audit
+      waived_by: source_user_decisions_current#decision:history_scope_is_sufficient_for_calibration
+      rationale: Użytkownik zaakceptował obecny zakres historii i korekty w toku zamiast
+        oczekiwania na pełny eksport.
+      remaining_effect: Niepewne szczegóły mogą być poprawiane retconem; nie blokują
+        budowy ani aktywacji po zatwierdzeniu pakietów.
+    draft_policy:
+      authorized: true
+      source_ref: source_user_decisions_current#decision:draft_without_export
+      uncertain_facts_require_review: true
+      canonical_files_may_change: false
+    last_updated: '2026-08-14'
+- path: state/instances/index.yaml
+  before_hash: e392fba7cdd9274d0d4e24198c896a727854ec3db1f3f48f39fed944f640eec5
+  after_hash: e392fba7cdd9274d0d4e24198c896a727854ec3db1f3f48f39fed944f640eec5
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    activation: true
+    instances:
+    - id: pc_lucan
+      ref: state/instances/pc-lucan.yaml
+      state: proposed
+    - id: companion_spidey
+      ref: state/instances/spidey.yaml
+      state: proposed
+    - id: webber_anchored
+      ref: state/instances/webber-anchored.yaml
+      state: proposed
+    - id: webber_home
+      ref: state/instances/webber-home.yaml
+      state: proposed
+    - id: webber_tannery
+      ref: state/instances/webber-tannery.yaml
+      state: proposed
+    - id: webber_dump
+      ref: state/instances/webber-dump.yaml
+      state: proposed
+    - id: webber_cemetery_office_dead
+      ref: state/instances/webber-cemetery-office-dead.yaml
+      state: dead
+    - id: companion_varkhen
+      ref: state/instances/varkhen.yaml
+      state: proposed
+snapshot_ref: snapshots/pre-activation-20260815-032610.yaml
+committed_at: '2026-08-15T03:26:10+02:00'

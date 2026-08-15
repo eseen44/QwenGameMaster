@@ -1,0 +1,12 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: accepted_by_user_pending_package_activation
+companions:
+  - {id: companion_spidey, ref: campaigns/lucan/companions/spidey.yaml, state_ref: campaigns/lucan/state/instances/spidey.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: webber_anchored, ref: campaigns/lucan/companions/webber-network.yaml, state_ref: campaigns/lucan/state/instances/webber-anchored.yaml, status: accepted_by_user_pending_package_activation}
+controlled_entities:
+  - {id: companion_varkhen, ref: campaigns/lucan/companions/varkhen.yaml, state_ref: campaigns/lucan/state/instances/varkhen.yaml, role: autonomous_contractual_ally_not_active_familiar, status: accepted_by_user_pending_package_activation}
+groups:
+  - {id: companion_webber_network, ref: campaigns/lucan/companions/webber-network.yaml, active_count: 4, status: accepted_by_user_pending_package_activation}
+notes:
+  - Definicje pozostają kandydatami do atomowej aktywacji po zatwierdzeniu wszystkich pakietów migracji.

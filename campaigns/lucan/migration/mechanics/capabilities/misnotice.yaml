@@ -1,0 +1,18 @@
+schema_version: 1
+id: capability_lucan_misnotice
+object_type: capability
+status: proposed_calibrated
+name: Misnotice
+pattern_tier: 0
+tags: [curse, attention, subtle]
+casting_profile: {quick: true, low_cost: true, culturally_misrecognized_as_non_curse: common, magical_trace: faint}
+delivery:
+  method: curse
+  range_m: 8
+  requirements: [perceivable_target, line_of_effect]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 29}
+effects: [effect_lucan_misnotice]
+weaknesses: [active_search, obvious_threat, direct_confrontation, alert_magic_literate_target, repeated_pattern_recognition]
+source_refs: [source_luka_b_fragment#line:4480-4528, source_luka_b_fragment#line:4889-4899]

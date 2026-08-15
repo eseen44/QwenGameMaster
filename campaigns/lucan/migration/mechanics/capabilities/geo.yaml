@@ -1,0 +1,17 @@
+schema_version: 1
+id: capability_lucan_geo_protocol
+object_type: capability
+status: proposed_calibrated
+name: Geo — połączony protokół skanowania
+pattern_tier: 0
+tags: [scan_protocol, death, stone]
+casting_profile: {cantrip: true, low_cost: true, concentration: brief_or_sustained_for_detail, magical_trace: faint}
+delivery: {method: simultaneous_focus, range_m: 20, requirements: [focus, contact_with_connected_stone]}
+ratings: {accuracy: 31}
+effects: [effect_lucan_grave_sense, effect_lucan_stone_sense]
+protocol:
+  components: [capability_lucan_grave_sense, capability_lucan_stone_sense]
+  permanent_skill_fusion: false
+  results_resolved_separately: true
+weaknesses: [combined_noise, requires_stone_contact]
+source_refs: [source_luka_b_fragment#line:5224-5339, source_user_decisions_current#calibration:geo-is-cantrip]

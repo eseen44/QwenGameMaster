@@ -1,0 +1,58 @@
+schema_version: 1
+id: solmara_necromancy_legal_baseline
+status: user_confirmed_campaign_law
+scope: Lumaria and institutions relevant to campaign_lucan
+legal_order_ref: worlds/solmara/lore/legal-order.yaml
+legal_baseline:
+  innate_capacity_or_ability_to_learn: not_illegal_by_itself
+  theoretical_knowledge_and_prior_education: not_illegal_by_itself
+  actual_practice_of_necromancy: illegal
+  creation_maintenance_or_control_of_undead: clear_illegal_practice
+  animal_and_vermin_modification: legally_ambiguous_gray_zone
+  exact_statutes_penalties_and_exceptions: not_yet_codified_in_project
+animal_gray_zone:
+  principle: Prawo nie klasyfikuje równie łatwo nekromantycznej ingerencji w ludzi, duże zwierzęta i drobne bezkręgowce.
+  factors:
+    - whether_the_subject_was_killed_or_reanimated
+    - whether_it_remains_biologically_alive
+    - sapience_and_social_status
+    - size_and_public_danger
+    - visible_corpse_parts_or_decomposition
+    - use_as_weapon_surveillance_or_vector_of_harm
+    - proof_that_necromancy_rather_than_other_magic_was_used
+  examples:
+    - {subject: reanimated_or_necromantically_maintained_dog, likely_treatment: probable_offense, reasons: [socially_recognized_animal, possible_cruelty_or_desecration, obvious_public_danger]}
+    - {subject: small_living_spider_modified_and_bonded_with_death_magic, likely_treatment: difficult_to_classify_and_prove, reasons: [vermin_scale, unclear_life_state, overlap_with_magical_modification_and_familiar_practice]}
+  limit: Gray zone nie daje immunitetu; użycie pająka do zabójstwa, szpiegowania lub transportu zakazanej energii może tworzyć odrębne przestępstwa i dowody.
+construct_boundary:
+  core_dispute: Czy o klasyfikacji decyduje materiał i energia śmierci, czy funkcja, mechanizm animacji i brak związanej osoby lub duszy?
+  academy_or_magical_establishment_position:
+    tendency: classify_by_mechanism_continuity_of_life_and_soul_binding
+    institutional_interest: Zbyt szeroka definicja nekromancji zagraża legalności golemów, homunkulusów, magicznych protez, bio-konstruktów i eksperymentalnych chowańców.
+    possible_spidey_argument: living_modified_familiar_or_biological_construct_not_reanimated_dead
+  church_position:
+    tendency: classify_by_use_of_death_energy_dead_tissue_desecration_and_spiritual_contamination
+    possible_spidey_argument: changing_the_label_does_not_cleanse_necromancy
+  secular_authority_position:
+    tendency: focus_on_charter_permission_public_danger_property_damage_and_available_expert_testimony
+  unresolved_rule: Nie ma powszechnie uznanej definicji rozstrzygającej wszystkie hybrydy.
+church_position:
+  attitude_to_necromantic_practice: fanatically_hostile
+  animal_gray_zone_recognized_doctrinally: false
+  default_response_to_credible_proof: demand_suppression_destruction_and_punishment
+  tolerance_for_private_capability_without_practice: suspicious_but_not_automatically_criminal
+varkhen_exposure:
+  current_public_status: unknown
+  public_credible_proof_of_lucans_control_or_maintenance: major_legal_and_religious_crisis
+  ancient_guardian_cover_story:
+    viable_while: control_and_necromantic_maintenance_remain_unproven_and_varkhen_cooperates_voluntarily
+    collapses_if: lucans_active_undead_control_becomes_credible_public_evidence
+information_rule:
+  - Podejrzenie, prywatna wiedza, dowód instytucjonalny i fakt publiczny są odrębnymi stanami.
+  - Instytucja może znać prawdę i nadal ją ukrywać, ale ponosi ryzyko współudziału i utraty legitymacji.
+  - Uratowanie miasta może wpływać na decyzję o osłonie, karze lub wykorzystaniu Lucana, ale nie legalizuje wstecznie nekromancji.
+  - Niepewna klasyfikacja Spideya może utrudnić świeckie oskarżenie, ale nie zmniejsza doktrynalnej wrogości Kościoła.
+  - Akademicka ekspertyza może zmienić kwalifikację albo stworzyć polityczną osłonę, lecz nie jest neutralna: Akademia broni także własnej swobody eksperymentowania.
+  - Zakaz nekromancji jest realny, ale duże grupy instrumentalnie walczą o nazwę czynu, właściwą jurysdykcję, dopuszczalność dowodów i wyjątek uzasadniony bezpieczeństwem miasta.
+  - Ten sam Lucan może być dla jednej strony przestępcą, dla drugiej chronionym ekspertem, a dla trzeciej zakładnikiem negocjacyjnym; zwycięska interpretacja zależy od siły, dowodów i koalicji.
+source_refs: [source_user_decisions_current#canon:necromancy_illegal_ability_not_illegal_church_fanatically_hostile, source_user_decisions_current#canon:animal_necromancy_gray_zone, source_user_decisions_current#canon:construct_golem_boundary_conflict]

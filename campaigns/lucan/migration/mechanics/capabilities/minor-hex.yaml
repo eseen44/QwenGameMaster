@@ -1,0 +1,18 @@
+schema_version: 1
+id: capability_lucan_minor_hex
+object_type: capability
+status: proposed_calibrated
+name: Minor Hex
+pattern_tier: 0
+tags: [curse, coordination, subtle, cantrip]
+casting_profile: {subtle: true, quick: true, low_cost: true, magical_trace: faint}
+delivery:
+  method: curse
+  range_m: 8
+  requirements: [line_of_effect, perceivable_target]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 29}
+effects: [effect_lucan_minor_hex]
+weaknesses: [less_precise_than_numb, prepared_countermagic, alert_magic_literate_target, repeated_pattern_recognition]
+source_refs: [source_luka_a_fragment#line:509-515, source_luka_b_fragment#line:420-436]

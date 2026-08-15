@@ -1,0 +1,29 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+activation: true
+instances:
+- id: pc_lucan
+  ref: state/instances/pc-lucan.yaml
+  state: proposed
+- id: companion_spidey
+  ref: state/instances/spidey.yaml
+  state: proposed
+- id: webber_anchored
+  ref: state/instances/webber-anchored.yaml
+  state: proposed
+- id: webber_home
+  ref: state/instances/webber-home.yaml
+  state: proposed
+- id: webber_tannery
+  ref: state/instances/webber-tannery.yaml
+  state: proposed
+- id: webber_dump
+  ref: state/instances/webber-dump.yaml
+  state: proposed
+- id: webber_cemetery_office_dead
+  ref: state/instances/webber-cemetery-office-dead.yaml
+  state: dead
+- id: companion_varkhen
+  ref: state/instances/varkhen.yaml
+  state: proposed

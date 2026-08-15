@@ -1,0 +1,46 @@
+schema_version: 1
+package_id: migration_package_07_resume_scene
+name: Punkt wznowienia
+revision: 6
+status: approved
+depends_on: [migration_package_02_lucan, migration_package_03_companions, migration_package_04_npcs_factions, migration_package_05_locations, migration_package_06_world_state]
+confirmed:
+  - id: fact_resume_at_seraphine_dump_question
+    claim: Gra ma zostać wznowiona po całej dostępnej rozmowie, na pytaniu Seraphine o to, czy dwa ciała na wysypisku nadal istnieją. Wzmianka o Inkwizycji i niefortunny rozkaz dla Spideya są kanoniczne.
+    category: scene
+    source_refs: [source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/context/scene.yaml
+    proposed_value: resume_at_seraphine_question_about_dump_bodies
+    conflict_ids: []
+    package_id: migration_package_07_resume_scene
+    status: proposed
+  - id: fact_resume_scene_operational_shape
+    claim: "Lucan, Seraphine i ciężko uszkodzony Varkhen pozostają w komorze; Mara i Boros wyszli na powierzchnię. Rozmowa jest relacyjna i polityczna: Seraphine oferuje warunkową osłonę, ale właśnie poznała liczbę czterech naznaczonych ciał i czeka na odpowiedź o wysypisku."
+    category: scene
+    source_refs: [source_luka_b_fragment#line:11759-12012]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/context/scene.yaml
+    proposed_value:
+      scene_id: scene_varkhen_takeover_aftermath
+      location_ref: campaigns/lucan/locations/varkhen-chamber/location.yaml
+      participants: [pc_lucan, companion_varkhen, npc_seraphine_vale]
+      opening_recap_ref: campaigns/lucan/migration/packages/07-resume-scene/opening-recap.md
+      opening_recap_once: true
+      tension: {level: 2, reason: Fizyczna walka wygasła, ale szczerość Lucana zdecyduje o zaufaniu Seraphine i ryzyku formalnego śledztwa.}
+      pressures: [seraphine_waiting_for_dump_body_answer, pending_spidey_chapel_order, long_term_three_seal_oath, lucan_energy_saturation, damaged_varkhen, possible_institutional_scrutiny]
+      immediate_question: Czy dwa ciała na wysypisku nadal tam są?
+    conflict_ids: []
+    package_id: migration_package_07_resume_scene
+    status: proposed
+proposed: []
+conflicts: []
+missing:
+  - Dokładna data i godzina sceny.
+  - Odpowiedź Lucana na pytanie Seraphine; końcowy nawias tylko prosił system o przypomnienie.
+approval: {required: true, current_revision_status: approved}
+revision_notes:
+  - Rewizja 6 została zatwierdzona przez użytkownika jako punkt wznowienia kampanii.
+  - Rewizja 6: punkt wznowienia traktuje pieczęcie jako długoterminową przysięgę, a przyszłą presję jako instytucjonalną, nie osobistą.

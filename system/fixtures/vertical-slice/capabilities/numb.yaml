@@ -1,0 +1,18 @@
+schema_version: 1
+id: capability_lucan_numb
+object_type: capability
+status: calibration_fixture
+name: Lucan Numb
+pattern_tier: 0
+tags: [curse, neuromuscular]
+casting_profile: {subtle: true, quick: true, low_cost: true, culturally_misrecognized_as_non_curse: common, magical_trace: faint}
+delivery:
+  method: curse
+  range_m: 8
+  activation: quick
+  requirements: [line_of_effect, target_anatomy_or_animating_structure]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 31}
+effects: [effect_numb]
+weaknesses: [alert_magic_literate_target, prepared_countermagic, strong_neuromuscular_or_animating_structure, repeated_pattern_recognition]

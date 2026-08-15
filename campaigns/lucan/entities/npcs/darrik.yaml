@@ -1,0 +1,20 @@
+schema_version: 1
+id: npc_darrik
+name: Darrik
+status: accepted_by_user_pending_package_activation
+review_status: accepted_by_user_pending_package_activation
+importance: specialist
+role: head_gravedigger
+lifecycle: {state: dead, death_event_id: milestone_023_first_cemetery_massacre}
+mechanics_ref: candidate_npc_darrik
+current_location_id: loc_cemetery
+relationship_to_lucan: {attitude: openly_hostile, score: -65, confidence: strong}
+knowledge:
+  confirmed:
+    - {fact_id: fact_darrik_recognized_lucan, source_event_id: milestone_023_first_cemetery_massacre, claim: Darrik znał Lucana z wcześniejszych problemów z prawem i gildią.}
+  suspicions:
+    - {id: suspicion_lucan_caused_numb_leg, basis_event_ids: [milestone_023_first_cemetery_massacre], confidence: high}
+  false_beliefs: []
+  forbidden_without_source: [spidey_identity_before_attack]
+agenda_at_death: [alert_guards, stop_lucan_intrusion]
+source_refs: [source_luka_b_fragment#line:3107-3435, source_user_decisions_current#approval:darrik_card]

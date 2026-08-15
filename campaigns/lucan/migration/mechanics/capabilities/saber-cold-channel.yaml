@@ -1,0 +1,11 @@
+schema_version: 1
+id: capability_lucan_saber_cold_channel
+object_type: capability
+status: proposed_calibrated
+name: Przewodzenie zimna przez szablę
+tags: [cold, melee, channel]
+delivery: {method: weapon_channel, reach_cm: 90, requirements: [saber_in_hand, focus, melee_reach]}
+ratings: {accuracy: 24, cold_intensity: 30}
+effects: [effect_bone_chill]
+weaknesses: [ordinary_human_weapon_skill, disarm, interrupted_focus]
+source_refs: [source_luka_b_fragment#line:5090-5095, source_luka_b_fragment#line:11303-11324]

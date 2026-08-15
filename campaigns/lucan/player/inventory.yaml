@@ -1,0 +1,141 @@
+schema_version: 1
+owner_id: pc_lucan
+status: active
+currency:
+  carried_silver: 22
+  hidden_silver: 50
+  refundable_deposits_silver: 5
+  liquid_silver_available_now: 72
+  total_known_net_silver: 77
+  notes:
+    - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
+containers:
+  - id: container_personal_pockets_and_belt
+    location: carried
+  - id: container_wall_hideout
+    location_ref: loc_city_wall_hideout
+    security: concealed_inside_wall
+  - id: container_interlude_loot_pile
+    location_ref: loc_city_wall_hideout
+    security: secured_unexamined_pile
+    purpose: Act_02_loot_review
+items:
+  - id: item_disguised_ceremonial_saber
+    name: Oszpecona ceremonialna szabla
+    location: carried
+    mechanics_ref: capability_lucan_saber_strike
+    state: functional_good_blade
+    modifications: [heraldry_removed, ornaments_destroyed, surface_aged, flat_notched_for_coatings, ugly_oversized_scabbard]
+    source_refs: [source_luka_b_fragment#line:3541-3657, source_luka_b_fragment#line:4702-4780]
+  - id: item_poor_mans_necronomicon
+    name: Necronomicon dla biedoty
+    location: wall_hideout
+    type: amateur_occult_manual_and_fiction
+    inherently_magical: false
+    instructional_function: imprecise_visualizations_and_partly_reproducible_procedures
+    reliability: poor
+    notes: [ironic_alias, imprecise_cantrips, basic_necromancy, thematically_related_skills]
+    source_refs: [source_user_decisions_current#correction:poor-mans-necronomicon-amateur-nature]
+  - id: item_beginner_curses_book
+    name: Klątwy dla początkujących
+    location: wall_hideout
+    type: training_manual
+    inherently_magical: false
+    instructional_function: reproducible_curse_visualizations_and_procedures
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+  - id: item_practical_cold_magic_book
+    name: Praktyczna magia zimna
+    location: wall_hideout
+    type: training_manual
+    inherently_magical: false
+    instructional_function: reproducible_cold_magic_visualizations_and_procedures
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+  - id: item_locks_manual
+    name: Zamki i zabezpieczenia miejskie
+    location: wall_hideout
+    type: training_manual
+    source_refs: [source_luka_b_fragment#line:4377-4403]
+  - id: item_unnoticed_manual
+    name: Sztuka pozostawania niezauważonym
+    location: wall_hideout
+    type: training_manual
+    source_refs: [source_luka_b_fragment#line:4377-4403]
+  - id: item_masonry_manual
+    name: Praktyczne kamieniarstwo
+    location: wall_hideout
+    type: training_manual
+    source_refs: [source_luka_b_fragment#line:4377-4403]
+  - id: item_leased_surgical_kit
+    name: Wypożyczony zestaw chirurgiczny gildii
+    location: wall_hideout
+    ownership: adventurers_guild
+    deposit_silver: 5
+    contents: [scalpel, needles, strong_thread, small_forceps, clamps]
+    return_status: not_recorded_as_returned
+    source_refs: [source_luka_b_fragment#line:4788-4843]
+  - id: item_basic_field_knife
+    name: Nóż użytkowy
+    location: carried
+    source_refs: [source_in_character_partial#line:43-1803]
+  - id: item_small_crowbar
+    name: Mały łom
+    location: wall_hideout
+    source_refs: [source_luka_b_fragment#line:3541-3657]
+  - id: item_guild_rank_badge_d
+    name: Odznaka poszukiwacza rangi D
+    location: carried
+    source_refs: [source_luka_b_fragment#line:4100-4145]
+  - id: item_small_gold_chain
+    name: Mały złoty łańcuszek z cmentarnego magazynu
+    location: carried
+    ownership: stolen_grave_good
+    source_refs: [source_luka_b_fragment#line:7835]
+  - id: item_unopened_necromancer_pouch
+    name: Nieotwarta sakiewka ze skrzyni serwisowej
+    location: carried
+    contents: unknown
+    ownership: stolen_evidence
+    source_refs: [source_luka_b_fragment#line:8634-8646]
+  - id: item_ring_of_grave_whisper
+    name: Pierścień Grobowego Szeptu
+    location: carried
+    type: necromantic_magic_ring
+    identification: confirmed_by_varkhen
+    effect: Raz na dobę pozwala zadać świeżym zwłokom jedno pytanie.
+    provenance: taken_openly_from_varkhens_sarcophagus_and_kept_with_varkhens_consent
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+  - id: item_three_arrow_deer_signet
+    name: Stary szlachecki sygnet (jeleń przebity trzema strzałami)
+    location: container_interlude_loot_pile
+    type: valuable_nonmagical_signet
+    identification: partial
+    appraisal_status: pending
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+  - id: item_silver_preservation_essence
+    name: Srebrzysta esencja zachowania zwłok
+    location: container_interlude_loot_pile
+    type: enchanted_necromantic_preservation_essence
+    identification: partial
+    known_effect: związana ze śmiercią i zachowaniem ciała; dokładne działanie nieustalone
+    appraisal_status: pending_experiment_or_expert
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+  - id: item_unexamined_wagon_chest_lot
+    name: Niezbadany pakiet ze skrzyni wozu
+    location: container_interlude_loot_pile
+    type: recovered_loot_lot
+    identification: unexamined_by_lucan
+    contents: unresolved_for_player_review
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+  - id: item_tannery_owner_cache
+    name: Papiery, klucze i srebrna pieczęć właściciela garbarni
+    location: wall_hideout
+    operational_relevance: low_but_possible_evidence_or_disguise
+    source_refs: [source_luka_b_fragment#line:3541-3657]
+external_claims:
+  - id: claim_three_bags_cemetery_goods
+    custodian: npc_boros_keld
+    location: hidden_near_guild_route
+    exact_contents: unresolved
+    source_refs: [source_luka_b_fragment#line:8287-8301]
+last_transaction_id: event_act_02_closeout_interlude_import
+last_updated_event_id: event_act_02_closeout_interlude_import

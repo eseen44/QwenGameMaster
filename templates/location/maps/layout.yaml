@@ -1,0 +1,94 @@
+schema_version: 1
+location_id: loc_demo_cellar
+status: template
+canvas:
+  width_px: 880
+  height_px: 440
+  margin_px: 60
+scale:
+  unit: meter
+  pixels_per_unit: 40
+  bar_units: 2
+orientation:
+  north: up
+zones:
+  - id: zone_main_room
+    shape: rectangle
+    x_m: 0
+    y_m: 0
+    width_m: 12
+    height_m: 8
+    player_visible: true
+  - id: zone_entry
+    shape: rectangle
+    x_m: 5
+    y_m: 7
+    width_m: 2
+    height_m: 1
+    player_visible: true
+  - id: zone_crates
+    shape: rectangle
+    x_m: 1
+    y_m: 5
+    width_m: 2
+    height_m: 1.5
+    player_visible: true
+  - id: zone_pillar
+    shape: circle
+    x_m: 8
+    y_m: 4
+    radius_m: 0.6
+    player_visible: true
+  - id: zone_north_door
+    shape: rectangle
+    x_m: 5
+    y_m: 0
+    width_m: 2
+    height_m: 0.4
+    player_visible: true
+  - id: zone_secret_passage
+    shape: rectangle
+    x_m: 12
+    y_m: 3
+    width_m: 2
+    height_m: 1.5
+    player_visible: false
+features:
+  - id: feature_crates
+    zone_id: zone_crates
+    kind: cover
+    x_m: 1
+    y_m: 5
+    width_m: 2
+    height_m: 1.5
+    player_visible: true
+  - id: feature_pillar
+    zone_id: zone_pillar
+    kind: obstacle
+    x_m: 8
+    y_m: 4
+    radius_m: 0.6
+    player_visible: true
+  - id: feature_north_door
+    zone_id: zone_north_door
+    kind: door
+    x_m: 5
+    y_m: 0
+    width_m: 2
+    player_visible: true
+  - id: feature_secret_door
+    zone_id: zone_secret_passage
+    kind: secret_door
+    x_m: 12
+    y_m: 3
+    width_m: 1.5
+    player_visible: false
+connections:
+  - id: connection_stairs
+    from_zone: zone_entry
+    to_location: unknown_parent_location
+    player_visible: true
+  - id: connection_secret
+    from_zone: zone_secret_passage
+    to_location: unknown_secret_location
+    player_visible: false

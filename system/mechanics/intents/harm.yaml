@@ -1,0 +1,14 @@
+schema_version: 1
+id: intent_harm
+object_type: intent
+status: active_system_rule
+name: Cause meaningful injury
+paths:
+  - id: cold_shock
+    effect_vector: cold
+    rating_path: effect.application_rating
+    defense_path: target.resistances.cold
+  - id: direct_trauma
+    requires_capability_tag: trauma
+    rating_path: capability.ratings.tissue_trauma
+    defense_path: target.defenses.vitality

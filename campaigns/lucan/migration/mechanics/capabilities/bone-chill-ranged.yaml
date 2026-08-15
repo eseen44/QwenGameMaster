@@ -1,0 +1,17 @@
+schema_version: 1
+id: capability_lucan_bone_chill_ranged
+object_type: capability
+status: proposed_calibrated
+name: Bone Chill — impuls dystansowy
+pattern_tier: 1
+tags: [cold, curse, ranged]
+delivery:
+  method: ranged_cold_impulse
+  range_m: 8
+  requirements: [line_of_effect, visible_target_or_point]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings: {accuracy: 25}
+effects: [effect_bone_chill_ranged]
+weaknesses: [lower_intensity_than_touch_or_short_cone, inefficient_energy_transfer, visible_cold_effect, line_of_effect]
+source_refs: [source_luka_b_fragment#line:407-412, source_luka_b_fragment#line:516-520, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]

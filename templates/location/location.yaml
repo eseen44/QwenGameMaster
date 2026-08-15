@@ -1,0 +1,22 @@
+schema_version: 1
+id: loc_demo_cellar
+name: Demonstracyjna piwnica
+status: template
+world_ref: null
+parent_location_ref: null
+type: interior
+scale:
+  unit: meter
+  svg_pixels_per_unit: 20
+orientation:
+  north: up
+connections:
+  - id: connection_stairs
+    zone_id: zone_entry
+    leads_to: unknown_parent_location
+    travel_time: 1 minute
+map_refs:
+  layout: templates/location/maps/layout.yaml
+  gm: templates/location/maps/gm.svg
+  player: templates/location/maps/player.svg
+

@@ -1,0 +1,10 @@
+schema_version: 1
+id: intent_drain_energy
+object_type: intent
+status: active_system_rule
+name: Drain living or necrotic energy
+paths:
+  - id: direct_energy_drain
+    effect_ref: effect_direct_energy_drain
+    rating_path: effect.application_rating
+    defense_path: target.resistances.energy_control

@@ -1,0 +1,22 @@
+schema_version: 1
+id: faction_oren_corpse_network
+name: Sieć logistyczna Orena
+status: accepted_by_user_pending_package_activation
+kind: covert_corpse_trafficking_and_necromantic_logistics_network
+current_state: decapitated_and_severely_disrupted
+leadership:
+  - {entity_id: npc_oren, role: operator, state: dead, source_event_id: milestone_044b_oren_termination_and_energy_sample}
+known_losses:
+  - {loss: young_shipping_manager_captured, source_event_id: milestone_040_shipping_manager_captured}
+  - {loss: corpse_wagon_and_crew_captured, source_event_id: milestone_041_corpse_wagon_takeover}
+  - {loss: northwest_logistics_collector_operation_exposed_and_disrupted, source_event_id: milestone_043a_logistics_collector_overload}
+capabilities_at_cutoff:
+  confirmed_remaining: []
+  uncertain_remaining: [unknown_contacts, unknown_buyers, possible_dead_drops, possible_offsite_records]
+knowledge:
+  collective_confirmed: [transport_protocol_compromised, one_wagon_lost]
+  not_automatically_shared_after_losses: [orens_death, varkhen_identity, lucans_control_link]
+active_pressures:
+  - surviving_cells_may_go_to_ground_if_they_learn_of_losses
+  - evidence_may_reveal_contacts_if_processed
+source_refs: [source_luka_b_fragment#line:7487-11173]

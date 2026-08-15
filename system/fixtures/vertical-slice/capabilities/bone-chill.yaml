@@ -1,0 +1,16 @@
+schema_version: 1
+id: capability_lucan_bone_chill
+object_type: capability
+status: replay_calibration
+name: Bone Chill
+pattern_tier: 1
+tags: [cold, curse, close_range]
+delivery:
+  method: touch_or_short_cone
+  range_m: 2
+  requirements: [line_of_effect, contact_or_close_cone]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings: {accuracy: 28}
+effects: [effect_bone_chill]
+source_refs: [source_luka_a_fragment#line:27-55, source_luka_b_fragment#line:468-478, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]

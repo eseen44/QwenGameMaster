@@ -1,0 +1,28 @@
+schema_version: 1
+id: npc_mara_teln
+name: Mara Teln
+status: accepted_by_user_pending_package_activation
+review_status: accepted_by_user_pending_package_activation
+importance: full_agent
+role: ranger
+guild_rank: C
+lifecycle: {state: alive, last_confirmed_event_id: milestone_047_seraphine_risk_disclosure}
+mechanics_ref: candidate_npc_mara_teln
+current_location_id: loc_cemetery
+equipment: [bow, short_sword]
+portrayal:
+  temperament: [quiet, observant, dry_humor_when_safe]
+  group_role: "Zwiadowczyni i strzelczyni, która zauważa ryzyko oraz szczegóły, ale nie myli ostrożności z brakiem zaufania do Lucana."
+relationship_ref: campaigns/lucan/relationships/mara--lucan.yaml
+knowledge:
+  confirmed:
+    - {fact_id: fact_mara_witnessed_varkhen_assault, source_event_id: milestone_045_varkhen_takeover, claim: Lucan i Boros obezwładnili bardzo starego nieumarłego w sarkofagu.}
+    - {fact_id: fact_mara_saw_varkhen_weaken_during_lucans_contact, source_event_id: milestone_045_varkhen_takeover, claim: Mara widziała, że Varkhen wyraźnie słabnie, gdy Lucan utrzymuje z nim bezpośredni kontakt magiczny; nie zna pełnego mechanizmu ani nie może pewnie przypisać wyniku wyłącznie temu kontaktowi.}
+    - {fact_id: fact_mara_knows_varkhen_compact, source_event_id: milestone_046_varkhen_oath_compact, claim: Varkhen dobrowolnie przyjął układ dotyczący naprawy trzech pieczęci i oddania skarbca grupie.}
+  suspicions:
+    - {id: suspicion_lucan_controls_varkhen, basis_event_ids: [milestone_045_varkhen_takeover], confidence: medium}
+    - {id: suspicion_lucan_has_remote_necromantic_support, basis_event_ids: [milestone_045_varkhen_takeover], confidence: medium}
+  false_beliefs: []
+  forbidden_without_source: [varkhen_future_offer, inquisition_conversation, voluntary_agreement]
+agenda: [protect_group, help_secure_seals, assess_varkhen_as_new_risk, await_next_group_decision]
+source_refs: [source_luka_a_fragment#line:797-805, source_luka_b_fragment#line:11251-11409, source_user_decisions_current#approval:mara_card]

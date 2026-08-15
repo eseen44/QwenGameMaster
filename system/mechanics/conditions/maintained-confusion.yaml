@@ -1,0 +1,15 @@
+schema_version: 1
+id: condition_maintained_confusion
+object_type: condition
+status: approved_system_rule
+name: Podtrzymywane Confusion
+adjustments:
+  target.defenses.awareness: -15
+  target.ratings.reflexes: -8
+maintenance:
+  controller_concentration: required
+  mutual_eye_contact: required
+  sustained_line_of_sight: required
+  ends_immediately_when_any_requirement_breaks: true
+limitations: [one_target, not_direct_command_or_domination, obvious_behavioral_disruption]
+source_refs: [source_user_decisions_current#correction:confusion-is-visible-sustained-second-level-control]

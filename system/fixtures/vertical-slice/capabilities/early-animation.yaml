@@ -1,0 +1,10 @@
+schema_version: 1
+id: capability_lucan_early_animation
+object_type: capability
+status: replay_calibration
+name: Early fresh-corpse animation
+tags: [necromancy, animation]
+delivery: {method: touch, requirements: [fresh_corpse, physical_contact]}
+ratings: {accuracy: 16}
+limits: {maximum_corpse_age_hours: 24}
+effects: [effect_early_corpse_animation]

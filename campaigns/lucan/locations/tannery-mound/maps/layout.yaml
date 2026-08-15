@@ -1,0 +1,30 @@
+schema_version: 1
+location_id: loc_rat_mound
+status: accepted_estimated_geometry
+canvas: {width_px: 1000, height_px: 620, margin_px: 50}
+scale: {unit: meter, pixels_per_unit: 20, bar_units: 5}
+orientation: {north: schematic_up, note: underground_topology_more_reliable_than_compass}
+zones:
+  - {id: zone_entry_hatch, shape: rectangle, x_m: 21, y_m: 24, width_m: 5, height_m: 3, player_visible: true, measurement: estimated}
+  - {id: zone_service_junction, shape: rectangle, x_m: 19, y_m: 19, width_m: 8, height_m: 4, player_visible: true, measurement: estimated}
+  - {id: zone_archive, shape: rectangle, x_m: 8, y_m: 18, width_m: 8, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_chamber_three, shape: rectangle, x_m: 6, y_m: 10, width_m: 9, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_laboratory, shape: rectangle, x_m: 18, y_m: 11, width_m: 9, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_natural_cavern, shape: ellipse, cx_m: 34, cy_m: 13, rx_m: 6, ry_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_colony_edge, shape: ellipse, cx_m: 43, cy_m: 9, rx_m: 4, ry_m: 4, player_visible: true, measurement: estimated}
+  - {id: zone_fire_choke, shape: rectangle, x_m: 28, y_m: 19, width_m: 8, height_m: 3, player_visible: true, measurement: estimated}
+  - {id: zone_rat_ogre_breach, shape: rectangle, x_m: 36, y_m: 20, width_m: 6, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_old_cellar_link, shape: rectangle, x_m: 1, y_m: 16, width_m: 5, height_m: 4, player_visible: true, measurement: estimated}
+  - {id: zone_drain_link, shape: rectangle, x_m: 1, y_m: 7, width_m: 5, height_m: 3, player_visible: true, measurement: estimated}
+  - {id: zone_uncharted_colony, shape: ellipse, cx_m: 47, cy_m: 3, rx_m: 3, ry_m: 2, player_visible: false, measurement: unknown}
+features:
+  - {id: feature_archive_records, zone_id: zone_archive, kind: searched_records, x_m: 10, y_m: 20, player_visible: true}
+  - {id: feature_chained_specimen, zone_id: zone_chamber_three, kind: former_restrained_specimen, x_m: 9, y_m: 12, player_visible: true}
+  - {id: feature_stimulant_drop, zone_id: zone_chamber_three, kind: sabotage_site, x_m: 13, y_m: 14, player_visible: true}
+  - {id: feature_colony_signs, zone_id: zone_colony_edge, kind: large_nest_signs, x_m: 41, y_m: 9, player_visible: true}
+  - {id: feature_ogre_damage, zone_id: zone_rat_ogre_breach, kind: structural_breach, x_m: 38, y_m: 22, player_visible: true}
+  - {id: feature_unknown_deep_tunnels, zone_id: zone_uncharted_colony, kind: unresolved_tunnels, x_m: 47, y_m: 3, player_visible: false}
+connections:
+  - {id: connection_mound_descent, from_zone: zone_entry_hatch, to_location: loc_tannery, player_visible: true}
+  - {id: connection_old_cellar, from_zone: zone_old_cellar_link, to_location: loc_tannery_cellar_hideout, player_visible: true}
+  - {id: connection_canal_drain, from_zone: zone_drain_link, to_location: loc_ronada_canals, player_visible: true}

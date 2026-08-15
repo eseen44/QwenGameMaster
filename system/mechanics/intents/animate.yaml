@@ -1,0 +1,15 @@
+schema_version: 1
+id: intent_animate_corpse
+object_type: intent
+status: active_system_rule
+name: Animate corpse
+paths:
+  - id: fresh_corpse_animation
+    effect_ref: effect_early_corpse_animation
+    rating_path: effect.application_rating
+    defense_path: target.resistances.animation
+    hard_limits:
+      - left: capability.limits.maximum_corpse_age_hours
+        operator: ">="
+        right: target.state.corpse_age_hours
+        reason: corpse_too_old_for_known_animation_method

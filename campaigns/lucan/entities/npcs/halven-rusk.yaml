@@ -1,0 +1,25 @@
+schema_version: 1
+id: npc_halven_rusk
+name: Halven Rusk
+status: accepted_by_user_pending_package_activation
+review_status: accepted_by_user_pending_package_activation
+importance: specialist
+role: municipal_underground_hazards_inspector
+lifecycle: {state: alive, last_confirmed_event_id: milestone_043_return_with_seraphine_to_northwest_logistics}
+mechanics_ref: candidate_npc_halven_rusk
+current_location_id: loc_lumaria
+relationship_ref: campaigns/lucan/relationships/rusk--lucan.yaml
+portrayal:
+  tone: comic_minor_antagonist
+  threat_scope: bureaucratic_friction_and_small_scale_spite
+  behavior: "Rusk jest urażonym, niskoszczeblowym urzędnikiem bez własnej siły sprawczej na wielką skalę. Narzeka, dokumentuje i bywa złośliwy, ale poddaje się poleceniom Gildii oraz wyraźnej hierarchii."
+knowledge:
+  confirmed:
+    - {fact_id: fact_rusk_knows_lucan_survived_tannery, source_event_id: milestone_021_rusk_rescued, claim: Lucan uczestniczył w walce i pomógł odciągnąć szczuroogra.}
+    - {fact_id: fact_rusk_knows_lucan_uses_cold, source_event_id: milestone_016_official_scout_and_support_decision, claim: Lucan używa skutecznej magii zimna.}
+  suspicions:
+    - {id: suspicion_lucan_sabotaged_escape, basis_event_ids: [milestone_020_rat_ogre_escape_and_rusk_betrayal], confidence: medium}
+  false_beliefs: []
+  forbidden_without_source: [spidey_identity, lucan_secret_drain, varkhen_takeover]
+agenda: [protect_infrastructure, document_hazards, avoid_being_used_as_lucan_cover, follow_guild_chain_of_command]
+source_refs: [source_luka_b_fragment#line:330-606, source_luka_b_fragment#line:1377-2510, source_user_decisions_current#approval:rusk_card]

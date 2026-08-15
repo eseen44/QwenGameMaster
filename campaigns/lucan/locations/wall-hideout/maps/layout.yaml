@@ -1,0 +1,19 @@
+schema_version: 1
+location_id: loc_city_wall_hideout
+status: accepted_estimated_geometry
+canvas: {width_px: 650, height_px: 430, margin_px: 50}
+scale: {unit: meter, pixels_per_unit: 45, bar_units: 2}
+orientation: {north: along_outer_wall}
+zones:
+  - {id: zone_main, shape: rectangle, x_m: 0, y_m: 0, width_m: 6, height_m: 5, player_visible: true, measurement: estimated}
+  - {id: zone_entry, shape: rectangle, x_m: 2, y_m: 4.5, width_m: 2, height_m: 0.5, player_visible: true}
+  - {id: zone_storage, shape: rectangle, x_m: 0, y_m: 0, width_m: 2, height_m: 2, player_visible: true}
+  - {id: zone_upper, shape: rectangle, x_m: 4.5, y_m: 0, width_m: 1.5, height_m: 2, player_visible: true}
+  - {id: zone_wall_void, shape: rectangle, x_m: -1, y_m: 1, width_m: 1, height_m: 2, player_visible: false}
+features:
+  - {id: feature_bedroll, zone_id: zone_main, kind: rest, x_m: 2, y_m: 1, player_visible: true}
+  - {id: feature_workbench, zone_id: zone_main, kind: work_surface, x_m: 2, y_m: 3, player_visible: true}
+  - {id: feature_spider_niches, zone_id: zone_storage, kind: companion_habitat, x_m: 0.5, y_m: 0.5, player_visible: true}
+  - {id: feature_wall_stairs, zone_id: zone_upper, kind: stairs, x_m: 5, y_m: 0.5, player_visible: true}
+  - {id: feature_maintenance_void, zone_id: zone_wall_void, kind: uninspected_void, x_m: -1, y_m: 1, player_visible: false}
+connections: [{id: connection_wall_access, from_zone: zone_entry, to_location: loc_lumaria_wall, player_visible: true}]

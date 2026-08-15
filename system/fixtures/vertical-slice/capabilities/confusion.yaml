@@ -1,0 +1,24 @@
+schema_version: 1
+id: capability_lucan_confusion
+object_type: capability
+status: replay_calibration
+name: Confusion
+pattern_tier: 2
+tags: [curse, mental, control, concentration, visible]
+casting_profile:
+  activation: brief
+  subtle: false
+  concentration: required
+  eye_contact: continuous
+  magical_trace: strong
+  observer_visibility: obvious_unless_scene_blocks_observation
+delivery:
+  method: sustained_eye_contact_curse
+  range_m: 8
+  requirements: [mutual_eye_contact, sustained_line_of_sight, concentration]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 30}
+effects: [effect_confusion]
+weaknesses: [broken_eye_contact, interrupted_concentration, blind_or_eyeless_target, third_party_interruption, prepared_countermagic]
+source_refs: [source_luka_b_fragment#line:4411-4899, source_user_decisions_current#correction:confusion-is-visible-sustained-second-level-control]

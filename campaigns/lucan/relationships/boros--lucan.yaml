@@ -1,0 +1,17 @@
+schema_version: 1
+id: rel_boros_to_lucan
+status: needs_review
+subject_id: npc_boros_keld
+target_id: pc_lucan
+layer: personal
+stance: practical_comrade
+axes: {cooperation: 55, judgment_confidence: 50, discretion_trust: 35, personal_regard: 45}
+reasons: [shared_tannery_and_cemetery_history, lucan_helped_save_rusk, lucan_plans_repeatedly_produced_results]
+obligations: []
+shared_secrets: [varkhen_assault_witness]
+leverage: {held_by_subject: [knowledge_of_varkhen_assault], held_by_target: []}
+constraints: [guild_duty, immediate_group_safety]
+history:
+  - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_positive_comradery_and_practical_trust}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
+last_event_id: milestone_047_seraphine_risk_disclosure

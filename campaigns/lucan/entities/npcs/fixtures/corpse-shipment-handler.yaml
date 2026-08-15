@@ -1,0 +1,21 @@
+schema_version: 1
+id: fixture_corpse_shipment_handler
+name: unknown
+status: accepted_by_user_pending_package_activation
+weight: fixture
+role: amateur_corpse_shipment_handler
+lifecycle: {state: alive_and_captured, last_confirmed_event_id: milestone_040_corpse_shipment_handler}
+current_location_id: loc_cemetery_underworks
+competence:
+  necromancy: total_amateur_with_narrow_transport_routine
+  can_operate: prepared_nearly_willless_transport_corpses
+  cannot_infer: general_control_of_autonomous_undead
+knowledge:
+  confirmed:
+    - {fact_id: fact_handler_knows_transport_schedule, source_event_id: milestone_040_corpse_shipment_handler, claim: Oren i dwóch ludzi od wozu zwykle przybywają północnym wyjściem przed północą.}
+    - {fact_id: fact_handler_knows_lower_crypt_key, source_event_id: milestone_040_corpse_shipment_handler, claim: Klucz do dolnej krypty posiada Oren.}
+    - {fact_id: fact_handler_prepared_four_transport_bodies, source_event_id: milestone_040_corpse_shipment_handler, claim: Cztery roboczo uruchomione ciała były przygotowane do wyprowadzenia na transport.}
+  suspected: []
+  false_beliefs: []
+condition_at_capture: [confused_by_subtle_cantrips, unconscious_after_boros_strike, bound]
+source_refs: [source_luka_b_fragment#line:7565-8010, source_user_decisions_current#calibration:handler-corpses-are-weak-transport-puppets]

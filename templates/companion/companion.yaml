@@ -1,0 +1,67 @@
+schema_version: 1
+id: companion_example
+name: Example companion
+status: draft
+entity_kind: companion
+mechanics:
+  object_type: build
+  base_ref: null
+  layers: []
+  classification:
+    operational_rank: null
+representation:
+  mode: individual
+  count: 1
+  member_ids: []
+  can_split: false
+controller:
+  entity_id: pc_example
+  control_type: bonded
+  strength: stable
+  autonomy: limited
+  can_refuse: false
+  can_break: true
+  break_conditions: []
+link:
+  active: true
+  range: touch
+  maintenance_cost: null
+  communication: []
+  energy_transfer:
+    allowed: false
+    directions: []
+    maximum_per_action: null
+    efficiency_percent: null
+resources: {}
+ratings: {}
+defenses: {}
+resistances: {}
+state:
+  location_ref: null
+  condition: stable
+  injuries: []
+  modifications: []
+  inventory_refs: []
+abilities:
+  - id: ability_example_native
+    name: Native ability
+    source: companion_example
+    usable_by:
+      - companion_example
+    requires_link: false
+    execution: self
+    status: known
+  - id: ability_example_shared
+    name: Shared ability
+    source: companion_example
+    usable_by:
+      - pc_example
+      - companion_example
+    requires_link: true
+    execution: through_link
+    status: known
+knowledge:
+  confirmed: []
+  suspected: []
+  false_beliefs: []
+last_updated_event_id: null

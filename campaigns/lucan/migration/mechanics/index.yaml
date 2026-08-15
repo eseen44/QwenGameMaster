@@ -1,0 +1,42 @@
+schema_version: 1
+id: lucan_mechanics_migration_index
+object_type: object_index
+status: in_calibration
+approved_rules_ref: mechanics_core_v1_approval
+replay_ref: campaign_lucan_replay_v1
+objects:
+  - {id: candidate_companion_spidey, ref: campaigns/lucan/migration/mechanics/objects/spidey-build.yaml, status: proposed_calibrated}
+  - {id: candidate_webber_monitor, ref: campaigns/lucan/migration/mechanics/objects/webber-monitor.yaml, status: proposed}
+  - {id: candidate_pc_lucan_cutoff, ref: campaigns/lucan/migration/mechanics/objects/lucan-cutoff.yaml, status: proposed_calibrated}
+  - {id: candidate_varkhen_cutoff, ref: campaigns/lucan/migration/mechanics/objects/varkhen-cutoff.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_mara_teln, ref: campaigns/lucan/migration/mechanics/objects/mara-teln.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_boros_keld, ref: campaigns/lucan/migration/mechanics/objects/boros-keld.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_halven_rusk, ref: campaigns/lucan/migration/mechanics/objects/halven-rusk.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_seraphine_vale, ref: campaigns/lucan/migration/mechanics/objects/seraphine-vale.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_oren, ref: campaigns/lucan/migration/mechanics/objects/oren.yaml, status: proposed_calibrated}
+  - {id: candidate_npc_darrik, ref: campaigns/lucan/migration/mechanics/objects/darrik.yaml, status: proposed_calibrated}
+  - {id: candidate_old_crypt_structure, ref: campaigns/lucan/migration/mechanics/objects/scan-target.yaml, status: proposed_calibration_target}
+  - {id: candidate_damaged_minor_undead, ref: campaigns/lucan/migration/mechanics/objects/damaged-undead.yaml, status: proposed_calibration_target}
+capability_extensions:
+  - capability_lucan_grave_sense
+  - capability_lucan_stone_sense
+  - capability_lucan_geo_protocol
+  - capability_lucan_corpse_stitch
+  - capability_lucan_death_anchor
+  - capability_lucan_grave_ward
+  - capability_lucan_borrowed_sense
+  - capability_lucan_saber_strike
+  - capability_lucan_misnotice
+  - capability_lucan_minor_bad_luck
+  - capability_lucan_necromantic_probe
+  - capability_lucan_network_energy_transfer
+  - capability_lucan_saber_cold_channel
+  - capability_lucan_bone_chill_ranged
+  - capability_lucan_minor_hex
+  - capability_lucan_basic_self_repair
+  - capability_lucan_vital_overdrive
+  - capability_varkhen_armored_grasp
+  - capability_varkhen_necrotic_reclamation
+  - capability_varkhen_ancient_regeneration
+activation_allowed: false
+activation_requires: [migration_package_02_lucan, migration_package_03_companions, shared_validation]

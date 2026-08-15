@@ -1,0 +1,77 @@
+schema_version: 1
+id: candidate_webber_monitor
+object_type: entity
+status: proposed
+name: Sieciarz monitoringowy — kandydat
+anatomy:
+  body_length_cm: 4
+  mass_kg: 0.02
+  jaw_span_cm: 0.8
+ratings:
+  physical_force: 4
+  carrying: 10
+  mobility: 21
+  reflexes: 32
+  stealth: 36
+  durability: 11
+  perception: 32
+defenses:
+  vitality: 13
+  awareness: 20
+  mobility: 28
+  anatomical_severing: 3
+resistances:
+  venom: 12
+  necrotic: 23
+  neuromuscular: 20
+resources:
+  necrotic_reservoir:
+    current: 4
+    capacity: 6
+    passive_decay_per_day: 1
+    autonomous_hunting:
+      enabled: true
+      expected_yield_per_day:
+      - 1
+      - 2
+capabilities:
+- capability_sparse_web_alarm
+traits:
+- tiny_body
+- autonomous_hunter
+- patient_observer
+- territory_monitor
+- sparse_web_coverage
+- self_hunting_battery
+- undead
+- no_pain_response
+- loses_primary_function_while_relocating
+- avoid_direct_combat
+link:
+  passive_connection_cost: 0
+  telemetry_bandwidth: minimal
+  communication:
+  - thread_break_signal
+classification:
+  operational_rank: D
+build:
+  base_ref: archetype_tiny_spider
+  layers:
+  - role_sentinel
+  - gimmick_sparse_web_monitor
+  - modifier_necromantic_animation
+  - weakness_stationary_network
+  - weakness_low_direct_offense
+  compiled_from: candidate_webber_monitor
+generation:
+  archetype: archetype_tiny_spider
+  role: sentinel
+  gimmick: sparse_web_monitor
+  weaknesses:
+  - stationary_network
+  - low_direct_offense
+  extra_layers:
+  - modifier_necromantic_animation
+  source_refs:
+  - source_luka_b_fragment#line:4954-5082
+  rank_constraints_ref: core_capability_scale

@@ -1,0 +1,17 @@
+schema_version: 1
+id: npc_halvek_wagonman
+name: Halvek
+status: accepted_by_user_pending_package_activation
+importance: light_named
+role: corpse_wagon_crew
+lifecycle: {state: captured_alive, last_confirmed_event_id: milestone_041_corpse_wagon_takeover}
+archetype_ref: fixture_human
+current_location_id: loc_guild_holding_cells
+knowledge:
+  confirmed:
+    - {fact_id: fact_halvek_knew_transport_routine, source_event_id: milestone_041_corpse_wagon_takeover, claim: Znał procedurę transportu i oczekiwał obecności Orena.}
+  suspicions: []
+  false_beliefs:
+    - {id: belief_crew_are_oren, basis_event_ids: [milestone_041_corpse_wagon_takeover], claim: Pod wpływem Confusion chwilowo uznał, że załoga jest Orenem.}
+agenda: [survive_capture]
+source_refs: [source_luka_b_fragment#line:7800-8290]

@@ -1,0 +1,57 @@
+schema_version: 1
+id: solmara_legal_order_baseline
+status: user_confirmed_campaign_baseline
+character: medieval_fragmented_status_based_and_inconsistently_enforced
+sources_of_authority:
+  - local_ruler_or_city_decrees
+  - custom_and_old_precedent
+  - guild_charters_and_internal_discipline
+  - church_doctrine_and_religious_jurisdiction
+  - magistrate_watch_and_official_discretion
+  - privileges_granted_to_estates_institutions_and_named_persons
+principles:
+  - Nie istnieje jeden kompletny kodeks obejmujący wszystkie formy magii i istot.
+  - Status, patron, obywatelstwo, przynależność cechowa, przysięga i użyteczność mogą znaczyć więcej niż abstrakcyjna równość wobec prawa.
+  - Prawo jest antropocentryczne; nie tworzy ogólnych praw zwierząt, orków ani wszystkich istot rozumnych.
+  - Ochrona nieczłowieka może wynikać z własności, traktatu, przywileju, patronatu, użyteczności albo zakazu religijnego, a nie z uniwersalnej podmiotowości.
+  - Brak przepisu nie oznacza bezpieczeństwa: władza może użyć zarzutów o zagrożenie publiczne, świętokradztwo, bezprawną magię, zniszczenie własności albo zakłócenie porządku.
+  - Egzekwowanie zależy od dowodu, widowni, pozycji oskarżonego, interesu instytucji i możliwości użycia siły.
+instrumental_use_by_power_blocs:
+  baseline: Duże instytucje traktują prawo jako repertuar roszczeń, wyjątków, przywilejów i procedur używanych do ochrony własnych interesów.
+  methods:
+    - wybór korzystnej jurysdykcji lub sądu
+    - selektywne ujawnianie, zabezpieczanie albo gubienie dowodów
+    - nazywanie tej samej praktyki konstruktem, chowańcem, świętokradztwem, zagrożeniem publicznym albo eksperymentem licencjonowanym
+    - powoływanie się na statut cechu, immunitet, rozkaz kryzysowy, patronat albo dawny precedens
+    - ściganie słabego wykonawcy przy jednoczesnym chronieniu użytecznego specjalisty
+    - wymiana odstąpienia od zarzutów na służbę, dostęp, lojalność, milczenie albo oddanie odkrycia
+    - tworzenie precedensu przeciw rywalowi i blokowanie precedensu grożącego własnym praktykom
+  asymmetry:
+    weak_actor: częściej doświadcza prawa jako bezpośredniej kary
+    protected_actor: może negocjować klasyfikację, forum, dowody i warunki osłony
+    institution: może naruszać ducha prawa, twierdząc, że broni porządku, bezpieczeństwa albo własnego przywileju
+  limits:
+    - Publiczny, zrozumiały skandal podnosi koszt ochrony nawet dla silnej instytucji.
+    - Rywal dysponujący dowodem może uniemożliwić ciche zamknięcie sprawy.
+    - Prawo nadal dostarcza legitymacji, procedur i kar; instrumentalność nie oznacza pełnej dowolności bez kosztów.
+    - Otwarta przemoc bez podstawy prawnej może połączyć przeciw sprawcy inne grupy.
+magic_classification:
+  inert_material_construct_or_golem:
+    default: tolerated_or_regulated_craft
+    disputes: [licensing, ownership, public_danger, military_use, liability_for_damage]
+  living_creature_magically_modified:
+    default: poorly_categorized
+    disputes: [ownership, dangerous_beast, forbidden_method, guild_or_academic_privilege]
+  dead_animal_animated_as_tool:
+    default: contested_boundary_between_construct_and_necromancy
+    church_view: necromantic_desecration
+    academic_boundary_pushers_view: may_be_construct_if_animation_does_not_preserve_or_bind_a_personal_soul
+  human_corpse_animated_or_maintained:
+    default: clearly_necromantic_and_illegal
+  sapient_undead_controlled_or_maintained:
+    default: severe_necromantic_offense_and_public_threat
+unsettled_nonhuman_status:
+  general_rule: Nie zakładać nowoczesnych, gatunkowo uniwersalnych praw.
+  case_specific_protection_may_come_from: [treaty, citizenship, guild_membership, military_service, patron, property_status, religious_status]
+  unknowns_not_to_invent_silently: [exact_status_of_orcs_in_lumaria, slavery_or_serfdom_rules, foreign_treaties, rights_of_sapient_constructs]
+source_refs: [source_user_decisions_current#canon:medieval_fragmented_anthropocentric_law, source_user_decisions_current#canon:major_groups_use_law_instrumentally]

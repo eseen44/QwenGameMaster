@@ -1,0 +1,19 @@
+schema_version: 1
+id: rel_mara_to_lucan
+status: needs_review
+review_status: accepted_by_user_pending_package_activation
+subject_id: npc_mara_teln
+target_id: pc_lucan
+layer: personal
+stance: positive_cautious_comrade
+axes: {cooperation: 40, judgment_confidence: 50, discretion_trust: 25, personal_regard: 30}
+reasons: [shared_tannery_and_cemetery_history, lucan_helped_save_rusk, lucan_repeatedly_found_workable_paths]
+obligations: []
+shared_secrets: [varkhen_assault_witness]
+leverage: {held_by_subject: [knowledge_of_varkhen_assault_and_visible_weakening], held_by_target: []}
+constraints: [guild_duty, concern_about_unexplained_magic]
+history:
+  - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_positive_history_and_trust_in_lucans_judgment}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
+last_event_id: milestone_047_seraphine_risk_disclosure
+source_refs: [source_user_decisions_current#approval:mara_card]

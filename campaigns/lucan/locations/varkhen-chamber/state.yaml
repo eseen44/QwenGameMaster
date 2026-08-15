@@ -1,0 +1,13 @@
+schema_version: 1
+location_id: loc_varkhen_chamber
+status: accepted_by_user_pending_package_activation
+occupants: [pc_lucan, companion_varkhen, npc_seraphine_vale]
+hazards:
+  - {id: hazard_unstable_collapse, zone_id: zone_collapse_foot, state: active}
+  - {id: hazard_varkhen, zone_id: zone_sarcophagus, state: critically_damaged_formally_bound_and_voluntarily_cooperating_not_physically_held_by_boros}
+obstacles:
+  - {id: obstacle_broken_old_door, zone_id: zone_door, state: forced_open}
+  - {id: obstacle_cracked_sarcophagus, zone_id: zone_sarcophagus, state: badly_damaged}
+damage: [fresh_pick_damage, cracked_lid, disturbed_old_masonry]
+environment: {light: carried_lights, sound: settling_stone, visibility_meters: 10}
+last_updated_event_id: milestone_047_seraphine_risk_disclosure

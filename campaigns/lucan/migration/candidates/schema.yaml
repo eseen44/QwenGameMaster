@@ -1,0 +1,25 @@
+schema_version: 1
+record_type: migration_candidate_fact
+required_fields:
+  - id
+  - claim
+  - category
+  - source_refs
+  - confidence
+  - cutoff_relation
+  - proposed_target
+fields:
+  id: fact_stable_id
+  claim: Human-readable atomic claim.
+  category: character|ability|inventory|companion|npc|faction|location|world_state|plot|scene|milestone
+  source_refs:
+    - source_id#message_or_decision_position
+  confidence: confirmed|strong|weak|conflicted
+  cutoff_relation: before|at|after|unknown
+  proposed_target: Project-relative canonical path.
+  proposed_value: null
+  conflict_ids: []
+  package_id: migration_package_id
+  status: proposed|accepted|rejected|uncertain
+  notes: []
+

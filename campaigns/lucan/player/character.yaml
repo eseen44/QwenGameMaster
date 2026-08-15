@@ -1,0 +1,42 @@
+schema_version: 1
+id: pc_lucan
+name: Lucan
+status: needs_review
+world_ref: worlds/solmara
+current_location_ref: loc_varkhen_chamber
+aliases: [Veyr]
+classification:
+  guild_rank: D
+  direct_physical: E
+  prepared_operational_peak: C
+mechanics_ref: candidate_pc_lucan_cutoff
+background_ref: campaigns/lucan/player/background.yaml
+attributes:
+  physical_force: 16
+  mobility: 19
+  reflexes: 18
+  stealth: 27
+  durability: 17
+defenses:
+  vitality: 19
+  awareness: 29
+  mobility: 19
+  anatomical_severing: 31
+resistances:
+  venom: 20
+  necrotic: 34
+  neuromuscular: 23
+  mental: 26
+conditions:
+  - id: post_varkhen_energy_pressure
+    status: approved_campaign_calibration
+    source_event_id: milestone_045_varkhen_takeover
+    reason: current_reserve_14_exceeds_old_pre_overload_comfortable_threshold_12
+facts_confirmed:
+  - Lucan jest żywy, przytomny i nie odniósł w komorze Varkhena jawnej rany fizycznej.
+  - Jego przewaga wynika z wiedzy, przygotowania, sług, osłabień i wykorzystywania słabości, nie z siły fizycznej.
+  - Bez przygotowania pozostaje fizycznie w zakresie zwykłego, niezbyt silnego człowieka.
+  - Bezpośrednio przed granicą kanonu przejął kontrolę nad Varkhenem przy pomocy Mary i Borosa.
+  - Przeciążenie kolektora trwale poszerzyło rezerwę z komfortowego progu 12 do twardej pojemności 15; energia powyżej dawnego progu jest chwilowo mniej subtelna i łatwiejsza do wykrycia.
+facts_uncertain: []
+last_updated_event_id: milestone_045_varkhen_takeover

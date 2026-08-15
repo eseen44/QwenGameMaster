@@ -1,0 +1,42 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+scene_ref: campaigns/lucan/context/scene.yaml
+always_load:
+  - system/narrator.md
+  - system/player-agency.md
+load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+load_when_time_matters:
+  - system/pacing.md
+load_when_location_changes:
+  - system/locations-and-maps.md
+load_when_social_stakes_matter:
+  - system/social-intrigue.md
+load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/locations/varkhen-chamber/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/varkhen.yaml
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml
+  - campaigns/lucan/entities/npcs/varkhen.yaml
+  - campaigns/lucan/companions/varkhen.yaml
+  - campaigns/lucan/relationships/seraphine--lucan.yaml
+  - campaigns/lucan/relationships/varkhen--lucan.yaml
+  - campaigns/lucan/companions/spidey.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/locations/varkhen-chamber/state.yaml
+  - campaigns/lucan/state/secrets.yaml
+search_terms: [Seraphine, Varkhen, wysypisko, cztery ciała, kaplica, pieczęcie, kontrola]
+last_refreshed_event_id: milestone_047_seraphine_risk_disclosure
+context_bytes: 0
+context_budget_bytes: 40960

@@ -1,0 +1,13 @@
+schema_version: 1
+id: effect_bone_chill_ranged
+object_type: effect
+status: proposed_calibrated
+name: Bone Chill — osłabiony impuls dystansowy
+vector: cold
+application_rating: 27
+initial_magnitude: 8
+progression: {maximum_magnitude: 24}
+resource_cost: {pool: lucan_necrotic_energy, units: 2}
+delivery_profile: {mode: ranged_impulse, relative_intensity: reduced}
+limitations: [weaker_than_touch_or_short_cone, conspicuous_frost, inefficient_at_range]
+source_refs: [source_luka_b_fragment#line:407-412, source_luka_b_fragment#line:516-520, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]

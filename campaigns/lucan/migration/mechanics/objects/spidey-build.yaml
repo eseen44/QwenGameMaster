@@ -1,0 +1,21 @@
+schema_version: 1
+id: candidate_companion_spidey
+name: Spidey — kandydat mechaniczny
+object_type: build
+status: proposed_calibrated
+base_ref: archetype_tiny_spider
+layers:
+  - role_assassin
+  - gimmick_necrotic_ambusher
+  - modifier_necromantic_animation
+  - modifier_spidey_physical_upgrades
+  - modifier_spidey_secondary_venom
+  - modifier_death_anchor
+  - weakness_area_attacks
+classification: {operational_rank: C, direct_combat: D, prepared_threat: C}
+overrides:
+  controller_ref: pc_lucan
+  provenance:
+    source_refs: [source_luka_b_fragment#line:4800-5082, source_luka_b_fragment#line:11251-11397]
+    calibration_replay_ref: campaign_lucan_replay_v1
+    active_canon: false

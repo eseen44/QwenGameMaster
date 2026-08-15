@@ -1,0 +1,21 @@
+schema_version: 1
+id: capability_necrotic_spider_bite
+object_type: capability
+status: calibration_fixture
+name: Unmodified necrotic spider bite
+tags: [contact, bite, trauma, severing]
+delivery:
+  method: bite
+  reach_cm: 1
+  activation: quick
+  requirements: [reach_contact, exposed_or_penetrable_tissue]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings:
+  accuracy: 31
+  penetration: 24
+  tissue_trauma: 12
+  severing: 5
+limits:
+  maximum_severable_diameter_cm: 0.8
+effects: [effect_necrotic_spider_necrosis]

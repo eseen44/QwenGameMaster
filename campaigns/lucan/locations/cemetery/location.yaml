@@ -1,0 +1,18 @@
+schema_version: 1
+id: loc_cemetery
+name: Cmentarz Lumarii
+status: accepted_by_user_pending_package_activation
+world_ref: worlds/solmara
+type: exterior_complex
+scale: {unit: abstract_meter, svg_pixels_per_unit: 20, confidence: estimated}
+orientation: {north: up}
+connections:
+  - {id: connection_cemetery_city, zone_id: zone_south_gate, leads_to: loc_lumaria, travel_time: needs_review}
+  - {id: connection_collapse_descent, zone_id: zone_north_collapse, leads_to: loc_varkhen_chamber, travel_time: 2 minutes with ropes}
+  - {id: connection_chapel, zone_id: zone_chapel, leads_to: loc_cemetery_chapel, travel_time: 1 minute}
+  - {id: connection_north_ramp, zone_id: zone_north_ramp, leads_to: loc_cemetery_underworks, travel_time: 3 minutes}
+map_refs:
+  layout: campaigns/lucan/locations/cemetery/maps/layout.yaml
+  gm: campaigns/lucan/locations/cemetery/maps/gm.svg
+  player: campaigns/lucan/locations/cemetery/maps/player.svg
+source_refs: [source_luka_b_fragment#line:5351-5559, source_luka_b_fragment#line:9325-11251]

@@ -1,0 +1,112 @@
+schema_version: 1
+package_id: migration_package_01_timeline
+name: Granica kanonu i kamienie milowe
+revision: 29
+status: approved
+depends_on: []
+milestones_ref: campaigns/lucan/migration/packages/01-timeline/milestones.yaml
+source_pass_ref: campaigns/lucan/migration/packages/01-timeline/source-pass.md
+source_pass_luka_b_ref: campaigns/lucan/migration/packages/01-timeline/source-pass-luka-b.md
+confirmed:
+  - id: fact_cutoff_after_seraphine_risk_disclosure
+    claim: Kanon obejmuje cały dostępny dialog i kończy się na pytaniu Seraphine, czy dwa ciała na wysypisku nadal tam są; końcowy nawias Lucana jest wyłącznie prośbą o przypomnienie.
+    category: milestone
+    source_refs:
+      - source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/journal/events.jsonl
+    proposed_value: milestone_047_seraphine_risk_disclosure
+    conflict_ids: []
+    package_id: migration_package_01_timeline
+    status: proposed
+  - id: fact_no_historical_roll_reconstruction
+    claim: Historyczne rzuty nie będą rekonstruowane ani dopisywane do rolls.jsonl.
+    category: milestone
+    source_refs:
+      - source_user_decisions_current#approved_plan:no_historical_roll_reconstruction
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/journal/rolls.jsonl
+    proposed_value: no_import
+    conflict_ids: []
+    package_id: migration_package_01_timeline
+    status: proposed
+proposed:
+  - id: fact_milestone_sequence_v29
+    claim: Pięćdziesiąt osiem wpisów w milestones.yaml stanowi chronologię kamieni milowych v29, od początku kampanii do częściowego ujawnienia Seraphine ryzyka związanego z ofiarami Lucana.
+    category: milestone
+    source_refs:
+      - source_in_character_partial#line:43-1803
+      - source_prior_full_thread_analysis
+      - source_luka_b_fragment#line:1-12012
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/journal/events.jsonl
+    proposed_value: campaigns/lucan/migration/packages/01-timeline/milestones.yaml
+    conflict_ids:
+      - conflict_timeline_source_gap
+    package_id: migration_package_01_timeline
+    status: proposed
+conflicts:
+  - id: conflict_timeline_source_gap
+    description: luka_B szeroko pokrywa kampanię, ale nie jest zweryfikowanym pełnym eksportem około 920 tur i może nadal pomijać strony albo alternatywne wersje scen.
+    impact: Chronologia kamieni milowych jest teraz gęsta i źródłowa, lecz kompletność drobnych zdarzeń wymaga późniejszego audytu pełnego eksportu.
+    resolution: Zatwierdzenie pakietu przez użytkownika; pełny eksport pozostaje późniejszą kontrolą kompletności, nie blokadą dalszego opracowania kandydatów.
+missing:
+  - Dokładne daty i czas pomiędzy kamieniami milowymi.
+  - Pełny eksport do kontroli, czy luka_B nie pominęła drobnych scen.
+  - Drobne zdarzenia pominięte zgodnie z wybraną głębokością migracji.
+approval:
+  required: true
+  current_revision_status: approved
+  approval_ref: campaigns/lucan/migration/approvals/index.yaml
+revision_notes:
+  - Rewizja 29 została zatwierdzona przez użytkownika jako pełna chronologia 58 kamieni milowych.
+  - Rewizja 29: użytkownik doprecyzował, że Lucan proponuje układ Varkhenowi, a Varkhen go przyjmuje; w późniejszej rozmowie obecni są Lucan, Seraphine i Varkhen, zaś Mara oraz Boros wychodzą.
+  - Rewizja 28: użytkownik zatwierdził odcinek od śmierci Orena do formalnego przejęcia Varkhena; osobno zapisano północne osuwisko i odkrycie komory Varkhena.
+  - Rewizja 27: porównanie z pełnym scalonym przebiegiem potwierdziło łuk Orena; doprecyzowano, że B-rankerzy utrzymują kordon cmentarza, a Seraphine blokuje pierwszą próbę zabójstwa Orena.
+  - Rewizja 26: rozdzielono reakcję na budzących się nieumarłych, zejście pod kaplicę, ujawnienie pasożytniczej więzi Orena, powrót na powierzchnię, próbę zabójstwa oraz późniejsze kontrolowane zakończenie.
+  - Rewizja 25: użytkownik zatwierdził przejście po przeciążeniu kolektora do wschodniej części cmentarza, pod kaplicę i północny fundament.
+  - Rewizja 24 rozdziela błędnie sklejony odcinek Orena: najpierw powrót z Seraphine do północno-zachodniego centrum logistycznego przy trasie wozu, potem przeładowanie lokalnego narzędzia/kolektora i odcięcie przepływu energii z serca do wschodniej części cmentarza, a dopiero później przejście na wschód pod kaplicę, badanie przekaźnika i rozpoznanie prawdziwego Orena.
+  - Rewizja 23 zagęszcza przejście do systemu Orena: po zabezpieczeniu i odwiezieniu dokumentów oraz dowodów z transportu Lucan wraca pod cmentarz z Seraphine, a przeładowanie kolektora staje się bezpośrednim zdarzeniem odsłaniającym skalę układu i budzącym reakcję nieumarłych.
+  - Rewizja 22 potwierdza przejęcie wozu bez Orena oraz późniejsze przeniesienie zawartości metalowej skrzyni przez Spideya i jednego sieciarza jako zaakceptowaną wersję chronologii.
+  - Rewizja 21 klasyfikuje ciała młodego operatora jako bardzo słabe, ręcznie prowadzone marionetki transportowe, nie autonomiczne zombie, oraz zapisuje użycie drobnych klątw jako test niskiej odporności i braku magicznego przygotowania operatora.
+  - Rewizja 20 zagęszcza nocne wejście: rabunek szopy i kancelarii, odzyskanie oraz zabezpieczenie młodego strażnika, otwarcie trasy spod ołtarza, nieumarłego numer 1, opróżnione krypty, przejęcie zdalnie sterowanego zombie oraz przesłuchanie młodego operatora wraz z logistyką wozu.
+  - Rewizja 19 rozdziela trzy podziemne sygnały: nieumarłego przy zachodnim murze, drugiego zombie wyczutego przez ścianę piwnicy kaplicy oraz osobną niesklasyfikowaną anomalię pod północnym fundamentem. Dwa nieumarłe zgłoszone Gildii odpowiadają pierwszym dwóm rzeczywistym wykryciom.
+  - Rewizja 18 przywraca przygotowanie nocnej operacji: kontrolę i autodestrukcję nieumarłego przy systemie zachodniego muru, podejrzenie własnej odpowiedzialności Lucana, ostrzeżenie sierżanta, kontrolę czterech ciał w kostnicy, brak młodego strażnika, pełny raport Seraphine, przydzielenie Mary i Borosa oraz polecenie zabicia Terena i Marael jako element fałszywej przykrywki problemu pod kaplicą.
+  - Rewizja 17 rozszerza dzienne śledztwo cmentarne o rozmowy z całym personelem, liczne pustki i zawały wykryte przez Geo, tunel przy zachodnim murze, oddzielne sygnały zombie pod kaplicą i anomalii pod północnym fundamentem oraz układ z nieznanym rozmówcą korzystającym z zahipnotyzowanego pracownika kancelarii jako proxy. Grobowiec przeznaczony na oficjalne źródło problemu pozostaje nienazwany, lecz jego pozycja została wskazana Lucanowi na mapie.
+  - Rewizja 16 określa małych sieciarzy jako samowystarczalnych dzięki polowaniu oraz zapisuje przewodzenie zimna przez szablę jako naturalny rozwój Mroźnego Dotyku/Bone Chill.
+  - Rewizja 15 rozwija pierwszą masakrę cmentarną, chwilową animację młodego strażnika, pierwszy fizyczny overdrive Lucana, pochodnię tłumu, rabunek wykonany pod osłoną zamieszania, powody porzucenia piwnicy oraz ekonomiczną i osobistą motywację ponownego przyjęcia zlecenia cmentarnego.
+  - Rewizja 14 odtwarza pełne oficjalne oczyszczanie garbarni: klątwę Ruska rozbijającą szyk, przejedzenie Spideya szczątkami, wspólną decyzję o odwrocie, Numb podczas pościgu, rabunek biura w trakcie ratunku, raport dla Seraphine, śledztwo wobec Ruska i awans Lucana do D-rank.
+  - Rewizja 13 usuwa niepotwierdzone założenie, że żywy cel pierwszego bezpośredniego drenu był człowiekiem; źródło pokazuje przykuty zmutowany obiekt eksperymentalny o nieustalonym pochodzeniu.
+  - Rewizja 12 koryguje rolę Odrana: spotkał Lucana podczas rozmowy z grabarzami, zaoferował pomoc i usłyszał o możliwym dofinansowaniu cmentarza, lecz do dalszego spotkania nie doszło.
+  - Rewizja 11 włącza cały dostępny dialog: prywatną rozmowę z Seraphine, trop kapłana i Orena, temat Inkwizycji, wykryty rozkaz dla Spideya i częściowe ujawnienie czterech ciał.
+  - Przesunięto granicę kanonu do chwili po układzie dotyczącym ślubów i trzech pieczęci Varkhena, lecz przed prywatną rozmową z Seraphine.
+  - Doprecyzowano upgrade Spideya: wężowe kły i dodatkowy gruczoł generują na żądanie paraliżującą neurotoksynę, nie zastępując pierwotnej nekrotycznej wydzieliny.
+  - luka_B zarejestrowano jako szerokie źródło kampanii; aktualna decyzja użytkownika obejmuje kanonem cały plik do linii 12012.
+  - Pierwszą masakrę cmentarną przeniesiono przed awans i tydzień przygotowań; główne zlecenie cmentarne pozostaje oddzielną późniejszą przygodą.
+  - Odtworzono pełne prywatne zlecenie właściciela, nocną Komorę III, sabotaż stymulantem oraz oficjalne oczyszczanie.
+  - Szablę zapisano jako oszpeconą, lecz sprawną, zamiast zniszczonej.
+  - Geo zapisano jako skrót równoczesnego użycia Grave Sense i kamiennego czucia drgań/pustek, nie potwierdzoną fuzję.
+  - Czterech podstawowych sieciarzy utworzono pomyślnie; zgnieciony został późniejszy piąty okaz kancelaryjny.
+  - Kradzież zawartości skrzyni przez Spideya i sieciarza przeniesiono po przejęciu wozu.
+  - Dodano źródłowe etapy kolektora, Orena, serca cmentarza i przejęcia Varkhena.
+  - Dodano kradzież przedmiotów z wozu wykonaną przez pająki jako osobny etap przed przejęciem całego powozu.
+  - Dodano naukę Geo jako fuzję dwóch umiejętności; składniki pozostają do nazwania.
+  - Dodano gęsty indeks całego dostępnego In_Character.txt z 54 zachowanymi punktami i sześcioma jawnymi lukami.
+  - Rozbito rozwój pajęczej sieci na nieudanego kandydata, rekrutację czterech sieciarzy, wyznaczenie głównego i rozstawienie trzech jednostek monitoringowych.
+  - Zapisano rzadkie nici, detekcję zerwania oraz oddzielono przyszłe aspiracje od obecnych zdolności sieci.
+  - Śmierć Terena i Marael przeniesiono przed spotkanie zarządcy wysyłki trupów.
+  - Dodano spotkanie zarządcy wysyłki i przejęcie powozu jako osobne kamienie milowe.
+  - Odkrycie systemu Orena przeniesiono po przejęciu powozu.
+  - Potwierdzono basztę przy murze jako nową główną kryjówkę.
+  - Rozbito łuk garbarni z dwóch wpisów na trzynaście osobnych kamieni milowych.
+  - Dodano zlecenie w koszarach, zwiad wysypiska, dniówkę, znalezienie włazu i zatrucie pracownika.
+  - Dodano walkę z pierwszym zmutowanym szczurem, zdradę robotników i reputację bohatera.
+  - Dodano wezwanie wsparcia, nocny rekonesans kopca, oficjalne oczyszczanie i ucieczkę przed szczuroogrem.
+  - Dodano dwie ofiary na wysypisku: strażnika i szperacza.
+  - Dodano zlecenie właściciela na zniszczenie dokumentów oraz późniejszą zdradę.
+  - Dodano ocalenie Ruska, tłumaczenie w gildii, ponowne bohaterstwo i awans do D-rank.
+  - Dodano tygodniowy downtime: zakupy, trening, zniszczenie miecza i ulepszenie Spideya.
+  - Rozbito przygodę cmentarną na eksplorację, mapowanie, rozmowy i odzyskanie młodszego strażnika.

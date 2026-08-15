@@ -1,0 +1,23 @@
+schema_version: 1
+id: gimmick_necrotic_ambusher
+object_type: modifier
+status: calibration_fixture
+name: Necrotic ambusher gimmick
+overrides:
+  resources:
+    necrotic_reservoir:
+      current: 8
+      capacity: 12
+      passive_decay_per_day: 1
+      autonomous_hunting:
+        enabled: true
+        expected_yield_per_day: [1, 3]
+  link:
+    passive_connection_cost: 0
+    telemetry_bandwidth: low
+    energy_transfer:
+      maximum_per_action: 3
+      efficiency_percent: 70
+append:
+  capabilities: [capability_necrotic_spider_bite]
+  traits: [necrotic_delivery, delayed_kill_profile]

@@ -1,0 +1,50 @@
+schema_version: 1
+id: core_bruteforce_amplification
+object_type: amplification_scale
+status: approved_system_rule
+name: Brutalne skalowanie znanego wzorca
+tiers:
+  - {tier: 0, optimized_energy_cost: 0.1, minimum_expertise: 10}
+  - {tier: 1, optimized_energy_cost: 1, minimum_expertise: 15}
+  - {tier: 2, optimized_energy_cost: 2, minimum_expertise: 20}
+  - {tier: 3, optimized_energy_cost: 4, minimum_expertise: 24}
+  - {tier: 4, optimized_energy_cost: 8, minimum_expertise: 27}
+  - {tier: 5, optimized_energy_cost: 16, minimum_expertise: 30}
+  - {tier: 6, optimized_energy_cost: 32, minimum_expertise: 32}
+  - {tier: 7, optimized_energy_cost: 64, minimum_expertise: 40}
+  - {tier: 8, optimized_energy_cost: 128, minimum_expertise: 52}
+  - {tier: 9, optimized_energy_cost: 256, minimum_expertise: 68}
+  - {tier: 10, optimized_energy_cost: 512, minimum_expertise: 85}
+gap_penalties:
+  - {gap: 0, multiplier: 1}
+  - {gap: 1, multiplier: 2}
+  - {gap: 2, multiplier: 4}
+  - {gap: 3, multiplier: 8}
+  - {gap: 4, multiplier: 16}
+  - {gap: 5, multiplier: 32}
+  - {gap: 6, multiplier: 64}
+  - {gap: 7, multiplier: 128}
+  - {gap: 8, multiplier: 256}
+  - {gap: 9, multiplier: 512}
+  - {gap: 10, multiplier: 1024}
+axes: [intensity, area, range, duration, targets, persistence, precision]
+additional_axis_multiplier: 1
+channel_interval_seconds: 6
+throughput:
+  linked_capacity_safe_turnovers_per_second: 1
+  load_bands:
+    - {maximum_ratio: 1, state: within_safe_flow}
+    - {maximum_ratio: 2, state: strained_flow}
+    - {maximum_ratio: 5, state: severe_overload}
+    - {maximum_ratio: 10, state: extreme_overload_permanent_change_possible}
+    - {maximum_ratio: null, state: catastrophic_overload_risk}
+rules:
+  special_education_required: false
+  known_base_pattern_required: true
+  energy_must_exist_in_world_state: true
+  amplified_cast_is_never_subtle: true
+  axes_are_already_priced_into_target_tier: true
+  cost_flow_and_channel_capacity_are_distinct: true
+  exceeding_channel_capacity_is_not_automatic_death: true
+  insufficient_expertise_or_energy: possible_only_with_new_leverage
+source_refs: [source_user_decisions_current#calibration:bruteforce-metamagic-and-optimized-higher-spells]

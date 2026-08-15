@@ -1,0 +1,17 @@
+schema_version: 1
+id: companion_varkhen
+object_type: entity_instance
+status: active
+definition_ref: candidate_varkhen_cutoff
+revision: 2
+position: {location_id: loc_lumaria_guild_basement, zone_id: temporary_holding}
+integrity: {current: 8, maximum: 65}
+resources: {ancient_necrotic_reservoir: {current: 18, capacity: 72}}
+conditions:
+  - {id: formal_control_link_unenforced, stacks: 1, magnitude: 70, source_event_id: milestone_045_varkhen_takeover}
+  - {id: severely_depleted, mechanics_ref: condition_recovery_suppressed, stacks: 1, magnitude: 75, source_event_id: milestone_045_varkhen_takeover}
+  - {id: bodily_integrity_compromised, stacks: 1, magnitude: 85, source_event_id: milestone_045_varkhen_takeover}
+  - {id: voluntary_oath_compact, stacks: 1, magnitude: 60, source_event_id: milestone_046_varkhen_oath_compact}
+status_flags: [undead, conscious, critically_damaged, guild_basement_custody, full_free_will_default, formal_control_link_unenforced, control_mechanics_mutually_unknown, voluntary_compact_active, confidentiality_accepted]
+last_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_luka_b_fragment#line:11251-12012, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

@@ -1,0 +1,28 @@
+schema_version: 1
+id: intent_kill
+object_type: intent
+status: active_system_rule
+name: Kill target
+paths:
+  - id: direct_trauma
+    requires_capability_tag: trauma
+    rating_path: capability.ratings.tissue_trauma
+    defense_path: target.defenses.vitality
+  - id: necrotic_deterioration
+    effect_vector: necrotic
+    rating_path: effect.application_rating
+    defense_path: target.resistances.necrotic
+    hard_limits:
+      - left: effect.progression.maximum_magnitude
+        operator: ">="
+        right: target.thresholds.lethal_magnitude
+        reason: effect_cannot_reach_lethal_magnitude
+  - id: paralytic_shutdown
+    effect_vector: paralytic_toxin
+    rating_path: effect.application_rating
+    defense_path: target.resistances.neuromuscular
+    hard_limits:
+      - left: effect.progression.maximum_magnitude
+        operator: ">="
+        right: target.thresholds.lethal_magnitude
+        reason: effect_cannot_reach_lethal_magnitude

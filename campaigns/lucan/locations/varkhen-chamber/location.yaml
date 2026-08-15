@@ -1,0 +1,25 @@
+schema_version: 1
+id: loc_varkhen_chamber
+name: Komora Varkhena pod północnym osuwiskiem cmentarza
+status: accepted_by_user_pending_package_activation
+world_ref: worlds/solmara
+parent_location_ref: campaigns/lucan/locations/cemetery/location.yaml
+type: underground_chamber
+scale: {unit: meter, svg_pixels_per_unit: 40}
+orientation: {north: up, confidence: estimated}
+connections:
+  - id: connection_collapse_descent
+    zone_id: zone_collapse_foot
+    leads_to: loc_cemetery
+    travel_time: 2 minutes with ropes
+known_unmapped_connections:
+  - id: connection_front_trial_corridor
+    leads_to: unknown_three_trial_route
+    travel_time: unknown
+    geometry: not_yet_located_from_inside_chamber
+    knowledge_source_event_id: milestone_046_varkhen_oath_compact
+map_refs:
+  layout: campaigns/lucan/locations/varkhen-chamber/maps/layout.yaml
+  gm: campaigns/lucan/locations/varkhen-chamber/maps/gm.svg
+  player: campaigns/lucan/locations/varkhen-chamber/maps/player.svg
+source_refs: [source_luka_b_fragment#line:11207-12012]

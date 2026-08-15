@@ -1,0 +1,22 @@
+schema_version: 1
+location_id: loc_varkhen_chamber
+status: accepted_estimated_geometry
+canvas: {width_px: 800, height_px: 500, margin_px: 50}
+scale: {unit: meter, pixels_per_unit: 40, bar_units: 2}
+orientation: {north: up, confidence: estimated}
+zones:
+  - {id: zone_collapse_foot, shape: rectangle, x_m: 1, y_m: 8, width_m: 5, height_m: 2, player_visible: true, measurement: estimated}
+  - {id: zone_door, shape: rectangle, x_m: 3, y_m: 6.8, width_m: 2, height_m: 0.3, player_visible: true, measurement: estimated}
+  - {id: zone_chamber, shape: rectangle, x_m: 0, y_m: 0, width_m: 8, height_m: 6, player_visible: true, measurement: estimated}
+  - {id: zone_sarcophagus, shape: rectangle, x_m: 3, y_m: 2, width_m: 2.5, height_m: 1.2, player_visible: true, measurement: estimated}
+  - {id: zone_uncharted_masonry, shape: rectangle, x_m: 8, y_m: 0.5, width_m: 2, height_m: 5, player_visible: false, measurement: unknown}
+features:
+  - {id: feature_ropes, zone_id: zone_collapse_foot, kind: vertical_exit, x_m: 2, y_m: 8, player_visible: true}
+  - {id: feature_old_door, zone_id: zone_door, kind: forced_stone_door, x_m: 3, y_m: 6.8, width_m: 2, player_visible: true}
+  - {id: feature_sarcophagus, zone_id: zone_sarcophagus, kind: cracked_sarcophagus, x_m: 3, y_m: 2, width_m: 2.5, height_m: 1.2, player_visible: true}
+  - {id: feature_scattered_metal, zone_id: zone_chamber, kind: unidentified_metal, x_m: 1, y_m: 1, player_visible: true}
+  - {id: feature_unresolved_structure, zone_id: zone_uncharted_masonry, kind: uncharted_old_masonry, x_m: 8, y_m: 0.5, player_visible: false}
+connections:
+  - {id: connection_collapse_descent, from_zone: zone_collapse_foot, to_location: loc_cemetery, player_visible: true}
+known_unmapped_connections:
+  - {id: connection_front_trial_corridor, from_zone: unknown, to_location: unknown_three_trial_route, player_visible: true, geometry: unknown_not_drawn}

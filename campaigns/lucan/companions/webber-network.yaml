@@ -1,0 +1,55 @@
+schema_version: 1
+id: companion_webber_network
+name: Sieć czterech sieciarzy
+status: accepted_by_user_pending_package_activation
+entity_kind: companion
+representation:
+  mode: group_with_named_primary
+  count: 4
+  body_scale: small_spiders
+  member_ids: [webber_anchored, webber_home, webber_tannery, webber_dump]
+  can_split: true
+  split_rule: Zakotwiczony lub trwale zmodyfikowany sieciarz otrzymuje własny stan; pozostałe zachowują stabilne identyfikatory posterunków.
+controller:
+  entity_id: pc_lucan
+  control_type: simple_necromantic_command
+  strength: stable_for_simple_orders
+  autonomy: autonomous_hunting_and_local_pathfinding
+  can_refuse: false
+  can_break: true
+  break_conditions: [reservoir_depletion, body_destruction, control_link_severed]
+link:
+  active: true
+  range: remote_with_distance_loss
+  maintenance_cost: 0
+  communication: [thread_break_signal, minimal_status]
+survival_model:
+  self_sufficient: true
+  food_source: autonomous_small_prey_hunting
+  routine_upkeep_cost: 0
+  limitation: self_sufficiency_maintains_small_bodies_and_separate_reservoirs_not_unlimited_power
+growth:
+  model_ref: system/companion-growth.md
+  permanent_growth_steps: 0
+  historical_life_force_total: unknown_not_reconstructed
+  current_investment: 0
+  rule: Future trapper functions must be purchased through explicit, increasingly costly growth rather than assumed from autonomous hunting.
+state:
+  location_ref: multiple_routes_toward_city_wall_hideout
+  condition: evacuated_posts_and_recharged
+  casualties: 1
+  casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
+  modifications: [undead_animation, sparse_area_web]
+abilities:
+  - {id: ability_sparse_web_alarm, capability_ref: capability_sparse_web_alarm, current: true, role: current_monitoring_function}
+  - {id: ability_autonomous_small_prey_hunting, current: true}
+  - {id: ability_poison_delivery_through_threads, current: false, status: future_aspiration}
+  - {id: ability_eavesdropping_through_threads, current: false, status: future_aspiration}
+  - {id: ability_magic_detection_through_threads, current: false, status: future_aspiration}
+development_path:
+  intended_role: trapper
+  current_stage: weak_sparse_monitoring_only
+  future_capabilities: [movement_recording, prepared_snares, voice_recording, magic_detection, poison_delivery_through_threads]
+  rule: Żadna z przyszłych funkcji nie jest dostępna bez osobnego ulepszenia, kosztu i wpisu zdarzenia.
+last_updated_event_id: milestone_045_varkhen_takeover
+source_refs: [source_luka_b_fragment#line:4954-5082, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368]

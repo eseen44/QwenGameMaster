@@ -1,0 +1,9 @@
+schema_version: 1
+id: intent_disarm
+object_type: intent
+status: proposed_system_extension
+name: Wytrąć trzymany przedmiot bez zabijania celu
+paths:
+  - id: precision_disarm
+    rating_path: capability.ratings.precision_control
+    defense_path: target.defenses.mobility

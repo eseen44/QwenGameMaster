@@ -1,0 +1,21 @@
+schema_version: 1
+id: rel_seraphine_to_lucan
+status: active
+review_status: active
+subject_id: npc_seraphine_vale
+target_id: pc_lucan
+layer: personal
+stance: personally_invested_conditional_ally
+axes: {cooperation: 45, judgment_confidence: 70, discretion_trust: 15, personal_regard: 35}
+reasons: [lucan_repeatedly_delivers_results, seraphine_chose_to_offer_conditional_cover, personal_investment_in_lucans_future]
+obligations:
+  - {id: obligation_conditional_cover, holder: npc_seraphine_vale, debtor: pc_lucan, condition: lucan_discloses_material_risks_before_they_become_public_crises, status: active}
+shared_secrets: [varkhen_cover_story, necromantic_spider_network_exists, four_marked_corpses]
+leverage: {held_by_subject: [guild_access, knowledge_of_four_marked_corpses], held_by_target: [operational_value_in_seal_crisis]}
+constraints: [guild_duty, legal_risk_of_necromancy, church_and_inquisition_attention, city_safety]
+history:
+  - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_personal_investment_without_fixed_future_form}
+  - {event_id: event_act_02_closeout_interlude_import, change: Seraphine_witnessed_Lucan_take_one_ring_and_placed_Varkhen_in_guild_custody, reason: no_axis_change_without_a_new_direct_social_resolution}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_varkhen_mind]}
+last_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

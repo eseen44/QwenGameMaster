@@ -1,0 +1,18 @@
+schema_version: 1
+id: capability_lucan_saber_strike
+object_type: capability
+status: proposed_calibrated
+name: Oszpecona ceremonialna szabla
+tags: [melee, trauma, cutting]
+delivery:
+  method: melee_strike
+  reach_cm: 90
+  requirements: [weapon_in_hand, melee_reach]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings: {accuracy: 24, tissue_trauma: 23, penetration: 25, severing: 21}
+limits: {maximum_severable_diameter_cm: 8}
+effects: []
+weaknesses: [ordinary_human_force, conspicuous_in_close_combat]
+source_refs: [source_luka_b_fragment#line:3541-3657, source_luka_b_fragment#line:4702-4780]
+

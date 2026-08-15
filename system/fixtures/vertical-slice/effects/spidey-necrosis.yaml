@@ -1,0 +1,14 @@
+schema_version: 1
+id: effect_spidey_necrosis
+object_type: effect
+status: calibration_fixture
+name: Spidey necrotic delivery
+vector: necrotic
+application_rating: 41
+initial_magnitude: 12
+progression:
+  interval_minutes: 10
+  magnitude_per_interval: 6
+  maximum_magnitude: 48
+countermeasures: [magical_cleansing, tissue_excision, source_withdrawal]
+resource_cost: {pool: necrotic_reservoir, units: 2}

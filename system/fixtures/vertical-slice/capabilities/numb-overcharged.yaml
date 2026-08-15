@@ -1,0 +1,17 @@
+schema_version: 1
+id: capability_lucan_numb_overcharged
+object_type: capability
+status: replay_calibration
+name: Lucan Numb — przeciążony
+tags: [curse, neuromuscular, overcharged, traceable]
+delivery:
+  method: curse
+  range_m: 8
+  activation: deliberate
+  requirements: [line_of_effect, perceivable_target, target_anatomy_or_animating_structure, one_and_half_energy_units_available]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.awareness
+ratings: {accuracy: 43}
+effects: [effect_numb_overcharged]
+weaknesses: [high_cost, stronger_magical_trace, prepared_countermagic, interruption_during_commitment]
+source_refs: [source_luka_b_fragment#line:10835-11105, source_user_decisions_current#calibration:oren-numb-overcharged-and-uneconomical]

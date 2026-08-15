@@ -1,0 +1,18 @@
+schema_version: 1
+id: modifier_spidey_physical_upgrades
+object_type: modifier
+status: calibration_fixture
+name: Reinforced chitin, enlarged chelicerae and corpse stitching
+overrides:
+  capabilities: [capability_spidey_bite]
+  anatomy:
+    body_length_cm: 12
+    mass_kg: 0.18
+    jaw_span_cm: 2.5
+adjustments:
+  ratings.durability: 28
+  ratings.physical_force: 10
+  defenses.vitality: 20
+  defenses.anatomical_severing: 22
+append:
+  traits: [reinforced_chitin_shell, enlarged_chelicerae, corpse_stitch, remains_concealable, armored_undead_assassin]

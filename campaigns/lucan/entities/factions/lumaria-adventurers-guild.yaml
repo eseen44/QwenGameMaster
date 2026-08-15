@@ -1,0 +1,37 @@
+schema_version: 1
+id: faction_lumaria_adventurers_guild
+name: Gildia Poszukiwaczy Przygód w Lumarii
+status: accepted_by_user_pending_package_activation
+kind: licensed_adventurer_organization
+current_state: active_and_involved_in_cemetery_incident
+relationship_to_lucan:
+  standing: D
+  public_image: useful_unorthodox_repeat_hero
+  institutional_attitude: valuable_but_increasingly_concerning
+  confidence: strong
+legal_constraint:
+  necromancy_is_illegal: true
+  guild_cannot_openly_legalize_lucans_practice: true
+  possible_actions_if_proof_is_compartmentalized: [conceal, internally_restrict, exploit_under_cover, report, surrender_jurisdiction]
+knowledge:
+  confirmed:
+    - {fact_id: fact_guild_knows_tannery_public_outcome, source_event_id: milestone_022_owner_exposed_and_detained}
+    - {fact_id: fact_guild_knows_lucan_cemetery_report, source_event_id: milestone_036_cemetery_conversations_and_missing_guard}
+    - {fact_id: fact_guild_received_corpse_wagon_evidence, source_event_id: milestone_041_corpse_wagon_takeover}
+  compartmentalized:
+    - {holder_id: npc_seraphine_vale, fact_id: fact_seraphine_knows_lucan_uses_numb, source_event_id: milestone_044_oren_containment_and_kill_attempt}
+    - {holder_id: npc_seraphine_vale, fact_id: fact_seraphine_knows_four_marked_corpses, source_event_id: milestone_047_seraphine_risk_disclosure}
+    - {holder_id: npc_seraphine_vale, fact_id: fact_seraphine_knows_priest_visited_with_oren, source_event_id: milestone_047_seraphine_risk_disclosure}
+  forbidden_without_report:
+    - varkhen_identity
+    - varkhen_takeover
+    - lucan_varkhen_control_link
+    - seraphine_private_inquisition_risk_assessment
+active_pressures:
+  - account_for_cemetery_casualties_and_undead
+  - secure_evidence_and_survivors
+  - assess_lucans_methods_without_losing_a_useful_specialist
+future_pressure:
+  status: plausible_role_in_general_direction_not_started
+  focus: elders_review_lucans_rewards_risk_and_future_status
+source_refs: [source_luka_b_fragment#line:2788-3036, source_luka_b_fragment#line:6812-8290]

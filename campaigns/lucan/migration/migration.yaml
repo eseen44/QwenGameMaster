@@ -1,0 +1,42 @@
+schema_version: 1
+migration_id: migration_lucan_history_v1
+campaign_id: campaign_lucan
+status: activated
+canonical_cutoff:
+  description: Kanon obejmuje cały dostępny dialog po przejęciu Varkhena i kończy
+    się na pytaniu Seraphine, czy dwa ciała na wysypisku nadal tam są.
+  include_event: seraphine_risk_disclosure_and_exposed_spider_order
+  exclude_after:
+  - future_unplayed_resolution_of_seraphines_question
+  - rewards_and_formal_closure_of_adventure_two
+  source_refs:
+  - source_user_decisions_current#planning_decision:varkhen_cutoff
+  - source_luka_b_fragment#line:11207-12012
+  - source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation
+activation:
+  mode: atomic_after_all_packages
+  required_packages:
+  - migration_package_01_timeline
+  - migration_package_02_lucan
+  - migration_package_03_companions
+  - migration_package_04_npcs_factions
+  - migration_package_05_locations
+  - migration_package_06_world_state
+  - migration_package_07_resume_scene
+  active: true
+  activated_at: '2026-08-15T03:26:10+02:00'
+  activation_event_id: event_migration_activation
+blockers: []
+waived_requirements:
+- id: full_chat_completeness_audit
+  waived_by: source_user_decisions_current#decision:history_scope_is_sufficient_for_calibration
+  rationale: Użytkownik zaakceptował obecny zakres historii i korekty w toku zamiast
+    oczekiwania na pełny eksport.
+  remaining_effect: Niepewne szczegóły mogą być poprawiane retconem; nie blokują budowy
+    ani aktywacji po zatwierdzeniu pakietów.
+draft_policy:
+  authorized: true
+  source_ref: source_user_decisions_current#decision:draft_without_export
+  uncertain_facts_require_review: true
+  canonical_files_may_change: false
+last_updated: '2026-08-14'

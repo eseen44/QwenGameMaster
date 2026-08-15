@@ -1,0 +1,33 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+player_declared:
+  - id: objective_fulfill_varkhen_oath
+    status: active_long_term_no_timer
+    declaration_event_id: milestone_046_varkhen_oath_compact
+    commitment: Pomóc Varkhenowi zabezpieczyć trzy pieczęcie i nie dopuścić żywych do dolnych wrót.
+    steps:
+      - {id: restore_first_seal, state: pending, location: under_oldest_mausoleum}
+      - {id: cleanse_second_seal, state: pending, location: beneath_chapel}
+      - {id: reinforce_third_seal, state: pending, location: at_lower_gate}
+  - id: objective_answer_seraphine_about_dump_bodies
+    status: unresolved_external_risk
+    declaration_event_id: milestone_047_seraphine_risk_disclosure
+    commitment: none_until_lucan_answers
+    prompt: Seraphine wciąż nie otrzymała odpowiedzi o dwóch ciałach na wysypisku; nie rozstrzygać tego bez nowego działania lub rozmowy.
+  - id: objective_claim_act_02_rewards
+    status: pending_guild_settlement
+    commitment: Rozliczyć nagrody i udział Lucana po operacji cmentarnej.
+    prompt: Nagrody za Akt 2 nie zostały jeszcze przyznane ani wycenione.
+  - id: objective_prepare_institutional_defense
+    status: active_interlude_planning
+    commitment: Przygotować się na przesłuchania i nacisk instytucji przed kolejnym aktem.
+    options: [research_legal_process, seek_representative_or_lawyer, study_defensive_skills, appraise_loot, manage_evidence]
+long_term_context:
+  - {id: seal_one_broken, state: broken, source_event_id: milestone_046_varkhen_oath_compact}
+  - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}
+  - {id: seal_three_weakened, state: weakened_no_known_deadline, source_event_id: milestone_046_varkhen_oath_compact}
+external_pressures:
+  - {id: pressure_seraphine_needs_full_risk_disclosure, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
+  - {id: pressure_varkhen_guild_basement_custody, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
+completed: []

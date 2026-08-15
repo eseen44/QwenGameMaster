@@ -1,0 +1,32 @@
+schema_version: 1
+id: faction_lumaria_civic_services
+name: Straż Miejska i Służby Reagowania Lumarii
+status: accepted_by_user_pending_package_activation
+kind: municipal_watch_and_hazard_response
+current_state: active_with_fragmented_information_and_operational_autonomy
+relationship_to_lucan:
+  institutional_attitude: publicly_grateful_privately_wary
+  confidence: proposed
+legal_constraint:
+  necromantic_practice_is_actionable: true
+  capacity_or_education_alone_is_not_an_offense: true
+  proof_of_controlled_varkhen_requires_custody_escalation_and_coordination_with_religious_authority: true
+knowledge:
+  confirmed:
+    - {fact_id: fact_city_knows_lucan_completed_tannery_operation, source_event_id: milestone_022_owner_exposed_and_detained}
+    - {fact_id: fact_watch_received_young_guard_body, source_event_id: milestone_039_young_guard_recovered}
+  individual_only:
+    - {holder_id: npc_halven_rusk, fact_id: suspicion_lucan_sabotaged_escape, source_event_id: milestone_020_rat_ogre_escape_and_rusk_betrayal}
+  forbidden_without_report:
+    - lucan_secret_drain
+    - spider_network
+    - oren_heart_system_details
+    - varkhen_identity
+active_pressures:
+  - prevent_further_underground_escalation
+  - identify_responsibility_for_missing_bodies
+  - keep_public_order_after_cemetery_incident
+future_pressure:
+  status: plausible_role_in_general_direction_not_started
+  focus: demand_a_cross_incident_accounting_of_mutated_rats_murders_missing_bodies_and_the_cemetery_crisis
+source_refs: [source_luka_b_fragment#line:330-3036, source_luka_b_fragment#line:7487-8290]

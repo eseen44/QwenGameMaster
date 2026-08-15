@@ -1,0 +1,73 @@
+schema_version: 1
+id: companion_varkhen
+name: Varkhen
+status: active
+review_status: active
+entity_kind: autonomous_controlled_undead
+operational_role: autonomous_contractual_ally_not_active_familiar
+future_role_direction:
+  possible: [guardian, majordomo, estate_sentinel, decorative_undead]
+  status: distant_aspiration_not_current_assignment
+  activation_rule: Requires a future residence, explicit agreement or command, and a demonstrated practical need.
+mechanics:
+  object_type: entity
+  definition_ref: candidate_varkhen_cutoff
+  classification: {raw_threat: B, current_state: dominated_at_edge_of_destruction}
+representation: {mode: individual, count: 1, member_ids: [companion_varkhen], can_split: false}
+controller:
+  entity_id: pc_lucan
+  control_type: formal_necromantic_control_not_yet_enforced
+  strength: established_but_operating_limits_unknown
+  autonomy: full_free_will_until_lucan_attempts_specific_enforcement
+  can_refuse: true_unless_a_command_is_successfully_compelled
+  enforcement_layers:
+    - {id: veto_specific_action, status: plausible_not_tested}
+    - {id: compel_specific_action, status: plausible_not_tested}
+    - {id: suppress_or_crush_will, status: unknown_and_never_attempted}
+  can_break: unknown_not_tested
+  break_conditions: [unknown_not_tested]
+  mutual_understanding:
+    lucan: knows_control_was_established_but_not_how_to_enforce_it_or_what_it_costs
+    varkhen: recognizes_the_link_but_has_no_prior_experience_of_necromancer_control
+    current_threat_perception: varkhen_does_not_yet_treat_the_unenforced_link_as_an_immediate_threat
+compact:
+  status: voluntarily_accepted
+  source_event_id: milestone_046_varkhen_oath_compact
+  varkhen_commitments: [help_restore_and_secure_three_seals, guide_group_toward_seal_work]
+  lucan_commitments: [attempt_to_fulfill_varkhens_oath, restore_first_seal, cleanse_second_seal, reinforce_third_seal]
+  consideration: {to_group: treasury_and_contents, to_varkhen: continuation_of_oath_and_prevention_of_deeper_breach}
+  coercion_used_to_accept_compact: false
+  does_not_cancel_control_link: true
+link:
+  active: true
+  range: unknown_not_tested
+  maintenance_cost: no_immediate_drain_while_varkhen_remains_broken
+  communication: [compelled_meaning, name_and_identity_impressions, possible_mental_speech, low_bandwidth_visual_snapshot_when_focused]
+  energy_transfer: {allowed: true, directions: [varkhen_to_lucan], contested_when_varkhen_can_resist: true}
+resources: {ancient_necrotic_reservoir: {current: 18, capacity: 72}}
+state:
+  location_ref: loc_lumaria_guild_basement
+  condition: conscious_critically_damaged_formally_bound_but_autonomous_in_guild_custody
+  injuries: [sarcophagus_pin_damage, repeated_pick_trauma, saber_and_cold_damage, severe_energy_depletion]
+  modifications: []
+abilities:
+  - {id: ability_varkhen_armored_grasp, capability_ref: capability_varkhen_armored_grasp, status: known_from_encounter}
+  - {id: ability_varkhen_necrotic_reclamation, capability_ref: capability_varkhen_necrotic_reclamation, status: known_from_encounter}
+  - {id: ability_varkhen_ancient_regeneration, capability_ref: capability_varkhen_ancient_regeneration, status: inferred_from_traits_and_current_suppression}
+knowledge:
+  confirmed: [own_name, former_human_identity, role_as_tomb_guardian, route_guard_oath, three_seals, first_seal_broken, second_seal_tainted, third_seal_weakening, priest_visited_with_oren, lucan_issued_remote_order_concerning_corpses, four_corpses_bear_lucans_trace, seraphine_guild_basement_custody, ring_of_grave_whisper_transferred_to_lucan, low_bandwidth_visual_snapshot_link_demonstrated, lucan_has_evaded_family_expectations_for_two_years]
+  suspected: [full_tomb_layout, original_masters_and_orders, practical_limits_of_lucans_control]
+  false_beliefs: []
+relationship_ref: campaigns/lucan/relationships/varkhen--lucan.yaml
+personality:
+  shorthand: mentalnie_boomer
+  traits: [old_honor_code, direct, martially_experienced, comfortable_with_killing, limited_patience_for_abstraction, unfamiliar_with_modern_magical_technique]
+  strengths: [honor_and_oath_frameworks, physical_violence, straightforward_threat_assessment]
+  weaknesses: [complex_planning, technical_magic_models, political_indirection, novelty, subtle_manipulation]
+confidentiality:
+  status: accepted
+  source_event_id: milestone_047_seraphine_risk_disclosure
+  terms: Varkhen nie ujawnia działań magicznych Lucana poza komorą, dopóki nie zagrażają ludziom.
+noncanonical_exclusions: [future_answer_about_dump_bodies, future_rewards_and_adventure_closure]
+last_updated_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_luka_b_fragment#line:11251-12012, source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation, source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

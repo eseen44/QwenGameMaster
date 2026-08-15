@@ -1,0 +1,228 @@
+schema_version: 1
+package_id: migration_package_03_companions
+name: Kontrolowane byty
+revision: 13
+status: approved
+depends_on: [migration_package_01_timeline, migration_package_02_lucan]
+confirmed:
+  - id: fact_spidey_downtime_upgrade
+    claim: Spidey został chirurgicznie wzmocniony częściowym pancerzem chitynowym i większymi szczękoczułkami; otrzymał też osobne kły bagiennego żmijowca połączone z dodatkowym gruczołem wytwarzającym na żądanie paraliżującą neurotoksynę, bez zastąpienia pierwotnej nekrotycznej wydzieliny. Corpse Stitch, konserwacja i Death Anchor stabilizują konstrukcję bez utraty zdolności ukrywania się.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:4800-4906]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/spidey.yaml
+    proposed_value:
+      upgrades: [partial_chitin_plates, enlarged_spider_chelicerae, implanted_marsh_viper_fangs, separate_on_demand_paralytic_toxin_gland, Corpse_Stitch, preservation, Death_Anchor]
+      bite_payloads: [native_necrotic_secretion, selectable_paralytic_neurotoxin]
+      remains_concealable: true
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_webber_recruitment_counts
+    claim: Po ulepszeniu Spideya skutecznie zrekrutowano czterech sieciarzy; żaden z tej czwórki nie został zgnieciony podczas rekrutacji.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:4954-5082]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/webber-network.yaml
+    proposed_value: {initial_successful_recruits: 4, failed_initial_candidates: 0}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_webber_roles_and_locations
+    claim: Jeden z czterech sieciarzy został `Anchored` i podczas zlecenia cmentarnego działał przy zachodnim murze; pozostałe trzy posterunki monitorowały dom, garbarnię i wysypisko.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:4954-5082, source_luka_b_fragment#line:5351-5559, source_luka_b_fragment#line:6489-6495]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/webber-network.yaml
+    proposed_value:
+      primary: {name: Anchored, cutoff_location: cemetery_west_wall}
+      monitoring_posts: [home, tannery, dump]
+      active_count: 4
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_fifth_office_webber_crushed
+    claim: Dodatkowy piąty żywy sieciarz został później umieszczony w kancelarii cmentarza, utracony, a następnie odnaleziony zgnieciony i wyrzucony. Jego śmierć poprzedza przesłuchanie, podczas którego pracownik kancelarii milcząco potwierdza istnienie trefnej działalności, ale sprawca oraz intencjonalność zgniecenia nie zostały rozstrzygnięte. Nie zmienia to końcowego bilansu czterech aktywnych jednostek.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:5543-5559, source_luka_b_fragment#line:6143-6552]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/webber-network.yaml
+    proposed_value: {temporary_fifth_post: cemetery_office, fate: found_crushed_and_discarded, responsible_actor: unknown, intentionality: unknown, final_active_count: 4}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_spiders_chapel_coverup_order
+    claim: Przed nocnym wejściem Lucan polecił Spideyowi sprowadzić `Anchoreda`, zabić Terena i Marael oraz żerować na ich ciałach. Celem było zarówno wzmocnienie pająków, jak i przygotowanie fałszywego dowodu, że problem z podziemi kaplicy zabił dwie osoby. Spidey i `Anchored` wykonali polecenie równolegle z wejściem grupy do tuneli.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:6955-7298, source_user_decisions_current#correction:recruit-mara-boros-robbery-and-chapel-coverup-plan]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/journal/events.jsonl
+    proposed_value: {actors: [companion_spidey, webber_anchored], targets: [npc_teren, npc_marael], outcome: killed_and_fed_upon, strategic_purpose: false_undead_attack_cover_and_energy_gain}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_webber_network_current_function
+    claim: Sieciarze pozostają małymi pająkami i są samowystarczalni dzięki polowaniu na drobną zdobycz, więc nie wymagają bieżącego karmienia ani kosztu utrzymania. Nie budują wielkich gniazd; pokrywają duże obszary rzadką nicią, która obecnie pozwala wykrywać jej zerwanie.
+    category: companion
+    source_refs: [source_user_decisions_current#correction:webber-sparse-thread-network, source_user_decisions_current#correction:webbers-small-and-self-sufficient, source_luka_b_fragment#line:4954-5082]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/webber-network.yaml
+    proposed_value: {body_scale: small_spiders, self_sufficient_by_hunting: true, routine_upkeep_cost: 0, large_nests: false, coverage: large_areas_with_sparse_threads, current_capabilities: [detect_thread_breaks]}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_spiders_stole_items_from_corpse_wagon
+    claim: Po przejęciu wozu Spidey i jeden sieciarz użyli jedwabnej rampy/uprzęży, aby wynieść zawartość metalowej skrzyni do krzaków.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:8652-8690, source_user_decisions_current#decision:north_bush_cache_exact_contents]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/journal/events.jsonl
+    proposed_value:
+      event_id: milestone_042_spiders_steal_wagon_chest_contents
+      timing: after_wagon_takeover
+      participating_spiders: [Spidey, one_webber]
+      method: silk_ramp_and_harness
+      destination: bushes
+      stolen_items: [necromantic_preservative, ritual_salt, corpse_drying_powder, two_decay_suppressing_vials, necromantic_conduction_agent, small_ritual_tool_set]
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_varkhen_controlled_at_cutoff
+    claim: Varkhen formalnie przeszedł pod kontrolę Lucana i pozostaje na granicy zniszczenia; Lucan nie próbował egzekwować więzi, więc Varkhen zachowuje wolną wolę. Przed granicą kanonu dobrowolnie przyjął osobny układ dotyczący swoich ślubów i trzech pieczęci.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:11251-11758, source_user_decisions_current#decision:cutoff_before_private_seraphine_conversation]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/companions/varkhen.yaml
+    proposed_value: {state: formal_control_link_established_but_unenforced, autonomy: full_free_will_default, voluntary_agreement: oath_compact_active}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_spider_network_evacuating_at_cutoff
+    claim: Przed zejściem do komory Varkhena Lucan odwołał wszystkie pająki z posterunków i nakazał ewakuację do baszty; na granicy kanonu są nadal w drodze, a dawne sieci monitoringowe nie są aktywnie obsadzone.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/instances
+    proposed_value: {destination: loc_city_wall_hideout, status: in_transit, old_posts_active: false}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_spidey_partial_hind_leg_loss
+    claim: Spidey utracił fragment tylnej nogi podczas ucieczki z zamykającego się przejścia; pozostaje mobilny, ale osłabiony, a późniejszy transfer energii nie odtworzył kończyny.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:8504-8574, source_luka_b_fragment#line:9973-9983]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/state/instances/spidey.yaml
+    proposed_value: {integrity: 13/16, condition: partial_hind_leg_loss, mobile: true}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+  - id: fact_webber_network_future_aspirations
+    claim: Zatruwanie przez nici, podsłuch i wykrywanie magii są kierunkami rozwoju, ale nie są jeszcze odblokowane.
+    category: companion
+    source_refs: [source_user_decisions_current#correction:webber-future-capabilities]
+    confidence: confirmed_as_design_intent
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/companions/webber-network.yaml
+    proposed_value: {unlock_status: aspirational_not_unlocked, possible_capabilities: [poison_delivery, eavesdropping, magic_detection]}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_varkhen_unenforced_control_model
+    claim: Varkhen formalnie przeszedł pod kontrolę Lucana, ale Lucan nie próbował jeszcze tej kontroli egzekwować ani testować jej konsekwencji. Varkhen domyślnie zachowuje wolną wolę; veto lub wymuszenie konkretnej akcji są możliwe, lecz nieprzetestowane, a zduszenie woli pozostaje wyłącznie nieznaną możliwością. Żaden z nich nie rozumie jeszcze praktycznych zasad więzi.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:11251-11409, source_user_decisions_current#decision:varkhen_formal_control_unenforced]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/companions/varkhen.yaml
+    proposed_value: {free_will_default: true, enforcement_attempts: 0, veto_or_specific_compulsion: plausible_untested, will_suppression: unknown, mutual_mechanical_understanding: low}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_varkhen_mental_profile
+    claim: Varkhen jest staroświecki i kieruje się honorem, ma duże doświadczenie w zabijaniu ludzi, lecz nawet za życia nie był wybitnym myślicielem; słabo rozumie nową technikę magiczną i nie postrzega jeszcze nieegzekwowanej kontroli Lucana jako bezpośredniego zagrożenia.
+    category: companion
+    source_refs: [source_user_decisions_current#decision:varkhen_mental_boomer_profile]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/companions/varkhen.yaml
+    proposed_value: {traits: [old_honor_code, martially_experienced, comfortable_with_killing, poor_abstract_thinker, unfamiliar_with_modern_magic], current_control_threat_perception: low}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_varkhen_oath_compact
+    claim: Pytanie Lucana, jak może dotrzymać ślubów Varkhena, wyraźnie zmniejszyło napięcie. Varkhen ujawnił trzy pieczęcie i dobrowolnie zgodził się pomóc przy ich zabezpieczeniu; skarbiec i zawartość mają przypaść grupie.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:11484-11629, source_user_decisions_current#decision:cutoff_before_private_seraphine_conversation]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/companions/varkhen.yaml
+    proposed_value: {compact: active, commitments: [secure_three_seals, guide_group], group_reward: treasury_and_contents, control_link_remains_separate_and_unenforced: true}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_spidey_pending_chapel_cleanup_order
+    claim: Lucan wydał Spideyowi zdalny rozkaz, aby nocą wrócił do kaplicy, rozstawił pająki i usunął resztki energii z dwóch ofiar. Rozkaz został przyjęty, ale czas nie minął i wykonanie jeszcze się nie rozpoczęło; Varkhen wykrył sam fakt polecenia dotyczącego zwłok. Jest to kanoniczny historyczny błąd narratora, nie precedens pozwalający przyszłym nawiasom wykonywać akcje.
+    category: companion
+    source_refs: [source_luka_b_fragment#line:11919-11947, source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/instances/spidey.yaml
+    proposed_value: {order_status: accepted_pending_night, execution_started: false, detected_by_varkhen: true, historical_parenthesis_exception: true, future_precedent: false}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+  - id: fact_north_bush_cache_exact_contents
+    claim: Pająki odzyskały wszystkie nazwane małe materiały serwisowe poza sztyletem, dokumentami i sakiewką Lucana; pozostała nieokreślona drobnica nie jest aktywnym zasobem.
+    category: resource
+    source_refs: [source_luka_b_fragment#line:8638-8664, source_luka_b_fragment#line:9973-9983, source_user_decisions_current#decision:north_bush_cache_exact_contents]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/state/resources.yaml
+    proposed_value: {contents: [one_necromantic_preservative, one_ritual_salt_packet, one_corpse_drying_powder_packet, two_decay_suppressing_vials, one_necromantic_conduction_agent, one_small_ritual_tool_set]}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: approved
+proposed:
+  - id: fact_companion_unbounded_life_force_growth
+    claim: "Słudzy nekromantyczni Lucana mogą trwale rosnąć przez świadomie inwestowaną energię życiową bez biologicznego sufitu, lecz każdy kolejny krok jest coraz droższy. Zwykłe polowanie utrzymuje ich obecne ciała, a nie daje automatycznych ulepszeń. Spidey jest assassinem; sieciarze pozostają dziś słabym monitoringiem i rozwiną się w trapperów dopiero przez przyszłe inwestycje."
+    category: companion_progression
+    source_refs: [source_user_decisions_current#direction:companion_unbounded_life_force_growth, source_user_decisions_current#direction:spidey_assassin_webbers_future_trappers]
+    confidence: confirmed
+    cutoff_relation: after
+    proposed_target: [system/companion-growth.md, campaigns/lucan/companions]
+    proposed_value: {growth_curve: "8 * 1.5^n", hard_cap: none, automatic_growth: false, spidey_role: assassin, webber_current_role: weak_monitoring, webber_future_role: trapper}
+    conflict_ids: []
+    package_id: migration_package_03_companions
+    status: proposed
+conflicts: []
+missing: []
+approval: {required: true, current_revision_status: approved}
+revision_notes:
+  - Rewizja 13: użytkownik zatwierdził pakiet sług. Energia życiowa może finansować nieograniczony, ale coraz droższy trwały wzrost; Spidey jest assassinem, a sieciarze są obecnie monitoringiem z docelową specjalizacją trappera.
+  - Rewizja 12: Spidey jest opancerzonym nieumarłym zabójcą, nie delikatnym pająkiem; wzmocniono jego odporność, fizyczność i ugryzienie bez robienia z niego stworzenia oblężniczego. Sieciarze pozostają obecnie słabym monitoringiem, a trapper jest ich docelową specjalizacją wymagającą przyszłych ulepszeń.
+  - Rewizja 11: Varkhen nie jest aktywnym famili­arem ani sługą polową; pozostaje autonomicznym partnerem kontraktowym z formalną, nieegzekwowaną więzią. Ewentualna późniejsza rola strażnika lub majordomusa wymaga osobnej sytuacji i zgody.
+  - Rewizja 10 usuwa błędne założenia o aktywnym zdominowaniu Varkhena, lokalnym zasięgu więzi i znanej możliwości jej zerwania. Więź pozostaje formalna, nieegzekwowana i nieprzetestowana; aktualna autonomia Varkhena jest pełna.
+  - Rewizja 9 zapisuje rozkaz dla Spideya i Anchoreda dotyczący zabicia Terena oraz Marael jako celowy element przykrywki nocnej operacji, a nie przypadkowe polowanie pająków.
+  - Rewizja 8 usuwa niepotwierdzone uznanie sprzątania za pewną przyczynę śmierci piątego sieciarza; kanoniczne są odnalezienie zgniecionego ciała i późniejsze milczące przyznanie dotyczące trefnej działalności, nie tożsamość sprawcy.
+  - Rewizja 7 potwierdza, że Spidey i sieciarze pozostają mali, a sieciarze są samowystarczalni dzięki polowaniu; brak rutynowego kosztu utrzymania nie oznacza nieograniczonej mocy ich oddzielnych zbiorników.
+  - Rewizja 6 kanonizuje niefortunnie ujawniony rozkaz nocnego oczyszczenia dwóch ciał w kaplicy; jest oczekujący i nie wykonał się poza sceną.
+  - Rewizja 5 przesuwa granicę do dobrowolnego układu dotyczącego ślubów i pieczęci; układ współpracy jest kanoniczny, ale nie zastępuje ani nie testuje formalnej więzi kontroli.
+  - Skorygowano pozycje całej sieci: pająki ewakuują się do baszty zamiast pozostawać na dawnych posterunkach.
+  - Zapisano utratę fragmentu tylnej nogi Spideya i brak automatycznego odtworzenia po transferze energii.
+  - Skalibrowano zapasy po końcowym transferze na 10/12 dla Spideya i 5/6 dla każdego sieciarza; toksyna Spideya pozostaje pełna 4/4.
+  - Dodano działające definicje Spideya, sieci i Varkhena oraz minimalny repertuar Varkhena ujawniony w walce.
+  - Naprawiono historyczne identyfikatory przejęcia Varkhena z milestone_055 na milestone_045.
+  - Zastąpiono model strategicznego więźnia zatwierdzonym modelem formalnej, lecz jeszcze nieegzekwowanej kontroli przy zachowaniu wolnej woli Varkhena.
+  - Dodano profil Varkhena: staroświecki kodeks honorowy, doświadczenie w przemocy, słabe myślenie abstrakcyjne i brak znajomości nowej techniki magicznej.
+  - Użytkownik zatwierdził dokładną zawartość północnej skrytki; nieokreślona drobnica nie została zamieniona w dodatkowy zasób.

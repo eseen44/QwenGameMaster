@@ -1,0 +1,11 @@
+schema_version: 1
+id: intent_detect_death
+object_type: intent
+status: proposed_system_extension
+name: Wykryj śmierć lub nieumarłego
+paths:
+  - id: death_signature_scan
+    effect_vector: death_detection
+    rating_path: effect.application_rating
+    defense_path: target.defenses.death_concealment
+

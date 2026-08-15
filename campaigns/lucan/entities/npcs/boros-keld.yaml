@@ -1,0 +1,26 @@
+schema_version: 1
+id: npc_boros_keld
+name: Boros Keld
+status: accepted_by_user_pending_package_activation
+importance: full_agent
+role: warrior
+guild_rank: C
+lifecycle: {state: alive, last_confirmed_event_id: milestone_047_seraphine_risk_disclosure}
+mechanics_ref: candidate_npc_boros_keld
+current_location_id: loc_cemetery
+equipment: [shield, axe]
+portrayal:
+  temperament: [calm, practical, dry_humor]
+  group_role: "Frontliner, który zamienia dobry plan w serię bardzo konkretnych uderzeń."
+relationship_ref: campaigns/lucan/relationships/boros--lucan.yaml
+knowledge:
+  confirmed:
+    - {fact_id: fact_boros_witnessed_varkhen_assault, source_event_id: milestone_045_varkhen_takeover, claim: Boros osobiście rozbijał sarkofag i ciało starego nieumarłego według planu Lucana.}
+    - {fact_id: fact_boros_saw_varkhen_weaken_during_lucans_contact, source_event_id: milestone_045_varkhen_takeover, claim: Boros widział, że Varkhen wyraźnie słabnie, gdy Lucan utrzymuje z nim bezpośredni kontakt magiczny; nie zna pełnego mechanizmu ani nie może pewnie przypisać wyniku wyłącznie temu kontaktowi.}
+    - {fact_id: fact_boros_knows_varkhen_compact, source_event_id: milestone_046_varkhen_oath_compact, claim: Varkhen dobrowolnie przyjął układ pomocy przy pieczęciach, a skarbiec ma przypaść grupie.}
+  suspicions:
+    - {id: suspicion_varkhen_remains_extremely_dangerous, basis_event_ids: [milestone_045_varkhen_takeover], confidence: high}
+  false_beliefs: []
+  forbidden_without_source: [varkhen_future_offer, inquisition_conversation, voluntary_agreement]
+agenda: [protect_group, help_secure_seals, claim_agreed_share_of_treasure, await_next_group_decision]
+source_refs: [source_luka_a_fragment#line:797-805, source_luka_b_fragment#line:11251-11409]

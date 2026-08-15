@@ -1,0 +1,21 @@
+schema_version: 1
+id: fixture_cemetery_office_worker
+name: unknown
+status: accepted_by_user_pending_package_activation
+weight: fixture
+role: cemetery_office_worker
+lifecycle: {state: alive_at_last_contact, last_confirmed_event_id: milestone_037_office_webber_crushed}
+current_location_id: loc_cemetery
+agency:
+  observed_condition: hypnosis_or_functionally_similar_external_influence
+  degree_of_control: unknown
+  proxy_for: unknown_actor
+knowledge:
+  confirmed:
+    - {fact_id: fact_worker_knows_cemetery_irregularities, source_event_id: milestone_037_office_webber_crushed, claim: Pracownik wie, że w tunelach technicznych wokół cmentarza dzieje się coś nieprawidłowego.}
+  suspected: []
+  false_beliefs: []
+knowledge_firewall:
+  - Nie przypisuj pracownikowi całej wiedzy ani agendy nieznanej osoby mówiącej przez niego.
+  - Nie przypisuj mu zabicia sieciarza bez osobnego źródła.
+source_refs: [source_luka_b_fragment#line:6143-6905, source_user_decisions_current#correction:cemetery-office-worker-hypnotized-proxy]

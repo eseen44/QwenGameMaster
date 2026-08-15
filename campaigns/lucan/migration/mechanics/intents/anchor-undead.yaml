@@ -1,0 +1,11 @@
+schema_version: 1
+id: intent_anchor_undead
+object_type: intent
+status: proposed_system_extension
+name: Utwórz kotwicę śmierci
+paths:
+  - id: death_anchor_binding
+    effect_vector: death_anchor
+    rating_path: effect.application_rating
+    defense_path: target.resistances.death_anchor
+

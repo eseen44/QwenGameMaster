@@ -1,0 +1,13 @@
+schema_version: 1
+id: capability_lucan_direct_drain
+object_type: capability
+status: replay_calibration
+name: Direct energy drain
+tags: [necromancy, drain, contact]
+delivery:
+  method: direct_contact
+  requirements: [physical_contact, sustained_access]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings: {accuracy: 27}
+effects: [effect_direct_energy_drain]

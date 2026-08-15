@@ -1,0 +1,56 @@
+schema_version: 1
+id: act_03_witness_framework
+status: required_thread_flexible_cast_and_timing
+purpose: Wprowadzać przeszłość Lucana przez ludzi, dokumenty i sprzeczne zeznania, aby obecni NPC oraz przedstawiciele Gildii i Kościoła mogli wyrobić sobie własne zdanie.
+witness_options:
+  ordinary_impact:
+    - id: former_teacher_or_academic_supervisor
+      reveals: [technical_potential, work_habits, attitude_to_authority, remembered_failure_or_conflict]
+      canonical_identity: not_yet_created
+    - id: former_academic_acquaintance
+      reveals: [social_reputation, ambition, humor_or_cruelty, discrepancy_between_talent_and_conduct]
+      canonical_identity: not_yet_created
+    - id: person_who_knew_lucan_during_homelessness
+      reveals: [survival_methods, debts, kindness_or_exploitation, how_far_he_had_fallen]
+      canonical_identity: not_yet_created
+    - id: possible_family_contact
+      reveals: [origin, expectations, old_wounds, selective_loyalty]
+      canonical_identity: requires_user_decision_before_creation
+  high_impact_require_explicit_choice_before_use:
+    - former_fiancee
+    - defining_rival
+    - person_with_complete_answer_to_lucans_fall
+selection_policy:
+  - Nie ma obowiązkowej kolejności ani minimalnej liczby świadków.
+  - Świadek pojawia się tylko wtedy, gdy instytucja ma sposób i powód go odnaleźć albo gdy działania Lucana przyciągną go do sprawy.
+  - Konkretna osoba z przeszłości albo jej aktywny ślad w dokumentach i relacjach musi wejść do aktu; dokładna forma i moment pozostają elastyczne.
+  - Sam suchy wpis archiwalny nie wystarcza, jeśli nie wpływa na żywą relację, decyzję lub stanowisko instytucji.
+testimony_model:
+  required_fields: [witness_id, firsthand_facts, interpretation, uncertainty, bias, incentive, audience, source_event_id]
+  rules:
+    - Świadek nie służy jako wszechwiedzący narrator.
+    - Prawdziwy fakt może prowadzić do błędnej oceny Lucana; kłamstwo może zawierać użyteczny szczegół.
+    - Zeznania mogą różnić się zależnie od tego, czy słucha Gildia, Kościół, Straż, środowisko magiczne, Seraphine, Mara, Boros czy sam Lucan.
+    - Nie każdy świadek musi znać nekromancję ani aktualne zarzuty.
+    - Powrót osoby z przeszłości powinien zmieniać relację albo decyzję, nie tylko dostarczać ekspozycji.
+investigator_assessment_axes:
+  - {id: usefulness, question: "Jak wartościowy jest Lucan dla miasta i instytucji?"}
+  - {id: danger, question: "Jak duże zagrożenie stanowi bez nadzoru?"}
+  - {id: culpability, question: "Za które zgony, manipulacje i zatajenia odpowiada?"}
+  - {id: controllability, question: "Czy dotrzymuje układów i reaguje na więzi lub konsekwencje?"}
+  - {id: capacity_for_attachment, question: "Czy tworzy rzeczywiste więzi, czy tylko narzędzia?"}
+  - {id: institutional_cost, question: "Ile politycznie kosztuje nagrodzenie, ukaranie albo ukrycie sprawy?"}
+possible_positions_not_preselected:
+  - reward_and_monitor
+  - conditional_guild_service
+  - church_supervision_or_ritual_restrictions
+  - quiet_cover_up
+  - exile
+  - imprisonment
+  - attempted_recruitment_by_a_power_bloc
+  - lethal_removal
+player_agency:
+  - Lucan może współpracować, kłamać, kontaktować się ze świadkami, niszczyć lub przedstawiać dowody oraz próbować skłócić śledczych.
+  - Brak współpracy jest wyborem z konsekwencjami, nie automatyczną porażką aktu.
+  - Gracz zachowuje prawo do określania wewnętrznych motywacji Lucana i zatwierdzania nieustalonej przeszłości.
+source_refs: [source_user_decisions_current#direction:act_three_past_witnesses]

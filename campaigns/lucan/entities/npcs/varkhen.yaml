@@ -1,0 +1,31 @@
+schema_version: 1
+id: npc_varkhen_mind
+name: Varkhen
+status: active
+review_status: active
+importance: full_agent
+role: ancient_tomb_guardian
+mechanics_ref: candidate_varkhen_cutoff
+current_location_id: loc_lumaria_guild_basement
+relationship_ref: campaigns/lucan/relationships/varkhen--lucan.yaml
+portrayal:
+  principles: [honor, oath, duty, reciprocity]
+  cognition: "Myśli prostymi, bezpośrednimi liniami i ocenia ludzi przede wszystkim po czynach oraz dotrzymanych układach. Jest staroświecki i prostoduszny w sprawach złożonej polityki oraz magicznej technologii, lecz nie głupi."
+  reading_of_lucan: "Po przegranej nie żywi urazy: Lucan nie odebrał mu życia ani woli, a następnie zaproponował pomoc w spełnieniu jego własnej przysięgi. Ostrożność wynika z krótkiej znajomości i nieznanej mechaniki więzi, nie z resentymentu."
+knowledge:
+  confirmed:
+    - {fact_id: fact_varkhen_knows_own_name, source_event_id: milestone_045_varkhen_takeover, claim: Varkhen zna własną tożsamość i dawną rolę strażnika grobowca.}
+    - {fact_id: fact_varkhen_recognizes_control_link, source_event_id: milestone_045_varkhen_takeover, claim: Varkhen rozpoznaje ustanowioną więź kontroli, ale nie zna jej praktycznych granic i nie doświadczył jeszcze wymuszenia rozkazu.}
+    - {fact_id: fact_varkhen_accepted_oath_compact, source_event_id: milestone_046_varkhen_oath_compact, claim: Lucan zaproponował dotrzymanie ślubów Varkhena; Varkhen dobrowolnie przyjął układ pomocy przy trzech pieczęciach w zamian za skarbiec.}
+    - {fact_id: fact_varkhen_knows_priest_and_oren_visits, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Kapłan znał właściwe wejście i kontrolował pieczęcie; podczas ostatniej wizyty towarzyszył mu Oren.}
+    - {fact_id: fact_varkhen_detected_remote_corpse_order, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Varkhen wykrył, że Lucan wydał komuś zdalny rozkaz dotyczący zwłok.}
+    - {fact_id: fact_varkhen_knows_four_marked_corpses, source_event_id: milestone_047_seraphine_risk_disclosure, claim: Lucan wskazał dwie ofiary w kaplicy i dwie na wysypisku jako ciała noszące jego ślad.}
+    - {fact_id: fact_varkhen_knows_guild_basement_custody, source_event_id: event_act_02_closeout_interlude_import, claim: Seraphine przeniosła Varkhena do piwnicy gildii i sprawdza formalną odpowiedzialność za jego podporządkowanie.}
+    - {fact_id: fact_varkhen_knows_ring_transfer, source_event_id: event_act_02_closeout_interlude_import, claim: Varkhen rozpoznał Pierścień Grobowego Szeptu zabrany przez Lucana ze swego sarkofagu i zgodził się, by Lucan go zatrzymał.}
+    - {fact_id: fact_varkhen_knows_lucan_family_evasion, source_event_id: event_act_02_closeout_interlude_import, claim: Lucan powiedział Varkhenowi, że od dwóch lat ucieka przed rodziną i oczekiwaniami, których nie umie albo nie chce spełniać.}
+  suspicions:
+    - {id: suspicion_lucan_can_veto_or_compel_action, basis_event_ids: [milestone_045_varkhen_takeover], confidence: low}
+  false_beliefs: []
+  forbidden_without_source: [whether_dump_bodies_still_exist, final_guild_or_church_verdict]
+agenda: [recover_enough_to_act, restore_and_secure_three_seals, judge_lucan_by_deeds, keep_the_lower_gate_closed, honor_conditional_confidentiality]
+source_refs: [source_luka_b_fragment#line:11354-12012, source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

@@ -1,0 +1,306 @@
+schema_version: 1
+package_id: migration_package_02_lucan
+name: Lucan
+revision: 14
+status: approved
+depends_on: [migration_package_01_timeline]
+confirmed:
+  - id: fact_geo_combined_scan_protocol
+    claim: "`Geo` jest skrótem polecenia uruchamiającego jednocześnie Grave Sense i kamienne czucie drgań/pustek; źródło nie potwierdza trwałego stopienia ich w jedną umiejętność."
+    category: ability
+    source_refs: [source_luka_b_fragment#line:5224-5339, source_luka_b_fragment#line:7487]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value:
+      name: Geo
+      type: combined_scan_protocol
+      component_skills: [Grave_Sense, stone_vibration_and_void_sense]
+      invokes_both: true
+      permanent_skill_fusion: false
+      cantrip_energy_cost: 0.1
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_grave_sense_learned_from_amateur_book
+    claim: Lucan wyprowadził prymitywne Grave Sense z nieprecyzyjnych opisów w „Necronomiconie dla biedoty”.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:5224-5339]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {name: Grave_Sense, maturity: crude_nascent, domain: death_and_undead_signatures}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_stone_sense_learned_from_masonry
+    claim: Nauka praktycznego kamieniarstwa pozwoliła Lucanowi rozwinąć czucie drgań i zmian pustej przestrzeni przez kamień.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:4214-4335, source_luka_b_fragment#line:5224-5339]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {name: stone_vibration_and_void_sense, origin: practical_masonry, maturity: nascent}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_poor_mans_necronomicon_is_amateur_book
+    claim: Nazywany przekornie „Necronomiconem dla biedoty” tom jest amatorskim, nieprecyzyjnym poradnikiem i beletrystyką dla aspirujących nekromantów, a nie autorytatywnym grimuarum.
+    category: inventory
+    source_refs: [source_user_decisions_current#correction:poor-mans-necronomicon-amateur-nature, source_in_character_partial#line:769-806]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/inventory.yaml
+    proposed_value:
+      item_name: Necronomicon dla biedoty
+      item_type: amateur_occult_manual_and_fiction
+      authority: unreliable
+      author_expertise: layperson
+      contents: [imprecise_cantrip_descriptions, basic_necromancy_theory, thematic_but_not_necessarily_necromantic_skills]
+      alias_is_ironic: true
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_first_direct_living_drain
+    claim: W Komorze III Lucan po raz pierwszy bezpośrednio wysysa energię z żywego celu bez pośrednictwa Spideya.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:1132-1145]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {ability: direct_living_energy_drain, first_observed_use: milestone_018_solo_night_mound_search}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_first_vital_overdrive
+    claim: Podczas ucieczki po pierwszej masakrze cmentarnej Lucan po raz pierwszy wykorzystał nadmiar siły życiowej do jednorazowego, krótkiego wzmocnienia siły fizycznej i szybkości. Technika odpowiada czarowi pierwszego poziomu, kosztuje 1 jednostkę energii i daje jeden krótki zryw bez premii do wytrzymałości, trwałego wzrostu ani stackowania; powtarzanie w krótkim czasie kumuluje obciążenie ciała.
+    category: ability
+    source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {ability: vital_overdrive, first_observed_use: milestone_023_first_cemetery_massacre, spell_class: first_level, energy_cost: 1, duration: one_brief_burst, physical_force_bonus: 12, mobility_bonus: 10, reflex_bonus: 6, durability_bonus: 0, stacking: forbidden, repeat_risk: cumulative_bodily_strain}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_basic_self_repair_first_level
+    claim: >-
+      Po przeciążeniu kolektora Lucan nauczył się kierować energię życia do
+      gojenia własnych ran. Technika odpowiada czarowi pierwszego poziomu i
+      kosztuje 1 jednostkę: jedno użycie naprawia łagodny uraz albo jeden etap
+      średniego, natomiast ciężkie obrażenia wymagają czasu oraz kolejnych użyć;
+      nie odtwarza brakującej tkanki i nie jest regeneracją.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:9190-9233, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {ability: basic_self_repair, spell_class: first_level, energy_cost: 1, one_cast: mild_injury_or_one_step_of_moderate_injury, regeneration: false, restore_missing_tissue: false}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_bruteforce_amplification_and_optimized_spells
+    claim: >-
+      Każdą opanowaną technikę magiczną można bez osobnej edukacji rozszerzać
+      przez brutalne dostarczenie energii, o ile rzucający ma wystarczającą
+      ekspertyzę i realne źródło mocy. Koszt, niestabilność i ślad rosną jednak
+      znacznie szybciej niż rezultat. Oficjalne czary wyższych poziomów są
+      zoptymalizowanymi formułami podobnych efektów i mogą być o wiele rzędów
+      wielkości wydajniejsze. Ciągły stożek Bone Chill po przeciążeniu kolektora
+      jest pierwszym precedensem: efekt poziomu 6 rozszerzony na cztery osie i
+      pobierający ze źródła około 1024 jednostek na sześć sekund. Oznacza to
+      przepływ około 170.67 jednostki na sekundę (narracyjnie około 200/s) przez
+      połączony kanał Lucana i pająków o pojemności około 20. Przeciążenie około
+      8.53x zostawia trwały ślad i może poszerzyć kanał, ale nie oznacza
+      automatycznego zwęglenia Lucana.
+    category: ability_system
+    source_refs: [source_luka_b_fragment#line:9096-9233, source_user_decisions_current#calibration:bruteforce-metamagic-and-optimized-higher-spells]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: [system/metamagic.md, system/mechanics/metamagic-scale.yaml, campaigns/lucan/player/abilities.yaml]
+    proposed_value: {rule: core_bruteforce_amplification, special_education_required: false, known_pattern_and_expertise_required: true, optimized_tier_cost: "2^(tier-1)", brute_force_gap_multiplier: "2^gap", axes_priced_into_target_tier: true, cost_flow_and_capacity_distinct: true, historical_bone_chill_cone_tier: 6, historical_source_energy_per_6_seconds: 1024, historical_flow_per_second: 170.666666667, narrative_flow_per_second: about_200, linked_channel_capacity: about_20, historical_channel_load_ratio: 8.533333333, overload_result: permanent_channel_and_mental_scar_without_automatic_incineration, historical_total_energy: unmeasured}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_magic_is_intuitive_and_procedurally_optimizable
+    claim: >-
+      Magia łączy intuicyjne kierowanie dostępnym rodzajem energii z proceduralną
+      optymalizacją. Ten sam efekt można uzyskać nieskończenie wieloma drogami,
+      które różnią się wydajnością, stabilnością, czasem, śladem i ryzykiem.
+      Książki o magii nie są same w sobie magiczne: zapisują cudze działające
+      intuicje, wizualizacje, metafory i procedury pozwalające odtworzyć efekt.
+      Opis nie musi być naukowo prawdziwy, aby kodował skuteczną praktykę, a
+      czytelnik nadal potrzebuje zgodnego kanału energii oraz ćwiczenia.
+    category: world_magic
+    source_refs: [source_user_decisions_current#calibration:intuitive-procedural-magic-and-nonmagical-books]
+    confidence: confirmed
+    cutoff_relation: timeless
+    proposed_target: [system/magic.md, worlds/solmara/lore/magic-practice.yaml]
+    proposed_value: {magic_model: intuitive_energy_direction_plus_procedural_optimization, procedures_per_effect: unbounded, equal_effect_equal_efficiency: false, magic_books_inherently_magical: false, scientific_truth_required_for_working_procedure: false}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_saber_disguised_and_functional
+    claim: Ceremonialna szabla została celowo oszpecona, aby wyglądać na zużytą broń najemnika, lecz jej ostrze i funkcja bojowa pozostały zachowane.
+    category: inventory
+    source_refs: [source_luka_b_fragment#line:3541-3657, source_luka_b_fragment#line:4702-4780]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/inventory.yaml
+    proposed_value: {item: disguised_ceremonial_saber, functional: true, destroyed: false, recognizable_heraldry: removed_or_obscured}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_spidey_anchor_and_downtime_techniques
+    claim: Podczas przygotowań Lucan nauczył się lub ćwiczył Misnotice/Confusion, Corpse Stitch, Death Anchor, Grave Ward i Borrowed Sense, a Death Anchor zastosował do Spideya.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value:
+      learned_or_practiced: [Misnotice_or_Confusion, Corpse_Stitch, Death_Anchor, Grave_Ward, Borrowed_Sense]
+      applied: {Death_Anchor: Spidey}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_early_cold_and_curse_training
+    claim: Lucan rozwinął dystansowy impuls chłodu oraz podstawy Minor Hex, Numb i prostej klątwy pecha. Bone Chill przez dotyk lub krótki stożek kosztuje 1 i zachowuje pełną intensywność, a słabszy impuls dystansowy kosztuje 2. Przewodzenie zimna przez szablę jest naturalnym zastosowaniem rozwijanego Mroźnego Dotyku/Bone Chill, a nie osobną szkołą magii.
+    category: ability
+    source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:407-520, source_luka_b_fragment#line:5090-5095, source_user_decisions_current#correction:saber-channel-natural-bone-chill-development, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {learned_or_improved: [Bone_Chill_touch_or_short_cone, weaker_ranged_cold_impulse, Minor_Hex, Numb, minor_bad_luck_curse, cold_conduction_through_saber], close_bone_chill_cost: 1, ranged_bone_chill_cost: 2}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_confusion_visible_sustained_control
+    claim: >-
+      Confusion nie jest subtelnym cantripem. To wyraźnie silniejszy czar kontroli,
+      porównywalny funkcją do czaru drugiego poziomu: kosztuje 3 jednostki energii,
+      wymaga koncentracji i ciągłego kontaktu wzrokowego z jednym celem, a jego
+      rzucanie i skutki są bardzo widoczne. Najbezpieczniej używać go 1 na 1 albo
+      przy ograniczonej widoczności dla pozostałych NPC. Zerwanie spojrzenia,
+      linii widzenia lub koncentracji natychmiast kończy efekt.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:4411-4899, source_user_decisions_current#correction:confusion-is-visible-sustained-second-level-control]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: [system/curses.md, campaigns/lucan/player/abilities.yaml]
+    proposed_value: {ability: Confusion, energy_cost: 3, concentration: required, continuous_eye_contact: required, visibility: strong, strength_class: second_level_spell_analogy, direct_mind_control: false}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_first_explicit_remote_energy_transfer
+    claim: Podczas zabicia szperacza przez Spideya Lucan po raz pierwszy wyraźnie pobrał część energii na odległość przez więź.
+    category: ability
+    source_refs: [source_luka_a_fragment#line:685-703]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {ability: remote_energy_transfer_via_Spidey_bond, efficiency: weaker_than_direct_contact}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: proposed
+  - id: fact_lucan_cutoff_energy_calibration
+    claim: >-
+      Po incydencie z przeciążeniem kolektora rezerwa Lucana trwale rośnie:
+      dawny komfortowy próg wynosi 12, a twarda pojemność 15. Po późniejszym
+      drenażu Varkhena Lucan kończy scenę z wysokim zapasem 14/15. Energia
+      powyżej starego progu 12 powoduje łagodne ciśnienie, gorszą subtelność
+      i łatwiejsze wykrycie, ale nie jest trwającym katastrofalnym przepełnieniem.
+    category: resource
+    source_refs: [source_luka_b_fragment#line:11326-11409, source_user_decisions_current#calibration:collector-overload-expanded-reserve-14-of-15-comfortable-12]
+    confidence: confirmed
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/instances/pc-lucan.yaml
+    proposed_value: {current: 14, capacity: 15, comfortable_capacity: 12, overload_expansion: 3, condition: post_varkhen_energy_pressure_35}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_lucan_background_minimum
+    claim: Przed kampanią Lucan spędził kilka lat w wyższym kształceniu magicznym i później doświadczył okresu bezdomności. Nazwa uczelni, nauczyciele, rodzina, przyczyna odejścia i droga między tymi etapami nie są jeszcze ustalone.
+    category: character_background
+    source_refs: [source_luka_b_fragment#line:11903-11909, source_compiled_historical_run#line:1559-1564]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/background.yaml
+    proposed_value: {higher_magical_education: several_years, homelessness: confirmed_period, all_specific_people_and_causes: unknown}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_cemetery_undead_control_development
+    claim: Podczas śledztwa cmentarnego Lucan potwierdził, że potrafi wydawać proste polecenia słabym zombie, drenować albo zastępować ich nekromantyczne zasilanie, uzyskać bardzo prymitywne wrażenie sensoryczne i wymusić autodestrukcję po głębokim przejęciu. Osobno wyrwał amatorowi ręcznie prowadzoną marionetkę transportową, która niemal nie miała własnej woli ani autonomii; ten przypadek nie jest demonstracją przejęcia pełnoprawnego zombie. Żaden z precedensów nie dowodzi niezawodnej kontroli silnych ani autonomicznych nieumarłych.
+    category: ability
+    source_refs: [source_luka_b_fragment#line:6300-6489, source_luka_b_fragment#line:7565-7734]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/player/abilities.yaml
+    proposed_value: {ability: animation_and_control, demonstrated: [simple_commands_to_weak_zombie, undead_fuel_exchange, crude_borrowed_impression, self_destruction_command_after_deep_takeover, seize_nearly_willless_transport_puppet], not_demonstrated: [reliable_control_of_strong_autonomous_undead, generic_takeover_of_true_zombie_from_prepared_controller]}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+  - id: fact_lucan_subtle_curse_expertise_and_scaling
+    claim: Lucan ma już dużą praktyczną ekspertyzę w prostych klątwach-cantripach. Zwykły, nieprzygotowany człowiek często nie rozpoznaje ataku i nie potrafi dobrać aktywnej obrony; cel magicznie świadomy, osłonięty albo istotny mechanicznie broni się normalnie. Lucan używa tanich klątw także diagnostycznie. Numb na Orenie wymagał dobrowolnego dopuszczenia pierwszego użycia, zaskoczenia i nieekonomicznego przeciążenia, natomiast przeciw Varkhenowi był jedynie kumulującą się przeszkodą obok przygwożdżenia, uszkodzeń i drenażu. Silniejsze przyszłe klątwy mogą być wolniejsze, droższe, bardziej widoczne i łatwiejsze do prześledzenia.
+    category: ability_system
+    source_refs: [source_luka_b_fragment#line:7734-7905, source_luka_b_fragment#line:10835-11397, source_user_decisions_current#calibration:curse-expertise-subtle-cantrips-and-scaling]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: [system/curses.md, campaigns/lucan/player/abilities.yaml]
+    proposed_value: {minor_curses: [Numb, Minor_Hex, Misnotice, minor_bad_luck], minor_curse_cost: 0.1, close_bone_chill_cost: 1.0, ranged_bone_chill_cost: 2.0, confusion_cost: 3.0, unaware_ordinary_target: often_no_active_defense_against_subtle_cantrip_only, prepared_significant_target: normal_defense, diagnostic_casting: true_but_inexact, overcharged_numb_cost: 1.5, stronger_curse_tradeoffs: [time, energy, visibility, trace], oren_precedent: consent_surprise_overcharge, varkhen_precedent: cumulative_nuisance_only}
+    conflict_ids: []
+    package_id: migration_package_02_lucan
+    status: approved
+proposed: []
+conflicts: []
+missing:
+  - Dokładna zawartość sakiewki ukradzionej ze skrzyni serwisowej; pozostaje nieotwarta.
+  - Dokładne ilości przedmiotów przeniesionych przez pająki do północnej skrytki; rozstrzyga pakiet 03/06.
+  - Dokładna zawartość trzech worków schowanych przez Borosa; rozstrzyga pakiet 06.
+approval: {required: true, current_revision_status: approved}
+revision_notes:
+  - >-
+    Rewizja 14 przyjmuje koszty zoptymalizowanych poziomów według 2^(poziom-1)
+    oraz karę 2^luka dla brutalnego skalowania. Rozdziela koszt źródła, przepływ
+    na sekundę i pojemność kanału. Precedens kolektora pobiera 1024 energii przez
+    sześć sekund, czyli około 170.67/s (narracyjnie około 200/s); przy połączonej
+    pojemności około 20 jest to przeciążenie 8.53x, pozostawiające trwały ślad bez
+    automatycznego zwęglenia. Całkowity historyczny koszt pozostaje nieznany.
+  - >-
+    Rewizja 13 ustanawia intuicyjno-proceduralny model magii i niemagiczną naturę
+    podręczników. Jej pierwotna kalibracja kosztu stożka i wariantu globalnego
+    została w całości zastąpiona przez rewizję 14.
+  - >-
+    Rewizja 12 dodaje ogólną brutalną metamagiczność: znany wzorzec można bez
+    osobnej edukacji skalować energią, lecz luka względem zoptymalizowanego czaru
+    podnosi koszt. Jej pierwotna kalibracja liczbowa i osobny mnożnik osi zostały
+    w całości zastąpione przez rewizję 14.
+  - >-
+    Rewizja 11 kalibruje samoleczenie i Vital Overdrive jako czary pierwszego
+    poziomu za 1 jednostkę. Leczenie naprawia ograniczony zakres obrażeń, a
+    Overdrive daje jeden niestackowalny zryw siły i szybkości bez odporności na
+    urazy; powtarzanie kumuluje obciążenie ciała.
+  - >-
+    Rewizja 10 wyłącza Confusion z grupy subtelnych cantripów i modeluje je jako
+    jawny, podtrzymywany czar kontroli za 3 jednostki, wymagający koncentracji
+    oraz ciągłego kontaktu wzrokowego. Rozdziela Bone Chill na pełny wariant
+    bliski za 1 i słabszy dystansowy za 2, nadaje Geo koszt cantripu 0.1 oraz
+    przywraca pominięty Minor Hex jako osobną klątwę koordynacji za 0.1.
+  - >-
+    Rewizja 9 skaluje zasób w pełnych jednostkach zaklęć: Numb i inne drobne
+    klątwy kosztują 0.1, Bone Chill 1.0, a przeciążony Numb 1.5. Przeciążenie
+    kolektora trwale zwiększa pojemność z komfortowego 12 do maksymalnego 15;
+    bieżący stan po Varkhenie to 14/15 z łagodnym ciśnieniem powyżej starego progu.
+  - Rewizja 8 rozdziela niemal bezwolne marionetki transportowe od prawdziwych zombie i kalibruje klątwy jako subtelne cantripy dominujące zwykłe nieprzygotowane cele, lecz normalnie kontrowane przez przygotowanych agentów. Dodaje nieekonomiczny tryb przeciążonego Numb oraz jego precedensy na Orenie i Varkhenie.
+  - Rewizja 7 dodaje historycznie zademonstrowane granice kontroli prostych zombie: polecenia, wymianę zasilania, prymitywne wrażenia sensoryczne, autodestrukcję po przejęciu i wyrwanie marionetki spod zdalnej kontroli; nie rozszerza tego automatycznie na silnych autonomicznych nieumarłych.
+  - Rewizja 6 klasyfikuje przewodzenie zimna przez szablę jako naturalne zastosowanie Mroźnego Dotyku/Bone Chill, nie odrębną zdolność źródłową.
+  - Rewizja 5 dodaje potwierdzoną pojedynczą demonstrację fizycznego overdrive'u z nadmiaru siły życiowej bez udawania trwałego wzrostu statystyk; mechaniczny koszt i ryzyko pozostają do kalibracji przed aktywacją.
+  - Rewizja 4 zapisuje wyłącznie minimalne kotwice przeszłości Lucana; świadkowie, rodzina i przyczyny upadku pozostają do ustalenia w akcie śledczym.
+  - Odtworzono aktualny model osobowości i precedensy In Character Score.
+  - Odtworzono 21 sreber przy sobie, 50 w ścianie i 5 sreber kaucji.
+  - Rozdzielono ekwipunek osobisty, skrytkę w baszcie, łup Borosa i północną skrytkę pająków.
+  - Próbkę energii serca zapisano jako zapamiętaną sygnaturę wiedzy, nie wydawalny zasób.
+  - Dodano brakujące zdolności: Misnotice, pech, sondę, transfer sieciowy, zimno przez szablę i podstawy samoleczenia.
+  - Zastąpiono błędny stan katastrofalnego przepełnienia kandydatem wysokiego, stabilnego zapasu po rozproszeniu nadmiaru.
+  - Wcześniejsza kalibracja 11/12 została zastąpiona w rewizji 9 modelem 14/15 z komfortowym progiem 12 i trwałym poszerzeniem rezerwy o 3 po przeciążeniu kolektora.

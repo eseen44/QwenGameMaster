@@ -1,0 +1,34 @@
+schema_version: 1
+id: source_compiled_historical_run
+kind: derived_deduplicated_transcript
+path: campaigns/lucan/migration/sources/normalized/historical-full-run.utf8.txt
+sha256: f3296f8932113d64fc123e2c2bb34df110a3e29afecac4503deedd18c11dd812
+lines: 13692
+segments:
+- source: In_Character.txt
+  source_lines: 1-1200
+  output_lines: 1-1200
+  selection_reason: campaign_start_through_last_unique_early_scene
+- source: luka_A.txt
+  source_lines: 1-480
+  output_lines: 1201-1680
+  selection_reason: unique_bridge_before_luka_B_overlap
+- source: luka_B.txt
+  source_lines: 1-12012
+  output_lines: 1681-13692
+  selection_reason: broad_continuation_through_current_canonical_endpoint
+canonical_range: line:1-13692
+post_cutoff_range: null
+canonical_cutoff_mapping:
+  compiled_line: 13692
+  source: luka_B.txt
+  source_line: 12012
+excluded_material:
+- source: In_Character.txt
+  source_lines: 1201-1859
+  reason: sampled_later_duplicates_and_meta_discussion
+- source: luka_A.txt
+  source_lines: 481-828
+  reason: overlap_with_luka_B_or_trailing_duplicate_snippets
+authority: inherits_component_sources_no_new_canonical_authority
+automatic_context: false

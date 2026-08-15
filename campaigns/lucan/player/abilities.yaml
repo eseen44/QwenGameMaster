@@ -1,0 +1,163 @@
+schema_version: 1
+owner_id: pc_lucan
+status: needs_review
+scale: 0-100_logarithmic_campaign_scale
+known:
+  - id: ability_bone_chill
+    capability_ref: capability_lucan_bone_chill
+    name: Bone Chill
+    mastery: 28
+    uses: [touch, short_cone, cold_conduction_through_weapon]
+    casting_profile: {close_energy_cost: 1, close_relative_intensity: full, ranged_variant_ref: capability_lucan_bone_chill_ranged, ranged_energy_cost: 2, ranged_relative_intensity: reduced}
+    amplification_rule_ref: core_bruteforce_amplification
+    historical_amplification_precedent: {event_id: milestone_043a_logistics_collector_overload, target_tier: 6, axes: [intensity, area, range, persistence], source_energy_per_6_seconds: 1024, estimated_flow_per_second: 170.666666667, narrative_flow_per_second: about_200, linked_channel_capacity: about_20, channel_load_ratio: 8.533333333, overload_result: permanent_channel_and_mental_scar_without_automatic_incineration, total_energy: unmeasured, channeling: continuous, energy_source: collector_overflow, personal_reserve_sufficient: false}
+    limits: [close_range, line_of_effect, ranged_transfer_is_less_intense_and_less_efficient, sustained_output_is_exhausting]
+    source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:407-520, source_luka_b_fragment#line:9096-9233, source_user_decisions_current#calibration:bone-chill-close-and-ranged-costs]
+  - id: ability_minor_hex
+    capability_ref: capability_lucan_minor_hex
+    name: Minor Hex
+    mastery: 29
+    uses: [stackable_coordination_suppression]
+    casting_profile: {subtle: true, quick: true, cantrip: true, energy_cost: 0.1}
+    limits: [less_precise_than_numb, does_not_selectively_disable_one_limb, prepared_or_magic_literate_targets_defend_normally]
+    source_refs: [source_luka_a_fragment#line:509-515, source_luka_b_fragment#line:420-436]
+  - id: ability_numb
+    capability_ref: capability_lucan_numb
+    name: Numb
+    mastery: 31
+    uses: [neuromuscular_suppression, undead_animation_suppression, low_cost_diagnostic_probe_against_unknown_target]
+    casting_profile: {ordinary_mode: subtle_quick_low_cost_cantrip, ordinary_stack_energy_cost: 0.1, overcharged_mode_ref: capability_lucan_numb_overcharged, overcharged_energy_cost: 1.5, overcharged_trace: strong}
+    limits: [resisted_or_blocked_by_strong_or_prepared_targets, requires_perceivable_target, stacking_requires_continued_effort, diagnostic_failure_does_not_reveal_exact_defense, overcharged_mode_is_slow_loud_and_uneconomical]
+    source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:10835-11324, source_user_decisions_current#calibration:curse-expertise-subtle-cantrips-and-scaling]
+  - id: ability_confusion
+    capability_ref: capability_lucan_confusion
+    name: Confusion
+    mastery: 30
+    uses: [strong_disruption_of_decision_coherence, unstable_false_logic, combat_or_social_disorientation]
+    casting_profile: {spell_class_analogy: second_level, energy_cost: 3, concentration: required, continuous_mutual_eye_contact: required, visible: true, magical_trace: strong}
+    limits: [not_direct_mind_control, one_target, ends_when_eye_contact_line_of_sight_or_concentration_breaks, caster_attention_committed, third_parties_can_notice_and_interrupt]
+    preferred_situations: [one_vs_one, observers_have_limited_visibility, allies_can_protect_concentration]
+    source_refs: [source_luka_b_fragment#line:4411-4899, source_user_decisions_current#correction:confusion-is-visible-sustained-second-level-control]
+  - id: ability_misnotice
+    capability_ref: capability_lucan_misnotice
+    name: Misnotice
+    mastery: 29
+    uses: [reduce_attention, encourage_overlooking]
+    casting_profile: {subtle: true, quick: true, low_cost: true, usually_unrecognized_by_unprepared_mundane_target: true}
+    limits: [does_not_create_invisibility, weak_against_active_search, breaks_on_obvious_threat, prepared_or_magic_literate_targets_defend_normally, repeated_pattern_can_be_recognized]
+    source_refs: [source_luka_b_fragment#line:4480-4528, source_luka_b_fragment#line:4889-4899]
+  - id: ability_minor_bad_luck
+    capability_ref: capability_lucan_minor_bad_luck
+    name: Pomniejsza klątwa pecha
+    mastery: 27
+    uses: [small_environmental_mishaps, exploit_existing_instability]
+    casting_profile: {subtle: true, quick: true, low_cost: true, usually_misread_as_coincidence: true}
+    limits: [cannot_choose_an_impossible_accident, outcome_may_harm_the_situation_instead_of_the_target, unreliable_precision, prepared_magic_observer_may_detect_pattern_or_trace]
+    source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]
+  - id: ability_necromantic_probe
+    capability_ref: capability_lucan_necromantic_probe
+    name: Sonda nekromantyczna
+    mastery: 35
+    uses: [read_energy_structure, identify_links, sample_signature]
+    limits: [contact_can_be_reciprocal, powerful_targets_can_notice_or_pull_back, interpretation_is_not_ritual_expertise]
+    source_refs: [source_luka_b_fragment#line:10417-10437, source_luka_b_fragment#line:11155-11164]
+  - id: ability_direct_drain
+    capability_ref: capability_lucan_direct_drain
+    name: Bezpośrednie wysysanie energii
+    mastery: 34
+    uses: [living_energy_drain, undead_energy_drain]
+    limits: [sustained_access, resisted_targets_can_fight_the_link, overflow_can_injure_or_destabilize]
+    source_refs: [source_luka_b_fragment#line:1132-1145, source_luka_b_fragment#line:11326-11374]
+  - id: ability_animation_and_control
+    capability_ref: capability_lucan_necromantic_control
+    name: Animacja i kontrola nieumarłych
+    mastery: 33
+    uses: [animate_small_fresh_corpses, issue_simple_commands, replace_or_drain_undead_fuel, dominate_severely_weakened_undead, contest_remote_control_of_simple_corpse_puppet]
+    limits: [fresh_or_prepared_material_preferred, borrowed_sensory_impression_from_unfamiliar_undead_is_crude, autonomous_ancient_undead_require_overwhelming_advantage, servant_load_uses_separate_energy_reservoirs, varkhen_control_enforcement_and_costs_not_yet_tested]
+    source_refs: [source_luka_b_fragment#line:6300-6489, source_luka_b_fragment#line:7565-7734, source_luka_b_fragment#line:11251-11409]
+  - id: ability_corpse_stitch
+    capability_ref: capability_lucan_corpse_stitch
+    name: Corpse Stitch
+    mastery: 35
+    limits: [requires_time, tools_and_material, anatomical_mistakes_remain_possible]
+    source_refs: [source_luka_b_fragment#line:4520-4869]
+  - id: ability_death_anchor
+    capability_ref: capability_lucan_death_anchor
+    name: Death Anchor
+    mastery: 38
+    limits: [requires_preparation_and_access, damage_can_propagate_across_anchor, not_used_on_disposable_webbers]
+    source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:5032-5068]
+  - id: ability_grave_ward
+    capability_ref: capability_lucan_grave_ward
+    name: Grave Ward
+    mastery: 33
+    limits: [stationary, prepared_boundary, finite_integrity]
+    source_refs: [source_luka_b_fragment#line:3869-4004]
+  - id: ability_borrowed_sense
+    capability_ref: capability_lucan_borrowed_sense
+    name: Borrowed Sense
+    mastery: 31
+    limits: [linked_servant_required, low_bandwidth, switching_causes_brief_disorientation]
+    source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:5062-5072]
+  - id: ability_network_energy_transfer
+    capability_ref: capability_lucan_network_energy_transfer
+    name: Transfer energii przez sieć sług
+    mastery: 35
+    limits: [requires_active_link, distance_causes_energy_loss_not_throughput_limit, overload_can_destroy_a_servant]
+    source_refs: [source_luka_a_fragment#line:685-703, source_luka_b_fragment#line:9096-9135, source_luka_b_fragment#line:11352-11368]
+  - id: ability_grave_sense
+    capability_ref: capability_lucan_grave_sense
+    name: Grave Sense
+    mastery: 34
+    limits: [overlapping_signatures, occult_concealment, detects_patterns_not_complete_explanations]
+    source_refs: [source_luka_b_fragment#line:5224-5339]
+  - id: ability_stone_sense
+    capability_ref: capability_lucan_stone_sense
+    name: Czucie drgań i pustek w kamieniu
+    mastery: 31
+    limits: [connected_stone_and_focus, noisy_vibrations, geometry_is_approximate]
+    source_refs: [source_luka_b_fragment#line:4214-4489, source_luka_b_fragment#line:5224-5339]
+  - id: ability_geo_protocol
+    capability_ref: capability_lucan_geo_protocol
+    name: Geo
+    mastery: 31
+    type: combined_scan_protocol
+    component_abilities: [ability_grave_sense, ability_stone_sense]
+    casting_profile: {cantrip: true, energy_cost_per_declared_scan: 0.1, focus: required}
+    limits: [combined_noise, component_results_must_be_interpreted_separately, repeated_detailed_scans_consume_time_and_attention]
+    source_refs: [source_luka_b_fragment#line:5224-5339, source_luka_b_fragment#line:8736-8754, source_user_decisions_current#calibration:geo-is-cantrip]
+  - id: ability_saber_cold_channel
+    capability_ref: capability_lucan_saber_cold_channel
+    name: Przewodzenie zimna przez szablę
+    mastery: 30
+    development_type: natural_application_of_existing_cold_touch
+    parent_ability: ability_bone_chill
+    limits: [weapon_contact_or_close_range, focus, ordinary_human_weapon_skill]
+    source_refs: [source_luka_b_fragment#line:5090-5095, source_luka_b_fragment#line:11303-11324, source_user_decisions_current#correction:saber-channel-natural-bone-chill-development]
+  - id: ability_basic_self_repair
+    capability_ref: capability_lucan_basic_self_repair
+    name: Podstawy samoleczenia energią życia
+    mastery: 24
+    casting_profile: {spell_class_analogy: first_level, energy_cost: 1, one_cast: mild_injury_or_one_step_of_moderate_injury}
+    limits: [not_regeneration, requires_stored_energy, painful, serious_injury_needs_repeated_treatment_and_time, cannot_restore_missing_tissue]
+    source_refs: [source_luka_b_fragment#line:9190-9233, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+  - id: ability_vital_overdrive
+    capability_ref: capability_lucan_vital_overdrive
+    name: Dorywcze wzmocnienie ciała energią życia
+    mastery: 30
+    type: demonstrated_emergent_technique
+    first_use_event_id: milestone_023_first_cemetery_massacre
+    casting_profile: {spell_class_analogy: first_level, energy_cost: 1, duration: one_brief_burst}
+    demonstrated_effects: [temporary_physical_force_increase, temporary_speed_increase]
+    limits: [one_action, cannot_stack, no_durability_bonus, not_a_permanent_attribute_increase, repeated_use_accumulates_bodily_strain]
+    source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+discovering:
+  - id: research_cemetery_heart_signature
+    name: Zapamiętana sygnatura energii serca cmentarza
+    type: knowledge_lead
+    spendable_energy: false
+    current_use: [recognition, comparison, possible_future_contact_attempt]
+    risks: [contact_may_be_reciprocal, source_is_not_understood]
+    source_refs: [source_luka_b_fragment#line:11155-11164]
+suggested_not_confirmed: []
+last_updated_event_id: milestone_045_varkhen_takeover

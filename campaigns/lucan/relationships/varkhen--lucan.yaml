@@ -1,0 +1,21 @@
+schema_version: 1
+id: rel_varkhen_to_lucan
+status: active
+review_status: active
+subject_id: npc_varkhen_mind
+target_id: pc_lucan
+layer: personal
+stance: honorable_cautious_contractual_ally
+axes: {cooperation: 50, judgment_confidence: 45, discretion_trust: 25, personal_regard: 25}
+reasons: [lucan_spared_varkhens_life_and_will, lucan_offered_help_with_oath, voluntary_three_seal_compact]
+obligations:
+  - {id: obligation_three_seals_compact, holder: npc_varkhen_mind, debtor: pc_lucan, condition: help_restore_and_secure_three_seals, status: active}
+shared_secrets: [formal_control_link, varkhen_cover_story, four_marked_corpses]
+leverage: {held_by_subject: [knowledge_of_three_seals_and_priest_oren_link], held_by_target: [formal_control_link_not_yet_tested]}
+constraints: [oath_and_honor, damaged_body, unknown_control_link_mechanics]
+history:
+  - {event_id: milestone_046_varkhen_oath_compact, change: baseline, reason: user_confirmed_no_resentment_and_honorable_reciprocity}
+  - {event_id: event_act_02_closeout_interlude_import, change: ring_transfer_and_private_conversation, reason: Varkhen_accepted_Lucans_right_to_keep_the_ring_and_the_compact_remains_voluntary}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_seraphine_vale]}
+last_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

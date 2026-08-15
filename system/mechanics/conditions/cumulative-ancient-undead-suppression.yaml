@@ -1,0 +1,10 @@
+schema_version: 1
+id: condition_cumulative_ancient_undead_suppression
+object_type: condition
+status: replay_calibration
+name: Starożytny nieumarły jednocześnie przygwożdżony, uszkadzany i drenowany
+adjustments:
+  target.defenses.awareness: -5
+  target.resistances.neuromuscular: -14
+limitations: [requires_multiple_independent_active_pressures, does_not_exist_from_numb_alone]
+source_refs: [source_luka_b_fragment#line:11251-11397, source_user_decisions_current#calibration:varkhen-numb-only-cumulative-nuisance]

@@ -1,0 +1,11 @@
+schema_version: 1
+id: intent_detect_structure
+object_type: intent
+status: proposed_system_extension
+name: Wykryj drgania, pustkę lub zmianę konstrukcji
+paths:
+  - id: structural_scan
+    effect_vector: structural_detection
+    rating_path: effect.application_rating
+    defense_path: target.defenses.structural_obscurity
+

@@ -1,0 +1,18 @@
+schema_version: 1
+id: webber_anchored
+object_type: entity_instance
+status: active
+definition_ref: candidate_webber_monitor
+revision: 2
+position: {location_id: loc_city_wall_hideout, zone_id: container_wall_hideout, formation: with_spidey}
+integrity: {current: 13, maximum: 13}
+resources:
+  necrotic_reservoir:
+    current: 5
+    capacity: 6
+    decay: {interval_seconds: 86400, units: 1}
+    hunting_recovery: {interval_seconds: 86400, units: 1, requires: [autonomous_hunting]}
+conditions: []
+status_flags: [autonomous_hunting, death_anchor, at_wall_hideout]
+last_event_id: event_act_02_closeout_interlude_import
+source_refs: [source_luka_b_fragment#line:4954-5082, source_luka_b_fragment#line:5351-5559, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

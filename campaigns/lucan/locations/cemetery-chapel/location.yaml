@@ -1,0 +1,13 @@
+schema_version: 1
+id: loc_cemetery_chapel
+name: Kaplica cmentarna
+status: accepted_by_user_pending_package_activation
+world_ref: worlds/solmara
+parent_location_ref: campaigns/lucan/locations/cemetery/location.yaml
+type: interior_with_substructure
+orientation: {north: up, confidence: source_supported}
+connections:
+  - {id: connection_chapel_cemetery, zone_id: zone_nave, leads_to: loc_cemetery, travel_time: immediate}
+  - {id: connection_sacristy_stairs, zone_id: zone_sacristy, leads_to: loc_cemetery_underworks, travel_time: estimated_4_minutes}
+map_refs: {layout: campaigns/lucan/locations/cemetery-chapel/maps/layout.yaml, gm: campaigns/lucan/locations/cemetery-chapel/maps/gm.svg, player: campaigns/lucan/locations/cemetery-chapel/maps/player.svg}
+source_refs: [source_luka_b_fragment#line:9654-9852]

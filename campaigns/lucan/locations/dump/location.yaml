@@ -1,0 +1,10 @@
+schema_version: 1
+id: loc_dump
+name: Wysypisko Lumarii
+status: accepted_by_user_pending_package_activation
+world_ref: worlds/solmara
+type: exterior_refuse_field
+orientation: {north: up, confidence: estimated}
+connections: [{id: connection_dump_road, zone_id: zone_entry, leads_to: loc_lumaria_outskirts, travel_time: needs_review}]
+map_refs: {layout: campaigns/lucan/locations/dump/maps/layout.yaml, gm: campaigns/lucan/locations/dump/maps/gm.svg, player: campaigns/lucan/locations/dump/maps/player.svg}
+source_refs: [source_user_decisions_current#correction:dump_two_victims]

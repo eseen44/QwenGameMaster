@@ -1,0 +1,10 @@
+schema_version: 1
+id: capability_oren_necromantic_control
+object_type: capability
+status: proposed_calibrated
+name: Oren — kontrola logistycznych nieumarłych
+tags: [necromancy, control, prepared_network]
+delivery: {method: necromantic_command, range_m: 20, requirements: [undead_target, line_or_prepared_network], rating_path: ratings.accuracy, target_defense_path: defenses.awareness}
+ratings: {accuracy: 51}
+effects: [effect_oren_necromantic_control]
+weaknesses: [unprepared_ancient_undead, disrupted_network]

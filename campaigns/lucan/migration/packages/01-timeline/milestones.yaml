@@ -1,0 +1,486 @@
+schema_version: 1
+package_id: migration_package_01_timeline
+revision: 29
+historical_import_policy:
+  reconstruct_rolls: false
+  exact_timestamps_required: false
+  timestamps_when_unknown: null
+milestones:
+  - id: milestone_001_guild_registration
+    order: 1
+    arc_id: arc_origin
+    summary: Lucan rejestruje się w gildii jako E-rankowy Warlock i przyjmuje zadanie ze szczurami.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:43-101]
+    historical_import: true
+  - id: milestone_002_first_rat_animation
+    order: 2
+    arc_id: arc_origin
+    summary: Lucan przypadkowo dokonuje pierwszej udanej animacji świeżego szczura.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:231-270]
+    historical_import: true
+  - id: milestone_003_failed_cemetery_animation_and_arrest
+    order: 3
+    arc_id: arc_origin
+    summary: Próba animacji starego trupa na cmentarzu nie działa; eskalacja kończy się aresztowaniem Lucana.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:289-420]
+    historical_import: true
+  - id: milestone_004_spidey_created_and_jail_escape
+    order: 4
+    arc_id: arc_origin
+    summary: Lucan animuje martwego pająka, odkrywa jego nekrotyczny atak i żerowanie na świeżej śmierci, po czym ucieka z więzienia.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:426-560]
+    historical_import: true
+  - id: milestone_005_tannery_cellar_hideout
+    order: 5
+    arc_id: arc_tannery_early
+    summary: Lucan znajduje zawaloną piwnicę przy garbarni i urządza w niej kryjówkę.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:703-800]
+    historical_import: true
+  - id: milestone_006_barracks_job
+    order: 6
+    arc_id: arc_tannery_early
+    summary: Lucan bierze legalne zlecenie w koszarach, buduje wizerunek niegroźnego E-rankowca i obserwuje ugryzionego strażnika.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:945-990]
+    historical_import: true
+  - id: milestone_007_dump_and_drain_reconnaissance
+    order: 7
+    arc_id: arc_tannery_early
+    summary: Lucan rozpoznaje wysypisko i odkrywa odpływ prowadzący pod mur oraz garbarnię.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:992-1056]
+    historical_import: true
+  - id: milestone_008_dump_guard_killed
+    order: 8
+    arc_id: arc_tannery_early
+    summary: Spidey zabija strażnika na wysypisku.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_user_decisions_current#correction:dump-guard-victim, source_in_character_partial#line:1026-1056]
+    historical_import: true
+  - id: milestone_009_dump_scavenger_killed
+    order: 9
+    arc_id: arc_tannery_early
+    summary: Spidey zabija jednego ze szperaczy; Lucan pobiera część energii na odległość.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_user_decisions_current#correction:dump-scavenger-victim, source_luka_a_fragment#line:517-725]
+    historical_import: true
+  - id: milestone_010_tannery_day_job
+    order: 10
+    arc_id: arc_tannery_early
+    summary: Lucan przyjmuje dniówkę w garbarni i mapuje zakład.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1058-1088]
+    historical_import: true
+  - id: milestone_011_hidden_descent_found
+    order: 11
+    arc_id: arc_tannery_early
+    summary: Spidey znajduje głębsze przejście, a Lucan identyfikuje właz do starej komory.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1088-1138]
+    historical_import: true
+  - id: milestone_012_old_worker_poisoned
+    order: 12
+    arc_id: arc_tannery_early
+    summary: Lucan zatruwa starego pracownika pilnującego włazu, pozostawiając zejście bez ochrony.
+    confidence: confirmed
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1092-1138]
+    historical_import: true
+  - id: milestone_013_mutated_rat_and_workers
+    order: 13
+    arc_id: arc_tannery_early
+    summary: Lucan wykorzystuje dwóch pracowników jako pomoc i żywą osłonę przeciw zmutowanemu szczuru.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1142-1198, source_user_decisions_current#correction:tannery-two-workers-used]
+    historical_import: true
+  - id: milestone_014_workers_betrayed_and_consumed
+    order: 14
+    arc_id: arc_tannery_early
+    summary: Lucan zdradza obu rannych pracowników; Spidey ich pożera, a Lucan wykorzystuje przepływ energii.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1203-1255, source_user_decisions_current#correction:tannery-workers-betrayed-and-eaten]
+    historical_import: true
+  - id: milestone_015_tannery_hero_reputation
+    order: 15
+    arc_id: arc_tannery_early
+    summary: Po pokonaniu zmutowanego szczura Lucan zostaje uznany za bohatera incydentu i zapamiętany przez gildię jako Lucan Veyr.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_in_character_partial#line:1258-1298, source_luka_a_fragment#line:140-216]
+    hidden_truth: [Gildia nie zna udziału Spideya ani prawdziwego losu pracowników.]
+    historical_import: true
+  - id: milestone_016_official_scout_and_support_decision
+    order: 16
+    arc_id: arc_tannery_depths
+    summary: Lucan schodzi z Marą, Borosem i Ruskiem, walczy z ghul-szczurami i doprowadza do decyzji o powrocie z większym wsparciem.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:330-606, source_luka_a_fragment#line:728-818]
+    historical_import: true
+  - id: milestone_017_owner_document_destruction_job
+    order: 17
+    arc_id: arc_tannery_depths
+    summary: Właściciel daje Lucanowi klucze i plany oraz prywatnie zleca odzyskanie lub zniszczenie kompromitujących ksiąg, skrzyń i dokumentów przed wejściem większej grupy.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:608-688, source_user_decisions_current#correction:owner-document-destruction-job-before-solo-mound]
+    later_betrayal_refs: [milestone_022_owner_exposed_and_detained, milestone_024_owner_cache_looted]
+    historical_import: true
+  - id: milestone_018_solo_night_mound_search
+    order: 18
+    arc_id: arc_tannery_depths
+    summary: Lucan samotnie bada archiwum, Komorę III, laboratorium i naturalne komory. Pokonuje przykuty zmutowany obiekt eksperymentalny, wykorzystuje go do testowania klątw i po raz pierwszy bezpośrednio wysysa energię z wciąż żywego celu, a następnie sabotuje podziemia stymulantem.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:689-1377]
+    historical_import: true
+  - id: milestone_019_official_mound_clearing
+    order: 19
+    arc_id: arc_tannery_depths
+    summary: Nazajutrz Lucan wraca z Marą, Borosem, Ruskiem, magiem ognia i strażnikami. Podczas długiego oczyszczania szczurzych jam wielowarstwowa klątwa pecha Lucana sprawia, że wypadki Ruska rozbijają szyk i wyglądają jak sabotaż. Lucan osłania maga, zamraża przebijające się szczury i dokarmia Spideya zwęglonymi oraz dobitymi ciałami, aż pająk poważnie się przejada.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:1377-2136, source_user_decisions_current#correction:full-tannery-clearing-rusk-curse-and-spidey-feeding]
+    historical_import: true
+  - id: milestone_020_rat_ogre_escape_and_rusk_betrayal
+    order: 20
+    arc_id: arc_tannery_depths
+    summary: Po oczyszczeniu głównej części jam grupa wspólnie wybiera odwrót. Dudnienie z głębi przechodzi w ucieczkę przed szczuroogrem; Lucan używa silnego `Numb` na łydce najwolniejszego Ruska, próbując pozostawić go potworowi, lecz inspektor przeżywa.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:2085-2200, source_user_decisions_current#correction:full-tannery-clearing-rusk-curse-and-spidey-feeding]
+    historical_import: true
+  - id: milestone_021_rusk_rescued
+    order: 21
+    arc_id: arc_tannery_depths
+    summary: Grupa wraca po Ruska. Lucan wspiera ratunek klątwami rzucanymi na szczuroogra, lecz podczas chaosu odłącza się i plądruje biuro właściciela, zdobywając pieniądze, prywatne rzeczy i dokumenty potwierdzające wcześniejszą wiedzę o zagrożeniu. Wraca do walki, odciąga bestię od Ruska i umożliwia jego wyciągnięcie.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:2202-2514, source_user_decisions_current#correction:full-tannery-clearing-rusk-curse-and-spidey-feeding]
+    historical_import: true
+  - id: milestone_022_owner_exposed_and_detained
+    order: 22
+    arc_id: arc_tannery_depths
+    summary: Po powrocie do Gildii Lucan przekazuje dokumenty Seraphine. Materiały uruchamiają postępowanie przeciw właścicielowi, a zeznania Lucana, Mary i Borosa prowokują wewnętrzne śledztwo podważające kompetencje Ruska. Lucan zostaje ponownie przedstawiony jako bohater operacji i awansuje do rangi D.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:2591-3038, source_user_decisions_current#correction:tannery-report-seraphine-rusk-inquiry-and-d-rank]
+    betrays_job_ref: milestone_017_owner_document_destruction_job
+    historical_import: true
+  - id: milestone_023_first_cemetery_massacre
+    order: 23
+    arc_id: arc_cemetery_incident
+    summary: Już jako D-rank Lucan doprowadza wizytę na cmentarzu do masakry. Spidey wysysa jednego strażnika, a Lucan drenuje do zera grabarza Darrika, latarnika i drugiego strażnika; trzy ciała zostają wysuszonymi mumiami, zaś ciało młodego strażnika Lucan chwilowo animuje jak marionetkę, aby odwrócić uwagę przybywających świadków. Po raz pierwszy wykorzystuje nadmiar siły życiowej do krótkiego wzmocnienia siły i szybkości podczas ucieczki, po czym wtapia się w pijących w barze i dołącza do bezowocnego pochodu z pochodniami szukającego nieumarłych.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:3107-3435, source_user_decisions_current#correction:first-cemetery-massacre-full-sequence]
+    historical_import: true
+  - id: milestone_024_owner_cache_looted
+    order: 24
+    arc_id: arc_transition
+    summary: Lucan kieruje pochód z cmentarza ku garbarni, gdzie tłum przejmuje pilnująca kopca Straż i ochrona Gildii. Korzystając z zamieszania, plądruje mieszkanie oraz sekretną skrytkę zatrzymanego właściciela, zabiera pieniądze, papiery, klucze i ceremonialną szablę, a następnie transportuje łup podziemiami do swojej piwnicy.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:3455-3657, source_user_decisions_current#correction:first-cemetery-massacre-full-sequence]
+    consequences: [tannery_cellar_foundations_compromised, boros_knows_hideout_exists, lucan_decides_to_relocate]
+    historical_import: true
+  - id: milestone_025_wall_hideout_found
+    order: 25
+    arc_id: arc_transition
+    summary: Lucan znajduje małą dawną izbę strażniczą w opuszczonej części murów i czyni ją główną kryjówką.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:3751-3849, source_user_decisions_current#correction:wall-tower-primary-hideout]
+    replaces_as_primary_hideout: milestone_005_tannery_cellar_hideout
+    historical_import: true
+  - id: milestone_026_d_rank_and_downtime_start
+    order: 26
+    arc_id: arc_downtime
+    summary: Jako świeżo awansowany poszukiwacz rangi D Lucan rozpoczyna około tygodnia kosztownych przygotowań, nauki oraz zakupów; wydatki tworzą potrzebę znalezienia kolejnej płatnej pracy.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:3869-4214, source_user_decisions_current#correction:tannery-report-seraphine-rusk-inquiry-and-d-rank]
+    historical_import: true
+  - id: milestone_027_training_and_new_techniques
+    order: 27
+    arc_id: arc_downtime
+    summary: Lucan rozwija klątwy i techniki nekromantyczne oraz uczy się otwierania zamków, kamieniarstwa i skradania.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:3869-4335]
+    historical_import: true
+  - id: milestone_028_saber_disguised_not_destroyed
+    order: 28
+    arc_id: arc_downtime
+    summary: Lucan oszpeca ceremonialną szablę, aby wyglądała na zużytą broń najemnika, zachowując sprawne ostrze.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:4702-4780]
+    destroyed: false
+    historical_import: true
+  - id: milestone_029_spidey_upgraded
+    order: 29
+    arc_id: arc_downtime
+    summary: Spidey otrzymuje częściowe chitynowe opancerzenie, większe szczękoczułki oraz osobne wężowe kły z dodatkowym gruczołem paraliżującej neurotoksyny uruchamianej na żądanie; Corpse Stitch i konserwacja stabilizują zabieg, a pająk nadal może się ukrywać.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:4800-4906]
+    historical_import: true
+  - id: milestone_030_four_webbers_recruited
+    order: 30
+    arc_id: arc_downtime
+    summary: Lucan skutecznie zdobywa i animuje czterech sieciarzy.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:4954-5082]
+    recruited_count: 4
+    failed_candidate_count: 0
+    historical_import: true
+  - id: milestone_031_webber_network_deployed
+    order: 31
+    arc_id: arc_downtime
+    summary: Największy sieciarz zostaje `Anchored`, a trzy prostsze posterunki trafiają do domu, garbarni i wysypiska. Wszystkie pozostają małymi, samowystarczalnymi dzięki polowaniu pająkami; nie wymagają bieżącego karmienia ani kosztu utrzymania. Sieć wykrywa zerwanie rzadkich nici.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:4954-5082, source_user_decisions_current#correction:webbers-small-and-self-sufficient]
+    monitoring_locations: [home, tannery, dump]
+    primary_name: Anchored
+    historical_import: true
+  - id: milestone_032_downtime_completed
+    order: 32
+    arc_id: arc_downtime
+    summary: Po około tygodniu przygotowań Lucan naturalnie rozwija Mroźny Dotyk/Bone Chill, ucząc się sprawniej przewodzić jego zimno przez szablę; nie jest to odrębna szkoła magii.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:5090-5095, source_user_decisions_current#correction:saber-channel-natural-bone-chill-development]
+    historical_import: true
+  - id: milestone_033_main_cemetery_job_and_geo_protocol
+    order: 33
+    arc_id: arc_cemetery_investigation
+    summary: "Po kosztownym tygodniu przygotowań Lucan wybiera płatne D-rankowe zlecenie administracyjnej kontroli stanu cmentarza: dla Gildii jest to pretekst do ustalenia, co tam się wydarzyło, a dla Lucana świadomy powrót do najlepszego znanego miejsca dalszego rozwoju. Rozwija `Grave Sense` i kamienne czucie drgań/pustek; skrót `Geo` zaczyna oznaczać użycie obu skanerów naraz."
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:5224-5339, source_luka_b_fragment#line:7487, source_user_decisions_current#correction:cemetery-administrative-job-motivation]
+    historical_import: true
+  - id: milestone_034_fifth_office_webber_installed
+    order: 34
+    arc_id: arc_cemetery_investigation
+    summary: "`Anchored` trafia przy zachodnim murze, a dodatkowy piąty żywy sieciarz zostaje tymczasowo zainstalowany w kancelarii."
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:5351-5559]
+    historical_import: true
+  - id: milestone_035_cemetery_day_mapping
+    order: 35
+    arc_id: arc_cemetery_investigation
+    summary: Lucan rozmawia z praktycznie wszystkimi dostępnymi pracownikami i systematycznie mapuje biuro, kaplicę, szopy, odpływy, mury, krypty oraz północne groby. Geo ujawnia pod cmentarzem wiele pustych przestrzeni, korytarzy technicznych i zawałów ziemi, w tym tunel przy zachodnim murze. Grave Sense wskazuje przez ścianę jednego zombie w piwnicy/podziemiach kaplicy, a osobny, trudny do sklasyfikowania sygnał znajduje się pod północnym fundamentem.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:5351-6905, source_user_decisions_current#correction:geo-cemetery-voids-west-tunnel-and-two-anomalies]
+    historical_import: true
+  - id: milestone_035a_west_wall_undead_control
+    order: 36
+    arc_id: arc_cemetery_investigation
+    summary: Przy kanale połączonym z zachodnim murem Lucan łączy Geo z Grave Sense, potwierdza poruszającą się humanoidalną martwą istotę w podziemiach i odkrywa, że może wydawać jej proste polecenia oraz wymieniać jej nekromantyczne zasilanie na własne. Po częściowym przejęciu zmusza ją do autodestrukcji przez urwanie sobie głowy. Dopiero potem bierze pod uwagę, że nieumarły może być młodym strażnikiem, którego wcześniej chwilowo animował podczas ucieczki z masakry.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:6300-6489, source_user_decisions_current#correction:realization-lucan-may-have-caused-young-guard-zombie]
+    historical_import: true
+  - id: milestone_036_cemetery_conversations_and_missing_guard
+    order: 37
+    arc_id: arc_cemetery_investigation
+    summary: Rozmowy z Terenem i Marael, spotkanie z grabarzami oraz ograniczony kontakt z Odranem ujawniają sprzeczne tropy; Odran oferuje pomoc, słyszy o możliwym dofinansowaniu cmentarza przez Gildię, lecz do ponownego spotkania nie dochodzi. Lucan ustala zniknięcie ciała młodego strażnika i zgłasza podejrzenie handlu zwłokami. Po utracie sieciarza wraca do kancelarii, rozpoznaje wpływ hipnotyczny na pracowniku oraz odkrywa za nim przejście w murze prowadzące do tuneli technicznych.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:5351-6905, source_user_decisions_current#correction:odran-limited-cemetery-contact, source_user_decisions_current#correction:cemetery-office-worker-hypnotized-proxy]
+    historical_import: true
+  - id: milestone_037_office_webber_crushed
+    order: 38
+    arc_id: arc_cemetery_investigation
+    summary: Piąty sieciarz kancelaryjny milknie i zostaje odnaleziony zgnieciony oraz wyrzucony; sprawca i intencjonalność śmierci nie są rozstrzygnięte. Podczas ponownego przesłuchania hipnotyzowany pracownik staje się proxy nieznanego rozmówcy. Lucan żąda problemu przeznaczonego na stracenie, aby Gildia uznała sprawę za rozwiązaną i nie rozkopała właściwego interesu. Otrzymuje milczące potwierdzenie trefnej działalności w tunelach oraz wskazanie na mapie konkretnego, nienazwanego grobowca, który może zostać przedstawiony jako źródło problemów. Aktywna sieć znów liczy cztery jednostki.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:6143-6905, source_user_decisions_current#correction:cemetery-office-proxy-bargain-and-map-marked-tomb]
+    active_webbers_after: 4
+    historical_import: true
+  - id: milestone_037a_watch_morgue_check
+    order: 39
+    arc_id: arc_cemetery_investigation
+    summary: Lucan informuje sierżanta Straży o ryzyku eskalacji do śledztwa inkwizytorskiego i żąda fizycznego sprawdzenia czterech ofiar pierwszej masakry cmentarnej zamiast zaufania dokumentom kostnicy. Posłaniec potwierdza obecność trzech ciał oraz brak zwłok młodego strażnika. Sierżant zgadza się najpierw sprawdzić kostnicę, transport i papiery oraz nie zawiadamiać kapłanów bez konkretnego powodu.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:6620-6810, source_user_decisions_current#correction:watch-sergeant-inquisition-warning-and-four-body-check]
+    historical_import: true
+  - id: milestone_037b_guild_cemetery_report_and_support
+    order: 40
+    arc_id: arc_cemetery_investigation
+    summary: Lucan składa Seraphine i starszemu rangą członkowi Gildii rzeczowy raport o dewastacji cmentarza, rozległych tunelach i pustkach, skupiskach energii śmierci, dwóch zgłoszonych przez siebie nieumarłych, brakującym ciele młodego strażnika, podejrzeniu handlu zwłokami oraz subtelnym wpływie na pracownika kancelarii. Ostrzega przed pełnoskalowym śledztwem Inkwizycji. Gildia klasyfikuje sprawę jako ograniczone śledztwo nekromantyczne, czasowo działa bez kapłanów i przydziela Lucanowi Marę, Borosa, sprzęt do wykopów oraz dostęp do archiwów.
+    report_epistemics: two_reported_undead_correspond_to_west_wall_controlled_undead_and_separate_zombie_sensed_through_chapel_basement_wall; north_foundation_anomaly_is_separate_and_unclassified
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:6810-6955, source_user_decisions_current#correction:guild-report-before-cemetery-night]
+    historical_import: true
+  - id: milestone_037c_night_entry_and_chapel_cover_plan
+    order: 41
+    arc_id: arc_cemetery_night
+    summary: Lucan zabiera Marę i Borosa na cmentarz z łopatami, linami, lampami, łomami, kilofem, podstawowymi eliksirami i fiolką wody święconej. Oficjalnie mają odnaleźć brakującego strażnika i sprawdzić tunele; rzeczywistym zamiarem Lucana jest również rabunek kancelarii, szop, kaplicy i podziemi. Poleca Spideyowi sprowadzić Anchoreda, zabić Terena i Marael oraz żerować na ich ciałach, aby przedstawić ich jako ofiary nieumarłych i stworzyć wygodne źródło problemu pod kaplicą. Lucan spodziewa się najwyżej jednego większego nieumarłego i krypty do ograbienia. Przed wejściem uzyskuje od sierżanta zgodę, by nocna zmiana nie aresztowała grupy podczas nieoficjalnej operacji.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:6955-7165, source_user_decisions_current#correction:recruit-mara-boros-robbery-and-chapel-coverup-plan]
+    historical_import: true
+  - id: milestone_038_chapel_deaths
+    order: 42
+    arc_id: arc_cemetery_night
+    summary: Lucan, Mara i Boros zaczynają od rabunku południowych budynków. Otwierają kancelarię i przebijają jej ścianę do tunelu technicznego; Lucan pod osłoną Misnotice i Confusion przeszukuje szopę grabarzy, zdobywa stare klucze oraz szkic odpływów. Równolegle Spidey oraz `Anchored` zabijają Terena i Marael w kaplicy i żerują na ich ciałach. Atak realizuje przygotowaną przez Lucana fałszywą wersję, według której oboje padli ofiarą problemu z podziemi kaplicy.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7002-7298, source_user_decisions_current#correction:chapel-kill-cover-story]
+    historical_import: true
+  - id: milestone_039_recovered_undead_young_guard
+    order: 43
+    arc_id: arc_cemetery_night
+    summary: W tunelu technicznym Lucan odnajduje pozbawione głowy ciało nieumarłego, któremu wcześniej wydał autodestrukcyjny rozkaz. Wtłacza w nie energię, wywołuje szarpnięcie i potwierdza po resztkach munduru, że jest to brakujący młody strażnik. Struktura nekromantyczna zdążyła się ustabilizować, ale nie wykazuje pewnego obcego podpisu. Lucan wygasza ciało zimnem prowadzonym przez szablę, odzyskuje część energii, a Mara pomaga przenieść dowód do suchej wnęki, oznaczyć i zabezpieczyć liną do późniejszego odbioru przez Straż.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7165-7330, source_user_decisions_current#correction:young-guard-zombie-recovery-details]
+    historical_import: true
+  - id: milestone_039a_chapel_route_and_number_one_undead
+    order: 44
+    arc_id: arc_cemetery_night
+    summary: Spidey uruchamia mechanizm pod ołtarzem, odsłaniając za północną ścianą krypty kaplicy zejście do tego samego systemu podziemi. `Anchored` wraca na posterunek, a Spidey bada nową trasę. Za starą bramą techniczną grupa spotyka starszego nieumarłego z cmentarnym znacznikiem numer 1; Mara i Boros powalają go, a Lucan przez dotyk szabli jednocześnie mrozi ciało i wysysa jego nekromantyczne zasilanie, ukrywając drenaż jako efekt zimna.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7330-7565]
+    historical_import: true
+  - id: milestone_039b_empty_crypts_and_remote_controlled_runner
+    order: 45
+    arc_id: arc_cemetery_night
+    summary: Głębsze nisze i sarkofagi okazują się regularnie opróżniane z ciał i kosztowności. Trzy aktywne obiekty są słabymi, roboczo uruchomionymi ciałami transportowymi zależnymi od ręcznego prowadzenia, a nie pełnoprawnymi autonomicznymi zombie. Lucan składa dwa silnym Numbem dla Mary i Borosa, po czym ściga trzecią marionetkę, która ucieka pod bezpośrednią kontrolą. Wpycha własną energię, wyrywa ją operatorowi i uzyskuje kierunek drugiego końca więzi. Następnie unieruchamia ciało, ukrywa przed towarzyszami fakt przejęcia i wysysa jego skromne zasilanie przed pościgiem.
+    confidence: strong
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7565-7734]
+    historical_import: true
+  - id: milestone_040_corpse_shipment_handler
+    order: 46
+    arc_id: arc_cemetery_night
+    summary: Lucan testuje Pech i Confusion na młodym operatorze, potwierdzając, że ma do czynienia z nieprzygotowanym amatorem bez sensownej obrony przed subtelnymi cantripami. Przekonuje go, że grupa stanowi zmianę roboczą, i dowiaduje się o czterech roboczo uruchomionych ciałach przygotowanych do wyprowadzenia, rejestrze, dolnej krypcie oraz planowanym przyjeździe Orena i dwóch ludzi z wozem przez północne wyjście przed północą. Boros ogłusza operatora, grupa wiąże go żywego, a Lucan zabiera klucze, notes, srebro i grobowe drobiazgi oraz dyskretnie wyciąga skromne zasilanie z czterech niemal bezwolnych marionetek transportowych. Statyczne Geo ujawnia dolną kryptę, magazyn, północne wyjście transportowe i zamkniętą komorę z silnym nieruchomym skupiskiem śmierci.
+    confidence: confirmed_by_source_and_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7734-8010]
+    historical_import: true
+  - id: milestone_041_corpse_wagon_takeover
+    order: 47
+    arc_id: arc_cemetery_night
+    summary: Wóz przybywa bez Orena; Lucan przejmuje transport i ludzi, pakuje jeńców jak zwłoki oraz odsyła albo odwozi do Gildii pojazd, dokumenty/rejestr i dowody operacji wywozu ciał.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:7800-8290, source_user_decisions_current#approval:corpse_wagon_takeover_and_spider_chest_theft]
+    historical_import: true
+  - id: milestone_042_spiders_steal_wagon_chest_contents
+    order: 48
+    arc_id: arc_cemetery_night
+    summary: Po przejęciu wozu Spidey i sieciarz używają jedwabnej rampy oraz uprzęży, aby przenieść zawartość metalowej skrzyni do krzaków.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:8652-8690, source_user_decisions_current#approval:corpse_wagon_takeover_and_spider_chest_theft]
+    participating_spiders: [Spidey, one_webber]
+    historical_import: true
+  - id: milestone_043_return_with_seraphine_to_northwest_logistics
+    order: 49
+    arc_id: arc_cemetery_system
+    summary: Po zabezpieczeniu i odwiezieniu dokumentów oraz dowodów z przejętego transportu Lucan wraca pod cmentarz z Seraphine i wsparciem Gildii. Grupa wybiera północny zachód, czyli znane wejście przy rampie/tunelu wyjazdowym podziemnego centrum logistycznego, którym wcześniej wyprowadzono wóz z końmi.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:8334-8899, source_user_decisions_current#correction:return_with_seraphine_and_northwest_logistics_entry]
+    historical_import: true
+  - id: milestone_043a_logistics_collector_overload
+    order: 50
+    arc_id: arc_cemetery_system
+    summary: "Przy północno-zachodnim centrum logistycznym grupa odkrywa narzędzie/kolektor obsługujący przepływ energii śmierci z głębszego serca cmentarza. Lucan podłącza się do układu i używa ciągłej emisji zimna jako żywego zaworu. Przeładowanie oraz obejście kolektora zatrzymują albo odcinają przepływ energii z serca do wschodniej części cmentarza; energia traci właściwy odpływ i zaczyna na poważnie budzić zwłoki."
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:8900-9400, source_user_decisions_current#correction:northwest_logistics_collector_overload_blocks_eastward_flow]
+    consequences: [lucan_channel_overload, lucan_basic_self_repair_discovered, undead_begin_serious_animation, east_cemetery_flow_destabilized]
+    historical_import: true
+  - id: milestone_043b_civilian_response_and_chapel_descent
+    order: 51
+    arc_id: arc_cemetery_system
+    summary: Gdy zwłoki zaczynają wychodzić z ziemi, B-rankerzy utrzymują zagrożenie w granicach cmentarza, osłaniając tym samym ludność przed eskalacją. Lucan, Seraphine i wsparcie schodzą pod kaplicę do piwnicy, aby znaleźć źródło problemu. Napotykają nieumarłego-przekaźnik energii, który komunikuje, że Oren kazał czekać i że sam Oren zaraz nadejdzie.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:9650-9990, source_user_decisions_current#correction:civilian_response_and_chapel_descent]
+    historical_import: true
+  - id: milestone_043c_oren_revelation_and_surface_relocation
+    order: 52
+    arc_id: arc_cemetery_system
+    summary: Prawdziwy Oren pojawia się przy przekaźniku i szybko staje się jasne, że nie jest głównym sprawcą, lecz człowiekiem uwięzionym w pasożytniczej więzi z cmentarnym źródłem energii. Kiedy źródło zaczyna przemieszczać się ku niemu, grupa wraca na powierzchnię, aby mieć wsparcie B-rankerów. Sondowanie ujawnia, że to głodny duch/genius loci cmentarza, który postrzega Orena jako należącą do siebie część.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:9990-10800, source_user_decisions_current#correction:oren_is_victim_and_surface_deliberation]
+    historical_import: true
+  - id: milestone_044_oren_containment_and_kill_attempt
+    order: 53
+    arc_id: arc_cemetery_system
+    summary: "Gdy obecni nie znajdują szybkiego i pewnego rozwiązania, Lucan przejmuje inicjatywę: paraliżuje Orena Numbem, aby nie został wciągnięty przez ducha, i próbuje doprowadzić do jego śmierci jako ryzykownego sposobu domknięcia układu. Seraphine blokuje pierwszy cios; rana Orena nie jest śmiertelna, a dyskusja przechodzi do kontrolowanej weryfikacji tej hipotezy."
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:10565-11104, source_user_decisions_current#correction:oren_containment_and_kill_attempt]
+    historical_import: true
+  - id: milestone_044b_oren_termination_and_energy_sample
+    order: 54
+    arc_id: arc_cemetery_system
+    summary: Po przerwaniu pierwszej próby Seraphine dopuszcza kontrolowaną weryfikację hipotezy. Zbliżenie sparaliżowanego Orena do źródła zmniejsza rozchodzenie energii; Seraphine zabija go humanitarnie, Lucan pobiera minimalną próbkę sygnatury ducha, energia cofa się pod ziemię, a nieumarli nieruchomieją.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:11105-11173, source_user_decisions_current#approval:oren_arc_termination]
+    historical_import: true
+  - id: milestone_044c_northern_sinkhole_and_varkhen_chamber
+    order: 55
+    arc_id: arc_cemetery_system
+    summary: Po uspokojeniu źródła Seraphine zostaje przy nim z ekspertami, a Lucan, Mara i Boros idą do północnego osuwiska. Odsłonięte drzwi prowadzą do nieznanej komory z dużą ilością metalu i nieruchomym, lecz silnym źródłem śmierci. Grupa schodzi i wchodzi do komory, uruchamiając bezpośrednie spotkanie z Varkhenem.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:11174-11251, source_user_decisions_current#approval:northern_sinkhole_and_varkhen_chamber]
+    historical_import: true
+  - id: milestone_045_varkhen_takeover
+    order: 56
+    arc_id: arc_cemetery_system
+    summary: Lucan łamie opór starożytnego Varkhena i skutecznie ustanawia formalną, jeszcze nieegzekwowaną więź kontroli, utrzymując go na granicy zniszczenia.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:11207-11409, source_user_decisions_current#planning_decision:varkhen_cutoff, source_user_decisions_current#approval:varkhen_takeover_arc]
+    historical_import: true
+  - id: milestone_046_varkhen_oath_compact
+    order: 57
+    arc_id: arc_cemetery_system
+    summary: Po przejęciu Varkhena Mara sprowadza Seraphine, a Boros pozostaje przy unieruchomionym strażniku. To Lucan pyta Varkhena, jak może dotrzymać jego przysięgi. Varkhen ujawnia trzy pieczęcie; Lucan proponuje pomoc w ich naprawie w zamian za skarbiec, a Varkhen przyjmuje układ. Seraphine warunkowo dopuszcza jego dobrowolne towarzyszenie, bez traktowania go jako wyposażenia Gildii.
+    confidence: confirmed_by_user
+    cutoff_relation: before
+    source_refs: [source_luka_b_fragment#line:11459-11758, source_user_decisions_current#correction:lucan_offers_varkhen_compact]
+    historical_import: true
+  - id: milestone_047_seraphine_risk_disclosure
+    order: 58
+    arc_id: arc_cemetery_system
+    summary: Mara i Boros wychodzą na powierzchnię, ale Varkhen zostaje w komorze przy Lucanie i Seraphine. W rozmowie Lucan wyjaśnia, że może zasilać albo prawdopodobnie kontrolować Varkhena, lecz nie chce testować przymusu; Seraphine wybiera dobrowolny układ i roboczą przykrywkę starożytnego strażnika. Varkhen ujawnia trop kapłana, który przychodził z Orenem. Zdalny rozkaz Lucana dotyczący oczyszczenia zwłok zostaje wykryty przez Varkhena; Seraphine obiecuje warunkową osłonę, ale Lucan ujawnia dwie ofiary w kaplicy i dwie na wysypisku. Scena zatrzymuje się na pytaniu, czy ciała z wysypiska nadal tam są.
+    confidence: confirmed_by_user
+    cutoff_relation: at
+    source_refs: [source_luka_b_fragment#line:11759-12012, source_user_decisions_current#correction:varkhen_present_during_seraphine_conversation]
+    historical_import: true

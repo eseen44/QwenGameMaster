@@ -1,0 +1,67 @@
+schema_version: 1
+id: act_03_intrigue_network
+status: required_act_structure_flexible_execution
+purpose: Włączyć Lucana w trwałą sieć osobistych i instytucjonalnych zależności. Lucan jest na tym etapie środkiem nacisku, ryzykiem, dowodem albo zasobem w cudzym sporze; główne zagrożenie wynika z procedur, jurysdykcji, dowodów i konkurujących interesów instytucji, a nie z samowolnej vendetty pojedynczej osoby.
+required_threads:
+  - city_institutional_reckoning
+  - return_of_lucans_past_through_people_records_or_both
+sequencing:
+  fixed_order: false
+  may_begin_separately: true
+  must_intersect_during_act: true
+  possible_intersections:
+    - institution_summons_or_interviews_a_past_contact
+    - past_contact_seeks_protection_or_advantage_from_a_city_faction
+    - lucan_uses_a_past_relationship_against_an_institutional_claim
+    - testimony_changes_who_wants_to_recruit_restrict_or_destroy_lucan
+network_edge_types:
+  - cooperation
+  - patronage
+  - debt
+  - leverage
+  - shared_secret
+  - jurisdictional_claim
+  - rivalry
+  - personal_loyalty
+  - active_hostility
+  - legal_protection
+  - jurisdictional_capture
+secret_pressure:
+  protected_facts: [secret_lucan_practices_necromancy, secret_varkhen_formal_control_link, secret_necromantic_spider_network, secret_four_corpses_bearing_lucans_trace]
+  rule: Przekazanie, ukrycie albo ujawnienie tych informacji jest decyzją o realnej wartości politycznej i prawnej.
+  public_varkhen_control_effect: Kościół nie traktuje sprawy jako neutralnej debaty; żąda likwidacji nieumarłego i odpowiedzialności za nielegalną praktykę.
+  public_spider_network_effect: Wywołuje spór klasyfikacyjny i dochodzenie; sama sieć nie jest równie jednoznacznym dowodem przestępstwa jak kontrolowany ludzki nieumarły.
+  academic_leverage: Lucan może szukać ekspertyzy lub patronatu chroniącego Spideya jako konstrukt lub chowańca, lecz taka ochrona może wymagać dostępu do badań, zobowiązań albo oddania części kontroli nad odkryciem.
+  instrumental_law_rule: Strona chroniąca Lucana nie czyni go niewinnym; przejmuje lub blokuje sprawę, przekwalifikowuje dowód albo oferuje wyjątek w zamian za polityczny dług.
+relationship_layers:
+  personal: Osobisty stosunek NPC do Lucana może różnić się od stanowiska jego instytucji.
+  institutional: Organizacja ocenia użyteczność, ryzyko, jurysdykcję i koszt polityczny.
+  cross_faction: NPC może współpracować z Lucanem przeciw części własnej instytucji albo używać go w sporze z inną grupą.
+decision_design:
+  - Ważna decyzja powinna określać, komu Lucan daje informację, przysługę, dostęp, lojalność albo możliwość przypisania sobie zasługi.
+  - Korzyść od jednej strony powinna zwykle tworzyć koszt, zobowiązanie, podejrzenie lub utratę zaufania gdzie indziej; nie każdy koszt musi być natychmiastowy.
+  - Nie każda relacja jest wyłączna, ale utrzymanie sprzecznych układów wymaga pracy, kłamstwa albo realnego kompromisu.
+  - Aktywna opozycja powstaje z konkretnych strat, zdrad, upokorzeń lub zagrożeń dla interesu, nie z arbitralnego oznaczenia frakcji jako złej.
+  - Indywidualny NPC może być twarzą nacisku, informatorem albo wykonawcą procedury i może prywatnie nie lubić Lucana; jego realna sprawczość nadal wynika z interesu oraz zasobów instytucji, chyba że gra osobno ustanowi inny zakres.
+  - Współpraca nie oznacza przyjaźni; możliwy jest użyteczny układ ludzi, którzy się nie znoszą.
+  - System nie zapewnia ścieżki, na której wszystkie ważne strony pozostają zadowolone.
+  - Żaden układ polityczny nie zmienia faktu, że praktyka nekromancji jest nielegalna; może jedynie zmienić wykrycie, dowodzenie, egzekwowanie i konsekwencje.
+  - Lucan może wybierać nie tylko sojusznika, lecz także forum i narrację prawną; wybór obrońcy daje tej stronie roszczenie do jego lojalności, wiedzy albo usług.
+stance_model:
+  scale: -100_to_100
+  bands:
+    - {range: -100..-60, state: active_enemy, behavior: wydaje zasoby, aby zaszkodzić lub usunąć Lucana}
+    - {range: -59..-20, state: opponent, behavior: blokuje, ujawnia albo podważa Lucana, gdy koszt jest rozsądny}
+    - {range: -19..19, state: transactional_or_unsettled, behavior: reaguje na bieżące interesy i dowody}
+    - {range: 20..59, state: collaborator, behavior: podejmuje ryzyko w zamian za wzajemność lub wspólny cel}
+    - {range: 60..100, state: committed_ally_or_patron, behavior: ponosi istotny koszt, ale nadal ma własne granice}
+  note: Progi opisują zachowanie, nie automatyczną sympatię ani posłuszeństwo.
+turn_and_scene_effects:
+  record_when_material: [relationship_change, new_debt, favor_spent, secret_shared, leverage_gained_or_lost, faction_attention_change, declared_position]
+  avoid: [punktowanie_każdego_żartu, jawne_pokazywanie_wszystkich_liczb_graczowi, zamiana_dialogu_w_panel_reputacji]
+end_state_goal:
+  - Lucan ma rozpoznawalnych współpracowników i co najmniej jedną relację wymagającą realnej wzajemności.
+  - Co najmniej jedna instytucja albo sytuacyjna koalicja aktywnie ogranicza Lucana z konkretnego powodu wynikającego z gry; jej ludzie mogą mieć wobec niego różne prywatne nastawienie.
+  - Sieć pozostaje otwarta na późniejsze zdrady, zmianę stron i nieoczywiste sojusze.
+  - Wynik nie przesądza moralnej oceny Lucana ani jednego oficjalnego werdyktu wszystkich instytucji.
+source_refs: [source_user_decisions_current#direction:act_three_required_threads_and_intrigue_network]

@@ -1,0 +1,15 @@
+schema_version: 1
+id: effect_numb_overcharged
+object_type: effect
+status: replay_calibration
+name: Numb — nieekonomiczne przeciążenie
+vector: neuromuscular
+application_rating: 43
+stacking:
+  maximum_stacks: 4
+  per_stack: {mobility: -6, coordination: -8}
+  thresholds: {1: impaired, 2: slowed, 3: partially_immobilized, 4: immobilized}
+resource_cost: {pool: lucan_necrotic_energy, units: 1.5}
+visibility: {magical_trace: strong, observable_to_magic_awareness: likely, mundane_visual_display: not_automatic}
+limitations: [requires_full_commitment, poor_energy_efficiency, not_default_casting_mode]
+source_refs: [source_luka_b_fragment#line:10835-11105, source_user_decisions_current#calibration:oren-numb-overcharged-and-uneconomical]

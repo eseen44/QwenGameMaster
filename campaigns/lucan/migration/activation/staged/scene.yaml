@@ -1,0 +1,39 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+scene_id: scene_varkhen_takeover_aftermath
+location_ref: campaigns/lucan/locations/varkhen-chamber/location.yaml
+started_at: day_0_pre_dawn
+tension:
+  level: 2
+  reason: Fizyczna walka wygasła; szczerość Lucana wobec Seraphine zadecyduje o zaufaniu i kształcie osłony instytucjonalnej.
+participants: [pc_lucan, npc_seraphine_vale, companion_varkhen]
+pressures:
+  - seraphine_waiting_for_dump_body_answer
+  - pending_spidey_chapel_order
+  - long_term_three_seal_oath
+  - lucan_energy_saturation
+  - damaged_varkhen
+  - possible_institutional_scrutiny
+immediate_facts:
+  - varkhen_formal_control_link_is_unenforced
+  - seraphine_knows_of_four_bodies_bearing_lucans_trace
+  - varkhen_oath_compact_is_voluntary
+immediate_questions:
+  - Czy te dwa ciała nadal są na wysypisku?
+pending_world_reactions: []
+last_event_id: milestone_047_seraphine_risk_disclosure
+active_refs:
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml
+  - campaigns/lucan/entities/npcs/varkhen.yaml
+  - campaigns/lucan/companions/varkhen.yaml
+  - campaigns/lucan/relationships/seraphine--lucan.yaml
+  - campaigns/lucan/relationships/varkhen--lucan.yaml
+  - campaigns/lucan/companions/spidey.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/locations/varkhen-chamber/state.yaml
+  - campaigns/lucan/state/secrets.yaml
+opening_recap_ref: campaigns/lucan/migration/packages/07-resume-scene/opening-recap.md
+opening_recap_pending: true
+notes:
+  - Pierwsza normalna tura ma najpierw podać jednorazową narrację z opening_recap_ref, bez przesuwania czasu.

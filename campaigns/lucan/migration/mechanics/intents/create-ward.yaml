@@ -1,0 +1,11 @@
+schema_version: 1
+id: intent_create_ward
+object_type: intent
+status: proposed_system_extension
+name: Utwórz Grave Ward
+paths:
+  - id: inscribe_grave_ward
+    effect_vector: warding
+    rating_path: effect.application_rating
+    defense_path: target.thresholds.ward_difficulty
+

@@ -1,0 +1,11 @@
+schema_version: 1
+id: capability_mara_bow_shot
+object_type: capability
+status: proposed_calibrated
+name: Mara — precyzyjny strzał
+tags: [projectile, trauma, ranged]
+delivery: {method: bow, range_m: 45, requirements: [line_of_effect, arrow_available], rating_path: ratings.accuracy, target_defense_path: defenses.mobility}
+ratings: {accuracy: 52, tissue_trauma: 43}
+resource_costs: [{pool: arrows, units: 1}]
+effects: []
+weaknesses: [hard_cover, cramped_melee]

@@ -1,0 +1,16 @@
+schema_version: 1
+id: npc_teren
+name: Teren
+status: accepted_by_user_pending_package_activation
+importance: light_named
+role: chapel_assistant
+lifecycle: {state: dead, death_event_id: milestone_038_chapel_deaths, body_disposition: concealed_mangled_remains_in_old_crypt_sarcophagus}
+archetype_ref: fixture_human
+current_location_id: loc_cemetery_chapel
+knowledge:
+  confirmed:
+    - {fact_id: fact_teren_knew_north_foundation_signs, source_event_id: milestone_036_cemetery_conversations_and_missing_guard, claim: Znał przesunięte kamienie, świeży pył i odgłosy przy północnym fundamencie.}
+  suspicions: []
+  false_beliefs: []
+agenda_at_death: [keep_job, report_maintenance_problems, appease_marael]
+source_refs: [source_luka_b_fragment#line:5849-6088, source_luka_b_fragment#line:7002-7298]

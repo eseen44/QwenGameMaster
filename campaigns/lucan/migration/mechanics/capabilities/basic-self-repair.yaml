@@ -1,0 +1,15 @@
+schema_version: 1
+id: capability_lucan_basic_self_repair
+object_type: capability
+status: proposed_calibrated
+name: Podstawy samoleczenia energią życia
+pattern_tier: 1
+tags: [necromancy, healing, energy, first_level_spell]
+delivery: {method: internal_energy_direction}
+activation_requirements: [stored_energy, conscious_focus, living_tissue]
+ratings: {accuracy: 24, tissue_repair: 22}
+resource_costs: [{pool: lucan_necrotic_energy, units: 1}]
+effects: [effect_lucan_basic_self_repair]
+limits: {full_regeneration: false, severe_trauma_requires_repeated_treatment_and_time: true, missing_tissue_replacement: false}
+weaknesses: [energy_starvation, interrupted_focus, complex_or_missing_tissue]
+source_refs: [source_luka_b_fragment#line:9190-9233, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]

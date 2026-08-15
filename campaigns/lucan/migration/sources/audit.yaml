@@ -1,0 +1,46 @@
+schema_version: 1
+migration_id: migration_lucan_history_v1
+status: compiled_best_available_run_verified
+checked_at: "2026-08-14"
+checks:
+  conversation_identity:
+    status: probable_not_export_verified
+    expected_id: 6a78f0a9-2f98-83ed-9f2a-9f67baf65808
+    expected_title: E-rank Warlock Historia
+    evidence:
+      - luka_B zachowuje te same postacie, zdarzenia i finał co wcześniejsze źródła oraz korekty użytkownika.
+  approximate_turn_count:
+    status: not_verifiable_from_fragment
+    expected: 920
+    observed: null
+  campaign_start:
+    status: covered_by_other_partial_source
+    expected_marker: "Hi, I'm Mindy, the dungeon master."
+    source_ref: source_in_character_partial#line:1-43
+  broad_campaign_middle:
+    status: verified
+    source_ref: source_luka_b_fragment#line:1-11206
+    includes: [tannery_depths, first_cemetery_incident, downtime, webbers, main_cemetery_investigation, wagon, Oren, collector, cemetery_heart]
+  known_endpoint:
+    status: verified
+    expected_markers: [Oren, Varkhen]
+    source_refs: [source_luka_b_fragment#line:9990-11173, source_luka_b_fragment#line:11207-12012]
+  current_branch_integrity:
+    status: full_available_run_declared_canonical_by_user
+    canonical_range: source_compiled_historical_run#line:1-13692
+    excluded_range: null
+  cutoff_locatable:
+    status: verified
+    description: Kanon kończy się wraz z dostępnym luka_B na linii 12012, przy pytaniu Seraphine o ciała na wysypisku.
+result:
+  may_extract_candidates: true
+  may_approve_packages: true
+  may_activate_campaign: after_required_package_approvals_and_shared_validation
+  activation_block_reason: null
+  authorization_ref: source_user_decisions_current#decision:draft_without_export
+compiled_run:
+  source_ref: source_compiled_historical_run#line:1-13692
+  canonical_cutoff_line: 13692
+  post_cutoff_start_line: null
+  source_map_ref: campaigns/lucan/migration/sources/normalized/historical-full-run.manifest.yaml
+  full_export_role: optional_future_completeness_audit

@@ -1,0 +1,26 @@
+schema_version: 1
+id: intent_apply_condition
+object_type: intent
+status: active_system_rule
+name: Apply one condition or stack
+paths:
+  - id: apply_numb
+    effect_ref: effect_numb
+    rating_path: effect.application_rating
+    defense_path: target.resistances.neuromuscular
+  - id: apply_numb_overcharged
+    effect_ref: effect_numb_overcharged
+    rating_path: effect.application_rating
+    defense_path: target.resistances.neuromuscular
+  - id: apply_confusion
+    effect_ref: effect_confusion
+    rating_path: effect.application_rating
+    defense_path: target.resistances.mental
+  - id: apply_minor_hex
+    effect_ref: effect_lucan_minor_hex
+    rating_path: effect.application_rating
+    defense_path: target.resistances.mental
+  - id: apply_paralytic_toxin
+    effect_vector: paralytic_toxin
+    rating_path: effect.application_rating
+    defense_path: target.resistances.neuromuscular

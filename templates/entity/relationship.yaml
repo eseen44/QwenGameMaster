@@ -1,0 +1,31 @@
+schema_version: 1
+id: relationship_example
+status: template
+subject_id: npc_or_faction_id
+target_id: pc_or_other_entity_id
+layer: personal
+stance: transactional_or_unsettled
+axes:
+  cooperation: 0
+  judgment_confidence: 0
+  discretion_trust: 0
+  personal_regard: 0
+confidence: observed
+public_position: null
+private_position: null
+reasons: []
+obligations: []
+shared_secrets: []
+leverage:
+  held_by_subject: []
+  held_by_target: []
+constraints: []
+history:
+  - event_id: example_event_id
+    change: 0
+    reason: example_material_reason
+visibility:
+  known_to_subject: true
+  known_to_target: uncertain
+  known_to_others: []
+last_event_id: example_event_id

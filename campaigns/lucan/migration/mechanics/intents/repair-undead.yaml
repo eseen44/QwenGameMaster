@@ -1,0 +1,11 @@
+schema_version: 1
+id: intent_repair_undead
+object_type: intent
+status: proposed_system_extension
+name: Napraw konstrukcję nieumarłego
+paths:
+  - id: corpse_stitch_repair
+    effect_vector: undead_repair
+    rating_path: effect.application_rating
+    defense_path: target.thresholds.repair_difficulty
+

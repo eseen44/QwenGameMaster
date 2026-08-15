@@ -1,0 +1,46 @@
+schema_version: 1
+id: candidate_varkhen_cutoff
+object_type: entity
+status: proposed_calibrated
+name: Varkhen po układzie i rozmowie z Seraphine — kandydat mechaniczny
+classification: {raw_threat: B, encountered_state: dominated_at_edge_of_destruction}
+anatomy: {neck_diameter_cm: 20}
+ratings: {physical_force: 68, mobility: 44, reflexes: 46, stealth: 8, durability: 66}
+defenses: {vitality: 65, awareness: 51, mobility: 58, anatomical_severing: 62, structural_integrity: 64}
+resistances: {venom: 74, necrotic: 67, neuromuscular: 48, energy_control: 72, necromantic_control: 76}
+thresholds: {lethal_magnitude: 100}
+resources:
+  ancient_necrotic_reservoir:
+    current: 18
+    capacity: 72
+    campaign_calibration: true
+    depleted_by_takeover: true
+capabilities:
+  - capability_varkhen_armored_grasp
+  - capability_varkhen_necrotic_reclamation
+  - capability_varkhen_ancient_regeneration
+conditions_at_cutoff:
+  - dominated_by_lucan
+  - severely_depleted
+  - bodily_integrity_compromised
+traits: [ancient_undead, sapient, former_human, tomb_guardian, old_honor_code, martial_killing_experience, poor_abstract_thinker, unfamiliar_with_modern_magical_technique, regeneration, formal_control_link]
+social_state_at_cutoff: {voluntary_oath_compact: active, attitude_to_lucan: guarded_contractual_dry_cooperation, confidentiality_to_seraphine: accepted}
+cognitive_profile:
+  practical_combat_judgment: 58
+  abstract_reasoning: 24
+  technical_magic_understanding: 18
+  honor_code_salience: 72
+control_at_cutoff:
+  type: formal_necromantic_control_not_yet_enforced
+  establishment: confirmed
+  autonomy: full_free_will_by_default
+  lucan_enforcement_attempts_so_far: 0
+  varkhen_prior_experience_of_necromancer_control: none
+  tested_functions: []
+  plausible_but_untested_functions: [veto_specific_action, compel_specific_action]
+  unknown_functions: [suppress_or_crush_will, costs, backlash, effect_of_varkhen_recovery, range]
+provenance:
+  source_refs: [source_luka_b_fragment#line:11207-12012]
+  replay_ref: campaign_lucan_replay_v1
+  voluntary_oath_compact: canonical
+  active_canon: false

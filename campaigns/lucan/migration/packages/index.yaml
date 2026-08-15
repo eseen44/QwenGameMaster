@@ -1,0 +1,26 @@
+schema_version: 1
+migration_id: migration_lucan_history_v1
+activation_order:
+  - migration_package_01_timeline
+  - migration_package_02_lucan
+  - migration_package_03_companions
+  - migration_package_04_npcs_factions
+  - migration_package_05_locations
+  - migration_package_06_world_state
+  - migration_package_07_resume_scene
+packages:
+  - id: migration_package_01_timeline
+    ref: campaigns/lucan/migration/packages/01-timeline/package.yaml
+  - id: migration_package_02_lucan
+    ref: campaigns/lucan/migration/packages/02-lucan/package.yaml
+  - id: migration_package_03_companions
+    ref: campaigns/lucan/migration/packages/03-companions/package.yaml
+  - id: migration_package_04_npcs_factions
+    ref: campaigns/lucan/migration/packages/04-npcs-factions/package.yaml
+  - id: migration_package_05_locations
+    ref: campaigns/lucan/migration/packages/05-locations/package.yaml
+  - id: migration_package_06_world_state
+    ref: campaigns/lucan/migration/packages/06-world-state/package.yaml
+  - id: migration_package_07_resume_scene
+    ref: campaigns/lucan/migration/packages/07-resume-scene/package.yaml
+

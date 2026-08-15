@@ -1,0 +1,10 @@
+schema_version: 1
+id: intent_breach
+object_type: intent
+status: active_system_rule
+name: Break structural obstacle
+paths:
+  - id: structural_trauma
+    requires_capability_tag: structural_trauma
+    rating_path: capability.ratings.structural_trauma
+    defense_path: target.defenses.structural_integrity

@@ -1,0 +1,12 @@
+schema_version: 1
+id: lucan_activation_manifest_template
+object_type: migration_activation_manifest
+status: template_not_ready
+writes:
+  - target: context/scene.yaml
+    source: migration/activation/staged/scene.yaml
+  - target: context/active.yaml
+    source: migration/activation/staged/active.yaml
+notes:
+  - Uzupełnić pełną listę kanonicznych plików dopiero po zatwierdzeniu wszystkich pakietów.
+  - Komenda aktywacji odrzuci manifest, dopóki istnieje blocker eksportu lub niezatwierdzony pakiet.

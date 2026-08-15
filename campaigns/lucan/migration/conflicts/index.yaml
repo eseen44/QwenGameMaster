@@ -1,0 +1,18 @@
+schema_version: 1
+migration_id: migration_lucan_history_v1
+status: in_review
+conflicts:
+  - id: conflict_timeline_source_gap
+    package_id: migration_package_01_timeline
+    status: unresolved
+    ref: campaigns/lucan/migration/packages/01-timeline/package.yaml
+unresolved_count: 1
+resolved:
+  - id: conflict_cemetery_conversation_details
+    resolution: luka_B zawiera dzienną eksplorację i rozmowy cmentarne; szczegóły zostały skierowane do pakietów NPC i lokacji.
+    source_ref: source_luka_b_fragment#line:5351-6905
+  - id: conflict_webber_viewpoint_mapping
+    resolution: Cztery podstawowe sieciarze działały stabilnie; piąty okaz kancelaryjny był dodatkiem i został zgnieciony podczas sprzątania.
+    source_ref: source_luka_b_fragment#line:5543-6552
+notes:
+  - Nierozstrzygnięte konflikty nie trafiają do aktywnego stanu przed akceptacją pakietów.

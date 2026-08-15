@@ -1,0 +1,16 @@
+schema_version: 1
+id: fixture_spidey_early
+name: Early Spidey replay build
+object_type: build
+status: replay_calibration
+base_ref: archetype_tiny_spider
+layers:
+  - role_infiltrator
+  - gimmick_necrotic_ambusher
+  - modifier_necromantic_animation
+  - weakness_direct_combat
+  - weakness_area_attacks
+classification: {operational_rank: E, prepared_threat: D}
+overrides:
+  controller_ref: fixture_lucan_early
+  provenance: {status: source_linked_replay_fixture, canon_activation: forbidden}

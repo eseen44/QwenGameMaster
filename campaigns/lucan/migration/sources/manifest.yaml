@@ -1,0 +1,140 @@
+schema_version: 1
+migration_id: migration_lucan_history_v1
+priority_order:
+  - source_user_decisions_current
+  - source_chatgpt_full_thread
+  - source_compiled_historical_run
+  - source_luka_b_fragment
+  - source_luka_a_fragment
+  - source_prior_full_thread_analysis
+  - source_in_character_partial
+  - source_initial_prompt
+sources:
+  - id: source_user_decisions_current
+    kind: user_decisions
+    authority: highest
+    completeness: targeted_decisions_only
+    storage: current_codex_thread
+    path: null
+    sha256: null
+    usable_for_canon: true
+    notes:
+      - Obejmuje decyzję o granicy kanonu po przejęciu Varkhena.
+      - Obejmuje decyzje dotyczące głębokości i procedury migracji.
+      - Obejmuje korektę kolejności kaplicy, wysyłki trupów, powozu i systemu Orena.
+      - Potwierdza basztę przy opuszczonym murze jako główną kryjówkę po piwnicy.
+      - Potwierdza szczegółową sekwencję łuku garbarni od zlecenia w koszarach do ucieczki przed szczuroogrem.
+      - Potwierdza dwie wczesne ofiary na wysypisku, domknięcie garbarni, awans do D-rank i tygodniowy downtime przed cmentarzem.
+      - Potwierdza, że eksploracja cmentarza była osobnym, długim i wieloscenowym łukiem.
+      - Potwierdza rekrutację czterech podstawowych sieciarzy po ulepszeniu Spideya; luka_B wyjaśnia, że zgnieciony został późniejszy piąty okaz kancelaryjny.
+      - Potwierdza podział sieciarzy na jednego głównego i trzy jednostki monitorujące oraz aktualną detekcję zerwania nici.
+      - Zatrucie przez nici, podsłuch i wykrywanie magii są aspiracjami rozwojowymi, a nie obecnymi zdolnościami.
+      - Użytkownik opisywał Geo jako połączenie dwóch umiejętności; luka_B precyzuje je jako skrót równoczesnego wywołania Grave Sense i kamiennego skanera.
+      - Potwierdza kradzież przedmiotów z wozu dokonaną przez pająki; luka_B ustala, że nastąpiła po przejęciu całego powozu.
+      - Określa „Necronomicon dla biedoty” jako amatorską, nieprecyzyjną książkę dla aspirujących nekromantów, nie prawdziwy grimuar.
+  - id: source_chatgpt_full_thread
+    kind: chatgpt_conversation
+    authority: primary_history
+    completeness: missing
+    storage: pending_import
+    expected_conversation_id: 6a78f0a9-2f98-83ed-9f2a-9f67baf65808
+    expected_title: E-rank Warlock Historia
+    expected_turns_approx: 920
+    path: null
+    sha256: null
+    usable_for_canon: false
+    notes:
+      - Pełny eksport pozostaje opcjonalnym późniejszym audytem kompletności; użytkownik zniósł jego rolę jako blokady migracji.
+  - id: source_compiled_historical_run
+    kind: derived_deduplicated_transcript
+    authority: inherits_component_sources
+    completeness: best_available_continuous_run
+    storage: project_normalized
+    path: campaigns/lucan/migration/sources/normalized/historical-full-run.utf8.txt
+    manifest_path: campaigns/lucan/migration/sources/normalized/historical-full-run.manifest.yaml
+    bytes: 494413
+    lines_observed: 13692
+    sha256: F3296F8932113D64FC123E2C2BB34DF110A3E29AFECAC4503DEEDD18C11DD812
+    usable_for_canon: according_to_component_source_authority
+    canonical_range: "line:1-13692"
+    post_cutoff_range: null
+    automatic_context: false
+    notes:
+      - Jest domyślnym plikiem do przeszukiwania historii zamiast żonglowania trzema odzyskanymi logami.
+      - Składa unikalny początek In_Character, unikalny most luka_A oraz całe luka_B bez powtarzania ich nakładających się fragmentów.
+      - Nie tworzy nowych faktów ani autorytetu; każdą linię można odwzorować na jeden z trzech plików źródłowych przez osobny manifest.
+      - Zawiera również niekanoniczną gałąź po przejęciu Varkhena, wyraźnie oddzieloną zakresem linii.
+  - id: source_luka_b_fragment
+    kind: partial_transcript_fragment
+    authority: primary_history_fragment
+    completeness: broad_campaign_fragment_with_overlap
+    storage: project_raw_and_normalized
+    path: campaigns/lucan/migration/sources/raw/luka_B.txt
+    original_external_path: C:/Users/User/Desktop/luka_B.txt
+    normalized_path: campaigns/lucan/migration/sources/normalized/luka_B.utf8.txt
+    bytes: 443229
+    lines_observed: 12012
+    sha256: 66F8D13D721BBF6B8114D9B3B91D143837E835DAEF241825B2B2426377EFF0C5
+    usable_for_canon: after_user_approval
+    canonical_range: "line:1-12012"
+    post_cutoff_range: null
+    notes:
+      - Zawiera szerokie pokrycie kampanii od garbarni aż do skutecznego przejęcia Varkhena.
+      - Początek częściowo nakłada się na luka_A.txt i wcześniejsze fragmenty.
+      - Cały dostępny fragment do linii 12012 jest kanoniczny na mocy późniejszej decyzji użytkownika.
+      - Kończy się pytaniem Seraphine o dwa ciała na wysypisku; końcowy nawias Lucana jest prośbą o przypomnienie i nie przesuwa sceny.
+      - Źródło rozstrzyga wcześniejsze luki garbarni, downtime, sieciarzy, cmentarza, wozu, Orena i Varkhena.
+  - id: source_prior_full_thread_analysis
+    kind: derived_analysis
+    authority: secondary_derived
+    completeness: milestone_summary_only
+    storage: project
+    path: campaigns/lucan/migration/sources/normalized/prior-full-thread-analysis.md
+    sha256: null
+    usable_for_canon: after_user_approval
+    notes:
+      - Powstało podczas wcześniejszego stronicowego odczytu około 920 tur.
+      - Nie zawiera tekstu wiadomości 1:1 i nie rozstrzyga drobnych szczegółów.
+  - id: source_luka_a_fragment
+    kind: partial_transcript_fragment
+    authority: secondary
+    completeness: bounded_fragment_with_overlap
+    storage: project_raw_and_normalized
+    path: campaigns/lucan/migration/sources/raw/luka_A.txt
+    original_external_path: C:/Users/User/Desktop/luka_A.txt
+    normalized_path: campaigns/lucan/migration/sources/normalized/luka_A.utf8.txt
+    bytes: 31771
+    lines_observed: 828
+    sha256: 81CA4E50F9654CD3CC7BE438308DA36736063712C9B8970F4C2AF5FFF8A6C130
+    usable_for_canon: after_user_approval
+    notes:
+      - Początek powtarza końcówkę pierwszej walki pod garbarnią obecną w In_Character.txt.
+      - Odzyskuje przygotowanie i zabicie szperacza, rozwój umiejętności oraz początek oficjalnej wyprawy z Marą, Borosem i Ruskiem.
+      - Częściowo pokrywa LUKA-A i LUKA-B, ale nie zawiera zlecenia zniszczenia dokumentów ani samotnego nocnego rekonesansu.
+  - id: source_in_character_partial
+    kind: partial_transcript
+    authority: secondary
+    completeness: known_incomplete
+    storage: project_raw_and_normalized
+    path: campaigns/lucan/migration/sources/raw/In_Character.txt
+    original_external_path: C:/Users/User/Desktop/In_Character.txt
+    normalized_path: campaigns/lucan/migration/sources/normalized/In_Character.utf8.txt
+    bytes: 74393
+    lines_observed: 1859
+    sha256: 46C4AD990E55B4CCE76030587BEE0C70DF63AD7F0EA629C981E1CD753C9DF9CF
+    usable_for_canon: after_user_approval
+    notes:
+      - Zawiera luki, streszczenia i meta-rozmowę o niepełnym eksporcie.
+      - Może służyć do porównania po uzyskaniu pełnego źródła.
+  - id: source_initial_prompt
+    kind: initial_prompt
+    authority: system_intent_only
+    completeness: complete_attachment
+    storage: external_registered_only
+    path: C:/Users/User/.codex/attachments/4da3401f-27e6-48ca-abab-f2ea66d50899/pasted-text.txt
+    bytes: 5450
+    lines_observed: 64
+    sha256: FB107B912FAF9A9E48EDD01755E19150D9AA6C6905606A4A0F999FC05A41AF9F
+    usable_for_canon: limited
+    notes:
+      - Dane postaci są nieaktualne i nie mogą ustalać bieżącego stanu Lucana.

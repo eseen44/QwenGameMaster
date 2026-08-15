@@ -1,0 +1,11 @@
+schema_version: 1
+id: gimmick_sparse_web_monitor
+object_type: modifier
+status: approved_generation_component
+name: Sparse web monitoring gimmick
+overrides:
+  resources: {necrotic_reservoir: {current: 4, capacity: 6, passive_decay_per_day: 1, autonomous_hunting: {enabled: true, expected_yield_per_day: [1, 2]}}}
+  link: {passive_connection_cost: 0, telemetry_bandwidth: minimal, communication: [thread_break_signal]}
+append:
+  capabilities: [capability_sparse_web_alarm]
+  traits: [sparse_web_coverage, self_hunting_battery]

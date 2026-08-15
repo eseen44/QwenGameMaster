@@ -1,0 +1,73 @@
+schema_version: 1
+package_id: migration_package_05_locations
+name: Lokacje i mapy
+revision: 6
+status: approved
+depends_on: [migration_package_01_timeline]
+confirmed:
+  - id: fact_varkhen_chamber_resume_location
+    claim: Varkhen został przejęty w starej komorze z kamiennym sarkofagiem, odsłoniętej przez północne osuwisko cmentarza; wejście wymagało lin owiniętych wokół nagrobków i przejścia przez stare drzwi.
+    category: location
+    source_refs: [source_luka_b_fragment#line:11207-12012]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/locations/varkhen-chamber
+    proposed_value: {location_id: loc_varkhen_chamber, geometry: minimal_estimated, known_exit: collapse_ropes}
+    conflict_ids: []
+    package_id: migration_package_05_locations
+    status: proposed
+  - id: fact_varkhen_front_route_known_unmapped
+    claim: Grupa wie, że komora została przebita od tyłu przez ścianę skarbca, a właściwy dostęp prowadzi przez korytarz trzech prób. Położenie wejścia i geometria trasy nie zostały jeszcze odkryte, więc mapa pokazuje wiedzę tekstowo bez wymyślania przejścia.
+    category: location
+    source_refs: [source_luka_b_fragment#line:11566-11629]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/locations/varkhen-chamber
+    proposed_value: {known_connection: connection_front_trial_corridor, geometry: unknown_not_drawn}
+    conflict_ids: []
+    package_id: migration_package_05_locations
+    status: proposed
+  - id: fact_recurring_location_set
+    claim: Aktywne lub powracające miejsca obejmują cmentarz, kaplicę, podziemny system cmentarza, kryjówkę w opuszczonej baszcie, garbarnię, kopiec pod garbarnią i wysypisko; ich dokładne wymiary nie są potwierdzone.
+    category: location
+    source_refs: [source_user_decisions_current#correction:wall-hideout-critical-find, source_user_decisions_current#correction:dump-two-victims, source_luka_b_fragment#line:600-2600, source_luka_b_fragment#line:5351-11251]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/locations/index.yaml
+    proposed_value: {locations: [loc_cemetery, loc_cemetery_chapel, loc_cemetery_underworks, loc_city_wall_hideout, loc_tannery, loc_rat_mound, loc_dump]}
+    conflict_ids: []
+    package_id: migration_package_05_locations
+    status: proposed
+  - id: fact_cemetery_geo_day_findings
+    claim: Podczas dziennego mapowania Geo ujawniło liczne nieciągłe pustki, korytarze techniczne i zawały ziemi pod cmentarzem, w tym tunel przy zachodnim murze. Grave Sense wskazał przez ścianę jednego zombie w piwnicy/podziemiach kaplicy, niezależnie od drugiego nieumarłego wykrytego w systemie zachodniego muru; pod północnym fundamentem wykryto trzecią, osobną i niesklasyfikowaną anomalię. Nieznany rozmówca wykorzystujący pracownika kancelarii jako proxy wskazał Lucanowi na mapie konkretny, nienazwany grobowiec jako możliwe oficjalne źródło problemów.
+    category: location_discovery
+    source_refs: [source_luka_b_fragment#line:5351-6905, source_user_decisions_current#correction:geo-cemetery-voids-west-tunnel-and-two-anomalies, source_user_decisions_current#correction:cemetery-office-proxy-bargain-and-map-marked-tomb]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/locations/cemetery/discovery.yaml
+    proposed_value: {subsurface_pattern: many_voids_technical_corridors_and_earth_collapses, west_wall_tunnel: detected_with_one_undead, chapel_underground_zombies: 1_sensed_through_wall, north_foundation_anomaly: strange_separate_unclassified_signal, sacrificial_tomb: specific_unnamed_location_marked_on_lucans_map}
+    conflict_ids: []
+    package_id: migration_package_05_locations
+    status: proposed
+proposed:
+  - id: fact_location_map_set_v1
+    claim: Osiem głównych lokacji ma layout, mapę MG, mapę gracza, stan odkrycia i opis pierwszego wejścia; kopiec garbarni i podziemia cmentarza zapisują topologię potrzebną do replayu.
+    category: location
+    source_refs: [source_luka_b_fragment#line:330-2510, source_luka_b_fragment#line:5351-11409, source_user_decisions_current#decision:history_as_stress_test]
+    confidence: strong
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/locations/index.yaml
+    proposed_value: {map_count: 8, geometry_policy: topology_authoritative_dimensions_estimated}
+    conflict_ids: []
+    package_id: migration_package_05_locations
+    status: proposed
+conflicts: []
+missing:
+  - Dokładne wymiary i odległości między lokacjami; obecne mapy używają wyłącznie minimalnej geometrii estimated.
+  - Dokładny stan każdego bocznego tunelu po zawaleniach; główne zmiany garbarni i podziemi cmentarza są zapisane, lecz odnogi pozostają unknown.
+approval: {required: true, current_revision_status: approved}
+map_policy: {first_scope: current_and_recurring, inferred_geometry: minimal_estimated_only, approval_required_before_canon: true}
+revision_notes:
+  - Rewizja 6 została zatwierdzona przez użytkownika bez zmian; istniejąca geometria i mapy pozostają szacunkowymi artefaktami historycznymi.
+  - Rewizja 6 potwierdza, że zombie w piwnicy kaplicy było wyczuwane przez ścianę i stanowiło drugi przypadek, odrębny od nieumarłego przy zachodnim murze oraz niesklasyfikowanej anomalii północnego fundamentu.
+  - Rewizja 5 zapisuje wykryte przez Geo pustki, korytarze i zawały, tunel zachodniego muru, dwa oddzielne sygnały pod kaplicą i północnym fundamentem oraz semantyczny znacznik nienazwanego grobowca na mapie Lucana bez wymyślania jego nazwy ani dokładnych wymiarów.

@@ -1,0 +1,26 @@
+schema_version: 1
+id: npc_oren
+name: Oren
+status: accepted_by_user_pending_package_activation
+review_status: accepted_by_user_pending_package_activation
+importance: full_agent
+role: necromantic_logistics_operator
+lifecycle: {state: dead, death_event_id: milestone_044b_oren_termination_and_energy_sample}
+mechanics_ref: candidate_npc_oren
+current_location_id: loc_cemetery
+approximate_age_at_death: 58
+heart_link_duration_years: 31
+relationship_at_death: {attitude: adversarial_crisis_cooperation, confidence: strong}
+portrayal:
+  role_in_story: "Przez lata prowadził nekromantyczną logistykę cmentarza, ale w finale okazuje się także uwięzionym elementem pasożytniczej więzi ze źródłem. Nie jest wyłącznie głównym złym ani niewinną ofiarą."
+  death_context: "Zginął na powierzchni cmentarza podczas kontrolowanej próby, w obecności Seraphine, ekspertów i grupy; śmierć oraz ciało nie są sekretem możliwym do zatarcia przez Lucana."
+knowledge:
+  confirmed:
+    - {fact_id: fact_oren_knows_lucan_disrupted_collector, source_event_id: milestone_043c_oren_revelation_and_surface_relocation, claim: Lucan lub jego grupa przeciążyli albo zakłócili północno-zachodni kolektor logistyczny i zmienili przepływ do wschodniej części cmentarza.}
+    - {fact_id: fact_oren_knows_lucan_can_sense_link, source_event_id: milestone_043c_oren_revelation_and_surface_relocation, claim: Lucan wykrył więź Orena z sercem.}
+  suspicions:
+    - {id: suspicion_lucan_wants_necromantic_power, basis_event_ids: [milestone_043a_logistics_collector_overload, milestone_044_oren_containment_and_kill_attempt], confidence: high}
+  false_beliefs: []
+  forbidden_without_source: [varkhen_identity, varkhen_takeover]
+agenda_at_death: [stabilize_flow, survive_heart_attention, retain_control_of_operation]
+source_refs: [source_luka_b_fragment#line:7734-11173, source_user_decisions_current#approval:oren_card]

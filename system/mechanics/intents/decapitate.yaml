@@ -1,0 +1,15 @@
+schema_version: 1
+id: intent_decapitate
+object_type: intent
+status: active_system_rule
+name: Decapitate target
+paths:
+  - id: complete_severing
+    requires_capability_tag: severing
+    rating_path: capability.ratings.severing
+    defense_path: target.defenses.anatomical_severing
+    hard_limits:
+      - left: capability.limits.maximum_severable_diameter_cm
+        operator: ">="
+        right: target.anatomy.neck_diameter_cm
+        reason: insufficient_tool_or_jaw_span

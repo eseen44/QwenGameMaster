@@ -1,0 +1,14 @@
+schema_version: 1
+id: effect_confusion
+object_type: effect
+status: replay_calibration
+name: Confusion
+vector: mental
+application_rating: 44
+condition_ref: condition_maintained_confusion
+duration: {mode: maintained, ends_immediately_on: [broken_eye_contact, broken_line_of_sight, interrupted_concentration]}
+impairment: {awareness: -15, coordination: -15, decision_coherence: severely_disrupted}
+resource_cost: {pool: lucan_necrotic_energy, units: 3}
+visibility: {magical_trace: strong, mundane_observers_notice_active_magic: likely, target_behavior_is_obvious: true}
+limitations: [not_direct_command_or_domination, one_target, caster_attention_committed, no_persistent_effect_after_maintenance_ends]
+source_refs: [source_luka_b_fragment#line:4411-4899, source_user_decisions_current#correction:confusion-is-visible-sustained-second-level-control]

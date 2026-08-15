@@ -1,0 +1,23 @@
+schema_version: 1
+id: adventure_02_closure
+name: Domknięcie kryzysu cmentarnego
+status: remaining_to_play
+current_scene_event_id: milestone_047_seraphine_risk_disclosure
+open_in_scene:
+  - {id: answer_dump_body_question, status: immediate, owner: pc_lucan}
+  - {id: decide_pending_chapel_cleanup_order, status: unresolved, owner: pc_lucan}
+  - {id: settle_immediate_varkhen_safety_and_mobility, status: unresolved, owners: [pc_lucan, npc_seraphine_vale, companion_varkhen]}
+before_adventure_closure:
+  - resolve_immediate_dialogue_with_seraphine
+  - establish_short_term_handling_of_varkhen
+  - determine_first_response_to_three_seals
+  - debrief_relevant_guild_authority_without_automatically_sharing_compartmentalized_secrets
+  - begin_or_assign_inquiry_into_priest_and_oren_connection
+  - settle_rewards_treasury_access_and_guild_work
+  - record_public_and_private_versions_of_the_cemetery_outcome
+transition:
+  next: act_03_inquest
+  requires_short_downtime: true
+  exact_downtime_length: not_yet_decided
+  no_outcomes_preselected: true
+source_refs: [source_user_decisions_current#direction:close_adventure_two_then_social_inquest]

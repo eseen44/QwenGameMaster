@@ -1,0 +1,95 @@
+schema_version: 1
+package_id: migration_package_06_world_state
+name: Stan świata i aktywne wątki
+revision: 14
+status: approved
+depends_on: [migration_package_01_timeline, migration_package_04_npcs_factions, migration_package_05_locations]
+confirmed:
+  - id: fact_varkhen_takeover_witnesses_and_evidence
+    claim: Mara i Boros widzieli przejęcie Varkhena, a komora zachowuje świeże uszkodzenia sarkofagu i ślady walki.
+    category: world_state
+    source_refs: [source_luka_b_fragment#line:11251-11758]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/resources.yaml
+    proposed_value: {witnesses: [npc_mara_teln, npc_boros_keld], evidence: [evidence_varkhen_chamber_damage]}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_three_seal_quest_state
+    claim: Pierwsza pieczęć pod najstarszym mauzoleum jest złamana, druga pod kaplicą została naruszona przez zmianę przepływu śmierci, a trzecia przy właściwych dolnych wrotach nadal trwa, lecz słabnie. Stan pieczęci jest długoterminowym zobowiązaniem Varkhena bez zegara, terminu ani automatycznej eskalacji w akcie trzecim.
+    category: long_term_quest_context
+    source_refs: [source_luka_b_fragment#line:11484-11556]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/objectives.yaml
+    proposed_value: {first: broken, second: tainted, third: weakened_no_known_deadline, automatic_clock: false}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_lucan_varkhen_oath_objective
+    claim: Lucan zaproponował dotrzymanie ślubów Varkhena, a Varkhen przyjął układ; zabezpieczenie trzech pieczęci jest aktywnym zobowiązaniem, nie tylko tropem narracyjnym.
+    category: objective
+    source_refs: [source_luka_b_fragment#line:11484-11629]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/objectives.yaml
+    proposed_value: {objective_id: objective_fulfill_varkhen_oath, status: active}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_exposed_spider_order_and_body_risk
+    claim: Oczekujący rozkaz dla Spideya został wykryty przez Varkhena i ujawniony Seraphine. Seraphine zna cztery ciała noszące ślad Lucana, lecz stan dwóch ciał na wysypisku pozostaje aktualnie pytaniem bez odpowiedzi.
+    category: world_state
+    source_refs: [source_luka_b_fragment#line:11919-12012]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/objectives.yaml
+    proposed_value: {pending_order: order_night_chapel_residue_cleanup, immediate_question: whether_dump_bodies_remain}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_act_three_social_inquest_direction
+    claim: "Po zakończeniu drugiej przygody akt ma obowiązkowo połączyć instytucjonalne rozliczenie miejskich kryzysów z wejściem przeszłości Lucana do bieżących relacji. Kolejność i obsada są elastyczne, ale decyzje Lucana mają tworzyć trwałych współpracowników, zobowiązania i aktywnych przeciwników. Duże grupy używają prawa instrumentalnie, więc wybór obrońcy, jurysdykcji i klasyfikacji prawnej staje się częścią sieci intryg; Inkwizycja pozostaje warunkową groźbą."
+    category: world_state
+    source_refs: [source_user_decisions_current#direction:act_three_parallel_investigations, source_user_decisions_current#canon:major_groups_use_law_instrumentally]
+    confidence: confirmed_design_requirement
+    cutoff_relation: after
+    proposed_target: campaigns/lucan/planning/act-03-inquest.yaml
+    proposed_value: {status: required_threads_flexible_plot, mode: emergent_institutional_and_relational_investigation, past_thread: required_perspective_driven, intrigue_network: required, law: instrument_of_power_blocs}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_necromancy_secrecy_state
+    claim: "Nielegalna praktyka Lucana, formalna więź Varkhena, pajęcza sieć i cztery ciała są tajemnicami o różnym kręgu wiedzy. Kontrola Varkhena nie jest publiczna; jej wiarygodne ujawnienie zniszczyłoby neutralną przykrywkę „starożytnego strażnika”. Ujawnienie małych, pierwotnie żywych pająków tworzy słabszy, sporny dowód: Akademia może bronić klasyfikacji konstruktu lub chowańca, podczas gdy Kościół uzna tę nazwę za maskowanie nekromancji."
+    category: world_state_and_secrets
+    source_refs: [source_luka_b_fragment#line:11883-12012, source_user_decisions_current#canon:necromancy_illegal_ability_not_illegal_church_fanatically_hostile, source_user_decisions_current#canon:animal_necromancy_gray_zone, source_user_decisions_current#canon:construct_golem_boundary_conflict]
+    confidence: strong
+    cutoff_relation: at
+    proposed_target: campaigns/lucan/state/secrets.yaml
+    proposed_value: {varkhen_control_public: false, necromancy_practice_public: false, spider_network_legal_weight: ambiguous_construct_familiar_dispute, church_response_if_proven: fanatically_hostile}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+  - id: fact_lucan_guild_rank_d
+    claim: Po uratowaniu Ruska i wyjaśnieniach w gildii Lucan został ponownie uznany za bohatera i awansował do rangi D.
+    category: reputation
+    source_refs: [source_user_decisions_current#correction:rusk-guild-rank-d, source_luka_b_fragment#line:2600-3400]
+    confidence: confirmed
+    cutoff_relation: before
+    proposed_target: campaigns/lucan/state/reputations.yaml
+    proposed_value: {reputation_id: reputation_adventurers_guild, standing: D}
+    conflict_ids: []
+    package_id: migration_package_06_world_state
+    status: proposed
+proposed: []
+conflicts: []
+missing:
+  - Dokładna data i godzina granicy kanonu.
+  - Pełne saldo, własność wszystkich przedmiotów, dowody i zainteresowanie wszystkich frakcji.
+  - Zegary świata wymagające źródeł sprzed granicy kanonu.
+approval: {required: true, current_revision_status: approved}
+revision_notes:
+  - Rewizja 14: Lucan nie jest osobistym nemezis; jest środkiem nacisku w sporach instytucji. Ich przedstawiciele mogą jednak wypracować prywatną niechęć bez zmiany tej skali.
+  - Rewizja 13: zagrożenie aktu trzeciego zdefiniowano jako instytucjonalne i systemowe; pojedyncze NPC mogą być twarzami lub wykonawcami procedur, nie domyślnymi źródłami prywatnej vendetty.
+  - Rewizja 12: użytkownik zatwierdził stan świata, usunął zegar pieczęci i ustanowił akt trzeci jako polityczno-śledczy z opcjonalnym szpiegowaniem, bez domyślnej walki.
