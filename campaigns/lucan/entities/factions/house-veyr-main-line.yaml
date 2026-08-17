@@ -1,0 +1,35 @@
+schema_version: 1
+id: faction_house_veyr_main_line
+name: Główna Linia Rodu Veyr
+status: needs_review
+kind: minor_noble_house_relative_to_lucan
+current_state: background_only_not_yet_directly_engaged_in_current_timeline
+relationship_to_lucan:
+  institutional_attitude: opportunistic_disinterest_escalating_to_retaliation
+  summary: Nigdy nie interesowała się życiem Lucana, dopóki nie pojawiła się
+    możliwość zarobku na nim. Zdecydowała wydać go za zamożną, rudowłosą
+    kobietę (npc_lucan_former_fiancee) bez jego zgody. Lucan odmówił natychmiast
+    po otrzymaniu tej decyzji - do żadnego formalnego etapu (spotkania, zaręczyn)
+    nigdy nie doszło. Główna linia rodu mimo to brnęła w formalności jednostronnie,
+    próbując zastraszyć go (i jego rodziców) do uległości, po czym eskalowała do
+    pogardy, prześladowań i prób dyskredytacji - w tym ukręceniem mu dalszej
+    edukacji magicznej. To ona, nie domniemana narzeczona, jest sprawcą tej
+    eskalacji.
+claims: [head_of_house_authority_over_side_branch, right_to_arrange_marriages_of_side_branch]
+fears: [loss_of_status, side_branch_becoming_a_public_liability_or_scandal]
+members_known:
+  - {id: npc_lucan_father, relation: fourth_or_fifth_son_no_inheritance_prospects, status: side_branch_disinterested_bystander}
+  - {id: npc_lucan_mother, relation: married_in_commoner_born, status: side_branch_performing_status}
+  - {id: npc_lucan_former_fiancee, relation: intended_bride_chosen_by_head_of_house, status: refused_before_any_formal_meeting_family_proceeded_and_bullied_unilaterally}
+knowledge:
+  confirmed: []
+  forbidden_without_event: [lucan_necromancy, spidey_identity, varkhen_identity, lucan_current_location]
+notes:
+  - 'Może się powiązać z faction_lumaria_noble_estates (rule: no_single_house_position,
+    House Veyr może zajmować odrębne stanowisko od reszty bloku) oraz z
+    lead_signet_heraldry_research i objective_prepare_institutional_defense w
+    planning/lucan-leads.yaml i state/objectives.yaml.'
+  - Żadna konkretna osoba nie jest jeszcze nazwana ani nie pojawiła się w bieżącej
+    linii czasowej - to czysto tło ustalone przez gracza, do rozwinięcia w grze.
+source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+last_updated_event_id: null

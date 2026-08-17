@@ -1,0 +1,110 @@
+schema_version: 1
+id: lucan_player_leads
+name: Notatnik Lucana — tropy i pomysły do sprawdzenia
+status: living_list
+purpose: Luzna lista rzeczy, o ktorych Lucan chce pamietac, zeby wrocic do nich
+  pozniej. To nie sa aktywne cele (patrz state/objectives.yaml) - dopoki gracz nie
+  zadeklaruje konkretnego dzialania poza nawiasem, nic tu nie przesuwa czasu ani
+  nie zmienia swiata. Wpisy dopisuje/zamyka narrator na jawna prosbe gracza.
+leads:
+  - id: lead_signet_heraldry_research
+    logged_event_id: event_turn_interlude_004_loot_pile_review
+    topic: Ustalic, do jakiego rodu nalezy stary sygnet (jelen przebity trzema strzalami)
+    note: Rozpoznanie herbu nie powiodlo sie (roll_turn_interlude_004_signet_recognition,
+      28 vs 55) - Lucan wie ze to autentyczny stary rod szlachecki, ale nie moze
+      przypomniec sobie ktory. Potrzebny research (archiwum, ktos kto zna heraldyke)
+      zanim podejmie decyzje o falszowaniu nim pieczeci.
+    ref: campaigns/lucan/player/inventory.yaml#item_three_arrow_deer_signet
+    status: open
+  - id: lead_arachnid_donor_parts
+    logged_after_event_id: event_turn_interlude_004_loot_pile_review
+    topic: Znalezc czesci ciala duzych pajeczakow jako dawce do naprawy/regeneracji
+      kikuta odnoza Spideya
+    note: Przygotowanie leczenia zajmie chwile i potrzebny bedzie dawca odpowiedniej
+      wielkosci - trudno o to szybko. Lucan wola pajecze zrodlo niz ludzki albo
+      potworny palec ("bardzo ble").
+    status: open
+  - id: lead_webber_passive_listening
+    logged_after_event_id: event_turn_interlude_004_loot_pile_review
+    topic: Nauczyc siec zbierac dzwiek z drgan zostawionej pajeczyny, zeby podsluchiwac
+      rozmowy stron bez obecnosci Lucana w pokoju
+    note: Zostawianie nieumarlego sieciarza w pokoju z kaplanem podczas przesluchan
+      to przesada. Cel to podsluch przez sama, pozostawiona pajeczyne - przydatne
+      przy zblizajacych sie przesluchaniach instytucjonalnych. Gracz sygnalizuje
+      tez wlasny, osobisty brak techniki podsluchu (nie tylko przez siec) -
+      ability_borrowed_sense dziala tylko przez linked servant, wiec to osobna luka.
+    related_ref: system/companion-growth.md
+    status: open
+  - id: lead_countermeasure_vs_cemetery_ghost
+    topic: Znalezc/opanowac cos co realnie dziala przeciw duchowi/genius loci cmentarza
+    note: 'Podczas incydentu z Orenem (milestone_045-okolice, "glodny duch/genius
+      loci cmentarza") zaden ze znanych srodkow Lucana nie mial na niego bezposredniego
+      zastosowania - Numb posluzyl tylko do spacyfikowania Orena, nie samego ducha.
+      Powiazane z juz istniejacym discovering: research_cemetery_heart_signature
+      w player/abilities.yaml oraz z collector_heart_and_three_seals (dlugoterminowe
+      zobowiazanie wobec Varkhena).'
+    related_ref: campaigns/lucan/player/abilities.yaml#research_cemetery_heart_signature
+    status: open
+  - id: lead_noble_seeming_magic
+    topic: Opanowac podstawy magii/techniki, ktora przekonuje innych ze Lucan jest
+      "glaboko szlachetny" - swietoszkowata aura/glamour do przesluchan i polityki
+    note: Lucan byl kiepskim studentem magii, ale ocenia ze cos na tym poziomie powinno
+      byc w zasiegu. Zaden z obecnych ability_* w player/abilities.yaml nie robi
+      nic w tym kierunku (najblizsze to misnotice/confusion - to inna kategoria,
+      spoleczna manipulacja percepcji, nie autorytet/pobozny wizerunek).
+    related_ref: campaigns/lucan/state/objectives.yaml#objective_prepare_institutional_defense
+    status: open
+  - id: lead_physical_technique_or_buff
+    topic: Nauczyc sie realnej techniki walki wrecz/z bronia albo lepszego wzmocnienia
+      fizycznego, zamiast polegac tylko na szabli jako przewodniku Bone Chill
+    note: 'Gracz zauwaza ze uzywal szabli wylacznie jako przewodnika zimna ("rownie
+      dobrze moglbym pacac ludzi pretem"). Istnieje juz ability_vital_overdrive
+      (dorywcze wzmocnienie sily/szybkosci, jeden wybuch, first-level) - to
+      naturalny punkt startowy do rozwiniecia w cos trwalszego lub w faktyczna
+      technike walki, nie tylko emergentny efekt uboczny.'
+    related_ref: campaigns/lucan/player/abilities.yaml#ability_vital_overdrive
+    status: open
+  - id: lead_more_curses
+    topic: Nauczyc sie wiecej klatw - dotychczasowe (Numb, Minor Hex, Confusion,
+      Misnotice, Minor Bad Luck) pokonaly zaskakujaco silnych przeciwnikow tylko
+      dlatego, ze nikt sie przed klatwami nie broni
+    note: Gracz wprost formuluje to jako strategie do dalszego eksploatowania -
+      progression_curses_and_misdirection jest obecnie w zakresie E_to_low_D.
+    related_ref: campaigns/lucan/player/progression.yaml#progression_curses_and_misdirection
+    status: open
+  - id: lead_webber_silk_upgrade_human_scale
+    logged_after_event_id: event_turn_interlude_004_loot_pile_review
+    topic: Ulepszyc nic sieciarzy tak, zeby dalo sie nia oznaczac, usypiac/znieczulac
+      albo zabijac ludzi (nie tylko drobne owady), pod pulapki
+    note: Obecna niedostatecznosc - nic wystarcza na muchy, czlowiek jej nawet nie
+      zauwaza. Rozwiniecie tego otworzyloby granie w pulapki.
+    related_ref: system/companion-growth.md
+    status: open
+  - id: lead_market_run_spidey_parts_and_exotic_creatures
+    topic: Wyprawa na targ po nowe czesci dla Spideya i bardziej egzotyczne zwierzatka
+      do ozywienia
+    status: open
+  - id: lead_new_practice_creature
+    topic: Zdobyc nowe stworzenie do cwiczen - krolik jest juz zniszczony (zezarl
+      sobie zeby o preciy klatki od nadmiaru konfuzji)
+    status: open
+  - id: lead_geo_extension_beyond_graveyard_and_dead
+    topic: Rozszerzyc Geo (Grave Sense / czucie drgan i pustek) poza ziemie i zmarlych
+      - obecnie dziala tylko na cmentarzu
+    status: open
+  - id: lead_tannery_owner_followup
+    topic: Sprawdzic co sie dzieje z wlascicielem garbarni (milestone_022_owner_exposed_and_detained)
+      - Lucan probowal kiedys wyludzic od niego dodatkowe wynagrodzenie (napisana
+      skarga) i nadal ma klucz do jego prywatnego mieszkania w garbarni
+    note: 'Gracz sygnalizuje mozliwy dlugoterminowy cel: gdyby wlasciciel zniknal
+      permanentnie, gildia moglaby przejac teren, a Lucan uzyskac pretekst do "izolacji
+      nieumarlego" (tzn. zamieszkania tam) - podziemia bez zmutowanych szczurow
+      brzmia kuszaco. Zaden dedykowany plik NPC dla wlasciciela jeszcze nie istnieje;
+      ostatni znany stan to "exposed_and_detained" z milestone_022 - biezacy status/miejsce
+      pobytu nie ustalone.'
+    status: open
+notes:
+  - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,
+    szerszy temat niz pojedyncze leady wyzej - beda pod nim wisiec, dopoki gracz
+    nie zadeklaruje konkretnego kroku (np. eksperyment, rozmowa z ekspertem, zdobycie
+    materialu).

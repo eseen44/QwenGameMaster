@@ -2,11 +2,12 @@ schema_version: 1
 campaign_id: campaign_lucan
 status: active
 scene_id: scene_act_03_interlude_preparation
-location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
 started_at: day_0_pre_dawn
 tension:
   level: 1
-  reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie się do spodziewanego nacisku instytucji.
+  reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+    się do spodziewanego nacisku instytucji.
 participants:
 - pc_lucan
 - companion_spidey
@@ -26,9 +27,10 @@ immediate_facts:
 - varkhen_is_in_guild_basement_custody
 - unexamined_loot_is_at_wall_hideout
 immediate_questions:
-- Co Lucan rozlicza albo przygotowuje najpierw podczas interludium?
+- Lucan stoi w glownej sali gildii. Mara i/lub Boros moga tu byc - czas zobaczyc kto
+  jest na miejscu i jak zaczac rozmowe o nagrodach za Akt 2.
 pending_world_reactions: []
-last_event_id: event_act_02_closeout_interlude_import
+last_event_id: event_turn_interlude_007_redeploy_and_guild_walk
 active_refs:
 - campaigns/lucan/companions/spidey.yaml
 - campaigns/lucan/state/instances/spidey.yaml
@@ -38,4 +40,5 @@ active_refs:
 - campaigns/lucan/relationships/seraphine--lucan.yaml
 - campaigns/lucan/relationships/varkhen--lucan.yaml
 notes:
-- Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu, dopóki Lucan nie wybierze działania wymagającego czasu.
+- Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+  dopóki Lucan nie wybierze działania wymagającego czasu.

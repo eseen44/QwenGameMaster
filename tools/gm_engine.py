@@ -29,9 +29,24 @@ class EngineError(ValueError):
     """A readable rules or object error."""
 
 
+class _StringDatesLoader(yaml.SafeLoader):
+    """SafeLoader that never auto-converts ISO-looking scalars to datetime/date.
+
+    See the identical loader in gm_runtime.py for why: an unquoted ISO 8601
+    timestamp round-tripped through yaml would otherwise become a Python
+    datetime, which json.dumps (used for hashing) cannot serialize.
+    """
+
+
+_StringDatesLoader.yaml_implicit_resolvers = {
+    key: [item for item in resolvers if item[0] != "tag:yaml.org,2002:timestamp"]
+    for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
+
+
 def load_yaml(path: Path) -> dict[str, Any]:
     try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8-sig"))
+        data = yaml.load(path.read_text(encoding="utf-8-sig"), Loader=_StringDatesLoader)
     except (OSError, UnicodeDecodeError, yaml.YAMLError) as exc:
         raise EngineError(f"cannot load {path}: {exc}") from exc
     if not isinstance(data, dict):

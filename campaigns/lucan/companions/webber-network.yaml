@@ -35,8 +35,17 @@ growth:
   current_investment: 0
   rule: Future trapper functions must be purchased through explicit, increasingly costly growth rather than assumed from autonomous hunting.
 state:
-  location_ref: multiple_routes_toward_city_wall_hideout
-  condition: evacuated_posts_and_recharged
+  location_ref: dispersed_to_named_posts_and_guild_rooftop
+  condition: redeployed_after_overnight_recharge_at_wall_hideout
+  post_assignment:
+    webber_home: loc_city_wall_hideout
+    webber_tannery: loc_tannery
+    webber_dump: loc_dump
+    webber_anchored: loc_lumaria_adventurers_guild
+  post_assignment_event_id: event_turn_interlude_007_redeploy_and_guild_walk
+  standing_order: Od turn_interlude_007_redeploy_and_guild_walk Lucan poleca łapać
+    wyłącznie male, niezauważalne rzeczy (osy, szczury, żuki) zamiast większych,
+    widocznych zwierząt.
   casualties: 1
   casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]

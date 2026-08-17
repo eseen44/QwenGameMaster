@@ -1,0 +1,16 @@
+schema_version: 1
+id: loc_lumaria_adventurers_guild
+name: Siedziba Gildii Poszukiwaczy Przygód w Lumarii
+status: active
+world_ref: worlds/solmara
+type: guild_headquarters
+access: public_reception_restricted_upper_and_lower_floors
+known_to_lucan: direct_member_access
+connections:
+  - {id: connection_guild_basement_stairs, zone_id: zone_guild_main_hall, leads_to: loc_lumaria_guild_basement, travel_time: needs_review}
+  - {id: connection_guild_street, zone_id: zone_guild_main_hall, leads_to: loc_lumaria, travel_time: needs_review}
+notes:
+  - Dach budynku (zone_guild_rooftop) nie jest formalnie strzeżony ani często
+    odwiedzany - stąd nadaje się na dyskretny punkt sieciarza (webber_anchored,
+    posted_at_guild_rooftop od turn_interlude_007_redeploy_and_guild_walk).
+source_refs: [source_user_decisions_current#background:guild_rewards_and_rooftop_post]

@@ -3,33 +3,67 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 2
-position: {location_id: loc_city_wall_hideout, zone_id: container_wall_hideout, formation: with_all_webbers}
-integrity: {current: 27, maximum: 33}
+revision: 7
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: container_wall_hideout
+  formation: with_webber_home
+integrity:
+  current: 27
+  maximum: 33
 resources:
   necrotic_reservoir:
-    current: 10
+    current: 11
     capacity: 12
-    decay: {interval_seconds: 86400, units: 1}
-    hunting_recovery: {interval_seconds: 86400, units: 2, requires: [autonomous_hunting]}
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 2
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 10920
+      hunting_recovery_elapsed_seconds: 10920
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
     regeneration:
       interval_seconds: 21600
       units: 1
-      requires: [functional_implanted_gland, fed_or_energized_state]
+      requires:
+      - functional_implanted_gland
+      - fed_or_energized_state
+    runtime:
+      regeneration_elapsed_seconds: 10920
 conditions:
-  - {id: partial_hind_leg_loss, mechanics_ref: condition_spidey_partial_hind_leg_loss, stacks: 1, magnitude: 30, source_event_id: milestone_042_spiders_steal_wagon_chest_contents}
-status_flags: [autonomous_hunting, functional_implanted_gland, fed_or_energized_state, mobile_but_injured, at_wall_hideout]
+- id: partial_hind_leg_loss
+  mechanics_ref: condition_spidey_partial_hind_leg_loss
+  stacks: 1
+  magnitude: 30
+  source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+status_flags:
+- autonomous_hunting
+- functional_implanted_gland
+- fed_or_energized_state
+- mobile_but_injured
+- at_wall_hideout
 orders:
-  - id: order_night_chapel_residue_cleanup
-    status: completed
-    source_event_id: event_act_02_closeout_interlude_import
-    instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
-    historical_parenthesis_exception: true
-    precedent_for_future_parenthetical_messages: false
-    time_advanced_when_issued: false
-    execution_started: true
-last_event_id: event_act_02_closeout_interlude_import
-source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:4800-4906, source_luka_b_fragment#line:8504-8574, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368, source_luka_b_fragment#line:11919-11927, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+- id: order_night_chapel_residue_cleanup
+  status: completed
+  source_event_id: event_act_02_closeout_interlude_import
+  instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+  historical_parenthesis_exception: true
+  precedent_for_future_parenthetical_messages: false
+  time_advanced_when_issued: false
+  execution_started: true
+last_event_id: event_turn_interlude_007_redeploy_and_guild_walk
+source_refs:
+- source_luka_b_fragment#line:3869-4004
+- source_luka_b_fragment#line:4800-4906
+- source_luka_b_fragment#line:8504-8574
+- source_luka_b_fragment#line:10555-10566
+- source_luka_b_fragment#line:11352-11368
+- source_luka_b_fragment#line:11919-11927
+- campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

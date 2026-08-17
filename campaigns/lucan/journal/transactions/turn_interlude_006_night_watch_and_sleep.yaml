@@ -1,0 +1,474 @@
+schema_version: 1
+id: turn_interlude_006_night_watch_and_sleep
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-17T19:20:38+02:00'
+scene_id: scene_act_03_interlude_preparation
+event_id: event_turn_interlude_006_night_watch_and_sleep
+roll_id: null
+request:
+  turn_id: turn_interlude_006_night_watch_and_sleep
+  declared_action: Lucan rozstawia czterech sieciarzy w kole wokol baszty i kaze im
+    szukac potencjalnych nowych towarzyszy do przyszlego ozywienia, niekoniecznie
+    tylko pajakow, po czym idzie spac do rana.
+  fiction_verdict: automatic
+  time_seconds: 96840
+preview:
+  turn_id: turn_interlude_006_night_watch_and_sleep
+  status: preview
+  scene_id: scene_act_03_interlude_preparation
+  declaration: Lucan rozstawia czterech sieciarzy w kole wokol baszty i kaze im szukac
+    potencjalnych nowych towarzyszy do przyszlego ozywienia, niekoniecznie tylko pajakow,
+    po czym idzie spac do rana.
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 96840
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 96840
+outcome:
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'Lucan rozstawia czterech sieciarzy w luznym kole wokol baszty przy murze
+    i wydaje im proste polecenie: szukac, nie tylko polowac na muchy - jesli cos wartego
+    przyszlego ozywienia wpadnie w siec albo w zasieg, przynosic albo unieruchamiac
+    do rana. Sam wraca do srodka i zasypia. Noc mija bez zaklocen scenariusza - Spidey
+    i sieciarze pilnuja okolicy autonomicznie do switu.'
+  operations:
+  - *id002
+  new_decision: 'Nadejszedl ranek. Sieciarze wracaja z nocnego przeszukania - czas
+    zobaczyc, co (jesli cokolwiek) zlapaly, i zdecydowac od czego Lucan faktycznie
+    zaczyna dzien: research prawno-polityczny, rozmowa ze straza, wyprawa na targ,
+    sprawa garbarza, czy cos innego z notatnika.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 08c6d6d0e7657b64e14d295468217c812fd3fa96e4d5e721121a3a75959748ef
+  after_hash: 5ff221a896fc11e2d92249934e05d5936f2a533be1a9fd5e3c2c43272b630d73
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_preparation
+    location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 1
+      reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+        się do spodziewanego nacisku instytucji.
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - webber_home
+    - webber_tannery
+    - webber_dump
+    pressures:
+    - unresolved_dump_body_risk
+    - act_02_rewards_unsettled
+    - varkhen_guild_basement_custody
+    - upcoming_institutional_inquiry
+    - long_term_three_seal_oath
+    immediate_facts:
+    - act_02_concluded
+    - chapel_bodies_concealed_in_crypt
+    - varkhen_is_in_guild_basement_custody
+    - unexamined_loot_is_at_wall_hideout
+    immediate_questions:
+    - 'Nadejszedl ranek. Sieciarze wracaja z nocnego przeszukania - czas zobaczyc,
+      co (jesli cokolwiek) zlapaly, i zdecydowac od czego Lucan faktycznie zaczyna
+      dzien: research prawno-polityczny, rozmowa ze straza, wyprawa na targ, sprawa
+      garbarza, czy cos innego z notatnika.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    active_refs:
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/player/inventory.yaml
+    - campaigns/lucan/state/resources.yaml
+    - campaigns/lucan/locations/wall-hideout/state.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    notes:
+    - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+      dopóki Lucan nie wybierze działania wymagającego czasu.
+- path: state/clocks.yaml
+  before_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  after_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- path: state/instances/pc-lucan.yaml
+  before_hash: 3a8766fda85538c82fd28b29dff93b3974110903ba7a529af3497d0eb374f205
+  after_hash: a7f94d760531d34dd2a9223255ae09d1269d87037d5db9e7d73d4f030de2a849
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 8
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 14
+        capacity: 15
+        comfortable_capacity: 12
+        overload_expansion: 3
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: post_varkhen_energy_pressure
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_045_varkhen_takeover
+      reason: current_energy_above_old_comfortable_capacity
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - above_old_comfortable_capacity
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: 14c53f76edd92bd5f638cc2da89858c1fda5394f7ded65bceb563f9417d14438
+  after_hash: 1e7744ede64180eeae08b1546e9b4f27343a3028df5f422342bab560d8e83a2b
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 6
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_all_webbers
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 10800
+          hunting_recovery_elapsed_seconds: 10800
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 10800
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - at_wall_hideout
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 40c7674f7d6ccb1e7358efec06f7ed23128a6117db920539b34d55d7c9dbc94a
+  after_hash: e1fbd2288b90e04b54d489a8feb63b5657e25c8d4e8ca196a68fe36e640b78ea
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 6
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: 13ef3df395a12ee49027e0e6af06ec21159aae00d409b3ca984f06ae57a9d41f
+  after_hash: 841761a1444bd4ed51395e1f851ea5c5e10cd73d9aa85d38fc2fc208479ecf70
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 6
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 10800
+          hunting_recovery_elapsed_seconds: 10800
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: c071f2eb3034a369a22203fbba68a5a6865aebfc473e536bcdeae1d03d6927a2
+  after_hash: d989df7450e0182ddc0d6830ad7aec997acfc27fb203cca764439ae621ff8132
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 6
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 10800
+          hunting_recovery_elapsed_seconds: 10800
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: 3e4e0b3744a414ab43d0cd6c5e43bae5edc90000d04c7767b0b8f8edb0f2a7e4
+  after_hash: 30be6233d1a512dcf1d01c5b26fad16e45628a4241ba6d117a868734036feae1
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 6
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 10800
+          hunting_recovery_elapsed_seconds: 10800
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: ce39c3ccc4eabc239aaf3699a0770f172585b95d90d64523cefd182473be09c5
+  after_hash: 4bdcae8a7171f50ea55f2d854a0cf688d2697f1143b982cbd1076b12ed593c36
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 6
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 10800
+          hunting_recovery_elapsed_seconds: 10800
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: f72b2f7ea98727cb1bc5984cc8d791a64dde0a913d616790857f09020922a7cc
+  after_hash: 836e12d39bd8b52d98362983fd85c96256cdb12b6ccdc0a8acf4247b71b74f2c
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T08:00:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 96840
+    last_event_id: event_turn_interlude_006_night_watch_and_sleep
+    elapsed_seconds_total: 97200
+prepared_at: '2026-08-17T19:21:50+02:00'
+committed_at: '2026-08-17T19:21:50+02:00'

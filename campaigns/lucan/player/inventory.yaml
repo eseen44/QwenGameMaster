@@ -4,11 +4,15 @@ status: active
 currency:
   carried_silver: 22
   hidden_silver: 50
+  leftover_market_savings_silver: 30
   refundable_deposits_silver: 5
-  liquid_silver_available_now: 72
-  total_known_net_silver: 77
+  liquid_silver_available_now: 102
+  total_known_net_silver: 107
+  source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15]
   notes:
     - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
+    - 'hidden_silver: 50 to gotówka odłożona do schowka wprost po Akcie 1, zanim Lucan poszedł na targ w tamtym interludium (potwierdzone przez użytkownika, retcon_000001).'
+    - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
 containers:
   - id: container_personal_pockets_and_belt
     location: carried
@@ -89,13 +93,30 @@ items:
     name: Mały złoty łańcuszek z cmentarnego magazynu
     location: carried
     ownership: stolen_grave_good
-    source_refs: [source_luka_b_fragment#line:7835]
-  - id: item_unopened_necromancer_pouch
-    name: Nieotwarta sakiewka ze skrzyni serwisowej
+    identification: examined_ordinary_funerary_chain
+    appraisal_status: pending
+    notes: [decent_quality_gold, no_hidden_compartment, no_inscription_of_note]
+    source_refs: [source_luka_b_fragment#line:7835, event_turn_interlude_002_inventory_review]
+  - id: item_watch_transport_permit
+    name: Przepustka transportowa Straży Miejskiej
     location: carried
-    contents: unknown
+    type: official_document
+    contents_of: item_unopened_necromancer_pouch
+    identification: partially_legible
+    known_effect: Formalna autoryzacja trasy wozu do przewozu zwłok, wystawiona przez faction_lumaria_civic_services (Straż Miejska i Służby Reagowania Lumarii).
+    legible_details: [issuing_office_seal, office_name, route_authorization_type]
+    illegible_details: [signing_official_name, exact_date]
+    provenance: found_sealed_inside_item_unopened_necromancer_pouch
+    hook: faction_lumaria_civic_services ma aktywna presje identify_responsibility_for_missing_bodies - ten dokument dowodzi formalnej autoryzacji trasy tego samego wozu.
+    disposition: kept_as_leverage_hidden_among_lucans_belongings
+    source_refs: [roll_turn_interlude_002_pouch_seal, event_turn_interlude_002_inventory_review, event_turn_interlude_003_keep_permit]
+  - id: item_unopened_necromancer_pouch
+    name: Otwarta sakiewka ze skrzyni serwisowej
+    location: carried
+    contents: item_watch_transport_permit
     ownership: stolen_evidence
-    source_refs: [source_luka_b_fragment#line:8634-8646]
+    identification: opened_and_examined
+    source_refs: [source_luka_b_fragment#line:8634-8646, event_turn_interlude_002_inventory_review]
   - id: item_ring_of_grave_whisper
     name: Pierścień Grobowego Szeptu
     location: carried
@@ -110,7 +131,9 @@ items:
     type: valuable_nonmagical_signet
     identification: partial
     appraisal_status: pending
-    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+    heraldry_recognition: attempted_and_failed
+    heraldry_notes: Lucan rozpoznaje autentyczny, stary herb szlachecki, ale nie moze przypomniec sobie konkretnego rodu - wymaga dalszego researchu (roll_turn_interlude_004_signet_recognition, 28 vs 55).
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review]
   - id: item_silver_preservation_essence
     name: Srebrzysta esencja zachowania zwłok
     location: container_interlude_loot_pile
@@ -120,12 +143,13 @@ items:
     appraisal_status: pending_experiment_or_expert
     source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
   - id: item_unexamined_wagon_chest_lot
-    name: Niezbadany pakiet ze skrzyni wozu
+    name: Zbadany pakiet ze skrzyni wozu
     location: container_interlude_loot_pile
     type: recovered_loot_lot
-    identification: unexamined_by_lucan
-    contents: unresolved_for_player_review
-    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
+    identification: examined
+    contents_ref: cache_cemetery_north_bushes
+    contents_summary: Materialy do preparowania i konserwacji zwlok - necromantic_preservative, ritual_salt, corpse_drying_powder, decay_suppressing_vial x2, necromantic_conduction_agent, small_ritual_tool_set. Pasuja do opieki nad nekrotyczna tkanka Spideya i sieciarzy.
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review, campaigns/lucan/state/resources.yaml#cache_cemetery_north_bushes]
   - id: item_tannery_owner_cache
     name: Papiery, klucze i srebrna pieczęć właściciela garbarni
     location: wall_hideout
@@ -137,5 +161,5 @@ external_claims:
     location: hidden_near_guild_route
     exact_contents: unresolved
     source_refs: [source_luka_b_fragment#line:8287-8301]
-last_transaction_id: event_act_02_closeout_interlude_import
-last_updated_event_id: event_act_02_closeout_interlude_import
+last_transaction_id: event_turn_interlude_004_loot_pile_review
+last_updated_event_id: retcon_000001

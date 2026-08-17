@@ -28,6 +28,26 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CAMPAIGN_ROOT = ROOT / "campaigns" / "lucan"
 CONTEXT_BUDGET_BYTES = 40 * 1024
 SAFE_ID = re.compile(r"^[A-Za-z0-9_.-]+$")
+
+
+class _StringDatesLoader(yaml.SafeLoader):
+    """SafeLoader that never auto-converts ISO-looking scalars to datetime/date.
+
+    PyYAML's implicit timestamp resolver silently turns any unquoted
+    ISO 8601-looking string (current_datetime, created_at, ...) into a
+    datetime object on load.  Every campaign document is later re-hashed
+    with json.dumps, which cannot serialize datetime — so a value that
+    round-trips through dump_yaml -> load_yaml once crashes the very next
+    commit that touches it.  All campaign timestamps are plain strings by
+    convention; keep them that way through the loader instead of relying on
+    every call site to re-stringify.
+    """
+
+
+_StringDatesLoader.yaml_implicit_resolvers = {
+    key: [item for item in resolvers if item[0] != "tag:yaml.org,2002:timestamp"]
+    for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
 ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
 TIME_SECONDS = {
     0: {"instant": 0, "brief": 600, "significant": 3600},
@@ -56,7 +76,7 @@ def stable_number(value: int | float) -> int | float:
 
 def load_yaml(path: Path) -> dict[str, Any]:
     try:
-        value = yaml.safe_load(path.read_text(encoding="utf-8-sig"))
+        value = yaml.load(path.read_text(encoding="utf-8-sig"), Loader=_StringDatesLoader)
     except (OSError, UnicodeDecodeError, yaml.YAMLError) as exc:
         raise RuntimeError(f"cannot load {path}: {exc}") from exc
     if not isinstance(value, dict):

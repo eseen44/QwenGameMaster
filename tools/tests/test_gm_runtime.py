@@ -562,6 +562,45 @@ class GameMasterRuntimeTests(unittest.TestCase):
             with self.assertRaises(gm_runtime.RuntimeError):
                 gm_runtime.refresh_context(self.campaign, write=False, strict=True)
 
+    def test_iso_datetime_scalars_survive_the_yaml_round_trip_as_strings(self) -> None:
+        # PyYAML's implicit timestamp resolver turns an unquoted ISO 8601
+        # scalar into a datetime object on load. A real current_datetime
+        # (as opposed to a placeholder like "day_0_pre_dawn") used to
+        # round-trip through dump_yaml -> load_yaml once and then crash the
+        # next commit's document_hash, which calls json.dumps and cannot
+        # serialize datetime.
+        time_path = self.campaign / "state" / "time.yaml"
+        time_doc = gm_runtime.load_yaml(time_path)
+        time_doc["current_datetime"] = "2026-08-15T05:00:00+02:00"
+        write_yaml(time_path, time_doc)
+
+        reloaded = gm_runtime.load_yaml(time_path)
+        self.assertIsInstance(reloaded["current_datetime"], str)
+        gm_runtime.document_hash(reloaded)  # must not raise on a datetime-like field
+
+        gm_runtime.atomic_yaml(time_path, reloaded)
+        round_tripped = gm_runtime.load_yaml(time_path)
+        self.assertEqual(round_tripped["current_datetime"], "2026-08-15T05:00:00+02:00")
+
+        request = {
+            "turn_id": "turn_datetime_roundtrip",
+            "declared_action": "Mija chwila.",
+            "fiction_verdict": "automatic",
+            "time_seconds": 60,
+        }
+        outcome = {
+            "intent_achieved": True,
+            "arrangement": "unchanged",
+            "perspective": "world",
+            "summary": "Czas mija bez zdarzen.",
+            "operations": [],
+        }
+        gm_runtime.resolve_turn(self.campaign, request, False)
+        committed = gm_runtime.commit_turn(self.campaign, "turn_datetime_roundtrip", outcome, False)
+        self.assertEqual(committed["status"], "committed")
+        advanced = gm_runtime.load_yaml(time_path)
+        self.assertIsInstance(advanced["current_datetime"], str)
+
     def test_committed_turn_retry_repairs_a_stale_context(self) -> None:
         request = {
             "turn_id": "turn_stale",

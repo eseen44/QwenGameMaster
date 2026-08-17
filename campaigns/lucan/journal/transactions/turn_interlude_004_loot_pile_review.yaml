@@ -1,0 +1,476 @@
+schema_version: 1
+id: turn_interlude_004_loot_pile_review
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-17T15:30:41+02:00'
+scene_id: scene_act_03_interlude_preparation
+event_id: event_turn_interlude_004_loot_pile_review
+roll_id: null
+request:
+  turn_id: turn_interlude_004_loot_pile_review
+  declared_action: 'Lucan przeglada stos z interludium: probuje rozpoznac rod z sygnetu,
+    rozwaza uzycie go jako falszywej pieczeci, i sprawdza dokladnie co bylo w niezbadanym
+    pakiecie ze skrzyni wozu razem z esencja konserwujaca.'
+  fiction_verdict: automatic
+  time_class: brief
+preview:
+  turn_id: turn_interlude_004_loot_pile_review
+  status: preview
+  scene_id: scene_act_03_interlude_preparation
+  declaration: 'Lucan przeglada stos z interludium: probuje rozpoznac rod z sygnetu,
+    rozwaza uzycie go jako falszywej pieczeci, i sprawdza dokladnie co bylo w niezbadanym
+    pakiecie ze skrzyni wozu razem z esencja konserwujaca.'
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 120
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 120
+outcome:
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'Lucan probuje rozpoznac heraldyke sygnetu (jelen przebity trzema strzalami)
+    - roll_turn_interlude_004_signet_recognition: 28 vs 55, porazka. Rozpoznaje ze
+    to prawdziwy, stary rod szlachecki, ale nie moze umiescic konkretnej nazwy - wymaga
+    dalszego researchu. Nie podejmuje decyzji co do falszowania pieczeci, tylko odklada
+    mysl na pozniej. Otwiera niezbadany pakiet ze skrzyni wozu: to material do preparowania/konserwacji
+    zwlok, zgodny z esencja konserwujaca znaleziona osobno - kanonicznie juz opisany
+    w cache_cemetery_north_bushes (necromantic_preservative, ritual_salt, corpse_drying_powder,
+    decay_suppressing_vial x2, necromantic_conduction_agent, small_ritual_tool_set).
+    Materialy pasuja do opieki nad nekrotyczna tkanka Spideya i sieciarzy.'
+  operations:
+  - *id002
+  new_decision: Material konserwujacy jest teraz zbadany i dostepny. Czy Lucan chce
+    teraz probowac cos z nim zrobic (np. praca nad kikutem Spideya), czy odlozyc na
+    pozniej i zajac sie wlasna sakiewka z pasa?
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: ddefa912c6e67ebfba28babf458a73592ce004ddaab978c0d77b2188d6eb49f2
+  after_hash: 08c6d6d0e7657b64e14d295468217c812fd3fa96e4d5e721121a3a75959748ef
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_preparation
+    location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 1
+      reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+        się do spodziewanego nacisku instytucji.
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - webber_home
+    - webber_tannery
+    - webber_dump
+    pressures:
+    - unresolved_dump_body_risk
+    - act_02_rewards_unsettled
+    - varkhen_guild_basement_custody
+    - upcoming_institutional_inquiry
+    - long_term_three_seal_oath
+    immediate_facts:
+    - act_02_concluded
+    - chapel_bodies_concealed_in_crypt
+    - varkhen_is_in_guild_basement_custody
+    - unexamined_loot_is_at_wall_hideout
+    immediate_questions:
+    - Material konserwujacy jest teraz zbadany i dostepny. Czy Lucan chce teraz probowac
+      cos z nim zrobic (np. praca nad kikutem Spideya), czy odlozyc na pozniej i zajac
+      sie wlasna sakiewka z pasa?
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    active_refs:
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/player/inventory.yaml
+    - campaigns/lucan/state/resources.yaml
+    - campaigns/lucan/locations/wall-hideout/state.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    notes:
+    - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+      dopóki Lucan nie wybierze działania wymagającego czasu.
+- path: state/clocks.yaml
+  before_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  after_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- path: state/instances/pc-lucan.yaml
+  before_hash: a961dd9cca68e0f72d4ffdb4aef3fbe0b66d11673537373eab444f7fe1c1a605
+  after_hash: 3a8766fda85538c82fd28b29dff93b3974110903ba7a529af3497d0eb374f205
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 7
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 14
+        capacity: 15
+        comfortable_capacity: 12
+        overload_expansion: 3
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: post_varkhen_energy_pressure
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_045_varkhen_takeover
+      reason: current_energy_above_old_comfortable_capacity
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - above_old_comfortable_capacity
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: 828ca2cb08971bae2b0188b269ecc9f962c425186225bb95a0069dcfa6469a09
+  after_hash: 14c53f76edd92bd5f638cc2da89858c1fda5394f7ded65bceb563f9417d14438
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 5
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_all_webbers
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 10
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 360
+          hunting_recovery_elapsed_seconds: 360
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 360
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - at_wall_hideout
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 33477fb14322f408537fbabc1e5d0c39df829acdbfbff988ca9d1d247998b3db
+  after_hash: 40c7674f7d6ccb1e7358efec06f7ed23128a6117db920539b34d55d7c9dbc94a
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 5
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: 983f24ea34be404c48510cd0f8ee09eed439c2543df59f88d2acc8f0d3e5f14b
+  after_hash: 13ef3df395a12ee49027e0e6af06ec21159aae00d409b3ca984f06ae57a9d41f
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 5
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 360
+          hunting_recovery_elapsed_seconds: 360
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: aabbd30a027cc439116cd923bc210e50ae3c838f4fab3cf5f778e97a402a51e9
+  after_hash: c071f2eb3034a369a22203fbba68a5a6865aebfc473e536bcdeae1d03d6927a2
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 5
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 360
+          hunting_recovery_elapsed_seconds: 360
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: dfd6f89f90f219ac4596d099100e8e7dfb5db6cd4360d2936676dfd8e717fef1
+  after_hash: 3e4e0b3744a414ab43d0cd6c5e43bae5edc90000d04c7767b0b8f8edb0f2a7e4
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 5
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 360
+          hunting_recovery_elapsed_seconds: 360
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: e7fa392f838af26b8dabde337366c51419a092bb356c33c62cf4e28eda597118
+  after_hash: ce39c3ccc4eabc239aaf3699a0770f172585b95d90d64523cefd182473be09c5
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 5
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 360
+          hunting_recovery_elapsed_seconds: 360
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: 898f770588e01986e21771697eccab80d3ec94b10643ad2cdf82756d417ce135
+  after_hash: f72b2f7ea98727cb1bc5984cc8d791a64dde0a913d616790857f09020922a7cc
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-15T05:06:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 120
+    last_event_id: event_turn_interlude_004_loot_pile_review
+    elapsed_seconds_total: 360
+prepared_at: '2026-08-17T15:31:08+02:00'
+committed_at: '2026-08-17T15:31:08+02:00'

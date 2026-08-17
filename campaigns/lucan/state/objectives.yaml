@@ -19,10 +19,38 @@ player_declared:
     status: pending_guild_settlement
     commitment: Rozliczyć nagrody i udział Lucana po operacji cmentarnej.
     prompt: Nagrody za Akt 2 nie zostały jeszcze przyznane ani wycenione.
+    steps:
+      - id: talk_to_mara_and_boros_about_money_and_rewards
+        state: pending
+        note: Gracz chce porozmawiać z npc_mara_teln i npc_boros_keld o pieniądzach
+          i odebrać należne nagrody z gildii za operację cmentarną.
   - id: objective_prepare_institutional_defense
     status: active_interlude_planning
     commitment: Przygotować się na przesłuchania i nacisk instytucji przed kolejnym aktem.
     options: [research_legal_process, seek_representative_or_lawyer, study_defensive_skills, appraise_loot, manage_evidence]
+    steps:
+      - id: determine_spidey_and_webbers_legal_classification
+        state: pending
+        note: Jaki jest prawny status Spideya i sieciarzy - pupil, konstrukt, czy
+          wystarczajacy dowod nekromancji przeciw Lucanowi? Wiaze sie z conflict_axis
+          secular_classification_of_spidey_and_the_webber_network w planning/act-03-city-power-dynamics.yaml.
+      - id: check_in_with_known_factions_especially_watch
+        state: pending
+        note: Rozmowa ze straza i innymi znanymi stronnictwami - ocena nastawienia
+          po spotkaniu z sierzantem, znalezieniu ich trupa i posiadaniu dowodu na
+          problemy w ich szeregach (item_watch_transport_permit).
+      - id: acquire_surveillance_rhetoric_and_law_references
+        state: pending
+        note: Techniki podsluchu oraz ksiazki o retoryce, prawie swieckim i wyznaniowym.
+      - id: map_city_factions_and_noble_relative_thread
+        state: pending
+        note: Research stronnictw miasta (faction_lumaria_noble_estates i inne) -
+          sygnet to dopiero poczatek, mozliwe spotkanie z ktoryms "doskonalym krewnym".
+          Powiazane z lead_signet_heraldry_research w planning/lucan-leads.yaml.
+      - id: acquire_anti_detection_countermeasures
+        state: pending
+        note: Substancje/amulety maskujace energie Lucana lub chroniace przed wymuszaniem
+          prawdy - spodziewane przed przesluchaniami instytucjonalnymi.
 long_term_context:
   - {id: seal_one_broken, state: broken, source_event_id: milestone_046_varkhen_oath_compact}
   - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}

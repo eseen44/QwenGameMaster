@@ -1,0 +1,100 @@
+schema_version: 1
+id: turn_interlude_003_keep_permit
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-17T15:21:23+02:00'
+scene_id: scene_act_03_interlude_preparation
+event_id: event_turn_interlude_003_keep_permit
+roll_id: null
+request:
+  turn_id: turn_interlude_003_keep_permit
+  declared_action: Lucan decyduje zachowac przepustke Strazy Miejskiej jako karte
+    przetargowa/dowod i chowa ja wsrod wlasnych rzeczy, zamiast szukac kto ja podpisal
+    albo ja wyrzucac.
+  fiction_verdict: automatic
+  time_class: instant
+preview:
+  turn_id: turn_interlude_003_keep_permit
+  status: preview
+  scene_id: scene_act_03_interlude_preparation
+  declaration: Lucan decyduje zachowac przepustke Strazy Miejskiej jako karte przetargowa/dowod
+    i chowa ja wsrod wlasnych rzeczy, zamiast szukac kto ja podpisal albo ja wyrzucac.
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 0
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: Lucan zachowuje przepustke Strazy Miejskiej jako karte przetargowa/dowod,
+    chowajac ja wsrod wlasnych rzeczy. Nie podejmuje zadnego dzialania wobec urzedu
+    ani nikogo nie pyta o podpis.
+  operations:
+  - *id002
+  new_decision: 'Nadal do przejrzenia: stos z interludium (sygnet z jeleniem, esencja
+    konserwujaca, niezbadany pakiet ze skrzyni wozu).'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 53d359dcaced7949ad0766c24479b886a809708267923731f962072479ee597b
+  after_hash: ddefa912c6e67ebfba28babf458a73592ce004ddaab978c0d77b2188d6eb49f2
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_preparation
+    location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 1
+      reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+        się do spodziewanego nacisku instytucji.
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - webber_home
+    - webber_tannery
+    - webber_dump
+    pressures:
+    - unresolved_dump_body_risk
+    - act_02_rewards_unsettled
+    - varkhen_guild_basement_custody
+    - upcoming_institutional_inquiry
+    - long_term_three_seal_oath
+    immediate_facts:
+    - act_02_concluded
+    - chapel_bodies_concealed_in_crypt
+    - varkhen_is_in_guild_basement_custody
+    - unexamined_loot_is_at_wall_hideout
+    immediate_questions:
+    - 'Nadal do przejrzenia: stos z interludium (sygnet z jeleniem, esencja konserwujaca,
+      niezbadany pakiet ze skrzyni wozu).'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_003_keep_permit
+    active_refs:
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/player/inventory.yaml
+    - campaigns/lucan/state/resources.yaml
+    - campaigns/lucan/locations/wall-hideout/state.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    notes:
+    - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+      dopóki Lucan nie wybierze działania wymagającego czasu.
+prepared_at: '2026-08-17T15:21:44+02:00'
+committed_at: '2026-08-17T15:21:45+02:00'
