@@ -297,6 +297,22 @@ def journal_ids(path: Path) -> set[str]:
     return result
 
 
+def journal_record(path: Path, record_id: str) -> dict[str, Any] | None:
+    """Return an already journalled record so a retry can never restate it."""
+    if not path.exists():
+        return None
+    for number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f"{path}:{number}: {exc}") from exc
+        if isinstance(record, dict) and record.get("id") == record_id:
+            return record
+    return None
+
+
 def append_jsonl_once(path: Path, record: dict[str, Any]) -> None:
     if record["id"] in journal_ids(path):
         return
@@ -381,9 +397,15 @@ def resolve_turn(
         raise RuntimeError(f"turn already exists: {turn_id}")
     event_id = f"event_{turn_id}"
     roll_id = f"roll_{turn_id}"
-    roll = build_roll(preview, request, roll_id, event_id)
-    if roll:
-        append_jsonl_once(campaign_root / "journal" / "rolls.jsonl", roll)
+    rolls_path = campaign_root / "journal" / "rolls.jsonl"
+    # A crash between the journal append and the transaction write used to make a
+    # retry restate the roll: the journal kept the first result while the narrator
+    # was handed a freshly drawn one.  A journalled roll always wins.
+    roll = journal_record(rolls_path, roll_id)
+    if roll is None:
+        roll = build_roll(preview, request, roll_id, event_id)
+        if roll:
+            append_jsonl_once(rolls_path, roll)
     transaction = {
         "schema_version": 1,
         "id": turn_id,
@@ -737,6 +759,18 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.operations must be a list")
 
 
+def refresh_after_commit(campaign_root: Path, transaction: dict[str, Any]) -> dict[str, Any]:
+    """Refresh the context without ever failing an already durable turn."""
+    try:
+        context = refresh_context(campaign_root, write=True)
+    except (RuntimeError, gm_engine.EngineError) as exc:
+        transaction["context_warnings"] = [f"refresh_failed:{exc}"]
+        return transaction
+    transaction["context_warnings"] = context.get("context_warnings", [])
+    transaction["context_bytes"] = context.get("context_bytes")
+    return transaction
+
+
 def commit_turn(
     campaign_root: Path, turn_id: str, outcome: dict[str, Any], allow_noncanonical: bool
 ) -> dict[str, Any]:
@@ -744,7 +778,9 @@ def commit_turn(
     path = transaction_path(campaign_root, require_id(turn_id, "turn_id"))
     transaction = load_yaml(path)
     if transaction.get("status") == "committed":
-        return transaction
+        # Retrying a committed turn must still repair a context left stale by an
+        # earlier failed refresh, otherwise the campaign never recovers.
+        return refresh_after_commit(campaign_root, transaction)
     if transaction.get("status") == "aborted":
         raise RuntimeError(f"turn {turn_id} is aborted")
     if transaction.get("status") == "prepared":
@@ -785,8 +821,7 @@ def commit_turn(
     transaction["status"] = "committed"
     transaction["committed_at"] = now_iso()
     atomic_yaml(path, transaction)
-    refresh_context(campaign_root, write=True)
-    return transaction
+    return refresh_after_commit(campaign_root, transaction)
 
 
 def abort_turn(
@@ -813,7 +848,7 @@ def recover_turn(
     path = transaction_path(campaign_root, require_id(turn_id, "turn_id"))
     transaction = load_yaml(path)
     if transaction.get("status") == "committed":
-        return transaction
+        return refresh_after_commit(campaign_root, transaction)
     if transaction.get("status") != "prepared":
         raise RuntimeError(f"only prepared transactions can be recovered, found {transaction.get('status')}")
     apply_prepared_writes(campaign_root, transaction.get("prepared_writes", []))
@@ -822,8 +857,7 @@ def recover_turn(
     transaction["committed_at"] = now_iso()
     transaction["recovered"] = True
     atomic_yaml(path, transaction)
-    refresh_context(campaign_root, write=True)
-    return transaction
+    return refresh_after_commit(campaign_root, transaction)
 
 
 def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
@@ -862,7 +896,15 @@ def ref_path(ref: str) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
-def refresh_context(campaign_root: Path, write: bool) -> dict[str, Any]:
+def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> dict[str, Any]:
+    """Rebuild the minimal context.
+
+    Overflowing the budget or losing a referenced file is reported, not raised.
+    A committed turn is already durable when this runs, so raising here used to
+    leave the campaign with a permanently stale ``active.yaml``: the retry saw
+    ``status: committed`` and returned before ever refreshing.  ``strict`` is for
+    validation runs that legitimately want a non-zero exit code.
+    """
     scene = scene_document(campaign_root)
     active_path = campaign_root / "context" / "active.yaml"
     active = load_yaml(active_path)
@@ -872,11 +914,15 @@ def refresh_context(campaign_root: Path, write: bool) -> dict[str, Any]:
         raise RuntimeError("active context may not load raw or noncanonical migration material")
     loaded_refs = list(active.get("always_load", [])) + refs
     missing = [ref for ref in loaded_refs if not ref_path(ref).exists()]
+    sizes = {
+        ref: ref_path(ref).stat().st_size for ref in loaded_refs if ref not in missing
+    }
+    total = sum(sizes.values())
+    warnings: list[str] = []
     if missing:
-        raise RuntimeError(f"active context references missing files: {missing}")
-    total = sum(ref_path(ref).stat().st_size for ref in loaded_refs)
+        warnings.append(f"missing_refs:{','.join(missing)}")
     if total > CONTEXT_BUDGET_BYTES:
-        raise RuntimeError(f"active context is {total} bytes; budget is {CONTEXT_BUDGET_BYTES}")
+        warnings.append(f"over_budget:{total}>{CONTEXT_BUDGET_BYTES}")
     result = copy.deepcopy(active)
     result["active_refs"] = refs
     result["search_terms"] = [
@@ -885,8 +931,16 @@ def refresh_context(campaign_root: Path, write: bool) -> dict[str, Any]:
     result["last_refreshed_event_id"] = scene.get("last_event_id")
     result["context_bytes"] = total
     result["context_budget_bytes"] = CONTEXT_BUDGET_BYTES
+    result["context_warnings"] = warnings
+    # Naming the heaviest refs turns "over budget" into an actionable list.
+    result["heaviest_refs"] = [
+        {"ref": ref, "bytes": size}
+        for ref, size in sorted(sizes.items(), key=lambda item: -item[1])[:5]
+    ]
     if write:
         atomic_yaml(active_path, result)
+    if strict and warnings:
+        raise RuntimeError("; ".join(warnings))
     return result
 
 
@@ -1090,6 +1144,221 @@ def activate_migration(campaign_root: Path, manifest_path: Path, dry_run: bool) 
     return result
 
 
+# --- Compact output -------------------------------------------------------
+#
+# Every byte printed here is re-sent to the model on every later turn of the
+# conversation, so the default output carries decisions only.  Everything the
+# narrator already wrote (the request), already saw (the preview) or can read
+# from disk (the written documents) is dropped unless --verbose asks for it.
+
+
+def roll_summary(roll: dict[str, Any] | None) -> dict[str, Any] | None:
+    if not roll:
+        return None
+    return {
+        "id": roll.get("id"),
+        "natural": roll.get("natural_roll"),
+        "modified": roll.get("modified_result"),
+        "difficulty": roll.get("difficulty"),
+        "passes": roll.get("passes_threshold"),
+        "critical": roll.get("critical"),
+    }
+
+
+def assessment_summary(assessment: dict[str, Any]) -> dict[str, Any]:
+    guidance = assessment.get("test_guidance") or {}
+    summary: dict[str, Any] = {
+        "verdict": assessment.get("verdict"),
+        "roll_allowed": assessment.get("roll_allowed", False),
+    }
+    if guidance.get("scope"):
+        summary["scope"] = guidance["scope"]
+    if guidance.get("suggested_difficulty") is not None:
+        summary["suggested_difficulty"] = guidance["suggested_difficulty"]
+    # Alternative paths and hard-limit details only matter when the engine says
+    # no; when it says yes they are several hundred tokens of confirmation.
+    for key in ("blocking_reasons", "resource_shortfalls", "resource_costs"):
+        if assessment.get(key):
+            summary[key] = assessment[key]
+    return summary
+
+
+def scene_followups(campaign_root: Path) -> dict[str, Any]:
+    try:
+        scene = scene_document(campaign_root)
+    except RuntimeError:
+        return {}
+    pending = [
+        item.get("id") for item in scene.get("pending_world_reactions", []) if isinstance(item, dict)
+    ]
+    followups: dict[str, Any] = {}
+    if pending:
+        followups["pending_world_reactions"] = pending
+    if scene.get("immediate_questions"):
+        followups["immediate_questions"] = scene["immediate_questions"]
+    return followups
+
+
+def transaction_summary(
+    transaction: dict[str, Any], campaign_root: Path | None = None
+) -> dict[str, Any]:
+    if transaction.get("object_type") != "turn_transaction":
+        return preview_summary(transaction)
+    preview = transaction.get("preview") or {}
+    summary: dict[str, Any] = {
+        "turn_id": transaction.get("id"),
+        "status": transaction.get("status"),
+        "event_id": transaction.get("event_id"),
+        "time_seconds": (transaction.get("time_operation") or {}).get("seconds"),
+    }
+    summary.update(assessment_summary(preview.get("assessment") or {}))
+    summary["roll"] = roll_summary(transaction.get("roll"))
+    if transaction.get("status") == "resolved":
+        due = preview.get("world_reactions_due_before") or []
+        if due:
+            summary["world_reactions_due"] = [
+                item.get("id") for item in due if isinstance(item, dict)
+            ]
+    if transaction.get("status") == "committed":
+        summary["changed"] = [
+            write.get("path") for write in transaction.get("prepared_writes", [])
+        ]
+        summary["context_bytes"] = transaction.get("context_bytes")
+        if campaign_root is not None:
+            summary.update(scene_followups(campaign_root))
+    if transaction.get("recovered"):
+        summary["recovered"] = True
+    if transaction.get("abort_reason"):
+        summary["abort_reason"] = transaction["abort_reason"]
+    if transaction.get("context_warnings"):
+        summary["context_warnings"] = transaction["context_warnings"]
+    return summary
+
+
+def preview_summary(preview: dict[str, Any]) -> dict[str, Any]:
+    if preview.get("status") == "system_only_noop":
+        return {key: preview[key] for key in ("turn_id", "status", "reason") if key in preview}
+    summary: dict[str, Any] = {
+        "turn_id": preview.get("turn_id"),
+        "status": preview.get("status"),
+        "time_seconds": preview.get("time_seconds"),
+    }
+    summary.update(assessment_summary(preview.get("assessment") or {}))
+    due = preview.get("world_reactions_due_before") or []
+    if due:
+        summary["world_reactions_due"] = [item.get("id") for item in due if isinstance(item, dict)]
+    return summary
+
+
+def context_summary(context: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "context_bytes": context.get("context_bytes"),
+        "context_budget_bytes": context.get("context_budget_bytes"),
+        "active_refs": len(context.get("active_refs", [])),
+        "context_warnings": context.get("context_warnings", []),
+        "heaviest_refs": context.get("heaviest_refs", []),
+    }
+
+
+# --- Session brief --------------------------------------------------------
+
+
+def instance_digest(instance: dict[str, Any]) -> dict[str, Any]:
+    digest: dict[str, Any] = {"id": instance.get("id")}
+    pools = {}
+    for pool_id, pool in (instance.get("resources") or {}).items():
+        if isinstance(pool, dict) and "current" in pool:
+            pools[pool_id] = f"{pool.get('current')}/{pool.get('capacity')}"
+    if pools:
+        digest["resources"] = pools
+    conditions = [
+        item.get("id") for item in instance.get("conditions", []) if isinstance(item, dict)
+    ]
+    if conditions:
+        digest["conditions"] = conditions
+    if instance.get("position"):
+        digest["position"] = instance["position"]
+    if instance.get("integrity"):
+        digest["integrity"] = instance["integrity"]
+    return digest
+
+
+def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
+    """One self-contained block that opens a fresh conversation.
+
+    Conversation cost grows with the square of its length, because every turn
+    resends the whole history.  Starting a new conversation per scene is the
+    cheapest available fix, and it only works if reopening is a single step.
+    """
+    campaign = load_yaml(campaign_root / "campaign.yaml")
+    scene = scene_document(campaign_root)
+    context = refresh_context(campaign_root, write=False)
+    time_doc = load_optional_yaml(campaign_root / "state" / "time.yaml", {})
+    clocks_doc = load_optional_yaml(campaign_root / "state" / "clocks.yaml", {"clocks": []})
+    objectives = load_optional_yaml(campaign_root / "state" / "objectives.yaml", {})
+
+    participants: list[dict[str, Any]] = []
+    for participant in scene.get("participants", []):
+        participant_id = participant.get("id") if isinstance(participant, dict) else participant
+        if not isinstance(participant_id, str):
+            continue
+        path = find_instance_path(campaign_root, participant_id)
+        if path is None or not path.exists():
+            participants.append({"id": participant_id})
+            continue
+        participants.append(instance_digest(load_yaml(path)))
+
+    brief: dict[str, Any] = {
+        "campaign": campaign.get("id"),
+        "status": campaign.get("status"),
+        "rules": ["AGENTS.md", *context.get("always_load", [])],
+        "scene": {
+            "id": scene.get("scene_id"),
+            "location_ref": scene.get("location_ref"),
+            "tension": (scene.get("tension") or {}).get("level"),
+            "pressures": scene.get("pressures", []),
+            "immediate_questions": scene.get("immediate_questions", []),
+            "pending_world_reactions": [
+                item.get("id")
+                for item in scene.get("pending_world_reactions", [])
+                if isinstance(item, dict)
+            ],
+        },
+        "time": {
+            "current_datetime": time_doc.get("current_datetime"),
+            "elapsed_seconds_total": time_doc.get("elapsed_seconds_total"),
+        },
+        "clocks": [
+            {
+                "id": clock.get("id"),
+                "progress": f"{clock.get('progress', 0)}/{clock.get('threshold')}",
+                "effect": clock.get("effect"),
+            }
+            for clock in clocks_doc.get("clocks", [])
+            if isinstance(clock, dict) and not clock.get("triggered")
+        ],
+        "objectives": objectives.get("player_declared", []),
+        "participants": participants,
+        "load": [
+            {"ref": ref, "bytes": ref_path(ref).stat().st_size}
+            for ref in context.get("active_refs", [])
+            if ref_path(ref).exists()
+        ],
+        "context_bytes": context.get("context_bytes"),
+        "context_budget_bytes": context.get("context_budget_bytes"),
+        "context_warnings": context.get("context_warnings", []),
+        "last_event_id": scene.get("last_event_id"),
+    }
+    if full:
+        # For a browser chat with no filesystem: inline everything to paste once.
+        brief["documents"] = [
+            {"ref": ref, "content": ref_path(ref).read_text(encoding="utf-8-sig")}
+            for ref in list(context.get("always_load", [])) + list(context.get("active_refs", []))
+            if ref_path(ref).exists()
+        ]
+    return brief
+
+
 def load_input(path: Path) -> dict[str, Any]:
     return load_yaml(path)
 
@@ -1125,6 +1394,14 @@ def add_noncanonical(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--allow-noncanonical", action="store_true")
 
 
+def add_verbose(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Print the whole document instead of the decision summary.",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="GameMaster transactional campaign runtime")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -1135,6 +1412,7 @@ def build_parser() -> argparse.ArgumentParser:
         item = turn_commands.add_parser(name)
         add_structured_input(item, "request")
         add_campaign_root(item)
+        add_verbose(item)
         if name == "resolve":
             add_noncanonical(item)
     commit = turn_commands.add_parser("commit")
@@ -1142,21 +1420,38 @@ def build_parser() -> argparse.ArgumentParser:
     add_structured_input(commit, "outcome")
     add_campaign_root(commit)
     add_noncanonical(commit)
+    add_verbose(commit)
     abort = turn_commands.add_parser("abort")
     abort.add_argument("turn_id")
     abort.add_argument("--reason", required=True)
     add_campaign_root(abort)
     add_noncanonical(abort)
+    add_verbose(abort)
     recover = turn_commands.add_parser("recover")
     recover.add_argument("turn_id")
     add_campaign_root(recover)
     add_noncanonical(recover)
+    add_verbose(recover)
+
+    brief = commands.add_parser("brief", help="One-block opening for a fresh conversation")
+    brief.add_argument(
+        "--full",
+        action="store_true",
+        help="Inline every referenced document, for a chat with no filesystem.",
+    )
+    add_campaign_root(brief)
 
     context = commands.add_parser("context")
     context_commands = context.add_subparsers(dest="context_command", required=True)
     refresh = context_commands.add_parser("refresh")
     refresh.add_argument("--dry-run", action="store_true")
+    refresh.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit non-zero when the context is over budget or a ref is missing.",
+    )
     add_campaign_root(refresh)
+    add_verbose(refresh)
 
     recall_command = commands.add_parser("recall")
     recall_command.add_argument("query")
@@ -1187,22 +1482,36 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     campaign_root = args.campaign_root.resolve()
+    verbose = getattr(args, "verbose", False)
     try:
         if args.command == "turn":
             if args.turn_command == "preview":
                 result = preview_turn(campaign_root, input_from_args(args, "request"))
+                summary = preview_summary(result)
             elif args.turn_command == "resolve":
                 result = resolve_turn(campaign_root, input_from_args(args, "request"), args.allow_noncanonical)
+                summary = transaction_summary(result)
             elif args.turn_command == "commit":
                 result = commit_turn(
                     campaign_root, args.turn_id, input_from_args(args, "outcome"), args.allow_noncanonical
                 )
+                summary = transaction_summary(result, campaign_root)
             elif args.turn_command == "abort":
                 result = abort_turn(campaign_root, args.turn_id, args.reason, args.allow_noncanonical)
+                summary = transaction_summary(result)
             else:
                 result = recover_turn(campaign_root, args.turn_id, args.allow_noncanonical)
+                summary = transaction_summary(result, campaign_root)
+            if not verbose:
+                result = summary
+        elif args.command == "brief":
+            result = session_brief(campaign_root, args.full)
         elif args.command == "context":
-            result = refresh_context(campaign_root, write=not args.dry_run)
+            result = refresh_context(
+                campaign_root, write=not args.dry_run, strict=args.strict
+            )
+            if not verbose:
+                result = context_summary(result)
         elif args.command == "recall":
             result = recall(campaign_root, args.query, args.limit)
         elif args.command == "scene":

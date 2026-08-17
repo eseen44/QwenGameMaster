@@ -11,6 +11,12 @@ Typowa tura używa najwyżej dwóch zapisujących wywołań:
 
 `turn preview` jest całkowicie bez zapisu.
 
+Wyjście wszystkich komend runtime jest domyślnie skrócone do decyzji; `--verbose`
+drukuje pełny dokument. Powód jest ekonomiczny, nie estetyczny: każda tura wysyła
+całą dotychczasową rozmowę od nowa, więc każdy zbędny bajt wyjścia jest płacony
+ponownie w każdej kolejnej turze. Sesję otwiera `gm brief`, a po zamknięciu sceny
+zaczynamy nową rozmowę. Pomiary w `DECISIONS.md`.
+
 ## Wywołanie dla agentów w Linuxie
 
 `--request` i `--outcome` oznaczają ścieżkę do pliku YAML. Agent może zamiast
@@ -38,6 +44,8 @@ Outcome rozdziela `intent_achieved`, szerszy `arrangement` i `perspective` testo
 - Przygotowane zapisy mają hashe wersji przed i po zmianie.
 - `turn recover` kończy przerwany commit bez podwójnego kosztu lub wydarzenia.
 - Rzutu nie usuwa się po `turn abort`.
+- Rzut zapisany w `journal/rolls.jsonl` jest ostateczny: ponowne `resolve` tej samej tury odtwarza go z dziennika i nigdy nie losuje ponownie.
+- Odświeżenie kontekstu nie może przerwać już zatwierdzonej tury. Przekroczenie budżetu i brakujące pliki wracają jako `context_warnings`, a ponowny `commit` naprawia nieaktualny `active.yaml`.
 
 ## Czas i kontekst
 

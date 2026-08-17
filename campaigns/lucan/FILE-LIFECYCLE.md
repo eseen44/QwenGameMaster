@@ -9,6 +9,7 @@ Ta tabela jest kompletną mapą aktualizacji: każdy plik projektu wpada w dokł
 | `campaigns/*/migration/packages/**`, `migration/candidates/**`, `migration/conflicts/**`, `migration/approvals/**`, `migration/audits/**` | proces migracji | Tylko podczas przeglądu, korekty albo zatwierdzania pakietu; nigdy przez `turn commit`. |
 | `campaigns/*/migration/mechanics/**` | kandydat mechaniczny | Tylko podczas kalibracji/replayu i rewizji mechaniki; po aktywacji definicje są kopiowane do kanonu, nie mutowane turą. |
 | `campaigns/*/planning/**`, `TODO.md` | planowanie | Tylko przy jawnej decyzji planistycznej MG/gracza; nie jako automatyczny skutek sceny. |
+| `DECISIONS.md` | dziennik decyzji technicznych | Dopisz wpis przy nieoczywistej zmianie systemu, narzędzi albo reguł — razem z uzasadnieniem i tym, czego świadomie nie zrobiono. Nigdy turą; nie usuwaj starych wpisów. |
 | `campaigns/*/journal/events.jsonl` | dziennik niezmienny | Dopisz dokładnie jeden wpis po każdym udanym `turn commit` z trwałą konsekwencją. |
 | `campaigns/*/journal/rolls.jsonl` | dziennik niezmienny | Dopisz przed narracją wyłącznie, gdy `turn resolve` wykonał test. |
 | `campaigns/*/journal/retcons.jsonl` | dziennik niezmienny | Dopisz przy poprawie faktu historycznego; nigdy nie usuwaj starego wpisu. |

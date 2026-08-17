@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import sys
 import time
@@ -494,10 +495,134 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual(reputations["attitudes"][0]["score"], -5)
 
     def test_real_migration_uses_user_accepted_history_scope(self) -> None:
+        # The original assertion was `ready is False`, which only held while the
+        # packages were still unapproved.  Activation flipped it and the test
+        # started failing on a fact about the campaign, not about the code.  What
+        # this test is actually named after is the scope decision: the missing
+        # full chat export must never come back as a blocker.
         readiness = gm_runtime.migration_readiness(gm_runtime.DEFAULT_CAMPAIGN_ROOT)
-        self.assertFalse(readiness["ready"])
         self.assertNotIn("blocker_full_chat_unavailable", readiness["blockers"])
         self.assertEqual(readiness["blockers"], [])
+        self.assertEqual(readiness["approval_problems"], [])
+        self.assertEqual(readiness["ready"], not readiness["blockers"])
+
+    def test_retry_after_crash_reuses_the_journalled_roll(self) -> None:
+        request = self.request("turn_crash")
+        request["difficulty"] = 50
+        original = gm_runtime.atomic_yaml
+
+        def crash_on_transaction(path, document):
+            if "transactions" in str(path):
+                raise SystemError("simulated crash after the roll was journalled")
+            return original(path, document)
+
+        with mock.patch("gm_runtime.atomic_yaml", crash_on_transaction):
+            with self.assertRaises(SystemError):
+                gm_runtime.resolve_turn(self.campaign, request, False)
+        journalled = gm_runtime.journal_record(
+            self.campaign / "journal" / "rolls.jsonl", "roll_turn_crash"
+        )
+        self.assertIsNotNone(journalled)
+
+        transaction = gm_runtime.resolve_turn(self.campaign, request, False)
+        self.assertEqual(transaction["roll"], journalled)
+        lines = [
+            line
+            for line in (self.campaign / "journal" / "rolls.jsonl")
+            .read_text(encoding="utf-8")
+            .splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(lines), 1)
+
+    def test_context_over_budget_warns_instead_of_failing_the_commit(self) -> None:
+        request = {
+            "turn_id": "turn_budget",
+            "declared_action": "Lucan czeka bez presji.",
+            "fiction_verdict": "automatic",
+            "time_seconds": 0,
+        }
+        outcome = {
+            "intent_achieved": True,
+            "arrangement": "unchanged",
+            "perspective": "pc_lucan",
+            "summary": "Nic się nie zmienia.",
+            "operations": [],
+        }
+        gm_runtime.resolve_turn(self.campaign, request, False)
+        with mock.patch.object(gm_runtime, "CONTEXT_BUDGET_BYTES", 1):
+            committed = gm_runtime.commit_turn(self.campaign, "turn_budget", outcome, False)
+        self.assertEqual(committed["status"], "committed")
+        self.assertTrue(
+            any(item.startswith("over_budget") for item in committed["context_warnings"])
+        )
+        context = gm_runtime.refresh_context(self.campaign, write=False)
+        self.assertEqual(context["context_warnings"], [])
+        with mock.patch.object(gm_runtime, "CONTEXT_BUDGET_BYTES", 1):
+            with self.assertRaises(gm_runtime.RuntimeError):
+                gm_runtime.refresh_context(self.campaign, write=False, strict=True)
+
+    def test_committed_turn_retry_repairs_a_stale_context(self) -> None:
+        request = {
+            "turn_id": "turn_stale",
+            "declared_action": "Lucan porządkuje sprzęt.",
+            "fiction_verdict": "automatic",
+            "time_seconds": 0,
+        }
+        outcome = {
+            "intent_achieved": True,
+            "arrangement": "unchanged",
+            "perspective": "pc_lucan",
+            "summary": "Sprzęt uporządkowany.",
+            "operations": [],
+        }
+        gm_runtime.resolve_turn(self.campaign, request, False)
+        gm_runtime.commit_turn(self.campaign, "turn_stale", outcome, False)
+        active_path = self.campaign / "context" / "active.yaml"
+        stale = gm_runtime.load_yaml(active_path)
+        stale["last_refreshed_event_id"] = "event_stale"
+        write_yaml(active_path, stale)
+        gm_runtime.commit_turn(self.campaign, "turn_stale", outcome, False)
+        self.assertEqual(
+            gm_runtime.load_yaml(active_path)["last_refreshed_event_id"], "event_turn_stale"
+        )
+
+    def test_summaries_drop_what_the_narrator_already_has(self) -> None:
+        request = self.request("turn_summary")
+        request["difficulty"] = 50
+        transaction = gm_runtime.resolve_turn(self.campaign, request, False)
+        summary = gm_runtime.transaction_summary(transaction)
+        self.assertEqual(summary["turn_id"], "turn_summary")
+        self.assertEqual(summary["roll"]["natural"], transaction["roll"]["natural_roll"])
+        for dropped in ("request", "preview", "prepared_writes", "alternative_paths"):
+            self.assertNotIn(dropped, summary)
+        committed = gm_runtime.commit_turn(self.campaign, "turn_summary", self.outcome(), False)
+        commit_summary = gm_runtime.transaction_summary(committed, self.campaign)
+        self.assertEqual(commit_summary["status"], "committed")
+        self.assertIn("state/instances/target.yaml", commit_summary["changed"])
+        self.assertIn("reaction_clock_patrol_1", commit_summary["pending_world_reactions"])
+        self.assertNotIn("prepared_writes", commit_summary)
+        self.assertLess(
+            len(json.dumps(commit_summary, ensure_ascii=False)),
+            len(json.dumps(committed, ensure_ascii=False)) / 3,
+        )
+
+    def test_brief_opens_a_session_without_the_journal(self) -> None:
+        brief = gm_runtime.session_brief(self.campaign, full=False)
+        self.assertEqual(brief["campaign"], "campaign_test")
+        self.assertEqual(brief["scene"]["id"], "scene_test")
+        self.assertIn("AGENTS.md", brief["rules"])
+        self.assertEqual(
+            [item["id"] for item in brief["participants"]], ["spidey", "target"]
+        )
+        self.assertEqual(
+            brief["participants"][0]["resources"]["paralytic_toxin_reservoir"], "4/4"
+        )
+        self.assertEqual([clock["id"] for clock in brief["clocks"]], ["clock_patrol"])
+        rendered = json.dumps(brief, ensure_ascii=False)
+        self.assertNotIn("source_refs", rendered)
+        full = gm_runtime.session_brief(self.campaign, full=True)
+        self.assertIn("documents", full)
 
 
 if __name__ == "__main__":

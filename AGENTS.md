@@ -9,6 +9,19 @@ Ten projekt jest lokalnym źródłem prawdy dla kampanii RPG prowadzonej przez n
 - Rozstrzygnij zadeklarowaną akcję, pokaż jej konsekwencję, porusz przynajmniej jeden element świata i zakończ w konkretnym punkcie decyzji.
 - Zachowuj czarny humor, zwięzłość i reaktywność, ale nie poświęcaj im spójności.
 
+## Otwarcie sesji i koszt rozmowy
+
+Każda tura wysyła całą dotychczasową rozmowę od nowa, więc koszt rozmowy rośnie
+z kwadratem jej długości. Stan kampanii żyje w plikach, więc rozmowa jest
+jednorazowa i ma być krótka.
+
+- Otwieraj sesję komendą `tools/gm.ps1 brief` — jeden blok ze sceną, czasem, zegarami, celami, uczestnikami i listą plików do wczytania. W czacie bez dostępu do dysku użyj `brief --full`, który dokleja treść tych plików.
+- Zamykaj rozmowę razem ze sceną (`scene close`) i zaczynaj nową od `brief`. Nie ciągnij jednej rozmowy przez kilka scen.
+- Wyjście komend `turn` i `context` jest **domyślnie skrócone** i zawiera wyłącznie decyzje. `--verbose` drukuje pełny dokument i służy do diagnozowania, nie do gry. Pełna transakcja zawsze leży w `journal/transactions/<turn_id>.yaml`.
+- Nie kopiuj wyjścia narzędzi do narracji ani do kolejnych wiadomości.
+
+Uzasadnienie i pomiary: `DECISIONS.md`.
+
 ## Kolejność wczytywania przed turą
 
 1. Przeczytaj `campaigns/lucan/context/active.yaml`.

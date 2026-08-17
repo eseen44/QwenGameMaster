@@ -99,6 +99,23 @@ Reguła i tabela kosztów znajdują się w `system/metamagic.md` oraz
 `system/mechanics/metamagic-scale.yaml`. Brak energii lub ekspertyzy blokuje
 rzut i zwraca `possible_only_with_new_leverage`.
 
+## Otwarcie sesji
+
+Rozmowa jest jednorazowa, stan jest w plikach. Sesję otwiera jeden blok:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 brief
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 brief --full
+```
+
+`brief` zwraca scenę, czas, zegary, cele, uczestników ze stanem oraz listę plików
+do wczytania wraz z ich rozmiarami i budżetem kontekstu. `--full` dokleja treść
+tych plików — do wklejenia w czacie, który nie ma dostępu do dysku.
+
+Po zamknięciu sceny zacznij nową rozmowę i znów wywołaj `brief`. Powód: każda tura
+wysyła całą dotychczasową rozmowę od nowa, więc jej koszt rośnie z kwadratem
+długości. Pomiary i uzasadnienie w `DECISIONS.md`.
+
 ## Pętla normalnej tury
 
 Request i outcome korzystają z szablonów w `templates/journal/`.
@@ -111,13 +128,15 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 turn commit
 
 `resolve` wykonuje co najwyżej jeden potrzebny rzut. `commit` atomowo nalicza koszty, warunki, czas, zegary i reakcje świata oraz buduje kontekst następnej odpowiedzi. `--allow-noncanonical` służy wyłącznie do prób migracyjnych.
 
+Wyjście tych komend jest domyślnie skrócone do samych decyzji: werdykt, wynik rzutu, koszty, zmienione pliki, należne reakcje świata i nowe pytanie decyzyjne. `--verbose` drukuje pełny dokument transakcji; ten sam dokument zawsze leży w `journal/transactions/<turn_id>.yaml`.
+
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 recall Varkhen --limit 5
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 context refresh --dry-run
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 migration status
 ```
 
-Aktywny kontekst ma twardy limit 40 KB i nigdy nie ładuje surowego eksportu ani gałęzi niekanonicznej.
+Aktywny kontekst ma budżet 40 KB i nigdy nie ładuje surowego eksportu ani gałęzi niekanonicznej. Przekroczenie budżetu oraz brakujące referencje są raportowane w `context_warnings` wraz z listą najcięższych plików (`heaviest_refs`) — nie przerywają tury, bo commit jest wtedy już trwały. `context refresh --strict` zwraca w takiej sytuacji kod błędu i służy do walidacji.
 
 Replay reprezentatywnych scen kampanii:
 

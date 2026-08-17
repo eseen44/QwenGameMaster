@@ -1,5 +1,17 @@
 # GameMaster — TODO projektowe
 
+## Koszt rozmowy (2026-08-17)
+
+Diagnoza, pomiary i uzasadnienie: `DECISIONS.md`.
+
+- [x] Skrócić domyślne wyjście CLI, zostawiając `--verbose` do diagnozowania (12 509 B → 2 016 B na turę).
+- [x] Dodać `gm brief` otwierające świeżą sesję jednym blokiem, z wariantem `--full` dla czatu bez dysku.
+- [x] Zabezpieczyć niezmienność rzutu przy ponowionym `resolve` po awarii.
+- [x] Przestać wywalać commit przy przekroczeniu budżetu kontekstu; raportować `context_warnings` i `heaviest_refs`.
+- [ ] **Rozegrać 5 tur od początku do końca przez CLI, zanim powstanie kolejna reguła systemu.** Dwa punkty niżej są bez tego zgadywaniem.
+- [ ] Odchudzić stały prefiks: `inventory.brief.yaml` zamiast pełnego `inventory.yaml` w kontekście, jedna karta operacyjna zamiast 20 KB `system/*.md`. Zasada: aktywny kontekst trzyma stan bieżący, nigdy śladu audytowego.
+- [ ] Rozważyć `gm turn quick` — tanią ścieżkę dla tur czysto narracyjnych. Bez tego narrator ucieknie w `fiction_verdict: automatic` i silnik możliwości zostanie ozdobą.
+
 ## Aktualny etap
 
 - [x] Wykonać pierwszy przegląd dostępnej historii z `In_Character.txt`.
@@ -123,4 +135,4 @@
 - [x] Przygotować szablony nowej kampanii, postaci, sceny i wpisu dziennika.
 - [x] Zaprojektować główną instrukcję uruchamiania mistrza gry.
 - [x] Dodać walidację spójności stanu.
-- [ ] Dodać mechanizm archiwizacji zakończonych scen.
+- [x] Dodać mechanizm archiwizacji zakończonych scen. (Duplikat pozycji z „Wdrożony szkielet v1"; realizuje `scene close` + `snapshots/`.)
