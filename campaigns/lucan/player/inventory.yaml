@@ -2,17 +2,18 @@ schema_version: 1
 owner_id: pc_lucan
 status: active
 currency:
-  carried_silver: 22
+  carried_silver: 37
   hidden_silver: 50
   leftover_market_savings_silver: 30
   refundable_deposits_silver: 5
-  liquid_silver_available_now: 102
-  total_known_net_silver: 107
-  source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15]
+  liquid_silver_available_now: 117
+  total_known_net_silver: 122
+  source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk]
   notes:
     - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
     - 'hidden_silver: 50 to gotówka odłożona do schowka wprost po Akcie 1, zanim Lucan poszedł na targ w tamtym interludium (potwierdzone przez użytkownika, retcon_000001).'
     - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
+    - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_claim_act_02_rewards).'
 containers:
   - id: container_personal_pockets_and_belt
     location: carried
@@ -155,11 +156,52 @@ items:
     location: wall_hideout
     operational_relevance: low_but_possible_evidence_or_disguise
     source_refs: [source_luka_b_fragment#line:3541-3657]
+  - id: item_cemetery_grave_goods_and_tools_lot
+    name: Trzy worki nagrobnej biżuterii i złota - ok. 60 kg, w większości mortualne
+    location: lumaria_adventurers_guild
+    type: bulk_precious_metal_and_jewelry_lot
+    identification: examined_ordinary
+    weight_kg: 60
+    composition: mostly_gold_and_silver_mortuary_jewelry
+    estimated_value_silver: 4000
+    estimated_value_note: Bardzo zgrubny szacunek Borosa po wadze - realna cena
+      zalezy od tego, kto to kupi. Niepoliczone jeszcze na gotowke.
+    inherently_magical: false
+    ownership: unfortunate_provenance_systematic_grave_looting
+    liquidation_status: requires_illicit_or_discreet_buyer
+    hook: Zbyt duza ilosc i zbyt oczywiste pochodzenie (systematyczne okradanie
+      grobow, nie pojedyncze znalezisko), zeby oddac to formalnemu rzeczoznawcy
+      gildii bez pytan. Prawdopodobnie zwiazane z siecia handlu zwlokami
+      (faction wpisany w crisis_dossier aktu 3) - potrzebny ktos dyskretny,
+      zeby to spieniezyc.
+    source_refs: [event_turn_interlude_009_three_bags_opened, retcon_000002]
+  - id: item_church_reliquary
+    name: Ciężki, srebrny relikwiarz z fragmentem kości
+    location: lumaria_adventurers_guild
+    type: consecrated_anti_undead_relic
+    identification: confirmed_via_geo_scan
+    appraisal_status: identified_not_appraised_for_sale
+    inherently_magical: true
+    magical_effect: Autentyczna konsekrowana relikwia (prawdopodobnie niewielki
+      swiety/meczennik) - czynna warda przeciw nieumarlym i mocy typu Lucana.
+      Trzymanie jej daje wyczuwalny, nieprzyjemny nacisk w okolicy jego
+      nekrotycznej rezerwy.
+    ownership: likely_stolen_church_property
+    disposition: kept_not_for_sale_likely_eventual_return_to_church
+    hook: 'Mara rozpoznaje styl zdobień jako kościelny. To rzecz tej klasy, ktora
+      raczej nie ginie bez sladu - Kosciol najpewniej juz wie ze jej brakuje i
+      wie dokladnie czego szuka. Potencjalnie uzyteczna jako narzedzie przeciw
+      nieumarlym (np. duch cmentarza, zabezpieczanie pieczeci Varkhena), nie
+      tylko towar do spieniezenia. Wedlug Borosa: sprzedaz nierealna, ale zwrot
+      Kosciolowi moze byc warty wiecej niz sprzedaz (przysluga zapamietana przez
+      instytucje).'
+    source_refs: [event_turn_interlude_009_three_bags_opened, event_turn_interlude_010_reliquary_geo_scan, roll_turn_interlude_010_reliquary_geo_scan, event_turn_interlude_011_reliquary_discretion_and_guild_plan]
 external_claims:
   - id: claim_three_bags_cemetery_goods
     custodian: npc_boros_keld
-    location: hidden_near_guild_route
-    exact_contents: unresolved
-    source_refs: [source_luka_b_fragment#line:8287-8301]
-last_transaction_id: event_turn_interlude_004_loot_pile_review
-last_updated_event_id: retcon_000001
+    location: lumaria_adventurers_guild
+    exact_contents: resolved_see_item_cemetery_grave_goods_and_tools_lot_and_item_church_reliquary
+    status: opened_and_examined
+    source_refs: [source_luka_b_fragment#line:8287-8301, event_turn_interlude_009_three_bags_opened]
+last_transaction_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
+last_updated_event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan

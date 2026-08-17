@@ -1,0 +1,179 @@
+schema_version: 1
+id: turn_interlude_010_reliquary_geo_scan
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-17T20:22:48+02:00'
+scene_id: scene_act_03_interlude_preparation
+event_id: event_turn_interlude_010_reliquary_geo_scan
+roll_id: roll_turn_interlude_010_reliquary_geo_scan
+request:
+  turn_id: turn_interlude_010_reliquary_geo_scan
+  declared_action: Lucan bierze do reki relikwiarz, waha sie chwile, po czym rzuca
+    na niego Geo (Grave Sense + Stone Sense), zeby sprawdzic czy niesie realna sygnature
+    magiczna, czy jest tylko materialnie cenny.
+  fiction_verdict: automatic
+  time_class: instant
+preview:
+  turn_id: turn_interlude_010_reliquary_geo_scan
+  status: preview
+  scene_id: scene_act_03_interlude_preparation
+  declaration: Lucan bierze do reki relikwiarz, waha sie chwile, po czym rzuca na
+    niego Geo (Grave Sense + Stone Sense), zeby sprawdzic czy niesie realna sygnature
+    magiczna, czy jest tylko materialnie cenny.
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 0
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll:
+  id: roll_turn_interlude_010_reliquary_geo_scan
+  timestamp: '2026-08-17T20:22:04+02:00'
+  scene_id: scene_act_03_interlude_preparation
+  subject: pc_lucan
+  intent: Uzyc Geo (Grave Sense + Stone Sense), zeby wykryc czy relikwiarz niesie
+    realna nekrotyczna/magiczna sygnature, czy jest tylko materialnie cenny.
+  scope: execution
+  stakes: Czy Lucan odkrywa cokolwiek uzytecznego o naturze relikwiarza, czy tylko
+    potwierdza niepewnosc.
+  difficulty: 45
+  natural_roll: 98
+  character_score: null
+  modifiers: []
+  modified_result: 98
+  passes_threshold: true
+  critical: null
+  interpretation: null
+  event_id: event_turn_interlude_010_reliquary_geo_scan
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'Lucan zaciska dlon na relikwiarzu i puszcza Geo - roll_turn_interlude_010_reliquary_geo_scan:
+    98 vs 45, zdecydowany sukces. Stone Sense nic nie daje (srebro, nie kamien), ale
+    Grave Sense uderza czysto i mocno: to nie jest przypadkowa ozdoba. Fragment kosci
+    w srodku niesie realna, silna sygnature - nie nekromantyczna, tylko odwrotna:
+    konsekrowana, czynna warda przeciw nieumarlym i wprost przeciw takiej mocy jak
+    jego wlasna. To autentyczna relikwia, prawdopodobnie po niewielkim swietym albo
+    meczenniku, nie bibelot. Trzymajac ja, Lucan czuje wyrazny, nieprzyjemny nacisk
+    gdzies w okolicy wlasnej nekrotycznej rezerwy - cichy, fizyczny sprzeciw przedmiotu
+    wobec jego natury. Rzecz tej klasy nie ginie bez sladu - ktos po stronie koscielnej
+    najprawdopodobniej juz wie, ze jej brakuje, i wie dokladnie czego szuka.'
+  operations:
+  - op: consume
+    instance_id: pc_lucan
+    pool: lucan_necrotic_energy
+    units: 0.1
+  - *id002
+  new_decision: 'Relikwiarz to teraz cos wiecej niz gorący towar do spieniezenia -
+    to dzialajaca warda przeciw nieumarlym, potencjalnie uzyteczna against rzeczy
+    pokroju ducha cmentarza albo do zabezpieczania pieczeci Varkhena, ale trzymanie
+    jej to jawne ryzyko, ze Kosciol prędzej czy pozniej skojarzy fakty. Co robi Lucan:
+    zatrzymuje ja dla siebie (i na co), oddaje/sprzedaje mimo ryzyka, czy najpierw
+    pyta Mare i Borosa co o tym sadza?'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 151dd6d15b7ccd5ccc6f9bc3c9f1c44d8bb23d695dd49acd1006ad23915b155f
+  after_hash: 1f324a01d8004c00b6d919c850c61c0f6593064c5e396b267f7dbaddf544c8b8
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_preparation
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 1
+      reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+        się do spodziewanego nacisku instytucji.
+    participants:
+    - pc_lucan
+    - npc_mara_teln
+    - npc_boros_keld
+    pressures:
+    - unresolved_dump_body_risk
+    - act_02_rewards_unsettled
+    - varkhen_guild_basement_custody
+    - upcoming_institutional_inquiry
+    - long_term_three_seal_oath
+    - rusk_door_hexes_pending_discovery
+    immediate_facts:
+    - act_02_concluded
+    - chapel_bodies_concealed_in_crypt
+    - varkhen_is_in_guild_basement_custody
+    - unexamined_loot_is_at_wall_hideout
+    immediate_questions:
+    - 'Relikwiarz to teraz cos wiecej niz gorący towar do spieniezenia - to dzialajaca
+      warda przeciw nieumarlym, potencjalnie uzyteczna against rzeczy pokroju ducha
+      cmentarza albo do zabezpieczania pieczeci Varkhena, ale trzymanie jej to jawne
+      ryzyko, ze Kosciol prędzej czy pozniej skojarzy fakty. Co robi Lucan: zatrzymuje
+      ja dla siebie (i na co), oddaje/sprzedaje mimo ryzyka, czy najpierw pyta Mare
+      i Borosa co o tym sadza?'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_010_reliquary_geo_scan
+    active_refs:
+    - campaigns/lucan/entities/npcs/mara-teln.yaml
+    - campaigns/lucan/entities/npcs/boros-keld.yaml
+    - campaigns/lucan/relationships/mara--lucan.yaml
+    - campaigns/lucan/relationships/boros--lucan.yaml
+    - campaigns/lucan/relationships/rusk--lucan.yaml
+    - campaigns/lucan/player/inventory.yaml
+    - campaigns/lucan/state/resources.yaml
+    - campaigns/lucan/locations/lumaria-guild/location.yaml
+    - campaigns/lucan/planning/lucan-leads.yaml
+    notes:
+    - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+      dopóki Lucan nie wybierze działania wymagającego czasu.
+- path: state/instances/pc-lucan.yaml
+  before_hash: 8fc7fb95f8c43320d948e902c4b1a7dd552498bb1a0b5bfff14fdc5dd7839dfd
+  after_hash: 7db939df5289e64de46455c6f099730f87a29e8ecbdfaa1b18c3f7afe9e1cdde
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 12
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_main_hall
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.6
+        capacity: 15
+        comfortable_capacity: 12
+        overload_expansion: 3
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: post_varkhen_energy_pressure
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_045_varkhen_takeover
+      reason: current_energy_above_old_comfortable_capacity
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - above_old_comfortable_capacity
+    last_event_id: event_turn_interlude_010_reliquary_geo_scan
+    source_refs:
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+prepared_at: '2026-08-17T20:23:17+02:00'
+committed_at: '2026-08-17T20:23:17+02:00'

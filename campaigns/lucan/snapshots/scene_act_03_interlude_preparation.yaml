@@ -1,0 +1,128 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_preparation
+object_type: scene_snapshot
+closed_at: '2026-08-17T21:23:05+02:00'
+summary: 'Scena obejmowala: przeglad lupu z interludium (sygnet nierozpoznany, materialy
+  konserwujace), retcon gotowki (retcon_000001, +60 srebra), przeglad wielkiej listy
+  priorytetow gracza na najblizsze tygodnie (prawnik, status prawny Spideya, badania,
+  targ, Rusk, kontrsrodek na ducha cmentarza, magia autorytetu, technika walki, klatwy),
+  ujawnienie tla rodzinnego Lucana (rod Veyr, rodzice, domniemana narzeczona, glowna
+  linia rodu jako sprawca sabotazu edukacji), nocny patrol i redeployment czterech
+  sieciarzy (tannery/dump/dach gildii), trzy klatwy pecha na drzwi Ruska (czekaja
+  niewykryte), otwarcie trzech workow lupu - 60 kg zlota/srebra niejasnego pochodzenia
+  (retcon_000002) plus konsekrowany relikwiarz koscielny (potwierdzony Geo, roll 98
+  vs 45), decyzja by zatrzymac relikwiarz i milczec o nim (wzrost discretion_trust
+  u Mary i Borosa), wizyta w recepcji gildii - 15 srebra stypendium, pelna nagroda
+  za Akt 2 odlozona do przegladu kierownictwa/przesluchania instytucjonalnego. Lucan
+  konczy scene w glownej sali gildii z Mara i Borosem, z otwartym notatnikiem priorytetow
+  i bez podjetej decyzji co dalej.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_preparation
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: day_0_pre_dawn
+  tension:
+    level: 1
+    reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+      się do spodziewanego nacisku instytucji.
+  participants:
+  - pc_lucan
+  - npc_mara_teln
+  - npc_boros_keld
+  pressures:
+  - unresolved_dump_body_risk
+  - act_02_rewards_unsettled
+  - varkhen_guild_basement_custody
+  - upcoming_institutional_inquiry
+  - long_term_three_seal_oath
+  - rusk_door_hexes_pending_discovery
+  immediate_facts:
+  - act_02_concluded
+  - chapel_bodies_concealed_in_crypt
+  - varkhen_is_in_guild_basement_custody
+  - unexamined_loot_is_at_wall_hideout
+  immediate_questions:
+  - Reka gildii jest teraz formalnie w grze - nagroda za Akt 2 zleje sie z nadchodzacym
+    przesluchaniem instytucjonalnym, nie zalatwi sie osobno. Lucan ma teraz 15 srebra
+    wiecej w kieszeni i cala reszte dnia przed soba - do czego z notatnika (prawnik,
+    legalny status Spideya, targ, badania, Rusk...) siega teraz?
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_012_reception_desk
+  active_refs:
+  - campaigns/lucan/entities/npcs/mara-teln.yaml
+  - campaigns/lucan/entities/npcs/boros-keld.yaml
+  - campaigns/lucan/relationships/mara--lucan.yaml
+  - campaigns/lucan/relationships/boros--lucan.yaml
+  - campaigns/lucan/relationships/rusk--lucan.yaml
+  - campaigns/lucan/player/inventory.yaml
+  - campaigns/lucan/state/resources.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/planning/lucan-leads.yaml
+  notes:
+  - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+    dopóki Lucan nie wybierze działania wymagającego czasu.
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/entities/npcs/mara-teln.yaml
+  - campaigns/lucan/entities/npcs/boros-keld.yaml
+  - campaigns/lucan/relationships/mara--lucan.yaml
+  - campaigns/lucan/relationships/boros--lucan.yaml
+  - campaigns/lucan/relationships/rusk--lucan.yaml
+  - campaigns/lucan/player/inventory.yaml
+  - campaigns/lucan/state/resources.yaml
+  - campaigns/lucan/planning/lucan-leads.yaml
+  search_terms:
+  - Reka gildii jest teraz formalnie w grze - nagroda za Akt 2 zleje sie z nadchodzacym
+    przesluchaniem instytucjonalnym, nie zalatwi sie osobno. Lucan ma teraz 15 srebra
+    wiecej w kieszeni i cala reszte dnia przed soba - do czego z notatnika (prawnik,
+    legalny status Spideya, targ, badania, Rusk...) siega teraz?
+  - unresolved_dump_body_risk
+  - act_02_rewards_unsettled
+  - varkhen_guild_basement_custody
+  - upcoming_institutional_inquiry
+  - long_term_three_seal_oath
+  - rusk_door_hexes_pending_discovery
+  last_refreshed_event_id: event_turn_interlude_012_reception_desk
+  context_bytes: 40778
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/player/inventory.yaml
+    bytes: 11723
+  - ref: campaigns/lucan/planning/lucan-leads.yaml
+    bytes: 7075
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 4156
+  - ref: system/narrator.md
+    bytes: 3127
+  - ref: campaigns/lucan/entities/npcs/mara-teln.yaml
+    bytes: 2091

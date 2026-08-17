@@ -50,6 +50,30 @@ Rzut może prowadzić między innymi do:
 
 Niepowodzenie testu Lucana nie może poprawić jego pozycji jako nagroda pocieszenia. Fabuła ma iść dalej, ale nie przez ukryty bonus. Nieudany test może poprawić sytuację Lucana tylko wtedy, gdy testowany był ktoś lub coś innego, na przykład strażnik, przeciwnik albo niestabilny układ świata.
 
+## Testy diagnostyczne i odkrywcze
+
+Test, w którym stawką jest **wiedza o świecie** (co to jest, czy działa, co się
+kryje) - nie starcie z aktywnym przeciwnikiem - nie powinien być czystą bramką
+zdanie/niezdanie względem `difficulty`. Sam wynik rzutu (zwłaszcza `natural_roll`
+przy braku modyfikatorów) czyta się jako **gradient jakości odkrycia**, nie
+binarny próg:
+
+- bardzo wysoki wynik: pełne, wyraźne, użyteczne odkrycie ("jackpot") - nawet
+  ponad to, co formalna `difficulty` by dopuszczała;
+- średni wynik: częściowy, niejednoznaczny trop - coś realnego, ale
+  niekompletnego albo wymagającego interpretacji;
+- niski wynik: brak sensownego sygnału - ale to wciąż jest fakt fabularny
+  (fałszywy trop, red herring, "wygląda na zwyczajne", ślad zatarty) - nie
+  czysta, niewnosząca niczego cisza.
+
+Powód: `difficulty` jako twardy próg dobrze modeluje starcie (kontrola,
+unik, obrona), ale przy odkrywaniu świata "nic się nie dowiedziałeś" nie
+tworzy okazji ani konsekwencji - łamie zasadę z sekcji "Kiedy wykonywać test"
+("rezultat nie wynika już bezpośrednio z fikcji" / "obie strony wyniku mogą
+sensownie zmienić sytuację"). `difficulty` w takim teście służy do skalibrowania
+*progu*, ale narrator zawsze buduje z surowego wyniku jakiś fabularny fakt,
+nie pustkę.
+
 ## Wyniki krytyczne
 
 - Naturalne `1` i `100` są krytycznym przesunięciem niezależnie od modyfikatorów.

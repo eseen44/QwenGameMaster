@@ -1,0 +1,160 @@
+schema_version: 1
+id: turn_interlude_008_rusk_door_hexes
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-17T20:10:08+02:00'
+scene_id: scene_act_03_interlude_preparation
+event_id: event_turn_interlude_008_rusk_door_hexes
+roll_id: null
+request:
+  turn_id: turn_interlude_008_rusk_door_hexes
+  declared_action: Lucan, wciaz w glownej sali gildii, po cichu rzuca trzy Pomniejsze
+    klatwy pecha na drzwi gabinetu Ruska pietro wyzej - zna ich polozenie, choc nie
+    widzi samego Ruska. Nie krzyczy nazwy zaklecia, dziala po cichu i szybko, jak
+    zwykly cantrip.
+  fiction_verdict: automatic_with_cost
+  time_class: instant
+preview:
+  turn_id: turn_interlude_008_rusk_door_hexes
+  status: preview
+  scene_id: scene_act_03_interlude_preparation
+  declaration: Lucan, wciaz w glownej sali gildii, po cichu rzuca trzy Pomniejsze
+    klatwy pecha na drzwi gabinetu Ruska pietro wyzej - zna ich polozenie, choc nie
+    widzi samego Ruska. Nie krzyczy nazwy zaklecia, dziala po cichu i szybko, jak
+    zwykly cantrip.
+  assessment:
+    verdict: automatic_with_cost
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 0
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'Lucan po cichu rzuca trzy male, ciche klatwy pecha na drzwi gabinetu Ruska
+    pietro wyzej, nie ruszajac sie z glownej sali gildii i nie widzac samego Ruska.
+    Efekty osiadaja w drewnie i okuciach: zawiasy dostana skrzypienie ktore pojawi
+    sie w najgorszym mozliwym momencie, zamek zacznie sie zacinac tak ze trzeba go
+    szarpnac pod specyficznym katem, a prog drzwi dostanie male, niepozorne wybrzuszenie
+    akurat na wysokosci czubka buta. Nic z tego nie jest niemozliwe ani widowiskowe
+    - to zwykly pech, dopoki ktos nie zacznie szukac wzoru. Trzy stakowane klatwy
+    na jednym obiekcie w krotkim czasie zostawiaja jednak nieco wyrazniejszy magiczny
+    slad niz pojedyncze uzycie - wciaz niewykrywalny dla Ruska (nie jest magicznie
+    swiadomy), ale teoretycznie widoczny dla kogos przygotowanego, kto zdecydowalby
+    sie zbadac te konkretne drzwi.'
+  operations:
+  - op: consume
+    instance_id: pc_lucan
+    pool: lucan_necrotic_energy
+    units: 0.3
+  - *id002
+  new_decision: Klatwy czekaja cicho na Ruska, ktory nie jest teraz na miejscu - efekt
+    ujawni sie dopiero gdy on sam uzyje tych drzwi, w jakiejs przyszlej scenie. W
+    gildii nadal czekaja Mara i Boros - wracacie do rozmowy o pieniadzach/lupie z
+    Aktu 2, czy do czegos innego?
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 64f528f7695f423e7df3fc1231e97a92b93d13d49b0179e2224eab27fdd11590
+  after_hash: d2858b37210d100e0da208039f721321bce5428f0003bb268e16830902700949
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_preparation
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: day_0_pre_dawn
+    tension:
+      level: 1
+      reason: Bezpośredni kryzys wygasł. Lucan ma chwilę na rozliczenie łupu i przygotowanie
+        się do spodziewanego nacisku instytucji.
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - webber_home
+    - webber_tannery
+    - webber_dump
+    pressures:
+    - unresolved_dump_body_risk
+    - act_02_rewards_unsettled
+    - varkhen_guild_basement_custody
+    - upcoming_institutional_inquiry
+    - long_term_three_seal_oath
+    immediate_facts:
+    - act_02_concluded
+    - chapel_bodies_concealed_in_crypt
+    - varkhen_is_in_guild_basement_custody
+    - unexamined_loot_is_at_wall_hideout
+    immediate_questions:
+    - Klatwy czekaja cicho na Ruska, ktory nie jest teraz na miejscu - efekt ujawni
+      sie dopiero gdy on sam uzyje tych drzwi, w jakiejs przyszlej scenie. W gildii
+      nadal czekaja Mara i Boros - wracacie do rozmowy o pieniadzach/lupie z Aktu
+      2, czy do czegos innego?
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_008_rusk_door_hexes
+    active_refs:
+    - campaigns/lucan/companions/spidey.yaml
+    - campaigns/lucan/state/instances/spidey.yaml
+    - campaigns/lucan/player/inventory.yaml
+    - campaigns/lucan/state/resources.yaml
+    - campaigns/lucan/locations/wall-hideout/state.yaml
+    - campaigns/lucan/relationships/seraphine--lucan.yaml
+    - campaigns/lucan/relationships/varkhen--lucan.yaml
+    notes:
+    - Akt 2 został domknięty przez import kanoniczny. Interludium nie przesuwa czasu,
+      dopóki Lucan nie wybierze działania wymagającego czasu.
+- path: state/instances/pc-lucan.yaml
+  before_hash: 992b482776391c0cc72281906fb04a57303227a71fb82cb8e2a4a7b8b14d5e58
+  after_hash: e30e5db18a9e8527c546991a1db58ba7c7e8d7c97923fff09008aec0e8a906db
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 10
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_main_hall
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.7
+        capacity: 15
+        comfortable_capacity: 12
+        overload_expansion: 3
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: post_varkhen_energy_pressure
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_045_varkhen_takeover
+      reason: current_energy_above_old_comfortable_capacity
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - above_old_comfortable_capacity
+    last_event_id: event_turn_interlude_008_rusk_door_hexes
+    source_refs:
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+prepared_at: '2026-08-17T20:10:29+02:00'
+committed_at: '2026-08-17T20:10:29+02:00'

@@ -16,14 +16,18 @@ player_declared:
     commitment: none_until_lucan_answers
     prompt: Seraphine wciąż nie otrzymała odpowiedzi o dwóch ciałach na wysypisku; nie rozstrzygać tego bez nowego działania lub rozmowy.
   - id: objective_claim_act_02_rewards
-    status: pending_guild_settlement
+    status: pending_guild_leadership_review
     commitment: Rozliczyć nagrody i udział Lucana po operacji cmentarnej.
-    prompt: Nagrody za Akt 2 nie zostały jeszcze przyznane ani wycenione.
+    prompt: Standardowe stypendium polowe (15 srebra) wypłacone przy recepcji
+      (event_turn_interlude_012_reception_desk). Pełna nagroda/uznanie za
+      rozwiązanie kryzysu cmentarnego jest oznaczona jako oczekująca na przegląd
+      kierownictwa gildii - zapowiada się, że zleje się z nadchodzącym
+      przesłuchaniem instytucjonalnym, nie zostanie załatwiona osobno.
     steps:
       - id: talk_to_mara_and_boros_about_money_and_rewards
-        state: pending
-        note: Gracz chce porozmawiać z npc_mara_teln i npc_boros_keld o pieniądzach
-          i odebrać należne nagrody z gildii za operację cmentarną.
+        state: done
+        note: Zrobione w turn_interlude_011/012 - Boros i Mara doradzili recepcję
+          dla zwykłej części, 60 kg złota niejasnego pochodzenia to osobna sprawa.
   - id: objective_prepare_institutional_defense
     status: active_interlude_planning
     commitment: Przygotować się na przesłuchania i nacisk instytucji przed kolejnym aktem.
