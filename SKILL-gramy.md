@@ -1,29 +1,29 @@
 # SKILL-gramy — playbook narratora
 
 Kopia repozytoryjna skilla `gramy`, którym prowadzona jest ta kampania. Powstała 19.08.2026
-na prośbę gracza, żeby playbook był dostępny także narratorom poza Claude Code (np. ChatGPT).
+na prośbę gracza, żeby playbook był dostępny także narratorom poza Claude Code - przede
+wszystkim Codeksowi, który pracuje na tym samym repo i tym samym dysku.
 
 **Egzemplarz roboczy żyje w `~/.claude/skills/gramy/SKILL.md`** i to on jest ładowany przez
 Claude Code. Ten plik jest kopią — przy zmianie w jednym zaktualizuj drugi. Rozjazd między
 nimi nie jest błędem krytycznym (nic go nie waliduje), ale znaczy, że dwa narratory prowadzą
 tę samą kampanię wg różnych reguł.
 
-## Dla narratora BEZ dostępu do dysku (ChatGPT i podobne)
+## Co jest harnessowe, a co kanoniczne
 
-Cały playbook zakłada, że można czytać repo i uruchamiać `tools/gm.ps1`. Bez tego:
+Playbook obowiązuje w całości każdemu narratorowi, który ma repo i dysk — w tym Codeksowi na
+Windows. Pełna pętla tury, `tools/gm.ps1`, ścieżki, git, `commit`: bez zmian, bez zamienników.
 
-1. **Zamiast kroków 0–3** poproś gracza, żeby wklejił wyjście jednego polecenia:
-   `gm.ps1 brief --full`. `--full` istnieje dokładnie po to — dokleja treść wszystkich plików
-   z listy `load`, więc jeden wklej zastępuje odczyt dysku. Do tego poproś o ostatnie 3–4
-   linie `campaigns/lucan/journal/events.jsonl` (pole `summary` to jedyna proza) i, jeśli tura
-   jest planistyczna, o `campaigns/lucan/planning/act-03-defence.yaml`.
-2. **Pętla tury (`turn resolve` / `turn commit`) nie zadziała** — nie masz czym jej wywołać.
-   Prowadź narrację, a na koniec **podaj graczowi gotowy `outcome.yaml`** do wklejenia, żeby
-   sam domknął turę narzędziem. Bez `commit` żadna zmiana nie jest kanonem.
-3. **Nie wymyślaj stanu, którego nie widzisz.** Jeśli czegoś nie ma w `brief --full`, zapytaj
-   gracza, zamiast zgadywać — priorytet źródeł niżej obowiązuje bez zmian.
-4. Fragmenty PowerShellowe i uwagi o cwd, ścieżkach `C:\...` i narzędziach Claude Code
-   pomiń — są harnessowe, nie kanoniczne.
+Wyłącznie te trzy rzeczy są specyfiką Claude Code i nie znaczą nic poza nim:
+
+- nagłówek YAML niżej (automatyczne wywołanie skilla) oraz wywołanie przez `/gramy`,
+- uwaga, że „Bash tool resetuje cwd" — to ograniczenie jednego narzędzia,
+- odwołania do samego Claude Code w tekście.
+
+Zapas na wypadek narratora poza Windows: `tools/*.ps1` to wyłącznie launchery szukające
+Anacondy, a cała mechanika siedzi w Pythonie i jest przenośna — `python tools/gm.py <cmd>`,
+`python tools/roll_d100.py`, `python tools/validate_project.py`, argumenty w `--kebab-case`.
+`gm.py` jest niezależne od cwd, sprawdzone wywołaniem z innego katalogu.
 
 ## Metadane Claude Code
 
@@ -186,9 +186,12 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 - **Błędu historycznego się nie kasuje** — dodaj retcon i popraw aktualny stan.
 - Przed pierwszą turą po aktywacji przeczytaj `campaigns/lucan/FILE-LIFECYCLE.md` — mapa tego,
   kiedy który plik wolno zmienić.
-- `roll-d100.ps1 -Modifier` psuje wiele modyfikatorów: `-Modifier 'a=10','b=-10'` skleja
-  źródła w jeden wpis i zachowuje tylko ostatnią wartość (drugie `-Modifier` w ogóle nie
-  bindzie). Podawaj **jeden** modyfikator albo policz sumę ręcznie i przekaż jako jeden.
+- **`roll-d100.ps1 -Modifier` psuje wiele modyfikatorów — ale to wina wrappera, nie
+  narzędzia.** `-Modifier 'a=10','b=-10'` skleja źródła w jeden wpis i zachowuje tylko
+  ostatnią wartość (drugie `-Modifier` w ogóle nie bindzie); zjadło mi bonus w
+  `roll_turn_interlude_017`. W PowerShellu podawaj **jeden** modyfikator albo policz sumę
+  ręcznie. Wywołane bezpośrednio, `python tools/roll_d100.py --modifier a=10 --modifier b=-10`
+  działa poprawnie — flaga jest `action="append"`.
 - Rzut zrobiony z góry przez `roll-d100.ps1` z identyfikatorem `roll_<turn_id>` zostaje
   automatycznie podpięty przez `turn resolve` — to droga dla akcji, które nie mają
   encji/capability w silniku możliwości.
