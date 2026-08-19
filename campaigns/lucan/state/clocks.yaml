@@ -2,11 +2,68 @@ schema_version: 1
 campaign_id: campaign_lucan
 status: accepted_by_user_pending_package_activation
 clocks:
-  - id: clock_inquisition_attention
-    label: Zainteresowanie Inkwizycji
-    status: dormant_event_trigger_only
-    progress: 0
-    threshold: uncalibrated
-    last_source_event_id: milestone_047_seraphine_risk_disclosure
-    trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
-    note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- id: clock_inquisition_attention
+  label: Zainteresowanie Inkwizycji
+  status: dormant_event_trigger_only
+  progress: 0
+  threshold: uncalibrated
+  last_source_event_id: milestone_047_seraphine_risk_disclosure
+  trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+  note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+    słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- id: clock_father_arranges_academy_showing
+  label: Ojciec organizuje pokaz na Akademii
+  status: active_time_driven
+  progress: 0
+  threshold: 15
+  seconds_per_step: 86400
+  elapsed_seconds: 13920
+  last_source_event_id: event_turn_interlude_022_notice_board_identification
+  reschedule_note: PRZESTAWIONY z 3 na 8 dni (event_turn_interlude_021_timetable_and_offprint).
+    Lucan uzyl wlasnego argumentu ojca - jeden okaz to anekdota, seria to material,
+    a serii nie zrobi sie w trzy dni. Ojciec przyjal to bez protestu. Osiem dni jest
+    spojne z fikcja, bo pokrywa sie z terminem swiezego materialu (najblizsza stala
+    dostawa za ok. 7 dni), wiec nie jest uznaniowe.
+  trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
+  effect: 'Ojciec nie organizuje osobnego pokazu - wpycha okazy syna do JUŻ WYZNACZONEJ
+    otwartej dysputy (za ok. 16 dni, referuje npc_neris_aldhen, oponuje npc_ivar_kolm),
+    bo to naturalne miejsce dla serii. Skutek: nie prywatny pokaz dla życzliwych,
+    a publiczny spór z wyznaczonym oponentem, którego zadaniem jest wykazać, że to
+    nieumarły.'
+  world_test_required: false
+  reclassified_as_seminar: 'PRZEKWALIFIKOWANE (event_turn_interlude_030_the_seminar_problem).
+    To, co nadchodzi, nie jest zyczliwym pokazem. Lucan - ktory byl czescia tego swiata
+    - wskazal, w co takie mowienie sie zamienia: wezwanie na SEMINARIUM, nie na przesluchanie.
+    Nie uznaja odmowy, bo dla nich niewiedza jest stanem do usuniecia, nie granica
+    do respektowania. Efekt jest gorszy niz trybunal, bo seminarium ZAPISUJE - recenzowany
+    opis metody jest dokladnie tym dowodem, ktorego Kosciol nie ma, wykonanym w dobrej
+    wierze przez wlasna strone Lucana, z przypisami. Gildia nie ma nad tym zadnej
+    jurysdykcji.'
+  note: Zegar powstał z wyboru gracza, nie z nacisku świata. Lucan swiadomie nie wytracil
+    ojca z rownowagi i powiedzial na glos, ze zrobi kilka okazow na konferencje -
+    czlowiek, ktory uwaza, ze dobra praca ma byc widziana, potraktowal to jako zgode
+    i zaczal dzialac we wlasnym tempie.
+- id: clock_guild_leadership_hearing
+  label: Przesłuchanie przed kierownictwem gildii
+  status: active_time_driven
+  progress: 0
+  threshold: 15
+  seconds_per_step: 86400
+  elapsed_seconds: 9120
+  last_source_event_id: event_turn_interlude_022_notice_board_identification
+  lucan_knows_the_date: true
+  knowledge_note: WAŻNE - termin jest wiedzą gracza i narratora, NIE wiedzą postaci.
+    Recepcjonistka nie podała daty (event_turn_interlude_012), nocny urzędnik jej
+    nie zna (event_turn_interlude_023). Lucan może ją poznać tylko oficjalnie - od
+    kogoś z kierownictwa gildii albo od npc_seraphine_vale. Do tego czasu nie wolno
+    pozwalać Lucanowi planować "na piętnasty dzień" jako na znaną datę.
+  trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
+  effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii, w kontekście
+    przesłuchań instytucjonalnych; wtedy też rozstrzyga się nagroda za Akt 2.
+  world_test_required: false
+  note: 'Termin ustalony wspólnie z graczem - recepcjonistka nie podała daty (event_turn_interlude_012),
+    a gracz potrzebuje około dwóch tygodni interludium na trening i pozostałe sprawy.
+    Piętnaście dni domyka to jawnie, zamiast trzymać wezwanie jako nieokreśloną grozę.
+    Zbieżność z clock_father_arranges_academy_showing (15) i z dysputą (16) jest zamierzona
+    przez gracza: jeśli postępowanie i dysputa wypadną w jednym tygodniu, akademicy
+    mają własny interes w tym, żeby Lucan nie siedział w areszcie.'

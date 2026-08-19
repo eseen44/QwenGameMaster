@@ -38,7 +38,7 @@ state:
   location_ref: dispersed_to_named_posts_and_guild_rooftop
   condition: redeployed_after_overnight_recharge_at_wall_hideout
   post_assignment:
-    webber_home: loc_city_wall_hideout
+    webber_home: loc_city_wall_hideout  # posterunek, już nie "przy Spideyu"
     webber_tannery: loc_tannery
     webber_dump: loc_dump
     webber_anchored: loc_lumaria_adventurers_guild
@@ -46,6 +46,28 @@ state:
   standing_order: Od turn_interlude_007_redeploy_and_guild_walk Lucan poleca łapać
     wyłącznie male, niezauważalne rzeczy (osy, szczury, żuki) zamiast większych,
     widocznych zwierząt.
+  additional_order:
+    id: order_collect_live_specimens_from_posts
+    issued_event_id: event_turn_interlude_015_silkworms_and_specimen_order
+    intended_instruction: Przynieść do baszty próbki tego, co każdy sieciarz potrafi
+      znaleźć w swoim biomie - inne pająki, osy, muchy, karaluchy, ćmy, stonogi;
+      po jednej z każdego gatunku, żywe.
+    actually_transmitted: Łapać małe rzeczy, nie zjadać, nosić do baszty. Rozkaz
+      przekroczył pasmo łącza (control_type simple_necromantic_command,
+      strength stable_for_simple_orders, communication thread_break_signal +
+      minimal_status), więc kategoryzowanie po gatunku i utrzymywanie okazów żywymi
+      nie przeszło.
+    fidelity_by_member:
+      webber_home: clean
+      webber_anchored: clean
+      webber_tannery: degraded_by_distance
+      webber_dump: degraded_by_distance
+    sorting_delegated_to: companion_spidey
+    sorting_timing: Spidey jest przy Lucanie (retcon_000005), więc urobek leży w
+      baszcie do ich powrotu; nikt nie sortuje go w trakcie nocy.
+    expected_delivery: Nocny zbiór; wynik czeka w baszcie nad ranem, prawdopodobnie
+      częściowo połamany, zdechły lub uciekły.
+    compatible_with_standing_order: true
   casualties: 1
   casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]
@@ -60,5 +82,5 @@ development_path:
   current_stage: weak_sparse_monitoring_only
   future_capabilities: [movement_recording, prepared_snares, voice_recording, magic_detection, poison_delivery_through_threads]
   rule: Żadna z przyszłych funkcji nie jest dostępna bez osobnego ulepszenia, kosztu i wpisu zdarzenia.
-last_updated_event_id: milestone_045_varkhen_takeover
+last_updated_event_id: event_turn_interlude_015_silkworms_and_specimen_order
 source_refs: [source_luka_b_fragment#line:4954-5082, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368]

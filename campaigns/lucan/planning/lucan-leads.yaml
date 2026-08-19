@@ -23,6 +23,13 @@ leads:
     note: Przygotowanie leczenia zajmie chwile i potrzebny bedzie dawca odpowiedniej
       wielkosci - trudno o to szybko. Lucan wola pajecze zrodlo niz ludzki albo
       potworny palec ("bardzo ble").
+    update: 'ZRODLO WSKAZANE (event_turn_interlude_018_father_construct_pitch): ojciec
+      obejrzal kikut i postawil diagnoze - zaslepic sie nie da, potrzebny material dawcy
+      o zblizonej skali i budowie, inaczej staw nie utrzyma obciazenia. Wskazal zbiory
+      okazow Akademii i jej stale dostawy zywego towaru jako droge do odnoza wielkiego
+      pajeczaka, bez targowania sie na targu. NIE podal warunkow i nie zapytal, czy
+      Lucan ma prawo o cokolwiek z tych zbiorow prosic - to jest dokladnie ten dostep,
+      za ktory Akademia normalnie chce czegos w zamian.'
     status: open
   - id: lead_webber_passive_listening
     logged_after_event_id: event_turn_interlude_004_loot_pile_review
@@ -86,6 +93,27 @@ leads:
   - id: lead_market_run_spidey_parts_and_exotic_creatures
     topic: Wyprawa na targ po nowe czesci dla Spideya i bardziej egzotyczne zwierzatka
       do ozywienia
+    note: 'SPRAWDZONE (event_turn_interlude_014_market_beast_row_search): zwykle
+      stragany nie maja i nie miewaja zywych duzych pajeczakow. Zwierzecy rzad to
+      ssaki, ptactwo i drobnica na przynete. Zostaly trzy konkretne drogi -
+      (a) handlarz zywego towaru dla alchemikow na koncu rzedu: skorpiony, duze
+      chrzaszcze, czasem pajaki z karawan poludniowych, tylko na zamowienie, z
+      zaliczka, zapisem i pytaniem po co; (b) darmowe nocne lowy w piwnicach,
+      spichlerzu i na zapleczu rzeznickim wokol rynku, gdzie duzych pajakow
+      piwnicznych i chrzaszczy padlinozernych jest w nadmiarze; (c) jedwabniki na
+      wage u kupca jedwabniczego - masowo, legalnie, nudno.'
+    status: open
+  - id: lead_expand_creature_pool_insects_only
+    logged_event_id: event_turn_interlude_014_market_beast_row_search
+    topic: Rozszerzyc pule wlasnych stworzonek, ale trzymac sie owadow i pajeczakow -
+      nie ssakow
+    note: 'Doktryna gracza, wypowiedziana wprost: czlowiek nie odroznia martwego
+      chodzacego owada od zywego, natomiast przy ssaku odroznia od razu. Owad jest
+      wiec jedyna forma, ktora moze chodzic po miescie w bialy dzien bez zdradzania
+      nekromancji - co przy zblizajacych sie przesluchaniach instytucjonalnych ma
+      wartosc operacyjna, nie tylko estetyczna. Kierunek rozwoju: wiekszy rozmiar i
+      wiekszy sklad, nie inna klasa zwierzat.'
+    related_ref: campaigns/lucan/state/secrets.yaml#secret_necromantic_spider_network
     status: open
   - id: lead_new_practice_creature
     topic: Zdobyc nowe stworzenie do cwiczen - krolik jest juz zniszczony (zezarl
@@ -105,6 +133,167 @@ leads:
       brzmia kuszaco. Zaden dedykowany plik NPC dla wlasciciela jeszcze nie istnieje;
       ostatni znany stan to "exposed_and_detained" z milestone_022 - biezacy status/miejsce
       pobytu nie ustalone.'
+    rumour_unconfirmed: 'PLOTKA, NIE AKTA (event_turn_interlude_023_night_return_to_guild).
+      Weteran przy piwie w glownej sali gildii mowi, ze sprawa stanela i ze wlasciciel
+      NIE siedzi - wyszedl, a nikt nie umie powiedziec, czy z braku dowodow, czy za
+      pieniadze; w miescie, ktore w jednym miesiacu dostalo mutanty, trupy i cmentarz,
+      mniejsze sprawy przestaja miec kto sie nimi zajac. JESLI to prawda - teren garbarni
+      nadal jest jego, klucz do jego prywatnego mieszkania nadal jest u Lucana, a Lucan
+      nadal jest tym, kto napisal na niego skarge. Do potwierdzenia w aktach, ktore ida
+      przez dzien.'
+    status: open
+  - id: lead_read_seraphines_official_report
+    logged_event_id: event_turn_interlude_015_silkworms_and_specimen_order
+    topic: Zobaczyc, co Seraphine faktycznie napisala w oficjalnym raporcie z
+      operacji cmentarnej
+    note: 'Lucan zaklada, ze fakt odciazenia transmitera na cmentarzu jest w
+      oficjalnych aktach gildii i ze inne frakcje w koncu je przeczytaja. Tresc
+      raportu Seraphine wyznacza wiec punkt startowy kazdej pozniejszej linii
+      obrony - warto wiedziec, co tam stoi, zanim to przeczyta ktos z Akademii,
+      Kosciola albo magistratu. Relacja daje na to szanse
+      (obligation_conditional_cover, discretion_trust 15 - niskie), ale prosba o
+      wglad sama jest sygnalem, ze Lucan sie tym przejmuje.'
+    related_ref: campaigns/lucan/relationships/seraphine--lucan.yaml
+    status: open
+  - id: lead_find_father_and_academy_expert
+    logged_event_id: event_turn_interlude_015_silkworms_and_specimen_order
+    topic: Odnalezc ojca (akademika) i przez niego lub obok niego zdobyc eksperta
+      Akademii do obrony klasyfikacji "Spidey = konstrukt"
+    note: 'PROBLEM WEJSCIOWY - Lucan nie wie, gdzie ojciec teraz jest.
+      npc_lucan_father ma current_location_id:unknown i importance
+      background_only_not_yet_appeared_in_play, a background.yaml trzyma
+      current_status_and_location_of_father_mother oraz names_of_father_mother
+      na liscie unknown_not_to_invent_silently - wiec ustalenie tego jest osobnym
+      dzialaniem w grze, nie zalozeniem. Realne drogi to stare listy/adres z czasow
+      edukacji, rejestry akademickie albo glowna linia rodu Veyr
+      (faction house-veyr-main-line - ta droga jest trujaca, to oni podcieli mu
+      edukacje). DRUGI KANAL, niezalezny od ojca
+      (event_turn_interlude_015): handlarz zywego towaru dla alchemikow na targu
+      mowi, ze Akademia jest jego najwiekszym i stalym odbiorca okazow - czyli da sie
+      dojsc do akademika przez dostawce, bez rodziny.'
+    update: 'POSTEP (event_turn_interlude_016_walk_to_academy): ustalone, ze Akademia
+      Magii Lumarii to ta sama instytucja, w ktorej Lucan studiowal, i ze byl tam
+      ostatnio dwa lata temu. Dotarl pod brame po ciemku. Zmiany - jest portiernia z
+      ksiega odwiedzin (kiedys wchodzilo sie z ulicy), stary portier prawie go
+      rozpoznaje, przybudowka studencka przebudowana, jedno okno swieci w skrzydle
+      laboratoryjnym dokladnie tam, gdzie pracowal ojciec (wniosek z nawyku, nie
+      potwierdzenie obecnosci). Na tablicy wisi zapowiedz otwartej dysputy o
+      klasyfikacji ozywionych konstruktow - Akademia zajmuje pozycje na tej granicy
+      publicznie i zawczasu. Koszt wejscia - Lucan nie jest studentem, wiec wpis do
+      ksiegi oznacza nazwisko Veyr z data, trzy dni przed spodziewanym wezwaniem gildii.'
+    offprint: 'ZNALEZIONA (event_turn_interlude_021_timetable_and_offprint) - lezala pod
+      czyms zielonym, dokladnie tam gdzie ojciec mowil. Tekst caly, OKLADKI NIE MA -
+      zostala kiedys wydarta i uzyta jako zakladka, wiec nazwiska autora nie ma nigdzie
+      na tym egzemplarzu, a ojcu tez nie wraca z glowy. Wie natomiast, gdzie ta osoba
+      pracuje, i wie, ze dzis jej tu nie ma (caly budynek wygaszony poza jednym oknem).
+      Spotkanie najwczesniej jutro. Dwie drogi - ojciec zaprowadza albo pisze slowo
+      (szybko, ale sprawa od razu staje sie oficjalna i akademicka), albo Lucan podchodzi
+      sam, na wlasnych warunkach, bez sladu, tak jak wszedl.'
+    identified: 'NAZWISKO USTALONE (event_turn_interlude_022_notice_board_identification) -
+      npc_neris_aldhen, referentka szerokiej definicji, dysputa za ok. 16 dni; oponentem
+      jest npc_ivar_kolm ze stanowiskiem waskim. Gracz zdecydowal, ze nie wraca po nic do
+      ojca ("ten czlowiek nie wie jak sam sie nazywa") i szuka Aldhen jutro, samodzielnie.'
+    related_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+    status: open
+  - id: lead_two_contradictory_defences
+    logged_event_id: event_turn_interlude_027_legal_argument_and_the_father_answer
+    topic: Rozstrzygnac, ktora obrona jest glowna - klasyfikacyjna czy karna - bo one
+      sobie przecza
+    note: 'Uwaga Seraphine. Prawnik z ulicy (ten "mafijny", spotkanie z Borosem i Mara)
+      zna urzednikow magistratu, nie Akademie. Obrona KLASYFIKACYJNA mowi "to nie byla
+      nekromancja, to konstrukt" i potrzebuje akademika. Obrona KARNA mowi "nawet jesli,
+      to nie ma przepisu i nie ma dowodu" i potrzebuje kogos, kto zna forum i urzednikow.
+      Te dwie linie sobie przecza - wybor jednej oslabia druga, bo pierwsza przyznaje, ze
+      klasyfikacja ma znaczenie, a druga, ze czyn mial miejsce. Do rozstrzygniecia PRZED
+      przesluchaniem (za ok. dwa tygodnie) i przed dysputa (za ok. 16 dni).'
+    status: open
+  - id: lead_varkhen_as_witness_against_the_priest
+    logged_event_id: event_turn_interlude_028_lucan_dismantles_the_charges
+    topic: Uzyc zeznania Varkhena o kaplanie jako broni przeciw Kosciolowi
+    note: 'Wskazane przez Seraphine jako koszt, ktorego Lucan nie policzyl. Varkhen jest
+      JEDYNYM swiadkiem tego, ze kaplan znal wlasciwe wejscie, kontrolowal pieczecie i przy
+      ostatniej wizycie przyszedl z Orenem (fact_seraphine_knows_priest_visited_varkhen_with_oren,
+      milestone_047). Wniosek strategiczny - wyzerowanie Varkhena rzeczywiscie usuwa wiez i
+      dowod przeciw Lucanowi, ale rownoczesnie niszczy jedyna bron Lucana przeciw Kosciolowi.
+      Haczyk do rozwiazania: zeznanie nieumarlego jest samo w sobie dowodem, ze Lucan obcuje z
+      nieumarlym, a doktrynalnie Kosciol i tak go nie uzna - wiec trzeba znalezc sposob
+      przelozenia tej wiedzy na dowod, ktory nie ma Varkhena jako zrodla.'
+    related_ref: campaigns/lucan/entities/factions/lumaria-church.yaml
+    status: open
+  - id: lead_who_in_the_family_wants_a_quiet_settlement
+    logged_event_id: event_turn_interlude_028_lucan_dismantles_the_charges
+    topic: Ustalic, kto konkretnie w glownej linii rodu Veyr mialby interes w cichym
+      zamknieciu sprawy Lucana
+    note: 'Seraphine: rod nie bedzie bronil Lucana, bedzie bronil NAZWISKA, a najtansza
+      metoda jest ciche zamkniecie na ich warunkach, w ktorym cena to on. To ci sami ludzie,
+      ktorzy nie interesowali sie nim, dopoki nie dalo sie na nim zarobic
+      (background_main_family_line_opportunistic). Powiazane z
+      faction house-veyr-main-line oraz z lead_signet_heraldry_research.'
+    related_ref: campaigns/lucan/entities/factions/house-veyr-main-line.yaml
+    status: open
+  - id: lead_church_linked_academics_and_the_seal_priest
+    logged_event_id: event_turn_interlude_029_academy_as_civic_risk
+    topic: Ustalic nazwiska ludzi zwiazanych z Kosciolem na Akademii i sprawdzic, czy to ten
+      sam interes co kaplan od pieczeci
+    note: 'Zamowione przez Seraphine. Osoby zwiazane z Kosciolem na uczelni daza do
+      ograniczenia badan nad ozywionymi konstruktami - to jest strona npc_ivar_kolm. Pytanie
+      Seraphine, ktorego nie stawia jako tezy - czy to ten sam interes co kaplan, ktory znal
+      wlasciwe wejscie do komory Varkhena, kontrolowal pieczecie i przy ostatniej wizycie
+      przyszedl z Orenem (fact_seraphine_knows_priest_visited_varkhen_with_oren). Jesli tak,
+      spor o klasyfikacje i sprawa cmentarza to jedna operacja, nie dwie.'
+    related_ref: campaigns/lucan/entities/factions/lumaria-church.yaml
+    status: open
+  - id: lead_contact_the_broad_definition_faction_invisibly
+    logged_event_id: event_turn_interlude_029_academy_as_civic_risk
+    topic: Dotrzec do frakcji szerokiej definicji jako niewidzialne zrodlo, nie jako widoczny
+      sojusznik
+    note: 'Gracz zapowiedzial kontakt z frakcja pro-trupia (npc_neris_aldhen i jej strona),
+      motywowany strachem przed realna eskalacja - Akademia pozbawiana dorobku to grupa
+      pojedynczo groznych ludzi. Seraphine skorygowala prognoze: magowie nie sa blokiem, nie
+      podpala miasta, wygrywaja proceduralnie - ale dwa czy trzy pojedyncze incydenty daja
+      panike, a panika nie jest zamieszkami, panika jest PRETEKSTEM, i pretekstu potrzebuje
+      Inkwizycja, nie Akademia. Warunek Seraphine - chce wiedziec ZANIM Lucan skontaktuje sie
+      z ktorakolwiek strona (obligation_advance_warning_before_contacting_either_side).'
+    related_ref: campaigns/lucan/entities/npcs/neris-aldhen.yaml
+    status: open
+  - id: lead_watch_side_corpse_transport
+    logged_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
+    topic: Rozwinac lead o osobach zwiazanych z transportem zwlok po stronie STRAZY
+    note: 'Gracz zglosil istnienie leadu, ale swiadomie NIE oddal go Seraphine - zamierza
+      szantazowac obie strony i jej tego nie powiedzial. Seraphine i tak wyciagnela z samego
+      istnienia leadu wniosek, ktorego Lucan nie szukal: jesli ludzie ze strazy siedza w
+      transporcie zwlok, to zadanie sluzb miejskich, zeby przekazano im ciala, akta i dowody
+      z operacji cmentarnej, ma drugie czytanie - moga chciec materialu nie po to, zeby
+      prowadzic sprawe, a po to, zeby go pochowac. Gildia, opierajac sie od tygodnia, przez
+      caly czas chronila dowody przed ludzmi, ktorych te dowody dotycza, nie wiedzac o tym.'
+    critical_open_question: 'Pytanie Seraphine bez odpowiedzi
+      (event_turn_interlude_033_veyr_is_not_a_family) - jesli fotele w instytucjach sa
+      obsadzone tak, jak opisuje Lucan, to czy ta siec jest w ogole scigana, czy TOLEROWANA
+      przez kogos wystarczajaco wysoko? W drugim wypadku lead celuje w jego wlasny system, a
+      szantaz oparty na tym nie jest dzwignia - jest zgloszeniem sie do kolejki. Sprawdzic
+      PRZED jakimkolwiek uzyciem leadu.'
+    related_ref: campaigns/lucan/entities/factions/lumaria-civic-services.yaml
+    status: open
+  - id: lead_relic_claimant_is_a_deadline
+    logged_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
+    topic: Ustalic, kto i kiedy zglosi sie po relikwiarz
+    note: 'Seraphine domyslila sie od razu, ze rzecz jest koscielna, i nie pytala o
+      szczegoly - nazwala natomiast to, czym relikwiarz naprawde jest. Rzecz, po ktora ktos
+      sie zglosi, nie jest aktywem, jest TERMINEM. Ktos jej juz szuka, a Lucan nie zna daty.
+      Gracz nie oddaje przedmiotu, bo zamierza go uzyc jako dzwigni wobec Kosciola.'
+    related_ref: campaigns/lucan/player/inventory.yaml
+    status: open
+  - id: lead_tannery_owner_surety_and_who_paid_it
+    logged_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
+    topic: Ustalic, na jakiej podstawie garbarnik wyszedl i kto zlozyl poreczenie
+    note: 'Wersja Seraphine, mocniejsza niz plotka z sali: gildia oddala dokumenty i tam jej
+      udzial sie skonczyl, sprawa poszla do sluzb miejskich i tam stanela - ale NIE dlatego,
+      ze go uniewinniono. Wyszedl za poreczeniem albo po prostu dlatego, ze nie bylo komu
+      tego prowadzic, gdy ten sam urzad dostal na biurko handel zwlokami. Sprawa jest
+      formalnie OTWARTA. Wniosek: teren nadal jego, on zywy i urazony, ma prawo wiedziec, kto
+      napisal skarge, a dom przypisany do otwartego postepowania mozna legalnie przeszukac z
+      nakazem. Do ustalenia: kto zlozyl poreczenie - jesli ktokolwiek.'
+    related_ref: campaigns/lucan/entities/npcs/index.yaml
     status: open
 notes:
   - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,

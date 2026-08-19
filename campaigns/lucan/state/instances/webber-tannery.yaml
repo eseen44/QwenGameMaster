@@ -3,7 +3,7 @@ id: webber_tannery
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 10
+revision: 31
 position:
   location_id: loc_tannery
   zone_id: zone_yard
@@ -24,13 +24,13 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 11280
-      hunting_recovery_elapsed_seconds: 11280
+      decay_elapsed_seconds: 35400
+      hunting_recovery_elapsed_seconds: 35400
 conditions: []
 status_flags:
 - autonomous_hunting
 - at_tannery
-last_event_id: event_turn_interlude_012_reception_desk
+last_event_id: event_turn_interlude_033_veyr_is_not_a_family
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:10555-10566

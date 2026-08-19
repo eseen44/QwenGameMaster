@@ -1,0 +1,37 @@
+schema_version: 1
+id: npc_ivar_kolm
+name: Ivar Kolm
+status: needs_review
+importance: named_opponent_not_yet_met_minimal_detail
+role: Akademik Akademii Magii Lumarii; oponent w otwartej dyspucie, reprezentuje
+  stanowisko WĄSKIEJ definicji - czyli tezę, że coś takiego jak Spidey jest nieumarłym
+  i niczym więcej.
+faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+current_location_id: loc_lumaria_magical_academy
+lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
+first_learned_by_lucan:
+  event_id: event_turn_interlude_022_notice_board_identification
+  how: Zapowiedź otwartej dysputy na tablicy przy bramie Akademii.
+lucan_recognition: vague
+  # Lucan kojarzy nazwisko mgliście jako kogoś, kto już wtedy tu był - starszego i
+  # osadzonego. NIGDY go nie uczył; to nie jest jego dawny wykładowca.
+portrayal:
+  tone: not_yet_established
+  threat_scope: institutional_and_definitional_not_personal
+attitude_to_pc:
+  summary: Nieustalone; nigdy się nie spotkali. Nie wie o istnieniu Lucana w tej sprawie.
+  structural_interest: Jego zadaniem w dyspucie jest wykazać, że taki okaz to nieumarły.
+    Każdy okaz Lucana wystawiony na dyspucie jest dla niego materiałem dowodowym
+    przeciw szerokiej definicji - a pośrednio przeciw Lucanowi.
+knowledge:
+  confirmed: []
+  suspected: []
+  false_beliefs: []
+  forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity, lucans_identity_at_all]
+agenda:
+  current_goal: Wygrać dysputę dla wąskiej definicji.
+  scheduled_event: Dysputa otwarta za około 16 dni od event_turn_interlude_022.
+  opponent: npc_neris_aldhen
+relationships: []
+last_updated_event_id: event_turn_interlude_022_notice_board_identification
+source_refs: [campaigns/lucan/entities/factions/lumaria-magical-academy.yaml]

@@ -1,0 +1,625 @@
+schema_version: 1
+id: turn_interlude_025_spidey_on_seraphines_desk
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-19T14:30:29+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_025_spidey_on_seraphines_desk
+  declared_action: 'Lucan wzdycha, kladzie reke na biurku i kaze Spideyowi zejsc po
+    niej powoli na blat -
+
+    a potem przyjaznie zamachac odnozem do Seraphine. Odpowiedz na jej pytanie zaczyna
+    sie
+
+    wiec od pokazania, ze rzecz siedziala z nimi w pokoju przez cala rozmowe.
+
+    '
+  fiction_verdict: automatic
+  time_class: brief
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_025_spidey_on_seraphines_desk
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan wzdycha, kladzie reke na biurku i kaze Spideyowi zejsc po niej
+    powoli na blat -
+
+    a potem przyjaznie zamachac odnozem do Seraphine. Odpowiedz na jej pytanie zaczyna
+    sie
+
+    wiec od pokazania, ze rzecz siedziala z nimi w pokoju przez cala rozmowe.
+
+    '
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 120
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 120
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: mixed
+  perspective: pc_lucan
+  location_id: loc_lumaria_adventurers_guild
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  summary: 'Bez testu i bez kosztu - Spidey slucha przez wiez kotwicy, utrzymanie
+    zerowe. Schodzi
+
+    po rekawie na blat, powoli, i machna odnozem.
+
+    Seraphine nie drgnela. Tydzien temu stala nad unieruchomionym starozytnym nieumarlym;
+
+    pajak na biurku nie jest dla niej wstrzasem. Ona juz wiedziala, ze siec istnieje
+
+    (fact_seraphine_knows_spider_network_exists) - czego NIE wiedziala, to jak to
+    wyglada z
+
+    bliska, jak male to jest i jak blisko Lucan to trzyma. Teraz wie, ze rzecz siedziala
+    w
+
+    jej pokoju przez cala rozmowe.
+
+    Ale reaguje nie na pajaka. Reaguje na MACHNIECIE.
+
+    Mowi Lucanowi plasko, ze nigdy wiecej ma tego nie robic przy nikim. Powod jest
+    prawny,
+
+    nie estetyczny: konstrukt WYKONUJE, a sluga SLUCHA. Mechanizm nie odpowiada na
+    prosbe.
+
+    Przyjazne machniecie na zyczenie jest demonstracja posluszenstwa, a posluszenstwo
+    jest
+
+    cala sprawa - to jest roznica miedzy "posiada dziwactwo" i "kontroluje nieumarlych",
+
+    czyli dokladnie ta rzecz, ktora chcialaby ukryc na temat Varkhena.
+
+    Zorientowala sie tez, po co Lucan zaczal od tego. Czlowiek, ktory na pytanie "czego
+
+    jeszcze nie wiem" odpowiada zartem z pajakiem, ma na liscie rzeczy gorsze niz
+    pajak.
+
+    Powiedziala to na glos i czeka dalej.
+
+    A Lucan sam widzi, w co wlasnie wdepnal - bo Seraphine NIE WIE o dyspucie. Jej
+    regula
+
+    "nigdy przy nikim" zderza sie frontalnie z planem wystawienia ozywionego okazu
+    na
+
+    publicznym sporze, gdzie po drugiej stronie stoi Kolm, ktorego zadaniem jest nazwac
+    to
+
+    nieumarlym. Jesli wabik na dyspucie kiedykolwiek zareaguje na polecenie, spor
+    jest
+
+    skonczony w jednym zdaniu.
+
+    '
+  new_decision: 'Spidey siedzi na blacie, Seraphine wie juz wiecej niz przed minuta
+    i wprost powiedziala,
+
+    ze pajak nie moze przy nikim slychac polecen. Nie wie natomiast nic o dyspucie
+    za
+
+    szesnascie dni, a to jest teraz najwazniejsza rzecz na liscie Lucana - bo jego
+    wlasny
+
+    plan lamie regule, ktora ona wlasnie ustanowila. Lucan mowi jej o dyspucie i o
+    ojcu,
+
+    wykłada relikwiarz i zloto zamiast tego, oddaje wszystko naraz, czy pyta ja najpierw,
+
+    jak brzmi roznica miedzy konstruktem a sluga w papierach, ktore ona bedzie musiala
+
+    czytac?
+
+    '
+  operations:
+  - *id002
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: a183700edb967541c3b3fed9abd8202fc610aa5d13f0ccab40b284e78392eb0d
+  after_hash: 13ebb0d3b94015fb1523c35e11566307e61f6d2b1cdf9a40db645ed91e293890
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: '2026-08-17T21:23:05+02:00'
+    tension:
+      level: 1
+      reason: Seraphine powołała się na układ i zapytała wprost, czego jeszcze nie
+        wie. Rozmowa jest prywatna, ale ma cenę i nie da się jej przeczekać.
+    participants:
+    - pc_lucan
+    - npc_seraphine_vale
+    - companion_spidey
+    pressures:
+    - seraphine_asked_what_she_does_not_know_and_she_is_keeping_her_side_of_the_deal
+    - her_defence_of_him_in_two_weeks_is_only_as_good_as_what_he_tells_her_now
+    - control_of_the_corpses_and_records_is_the_live_institutional_fight
+    - the_reward_is_hostage_to_the_hearing_going_well
+    - the_academy_showing_is_a_public_dispute_with_an_assigned_opponent
+    - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+    - cemetery_loot_needs_discreet_buyer
+    - long_term_three_seal_oath
+    immediate_facts:
+    - seraphine_works_late_and_was_not_surprised_to_see_him
+    - lucan_now_knows_the_hearing_is_in_about_two_weeks_not_yet_officially_announced
+    - seraphine_kept_the_act_02_reward_logged_as_pending_review_not_closed
+    - the_reward_will_be_settled_at_the_same_session_as_the_hearing
+    - civic_services_demand_custody_of_the_bodies_records_and_evidence
+    - the_guild_is_resisting_and_that_is_why_no_date_is_announced_yet
+    - she_invoked_the_deal_and_asked_what_he_has_not_told_her
+    - his_undisclosed_list_is_four_items_reliquary_gold_dispute_father
+    immediate_questions:
+    - 'Spidey siedzi na blacie, Seraphine wie juz wiecej niz przed minuta i wprost
+      powiedziala,
+
+      ze pajak nie moze przy nikim slychac polecen. Nie wie natomiast nic o dyspucie
+      za
+
+      szesnascie dni, a to jest teraz najwazniejsza rzecz na liscie Lucana - bo jego
+      wlasny
+
+      plan lamie regule, ktora ona wlasnie ustanowila. Lucan mowi jej o dyspucie i
+      o ojcu,
+
+      wykłada relikwiarz i zloto zamiast tego, oddaje wszystko naraz, czy pyta ja
+      najpierw,
+
+      jak brzmi roznica miedzy konstruktem a sluga w papierach, ktore ona bedzie musiala
+
+      czytac?
+
+      '
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+- path: state/clocks.yaml
+  before_hash: 4691a23e2e6c405be79a6d1fc423b5b0beae2c6086de26e0f81249c03a0dd61d
+  after_hash: ef010d4647dc2b23a82573458f7b9d8d47f7118b1a8a35f98773a834d559f440
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+    - id: clock_father_arranges_academy_showing
+      label: Ojciec organizuje pokaz na Akademii
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 9120
+      last_source_event_id: event_turn_interlude_022_notice_board_identification
+      reschedule_note: PRZESTAWIONY z 3 na 8 dni (event_turn_interlude_021_timetable_and_offprint).
+        Lucan uzyl wlasnego argumentu ojca - jeden okaz to anekdota, seria to material,
+        a serii nie zrobi sie w trzy dni. Ojciec przyjal to bez protestu. Osiem dni
+        jest spojne z fikcja, bo pokrywa sie z terminem swiezego materialu (najblizsza
+        stala dostawa za ok. 7 dni), wiec nie jest uznaniowe.
+      trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
+      effect: 'Ojciec nie organizuje osobnego pokazu - wpycha okazy syna do JUŻ WYZNACZONEJ
+        otwartej dysputy (za ok. 16 dni, referuje npc_neris_aldhen, oponuje npc_ivar_kolm),
+        bo to naturalne miejsce dla serii. Skutek: nie prywatny pokaz dla życzliwych,
+        a publiczny spór z wyznaczonym oponentem, którego zadaniem jest wykazać, że
+        to nieumarły.'
+      world_test_required: false
+      note: Zegar powstał z wyboru gracza, nie z nacisku świata. Lucan swiadomie nie
+        wytracil ojca z rownowagi i powiedzial na glos, ze zrobi kilka okazow na konferencje
+        - czlowiek, ktory uwaza, ze dobra praca ma byc widziana, potraktowal to jako
+        zgode i zaczal dzialac we wlasnym tempie.
+    - id: clock_guild_leadership_hearing
+      label: Przesłuchanie przed kierownictwem gildii
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 4320
+      last_source_event_id: event_turn_interlude_022_notice_board_identification
+      lucan_knows_the_date: true
+      knowledge_note: WAŻNE - termin jest wiedzą gracza i narratora, NIE wiedzą postaci.
+        Recepcjonistka nie podała daty (event_turn_interlude_012), nocny urzędnik
+        jej nie zna (event_turn_interlude_023). Lucan może ją poznać tylko oficjalnie
+        - od kogoś z kierownictwa gildii albo od npc_seraphine_vale. Do tego czasu
+        nie wolno pozwalać Lucanowi planować "na piętnasty dzień" jako na znaną datę.
+      trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
+      effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii, w kontekście
+        przesłuchań instytucjonalnych; wtedy też rozstrzyga się nagroda za Akt 2.
+      world_test_required: false
+      note: 'Termin ustalony wspólnie z graczem - recepcjonistka nie podała daty (event_turn_interlude_012),
+        a gracz potrzebuje około dwóch tygodni interludium na trening i pozostałe
+        sprawy. Piętnaście dni domyka to jawnie, zamiast trzymać wezwanie jako nieokreśloną
+        grozę. Zbieżność z clock_father_arranges_academy_showing (15) i z dysputą
+        (16) jest zamierzona przez gracza: jeśli postępowanie i dysputa wypadną w
+        jednym tygodniu, akademicy mają własny interes w tym, żeby Lucan nie siedział
+        w areszcie.'
+- path: state/instances/pc-lucan.yaml
+  before_hash: 0bc094709b5036d164449e63f2320b8c091c85a4236fc998449a2e3cd57fecb9
+  after_hash: 9635bb9bf89bb3fc436bcef917c2bdf1bd0826694754a092e4008cba913d3174
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 27
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_main_hall
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.5
+        capacity: 15
+        comfortable_capacity: 15
+        permanent_expansion: 3
+        expansion_source_event_id: milestone_043a_logistics_collector_overload
+        expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+          podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia
+          - patrz retcon_000004.
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: elevated_energy_signature_above_old_threshold
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_043a_logistics_collector_overload
+      reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
+      applies_while: current_above_12
+      note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
+        (retcon_000004).
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - elevated_but_within_new_capacity
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - retcon_000004
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: f043efbd809d42cc45e46255a226876c38a450a59627121c88c470115fa59cad
+  after_hash: e15013bf8277e3a06f5b9d988d3d1b8d618075dbdfac424a0073321e940477ca
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 23
+    position:
+      location_id: loc_lumaria_magical_academy
+      zone_id: zone_academy_laboratory_wing
+      formation: concealed_with_lucan
+      note: Domyslnie towarzyszy Lucanowi ukryty - patrz retcon_000005.
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 30600
+          hunting_recovery_elapsed_seconds: 30600
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 9000
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - carried_concealed_with_lucan
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 1df989e3a5f2fb0f59b6d7d7bcecc716e9ee0d3a354a9b1a26b0de8d4970622d
+  after_hash: f72859c5a98169e4e799c59d5ce231f68c8d6565d4f09f6e2adbfd1159310af8
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 23
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: 2d97b7f516b8b902ff9645d55b6830642e4fc2e736d0b490b066ef7433c15ac3
+  after_hash: 32f4383aeabbbd5d482322bf6757dd0df58ebc118e86c802299e2f9aedee0494
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 23
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_rooftop
+      formation: solo_forward_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 30600
+          hunting_recovery_elapsed_seconds: 30600
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - posted_at_guild_rooftop
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: 56c8c7a233ba04500b959c5dff387f39878e8b7b2209a93b23d291651983e777
+  after_hash: 67833cd5212663e4af8d1adaf4817a79d7e93e300df9e1fbbfeba8eb265b89df
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 23
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 30600
+          hunting_recovery_elapsed_seconds: 30600
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: d4ed4f28e8d5487605b8823a36b3f0e9b4028ba1f102a932e2249901a236704e
+  after_hash: 14a95c3dcdad257354ba37dd787abbb5dd91933aff70e29e44b60df8ada7b0d2
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 23
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 30600
+          hunting_recovery_elapsed_seconds: 30600
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: 4a8530972a8b4027991fb68baba9f9dbdb6ce7304df310b6984601d09316eaa5
+  after_hash: d9bee63d196950b134660666719c2b4c8607cbeb08941b7195d977b6d96643f4
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 23
+    position:
+      location_id: loc_tannery
+      zone_id: zone_yard
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 30600
+          hunting_recovery_elapsed_seconds: 30600
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: f242acf108d4c477960b391972cb5927e5c6c4e877596784b9baf9f5c4dbd2a9
+  after_hash: 26e40e85db594a0e26a388f99ecc467c24bd432e425d8ba3eb5b73fc4a46baa6
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T13:30:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 120
+    last_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    elapsed_seconds_total: 117000
+prepared_at: '2026-08-19T14:31:00+02:00'
+committed_at: '2026-08-19T14:31:00+02:00'

@@ -10,14 +10,115 @@ player_declared:
       - {id: restore_first_seal, state: pending, location: under_oldest_mausoleum}
       - {id: cleanse_second_seal, state: pending, location: beneath_chapel}
       - {id: reinforce_third_seal, state: pending, location: at_lower_gate}
-  - id: objective_answer_seraphine_about_dump_bodies
-    status: unresolved_external_risk
-    declaration_event_id: milestone_047_seraphine_risk_disclosure
-    commitment: none_until_lucan_answers
-    prompt: Seraphine wciąż nie otrzymała odpowiedzi o dwóch ciałach na wysypisku; nie rozstrzygać tego bez nowego działania lub rozmowy.
+  - id: objective_liquidate_cemetery_loot
+    status: declared_plan_next_days
+    declaration_event_id: event_turn_interlude_013_market_food_run
+    commitment: Spieniężyć cmentarny łup (ok. 60 kg mortualnej biżuterii i złota),
+      nie relikwiarz - ten zostaje wyłączony ze sprzedaży.
+    prompt: Gracz zadeklarował kierunek na jutro/pojutrze, nie na dziś. Wymaga
+      dyskretnego kupca - łup jest zbyt duży i zbyt oczywistego pochodzenia dla
+      rzeczoznawcy gildii. Utrudnione przez kontrolę na wjazdach na targ i świeże
+      obwieszczenie o zezwoleniach na transport szczątków (event_turn_interlude_013_market_food_run).
+    appointment:
+      when: dwa dni od dnia 1 interludium (dzień 3)
+      with: [npc_boros_keld, npc_mara_teln]
+      scope: Rozliczenie pieniędzy oraz znalezienie prawnika z obiegu przestępczego
+        ("mafijnego") - jedno spotkanie, oba tematy równolegle.
+      source: Gracz doprecyzował w nawiasie, że ustawił to z Borosem i Marą podczas
+        rozmowy w gildii (turn_interlude_011/012); narrator nie podał wcześniej
+        żadnego terminu, więc to uzupełnienie niesprecyzowanego szczegółu, nie retcon.
+      logged_event_id: event_turn_interlude_014_market_beast_row_search
+    steps:
+      - {id: keep_appointment_with_boros_and_mara_in_two_days, state: scheduled}
+      - {id: find_discreet_buyer, state: pending}
+      - {id: move_60kg_without_registry_entry, state: pending}
+      - {id: keep_reliquary_out_of_the_sale, state: standing_decision}
+  - id: objective_build_decoy_construct_for_academy
+    status: declared_plan_active
+    declaration_event_id: event_turn_interlude_020_decoy_construct_plan
+    commitment: Zbudować drugiego pająka - mocniej obudowanego, mniej biologicznego,
+      bliższego konstruktu - i TEGO wydać Akademii. Spidey zostaje cały i nietknięty.
+    key_property: Wabik NIE będzie zakotwiczony (bez Death_Anchor), więc sekcja na nim
+      jest utratą materiału, nie utratą towarzysza; Lucan nic nie poczuje.
+    steps:
+      - {id: obtain_body_from_webber_night_haul_or_academy_collections, state: pending}
+      - {id: invest_growth_steps_into_plating_to_look_mechanical, state: pending}
+      - {id: keep_it_unanchored, state: standing_decision}
+      - {id: hand_the_decoy_not_spidey_to_the_academy, state: standing_decision}
+    constraints:
+      - 'ENERGIA - każdy trwały krok obudowania nowego służącego kosztuje 8
+        (permanent_growth_steps 0, reguła 8 x 1.5^n z system/companion-growth.md), a
+        Lucan ma 13,5/15. Wychodzi JEDEN porządnie obudowany wabik, nie kilka. "Kilka"
+        jest osiągalne tylko jako proste, nieprzekonujące pająki.'
+      - 'DOKTRYNA UŚCIŚLONA (event_turn_interlude_026b_veyr_name_and_the_observer_question).
+        Lucan podniósł trafny kontrargument i Seraphine go przyznała: z zewnątrz NIE DA SIĘ
+        odróżnić wyuczonej sztuczki od świeżego posłuszeństwa. Wniosek praktyczny - argument
+        "konstrukt" jest argumentem PRAWNYM i PUBLICZNYM, trzyma się przed magistratem,
+        urzędnikiem i publicznością, a NIE trzyma się przed nikim, kto potrafi czytać więź.
+        Tellem nie jest sam gest, a NOWOŚĆ i terminowość reakcji: sztuczka powtarza się
+        identycznie, posłuszeństwo dostosowuje się do prośby. Kto poprosi o INNY gest i
+        dostanie inny gest, ma dowód. Operacyjnie - na dyspucie okaz może wykonywać tylko
+        repertuar powtarzalny i nie wolno pozwolić nikomu z widowni zamówić gestu.'
+      - 'PULAPKA WIDOCZNOSCI (event_turn_interlude_029_academy_as_civic_risk) - najwazniejsza
+        korekta planu. Z zewnatrz nekromanta dolaczajacy do strony SZEROKIEJ definicji jest
+        najlepszym prezentem dla strony WASKIEJ - argument npc_ivar_kolm pisze sie sam:
+        patrzcie, kto przyszedl ich poprzec. Widoczny Lucan nie wzmacnia npc_neris_aldhen,
+        jest jej kontrprzykladem i zywym dowodem, ze szeroka definicja produkuje dokladnie
+        takich ludzi. WNIOSEK - wartosc Lucana dla tej frakcji jest realna, ale musi byc
+        NIEWIDZIALNA: zrodlo, nie sojusznik; karmi argument, nie wystepuje w nim. To jest
+        nie do pogodzenia z planem ojca, ktory chce wystawic okazy pod nazwiskiem syna.'
+      - 'REGUŁA SERAPHINE (event_turn_interlude_025_spidey_on_seraphines_desk) - okaz NIE
+        MOŻE przy nikim reagować na polecenie. Konstrukt wykonuje, sługa słucha; mechanizm
+        nie odpowiada na prośbę. Demonstracja posłuszeństwa jest różnicą między "posiada
+        dziwactwo" i "kontroluje nieumarłych". Zderza się to frontalnie z planem wystawienia
+        okazu na publicznej dyspucie, gdzie npc_ivar_kolm ma zadanie nazwać go nieumarłym -
+        jedno posłuszne drgnięcie kończy spór w jednym zdaniu. Seraphine NIE wie o dyspucie.'
+      - 'WADA STRUKTURALNA planu, wyłożona przez ojca bez cienia niepokoju - im mniej
+        biologiczny okaz, tym słabszy argument o odżywianiu, bo to metabolizm miał
+        dowodzić procesu ciągłego. A jeśli okaz zostanie biologiczny dość, żeby
+        argument działał, sekcja pokaże dokładnie to samo co u Spideya - vitae w
+        martwej tkance. Wabik chroni Spideya, nie chroni metody.'
+    material_timetable:
+      academy_collections: 'Dostępne od zaraz, ale okazy są UTRWALONE (spirytus, suszenie).
+        Do przeszczepu bezużyteczne - utrwalona tkanka nie przewodzi. Wartościowe jako
+        referencja i jako części "mechaniczne" do obudowy wabika.'
+      fresh_supply: Stała dostawa żywego towaru Akademii - najbliższa za około 7 dni.
+        To samo okno co konferencja, więc odnóże dla Spideya i wabik łapią się w jeden termin.
+      webber_night_haul: Już zdobyte, czeka w baszcie. Pająki piwniczne, osy, chrząszcze,
+        stonogi - za małe na odnóże dla Spideya, wystarczające jako ciała małych okazów serii.
+      source_event_id: event_turn_interlude_021_timetable_and_offprint
+    schedule_declared_by_player:
+      meeting_with_offprint_author: jak najszybciej
+      showing_or_conference: tydzień do dwóch - domknięte na otwartej dyspucie za 16 dni
+      interlude_length_requested: około dwóch tygodni na trening i pozostałe sprawy
+      preferred_alignment: 'OSIĄGNIĘTE (event_turn_interlude_022_notice_board_identification).
+        Wcześniejszy caveat o niesterowalnym terminie postępowania jest już nieaktualny -
+        termin został ustalony jawnie na 15 dni (clock_guild_leadership_hearing), a
+        dysputa wypada za 16. Trzy rzeczy siadają w jednym tygodniu: materiał (7 dni),
+        gotowe okazy i pokaz (15), przesłuchanie (15), dysputa (16). To jest dokładnie
+        układ, o który gracz prosił - akademicy będą mieli własny interes w tym, żeby
+        Lucan nie siedział w areszcie w dniu swojej dysputy. Cena: pokaz przestał być
+        prywatny, a po drugiej stronie stoi wyznaczony oponent (npc_ivar_kolm), którego
+        zadaniem jest wykazać, że taki okaz to nieumarły.'
+    cost_already_incurred: 'Lucan powiedział "kilka" i "konferencja" na głos człowiekowi,
+      który uważa, że dobra praca ma być widziana. Ojciec przyjął to jako zgodę i zaczął
+      organizować pokaz we własnym tempie. Sprawa przestała być prywatna. CZĘŚCIOWO
+      ODZYSKANE (event_turn_interlude_021) - Lucan przestawił
+      clock_father_arranges_academy_showing z trzech dni na osiem, używając własnego
+      argumentu ojca - jeden okaz to anekdota, seria to materiał, a serii nie zrobi się
+      w trzy dni.'
   - id: objective_claim_act_02_rewards
     status: pending_guild_leadership_review
     commitment: Rozliczyć nagrody i udział Lucana po operacji cmentarnej.
+    hearing_date: Piętnaście dni od dnia 1 interludium (clock_guild_leadership_hearing) -
+      ustalone jawnie, bo recepcjonistka terminu nie podała.
+    hearing_date_known_to_lucan: 'TAK, od event_turn_interlude_024_seraphine_date_and_payments -
+      Seraphine powiedziała mu: około dwóch tygodni, dzień w tę czy w tę, jeszcze nie
+      ogłoszone oficjalnie. Zna więc horyzont, nie zna sztywnej daty.'
+    reward_is_hostage: 'Seraphine dopilnowała, żeby w rejestrze stało "oczekuje przeglądu",
+      a nie "zamknięte" - to jej robota i realna przysługa. Cena: rozliczenie idzie TĄ SAMĄ
+      sesją co przesłuchanie, więc nagroda Lucana zależy teraz od tego, jak on na tym
+      przesłuchaniu wypadnie.'
     prompt: Standardowe stypendium polowe (15 srebra) wypłacone przy recepcji
       (event_turn_interlude_012_reception_desk). Pełna nagroda/uznanie za
       rozwiązanie kryzysu cmentarnego jest oznaczona jako oczekująca na przegląd
@@ -30,11 +131,42 @@ player_declared:
           dla zwykłej części, 60 kg złota niejasnego pochodzenia to osobna sprawa.
   - id: objective_prepare_institutional_defense
     status: active_interlude_planning
+    player_declared_priority:
+      - id: seek_representative_or_lawyer
+        note: Gracz wprost poprosił o obrońcę równolegle ze spieniężaniem łupu.
+          Doprecyzowane - ma to być prawnik z obiegu przestępczego ("mafijny"), nie
+          zwykły pisarz pozwów, i idzie tym samym spotkaniem co pieniądze
+          (patrz objective_liquidate_cemetery_loot.appointment - Boros i Mara, za dwa dni).
+          Rząd skrybów na targu (zone_market_scribes_and_notices) pozostaje wariantem
+          publicznym i tanim, ale nie tym, o który gracz prosił.
     commitment: Przygotować się na przesłuchania i nacisk instytucji przed kolejnym aktem.
     options: [research_legal_process, seek_representative_or_lawyer, study_defensive_skills, appraise_loot, manage_evidence]
     steps:
       - id: determine_spidey_and_webbers_legal_classification
         state: pending
+        player_declared_strategy: 'Gracz rozstrzygnął kierunek
+          (event_turn_interlude_015_silkworms_and_specimen_order): NIE próbuje ukryć
+          istnienia Spideya. Wychodzi z założenia, że raport o odciążeniu transmitera
+          na cmentarzu jest już w oficjalnych aktach i że inne frakcje w końcu do nich
+          dojdą, a nikt nie wie, gdzie mieszka - więc ukrywanie pająków nie jest
+          priorytetem. Linia obrony ma brzmieć: Spidey to KONSTRUKT, nie nieumarły.
+          Do tej argumentacji potrzebny jest ekspert z Akademii
+          (faction_lumaria_magical_academy broni granicy konstrukt/golem/chowaniec
+          właśnie dlatego, że chroni własne przywileje). Najprostsza droga według
+          gracza - ojciec Lucana, akademik (npc_lucan_father), bo pierwszy raz w
+          życiu Lucan ma coś, co może go zainteresować.'
+        argument_sharpened_by_father: 'event_turn_interlude_019_vitae_disclosure_to_father -
+          najmocniejszy argument to NIE "vitae", a ODŻYWIANIE. Spidey utrzymuje się sam,
+          poluje na drobną zdobycz i się z niej żywi; utrzymanie znaczy przemianę materii,
+          a przemiana materii znaczy proces ciągły. Ożywienie nie je. Słowa "vitae" nie
+          używać przy nikim w stule - kapłan usłyszy w nim dokładnie to, co chce usłyszeć.
+          Dodatkowo - w budynku Akademii toczy się otwarty spór o klasyfikację ożywionych
+          konstruktów i ktoś tam walczy o szeroką definicję; ojciec nie pamięta nazwiska
+          i obiecał sprawdzić.'
+        risk_note: 'Akademia strukturalnie chce DOSTĘPU do okazów - w jej pliku
+          frakcji stoi fears loss_of_access_to_specimens_or_evidence oraz incentives
+          inspect_or_claim_access_to_spidey. Spidey jest okazem. Ochrona przez
+          instytucję jest układem politycznym i źródłem długu, nie uniewinnieniem.'
         note: Jaki jest prawny status Spideya i sieciarzy - pupil, konstrukt, czy
           wystarczajacy dowod nekromancji przeciw Lucanowi? Wiaze sie z conflict_axis
           secular_classification_of_spidey_and_the_webber_network w planning/act-03-city-power-dynamics.yaml.
@@ -43,14 +175,115 @@ player_declared:
         note: Rozmowa ze straza i innymi znanymi stronnictwami - ocena nastawienia
           po spotkaniu z sierzantem, znalezieniu ich trupa i posiadaniu dowodu na
           problemy w ich szeregach (item_watch_transport_permit).
+      - id: legal_doctrine_stress_tested_by_seraphine
+        state: done
+        note: 'event_turn_interlude_027_legal_argument_and_the_father_answer. POTWIERDZONE w
+          Lucana wersji - prawo Solmary jest antropocentryczne i nie tworzy praw zwierząt,
+          dusz ani godności; modyfikacja drobnych bezkręgowców to realna szara strefa; mały
+          żywy pająk zmodyfikowany magią śmierci jest trudny do zaklasyfikowania i
+          dowiedzenia; Akademia klasyfikuje przez mechanizm i wiązanie duszy; kontrolowany
+          nieumarły rozumny (Varkhen) to zupełnie inna, ciężka kategoria. CZTERY DZIURY,
+          które wskazała: (1) nielegalna jest PRAKTYKA nekromancji, a pająk nie jest
+          oskarżonym, jest dowodem - brak prawa o godności zwierząt nie dotyczy zarzutu;
+          (2) szara strefa NIE daje immunitetu - użycie pająka do zabijania, szpiegowania
+          lub przenoszenia zakazanej energii to osobne czyny, a Lucan ma wszczepione zęby
+          żmii, gruczoł paralityczny, zademonstrowane skrytobójstwo i cztery sieciarze na
+          stałych posterunkach; oskarżenie o jadowite narzędzie zabójstwa i siatkę
+          obserwacyjną dowodzi się łatwiej niż nekromancję; (3) brak przepisu nie jest
+          bezpieczeństwem - zostaje zagrożenie publiczne, świętokradztwo, bezprawna magia,
+          zniszczenie własności, zakłócenie porządku; (4) Varkhen jest problemem TERAZ -
+          więź formalnej kontroli już istnieje, a przykrywka starożytnego strażnika trzyma
+          się tylko dopóki kontrola pozostaje niedowiedziona.'
       - id: acquire_surveillance_rhetoric_and_law_references
         state: pending
         note: Techniki podsluchu oraz ksiazki o retoryce, prawie swieckim i wyznaniowym.
+      - id: disclose_noble_name_angle_to_allies
+        state: done
+        note: 'Powiedziane Seraphine (event_turn_interlude_026b) - przez nazwisko rodowe
+          sprawa szybko wyjdzie do Akademii i rodów. Jej ocena - nekromanta bez nazwiska to
+          sprawa dyscyplinarna i karna, nekromanta z nazwiskiem to spór o jurysdykcję, w
+          którym Lucan przestaje być oskarżonym i staje się STAWKĄ. Skutek dwustronny - jej
+          warunkowa osłona słabnie, bo nie osłoni go w jurysdykcji, w której nie siedzi; ale
+          nazwisko jest powodem, dla którego ktoś wysoko może CHCIEĆ korzystnej klasyfikacji.'
       - id: map_city_factions_and_noble_relative_thread
         state: pending
         note: Research stronnictw miasta (faction_lumaria_noble_estates i inne) -
           sygnet to dopiero poczatek, mozliwe spotkanie z ktoryms "doskonalym krewnym".
           Powiazane z lead_signet_heraldry_research w planning/lucan-leads.yaml.
+      - id: reactivate_the_dormant_academy_post
+        state: not_needed
+        supersedes: acquire_institutional_coat_at_the_academy
+        correction_note: 'POPRAWKA (event_turn_interlude_031_the_dormant_sinecure). Poprzedni
+          krok zalozyl, ze Lucan nie ma afiliacji - to bylo bledne i zapisane, gdy jeszcze
+          tego nie ujawnil. Lucan MA katedre i umocowanie przy Akademii; jest czlonkiem na
+          wymuszonym urlopie dziekanskim od ponad dwoch lat. Plaszcza nie trzeba zdobywac,
+          trzeba zdecydowac, czy go uzyc.'
+        player_correction: 'event_turn_interlude_032_relic_watch_lead_and_a_bed - reaktywacja
+          jest ZBEDNA i koszt trzeci znika. Afiliacja w tym srodowisku nie jest procedura,
+          jest ROZPOZNANIEM: wystarczy, ze wiedza, kim jest. To ludzie, ktorzy moga kogos nie
+          widziec trzydziesci lat i zaczynaja rozmowe w punkcie, w ktorym ja skonczyli. Zaden
+          podpis nie jest potrzebny, bo nie ma czego wlaczac. Synekura jest przy tym
+          nietykalna - Lucan moglby byc woznym i nikt nie ruszylby jego pokoju - ale
+          nietykalnosc wisi na jednym zyciu: dopoki profesor Veyr zyje. Lucan nie jest
+          zainteresowany powrotem na uczelnie.'
+        note: 'ZYSK - jako czlonek przestaje byc okazem, ktorego nikt nie chroni; ma trzy
+          plaszcze (cechowy, rodowy, akademicki), czyli jest STAWKA w sporze o jurysdykcje,
+          nie oskarzonym. Plan ojca przestaje byc "nikt wystawia trupa" i staje sie "czlonek
+          prezentuje badanie czlonka" - Seraphine odwolala z tego powodu swoja rade o
+          niewidzialnosci. KOSZTY - (1) Akademia ma wobec czlonka wlasna procedure
+          dyscyplinarna, wiec wezwanie na seminarium staje sie WYKONALNE; ten sam plaszcz,
+          ktory chroni przed Kosciolem, daje Akademii tytul do wezwania. (2) Nieplatna
+          synekura jest niewidzialna tylko dopoki wlasciciel jest nudny - z chwila, gdy Lucan
+          staje sie interesujacy, ktos siega po akta, a tam jest urlop, jego przyczyna i
+          podciecie edukacji przez rodzine. (3) Powrot z urlopu wymaga podpisu albo braku
+          sprzeciwu - najnaturalniej ojca, ktory wlasnie organizuje pokaz i podpisze
+          cokolwiek z entuzjazmu.'
+        note: 'NOWA DROGA (event_turn_interlude_030_the_seminar_problem). Kosciol ma racje, ze
+          Akademia jest pelna ludzi, ktorych nazwalby nekromantami - ale oni maja PLASZCZ.
+          Nikt tam nie jest nekromanta, kazdy jest licencjonowanym badaczem, i ta zbiorowa
+          fikcja dziala dopoki nie da sie wskazac nazwiska BEZ afiliacji. Lucan nie jest
+          zapisany, zatrudniony ani licencjonowany, wiec jest jedynym okazem, na ktorego da
+          sie wskazac palcem, nie uderzajac w instytucje. Ochrona w tym porzadku bierze sie ze
+          statusu, afiliacji i patrona - Lucan ma cechowa i nazwisko, nie ma akademickiej.
+          ZADANIE: zdobyc wpis, afiliacje badawcza albo opiekuna PRZED tym, jak stanie sie
+          widoczny. Wtedy pulapka widocznosci znika, bo widoczny bylby jako badacz, nie jako
+          nekromanta. Kandydaci na droge - ojciec (npc_lucan_father) albo npc_neris_aldhen.'
+      - id: decide_what_to_do_about_being_an_unmanaged_asset
+        state: pending
+        note: 'NAJWAZNIEJSZA ZMIANA RAMY (event_turn_interlude_033_veyr_is_not_a_family). Rod
+          Veyr nie jest rodzina, jest systemem obsadzonych foteli - patrz
+          faction_house_veyr_main_line#structure. Wnioski Seraphine: (1) spor o jurysdykcje
+          moze byc wewnetrzna realokacja, w ktorej nikt nie musi wygrac, ktos musi tylko
+          zdecydowac; (2) taki system nie skazuje i nie broni - PRZYDZIELA, wiec najbardziej
+          prawdopodobnym koncem sprawy nie jest kara, a posada ze smycza; (3) system nie
+          prowadzi rejestru sympatii, tylko rejestr pozycji - dwa lata uciekania nie wypisaly
+          Lucana z niczego, zrobily z niego AKTYW NIEZARZADZANY, a takie zostaja zarzadzone w
+          chwili widocznosci. Widocznosc przychodzi za dwa tygodnie trzy razy z rzedu:
+          przesluchanie, seminarium, dysputa. ZADANIE - rozstrzygnac, czy Lucan chce
+          negocjowac warunki wlasnego przydzialu, czy probowac pozostac niezarzadzany, i
+          jakim kosztem.'
+      - id: find_a_searchable_but_empty_place_to_sleep
+        state: pending
+        note: 'Potrzeba zgloszona przez gracza (event_turn_interlude_032). Lokal do spania -
+          naprawde do spania - ale przede wszystkim taki, ktory ktos moze przeszukac i nic
+          nie znalezc. KANDYDAT ODRZUCONY: dom wlasciciela garbarni, do ktorego Lucan ma
+          klucz. Seraphine rozebrala pomysl - sprawa garbarnika jest formalnie OTWARTA, wiec
+          jest to jedno z niewielu miejsc w miescie, ktore da sie legalnie przeszukac Z
+          NAKAZEM, a wszystko, co tam znajda, przyklei sie do Lucana. Wlasciwe kryterium,
+          ktore ona sformulowala: nie pusty pokoj, a pokoj z NUDNYM wlascicielem i bez
+          zadnego zwiazku z jakimkolwiek otwartym postepowaniem.'
+      - id: prepare_one_canonical_account_before_anyone_asks
+        state: pending
+        note: 'Taktyka od Seraphine (event_turn_interlude_030). Przygotowac JEDNA wersje
+          opowiesci o tym, jak to dziala, i trzymac ja identyczna na seminarium, na
+          przesluchaniu przed kierownictwem i u prawnika. Rozjazd miedzy forami zabija
+          szybciej niz sama tresc. Do zrobienia w ciagu dwutygodniowego interludium.'
+      - id: seminar_tactic_do_not_refuse
+        state: standing_decision
+        note: 'Taktyka od Seraphine (event_turn_interlude_030). Akademik nie przyjmuje
+          odmowy, ale przyjmuje "nie umiem tego jeszcze sformalizowac" - i bedzie sie o to
+          klocil miesiacami, zamiast probowac to z Lucana wyciagnac. Opis na poziomie
+          mechanizmu, bez procedury odtwarzalnej. Nigdy nie mowic "nie".'
       - id: acquire_anti_detection_countermeasures
         state: pending
         note: Substancje/amulety maskujace energie Lucana lub chroniace przed wymuszaniem
@@ -60,6 +293,14 @@ long_term_context:
   - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}
   - {id: seal_three_weakened, state: weakened_no_known_deadline, source_event_id: milestone_046_varkhen_oath_compact}
 external_pressures:
-  - {id: pressure_seraphine_needs_full_risk_disclosure, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
+  - {id: pressure_seraphine_needs_full_risk_disclosure, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import, note: "Obowiązek ujawniania ryzyk trwa (obligation_conditional_cover); konkretna sprawa dwóch ciał z wysypiska zamknięta - retcon_000003."}
   - {id: pressure_varkhen_guild_basement_custody, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
-completed: []
+completed:
+  - id: objective_answer_seraphine_about_dump_bodies
+    status: resolved_in_conversation_with_seraphine
+    declaration_event_id: milestone_047_seraphine_risk_disclosure
+    resolution_ref: retcon_000003
+    note: Ustalone bezpośrednio z Seraphine. Dwa ciała z wysypiska to ciało stróża
+      (znalezione już dawno) oraz ciało szperacza; oba należą do wątku z Aktu 1
+      prowadzonego jako "choroba kanałów" i są tam rozliczone. Nie jest to
+      otwarte ryzyko ani osobny trop.

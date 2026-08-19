@@ -147,3 +147,26 @@ co ~10 tur + odchudzony prefiks, gdy ten ostatni powstanie).
 3. `gm scene close` na zamknięciu sceny.
 4. **Nowa rozmowa**, znów `gm brief`. Stan jest w plikach, historia rozmowy nie jest
    do niczego potrzebna.
+
+## 2026-08-19 — Progi testów dla osób trzecich bez karty
+
+Decyzja gracza, przyjęta jako kalibracja prowadzenia: **osoba trzecia bez arkusza
+(portier, urzędnik, straganiarz, znudzony strażnik) nie jest przeciwnikiem w teście.**
+Jeżeli nie ma walki ani aktywnych poszukiwań, sytuację rozstrzyga narracja, bez rzutu.
+Gdy rzut jest naprawdę potrzebny, próg dla takiego celu wynosi **15–20**.
+
+Powód: `roll_turn_interlude_017_misnotice_past_porter` dostał próg 45 za przejście obok
+znudzonego, niewyszkolonego portiera pod Misnotice — czyli w scenariuszu, który
+`ability_misnotice` wprost opisuje jako swój najlepszy
+(`usually_unrecognized_by_unprepared_mundane_target: true`). Rzut przeszedł (77 → 82 vs 45),
+więc fikcja się nie zmienia i nie ma retconu, ale sam próg był zawyżony ponad dwukrotnie.
+Wysoki próg zamienia rutynową sztuczkę w dramat, którego w fikcji nie ma.
+
+Świadomie NIE zrobiono: nie zmieniono `system/tests.md` ani `system/character-score.md` —
+to kalibracja prowadzenia, nie zmiana mechaniki; progi 40+ pozostają właściwe dla celów
+przygotowanych, magicznie piśmiennych albo faktycznie prowadzących poszukiwania.
+
+Osobno, gotcha narzędziowa: `tools/roll-d100.ps1 -Modifier 'a=10','b=-10'` skleja źródła
+w jeden wpis i zachowuje tylko ostatnią wartość (drugie `-Modifier` nie bindzie się wcale).
+W tym rzucie zjadło to bonus `darkness=10`, czyli wynik wyszedł zaniżony, nie zawyżony.
+Podawać jeden modyfikator albo sumę policzoną ręcznie.

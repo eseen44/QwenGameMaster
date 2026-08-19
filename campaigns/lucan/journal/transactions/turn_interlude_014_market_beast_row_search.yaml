@@ -1,0 +1,540 @@
+schema_version: 1
+id: turn_interlude_014_market_beast_row_search
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-19T11:59:17+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_014_market_beast_row_search
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_014_market_beast_row_search
+  declared_action: 'Lucan przechodzi po straganach zwierzecego rzedu targu i szuka
+    duzych pajeczakow
+
+    oraz innych owadow, zeby rozszerzyc pule swoich stworzonek. Swiadomie odrzuca
+
+    ssaki - ludzie nie odroznia martwego chodzacego owada od zywego, przy ssaku
+
+    odroznia od razu.
+
+    '
+  fiction_verdict: automatic
+  time_class: brief
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_014_market_beast_row_search
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan przechodzi po straganach zwierzecego rzedu targu i szuka duzych
+    pajeczakow
+
+    oraz innych owadow, zeby rozszerzyc pule swoich stworzonek. Swiadomie odrzuca
+
+    ssaki - ludzie nie odroznia martwego chodzacego owada od zywego, przy ssaku
+
+    odroznia od razu.
+
+    '
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 600
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 600
+outcome:
+  schema_version: 1
+  intent_achieved: false
+  arrangement: mixed
+  perspective: pc_lucan
+  location_id: loc_lumaria_market
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  summary: 'Lucan przechodzi caly zwierzecy rzad. Zywych duzych pajeczakow na straganach
+    NIE
+
+    MA i nie bywa - to nie jest towar, ktory ktos trzyma w klatce dla klienta z ulicy.
+
+    Rzed ma to, czego Lucan nie chce: kury, kroliki, prosiaki, koza, ptaki spiewajace,
+
+    czyli same ssaki i ptaki. Z owadow jest tylko drobnica na przynete wedkarska -
+
+    robaki, larwy, swierszcze, mączniki, tanio i w kazdej ilosci, ale dokladnie tej
+
+    wielkosci, ktora Lucan juz opanowal i ktora nic nowego nie daje.
+
+    Dwie realne sciezki wychodza z tego przejscia.
+
+    PIERWSZA - handlarz zwijajacy stragan na koncu rzedu prowadzi "zywy towar dla
+
+    alchemikow": skorpiony, duze chrzaszcze, czasem pajaki z karawan poludniowych.
+
+    Nie trzyma zapasu, przyjmuje zamowienia i sprowadza na termin. Bierze zaliczke,
+
+    zapisuje zamowienie i pyta po co - nie z podejrzliwosci, tylko dlatego, ze cena
+
+    zalezy od tego, czy towar ma dojechac zywy. Kazde takie zamowienie to nazwisko,
+
+    termin i swiadek, ktory bedzie pamietal, ze poszukiwacz przygod z gildii kupowal
+
+    zywe pajaki, akurat na kilka dni przed przesluchaniami.
+
+    DRUGA - darmowa i bez sladu. Skladowe i piwnice wokol rynku, spichlerz i zaplecze
+
+    rzeznickie sa pelne duzych pajakow piwnicznych, kosarzy i tlustych chrzaszczy
+
+    padlinozernych. Nikt ich nie sprzedaje, bo nikt ich nie chce; wystarczy noc,
+
+    latarnia i cierpliwosc, ewentualnie sam Spidey albo sieciarz jako lowca.
+
+    Trzecia rzecz sama wpada w oko przy skrecie do rzedu tkanin: kupiec jedwabniczy
+
+    ma zywe jedwabniki na wage, koszykami. Owad, hodowany masowo, legalny, nudny -
+
+    i produkujacy nic. Do lead_webber_silk_upgrade_human_scale to material az nazbyt
+
+    oczywisty.
+
+    '
+  new_decision: 'Na straganach nie ma czego szukac - duzy pajeczak to albo zamowienie
+    z nazwiskiem
+
+    u handlarza alchemicznego, albo darmowe nocne lowy we wlasnych piwnicach miasta.
+
+    Jedwabniki leza na wyciagniecie reki i sa calkowicie niewinne. Zostala niecala
+
+    godzina swiatla. Lucan podchodzi do handlarza i pyta o warunki, kupuje jedwabniki,
+
+    planuje nocne lowy z Spideyem - czy zamyka temat i wraca do baszty?
+
+    '
+  operations:
+  - op: set
+    instance_id: pc_lucan
+    path: position.zone_id
+    value: zone_market_livestock_and_beasts
+  - *id002
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: f660d11ebcd27dce71c712395198a1658ae8ff4813becfce8b09a0b1441f19e8
+  after_hash: 18a8e38a7894339f663e8871755f7610dc7547cb528fbad764144d3835b86f4c
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+    started_at: '2026-08-17T21:23:05+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    pressures:
+    - watch_inspection_on_market_gates_registers_heavy_loads
+    - act_02_rewards_folded_into_upcoming_institutional_inquiry
+    - cemetery_loot_needs_discreet_buyer
+    - long_term_three_seal_oath
+    - rusk_door_hexes_pending_discovery
+    immediate_facts:
+    - lucan_ate_and_restocked_food_for_two_srebra
+    - new_municipal_notice_requires_permit_for_transport_of_remains_and_unhygienic_material
+    - watchmen_and_a_clerk_inspect_carts_and_heavy_loads_at_market_gates
+    - market_back_alleys_are_a_few_steps_away_and_it_is_still_light
+    - beast_cages_and_scribes_row_are_both_open_here
+    immediate_questions:
+    - 'Na straganach nie ma czego szukac - duzy pajeczak to albo zamowienie z nazwiskiem
+
+      u handlarza alchemicznego, albo darmowe nocne lowy we wlasnych piwnicach miasta.
+
+      Jedwabniki leza na wyciagniecie reki i sa calkowicie niewinne. Zostala niecala
+
+      godzina swiatla. Lucan podchodzi do handlarza i pyta o warunki, kupuje jedwabniki,
+
+      planuje nocne lowy z Spideyem - czy zamyka temat i wraca do baszty?
+
+      '
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+- path: state/clocks.yaml
+  before_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  after_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- path: state/instances/pc-lucan.yaml
+  before_hash: 5dda21c4a9cdccecca0ead961f8b50024062e81d584e45760b76c8e8716796d5
+  after_hash: 57bb829c2b3699b999c7b2a7508f23a1d04c67f2f02de102132453549a877079
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 16
+    position:
+      location_id: loc_lumaria_market
+      zone_id: zone_market_livestock_and_beasts
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.6
+        capacity: 15
+        comfortable_capacity: 12
+        overload_expansion: 3
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: post_varkhen_energy_pressure
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_045_varkhen_takeover
+      reason: current_energy_above_old_comfortable_capacity
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - above_old_comfortable_capacity
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: 2b3c488216c088a332636fa9f528e876dc39caba7c3078d80682f0c924475984
+  after_hash: 1ca184390b8554b0806d093f3ccdff9745174462155fbe0605327ca0c54bef55
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 12
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_webber_home
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 15480
+          hunting_recovery_elapsed_seconds: 15480
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 15480
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - at_wall_hideout
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: a899ec6e1356b0782497d840c4ea63dbccb73f6672aecf5f5d05eff16307cb2f
+  after_hash: d7c13cda0aec8af33f5c30d83111d1770cafdae00d794ab50b6b28e4bbd0e4b1
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 12
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: d21a89db732db58395c447c26ae7f4b3b5eaaa6ecd540a3b81bc9554fbff9f92
+  after_hash: 14b60efd629607473f41f0d19101eb33a2782efcd5b6761e804682ccc42d5442
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 12
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_rooftop
+      formation: solo_forward_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 15480
+          hunting_recovery_elapsed_seconds: 15480
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - posted_at_guild_rooftop
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: c22a7844d2f21d9d667bf85ad2ec3158097f89e4dc06bbce94cd2cc36a7cf467
+  after_hash: 0a2a5439eb309917c405cc4c1b1c2b3b6c1cb16220fbe2fc0aca3c7ceeff434e
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 12
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 15480
+          hunting_recovery_elapsed_seconds: 15480
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: 2ebebc073d9093cb7d941d5dcd6400d5686fa52d4f7d3f30e9731db713c8938c
+  after_hash: 21f9bda1626c8c3588959afa3dd2553d047390ef7aeba71f40b96936c5ac09d9
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 12
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 15480
+          hunting_recovery_elapsed_seconds: 15480
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: 3f3bf99fb78e4ec992aedee49e33caebc296dee07da03cc2423c2453add11561
+  after_hash: f0ce885837091d3ed957bcf23beb0ee21b167419a2a5659061f2171a44ba3d63
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 12
+    position:
+      location_id: loc_tannery
+      zone_id: zone_yard
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 15480
+          hunting_recovery_elapsed_seconds: 15480
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: 8cd14a3d3003a1758044a0c793c888ce95c7bf0fc64b4a61c8b5ea2584f2bb6f
+  after_hash: e97e14c08747f71268a3c9ad32ad9cb6f8a0461b9aa46abcfb73dbf9f2f74d86
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T09:18:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 600
+    last_event_id: event_turn_interlude_014_market_beast_row_search
+    elapsed_seconds_total: 101880
+prepared_at: '2026-08-19T11:59:52+02:00'
+committed_at: '2026-08-19T11:59:52+02:00'

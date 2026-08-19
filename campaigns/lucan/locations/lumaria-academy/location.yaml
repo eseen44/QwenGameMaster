@@ -1,0 +1,27 @@
+schema_version: 1
+id: loc_lumaria_magical_academy
+name: Akademia Magii Lumarii
+status: active
+world_ref: worlds/solmara
+type: academic_institution_campus
+faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+access: controlled_gatehouse_with_visitors_book
+known_to_lucan: former_student_last_present_about_two_years_ago
+scale: complex_minutes_on_foot
+connections:
+  - {id: connection_academy_street, zone_id: zone_academy_gatehouse, leads_to: loc_lumaria, travel_time: needs_review}
+zones:
+  - {id: zone_academy_gatehouse, note: Nowa od czasów Lucana - portiernia z księgą odwiedzin i tablicą obwieszczeń. Za jego studiów wchodziło się po prostu z ulicy.}
+  - {id: zone_academy_main_court, note: Dziedziniec między skrzydłami.}
+  - {id: zone_academy_laboratory_wing, note: Skrzydło laboratoryjne - tu pracował ojciec Lucana; stałe laboratorium, w którym spędza niemal całe życie.}
+  - {id: zone_academy_scaffolded_wing, note: Skrzydło w remoncie, obstawione rusztowaniem.}
+  - {id: zone_academy_former_student_annex, note: Tania przybudówka studencka, w której mieszkał Lucan - przebudowana, już nie mieszkalna.}
+notes:
+  - Lucan tu studiował; edukacja została przerwana po sprzeciwie wobec zaaranżowanego
+    małżeństwa (background_family_retaliation_and_education_sabotaged). Ostatnio był
+    tu około dwóch lat temu - ustalone przez gracza przy
+    event_turn_interlude_016_walk_to_academy.
+  - Akademia jako frakcja jest już zmobilizowana na osi konstrukt/golem/chowaniec
+    kontra nieumarły; to dokładnie ta granica, na której Lucan chce oprzeć obronę
+    Spideya.
+source_refs: [campaigns/lucan/player/background.yaml, campaigns/lucan/entities/factions/lumaria-magical-academy.yaml]

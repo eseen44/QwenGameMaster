@@ -6,16 +6,108 @@ subject_id: npc_seraphine_vale
 target_id: pc_lucan
 layer: personal
 stance: personally_invested_conditional_ally
-axes: {cooperation: 45, judgment_confidence: 70, discretion_trust: 15, personal_regard: 35}
+axes: {cooperation: 62, judgment_confidence: 88, discretion_trust: 38, personal_regard: 42}
 reasons: [lucan_repeatedly_delivers_results, seraphine_chose_to_offer_conditional_cover, personal_investment_in_lucans_future]
 obligations:
+  - {id: obligation_advance_warning_before_contacting_either_side, holder: npc_seraphine_vale, debtor: pc_lucan, condition: lucan_tells_her_before_he_contacts_any_side_of_the_classification_dispute, status: active, source_event_id: event_turn_interlude_029_academy_as_civic_risk}
   - {id: obligation_conditional_cover, holder: npc_seraphine_vale, debtor: pc_lucan, condition: lucan_discloses_material_risks_before_they_become_public_crises, status: active}
-shared_secrets: [varkhen_cover_story, necromantic_spider_network_exists, four_marked_corpses]
+shared_secrets: [varkhen_cover_story, necromantic_spider_network_exists, four_marked_corpses, spidey_obeys_fine_grained_commands]
 leverage: {held_by_subject: [guild_access, knowledge_of_four_marked_corpses], held_by_target: [operational_value_in_seal_crisis]}
 constraints: [guild_duty, legal_risk_of_necromancy, church_and_inquisition_attention, city_safety]
+structural_weakness_note: 'event_turn_interlude_033_veyr_is_not_a_family - jej oslona jest
+  strukturalnie slabsza, niz zakladala. Jesli Veyrowie siedza w fotelach po wszystkich
+  stronach, gildia jest jedna z wielu instancji, a ona najslabsza strona przy stole.
+  Powiedziala to na glos i bez ironii - jest prawdopodobnie jedyna strona, ktorej oslona nad
+  Lucanem nie jest transakcja.'
+axis_change_log:
+  - axis: discretion_trust
+    from: 15
+    to: 22
+    event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+    reason: 'Lucan przyszedł do niej sam, w nocy, nieproszony, i na pytanie o nieujawnione
+      ryzyka postawił Spideya na jej biurku, zamiast zaprzeczyć. To realny gest dobrej
+      woli w ramach obligation_conditional_cover. Tick jest MAŁY i warunkowy - to była
+      odpowiedź częściowa, podana żartem, a ona sama powiedziała na głos, że wnioskuje z
+      niej istnienie gorszych pozycji na liście. Pełne zaufanie zależy od tego, czy Lucan
+      wyłoży resztę (relikwiarz, złoto, dysputa, ojciec).'
+  - axis: discretion_trust
+    from: 22
+    to: 25
+    event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
+    reason: 'Wyłożył jej z własnej woli ostrzeżenie polityczne, którego nie musiał podawać -
+      że przez jego nazwisko sprawa szybko wyjdzie do Akademii i rodów. To jest dokładnie ten
+      rodzaj wczesnego ujawnienia ryzyka, o który prosiła. Tick pozostaje mały, bo w tej samej
+      rozmowie pominął pokaz i dysputę, a ona zauważyła dziurę i zapytała, skąd ma tę wiedzę.'
+  - axis: judgment_confidence
+    from: 70
+    to: 75
+    event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
+    reason: 'Kontrargument Lucana - że z zewnątrz nie da się odróżnić wyuczonej sztuczki od
+      posłuszeństwa - był trafny i ona to przyznała. To realna zmiana jej oceny jego myślenia
+      strategicznego, nie jego dyskrecji.'
+  - axis: cooperation
+    from: 45
+    to: 55
+    event_id: event_turn_interlude_028_lucan_dismantles_the_charges
+    reason: 'Lucan wprost jej wypomniał, że zachowanie Varkhena w stanie użytecznym dla
+      pieczęci jest JEJ interesem, i że nie ma prawa przedstawiać tego jako wyłącznie jego
+      problemu. Przyjęła to bez wykrętu - ona go wyprowadziła z osuwiska i ona trzyma go w
+      piwnicy tego budynku. Wspólna ekspozycja została nazwana na głos i przestała być
+      asymetryczna.'
+  - axis: judgment_confidence
+    from: 75
+    to: 82
+    event_id: event_turn_interlude_028_lucan_dismantles_the_charges
+    reason: 'Rozebrał jej argumentację punkt po punkcie - brak definicji praktyki, brak ciał,
+      narzędzia mordu u najemnika, a przede wszystkim pułapka "jeśli bezmyślny konstrukt, to
+      nie raportuje; jeśli raportuje, to nie bezmyślny". Ostatnie zamknęła się na niej, nie
+      na nim.'
+  - axis: personal_regard
+    from: 35
+    to: 42
+    event_id: event_turn_interlude_028_lucan_dismantles_the_charges
+    reason: Rozmawiał z nią jak z równą i wygrał uczciwie; przyjęła to bez urazy.
+  - axis: discretion_trust
+    from: 25
+    to: 34
+    event_id: event_turn_interlude_029_academy_as_civic_risk
+    reason: 'Wylozyl wreszcie cala sprawe Akademii z wlasnej woli, i to w formie ostrzezenia
+      o ryzyku dla miasta, czyli dokladnie tak, jak brzmi jej warunek oslony. Nadal nie
+      wszystko - zatail, ze ojciec zna metode i ze okazy maja isc pod nazwiskiem Veyr - wiec
+      tick jest duzy, ale nie domykajacy.'
+  - axis: judgment_confidence
+    from: 82
+    to: 88
+    event_id: event_turn_interlude_030_the_seminar_problem
+    reason: 'Trzy razy z rzedu wyprzedzil ja na wlasnym terenie - ukrywani nekromanci z
+      plaszczem instytucji, akademicy grozniejsi od Orena, a przede wszystkim seminarium
+      zamiast przesluchania. Przyznala, ze sama by na to nie wpadla, bo nie zna tego swiata.'
+  - axis: discretion_trust
+    from: 34
+    to: 38
+    event_id: event_turn_interlude_031_the_dormant_sinecure
+    reason: 'Oddal fakt, ktory unieważnil polowe jej rady i ktorego mogl nie oddawac -
+      formalne umocowanie przy Akademii. Tick niewielki, bo podal to dopiero po tym, jak jej
+      rada zdazyla sie na tym bledzie oprzec, i nadal nie powiedzial, ze ojciec zna metode.'
+  - axis: cooperation
+    from: 55
+    to: 62
+    event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
+    reason: 'Sam lead o strazy w transporcie zwlok dal jej klucz do rzeczy, ktora niepokoila
+      ja od tygodnia - drugiego czytania zadania sluzb miejskich o przekazanie cial i akt.
+      Zwiekszylo to jej gotowosc do ryzyka po jego stronie. discretion_trust NIE rosnie:
+      zauwazyla, ze wymienil oba aktywa i nie powiedzial, ze je oddaje.'
 history:
   - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_personal_investment_without_fixed_future_form}
   - {event_id: event_act_02_closeout_interlude_import, change: Seraphine_witnessed_Lucan_take_one_ring_and_placed_Varkhen_in_guild_custody, reason: no_axis_change_without_a_new_direct_social_resolution}
+  - {event_id: event_turn_interlude_024_seraphine_date_and_payments, change: gave_him_the_hearing_horizon_and_revealed_she_protected_his_reward, reason: keeping_her_side_of_the_conditional_cover_deal}
+  - {event_id: event_turn_interlude_025_spidey_on_seraphines_desk, change: discretion_trust_15_to_22, reason: voluntary_partial_disclosure_by_demonstration}
+  - {event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed, change: cooperation_55_to_62, reason: the_watch_lead_reframed_the_custody_fight_in_her_favour_but_he_kept_both_assets}
+  - {event_id: event_turn_interlude_031_the_dormant_sinecure, change: discretion_trust_34_to_38, reason: disclosed_the_dormant_academy_post_which_overturned_her_advice}
+  - {event_id: event_turn_interlude_030_the_seminar_problem, change: judgment_confidence_82_to_88, reason: lucan_out_read_her_three_times_on_academic_ground}
+  - {event_id: event_turn_interlude_029_academy_as_civic_risk, change: discretion_trust_25_to_34, reason: volunteered_the_whole_academy_matter_framed_as_a_civic_risk_warning}
+  - {event_id: event_turn_interlude_028_lucan_dismantles_the_charges, change: cooperation_45_to_55_judgment_82_personal_regard_42, reason: shared_exposure_named_aloud_and_lucan_won_the_legal_exchange}
+  - {event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question, change: discretion_trust_22_to_25_and_judgment_confidence_70_to_75, reason: volunteered_the_political_warning_and_won_a_real_argument_while_still_withholding_the_dispute}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_varkhen_mind]}
-last_event_id: event_act_02_closeout_interlude_import
+last_event_id: event_turn_interlude_033_veyr_is_not_a_family
 source_refs: [source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

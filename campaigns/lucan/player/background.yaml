@@ -5,13 +5,43 @@ confirmed_minimum:
   - id: background_higher_magical_education
     claim: Lucan spędził kilka lat w systemie wyższego kształcenia magicznego.
     source_refs: [source_luka_b_fragment#line:11903-11909]
+  - id: background_academy_identified_as_lumaria
+    claim: Instytucją, w której Lucan studiował, jest Akademia Magii Lumarii
+      (faction_lumaria_magical_academy, loc_lumaria_magical_academy). Ostatnio był
+      tam około dwóch lat temu - tyle minęło od przerwania edukacji.
+    source_refs: [event_turn_interlude_016_walk_to_academy]
+  - id: background_formal_academy_post_on_dean_leave
+    claim: Lucan formalnie NADAL ma afiliacje przy Akademii Magii Lumarii - katedre i
+      umocowanie, ktore nigdy nie zniklo. Edukacja nie zostala zamknieta wydaleniem, tylko
+      WYMUSZONYM URLOPEM DZIEKANSKIM, ponad dwa lata temu (to jest formalna postac
+      background_family_retaliation_and_education_sabotaged). Posada jest nieplatna
+      synekura, a nieplatnej synekury trzymanej przez szlachcica nikt nie audytuje - kto
+      taka widzi, po prostu przechodzi dalej. Od tego czasu Lucan aktywnie unikal wszystkiego,
+      co zwiazane z tym miejscem, wiec plaszcz lezy nieuzywany, ale wazny.
+    consequences:
+      - Lucan NIE jest nieafiliowanym nekromanta - jest czlonkiem Akademii na urlopie.
+      - Ma trzy plaszcze naraz: cechowy, rodowy (Veyr) i akademicki.
+      - Akademia ma wobec czlonka wlasna procedure dyscyplinarna, wiec wezwanie na
+        seminarium jest wobec niego WYKONALNE, nie tylko spolecznie natarczywe.
+      - Kamuflaz dziala, dopoki nikt nie patrzy; w aktach jest urlop, jego przyczyna i
+        podciecie edukacji przez wlasna rodzine.
+      - 'POPRAWKA (event_turn_interlude_033_veyr_is_not_a_family) - nietykalnosc synekury NIE
+        wisi na zyciu ojca. Jest strukturalna: zawsze bedzie jakis Veyr w odpowiednim fotelu.
+        Patrz faction_house_veyr_main_line#structure.'
+      - Powrot z urlopu po dwoch latach wymaga czyjegos podpisu albo braku sprzeciwu -
+        najbardziej naturalna osoba to npc_lucan_father.
+    source_refs: [event_turn_interlude_031_the_dormant_sinecure]
   - id: background_period_of_homelessness
     claim: Przed rejestracją w Gildii Lucan doświadczył okresu bezdomności.
     source_refs: [source_compiled_historical_run#line:1559-1564]
   - id: background_impoverished_side_branch_nobility
-    claim: Lucan formalnie należy do zubożałej bocznej linii rodu Veyr - arystokrata
+    claim: 'Lucan formalnie należy do zubożałej bocznej linii rodu Veyr - arystokrata
       z tytułu, bez rodzeństwa do sporu o dziedzictwo, ale też bez realnego majątku
-      do odziedziczenia.
+      do odziedziczenia. UWAGA - sam rod Veyr jest rodem WIELKIM (patrz
+      faction_house_veyr_main_line#scale); ubogie i pomijane jest wyłącznie to jedno
+      ramię. Boczna linia jest ostracyzowana i ignorowana, a przyczyny leżą po obu
+      stronach - ojciec jest politycznie ślepy i nie zabiega o nic, a Lucan sam odmawia
+      wypełniania zobowiązań wobec głównej linii i utrzymywania z nią kontaktu.'
     source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
   - id: background_father_academic_disinterested
     claim: Ojciec Lucana jest akademikiem, czwartym lub piątym synem głównej linii
@@ -50,13 +80,12 @@ confirmed_minimum:
       background_higher_magical_education, poprzedzająca background_period_of_homelessness.
     source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
 unknown_not_to_invent_silently:
-  - academy_name_and_location
   - field_and_formal_qualification
   - teachers_and_mentors
   - classmates_and_former_acquaintances
   - exact_mechanism_of_education_sabotage
   - cause_and_duration_of_homelessness
-  - names_of_father_mother_family_head_and_former_fiancee
+  - given_names_of_father_mother_family_head_and_former_fiancee (nazwisko rodowe Veyr jest kanoniczne)
   - current_status_and_location_of_father_mother_and_former_fiancee
   - major_former_rivals
 revelation_policy:

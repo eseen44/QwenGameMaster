@@ -1,0 +1,613 @@
+schema_version: 1
+id: turn_interlude_023_night_return_to_guild
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-19T14:15:30+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_023_night_return_to_guild
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_023_night_return_to_guild
+  declared_action: 'Lucan nie wraca na gore do ojca - nie ma po co. Wychodzi z Akademii
+    i idzie w
+
+    kierunku gildii; jest ciemno, na ulicach mniej ludzi. Chce zapytac o los wlasciciela
+
+    garbarni, dopytac Seraphine, co dokladnie wpisala w raport, i dowiedziec sie
+
+    oficjalnie, kiedy cokolwiek sie zacznie - bo Lucan nie zna zadnej daty.
+
+    '
+  fiction_verdict: automatic
+  time_class: significant
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_023_night_return_to_guild
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan nie wraca na gore do ojca - nie ma po co. Wychodzi z Akademii
+    i idzie w
+
+    kierunku gildii; jest ciemno, na ulicach mniej ludzi. Chce zapytac o los wlasciciela
+
+    garbarni, dopytac Seraphine, co dokladnie wpisala w raport, i dowiedziec sie
+
+    oficjalnie, kiedy cokolwiek sie zacznie - bo Lucan nie zna zadnej daty.
+
+    '
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 3600
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 3600
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: mixed
+  perspective: pc_lucan
+  location_id: loc_lumaria_adventurers_guild
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  summary: 'Bez testu. Lucan przechodzi miasto po ciemku - mniej ludzi, wiec i mniej
+    oczu.
+
+    Webber_anchored na dachu gildii rejestruje jego podejscie drgnieniem nici, zanim
+
+    Lucan zdazy siegnac do drzwi.
+
+    Gildia w nocy to nie ta sama instytucja co po poludniu. Okienko recepcji jest
+
+    zamkniete deska, w glownej sali siedzi nocny urzednik, ktory nie jest ta sama
+    osoba
+
+    co dzienna recepcjonistka i nie ma jej uprawnien. Na dwoch stolach dopala sie
+
+    wieczor kilku wracajacych z roboty.
+
+    WLASCICIEL GARBARNI - kanalem oficjalnym nic dzis nie zalatwi, bo akta i sprawy
+
+    ida przez dzien. Ale w glownej sali jest plotka, a plotka o kims takim krazy.
+    Wersja,
+
+    ktora Lucan slyszy od siedzacego przy piwie weterana, brzmi tak: sprawa stanela.
+
+    Wlasciciel nie siedzi. Wyszedl - i nikt nie umie powiedziec, czy z braku dowodow,
+
+    czy za pieniadze, bo w miescie, w ktorym w jednym miesiacu zdarzyly sie mutanty,
+
+    trupy i cmentarz, mniejsze sprawy po prostu przestaja miec kto sie nimi zajac.
+
+    UWAGA - to jest plotka, nie akta. Jesli jest prawdziwa, teren garbarni nadal nalezy
+
+    do niego, klucz do jego prywatnego mieszkania nadal jest u Lucana, a Lucan nadal
+    jest
+
+    tym, kto napisal na niego skarge.
+
+    SERAPHINE - jest w budynku. W jej pokoju na gorze swieci sie swiatlo, drzwi
+
+    przymkniete. O tej porze nie ma tam nikogo poza nia, wiec rozmowa bylaby prywatna,
+
+    bez swiadkow, bez wpisu.
+
+    DATA - nocny urzednik nie zna zadnej i nie udaje, ze zna. Powie tylko, ze wezwania
+
+    ida z gory i ze harmonogram sie "ustala". Jedyne dwie osoby, ktore moglyby dac
+
+    Lucanowi realny termin, to ktos z kierownictwa albo Seraphine - a Seraphine jest
+
+    za tymi przymknietymi drzwiami.
+
+    '
+  new_decision: 'Noc, pusta sala, deska na okienku, plotka o garbarniku bez potwierdzenia
+    i swiatlo
+
+    pod drzwiami Seraphine. Lucan wchodzi do niej i pyta wprost o raport, pyta ja
+
+    najpierw o termin, probuje dostac jedno bez drugiego, dopytuje weterana o garbarnika
+
+    zanim pojdzie na gore - czy odklada rozmowe i idzie do baszty po urobek, zeby
+    noc nie
+
+    poszla calkiem na gadanie?
+
+    '
+  operations:
+  - op: set
+    instance_id: pc_lucan
+    path: position.location_id
+    value: loc_lumaria_adventurers_guild
+  - op: set
+    instance_id: pc_lucan
+    path: position.zone_id
+    value: zone_guild_main_hall
+  - *id002
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: f0c890c785b3b99f6a4afede9d7a70e68cb87119362498fb82b6fa622b1edada
+  after_hash: e3b3157d74e8ab241f5e5f64a156d8f9c26b3a021047f4e4dbad57296a67ed51
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+    started_at: '2026-08-17T21:23:05+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    - npc_lucan_father
+    - companion_spidey
+    pressures:
+    - the_showing_is_now_a_public_dispute_with_an_assigned_opponent_paid_to_call_it_undead
+    - decoy_protects_spidey_but_not_the_method
+    - guild_hearing_in_fifteen_days_dispute_in_sixteen_material_in_seven
+    - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+    - cemetery_loot_needs_discreet_buyer
+    - long_term_three_seal_oath
+    - rusk_door_hexes_pending_discovery
+    immediate_facts:
+    - father_accepted_the_arithmetic_material_in_seven_days_work_after_that_so_fifteen_not_eight
+    - notice_board_gave_a_date_and_two_named_sides
+    - open_dispute_on_the_limits_of_the_animated_construct_in_about_sixteen_days
+    - neris_aldhen_argues_the_broad_definition_and_wrote_the_coverless_offprint
+    - ivar_kolm_argues_the_narrow_definition_that_such_a_specimen_is_merely_undead
+    - lucan_does_not_recognise_aldhen_at_all_and_recalls_kolm_only_vaguely_neither_taught_him
+    - father_will_fold_the_specimens_into_that_scheduled_dispute_not_a_private_showing
+    - aldhen_is_not_in_the_building_tonight
+    - lucan_has_her_name_her_text_and_her_workplace_enough_to_approach_her_himself_tomorrow
+    - webber_night_haul_waits_at_the_tower_for_small_specimen_bodies
+    immediate_questions:
+    - 'Noc, pusta sala, deska na okienku, plotka o garbarniku bez potwierdzenia i
+      swiatlo
+
+      pod drzwiami Seraphine. Lucan wchodzi do niej i pyta wprost o raport, pyta ja
+
+      najpierw o termin, probuje dostac jedno bez drugiego, dopytuje weterana o garbarnika
+
+      zanim pojdzie na gore - czy odklada rozmowe i idzie do baszty po urobek, zeby
+      noc nie
+
+      poszla calkiem na gadanie?
+
+      '
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+- path: state/clocks.yaml
+  before_hash: 22dca86e9ed1810cebde5a895a3952713be30b71db2b36e7834c022247a47137
+  after_hash: 14c5e42acc3ed49e11638206ddc9bea62ff97afa101c1e6d5c3e95daa63645a3
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+    - id: clock_father_arranges_academy_showing
+      label: Ojciec organizuje pokaz na Akademii
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 8400
+      last_source_event_id: event_turn_interlude_022_notice_board_identification
+      reschedule_note: PRZESTAWIONY z 3 na 8 dni (event_turn_interlude_021_timetable_and_offprint).
+        Lucan uzyl wlasnego argumentu ojca - jeden okaz to anekdota, seria to material,
+        a serii nie zrobi sie w trzy dni. Ojciec przyjal to bez protestu. Osiem dni
+        jest spojne z fikcja, bo pokrywa sie z terminem swiezego materialu (najblizsza
+        stala dostawa za ok. 7 dni), wiec nie jest uznaniowe.
+      trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
+      effect: 'Ojciec nie organizuje osobnego pokazu - wpycha okazy syna do JUŻ WYZNACZONEJ
+        otwartej dysputy (za ok. 16 dni, referuje npc_neris_aldhen, oponuje npc_ivar_kolm),
+        bo to naturalne miejsce dla serii. Skutek: nie prywatny pokaz dla życzliwych,
+        a publiczny spór z wyznaczonym oponentem, którego zadaniem jest wykazać, że
+        to nieumarły.'
+      world_test_required: false
+      note: Zegar powstał z wyboru gracza, nie z nacisku świata. Lucan swiadomie nie
+        wytracil ojca z rownowagi i powiedzial na glos, ze zrobi kilka okazow na konferencje
+        - czlowiek, ktory uwaza, ze dobra praca ma byc widziana, potraktowal to jako
+        zgode i zaczal dzialac we wlasnym tempie.
+    - id: clock_guild_leadership_hearing
+      label: Przesłuchanie przed kierownictwem gildii
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 3600
+      last_source_event_id: event_turn_interlude_022_notice_board_identification
+      trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
+      effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii, w kontekście
+        przesłuchań instytucjonalnych; wtedy też rozstrzyga się nagroda za Akt 2.
+      world_test_required: false
+      note: 'Termin ustalony wspólnie z graczem - recepcjonistka nie podała daty (event_turn_interlude_012),
+        a gracz potrzebuje około dwóch tygodni interludium na trening i pozostałe
+        sprawy. Piętnaście dni domyka to jawnie, zamiast trzymać wezwanie jako nieokreśloną
+        grozę. Zbieżność z clock_father_arranges_academy_showing (15) i z dysputą
+        (16) jest zamierzona przez gracza: jeśli postępowanie i dysputa wypadną w
+        jednym tygodniu, akademicy mają własny interes w tym, żeby Lucan nie siedział
+        w areszcie.'
+- path: state/instances/pc-lucan.yaml
+  before_hash: daadf37d64c8a327a892091319cce7cf410cbb663885af35f1de6c6edbeff266
+  after_hash: cb26fd109e3bf282e614879afd50a7b4f831ff8f53d031cf100932b586992d8b
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 25
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_main_hall
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.5
+        capacity: 15
+        comfortable_capacity: 15
+        permanent_expansion: 3
+        expansion_source_event_id: milestone_043a_logistics_collector_overload
+        expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+          podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia
+          - patrz retcon_000004.
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: elevated_energy_signature_above_old_threshold
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_043a_logistics_collector_overload
+      reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
+      applies_while: current_above_12
+      note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
+        (retcon_000004).
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - elevated_but_within_new_capacity
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - retcon_000004
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: 563390d03c6c3200fb532ecc2d22030c4fa3b2dd5b76638f221fd08867a472a1
+  after_hash: b4e24a13c2a5ad76a015ee058263275508ab7f6669dd266182664da1ee5f25ae
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 21
+    position:
+      location_id: loc_lumaria_magical_academy
+      zone_id: zone_academy_laboratory_wing
+      formation: concealed_with_lucan
+      note: Domyslnie towarzyszy Lucanowi ukryty - patrz retcon_000005.
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 29880
+          hunting_recovery_elapsed_seconds: 29880
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 8280
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - carried_concealed_with_lucan
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 429353bf8fca9a19582e95aa2629e7c83b94365eeed878206ea862dfaa3b64e2
+  after_hash: 4b610f0ff0bf26e6f4530de913ee932265f9ec64600a65389ab74d930ffb532b
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 21
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: 8501a155361ef1e61c17b67e87949446da4db002499e2b6280a0076176b65e27
+  after_hash: ff8a8cdb821f50a5fbd855cb19168b0d6a1269fe6a14d8bbd0bd5be7649c5b15
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 21
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_rooftop
+      formation: solo_forward_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 29880
+          hunting_recovery_elapsed_seconds: 29880
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - posted_at_guild_rooftop
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: aabc442bdf728cf0441379e3280072ab116e7543204310c7b8cadd1ace80c2ab
+  after_hash: ffa611e27f5c35b08ca6bdb15d373cfc655268e222d4b1099a5d192bb5c3a10b
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 21
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 29880
+          hunting_recovery_elapsed_seconds: 29880
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: 14709407da9dd0542e3c2f111d770dee527ee22a84b153842dcc91859ebc5cce
+  after_hash: 7cbd79bd81f5b1158c0e680abfc2cf69f10b0a76d0e3962680e0a2d5d35c160d
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 21
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 29880
+          hunting_recovery_elapsed_seconds: 29880
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: c32cd799d9d5e43163f3e2f1486f2ea446c015e24de4187b6a13f3d9375ece5f
+  after_hash: 68ec80d32f7aee2eb50a36091a992036349c42ff0bef202409809b249456ae79
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 21
+    position:
+      location_id: loc_tannery
+      zone_id: zone_yard
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 29880
+          hunting_recovery_elapsed_seconds: 29880
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: dafd3e5d6c4652dddd789c35b4f66d3285d8dcb6fcd95834e601738750ecab3f
+  after_hash: 1c43c1f4af06e83be4350c69e9e942bfebb71040becdb8199dea14b4d05fd5e3
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T13:18:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 3600
+    last_event_id: event_turn_interlude_023_night_return_to_guild
+    elapsed_seconds_total: 116280
+prepared_at: '2026-08-19T14:16:04+02:00'
+committed_at: '2026-08-19T14:16:04+02:00'

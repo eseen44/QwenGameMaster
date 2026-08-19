@@ -3,11 +3,12 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 10
+revision: 31
 position:
-  location_id: loc_city_wall_hideout
-  zone_id: container_wall_hideout
-  formation: with_webber_home
+  location_id: loc_lumaria_magical_academy
+  zone_id: zone_academy_laboratory_wing
+  formation: concealed_with_lucan
+  note: Domyslnie towarzyszy Lucanowi ukryty - patrz retcon_000005.
 integrity:
   current: 27
   maximum: 33
@@ -24,8 +25,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 11280
-      hunting_recovery_elapsed_seconds: 11280
+      decay_elapsed_seconds: 35400
+      hunting_recovery_elapsed_seconds: 35400
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -36,7 +37,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 11280
+      regeneration_elapsed_seconds: 13800
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -48,7 +49,7 @@ status_flags:
 - functional_implanted_gland
 - fed_or_energized_state
 - mobile_but_injured
-- at_wall_hideout
+- carried_concealed_with_lucan
 orders:
 - id: order_night_chapel_residue_cleanup
   status: completed
@@ -58,7 +59,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_012_reception_desk
+last_event_id: event_turn_interlude_033_veyr_is_not_a_family
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906

@@ -1,0 +1,581 @@
+schema_version: 1
+id: turn_interlude_017_misnotice_past_porter
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-19T12:35:55+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_017_misnotice_past_porter
+roll_id: roll_turn_interlude_017_misnotice_past_porter
+request:
+  schema_version: 1
+  turn_id: turn_interlude_017_misnotice_past_porter
+  declared_action: 'Lucan rzuca Misnotice, przechodzi obok portiera bez wpisu do ksiegi,
+    idzie znana
+
+    trasa przez pusta i cicha Akademie do skrzydla laboratoryjnego - swiatlo zgadza
+    sie
+
+    z poprzednia pozycja laboratorium ojca - i puka do drzwi.
+
+    '
+  fiction_verdict: automatic
+  time_class: brief
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_017_misnotice_past_porter
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan rzuca Misnotice, przechodzi obok portiera bez wpisu do ksiegi,
+    idzie znana
+
+    trasa przez pusta i cicha Akademie do skrzydla laboratoryjnego - swiatlo zgadza
+    sie
+
+    z poprzednia pozycja laboratorium ojca - i puka do drzwi.
+
+    '
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 600
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll:
+  id: roll_turn_interlude_017_misnotice_past_porter
+  timestamp: '2026-08-19T12:35:20+02:00'
+  scene_id: scene_act_03_interlude_day1_afternoon
+  subject: pc_lucan
+  intent: Przemknac obok portiera pod Misnotice i wejsc na teren Akademii bez wpisu
+    do ksiegi odwiedzin
+  scope: execution
+  stakes: Czy Lucan wchodzi niezauwazony i bez zadnego sladu, czy zostaje zauwazony
+    albo rozpoznany przy bramie
+  difficulty: 45
+  natural_roll: 77
+  character_score: 9
+  modifiers:
+  - source: darkness=10,porter_attention_already_on_lucan
+    value: -10
+  - source: in_character_score
+    value: 15
+  modified_result: 82
+  passes_threshold: true
+  critical: null
+  interpretation: null
+  event_id: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 600
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  location_id: loc_lumaria_magical_academy
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  summary: 'roll_turn_interlude_017_misnotice_past_porter - 77 naturalnie, 82 po modyfikatorach,
+
+    prog 45, zdecydowane przejscie. Misnotice dziala dokladnie w swoim najlepszym
+
+    scenariuszu - nieprzygotowany, zwyczajny cel, ciemno, nikt nie prowadzi aktywnych
+
+    poszukiwan. Wzrok portiera zsuwa sie z Lucana i to polrozpoznanie, ktore juz w
+    nim
+
+    kielkowalo, gasnie; czlowiek, ktory za chwile ulozylby sobie te twarz, nie ulozy
+    jej.
+
+    Ksiega odwiedzin zostaje pusta. Nazwiska Veyr nie ma nigdzie w papierach Akademii
+    z
+
+    tego dnia. UWAGA na przyszlosc - limit ability_misnotice mowi
+
+    repeated_pattern_can_be_recognized; ta sama sztuczka przy tej samej bramie bedzie
+
+    z kazdym razem gorsza.
+
+    Akademia w srodku jest pusta i cicha. Trasa trzyma sie pamieci - kilka drobiazgow
+
+    sie zmienilo (nowe drzwi tam, gdzie byla wnęka, jeden korytarz przetynkowany),
+    ale
+
+    Lucan nie musi szukac drogi. Korki jego butow odbijaja sie echem po kamieniu i
+    to
+
+    jest jedyny dzwiek w calym budynku.
+
+    W skrzydle laboratoryjnym pod jednymi drzwiami jest swiatlo. Lucan puka.
+
+    POTWIERDZONE - otwiera ojciec. Wniosek z nawyku byl trafny: pracuje po nocy w
+    tym
+
+    samym laboratorium co dwa lata temu. Jest szczerze ucieszony, mowi cieple rzeczy,
+
+    natychmiast gubi watek i zauwaza koszyk z jedwabnikami szybciej niz stan wlasnego
+
+    syna. Nie wie nic o nekromancji, nie wie nic o bezdomnosci i najwyrazniej nie
+
+    orientuje sie, ile czasu minelo. To nie jest wrogosc - to nieobecnosc.
+
+    Kanal do Akademii jest otwarty i nie kosztowal ani jednego sladu na papierze.
+
+    '
+  new_decision: 'Ojciec trzyma koszyk jedwabnikow, mowi o czyms swoim i czeka - w
+    swoim tempie - na
+
+    cokolwiek, co Lucan powie. Drzwi sa otwarte, laboratorium puste, nikt na Akademii
+
+    nie wie, ze Lucan tu jest. Co Lucan mowi ojcu? Prawdziwy problem badawczy
+
+    (klasyfikacja Spideya jako konstruktu), wersje oczyszczona, sprawy rodzinne, czy
+
+    najpierw pozwala mu wygadac sie o wlasnej pracy?
+
+    '
+  operations:
+  - op: consume
+    instance_id: pc_lucan
+    pool: lucan_necrotic_energy
+    units: 0.1
+  - op: set
+    instance_id: pc_lucan
+    path: position.zone_id
+    value: zone_academy_laboratory_wing
+  - *id002
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 533e054360c984d2038beafc30339534205bfbf9577974fbd2a008c6ba4abee3
+  after_hash: 75b8a58f6f1da60e445c3f6f160327a9f6522750115bb8fc8304de4e7060f68e
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+    started_at: '2026-08-17T21:23:05+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    pressures:
+    - signing_the_academy_book_puts_the_veyr_name_on_a_dated_record_before_the_inquiry
+    - academy_structurally_wants_access_to_specimens_and_spidey_is_a_specimen
+    - act_02_rewards_folded_into_upcoming_institutional_inquiry
+    - cemetery_loot_needs_discreet_buyer
+    - watch_inspection_on_market_gates_registers_heavy_loads
+    - long_term_three_seal_oath
+    - rusk_door_hexes_pending_discovery
+    immediate_facts:
+    - it_is_dark_now
+    - academy_has_a_gatehouse_and_visitors_book_that_did_not_exist_two_years_ago
+    - old_porter_almost_recognises_lucan
+    - lucan_is_no_longer_a_student_so_entry_means_signing_in_as_a_guest
+    - notice_board_announces_an_open_dispute_on_classification_of_animated_constructs
+    - exactly_one_window_is_lit_in_the_laboratory_wing_where_the_father_worked
+    - father_presence_is_inferred_from_habit_not_confirmed
+    - silkworms_and_food_carried
+    - specimen_haul_expected_at_the_wall_hideout_by_morning
+    immediate_questions:
+    - 'Ojciec trzyma koszyk jedwabnikow, mowi o czyms swoim i czeka - w swoim tempie
+      - na
+
+      cokolwiek, co Lucan powie. Drzwi sa otwarte, laboratorium puste, nikt na Akademii
+
+      nie wie, ze Lucan tu jest. Co Lucan mowi ojcu? Prawdziwy problem badawczy
+
+      (klasyfikacja Spideya jako konstruktu), wersje oczyszczona, sprawy rodzinne,
+      czy
+
+      najpierw pozwala mu wygadac sie o wlasnej pracy?
+
+      '
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+- path: state/clocks.yaml
+  before_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  after_hash: 4470238a8ea38b26293f3520c27fe197c86e20b89526b9ddc8d971715cbed3fc
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się wraz z czasem ani tylko dlatego, że Seraphine wypowiedziała
+        słowo „Inkwizycja”; wymaga osobnego wydarzenia eskalacyjnego.
+- path: state/instances/pc-lucan.yaml
+  before_hash: e40c4ec7f1b716df3acfd74e4136402b71b41aa27bca026186c9499e5bb75f4a
+  after_hash: d358a7c7869d75990ab0f7a52ba1615011c5cf8dbed9b89ea5bd6290c6277831
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 19
+    position:
+      location_id: loc_lumaria_magical_academy
+      zone_id: zone_academy_laboratory_wing
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 13.5
+        capacity: 15
+        comfortable_capacity: 15
+        permanent_expansion: 3
+        expansion_source_event_id: milestone_043a_logistics_collector_overload
+        expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+          podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia
+          - patrz retcon_000004.
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: elevated_energy_signature_above_old_threshold
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_043a_logistics_collector_overload
+      reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
+      applies_while: current_above_12
+      note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
+        (retcon_000004).
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - elevated_but_within_new_capacity
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - retcon_000004
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: 4b0eb82383350c0452857602a79bc0558947fc2123231fb214388a1764d619a9
+  after_hash: d57f707580415995ef897fc788df5600536cb7ea41d8a5d959eca2d8fbbf6c0f
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 15
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_webber_home
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 20280
+          hunting_recovery_elapsed_seconds: 20280
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 20280
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - at_wall_hideout
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 5a73bb0bc494074e2881df728e61ce0c44b33e7cd677aa380920ecfb227d2adc
+  after_hash: 1893c1a36e6acda2013d6a82efaaeb8d871de9aa91b5b521a54b17bd04094641
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 15
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: d45fdebb06df158f0d4c8060726afaa0dd73c09f13755fe4b722294f3f75bac6
+  after_hash: af1d7f71e9cbcb6b1e1fbbf77a3e2cd65afeb759884548b97826a6c5bfa7a21d
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 15
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_rooftop
+      formation: solo_forward_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 20280
+          hunting_recovery_elapsed_seconds: 20280
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - posted_at_guild_rooftop
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: af1c3c37d76bc9d297496f88b4bdab76ec8b657525f4c07fd7572836bca16a69
+  after_hash: 30e61ed20e65ad1fa8539612f43fbe3b35285848c7f2a85dc03a5ef697ad9e94
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 15
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 20280
+          hunting_recovery_elapsed_seconds: 20280
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: 6fc69d9d38bfdc07566038d244be163d951a50d7a171e67ef3a74cd0b8bc4bee
+  after_hash: f58ba0f07d9d9eebd365eecfa2df323e9c54bad284af4d9cee2c8c8b739c55fd
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 15
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: with_spidey
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 20280
+          hunting_recovery_elapsed_seconds: 20280
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: 45c449dc4011a911b1970ebbb9de6f1aeea4072ba43f63eee072a9fa74632499
+  after_hash: 9cd0683127c92c73be403a98754e45e1853121d64190ff3a66262dd8654325d6
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 15
+    position:
+      location_id: loc_tannery
+      zone_id: zone_yard
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 20280
+          hunting_recovery_elapsed_seconds: 20280
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/time.yaml
+  before_hash: 2e7f8d8386fb9812f53fcb63e928013bd95c1cf19dea79377c3eabc42f1b9f75
+  after_hash: a27b35a8481cff3b3380e1121e96d7330035e28e6806ef456682fcf2dc7bfeab
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T10:38:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 600
+    last_event_id: event_turn_interlude_017_misnotice_past_porter
+    elapsed_seconds_total: 106680
+prepared_at: '2026-08-19T12:36:27+02:00'
+committed_at: '2026-08-19T12:36:27+02:00'

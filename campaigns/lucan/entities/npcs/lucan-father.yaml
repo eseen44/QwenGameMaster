@@ -1,28 +1,92 @@
 schema_version: 1
 id: npc_lucan_father
 name: Ojciec Lucana (imię nieustalone)
-status: needs_review
-importance: background_only_not_yet_appeared_in_play
+status: active
+importance: appeared_in_play_active_social_scene
 role: Akademik; czwarty lub piąty syn głównej linii rodu Veyr, bez szans na
   dziedzictwo.
-lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
-current_location_id: unknown
+lifecycle: {state: alive_confirmed, last_confirmed_event_id: event_turn_interlude_017_misnotice_past_porter}
+current_location_id: loc_lumaria_magical_academy
+current_zone_id: zone_academy_laboratory_wing
+surname_known: Veyr
+name_status: Imię nieustalone; nazwisko rodowe Veyr jest kanoniczne i można go tak
+  tytułować (profesor Veyr).
 portrayal:
-  tone: emotionally_absent_not_a_direct_antagonist
+  tone: warm_verbally_caring_but_functionally_absent
   threat_scope: neglect_rather_than_active_harm
+  profile_confirmed_by_user: true
+  profile_source_event_id: event_turn_interlude_016_walk_to_academy
+  traits:
+    - Profil autystyczny - żyje we własnym świecie, nie w złej woli.
+    - Ciepły i werbalnie troskliwy; mówi rzeczy, które brzmią na opiekuńcze, i
+      naprawdę tak myśli.
+    - Gubi wątek w trakcie rozmowy i de facto jest nieobecny, nawet będąc obok.
+    - Egocentryczny nie z pogardy, a z pochłonięcia własnymi badaniami.
+    - Regularny pracoholizm, mało ruchu; stałe laboratorium, w którym spędza 99% życia.
+    - O istnieniu żony często zapomina.
+    - Polityka go nie interesuje i nie orientuje się w niej.
+    - KOSZMAR ALUMNOW tej uczelni - nie ze zlosliwosci, a z braku jakiejkolwiek kalibracji
+      spolecznej. Bedzie ryl w odpowiedzi tak dlugo, az cos z niej zostanie, i nie zauwazy,
+      ze kogos przy tym niszczy. To ta sama cecha, ktora w domu wyglada jak nieobecnosc
+      (event_turn_interlude_031_the_dormant_sinecure).
   behavior: Zawsze bardziej interesowały go własne badania niż syn. Nie brał
     czynnego udziału w naciskach głównej linii rodu ani w wymuszonych zaręczynach
-    - ale też nigdy nie stanął w obronie Lucana.
+    - ale też nigdy nie stanął w obronie Lucana. Nie z kalkulacji; po prostu nie
+    zauważył na czas.
 attitude_to_pc:
-  summary: Dystans i obojętność, nie wrogość. Prawdopodobnie nie wie nic o
-    obecnym (nekromantycznym, przestępczym) życiu Lucana.
+  summary: Ciepło bez obecności. Nie wrogość ani pogarda - brak uwagi. Prawdopodobnie
+    nie wie nic o obecnym (nekromantycznym, przestępczym) życiu Lucana.
+  institutional_usefulness: Podwójna krawędź - obojętność wobec polityki oznacza, że
+    nie sprzeda Lucana dla własnej pozycji ani nie kalkuluje, ale też nie będzie o
+    niego walczył w żadnym sporze o jurysdykcję. Wartościowy jest jako ekspert i
+    kanał do Akademii, nie jako obrońca.
+  likely_hook: Prawdziwie nowatorski problem badawczy przyciągnie jego uwagę
+    natychmiast, skuteczniej niż jakikolwiek apel rodzinny - Lucan pierwszy raz w
+    życiu ma coś, co może go zainteresować.
 knowledge:
-  confirmed: []
+  confirmed:
+    - fact: Lucan zjawił się u niego w laboratorium wieczorem.
+      source_event_id: event_turn_interlude_017_misnotice_past_porter
+    - fact: Lucan przyniósł żywe jedwabniki.
+      source_event_id: event_turn_interlude_017_misnotice_past_porter
+    - fact: Lucan przyniósł martwego, zmodyfikowanego pająka i przedstawił go jako konstrukt
+        zbudowany z padłego zwierzęcia; brakuje mu jednego odnóża.
+      source_event_id: event_turn_interlude_018_father_construct_pitch
+    - fact: Widział z bliska Corpse_Stitch, wzmocnioną chitynę, wszczepione zęby i osobny
+        gruczoł, ocenił to jako cierpliwą, porządną robotę warsztatową.
+      source_event_id: event_turn_interlude_018_father_construct_pitch
+    - fact: Wie, że kikut wymaga materiału dawcy o zbliżonej skali, i sam wskazał zbiory
+        Akademii oraz jej stałe dostawy żywego towaru jako źródło.
+      source_event_id: event_turn_interlude_018_father_construct_pitch
+    - fact: Spidey jest poruszany czystym vitae - energią życia w martwym ciele - i żywi
+        się realnie jak żywy pająk. Lucan powiedział mu to wprost.
+      source_event_id: event_turn_interlude_019_vitae_disclosure_to_father
+    - fact: Lucan zgodził się dostarczyć kilka okazów na konferencję.
+      source_event_id: event_turn_interlude_020_decoy_construct_plan
   suspected: []
-  false_beliefs: []
+  answered_question:
+    - Zapytał, co porusza pająka, i dostał prawdziwą odpowiedź (vitae). Przyjął ją jako
+      problem definicyjny, nie jako przestępstwo (event_turn_interlude_019).
+  does_not_know:
+    - Że okaz oddany Akademii ma być wabikiem, a nie Spideyem.
+    - Że jego syn rozumiał słowo "zabrać" jako realną utratę towarzysza, nie prestiżu.
+  false_beliefs:
+    - Nie orientuje się, ile czasu minęło od przerwania edukacji Lucana.
+    - Nie wie nic o nekromancji Lucana, o sieci pająków ani o Varkhenie. Przyjął
+      przykrywkę "konstrukt z padłego pająka" bez badania jej, bo nie szuka przestępstwa;
+      słowo nekromancja ani raz nie przyszło mu do głowy.
+    - Nie wie o okresie bezdomności syna.
+  forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity, cemetery_operation_details]
 agenda:
-  current_goal: pursue_own_academic_research
-  next_action: null
-relationships: []
+  current_goal: Doprowadzić do pokazania pracy syna ludziom, którzy by ją zrozumieli -
+    i znaleźć odbitkę z nazwiskiem osoby walczącej o szeroką definicję ożywionych
+    konstruktów.
+  next_action: Grzebie w stosach za odbitką; potem zacznie ustalać termin i mówić o tym
+    kolegom (clock_father_arranges_academy_showing, trzy dni).
+  motive_note: Działa z entuzjazmu i z poczucia krzywdy - usłyszał, że komuś chcą
+    zabrać projekt. NIE działa, żeby ochronić syna, bo nie zarejestrował, że syn jest
+    w tarapatach.
+relationships:
+  - {target_id: pc_lucan, file_status: not_yet_created, note: "Plik relacji tworzymy po pierwszym realnym rozstrzygnięciu społecznym w tej scenie, nie z góry."}
 source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
-last_updated_event_id: null
+last_updated_event_id: event_turn_interlude_031_the_dormant_sinecure

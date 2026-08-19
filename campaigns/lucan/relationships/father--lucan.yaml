@@ -1,0 +1,39 @@
+schema_version: 1
+id: rel_father_to_lucan
+status: active
+review_status: active
+subject_id: npc_lucan_father
+target_id: pc_lucan
+layer: personal
+stance: warm_absent_ally_of_the_work_not_of_the_son
+axes: {cooperation: 40, judgment_confidence: 25, discretion_trust: 10, personal_regard: 55}
+reasons:
+  - genuine_uncomplicated_gladness_at_his_sons_arrival
+  - novel_research_problem_captured_his_full_attention
+  - hearing_someone_wants_to_take_a_project_is_the_one_harm_he_feels_in_his_bones
+  - never_registered_that_his_son_said_he_is_in_trouble
+axis_notes:
+  cooperation: Pomoże realnie i od razu - argument, diagnoza kikuta, dostęp do zbiorów -
+    ale pomaga PROJEKTOWI. Nie poniesie kosztu politycznego, bo nie widzi polityki.
+  judgment_confidence: Nie ocenia Lucana. Jedyna ocena, jaką kiedykolwiek wypowiedział,
+    dotyczy cierpliwości w warsztacie.
+  discretion_trust: Nie jest to kategoria, w której myśli. Nie zdradzi z wyliczenia,
+    ale może wygadać wszystko z entuzjazmu.
+  personal_regard: Ciepło prawdziwe i bezinteresowne, całkowicie nieoperacyjne.
+obligations: []
+shared_secrets: [spidey_is_animated_by_life_energy_not_mechanism]
+leverage:
+  held_by_subject: [access_to_academy_collections_and_specimen_supply, expert_framing_of_the_construct_argument, knows_who_fights_for_the_broad_definition]
+  held_by_target: [a_research_problem_his_father_actually_wants]
+constraints:
+  - Polityka i prawo są dla niego niewidzialne; nie da się go użyć jako obrońcy.
+  - Chce dobrą pracę POKAZAĆ - to jest dokładnie mechanizm, którym instytucja
+    uzyskuje dostęp do okazu.
+  - Gubi wątek i nazwiska; obietnica "sprawdzę" nie jest terminem.
+history:
+  - {event_id: event_turn_interlude_017_misnotice_past_porter, change: baseline, reason: first_appearance_in_play_after_about_two_years}
+  - {event_id: event_turn_interlude_018_father_construct_pitch, change: took_the_problem_and_praised_the_workmanship, reason: novel_research_problem}
+  - {event_id: event_turn_interlude_019_vitae_disclosure_to_father, change: cooperation_and_personal_regard_established_on_the_work_not_the_son, reason: heard_project_being_taken_did_not_hear_son_in_trouble}
+visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
+last_event_id: event_turn_interlude_019_vitae_disclosure_to_father
+source_refs: [campaigns/lucan/entities/npcs/lucan-father.yaml, campaigns/lucan/player/background.yaml]

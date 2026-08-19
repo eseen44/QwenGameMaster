@@ -2,17 +2,19 @@ schema_version: 1
 owner_id: pc_lucan
 status: active
 currency:
-  carried_silver: 37
+  carried_silver: 34
   hidden_silver: 50
   leftover_market_savings_silver: 30
   refundable_deposits_silver: 5
-  liquid_silver_available_now: 117
-  total_known_net_silver: 122
-  source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk]
+  liquid_silver_available_now: 114
+  total_known_net_silver: 119
+  source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk, event_turn_interlude_013_market_food_run]
   notes:
     - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
     - 'hidden_silver: 50 to gotówka odłożona do schowka wprost po Akcie 1, zanim Lucan poszedł na targ w tamtym interludium (potwierdzone przez użytkownika, retcon_000001).'
     - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
+    - 'carried_silver obnizone o 2 (event_turn_interlude_013_market_food_run) - jedzenie kupione na targu.'
+    - 'carried_silver obnizone o 1 (event_turn_interlude_015_silkworms_and_specimen_order) - koszyk zywych jedwabnikow na wage.'
     - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_claim_act_02_rewards).'
 containers:
   - id: container_personal_pockets_and_belt
@@ -196,6 +198,29 @@ items:
       Kosciolowi moze byc warty wiecej niz sprzedaz (przysluga zapamietana przez
       instytucje).'
     source_refs: [event_turn_interlude_009_three_bags_opened, event_turn_interlude_010_reliquary_geo_scan, roll_turn_interlude_010_reliquary_geo_scan, event_turn_interlude_011_reliquary_discretion_and_guild_plan]
+  - id: item_market_food_supplies
+    name: Zapas jedzenia z targu
+    location: carried
+    type: consumable_provisions
+    contents: [chleb, twardy ser, suszona kielbasa, cebule, dzban taniego piwa]
+    state: partially_eaten_on_the_spot
+    cost_silver: 2
+    source_refs: [event_turn_interlude_013_market_food_run]
+  - id: item_live_silkworms
+    name: Koszyk żywych jedwabników
+    location: carried
+    type: live_insect_stock
+    quantity: kilka na wagę, jeden koszyk
+    cost_silver: 1
+    intended_use: Materiał dawcy gruczołu przędnego do przeszczepu sieciarzom
+      (lead_webber_silk_upgrade_human_scale). Jedwab jedwabnika jest ciągły i mocny,
+      ale nielepki i bez kontroli wyrzutu - kleistość i przenoszenie trucizny nicią
+      to osobne, kolejne kroki wzrostu.
+    growth_cost_note: Pierwszy trwały krok sieci to 8 energii (permanent_growth_steps
+      sieci = 0, reguła 8 x 1.5^n z system/companion-growth.md). Energia musi być
+      realnie pozyskana i zadeklarowana do inwestycji.
+    legal_status: legalny, nudny, hodowany masowo
+    source_refs: [event_turn_interlude_015_silkworms_and_specimen_order]
 external_claims:
   - id: claim_three_bags_cemetery_goods
     custodian: npc_boros_keld
@@ -204,4 +229,4 @@ external_claims:
     status: opened_and_examined
     source_refs: [source_luka_b_fragment#line:8287-8301, event_turn_interlude_009_three_bags_opened]
 last_transaction_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
-last_updated_event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
+last_updated_event_id: event_turn_interlude_015_silkworms_and_specimen_order
