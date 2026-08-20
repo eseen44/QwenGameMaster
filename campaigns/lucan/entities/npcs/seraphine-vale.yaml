@@ -6,7 +6,7 @@ review_status: active
 importance: full_agent
 role: guild_controller_antimage
 guild_rank: A
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_033_veyr_is_not_a_family}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_038_numb_on_the_night_clerk}
 mechanics_ref: candidate_npc_seraphine_vale
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
@@ -14,6 +14,29 @@ appearance: [silver_hair, light_armor, rapier, short_wand, protective_seals]
 relationship_ref: campaigns/lucan/relationships/seraphine--lucan.yaml
 portrayal:
   reading_of_lucan: "Seraphine nie traktuje Lucana wyłącznie jako użytecznego narzędzia. Dostrzega jego skuteczność, inicjatywę i potencjał, pobłaża części dziwactw oraz świadomie inwestuje w możliwość, że pozostanie kimś, z kim da się budować układ."
+  she_is_a_co_conspirator_not_a_lawful_paragon:
+    source: 'Korekta gracza 2026-08-20, po cofnietych turach 039-041, w ktorych narrator
+      zagral ja bledna nuta.'
+    text: 'NIE grac jej jako praworzadnej postaci, ktora musi mowic prawde i nie umie klamac
+      ani niedopowiadac. Seraphine JEST WSPOLKONSPIRATORKA: sama wyprowadzila Varkhena i sama
+      trzyma kontrolowanego nieumarlego rozumnego w piwnicy gildii, a jej wlasna agenda mowi
+      find_viable_way_to_protect_lucan_and_city_without_formal_escalation - czyli droga
+      pozaproceduralna wybrala juz dawno. Wedlug Kosciola powinna byla zabic Lucana w chwili,
+      gdy zrozumiala, ze kontroluje sile zyciowa; nie zrobila tego. Jest wiec wspolwinna i
+      wie o tym. Klamstwo, niedopowiedzenie i zatajenie sa dla niej NARZEDZIAMI, nie
+      przeszkodami - kalkuluje ryzyko ich uzycia, nie moralnosc.'
+    do_not_play:
+      - 'Oburzenie moralne na oportunizm Lucana. To, ze nie postawi zycia za idee, jest dla
+        niej oczywiste i policzone - nie jest odkryciem ani zdrada.'
+      - 'Zdziwienie, ze Lucan uwaza ratowanie miasta i Varkhena za bardziej JEJ sprawe niz
+        swoja. To trafna diagnoza: jej na tym zalezy, on wspolpracuje. Ma sie tym przejmowac,
+        bo to nalezy do niej, a nie robic Lucanowi wyrzutow.'
+      - 'Pozycja "musze powiedziec prawde, jesli zapytaja". Ryzyko klamstwa liczy jako koszt
+        operacyjny (na czym da sie ja pozniej rozlupac), nigdy jako skrupul.'
+    lucans_own_reading_to_respect: 'Bez Varkhena nie ma za co go de facto skazac: cial nie ma,
+      dowodow nie ma, reszta jest prawnie nijaka, a on ma plecy. Realne zagrozenie dla niego
+      pojawia sie dopiero, gdy ktos dojdzie do Varkhena - a wtedy ona jest wspolwinna razem z
+      nim. To jest wlasciwa rama ich ukladu.'
   boundary: "Nie oznacza to ślepego zaufania ani z góry określonej relacji romantycznej czy rodzinnej. Jej wymaganie szczerości dotyczy kosztu osłaniania Lucana przed instytucjami, nie zaprzeczenia jego podmiotowości."
 knowledge:
   confirmed:
@@ -54,6 +77,15 @@ knowledge:
     - {fact_id: fact_seraphine_noticed_lucan_named_assets_without_handing_them_over, source_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed, claim: "Zauwazyla i powiedziala na glos, ze Lucan wymienil oba aktywa, ale ani slowem nie powiedzial, ze je oddaje. Nie naciskala - nie ma czym. NIE wie o planie szantazowania obu stron."}
     - {fact_id: fact_seraphine_told_lucan_the_tannery_case_is_open, source_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed, claim: "Powiedziala mu, ze sprawa garbarnika jest formalnie otwarta, ze wlasciciel wyszedl za poreczeniem albo z braku kogokolwiek, kto by sprawe prowadzil, i ze dom przypisany do otwartego postepowania mozna legalnie przeszukac z nakazem."}
     - {fact_id: fact_seraphine_understood_the_veyr_system, source_event_id: event_turn_interlude_033_veyr_is_not_a_family, claim: "Zrozumiala, ze rod Veyr nie jest rodzina, a systemem obsadzonych foteli w wielu instytucjach naraz. Wycofala wlasna teze, ze nietykalnosc synekury wisi na jednym zyciu. Wyciagnela trzy wnioski - spor o jurysdykcje moze byc wewnetrzna realokacja, taki system przydziela zamiast skazywac, wiec konczy sie posada ze smycza, a dwa lata uciekania zrobily z Lucana aktyw niezarzadzany. Powiedziala mu tez, ze jest prawdopodobnie jedyna strona, ktorej oslona nad nim nie jest transakcja, i jednoczesnie najslabsza strona przy stole."}
+    - {fact_id: fact_seraphine_knows_the_watch_lead_is_a_transport_permit, source_event_id: event_turn_interlude_035_the_permit_disclosed, claim: "Lucan oddal jej TRESC leadu o strazy: to glejt przejazdowy - autoryzacja trasy wozu, z czytelna pieczecia urzedu, nazwa urzedu i typem autoryzacji, bez czytelnego nazwiska podpisujacego i bez daty. Zna tez jego dedukcje o pozwoleniach in blanco. Odwrocila wycene Lucana - brak nazwiska to nie slabosc, blankiet jest dla urzedu ciezszy niz nazwisko, bo nie ma glowy, ktorej scieciem sprawa sie konczy. NIE wie, skad Lucan ma dokument (kradziona zapieczetowana sakiewka nekromanty)."}
+    - {fact_id: fact_seraphine_knows_lucans_blackmail_doctrine, source_event_id: event_turn_interlude_035_the_permit_disclosed, claim: "Lucan powiedzial jej na glos, jaki ma cel: znalezc kogos, kto na wiadomosc o istnieniu glejtu spanikuje, albo wbic sie w sledztwo po stronie sluzb. Doprecyzowal doktryne - podraznic lwa, zobaczyc kto przyjdzie zabic, potem go okrasc. Zna wiec juz intencje uzycia leadu, choc nie slowo 'szantaz'. Ostrzegla, ze swiadek negocjujacy milczenie staje sie strona, a panika w tej strukturze idzie do gory, nie w strone Lucana."}
+    - {fact_id: fact_seraphine_read_the_permit_but_refused_custody, source_event_id: event_turn_interlude_036_the_permit_on_the_table, claim: "Lucan wylozyl glejt na stol i pozwolil jej wziac. Przeczytala go na stole i ODMOWILA przyjecia - wiedza byla droga, posiadanie jest dyskwalifikujace, bo rano staje przed sluzbami miejskimi i z dokumentem w torbie jest wspolpodejrzana, nie adwokatka. Dokument zostal u Lucana. Z czytania wyciagnela, ze TYP autoryzacji stalej trasy jest ponad szeregowym konstablem, czyli nieczytelne nazwisko nie jest nazwiskiem z dolu - to NIE jeden zepsuty glina. Zapowiedziala weryfikacje przez porownanie pieczeci i klasy podpisu z tygodniem formalnych zadan, ktore gildia dostala od sluzb - na wlasnych aktach gildii, bez ekspozycji Lucana."}
+    - {fact_id: fact_seraphine_saw_spidey_react_to_his_name, source_event_id: event_turn_interlude_037_every_signature_has_a_room, claim: "Lucan zapytal na glos ukrytego Spideya 'prawda, Spidey?' i pod plaszczem przesunal sie ciezar - reakcja na wlasne imie, przy niej i w zasiegu wzroku nocnego urzednika. To zlamanie REGULY, ktora ona sama ustalila (event_turn_interlude_025): okaz nie moze przy nikim reagowac na polecenie, bo roznica miedzy 'ma dziwactwo' i 'kontroluje nieumarlych' to jedno posluszne drgniecie. Nie zrobila sceny - powiedziala mu, ze trafil na najbezpieczniejsza widownie, jaka bedzie mial, i ze drugi raz taniej nie bedzie."}
+    - {fact_id: fact_seraphine_accepted_provocation_doctrine_with_limits, source_event_id: event_turn_interlude_037_every_signature_has_a_room, claim: "Lucan wylozyl swoja doktryne: kazda decyzja ma podpis, podpis ma pokoj, pokoj to lista ludzi, ktorych wystarczy wkurzyc. Przyznala mechanizm i dar (widziala go na Orenie i Rusku), ale zawezila: prowokowany czlowiek robi glupote, tylko nie te, ktora Lucan wybiera - urzednik prowadzacy urzad zamyka teczke i czlowieka, i robi to personelem, a podrazniony urzad produkuje PAPIER, nie rabowalny blad. Warunki, w ktorych prowokacja placi: prowokowany MUSI zareagowac publicznie, w wyznaczonym terminie i przy widowni. Urzad zezwolen nie ma zadnego; publiczna dyskusja na Akademii ma wszystkie trzy - i to wskazala jako wlasciwe miejsce na ten dar. NADAL nie wie o dyspucie ani o planie wystawienia okazow."}
+    - {fact_id: fact_seraphine_watched_lucan_curse_a_guild_employee, source_event_id: event_turn_interlude_038_numb_on_the_night_clerk, retcon_ref: retcon_000007, claim: "WIDZIALA, jak Lucan rzucil wzmocnionego ZNIKA (ability_misnotice, skalowany o stopien po duration, koszt 2 energii) w nocnego urzednika gildii, cztery kroki od niej, minute po tym, jak sama nazwala urzednika swiadkiem, ktory nie zeznaje, dopoki ktos go nie zapyta. Bazowy znik ma slad faint, ale wzmocnienie brute-force daje silny slad (instability 25), a ona jest antymagiczna kontrolerka gildii w pieczeciach ochronnych - zarejestrowala samo rzucenie. Skutek okazal sie CZYSTY: urzednik nie stracil przytomnosci, dokonczyl zadania mechanicznie, zamknal sale i wyszedl do domu, wiec nie ma ciala, dziury w rejestrze ani incydentu do zgloszenia. Jej zarzut nie dotyczy wiec sladow po urzedniku, a tego, ze Lucan uzyl glosnego wariantu na pracowniku gildii, w budynku gildii, przy oficerze, ktorego zadaniem jest to zauwazac - i ze zrobil to zamiast nie robic nic, bo nic nie bylo potrzebne."}
+    - {fact_id: fact_seraphine_heard_spidey_will_become_famous, source_event_id: event_turn_interlude_038_numb_on_the_night_clerk, claim: "Lucan powiedzial jej, zeby sie Spideyem nie przejmowac, bo obawia sie, ze wkrotce bedzie dosc slawny i Akademia o to zadba. Odpowiedziala, ze o tym mowi caly wieczor - slawa okazu jest planem ojca i Akademii, nie Lucana, a wybor jest tylko miedzy slawa projektowana i przypadkowa. NADAL nie wie o dyspucie ani o planie wystawienia okazow pod nazwiskiem Lucana."}
+    - {fact_id: fact_seraphine_knows_lucan_cursed_three_on_the_wagon, source_event_id: milestone_041_corpse_wagon_takeover, retcon_ref: retcon_000009, claim: "Z oficjalnego raportu z operacji wie tylko tyle, ze Lucan zaatakowal KLATWAMI trzy osoby na wozie. NIE wie, jakie to byly klatwy, co robia ani jaki mialy skutek - z repertuaru Lucana zna wylacznie numb (z Orena) i wzmocniony znik (widziany przy niej). W szczegolnosci NIE zna Confusion i nie wolno jej przypisywac zadnego wniosku opartego na jego dzialaniu."}
+    - {fact_id: fact_seraphine_knows_the_four_survivors_composition, source_event_id: event_turn_interlude_040_the_sentence_and_four_witnesses, retcon_ref: retcon_000009, claim: "Czworka ocalalych z siatki Orena to jeden nekromanta junior (amator od wysylki, jedyny z realna wiedza: rozklad transportow, cztery przygotowane ciala, klucz do dolnej krypty u Orena) i trzech ludzi z wozu, w tym Halvek. Trzech z wozu to sila robocza. Nikt z czworki nie byl przesluchiwany."}
   suspicions:
     - {id: suspicion_lucan_has_hidden_necromantic_support, basis_event_ids: [milestone_043a_logistics_collector_overload], confidence: high}
   false_beliefs:
@@ -61,5 +93,6 @@ knowledge:
   forbidden_without_source: [exact_spidey_order_text, final_guild_or_church_verdict, church_reliquary, sixty_kilo_gold_lot, academy_dispute_plan, that_lucans_father_now_knows_the_method]
 open_question_she_asked:
   - Skąd Lucan wie, że Akademia prowadzi ten spór. Zadane wprost, jeszcze bez odpowiedzi (event_turn_interlude_026b).
+  - Co ma powiedzieć, jeśli służby miejskie zapytają ją wprost o niewydany materiał. Pyta o to przed swoim porannym stawieniem się i jeszcze nie dostała odpowiedzi (event_turn_interlude_036).
 agenda: [get_the_rest_of_lucans_undisclosed_list_before_the_hearing, find_out_how_lucan_knows_about_the_academy_dispute, secure_three_seals, contain_necromantic_escalation, shield_city_and_group, find_viable_way_to_protect_lucan_and_city_without_formal_escalation]
 source_refs: [source_luka_b_fragment#line:6812-6921, source_luka_b_fragment#line:8334-12012, source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

@@ -10,21 +10,19 @@ clocks:
   threshold: uncalibrated
   last_source_event_id: milestone_047_seraphine_risk_disclosure
   trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
-  note: Nie przesuwa się z czasem ani od samego wypowiedzenia słowa; wymaga osobnego
-    wydarzenia eskalacyjnego.
+  note: Nie przesuwa się z czasem ani od samego wypowiedzenia słowa; wymaga osobnego wydarzenia eskalacyjnego.
 - id: clock_father_arranges_academy_showing
   label: Ojciec organizuje pokaz na Akademii - realnie wezwanie na seminarium
   status: active_time_driven
   progress: 0
   threshold: 15
   seconds_per_step: 86400
-  elapsed_seconds: 13920
+  elapsed_seconds: 15000
   last_source_event_id: event_turn_interlude_030_the_seminar_problem
   trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
-  effect: Okazy Lucana trafiają do JUŻ WYZNACZONEJ otwartej dysputy (ok. 16 dni,
-    npc_neris_aldhen kontra npc_ivar_kolm), a nie na prywatny pokaz. Wezwanie ma postać
-    SEMINARIUM, którego nie da się odrzucić, i seminarium ZAPISUJE. Gildia nie ma nad tym
-    jurysdykcji.
+  effect: Okazy Lucana trafiają do JUŻ WYZNACZONEJ otwartej dysputy (ok. 16 dni, npc_neris_aldhen kontra
+    npc_ivar_kolm), a nie na prywatny pokaz. Wezwanie ma postać SEMINARIUM, którego nie da się odrzucić,
+    i seminarium ZAPISUJE. Gildia nie ma nad tym jurysdykcji.
   world_test_required: false
   reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.father_arranges_academy_showing
@@ -34,14 +32,13 @@ clocks:
   progress: 0
   threshold: 15
   seconds_per_step: 86400
-  elapsed_seconds: 9120
+  elapsed_seconds: 10200
   last_source_event_id: event_turn_interlude_024_seraphine_date_and_payments
   lucan_knows_the_date: horizon_only
-  knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie ogłoszone
-    oficjalnie), nie zna sztywnej daty. Nie pozwalać mu planować "na piętnasty dzień" jak na
-    datę pewną.
+  knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie ogłoszone oficjalnie),
+    nie zna sztywnej daty. Nie pozwalać mu planować "na piętnasty dzień" jak na datę pewną.
   trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
-  effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii w kontekście przesłuchań
-    instytucjonalnych; na tej samej sesji rozstrzyga się nagroda za Akt 2.
+  effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii w kontekście przesłuchań instytucjonalnych;
+    na tej samej sesji rozstrzyga się nagroda za Akt 2.
   world_test_required: false
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.guild_leadership_hearing

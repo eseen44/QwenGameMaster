@@ -1,0 +1,32 @@
+schema_version: 1
+id: fixture_guild_night_clerk
+name: unknown
+status: active
+weight: fixture
+role: guild_night_shift_clerk
+lifecycle: {state: alive_went_home_after_shift, last_confirmed_event_id: event_turn_interlude_038_numb_on_the_night_clerk}
+current_location_id: unknown_own_lodgings
+note: 'Nie ta sama osoba co fixture_guild_receptionist i bez jej uprawnien - nocna zmiana
+  w glownej sali (event_turn_interlude_023_night_return_to_guild). Nie zna dat wezwan i nie
+  udaje, ze zna.'
+condition:
+  id: amplified_misnotice_perception_gap
+  source_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+  retcon_ref: retcon_000007
+  effect: 'Wzmocniony znik (ability_misnotice, tier 0 -> 1 po osi duration). Nagla dziura w
+    UWADZE - jego uwaga przestaje rejestrowac obecnych; znik nie daje niewidzialnosci. NIE stracil
+    przytomnosci. Dokonczyl zadania mechanicznie, jakby w sali nikogo nie bylo: zgasil lampy
+    takze nad stolem Lucana i Seraphine, zamknal sale i wyszedl do domu, lekko belkoczac.
+    Dyzur formalnie domkniety, brak dziury w rejestrze, BRAK INCYDENTU do zgloszenia.'
+  memory: 'Koncowka wieczoru nie zostala zakodowana - nie ma czego kasowac, bo nie zostalo
+    zapamietane. Budzi sie we wlasnym lozku jak po ostrym kacu, nie wiedzac, co sie stalo.
+    Przepada z tym takze zapamietana wczesniej dziwnosc z event_turn_interlude_037 (Lucan
+    pytajacy o zdanie wlasny plaszcz).'
+knowledge:
+  confirmed: []
+  suspected: []
+  false_beliefs: []
+lost_knowledge:
+  - {fact_id: fact_night_clerk_saw_lucan_talk_to_his_coat, lost_to_event_id: event_turn_interlude_038_numb_on_the_night_clerk, note: Widzial, jak Lucan zadaje pytanie wlasnemu plaszczowi, ale pamiec o koncowce wieczoru nie zostala zakodowana. Nie da sie tego z niego wydobyc pytaniem.}
+agenda: [close_the_hall_and_log_the_end_of_shift]
+source_refs: [event_turn_interlude_023_night_return_to_guild, event_turn_interlude_037_every_signature_has_a_room, event_turn_interlude_038_numb_on_the_night_clerk, retcon_000006, retcon_000007]
