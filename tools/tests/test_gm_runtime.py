@@ -203,6 +203,32 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual(result["status"], "system_only_noop")
         self.assertEqual(result["time_seconds"], 0)
 
+    def test_automatic_turn_records_actor_without_entering_capability_engine(self) -> None:
+        request = {
+            "turn_id": "turn_automatic_actor",
+            "declared_action": "Spidey przechodzi pod stół i nasłuchuje.",
+            "actor_id": "spidey",
+            "time_class": "brief",
+        }
+        transaction = gm_runtime.resolve_turn(self.campaign, request, False)
+        self.assertEqual(transaction["preview"]["assessment"]["verdict"], "automatic")
+        gm_runtime.commit_turn(
+            self.campaign,
+            "turn_automatic_actor",
+            {
+                "intent_achieved": True,
+                "arrangement": "unchanged",
+                "perspective": "spidey",
+                "summary": "Spidey słyszy rozmowę, ale nie zdobywa jeszcze nowej informacji.",
+                "operations": [],
+            },
+            False,
+        )
+        record = json.loads(
+            (self.campaign / "journal" / "events.jsonl").read_text(encoding="utf-8").strip()
+        )
+        self.assertEqual(record["actors"], ["spidey"])
+
     def test_resolve_commit_is_idempotent_and_ticks_world(self) -> None:
         with mock.patch("gm_runtime.secrets.randbelow", return_value=49):
             transaction = gm_runtime.resolve_turn(self.campaign, self.request(), False)

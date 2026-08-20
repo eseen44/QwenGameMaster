@@ -249,7 +249,13 @@ def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]
         }
 
     required = ("actor_id", "capability_id", "target_id", "intent_id")
-    has_mechanics = any(request.get(field) is not None for field in required)
+    # An automatic turn still needs an actor in the event journal.  ``actor_id``
+    # alone must therefore not opt into the capability engine; only a requested
+    # capability, target or mechanical intent does.  Previously the two concerns
+    # were coupled, so narration-only turns either lost their actor or failed as
+    # malformed mechanical requests.
+    mechanical_fields = ("capability_id", "target_id", "intent_id")
+    has_mechanics = any(request.get(field) is not None for field in mechanical_fields)
     if has_mechanics and not all(isinstance(request.get(field), str) for field in required):
         raise RuntimeError("mechanical turns require actor_id, capability_id, target_id and intent_id")
     assessment: dict[str, Any]
@@ -748,13 +754,14 @@ def apply_prepared_writes(campaign_root: Path, writes: list[dict[str, Any]]) -> 
 
 def event_from_transaction(transaction: dict[str, Any]) -> dict[str, Any]:
     outcome = transaction["outcome"]
+    actor_id = transaction["request"].get("actor_id") or transaction["request"].get("subject_id")
     return {
         "id": transaction["event_id"],
         "timestamp": now_iso(),
         "scene_id": transaction.get("scene_id"),
         "type": "action_resolution",
         "summary": outcome["summary"],
-        "actors": [transaction["request"].get("actor_id") or transaction["request"].get("subject_id")],
+        "actors": [actor_id] if isinstance(actor_id, str) else [],
         "location_id": outcome.get("location_id"),
         "time_advanced_seconds": transaction["time_operation"]["seconds"],
         "intent_achieved": outcome["intent_achieved"],

@@ -45,7 +45,7 @@ Zadanie tego skilla: w jednym przebiegu odtworzyć sytuację i oddać graczowi d
 
 ## Repo
 
-- Ścieżka: `C:\Projects\QwenGameMaster` (GitHub: `eseen44/QwenGameMaster`, prywatnie nie ma innego)
+- Ścieżka: katalog główny bieżącego checkoutu repozytorium (GitHub: `eseen44/QwenGameMaster`). Nie zakładaj konkretnej ścieżki Windows.
 - Gałąź do gry: **`optimize/turn-cost`** (nie `codex/initial-game-master` — ta jest starsza,
   mimo że GitHub trzyma ją jako default). Sprawdź `git branch --show-current`; jeśli inna,
   spytaj gracza zanim cokolwiek przeliczysz.
@@ -56,7 +56,7 @@ Zadanie tego skilla: w jednym przebiegu odtworzyć sytuację i oddać graczowi d
 ## Krok 0 — sanity check (jedno wywołanie)
 
 ```powershell
-Set-Location C:\Projects\QwenGameMaster
+Set-Location <repo-root>
 git branch --show-current; git status --short
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 migration status
 ```
@@ -70,7 +70,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 migration s
 ## Krok 1 — brief
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Projects\QwenGameMaster\tools\gm.ps1 brief
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\gm.ps1 brief
 ```
 
 Zwraca JSON: scenę, czas, zegary, cele, uczestników ze stanem, `last_event_id` oraz listę
@@ -102,7 +102,7 @@ Nie wczytuj całego dziennika. Nigdy nie wczytuj `migration/sources/` ani
 ## Krok 3 — proza ostatnich tur
 
 ```powershell
-Get-Content C:\Projects\QwenGameMaster\campaigns\lucan\journal\events.jsonl -Tail 4
+Get-Content .\campaigns\lucan\journal\events.jsonl -Tail 4
 ```
 
 Pola `summary` to jedyne miejsce z narracją — z nich buduj streszczenie. Gdy gracz odwołuje

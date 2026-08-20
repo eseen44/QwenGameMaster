@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sys
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -397,6 +398,7 @@ def validate_runtime(errors: list[str]) -> None:
         errors.append(f"RUNTIME: {exc}")
         return
     seen: set[str] = set()
+    instances: dict[str, dict] = {}
     for entry in index.get("instances", []):
         if not isinstance(entry, dict) or not isinstance(entry.get("id"), str):
             errors.append("RUNTIME: instance index entries require id")
@@ -420,6 +422,8 @@ def validate_runtime(errors: list[str]) -> None:
             continue
         if instance.get("id") != instance_id or instance.get("object_type") != "entity_instance":
             errors.append(f"RUNTIME: instance identity mismatch in {ref}")
+        else:
+            instances[instance_id] = instance
         if not isinstance(instance.get("revision"), int) or instance["revision"] < 1:
             errors.append(f"RUNTIME: {instance_id} requires positive revision")
         for pool_id, pool in instance.get("resources", {}).items():
@@ -434,6 +438,39 @@ def validate_runtime(errors: list[str]) -> None:
                 errors.append(f"RUNTIME: {instance_id} has condition without id")
             elif not isinstance(condition.get("source_event_id"), str):
                 errors.append(f"RUNTIME: {instance_id}.{condition['id']} lacks source_event_id")
+
+    # The active scene is a compact operational record.  These checks catch two
+    # errors that YAML/schema validation cannot see: a scene beginning after its
+    # current campaign time, and a concealed companion left at a previous location.
+    try:
+        scene = gm_runtime.load_yaml(campaign_root / "context" / "scene.yaml")
+        time_state = gm_runtime.load_yaml(campaign_root / "state" / "time.yaml")
+        started_at = scene.get("started_at")
+        current_datetime = time_state.get("current_datetime")
+        if isinstance(started_at, str) and isinstance(current_datetime, str):
+            try:
+                if datetime.fromisoformat(started_at) > datetime.fromisoformat(current_datetime):
+                    errors.append("RUNTIME: active scene starts after current campaign time")
+            except ValueError:
+                # Symbolic campaign labels such as day_0_pre_dawn are valid.
+                pass
+        lucan = instances.get("pc_lucan")
+        if lucan:
+            lucan_position = lucan.get("position", {})
+            for participant_id in scene.get("participants", []):
+                participant = instances.get(participant_id)
+                if not participant:
+                    continue
+                position = participant.get("position", {})
+                if position.get("formation") == "concealed_with_lucan" and (
+                    position.get("location_id") != lucan_position.get("location_id")
+                    or position.get("zone_id") != lucan_position.get("zone_id")
+                ):
+                    errors.append(
+                        f"RUNTIME: concealed companion {participant_id} is not at Lucan's position"
+                    )
+    except gm_runtime.RuntimeError as exc:
+        errors.append(f"RUNTIME: active scene: {exc}")
 
     npc_index = load_yaml_path("campaigns/lucan/entities/npcs/index.yaml", errors)
     if npc_index:

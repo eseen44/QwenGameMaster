@@ -46,6 +46,7 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 4. Runtime stosuje `system/capabilities.md`, wykonuje najwyżej jeden potrzebny rzut i zapisuje go przed narracją.
 5. Rozstrzygnij akcję, reakcję świata i nową sytuację decyzyjną.
 6. Przed odpowiedzią uruchom `turn commit` z outcome; po przerwaniu użyj `turn recover` z tym samym identyfikatorem.
+7. Każda trwała tura ma `actor_id`, także automatyczna i bez testu. Samo `actor_id` nie uruchamia silnika zdolności; test mechaniczny wymaga dodatkowo `capability_id`, `target_id` i `intent_id`.
 
 ## Aktualizacja pamięci
 
