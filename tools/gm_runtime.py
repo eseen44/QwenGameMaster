@@ -502,6 +502,68 @@ def process_instance_time(instance: dict[str, Any], seconds: int) -> None:
     instance["conditions"] = retained
 
 
+def process_sustained_links(
+    campaign_root: Path, changed: dict[Path, dict[str, Any]], seconds: int, event_id: str
+) -> None:
+    """Advance explicit, voluntary resource links between active instances.
+
+    Links are opt-in campaign state, not an inferred side effect of a control bond.
+    A depleted source simply misses that interval; it never creates a negative pool.
+    """
+    path = campaign_root / "state" / "sustained-links.yaml"
+    if not path.exists():
+        return
+    document = load_mutable(campaign_root, changed, path)
+    for link in document.get("links", []):
+        if not isinstance(link, dict) or not link.get("active", False):
+            continue
+        interval = link.get("interval_seconds")
+        source_units = link.get("source_units_per_interval")
+        target_units = link.get("target_units_per_interval")
+        if not isinstance(interval, int) or interval <= 0:
+            continue
+        if not isinstance(source_units, (int, float)) or source_units <= 0:
+            continue
+        if not isinstance(target_units, (int, float)) or target_units < 0:
+            continue
+        runtime = link.setdefault("runtime", {})
+        elapsed = int(runtime.get("elapsed_seconds", 0)) + seconds
+        ticks, runtime["elapsed_seconds"] = divmod(elapsed, interval)
+        if not ticks:
+            continue
+        source_path = find_instance_path(campaign_root, link.get("source_instance_id"))
+        target_path = find_instance_path(campaign_root, link.get("target_instance_id"))
+        if source_path is None or target_path is None:
+            link["last_error"] = "missing_source_or_target_instance"
+            continue
+        source = load_mutable(campaign_root, changed, source_path)
+        target = load_mutable(campaign_root, changed, target_path)
+        source_pool = source.get("resources", {}).get(link.get("source_pool_id"))
+        target_pool = target.get("resources", {}).get(link.get("target_pool_id"))
+        if not isinstance(source_pool, dict) or not isinstance(target_pool, dict):
+            link["last_error"] = "missing_source_or_target_pool"
+            continue
+        affordable_ticks = min(ticks, int((source_pool.get("current", 0) + 1e-9) // source_units))
+        free_capacity = max(0, target_pool.get("capacity", 0) - target_pool.get("current", 0))
+        capacity_ticks = ticks if target_units == 0 else int((free_capacity + 1e-9) // target_units)
+        applied_ticks = max(0, min(affordable_ticks, capacity_ticks))
+        if applied_ticks:
+            source_pool["current"] = stable_number(source_pool["current"] - source_units * applied_ticks)
+            target_pool["current"] = stable_number(min(target_pool["capacity"], target_pool["current"] + target_units * applied_ticks))
+            integrity_units = link.get("target_integrity_per_interval", 0)
+            if isinstance(integrity_units, (int, float)) and integrity_units > 0:
+                integrity = target.get("integrity")
+                if isinstance(integrity, dict) and isinstance(integrity.get("current"), (int, float)) and isinstance(integrity.get("maximum"), (int, float)):
+                    integrity["current"] = stable_number(min(integrity["maximum"], integrity["current"] + integrity_units * applied_ticks))
+            for entity in (source, target):
+                if entity.get("last_event_id") != event_id:
+                    entity["revision"] = int(entity.get("revision", 0)) + 1
+                entity["last_event_id"] = event_id
+        runtime["successful_intervals"] = int(runtime.get("successful_intervals", 0)) + applied_ticks
+        runtime["missed_intervals"] = int(runtime.get("missed_intervals", 0)) + (ticks - applied_ticks)
+        link["last_event_id"] = event_id
+
+
 def relative_to_campaign(campaign_root: Path, path: Path) -> str:
     try:
         return path.resolve().relative_to(campaign_root.resolve()).as_posix()
@@ -621,6 +683,7 @@ def apply_operation(
             if instance.get("last_event_id") != event_id:
                 instance["revision"] = int(instance.get("revision", 0)) + 1
             instance["last_event_id"] = event_id
+        process_sustained_links(campaign_root, changed, seconds, event_id)
         advance_clocks_for_time(campaign_root, changed, seconds, event_id)
         return
 
@@ -903,6 +966,9 @@ def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
         contextual_ref("state/clocks.yaml"),
         contextual_ref("state/objectives.yaml"),
     ]
+    sustained_links = campaign_root / "state" / "sustained-links.yaml"
+    if sustained_links.exists():
+        refs.append(project_ref(sustained_links))
     if isinstance(scene.get("location_ref"), str):
         refs.append(scene["location_ref"])
     index = load_instance_index(campaign_root)

@@ -3,12 +3,11 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 36
+revision: 60
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_main_hall
+  zone_id: zone_guild_upper_offices
   formation: concealed_with_lucan
-  note: Domyslnie towarzyszy Lucanowi ukryty - patrz retcon_000005.
 integrity:
   current: 27
   maximum: 33
@@ -25,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 36480
-      hunting_recovery_elapsed_seconds: 36480
+      decay_elapsed_seconds: 44280
+      hunting_recovery_elapsed_seconds: 44280
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -37,7 +36,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 14880
+      regeneration_elapsed_seconds: 1080
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -59,7 +58,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+last_event_id: event_turn_interlude_068_father_transmutation_anecdote
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906

@@ -1,0 +1,101 @@
+schema_version: 1
+id: turn_interlude_058_varkhen_office_guard_protocol
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-21T01:49:00+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_058_varkhen_office_guard_protocol
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_058_varkhen_office_guard_protocol
+  actor_id: pc_lucan
+  declared_action: 'Lucan przez więź rozkazuje Varkhenowi: ma być nieruchomą zbroją,
+    patrzeć i słuchać, a gdy zauważy zagrożenie dla Lucana, siebie lub Seraphine,
+    komunikować się z Lucanem przez więź i czekać na dalszą decyzję.'
+  fiction_verdict: automatic
+  time_class: instant
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_058_varkhen_office_guard_protocol
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan przez więź rozkazuje Varkhenowi: ma być nieruchomą zbroją, patrzeć
+    i słuchać, a gdy zauważy zagrożenie dla Lucana, siebie lub Seraphine, komunikować
+    się z Lucanem przez więź i czekać na dalszą decyzję.'
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 0
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  summary: 'Varkhen przyjmuje protokół przyszłego strażnika biura: ma pozostawać nieruchomy,
+    obserwować i słuchać; przy zagrożeniu dla Lucana, siebie lub Seraphine ma przekazywać
+    krótki sygnał przez więź i nie reagować jawnie bez dalszej decyzji Lucana. Seraphine
+    nie słyszy tej komunikacji.'
+  operations:
+  - *id002
+  new_decision: Protokół zbroi-strażnika jest gotowy. Lucan może teraz potwierdzić
+    Seraphine zgodę na jej warunki i rozpocząć przeniesienie Varkhena albo odłożyć
+    przeprowadzkę.
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 6f212ff16105011e143afdcbbe435b1a99ec5bff4546b3376c350664db713692
+  after_hash: 1f36d6d53cfd5922bbf868e917837c6ad25eb2f66d4ef1a88ce396478a7a3acf
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: '2026-08-16T13:18:00+02:00'
+    tension:
+      level: 1
+      reason: Sala zamknieta i ciemna, rozmowa prywatna. Seraphine poczula rzucenie
+        i pyta trzeci raz o to samo, a rano staje przed sluzbami miejskimi.
+    participants:
+    - pc_lucan
+    - npc_seraphine_vale
+    - companion_spidey
+    pressures:
+    - seraphine_asks_for_the_third_time_what_to_say_to_civic_services_in_the_morning
+    - she_felt_the_amplified_casting_and_called_the_reflex_worse_than_the_act
+    - lucan_still_has_no_safe_place_to_sleep_and_the_building_is_locked
+    - she_still_does_not_know_the_father_knows_the_method
+    - the_seminar_summons_is_coming_and_cannot_be_declined
+    - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+    - cemetery_loot_needs_discreet_buyer
+    immediate_facts:
+    - the_permit_is_a_standing_route_authorisation_with_no_legible_signature
+    - seraphine_read_it_but_refused_custody_so_it_stays_with_lucan
+    - she_will_verify_the_seal_class_against_a_week_of_civic_service_demands_on_guild_records
+    - the_night_clerk_finished_his_shift_went_home_and_remembers_nothing_no_incident_exists
+    - the_amplified_misnotice_cost_two_energy_and_left_a_strong_trace_she_registered
+    - provocation_only_pays_where_the_target_must_react_publicly_on_a_deadline
+    - varkhen_is_the_one_point_where_their_interests_are_identical
+    - the_four_oren_network_survivors_are_in_guild_custody_and_unquestioned
+    immediate_questions:
+    - Protokół zbroi-strażnika jest gotowy. Lucan może teraz potwierdzić Seraphine
+      zgodę na jej warunki i rozpocząć przeniesienie Varkhena albo odłożyć przeprowadzkę.
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_058_varkhen_office_guard_protocol
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+prepared_at: '2026-08-21T01:49:07+02:00'
+committed_at: '2026-08-21T01:49:07+02:00'

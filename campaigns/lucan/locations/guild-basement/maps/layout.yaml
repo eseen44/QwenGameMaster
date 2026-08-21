@@ -1,0 +1,10 @@
+schema_version: 1
+location_id: loc_lumaria_guild_basement
+geometry_status: estimated
+units: metres
+zones:
+  - {id: zone_basement_stair, kind: stairs, dimensions: {length: 4, width: 1.5}, connects_to: [zone_holding_corridor]}
+  - {id: zone_holding_corridor, kind: corridor, dimensions: {length: 9, width: 2}, connects_to: [zone_basement_stair, zone_witness_holding, zone_temporary_holding]}
+  - {id: zone_witness_holding, kind: holding_room, dimensions: {length: 4, width: 3}, connects_to: [zone_holding_corridor]}
+  - {id: zone_temporary_holding, kind: holding_room, dimensions: {length: 5, width: 4}, connects_to: [zone_holding_corridor], secret_from_player_on_first_entry: true}
+source_refs: [campaigns/lucan/locations/guild-basement/description.md]

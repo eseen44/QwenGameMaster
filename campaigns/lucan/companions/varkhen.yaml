@@ -43,13 +43,29 @@ link:
   range: unknown_not_tested
   maintenance_cost: no_immediate_drain_while_varkhen_remains_broken
   communication: [compelled_meaning, name_and_identity_impressions, possible_mental_speech, low_bandwidth_visual_snapshot_when_focused]
-  energy_transfer: {allowed: true, directions: [varkhen_to_lucan], contested_when_varkhen_can_resist: true}
+  energy_transfer:
+    allowed: true
+    directions: [varkhen_to_lucan, lucan_to_varkhen, webber_network_to_varkhen]
+    controller_of_routing: pc_lucan
+    contested_when_varkhen_can_resist: true
+    note: Varkhen zachowuje osobowość i autonomię, ale jest formalnym nieumarłym Lucana w tej samej sieci energetycznej co sługi; Lucan kieruje dobrowolnie ustanowionym przepływem.
 resources: {ancient_necrotic_reservoir: {current: 18, capacity: 72}}
 state:
   location_ref: loc_lumaria_guild_basement
   condition: conscious_critically_damaged_formally_bound_but_autonomous_in_guild_custody
   injuries: [sarcophagus_pin_damage, repeated_pick_trauma, saber_and_cold_damage, severe_energy_depletion]
   modifications: []
+  pending_office_guard_protocol:
+    active: true
+    source_event_id: event_turn_interlude_058_varkhen_office_guard_protocol
+    behavior: Remain inert as armour, observe and listen, report possible danger to Lucan through the bond, and await Lucan's decision before any overt response.
+    protected_parties: [pc_lucan, companion_varkhen, npc_seraphine_vale]
+  secret_borrowed_sense_protocol:
+    active: true
+    source_event_id: event_turn_interlude_059_varkhen_borrowed_sense_protocol
+    disclosure: not_to_npc_seraphine_vale
+    current_bandwidth: low_bandwidth_visual_snapshot_when_focused
+    note: Lucan has not yet attempted the sensory transfer; quality and practical limits remain untested.
 abilities:
   - {id: ability_varkhen_armored_grasp, capability_ref: capability_varkhen_armored_grasp, status: known_from_encounter}
   - {id: ability_varkhen_necrotic_reclamation, capability_ref: capability_varkhen_necrotic_reclamation, status: known_from_encounter}
@@ -69,5 +85,5 @@ confidentiality:
   source_event_id: milestone_047_seraphine_risk_disclosure
   terms: Varkhen nie ujawnia działań magicznych Lucana poza komorą, dopóki nie zagrażają ludziom.
 noncanonical_exclusions: [future_answer_about_dump_bodies, future_rewards_and_adventure_closure]
-last_updated_event_id: event_act_02_closeout_interlude_import
+last_updated_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
 source_refs: [source_luka_b_fragment#line:11251-12012, source_user_decisions_current#decision:include_full_varkhen_seraphine_conversation, source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

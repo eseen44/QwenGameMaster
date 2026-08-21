@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 36
+revision: 60
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_rooftop
-  formation: solo_forward_post
+  location_id: loc_tannery
+  zone_id: zone_upper_meadow
+  formation: solo_regular_post
 integrity:
   current: 13
   maximum: 13
@@ -24,14 +24,14 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 36480
-      hunting_recovery_elapsed_seconds: 36480
+      decay_elapsed_seconds: 44280
+      hunting_recovery_elapsed_seconds: 44280
 conditions: []
 status_flags:
 - autonomous_hunting
 - death_anchor
-- posted_at_guild_rooftop
-last_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+- posted_at_tannery_meadow
+last_event_id: event_turn_interlude_068_father_transmutation_anecdote
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559

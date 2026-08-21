@@ -3,10 +3,11 @@ id: pc_lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 40
+revision: 64
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_main_hall
+  zone_id: zone_guild_upper_offices
+  formation: with_seraphine
 integrity:
   current: 19
   maximum: 19
@@ -17,8 +18,9 @@ resources:
     comfortable_capacity: 15
     permanent_expansion: 3
     expansion_source_event_id: milestone_043a_logistics_collector_overload
-    expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale podniosl rezerwe z 12
-      na 15. 15 jest nowa baza, nie stanem przeciazenia - patrz retcon_000004.
+    expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+      podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia - patrz
+      retcon_000004.
     campaign_calibration: true
     decision_status: approved
     runtime: {}
@@ -29,14 +31,15 @@ conditions:
   source_event_id: milestone_043a_logistics_collector_overload
   reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
   applies_while: current_above_12
-  note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure (retcon_000004).
+  note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
+    (retcon_000004).
 status_flags:
 - living
 - conscious
 - post_overload_stable
 - permanently_expanded_reservoir
 - elevated_but_within_new_capacity
-last_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+last_event_id: event_turn_interlude_068_father_transmutation_anecdote
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

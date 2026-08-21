@@ -3,7 +3,7 @@ id: companion_varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 36
+revision: 60
 position:
   location_id: loc_lumaria_guild_basement
   zone_id: temporary_holding
@@ -33,6 +33,12 @@ conditions:
   stacks: 1
   magnitude: 60
   source_event_id: milestone_046_varkhen_oath_compact
+- id: distributed_webber_upkeep
+  stacks: 1
+  magnitude: 80
+  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+  note: Dobrowolny, sterowany przez Lucana dopływ z czterech sieciarzy. Wzmacnia bardzo
+    powolną odbudowę rezerw i uszkodzonego ciała.
 status_flags:
 - undead
 - conscious
@@ -43,7 +49,8 @@ status_flags:
 - control_mechanics_mutually_unknown
 - voluntary_compact_active
 - confidentiality_accepted
-last_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+- distributed_network_upkeep_active
+last_event_id: event_turn_interlude_068_father_transmutation_anecdote
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

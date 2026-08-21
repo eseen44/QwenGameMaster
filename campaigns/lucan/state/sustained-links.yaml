@@ -1,0 +1,76 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: active
+links:
+- id: link_webber_home_to_varkhen_upkeep
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: webber_home
+  source_pool_id: necrotic_reservoir
+  target_instance_id: companion_varkhen
+  target_pool_id: ancient_necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 0.25
+  target_units_per_interval: 0.2
+  target_integrity_per_interval: 0.05
+  efficiency_percent: 80
+  purpose: slow_distributed_repair
+  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+  runtime:
+    elapsed_seconds: 1680
+    successful_intervals: 0
+    missed_intervals: 0
+- id: link_webber_tannery_to_varkhen_upkeep
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: webber_tannery
+  source_pool_id: necrotic_reservoir
+  target_instance_id: companion_varkhen
+  target_pool_id: ancient_necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 0.25
+  target_units_per_interval: 0.2
+  target_integrity_per_interval: 0.05
+  efficiency_percent: 80
+  purpose: slow_distributed_repair
+  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+  runtime:
+    elapsed_seconds: 1680
+    successful_intervals: 0
+    missed_intervals: 0
+- id: link_webber_dump_to_varkhen_upkeep
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: webber_dump
+  source_pool_id: necrotic_reservoir
+  target_instance_id: companion_varkhen
+  target_pool_id: ancient_necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 0.25
+  target_units_per_interval: 0.2
+  target_integrity_per_interval: 0.05
+  efficiency_percent: 80
+  purpose: slow_distributed_repair
+  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+  runtime:
+    elapsed_seconds: 1680
+    successful_intervals: 0
+    missed_intervals: 0
+- id: link_webber_meadow_to_varkhen_upkeep
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: webber_anchored
+  source_pool_id: necrotic_reservoir
+  target_instance_id: companion_varkhen
+  target_pool_id: ancient_necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 0.25
+  target_units_per_interval: 0.2
+  target_integrity_per_interval: 0.05
+  efficiency_percent: 80
+  purpose: slow_distributed_repair
+  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+  runtime:
+    elapsed_seconds: 1680
+    successful_intervals: 0
+    missed_intervals: 0

@@ -8,5 +8,11 @@ orientation: {north: up, confidence: estimated}
 connections:
   - {id: connection_tannery_street, zone_id: zone_yard, leads_to: loc_lumaria, travel_time: needs_review}
   - {id: connection_mound_descent, zone_id: zone_descent, leads_to: loc_rat_mound, travel_time: 2 minutes}
+zones:
+  - {id: zone_yard, note: Podwórze garbarni i wyjście na ulicę.}
+  - {id: zone_workshop, note: Hala robocza z kadziami.}
+  - {id: zone_office, note: Dawny kantor właściciela.}
+  - {id: zone_descent, note: Zejście do szczurzego kopca.}
+  - {id: zone_upper_meadow, note: Łąki i skraj zarośli nad garbarnią; nowy posterunek sieciarza.}
 map_refs: {layout: campaigns/lucan/locations/tannery/maps/layout.yaml, gm: campaigns/lucan/locations/tannery/maps/gm.svg, player: campaigns/lucan/locations/tannery/maps/player.svg}
 source_refs: [source_luka_b_fragment#line:600-2600]

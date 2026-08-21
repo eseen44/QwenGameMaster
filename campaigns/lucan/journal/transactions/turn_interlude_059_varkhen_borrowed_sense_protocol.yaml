@@ -1,0 +1,102 @@
+schema_version: 1
+id: turn_interlude_059_varkhen_borrowed_sense_protocol
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-21T01:50:13+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_059_varkhen_borrowed_sense_protocol
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_059_varkhen_borrowed_sense_protocol
+  actor_id: pc_lucan
+  declared_action: Lucan mówi Varkhenowi przez więź, że będzie czasem próbował patrzeć
+    jego oczami, i nakazuje mu nie mówić o tym Seraphine, ponieważ Lucan nie ufa jej
+    w pełni.
+  fiction_verdict: automatic
+  time_class: instant
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_059_varkhen_borrowed_sense_protocol
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: Lucan mówi Varkhenowi przez więź, że będzie czasem próbował patrzeć
+    jego oczami, i nakazuje mu nie mówić o tym Seraphine, ponieważ Lucan nie ufa jej
+    w pełni.
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 0
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'Varkhen przyjmuje tajny protokół: nie będzie informował Seraphine o próbach
+    Lucana korzystania z jego wzroku. Więź pozwala obecnie co najwyżej na niskoprzepustowe,
+    skupione migawki obrazu; Lucan nie wykonuje jeszcze próby i nie uzyskuje teraz
+    dodatkowej wiedzy.'
+  operations:
+  - *id002
+  new_decision: Varkhen ma zachować tajny dostęp Lucana do przyszłych migawek zmysłowych.
+    Lucan może potwierdzić Seraphine zgodę na przeprowadzkę Varkhena, odłożyć ją albo
+    podjąć inną sprawę.
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 1f36d6d53cfd5922bbf868e917837c6ad25eb2f66d4ef1a88ce396478a7a3acf
+  after_hash: fbabfc66e115f9c7bd18be8e19bf25c156024aa2523106ebc227f5a32b5bf328
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: '2026-08-16T13:18:00+02:00'
+    tension:
+      level: 1
+      reason: Sala zamknieta i ciemna, rozmowa prywatna. Seraphine poczula rzucenie
+        i pyta trzeci raz o to samo, a rano staje przed sluzbami miejskimi.
+    participants:
+    - pc_lucan
+    - npc_seraphine_vale
+    - companion_spidey
+    pressures:
+    - seraphine_asks_for_the_third_time_what_to_say_to_civic_services_in_the_morning
+    - she_felt_the_amplified_casting_and_called_the_reflex_worse_than_the_act
+    - lucan_still_has_no_safe_place_to_sleep_and_the_building_is_locked
+    - she_still_does_not_know_the_father_knows_the_method
+    - the_seminar_summons_is_coming_and_cannot_be_declined
+    - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+    - cemetery_loot_needs_discreet_buyer
+    immediate_facts:
+    - the_permit_is_a_standing_route_authorisation_with_no_legible_signature
+    - seraphine_read_it_but_refused_custody_so_it_stays_with_lucan
+    - she_will_verify_the_seal_class_against_a_week_of_civic_service_demands_on_guild_records
+    - the_night_clerk_finished_his_shift_went_home_and_remembers_nothing_no_incident_exists
+    - the_amplified_misnotice_cost_two_energy_and_left_a_strong_trace_she_registered
+    - provocation_only_pays_where_the_target_must_react_publicly_on_a_deadline
+    - varkhen_is_the_one_point_where_their_interests_are_identical
+    - the_four_oren_network_survivors_are_in_guild_custody_and_unquestioned
+    immediate_questions:
+    - Varkhen ma zachować tajny dostęp Lucana do przyszłych migawek zmysłowych. Lucan
+      może potwierdzić Seraphine zgodę na przeprowadzkę Varkhena, odłożyć ją albo
+      podjąć inną sprawę.
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_059_varkhen_borrowed_sense_protocol
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+prepared_at: '2026-08-21T01:50:20+02:00'
+committed_at: '2026-08-21T01:50:20+02:00'

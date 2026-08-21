@@ -85,6 +85,15 @@ player_declared:
     steps:
       - {id: determine_spidey_and_webbers_legal_classification, state: pending}
       - {id: check_in_with_known_factions_especially_watch, state: pending}
+      - id: trace_northwest_gate_authorisation_chain
+        state: assigned_to_seraphine
+        source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit
+        summary: Seraphine ma połączyć obsadę północno-zachodniej zapory, podpisy i źródło rozkazów z magistratem albo pośrednikiem rodów, jeśli taki istnieje.
+      - id: map_gate_guard_household_for_nonviolent_leverage
+        state: assigned_to_seraphine
+        source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit
+        constraint: Nie kontaktować się z bliskimi ani nie kierować wobec nich działań bez nowej, wyraźnej deklaracji Lucana.
+        summary: Ustalić gospodarstwo domowe wskazanego strażnika wyłącznie jako mapę możliwego nacisku.
       - {id: legal_doctrine_stress_tested_by_seraphine, state: done}
       - {id: acquire_surveillance_rhetoric_and_law_references, state: pending}
       - {id: disclose_noble_name_angle_to_allies, state: done}
