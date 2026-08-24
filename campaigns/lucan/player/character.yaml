@@ -27,20 +27,18 @@ resistances:
   necrotic: 34
   neuromuscular: 23
   mental: 26
-conditions:
+conditions: []
+retired_conditions:
   - id: elevated_energy_signature_above_old_threshold
-    status: approved_campaign_calibration
-    source_event_id: milestone_043a_logistics_collector_overload
-    reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
-    applies_while: current_above_12
-    note: Zastępuje błędny post_varkhen_energy_pressure. 15 jest nową bazą, nie
-      przeciążeniem; przy 13,6/15 Lucan ma zapas i może jeszcze wchłaniać energię
-      (retcon_000004).
+    retired_by: retcon_000019
+    note: Próg Lucana to 15, nie 12. Warunek liczył podwyższoną detekowalność w całym
+      normalnym zakresie pracy, co przeczyło retconowi 000004. Detekowalność zależy od
+      tego, co Lucan robi (ślad rzucanego czaru), nie od stanu rezerwy.
 facts_confirmed:
   - Lucan jest żywy, przytomny i nie odniósł w komorze Varkhena jawnej rany fizycznej.
   - Jego przewaga wynika z wiedzy, przygotowania, sług, osłabień i wykorzystywania słabości, nie z siły fizycznej.
   - Bez przygotowania pozostaje fizycznie w zakresie zwykłego, niezbyt silnego człowieka.
   - Bezpośrednio przed granicą kanonu przejął kontrolę nad Varkhenem przy pomocy Mary i Borosa.
-  - Przeciążenie kolektora (milestone_043a_logistics_collector_overload, przesył energii z serca cmentarza) trwale poszerzyło rezerwę z 12 do 15. 15 jest nową bazą i nowym progiem komfortowym, nie stanem przeciążenia - Lucan przy 13,6/15 ma zapas i może jeszcze wchłaniać. Jedyny utrzymujący się skutek: energia powyżej dawnego progu 12 jest mniej subtelna i łatwiejsza do wykrycia (retcon_000004).
+  - Przeciążenie kolektora (milestone_043a_logistics_collector_overload, przesył energii z serca cmentarza) trwale poszerzyło rezerwę z 12 do 15. 15 jest nową bazą i nowym progiem komfortowym, nie stanem przeciążenia. Dawna dwunastka NIE POZOSTAWIA żadnego skutku ubocznego - nie ma podwyższonej detekowalności powyżej 12 (retcon_000004 i retcon_000019).
 facts_uncertain: []
 last_updated_event_id: milestone_045_varkhen_takeover

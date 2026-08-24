@@ -19,26 +19,26 @@ resources:
     permanent_expansion: 3
     expansion_source_event_id: milestone_043a_logistics_collector_overload
     expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
-      podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia - patrz
-      retcon_000004.
+      podniosl rezerwe z 12 na 15. 15 jest nowa baza I NOWYM PROGIEM, nie stanem
+      przeciazenia; dawna dwunastka nie ma zadnych skutkow ubocznych - patrz
+      retcon_000004 i retcon_000019.
     campaign_calibration: true
     decision_status: approved
     runtime: {}
-conditions:
+conditions: []
+retired_conditions:
 - id: elevated_energy_signature_above_old_threshold
-  stacks: 1
-  magnitude: 35
-  source_event_id: milestone_043a_logistics_collector_overload
-  reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
-  applies_while: current_above_12
-  note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
-    (retcon_000004).
+  retired_by: retcon_000019
+  reason: 'Prog Lucana to 15, nie 12. Warunek naliczal podwyzszona detekowalnosc w calym
+    normalnym zakresie pracy po incydencie cmentarnym, co przeczylo retconowi 000004,
+    ktory ustanawial 15 jako NOWA BAZE. Detekowalnosc jest funkcja tego, co Lucan robi
+    (slad czaru), nie tego, ile ma w rezerwie.'
 status_flags:
 - living
 - conscious
 - post_overload_stable
 - permanently_expanded_reservoir
-- elevated_but_within_new_capacity
+- within_normal_capacity
 last_event_id: event_turn_interlude_080
 source_refs:
 - retcon_000004
