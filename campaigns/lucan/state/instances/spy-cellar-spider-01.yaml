@@ -1,0 +1,80 @@
+schema_version: 1
+id: spy_cellar_spider_01
+object_type: entity_instance
+status: destroyed_drained_by_lucan
+definition_ref: candidate_spy_series_01
+revision: 5
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: zone_entry
+  formation: drained_and_discarded_on_the_bench
+integrity:
+  current: 6
+  maximum: 6
+resources:
+  necrotic_reservoir:
+    current: 0
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 38400
+      hunting_recovery_elapsed_seconds: 38400
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- autonomous_hunting
+- static_post_capable
+- sparse_web_capable
+- near_blind_vibration_and_air_sensing_only
+- destroyed_by_a_broom
+- dense_visible_silkworm_web
+- silk_is_continuous_strong_and_NOT_STICKY_catches_nothing
+- cannot_feed_itself_from_its_own_web_requires_hand_feeding
+- no_longer_visually_unremarkable_the_web_is_a_spectacle
+growth:
+  model_ref: system/companion-growth.md
+  permanent_growth_steps: 1
+  next_step_cost_hours: 12
+  cost_model: czas przy stole, nie energia (retcon_000017)
+  steps:
+  - id: silkworm_spinneret_transplant
+    event_id: event_turn_interlude_079
+    cost_hours_by_rule: 8
+    hours_actually_spent: 1
+    waiver: Scena naliczyla godzine, nowa reguła wycenia pierwszy krok na osiem -
+      roznica darowana jednorazowo przy retcon_000017. Krok UKONCZONY.
+    energy_cost: 0
+    donor_material: item_live_silkworms
+    intent: Siec GESTA i WIDOCZNA - alarm czytany okiem, bez zadnego pasma lacza.
+    gained:
+    - continuous_strong_abundant_silk
+    - dense_visible_curtain_web
+    not_gained:
+    - stickiness
+    - ejection_control
+    - poison_delivery_through_thread
+    note: Kleistosc i przenoszenie trucizny nicia to osobne, kolejne kroki wzrostu
+      (canon, item_live_silkworms).
+intended_post:
+  target: gabinet npc_seraphine_vale w loc_lumaria_guild
+  status: cancelled_specimen_drained_retcon_000018
+  blocker: 'Zaden - Lucan trzyma go przy sobie z wyboru. Przed wystawieniem trzeba
+    rozstrzygnac zywienie: gesta nielepka siec nie lapie nic, wiec na posterunku okaz
+    wymaga karmienia albo konczy sie w trzy dni.'
+conditions: []
+last_event_id: event_turn_interlude_080
+end_of_life:
+  event_ref: retcon_000018
+  cause: wyssany przez Lucana - pomysl gestej widocznej sieci uznany za nieudany
+  reclaimed_by_lucan_units: 3
+  lost: [gruczol_jedwabnika, osiem_godzin_pracy_recznej]
+source_refs:
+- event_turn_interlude_075
+- event_turn_interlude_076

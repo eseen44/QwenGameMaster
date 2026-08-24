@@ -14,7 +14,7 @@ controller:
   entity_id: pc_lucan
   control_type: simple_necromantic_command
   strength: stable_for_simple_orders
-  autonomy: autonomous_hunting_and_local_pathfinding
+  autonomy: autonomous_hunting_local_pathfinding_and_emerging_individual_preferences
   can_refuse: false
   can_break: true
   break_conditions: [reservoir_depletion, body_destruction, control_link_severed]
@@ -23,6 +23,16 @@ link:
   range: remote_with_distance_loss
   maintenance_cost: 0
   communication: [thread_break_signal, minimal_status]
+maturation:
+  canon_ref: event_turn_interlude_070_varkhen_walks_up_and_the_alarm_spider
+  source: out_of_game_canon_clarification_2026-08-24
+  text: 'Czworka powstala PRZED Aktem 2, wiec wedlug kanonu dojrzewania gatunku jest juz
+    wyrazniej madrzejsza i ma zarysowane osobowosci - nie na poziomie Spideya, bo nigdy nie
+    byla nadzorowana recznie. Wiek daje SAD i TEMPERAMENT darmowo. Wiek NIE poszerza lacza:
+    communication zostaje thread_break_signal + minimal_status, dopoki nie zostanie kupiony
+    trwaly krok wzrostu. Madrzejszy sieciarz lepiej rozumie, co widzial, i nadal przekaze
+    tylko tyle, ile miesci rura. Skutek praktyczny: rozkazy zlozone przechodza lepiej niz w
+    015, ale raport strukturalny nadal nie przechodzi.'
 survival_model:
   self_sufficient: true
   food_source: autonomous_small_prey_hunting
@@ -70,9 +80,50 @@ state:
     expected_delivery: Nocny zbiór; wynik czeka w baszcie nad ranem, prawdopodobnie
       częściowo połamany, zdechły lub uciekły.
     compatible_with_standing_order: true
+  additional_order_2:
+    id: order_collect_moths_and_butterflies
+    issued_event_id: event_turn_interlude_078
+    supersedes: order_collect_live_specimens_from_posts
+    intended_instruction: Nastepnym razem przynosic motyle i cmy zamiast os i reszty
+      drobiazgu.
+    actually_transmitted: 'Lapac miekkie latajace rzeczy, te co przychodza do lampy,
+      nosic do baszty. Rozkaz przechodzi CZYSCIEJ niz 015 - czworka jest starsza i
+      madrzejsza (patrz maturation) - ale nadal bez kategoryzacji po gatunku, wiec w
+      urobku beda tez cmy nocne, muchy i cokolwiek miekkiego i skrzydlatego.'
+    player_rationale: 'Osy sa zbyt widoczne. Cma to skrzydla BEZ brzeczenia, a do tego
+      leci do swiatla, czyli do zamieszkanych pokoi noca - lepszy szpieg od osy na
+      kazdej osi poza dniem.'
+    narrator_note: 'Motyl jest gorszy od cmy: lata dniem, jest kolorowy i rzucajacy sie
+      w oczy, nie wchodzi do budynkow. Cmy sa tu wlasciwym celem.'
+    fidelity_by_member:
+      webber_home: clean
+      webber_anchored: clean
+      webber_tannery: mostly_clean_improved_since_015
+      webber_dump: mostly_clean_improved_since_015
+    expected_delivery: Nocny zbior, wynik czeka w baszcie nad ranem.
+    compatible_with_standing_order: true
   casualties: 1
   casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]
+network_cost_model:
+  source: out_of_game_canon_clarification_2026-08-24
+  premise_by_player: 'Cena sieci to nie utrzymanie wezlow, a straty propagacji miedzy nimi -
+    jak straty przesylowe w linii energetycznej.'
+  text: 'Siec nie ma ceny UTRZYMANIA: routine_upkeep_cost 0, kazdy wezel odrabia wlasny
+    ubytek polowaniem. Cena sieci to STRATY PROPAGACJI miedzy wezlami i liczby sa juz w
+    plikach: sieciarz -> Varkhen 80 procent sprawnosci (state/sustained-links.yaml, 0,25 na
+    wejsciu daje 0,2 na wyjsciu), Lucan <-> Spidey 70 procent na krotkim dystansie z
+    narastajaca strata na odleglosc (companions/spidey.yaml efficiency_percent_at_short_range,
+    distance_increases_loss). Straty MNOZA sie na kazdym przeskoku, wiec lancuch szpieg ->
+    sieciarz -> Spidey -> Lucan to ok. 0,8 x 0,7 = 56 procent. Wniosek projektowy: topologie
+    plaskie sa tanie, gleboka hierarchia jest droga. Dla informacji ten sam mechanizm dziala
+    jako spadek WIERNOSCI, nie energii - patrz fidelity_by_member degraded_by_distance w
+    rozkazie order_collect_live_specimens_from_posts.'
+  animation_cost_calibration: 'Ozywienie ciala owadziej skali to koszt formalny - material i
+    czas, nie rezerwa Lucana. Setki malych okazow sa osiagalne. Trzy rozne rzeczy nie mieszac:
+    (1) utrzymanie = 0, (2) propagacja = 20-30 procent straty na przeskok, mnozne,
+    (3) kupno funkcji (wezel, nowa zdolnosc) = 8 x 1.5^n GODZIN pracy recznej,
+    jednorazowo, per slug - CZAS, nie energia (retcon_000017).'
 abilities:
   - {id: ability_sparse_web_alarm, capability_ref: capability_sparse_web_alarm, current: true, role: current_monitoring_function}
   - {id: ability_autonomous_small_prey_hunting, current: true}

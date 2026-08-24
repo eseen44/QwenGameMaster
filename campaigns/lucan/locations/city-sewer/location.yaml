@@ -1,0 +1,26 @@
+schema_version: 1
+id: loc_city_sewer
+name: Kanaly Lumarii
+status: known_by_proxy_unmapped
+world_ref: worlds/solmara
+type: underground_network
+first_used_event_id: event_turn_interlude_077
+orientation: {north: unknown, confidence: none}
+extent: unknown_network_no_player_map
+connections:
+- {id: connection_wall_district_manhole, zone_id: zone_sewer_wall_district,
+   leads_to: loc_city_wall_hideout, kind: street_manhole, travel_time: minutes_on_foot,
+   note: Studzienka w ulicy przy murze, przez ktora Lucan wpuscil dwie stonogi.}
+- {id: connection_guild_basement_floor_drain, zone_id: unknown,
+   leads_to: loc_lumaria_guild_basement, kind: floor_drain,
+   dimensions: {width: 0.1}, passable_for: [webber_scale_servant, centipede_scale_servant],
+   impassable_for: [human],
+   source_ref: campaigns/lucan/locations/guild-basement/maps/layout.yaml#feature_corridor_floor_drain,
+   note: 'Kratka w podlodze korytarza zatrzyman - dwoje drzwi od celi Lucana i od pokoju
+     czworki wspolpracujacych swiadkow. Kanaly siegaja WIEC pod gildie; to droga w obie
+     strony i nikt jej nie pilnuje.'}
+map_refs: {layout: null, gm: null, player: null}
+map_note: Brak mapy. Lucan nie byl w kanalach osobiscie i nie ma pojecia o ich
+  geometrii; wie tylko, ze siec istnieje i gdzie ma dwa wejscia. Zanim wejdzie sam,
+  lokacja wymaga layoutu i discovery wg system/locations-and-maps.md.
+source_refs: [event_turn_interlude_077]

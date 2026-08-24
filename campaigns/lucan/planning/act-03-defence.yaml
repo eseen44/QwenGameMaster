@@ -28,11 +28,16 @@ decoy_construct:
       (datowana dzis), a okaz przypisac do niej pozniej.'
   objective_ref: objective_build_decoy_construct_for_academy
   constraints:
-    - id: energy_budget
-      text: 'ENERGIA - każdy trwały krok obudowania nowego służącego kosztuje 8
-        (permanent_growth_steps 0, reguła 8 x 1.5^n z system/companion-growth.md), a Lucan ma
-        13,5/15. Wychodzi JEDEN porządnie obudowany wabik, nie kilka. "Kilka" jest osiągalne
-        tylko jako proste, nieprzekonujące pająki.'
+    - id: time_budget
+      supersedes: energy_budget
+      retcon_ref: retcon_000017
+      text: 'CZAS, NIE ENERGIA - trwały krok obudowania kosztuje 8 x 1.5^n GODZIN pracy
+        ręcznej, a energii nie kosztuje wcale. Dawne ograniczenie "wychodzi JEDEN wabik, nie
+        kilka" UPADA: liczbę wabików ogranicza teraz liczba godzin przy stole w ciągu ~15 dni
+        interludium, a nie rezerwa 13,5/15. Obiecane ojcu "kilka" staje się osiągalne, o ile
+        Lucan faktycznie przesiedzi te godziny i ma ciała. Uwaga - drugi krok TEGO SAMEGO
+        okazu to już 12 godzin, więc kilka prostych wabików jest tańsze czasowo niż jeden
+        bardzo dopracowany.'
     - id: doctrine_refined
       source_event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
       text: 'Lucan podniósł trafny kontrargument i Seraphine go przyznała: z zewnątrz NIE DA

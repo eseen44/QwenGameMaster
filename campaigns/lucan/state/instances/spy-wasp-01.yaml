@@ -1,0 +1,51 @@
+schema_version: 1
+id: spy_wasp_01
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 5
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: zone_entry
+  formation: on_the_workbench
+integrity:
+  current: 4
+  maximum: 4
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 38400
+      hunting_recovery_elapsed_seconds: 0
+    hunting_recovery_override:
+      requires:
+      - autonomous_hunting
+      - access_to_forage_or_carrion
+      note: Osa nie wyzywi sie na parapecie w zamknietym pokoju - potrzebuje wyjscia
+        na zewnatrz albo padliny.
+    flight_surcharge:
+      units_per_long_flight: 1
+      note: Lot na dystans miasta zjada dodatkowa jednostke poza dobowym ubytkiem.
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- flight_capable
+- compound_eye_motion_detection
+- courier_capable_over_distance
+- wings_end_on_first_hard_impact
+- buzz_draws_attention_and_violence
+- starves_at_a_static_indoor_post
+conditions: []
+last_event_id: event_turn_interlude_080
+source_refs:
+- event_turn_interlude_075
+- event_turn_interlude_076

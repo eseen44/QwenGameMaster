@@ -1,0 +1,170 @@
+schema_version: 1
+id: companion_spy_series_01
+name: Seria pierwsza - proba gatunkowa
+status: active
+entity_kind: companion
+created_event_id: event_turn_interlude_076
+representation:
+  mode: group_of_individually_distinct_members
+  count: 16
+  body_scale: insect
+  member_ids: [spy_cellar_spider_02, spy_cellar_spider_03,
+    spy_cellar_spider_04, spy_cellar_spider_05, spy_cellar_spider_06, spy_wasp_01,
+    spy_centipede_01, spy_centipede_02, spy_beetle_01, spy_beetle_02, spy_beetle_03,
+    spy_beetle_04, spy_beetle_05, spy_beetle_06, spy_beetle_07, spy_beetle_08]
+  can_split: true
+  split_rule: Kazdy okaz jest innego gatunku i ma inne zdolnosci, wiec kazdy ma wlasny
+    stan od poczatku. To proba gatunkowa, nie roj.
+purpose: Ustalic doswiadczalnie, ktory gatunek nadaje sie do ktorej funkcji w planowanej
+  sieci szpiegowskiej (lead_spy_spider_population).
+controller:
+  entity_id: pc_lucan
+  control_type: simple_necromantic_command
+  strength: stable_for_simple_orders
+  autonomy: autonomous_hunting_only_no_maturity_yet
+  can_refuse: false
+  can_break: true
+  break_conditions: [reservoir_depletion, body_destruction, control_link_severed]
+link:
+  active: true
+  range: remote_with_distance_loss
+  maintenance_cost: 0
+  communication: [minimal_status]
+  note: 'Zadne nie jest zakotwiczone. Death_Anchor jest WZMACNIACZEM sygnalu i tetherem
+    trwalosci wiezi, NIE warunkiem pozyczenia zmyslu (retcon_000016) - dowod w plikach:
+    webber_anchored jest zakotwiczony i ma ten sam ubogi kanal co reszta sieci.
+    Pozyczenie zmyslu zalezy od PASMA slugi, czyli jej dojrzalosci i rozwoju, oraz od
+    odleglosci. Ta seria moze wiec zmysl pozyczyc, ale slabo i tylko z bliska, bo okazy
+    sa swieze - a bez anchora nie ma wzmocnienia, wiec zasieg i wiernosc sa gorsze.
+    Straty propagacji wg companions/webber-network.yaml#network_cost_model.'
+survival_model:
+  self_sufficient: true
+  food_source: autonomous_small_prey_hunting
+  routine_upkeep_cost: 0
+  limitation: Zbiornik 3 i ubytek 1 na dobe daja trzydniowa smycz bez polowania.
+    Okaz na posterunku, ktory nie ma na czym polowac, konczy sie sam.
+species_assessment:
+  - id: spy_cellar_spider_01
+    role: staly obserwator i wyzwalacz alarmu
+    strengths: [cisza, wchodzi w kazda szczeline, stoi nieruchomo dniami, sylwetka
+      absolutnie nieciekawa, potrafi rozsnuc rzadka siec jak sieciarze]
+    weaknesses: [prawie slepy - drgania i ruch powietrza, nie obraz, konczy go miotla]
+    best_fit: Pajak alarmowy do gabinetu Seraphine.
+  - id: spy_wasp_01
+    role: kurier i zwiadowca na dystans
+    strengths: [LATA - jedyny, ktory zamyka odleglosc, wchodzi w okna i na dachy,
+      zlozone oko lapie ruch]
+    weaknesses: [skrzydla konczy pierwsze uderzenie, brzeczy i sciaga na siebie
+      przemoc, na zamknietym posterunku glodnieje]
+    key_insight: Odpowiedzia na straty przesylowe jest KURIER, nie szersza rura -
+      osa, ktora fizycznie doleci do Spideya albo do Lucana, zamienia lacze zdalne
+      z narastajaca strata na lacze bliskiego zasiegu.
+  - id: spy_centipede_01
+    role: infiltracja i szukanie drogi
+    strengths: [plaska i szybka, chodzi w pustkach scian, pod podlogami i w odplywach,
+      jedyna ktora wejdzie do zamknietego pokoju z zewnatrz, czuje calym cialem]
+    weaknesses: [zerowy uzytek ze wzroku, widziana wywoluje natychmiastowa
+      eksterminacje, w ruchu bezdyskusyjnie biologiczna]
+    note: Najgorszy mozliwy kandydat na cokolwiek, co ma udawac mechanizm.
+  - id: spy_beetle_01
+    role: nosnik, martwa skrzynka i najtrwalszy posterunek dlugoterminowy
+    strengths: [opancerzony - przezyje kieszen, worek i przenoszenie, uniesie duzo
+      na swoja skale, da sie go przewiezc jak przedmiot]
+    weaknesses: [powolny, slabo trzyma sie gladkich powierzchni, klika po kamieniu]
+feeding_model:
+  source: out_of_game_question_2026-08-24
+  rule: Zbiornik 3 przy ubytku 1 na dobe daje trzydniowa smycz, wiec o uzytecznosci
+    posterunku decyduje nie odwaga okazu, a to, czy ma tam co jesc. Zdobycz per gatunek
+    rozklada te czworke inaczej, niz sugerowala pierwsza ocena.
+  by_species:
+    spy_cellar_spider_01: 'To, co samo wejdzie w rzadka siec - muchy, mole, roztocza.
+      Dostepne praktycznie wszedzie, w budynku i poza nim. Smycz dluga, dopoki cokolwiek
+      lata.'
+    spy_wasp_01: 'Kwiaty, owoce, cukier, padlina - wymaga WYJSCIA na zewnatrz. Na
+      zamknietym posterunku w gabinecie glodnieje w trzy dni. Najkrotsza smycz z czworki,
+      cena za jedyne skrzydla.'
+    spy_centipede_01: 'Zywa drobna zdobycz w wilgotnym miejscu - odplywy, piwnice,
+      pustki scian. Poluje sama i dobrze, byle bylo mokro i pelno robactwa.'
+    spy_beetle_01: 'ROZKLAD. Padlina, detrytus, zepsute ziarno, nawoz, gnijace drewno -
+      zaleznie od gatunku, ale zawsze rzeczy MARTWE, ktore nie ucieknaja. Jedyny okaz
+      z czworki, ktory NIE MUSI POLOWAC, tylko siedziec tam, gdzie cos gnije. To czyni
+      go najtrwalszym posterunkiem, nie najslabszym - odwrotnie niz mowila pierwsza
+      ocena. Jedyny, ktory przetrwa tygodnie w zamknietym budynku bez zdobyczy zywej,
+      i jedyny, ktorego zdobycz Lucan potrafi WYPRODUKOWAC.'
+  design_consequence: 'Przy stratach propagacji uzytecznym wezlem jest ten, ktory moze
+    sobie pozwolic na strate, czyli ten, ktory sie nie wyczerpuje. Chrzaszcz na
+    smietniku albo w spichlerzu jest najtansza mozliwa staja przekaznikowa; osa jest
+    kurierem jednorazowego uzytku, nie mieszkancem.'
+standing_decisions:
+  source_event_id: event_turn_interlude_078
+  no_anchoring: 'Zaden okaz serii nie jest zakotwiczony. Skutek: brak WZMOCNIENIA
+    sygnalu, czyli krotszy zasieg i mniejsza wiernosc lacza, oraz mniej trwala wiez -
+    ale pozyczenie zmyslu nie jest tym zablokowane (retcon_000016). Zysk: sekcja na
+    dowolnym z nich nie ujawnia Death_Anchor, a strata sztuki nie boli.'
+  no_modifications_yet: 'Pajaki idace do sieciarzy sa nieruszone. Modyfikacje pozniej,
+    swiadomie, za 8 x 1.5^n GODZIN przy stole (retcon_000017 - energia w to nie
+    wchodzi). WYJATEK: spy_cellar_spider_01 dostal gruczol przedny
+    jedwabnika w event_turn_interlude_079, a potem zostal wyssany (retcon_000018). Po tym
+    seria nie ma ANI JEDNEGO zmodyfikowanego okazu.'
+  wasps_abandoned: 'Pozostale osy zostaja nieozywione - zbyt widoczne. Decyzja gracza,
+    nie ograniczenie swiata. spy_wasp_01 zyje dalej jako jedyny egzemplarz skrzydlaty.'
+  scatter_and_wait: 'Zuki i przyszle nabytki dostaja BRAK rozkazu celowo, zeby
+    dojrzewaly. To jedyny darmowy sposob na zdobycie sadu u slug (kanon dojrzewania,
+    event_turn_interlude_070); cena to czas i temperament.'
+  hand_feeding_program:
+    target: spy_cellar_spider_06
+    handler: companion_spidey
+    instruction: Spasc najszybciej jak mozna, bezpiecznie, karmiac RECZNIE (nie
+      zostawiac na samodzielne polowanie).
+    excluded_prey: [dzieci, koty]
+    mechanics: 'Zbiornik ma pojemnosc 3 i szybko sie zapelnia; nadwyzka idzie do
+      rezerwy przeznaczonej na tego sluge (growth_bank w instancji). Samo karmienie NIE
+      powoduje ewolucji (system/companion-growth.md) - trwaly krok trzeba potem
+      zadeklarowac i przepracowac - 8 godzin przy stole za pierwszy krok, bez kosztu
+      energetycznego (retcon_000017). Karmienie sluzy wiec masie i dojrzewaniu okazu, nie
+      finansowaniu upgradu. Realnym ogranicznikiem tempa jest WIELKOSC bezpiecznej
+      zdobyczy: po wykluczeniu kotow zostaja glownie szczury,
+      objete i tak stalym rozkazem z tury 055.'
+maturity:
+  state: fresh
+  text: Wszystkie cztery sa swieze, wiec posluszne, tepe i blizsze konstruktom -
+    idealne dla linii wabika, bezuzyteczne tam, gdzie potrzebny jest sad. Sad
+    przyjdzie z wiekiem, razem z temperamentem (kanon dojrzewania gatunku,
+    event_turn_interlude_070).
+deployment:
+  released_event_id: event_turn_interlude_077
+  spy_centipede_01: loc_city_sewer#zone_sewer_wall_district, bez rozkazu poza domyslnym
+    polowaniem
+  spy_centipede_02: loc_city_sewer#zone_sewer_wall_district, bez rozkazu poza domyslnym
+    polowaniem
+  spy_beetle_01: nieprzydzielony, na blacie w baszcie
+  spy_beetle_02_to_08: rozproszone po ulicach i smietnikach wokol baszty
+    (loc_city_wall_hideout#zone_surrounding_streets_and_refuse), BEZ ROZKAZU, celowo -
+    maja dojrzewac
+  spy_cellar_spider_01: WYSSANY I ZLIKWIDOWANY (retcon_000018) - dostal gruczol
+    jedwabnika, potem gracz uznal pomysl gestej widocznej sieci za nieudany i odebral mu
+    energie. Pajak alarmowy dla Seraphine nadal nieoddany; plan na dzien drugi to zwykly,
+    niezmodyfikowany okaz.
+  spy_cellar_spider_02: sparowany z webber_home na miejscu, w baszcie
+  spy_cellar_spider_03: przypisany do webber_tannery, czeka na rotacje
+  spy_cellar_spider_04: przypisany do webber_dump, czeka na rotacje
+  spy_cellar_spider_05: przypisany do webber_anchored, czeka na rotacje
+  spy_cellar_spider_06: przy Spideyu, program recznego karmienia
+  transit_mechanism: 'Trzy pajaki do posterunkow poza baszta nie ida same - sieciarze
+    i tak wracaja do baszty na nocne doladowanie (companions/webber-network.yaml,
+    condition redeployed_after_overnight_recharge_at_wall_hideout), wiec zabiora je
+    przy najblizszej rotacji. Alternatywa to Spidey i jego ability_spidey_linked_logistics
+    (small loads), jesli Lucan bedzie chcial szybciej.'
+  note: 'Kanaly sa dla stonog idealnym biomem - mokro, ciemno, pelno robactwa, wiec
+    zdobycz i smycz przestaja byc problemem. Problemem jest GEOMETRIA: komunikacja to
+    minimal_status (zyje / glodny), wiec Lucan ma dwa zywe sygnaly pod ziemia i zadnej
+    informacji, gdzie sa. Kanaly siegaja pod piwnice gildii przez
+    feature_corridor_floor_drain - dwoje drzwi od jego wlasnej celi.'
+capacity_note: Cztery ciala poruszaja sie w tej chwili z przepustowoscia informacyjna
+  JEDNEGO - Lucan jest jedynym odbiornikiem i uwage daje jednemu naraz. Reszta zyje,
+  nie raportuje.
+production_note: Ozywienie jest jednym gestem - bez odczynnikow, bez zuzycia zapasow
+  (retcon_000015). Produkcje ogranicza wylacznie dostepnosc cial i czas Lucana, a cial
+  miasto ma nieskonczenie duzo. Zapasy ze schowka w baszcie sa osobna pula TRWALYCH
+  ULEPSZEN do nalozenia na wybranego sluge, jesli gracz tak zadeklaruje.
+last_updated_event_id: event_turn_interlude_076

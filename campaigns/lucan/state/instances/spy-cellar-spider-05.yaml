@@ -1,0 +1,44 @@
+schema_version: 1
+id: spy_cellar_spider_05
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 3
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: zone_entry
+  formation: awaiting_next_webber_rotation
+integrity:
+  current: 6
+  maximum: 6
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 34200
+      hunting_recovery_elapsed_seconds: 34200
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- autonomous_hunting
+- static_post_capable
+- sparse_web_capable
+- near_blind_vibration_and_air_sensing_only
+- destroyed_by_a_broom
+- silhouette_ignored_by_everyone
+- unmodified_by_choice
+- not_anchored_by_choice
+- assigned_to_webber_anchored_pending_transit
+conditions: []
+last_event_id: event_turn_interlude_080
+source_refs:
+- event_turn_interlude_078

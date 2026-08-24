@@ -1,0 +1,50 @@
+schema_version: 1
+id: spy_cellar_spider_06
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 3
+position:
+  location_id: loc_lumaria_guild_basement
+  zone_id: zone_temporary_holding
+  formation: with_spidey_being_hand_fed
+integrity:
+  current: 6
+  maximum: 6
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 34200
+      hunting_recovery_elapsed_seconds: 34200
+    growth_bank:
+      units_earmarked: 0
+      note: Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
+        laduje w rezerwie przeznaczonej na tego sluge (system/companion-growth.md).
+        Pierwszy trwaly krok wzrostu kosztuje 8.
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- autonomous_hunting
+- static_post_capable
+- sparse_web_capable
+- near_blind_vibration_and_air_sensing_only
+- destroyed_by_a_broom
+- silhouette_ignored_by_everyone
+- unmodified_by_choice
+- not_anchored_by_choice
+- hand_fed_growth_program
+- excluded_prey_children_and_cats
+conditions: []
+last_event_id: event_turn_interlude_080
+source_refs:
+- event_turn_interlude_078

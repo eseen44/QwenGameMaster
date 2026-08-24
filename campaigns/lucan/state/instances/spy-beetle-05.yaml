@@ -1,0 +1,44 @@
+schema_version: 1
+id: spy_beetle_05
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 3
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: zone_surrounding_streets_and_refuse
+  formation: dispersed_solo_no_order
+integrity:
+  current: 10
+  maximum: 10
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 34200
+      hunting_recovery_elapsed_seconds: 34200
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- autonomous_hunting
+- feeds_on_rot_and_detritus_no_hunting_required
+- armoured_survives_handling_and_pockets
+- load_carrying_for_body_scale
+- transportable_as_an_inert_object
+- slow
+- poor_climber_on_smooth_surfaces
+- audible_clicking_on_stone
+- scattered_no_standing_order_left_to_mature
+conditions: []
+last_event_id: event_turn_interlude_080
+source_refs:
+- event_turn_interlude_078

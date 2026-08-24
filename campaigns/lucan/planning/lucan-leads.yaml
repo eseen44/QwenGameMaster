@@ -367,6 +367,32 @@ leads:
       nakazem. Do ustalenia: kto zlozyl poreczenie - jesli ktokolwiek.'
     related_ref: campaigns/lucan/entities/npcs/index.yaml
     status: open
+  - id: lead_spy_spider_population
+    logged_event_id: event_turn_interlude_075_sorting_the_night_haul
+    topic: Zbudowac znacznie wieksza populacje malych pajakow-szpiegow
+    note: 'Zamiar zadeklarowany przez gracza przy przebieraniu nocnego urobku, dzien 1
+      interludium wieczor, i doprecyzowany poza gra tego samego wieczora. ARCHITEKTURA (wersja
+      gracza, przyjeta): setki okazow w trybie zdalnym, samodzielnie polujacych; Lucan
+      przetwarza swiadomie tylko jeden, moze kilka; reszta rozlozona po sieciarzach po 2-3 na
+      sztuke, sieciarze odpowiadaja Spideyowi. Ciala NIE sa waskim gardlem - pajak piwniczny
+      jest w kazdej piwnicy Lumarii, sieciarze dowioza tyle samo kazdej nocy. Ozywienie ciala
+      owadziego to koszt formalny, nie rezerwa. CO REALNIE OGRANICZA: (1) OKNO SWIEZOSCI -
+      urobek starzeje sie w dobe, wiec produkcja musi iterowac codziennie albo material idzie
+      na czesci; (2) PASMO LACZA SIECIARZA - communication to thread_break_signal +
+      minimal_status, wiec sieciarz nie jest jeszcze wezlem; dowod juz w plikach: rozkaz
+      order_collect_live_specimens_from_posts zostal zdegradowany do "lapac male rzeczy, nosic
+      do baszty", a dla garbarni i wysypiska dodatkowo degraded_by_distance. Wezel trzeba
+      wypracowac: 8 x 1.5^n GODZIN przy stole, czyli 8 godzin za pierwszego sieciarza, bez
+      kosztu energetycznego (retcon_000017) - konkuruje z godzinami na wabika, nie z rezerwa; (3) STRATY PROPAGACJI - patrz companions/webber-network.yaml
+      network_cost_model, 20-30 procent na przeskok i mnozne, wiec plaska topologia jest tania
+      a gleboka hierarchia droga; (4) DOWOD RZECZOWY - jedyna rzecz rosnaca liniowo z liczba
+      okazow, nie energetyczna a prawna. WARIANT ZA ZERO, dostepny natychmiast: 2-3 szpiegi
+      meldujace sie wprost do Spideya (autonomy simple_independent_planning, sortowanie juz
+      raz delegowane w 015) - bez ulepszen, ograniczenie wylacznie geograficzne, bo Spidey
+      chodzi z Lucanem. WYCOFANE jako naciagane: teza, ze polowanie kilkudziesieciu owadzich
+      okazow przetrzebia zdobycz albo tworzy dostrzegalny wzor - nie tworzy.'
+    related_ref: campaigns/lucan/companions/webber-network.yaml#network_cost_model
+    status: open
 notes:
   - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,
     szerszy temat niz pojedyncze leady wyzej - beda pod nim wisiec, dopoki gracz

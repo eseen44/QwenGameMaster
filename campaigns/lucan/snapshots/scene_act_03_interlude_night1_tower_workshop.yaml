@@ -1,0 +1,115 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_night1_tower_workshop
+object_type: scene_snapshot
+closed_at: '2026-08-24T17:40:36+02:00'
+summary: 'Noc pierwsza interludium w baszcie: Lucan przebral nocny urobek sieciarzy
+  i zamienil go w siec siedemnastu malych slug. Ozywil po jednym z kazdego gatunku
+  i ustalil ich funkcje - pajak piwniczny jako staly obserwator, osa jako kurier zamykajacy
+  odleglosc, stonoga do infiltracji, zuk jako najtrwalszy posterunek, bo je rozklad
+  i nie musi polowac. Dwie stonogi poszly do kanalow, gdzie odkryl, ze siec kanalow
+  siega pod piwnice gildii kratka dwoje drzwi od jego celi. Osy odpuscil jako zbyt
+  widoczne i przestawil sieciarzy na cmy. Siedem zukow rozproszyl po dzielnicy bez
+  rozkazu, zeby dojrzewaly. Piec pajakow przypisal sieciarzom i Spideyowi, ostatniemu
+  przeszczepil gruczol jedwabnika na gesta, widoczna siec alarmowa i wystawil go w
+  gabinecie Seraphine bez uzgodnienia i bez karmienia. Trzy retcony: zapasy rytualne
+  nie sa warunkiem ozywienia, anchor jest wzmacniaczem a nie warunkiem pozyczenia
+  zmyslu, trwale ulepszenie kosztuje godziny pracy a nie energie - co zniosло limit
+  jednego wabika. Poszedl spac do celi w gildii.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_night1_tower_workshop
+  location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+  started_at: '2026-08-16T18:46:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  pressures:
+  - the_decoy_spider_has_not_been_started_and_the_showing_is_in_about_15_days
+  - the_alarm_spider_promised_to_seraphine_has_not_been_made
+  - the_alchemical_cover_bench_in_the_cell_is_empty_until_boros_pays_in_two_days
+  - lucan_now_sleeps_two_doors_from_four_cooperating_witnesses
+  - an_uninhabited_cover_room_upstairs_survives_a_search_but_not_questioning
+  - she_still_does_not_know_the_father_knows_the_method
+  - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+  - cemetery_loot_needs_discreet_buyer_and_is_currently_with_boros
+  immediate_facts:
+  - the_research_unit_registration_is_signed_and_dated_today_and_names_no_specimen
+  - spiders_get_smarter_and_more_temperamental_with_age_so_a_fresh_one_is_genuinely_more_construct_like
+  - seraphine_knows_a_low_resolution_channel_from_the_spiders_exists_heat_not_letters
+  - she_does_not_know_the_same_mechanism_covers_varkhen
+  - varkhen_stands_motionless_in_her_office_and_signals_only_through_the_link
+  - the_tower_holds_the_webber_night_haul_small_specimens_only_and_a_stocked_ritual_kit
+  - animation_is_a_single_gesture_and_the_ritual_kit_is_permanent_upgrades_not_a_reagent_gate
+  - fresh_transplant_material_from_the_father_is_about_seven_days_out
+  immediate_questions:
+  - 'Rano dnia drugiego interludium, cela w piwnicy gildii. Do rozstrzygniecia - czym
+    Lucan zaczyna dzien: wabikiem przy stole w baszcie, rozmowa z Seraphine o tym,
+    co jej wisi w gabinecie, czy czyms zupelnie innym.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_080
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day1_afternoon.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/wall-hideout/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  search_terms:
+  - 'Rano dnia drugiego interludium, cela w piwnicy gildii. Do rozstrzygniecia - czym
+    Lucan zaczyna dzien: wabikiem przy stole w baszcie, rozmowa z Seraphine o tym,
+    co jej wisi w gabinecie, czy czyms zupelnie innym.'
+  - the_decoy_spider_has_not_been_started_and_the_showing_is_in_about_15_days
+  - the_alarm_spider_promised_to_seraphine_has_not_been_made
+  - the_alchemical_cover_bench_in_the_cell_is_empty_until_boros_pays_in_two_days
+  - lucan_now_sleeps_two_doors_from_four_cooperating_witnesses
+  - an_uninhabited_cover_room_upstairs_survives_a_search_but_not_questioning
+  - she_still_does_not_know_the_father_knows_the_method
+  - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+  - cemetery_loot_needs_discreet_buyer_and_is_currently_with_boros
+  last_refreshed_event_id: event_turn_interlude_080
+  context_bytes: 25593
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 10069
+  - ref: system/narrator.md
+    bytes: 3127
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2440
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 1941

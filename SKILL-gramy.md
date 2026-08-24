@@ -173,6 +173,22 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   `planning/lucan-leads.yaml`), ale sama się nie wykonuje — potrzebuje normalnej deklaracji
   poza nawiasem. Wiadomość wyłącznie z nawiasu zatrzymuje scenę: odpowiedz poza grą i nie
   commituj tury. Wyjątek: zatwierdzenie korekty kanonu może zmienić pliki, wciąż bez czasu.
+- **Nie dokladaj kosztow, ktorych kanon nie ma** (ustalone przez gracza, 2026-08-24, dwa razy
+  w jednej sesji). Ta wersja nekromancji jest **z zalozenia tania i skalowalna** - gracz nazwal
+  ja "raspberry pi zamiast serwerowni". Ozywienie owadziego albo malego ciala to **jeden gest**:
+  bez odczynnikow, bez zuzycia zapasow, bez limitu produkcji poza dostepnoscia cial i czasem.
+  Zapasy rytualne ze schowka (sol, srodek przewodzacy, preparat konserwujacy) to **trwale
+  ulepszenia** dla istniejacych slug, NIE warunek konieczny ich powstania. Utrzymanie sieci
+  to `routine_upkeep_cost: 0`; realna cena sieci to **straty propagacji miedzy wezlami**
+  (80% sieciarz->Varkhen, 70% Lucan<->Spidey, mnozne na przeskok - patrz
+  `companions/webber-network.yaml#network_cost_model`), a trwale ulepszenie slugi kosztuje
+  **CZAS PRZY STOLE, NIE ENERGIE**: `8 x 1.5^n` **godzin** pracy recznej (`retcon_000017` -
+  gracz uchylil dawna wersje energetyczna, to bylo trzecie wymyslone ograniczenie w jednej
+  sesji). Energia zostaje zasobem czarow, transferow w sieci i podtrzymywania Varkhena.
+  Nie mieszac tych trzech. Zanim nazwiesz cokolwiek
+  ograniczeniem, sprawdz, czy stoi w pliku - jesli nie, to jest wymyslone i gracz to wylapie.
+  Prawdziwe ograniczenia tej kampanii sa **instytucjonalne i informacyjne** (przesluchania,
+  swiadkowie, pasmo lacza, dowod rzeczowy), nie zasobowe. Patrz `retcon_000015`.
 - **Nie rzucaj na zwykłych ludzi bez karty** (ustalone przez gracza, 2026-08-19). Osoba
   trzecia bez arkusza — portier, urzędnik, straganiarz, znudzony strażnik — nie jest
   przeciwnikiem w teście. Jeśli nie ma walki ani aktywnych poszukiwań, **rozstrzygnij
