@@ -6,5 +6,15 @@ zones:
   - {id: zone_basement_stair, kind: stairs, dimensions: {length: 4, width: 1.5}, connects_to: [zone_holding_corridor]}
   - {id: zone_holding_corridor, kind: corridor, dimensions: {length: 9, width: 2}, connects_to: [zone_basement_stair, zone_witness_holding, zone_temporary_holding]}
   - {id: zone_witness_holding, kind: holding_room, dimensions: {length: 4, width: 3}, connects_to: [zone_holding_corridor]}
-  - {id: zone_temporary_holding, kind: holding_room, dimensions: {length: 5, width: 4}, connects_to: [zone_holding_corridor], secret_from_player_on_first_entry: true}
+  - {id: zone_temporary_holding, kind: lucans_quarters, geometry_status: surveyed,
+     dimensions: {length: 5, width: 4, height: 2.4}, connects_to: [zone_holding_corridor],
+     was: varkhen_holding_room, out_of_sight_from_stairs: true, unlit_end_of_corridor: true,
+     features: [barrel_vault, stone_bench, lamp_bracket, door_lockable_from_inside,
+       ventilation_slit_hand_wide_to_side_alley],
+     absent: [hearth, water_supply]}
+  - {id: feature_corridor_floor_drain, kind: opening, in_zone: zone_holding_corridor,
+     dimensions: {width: 0.1}, leads_to: city_sewer,
+     note: 'Szerokosc dloni. Nieprzejezdna dla czlowieka, przejezdna dla sieciarza.'}
+  - {id: feature_corridor_chimney_stack, kind: structure, in_zone: zone_holding_corridor,
+     note: 'Komin od kominka w glownej sali; kamien cieply przez wieczor. Gotowy ciag, ale nie w celi.'}
 source_refs: [campaigns/lucan/locations/guild-basement/description.md]

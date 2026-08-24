@@ -1,0 +1,631 @@
+schema_version: 1
+id: turn_interlude_069_cover_room_and_grandpa
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-24T12:33:48+02:00'
+scene_id: scene_act_03_interlude_day1_afternoon
+event_id: event_turn_interlude_069_cover_room_and_grandpa
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_069_cover_room_and_grandpa
+  actor_id: pc_lucan
+  declared_action: 'Lucan pyta Seraphine, czy poradzi sobie z Varkhenem sama, czy
+    ma mu kazac przejsc do jej biura. Odrzuca lozko dyzurne jako miejsce do spania
+    - jest zbyt publiczne - ale prosi o pokoj jako PRZYKRYWKE: cos, co da sie przeszukac
+    i nic nie znalezc, i gdzie inni pracownicy gildii nie zauwaza, ze go tam faktycznie
+    nie ma. Potem konczy rozmowe i idzie szyc drugiego pajaka.'
+  fiction_verdict: automatic
+  time_class: brief
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_069_cover_room_and_grandpa
+  status: preview
+  scene_id: scene_act_03_interlude_day1_afternoon
+  declaration: 'Lucan pyta Seraphine, czy poradzi sobie z Varkhenem sama, czy ma mu
+    kazac przejsc do jej biura. Odrzuca lozko dyzurne jako miejsce do spania - jest
+    zbyt publiczne - ale prosi o pokoj jako PRZYKRYWKE: cos, co da sie przeszukac
+    i nic nie znalezc, i gdzie inni pracownicy gildii nie zauwaza, ze go tam faktycznie
+    nie ma. Potem konczy rozmowe i idzie szyc drugiego pajaka.'
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 120
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 120
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  summary: 'Bez testu. Seraphine odwraca sposob przenosin Varkhena i przyjmuje ostrzejsza
+    wersje prosby o pokoj, ale nazywa jej wade. 1. VARKHEN IDZIE SAM, NIE W SKRZYNI.
+    Seraphine odrzuca wariant transportowy wlasnym argumentem z tego samego wieczoru:
+    skrzynia tej wagi wymaga dwoch tragarzy, a tragarz jest swiadkiem, ktory nie zeznaje,
+    dopoki ktos go nie zapyta. Zamiast tego Varkhen ma wejsc na gore o wlasnych silach
+    tylnymi schodami, raz, przy pustym korytarzu, i od tej chwili nie ruszyc sie nigdy
+    wiecej. Rozkaz musi wydac Lucan - ona nie ma czym go wydac, wiez jest jego. Przyznaje
+    tez, czego NIE poradzi: dopoki uklad jest dobrowolny, panuje nad sytuacja papierami;
+    w chwili gdy przestanie byc dobrowolny, ona nie jest strona, ktora go zatrzyma.
+    Chce miec sposob, zeby dosiegnac Lucana szybko. 2. POKOJ JAKO PRZYKRYWKA - PRZYJETE,
+    Z JEDNYM WARUNKIEM. Lozko dyzurne spelnia oba kryteria, o ktore Lucan prosi: wlascicielem
+    jest Gildia (nudny), pokoj nie ma zwiazku z zadnym otwartym postepowaniem, a przeszukanie
+    go niczego nie da. Seraphine przydziela pokoj na korytarzu, ktory sam podlega,
+    wpisuje Lucana na caly okres interludium zamiast noc po nocy i bierze na siebie
+    rote sprzatania. Wada, ktora nazywa wprost: przykrywka, w ktorej nikt nigdy nie
+    spi, przestaje byc przykrywka przy drugim sprawdzeniu. Ktos musi ten pokoj czasem
+    zuzywac - albo Lucan, albo nikt, i wtedy pusty pokoj sam jest zeznaniem. 3. MA
+    JESZCZE JEDNA RZECZ DO ZAOFEROWANIA. Na zdanie Lucana, ze skoro nic wiecej nie
+    moze pomoc, to idzie szyc, odpowiada, ze moze - i wskazuje slad autorstwa. Papier
+    o jednostce badawczej i przynaleznosci okazu da sie zaczac dzis, na wlasnych drukach
+    gildii, i musi byc STARSZY niz cokolwiek, co ktokolwiek zobaczy. Kwerenda o obsadzie
+    polnocno-zachodniej zapory ma dac odpowiedz w dzien albo dwa. 4. LUCAN WYCHODZI.
+    Zostaje z tym, ze jedyny pokoj, ktory wlasnie sobie zalatwil, jest z zalozenia
+    pokojem do przeszukania - czyli ostatnim miejscem w miescie, w ktorym mozna szyc
+    drugiego pajaka.'
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  operations:
+  - op: advance_time
+    seconds: 120
+  - *id002
+  new_decision: 'Seraphine czeka na rozkaz dla Varkhena (wejscie po tylnych schodach
+    przed koncem jej dyzuru) i na decyzje, czy zaczyna dzis papier o autorstwie. Lucan
+    ma pokoj-przykrywke w Gildii, ale nie ma warsztatu: musi wskazac miejsce, w ktorym
+    faktycznie usiadzie do drugiego pajaka, i material, z ktorego go zacznie.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 2c5704e133e55b936364fbcdd738a8ec28de7e7638956b8d7ac72ee10d8989c8
+  after_hash: ec7b28978e3220a32d465d53373c27106614cdb02432503c2a814b4047b9dcbb
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day1_afternoon
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: '2026-08-16T13:18:00+02:00'
+    tension:
+      level: 1
+      reason: Sala zamknieta i ciemna, rozmowa prywatna. Seraphine poczula rzucenie
+        i pyta trzeci raz o to samo, a rano staje przed sluzbami miejskimi.
+    participants:
+    - pc_lucan
+    - npc_seraphine_vale
+    - companion_spidey
+    pressures:
+    - seraphine_asks_for_the_third_time_what_to_say_to_civic_services_in_the_morning
+    - she_felt_the_amplified_casting_and_called_the_reflex_worse_than_the_act
+    - lucan_still_has_no_safe_place_to_sleep_and_the_building_is_locked
+    - she_still_does_not_know_the_father_knows_the_method
+    - the_seminar_summons_is_coming_and_cannot_be_declined
+    - boros_and_mara_money_and_mob_lawyer_appointment_in_two_days
+    - cemetery_loot_needs_discreet_buyer
+    immediate_facts:
+    - the_permit_is_a_standing_route_authorisation_with_no_legible_signature
+    - seraphine_read_it_but_refused_custody_so_it_stays_with_lucan
+    - she_will_verify_the_seal_class_against_a_week_of_civic_service_demands_on_guild_records
+    - the_night_clerk_finished_his_shift_went_home_and_remembers_nothing_no_incident_exists
+    - the_amplified_misnotice_cost_two_energy_and_left_a_strong_trace_she_registered
+    - provocation_only_pays_where_the_target_must_react_publicly_on_a_deadline
+    - varkhen_is_the_one_point_where_their_interests_are_identical
+    - the_four_oren_network_survivors_are_in_guild_custody_and_unquestioned
+    immediate_questions:
+    - 'Seraphine czeka na rozkaz dla Varkhena (wejscie po tylnych schodach przed koncem
+      jej dyzuru) i na decyzje, czy zaczyna dzis papier o autorstwie. Lucan ma pokoj-przykrywke
+      w Gildii, ale nie ma warsztatu: musi wskazac miejsce, w ktorym faktycznie usiadzie
+      do drugiego pajaka, i material, z ktorego go zacznie.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_preparation.yaml
+- path: state/clocks.yaml
+  before_hash: dd488e7dbcafbb2f1ee34d209d5bc29adc28be43da75fc9cb58d3898525bfbed
+  after_hash: 4c84834d96cb2aa240f5ae7e29908f10023e6e2dceb769d14dbd8679561c3fac
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    rationale_store: planning/act-03-defence.yaml#clocks_rationale
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się z czasem ani od samego wypowiedzenia słowa; wymaga osobnego
+        wydarzenia eskalacyjnego.
+    - id: clock_father_arranges_academy_showing
+      label: Ojciec organizuje pokaz na Akademii - realnie wezwanie na seminarium
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 23040
+      last_source_event_id: event_turn_interlude_030_the_seminar_problem
+      trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
+      effect: Okazy Lucana trafiają do JUŻ WYZNACZONEJ otwartej dysputy (ok. 16 dni,
+        npc_neris_aldhen kontra npc_ivar_kolm), a nie na prywatny pokaz. Wezwanie
+        ma postać SEMINARIUM, którego nie da się odrzucić, i seminarium ZAPISUJE.
+        Gildia nie ma nad tym jurysdykcji.
+      world_test_required: false
+      reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
+      rationale_ref: planning/act-03-defence.yaml#clocks_rationale.father_arranges_academy_showing
+    - id: clock_guild_leadership_hearing
+      label: Przesłuchanie przed kierownictwem gildii
+      status: active_time_driven
+      progress: 0
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 18240
+      last_source_event_id: event_turn_interlude_024_seraphine_date_and_payments
+      lucan_knows_the_date: horizon_only
+      knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie
+        ogłoszone oficjalnie), nie zna sztywnej daty. Nie pozwalać mu planować "na
+        piętnasty dzień" jak na datę pewną.
+      trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
+      effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii w kontekście
+        przesłuchań instytucjonalnych; na tej samej sesji rozstrzyga się nagroda za
+        Akt 2.
+      world_test_required: false
+      rationale_ref: planning/act-03-defence.yaml#clocks_rationale.guild_leadership_hearing
+- path: state/instances/pc-lucan.yaml
+  before_hash: da5bbc8a80251c058e7ea529690e49004c43798f7328558b256b32d122cecc59
+  after_hash: 6985304e595ae22e93b1dffc4416a8099241be1801beee69011409b018e98ad8
+  document:
+    schema_version: 1
+    id: pc_lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 65
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_upper_offices
+      formation: with_seraphine
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 11.5
+        capacity: 15
+        comfortable_capacity: 15
+        permanent_expansion: 3
+        expansion_source_event_id: milestone_043a_logistics_collector_overload
+        expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+          podniosl rezerwe z 12 na 15. 15 jest nowa baza, nie stanem przeciazenia
+          - patrz retcon_000004.
+        campaign_calibration: true
+        decision_status: approved
+        runtime: {}
+    conditions:
+    - id: elevated_energy_signature_above_old_threshold
+      stacks: 1
+      magnitude: 35
+      source_event_id: milestone_043a_logistics_collector_overload
+      reason: energy_above_old_threshold_12_is_less_subtle_and_easier_to_detect
+      applies_while: current_above_12
+      note: Skutek to detekowalnosc, nie dyskomfort. Zastepuje bledny post_varkhen_energy_pressure
+        (retcon_000004).
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - elevated_but_within_new_capacity
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - retcon_000004
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: ac299692b7c51d9b7c516c7cce67220f182c4769a39037cee4cebb1bb59ecc19
+  after_hash: 7c50d365c1760b56ae49763b65ce3aa8f4197f8dcde18fa5acbc3e87d7ce9f07
+  document:
+    schema_version: 1
+    id: companion_spidey
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 61
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_upper_offices
+      formation: concealed_with_lucan
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 11
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 44520
+          hunting_recovery_elapsed_seconds: 44520
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 1320
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    status_flags:
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - carried_concealed_with_lucan
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/varkhen.yaml
+  before_hash: 75c2b4bdd97fd646ce78b1f54596803ffe47b81a27214f09451f9beb7059b3cf
+  after_hash: fe9f7f772222036d83f3d2291d87db0376ab484cfa5e49e851071e38412dbe72
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 61
+    position:
+      location_id: loc_lumaria_guild_basement
+      zone_id: temporary_holding
+    integrity:
+      current: 8
+      maximum: 65
+    resources:
+      ancient_necrotic_reservoir:
+        current: 18
+        capacity: 72
+        runtime: {}
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    - id: distributed_webber_upkeep
+      stacks: 1
+      magnitude: 80
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      note: Dobrowolny, sterowany przez Lucana dopływ z czterech sieciarzy. Wzmacnia
+        bardzo powolną odbudowę rezerw i uszkodzonego ciała.
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    - distributed_network_upkeep_active
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: a723787717caaec6e70815aa1fbdc1c357f887285dfe238d328e3c0667a848c1
+  after_hash: 85e1fbaf93b4faac44dd57de31ed8cdacf14bc98a2e1592af34d67ebac9b06e7
+  document:
+    schema_version: 1
+    id: webber_anchored
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 61
+    position:
+      location_id: loc_tannery
+      zone_id: zone_upper_meadow
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 44520
+          hunting_recovery_elapsed_seconds: 44520
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - death_anchor
+    - posted_at_tannery_meadow
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-dump.yaml
+  before_hash: be6cd21c1ac10da41177fdd43e2b9b793b3552c6e7655d09e6e2ed7c9408f0aa
+  after_hash: a5e6ab98e8a9aa9dbc7b4742c2b332a218289d8ca9b092d794e7fd8c0638e21c
+  document:
+    schema_version: 1
+    id: webber_dump
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 61
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 44520
+          hunting_recovery_elapsed_seconds: 44520
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-home.yaml
+  before_hash: 276584c37e83a72ba8c5453af2c297ea06a1e4a0ef7199bb89a27f15dae4e634
+  after_hash: 0d20020ef61f0604508963a62762fab2d1d86c6b5a0891cb321e904b5e0c3f52
+  document:
+    schema_version: 1
+    id: webber_home
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 61
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: container_wall_hideout
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 44520
+          hunting_recovery_elapsed_seconds: 44520
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_wall_hideout
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-tannery.yaml
+  before_hash: 85aeafcbb86a53ff290cc28d88f24a6d8b87ccfbb490c35c37c20eaeeefb1ac3
+  after_hash: c78f60fcebae6777f232c800626a6abd31ea2ac1b54f2d38d4f2b3732c30f5c6
+  document:
+    schema_version: 1
+    id: webber_tannery
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 61
+    position:
+      location_id: loc_tannery
+      zone_id: zone_yard
+      formation: solo_regular_post
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 5
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 44520
+          hunting_recovery_elapsed_seconds: 44520
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/sustained-links.yaml
+  before_hash: 38765d8e93b4e2e7acda3fd047ab4432665faa1fafeeb3963ac5ce6c4e0e1321
+  after_hash: 495b82e5bec351cafe2c0dfa6677a4923d1961b2ed275f698e488aceb77afa55
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    links:
+    - id: link_webber_home_to_varkhen_upkeep
+      active: true
+      controller_id: pc_lucan
+      source_instance_id: webber_home
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.05
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 1920
+        successful_intervals: 0
+        missed_intervals: 0
+    - id: link_webber_tannery_to_varkhen_upkeep
+      active: true
+      controller_id: pc_lucan
+      source_instance_id: webber_tannery
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.05
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 1920
+        successful_intervals: 0
+        missed_intervals: 0
+    - id: link_webber_dump_to_varkhen_upkeep
+      active: true
+      controller_id: pc_lucan
+      source_instance_id: webber_dump
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.05
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 1920
+        successful_intervals: 0
+        missed_intervals: 0
+    - id: link_webber_meadow_to_varkhen_upkeep
+      active: true
+      controller_id: pc_lucan
+      source_instance_id: webber_anchored
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.05
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 1920
+        successful_intervals: 0
+        missed_intervals: 0
+- path: state/time.yaml
+  before_hash: 8936f5b25e0cb8e1423b1aeb071cbff2cc5005e1627f7f8d31911495ed22705f
+  after_hash: c8ef562f1c6907780c28a4e627d48e99c493e80c64aca82d830ae602adf93eae
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    calendar: null
+    current_datetime: '2026-08-16T17:22:00+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 120
+    last_event_id: event_turn_interlude_069_cover_room_and_grandpa
+    elapsed_seconds_total: 130920
+prepared_at: '2026-08-24T12:35:11+02:00'
+committed_at: '2026-08-24T12:35:11+02:00'

@@ -29,6 +29,10 @@ player_declared:
       logged_event_id: event_turn_interlude_014_market_beast_row_search
     steps:
       - {id: keep_appointment_with_boros_and_mara_in_two_days, state: scheduled}
+      - {id: loot_custody_with_boros, state: done,
+         source_event_id: event_turn_interlude_073_furnishing_the_cell,
+         summary: 'Szescdziesiat kilo trzyma Boros Keld - na razie. Nie lezy u Lucana
+           ani pod rejestrem gildii, wiec nie obciaza Seraphine.'}
       - {id: find_discreet_buyer, state: pending}
       - {id: move_60kg_without_registry_entry, state: pending}
       - {id: keep_reliquary_out_of_the_sale, state: standing_decision}
@@ -57,6 +61,10 @@ player_declared:
     steps:
       - {id: obtain_body_from_webber_night_haul_or_academy_collections, state: pending}
       - {id: invest_growth_steps_into_plating_to_look_mechanical, state: pending}
+      - {id: register_research_unit_before_any_showing, state: done,
+         source_event_id: event_turn_interlude_071_unit_signed_and_the_heat_answer,
+         summary: 'Druk gildii podpisany z dzisiejsza data, ZADEN okaz nie wymieniony;
+           przedmiot przypisuje sie do jednostki pozniej.'}
       - {id: keep_it_unanchored, state: standing_decision}
       - {id: hand_the_decoy_not_spidey_to_the_academy, state: standing_decision}
 
@@ -114,10 +122,14 @@ player_declared:
           widoczności; ta przychodzi za dwa tygodnie trzy razy z rzędu. Rozstrzygnąć, czy
           negocjować warunki własnego przydziału, czy pozostać niezarządzanym.
       - id: find_a_searchable_but_empty_place_to_sleep
-        state: pending
-        summary: Nie pusty pokój, a pokój z NUDNYM właścicielem i bez związku z żadnym otwartym
-          postępowaniem. Dom garbarnika odrzucony - sprawa otwarta, więc da się go przeszukać
-          z nakazem.
+        state: done
+        source_event_id: event_turn_interlude_072_moving_into_the_cell
+        summary: 'Rozwiazane dwoma pokojami zamiast jednego. Pokoj dyzurny na gorze
+          zostaje zarejestrowany na Lucana na cale interludium jako PRZYKRYWKA do
+          przeszukania - Seraphine utrzymuje slad zamieszkania wlasna rota sprzatania.
+          Lucan spi w celi po Varkhenie w piwnicy gildii. Wady nazwane: przykrywka nie
+          wytrzyma rozpytywania czlonkow, a cela wychodzi na ten sam korytarz co pokoj
+          czworki wspolpracujacych swiadkow.'
 long_term_context:
   - {id: seal_one_broken, state: broken, source_event_id: milestone_046_varkhen_oath_compact}
   - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}
