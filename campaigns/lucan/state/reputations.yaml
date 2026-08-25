@@ -2,5 +2,16 @@ schema_version: 1
 campaign_id: campaign_lucan
 status: accepted_by_user_pending_package_activation
 reputations:
-  - {id: reputation_adventurers_guild, subject_id: pc_lucan, standing: D, source_event_id: milestone_022_owner_exposed_and_detained}
+- id: reputation_adventurers_guild
+  subject_id: pc_lucan
+  standing: D
+  source_event_id: milestone_022_owner_exposed_and_detained
 relationship_index_ref: campaigns/lucan/relationships/index.yaml
+attitudes:
+- subject_id: null
+  target_id: null
+  score: 25
+  history:
+  - delta: 25
+    reason: null
+    event_id: event_turn_interlude_083

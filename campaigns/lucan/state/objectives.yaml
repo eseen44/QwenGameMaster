@@ -21,6 +21,9 @@ player_declared:
     commitment: Spieniężyć cmentarny łup (ok. 60 kg mortualnej biżuterii i złota),
       nie relikwiarz - ten zostaje wyłączony ze sprzedaży.
     key_constraint: 60 kg to "cięższy ładunek" - kontrola na wjazdach zostawia wpis w rejestrze.
+    value_silver_gross: 100000
+    expected_share_silver: 10000-15000 na osobę po cenie paserskiej, możliwe więcej (retcon_000020)
+    earmarked: Większość udziału idzie na kupioną współpracę prawników półświatka, nie na poradę.
     rationale_ref: planning/act-03-defence.yaml#cemetery_loot
     appointment:
       when: dzień 3 interludium (dwa dni od dnia 1)
@@ -38,35 +41,40 @@ player_declared:
       - {id: keep_reliquary_out_of_the_sale, state: standing_decision}
 
   - id: objective_build_decoy_construct_for_academy
-    status: declared_plan_active
+    status: declared_plan_deferred_until_academy_materials
     declaration_event_id: event_turn_interlude_020_decoy_construct_plan
-    commitment: Zbudować drugiego pająka - mocniej obudowanego, mniej biologicznego,
-      bliższego konstruktu - i TEGO wydać Akademii. Spidey zostaje cały i nietknięty.
-    key_property: Wabik NIE będzie zakotwiczony (bez Death_Anchor) - sekcja na nim to utrata
+    revised_event_ref: player_declaration_day2_morning
+    commitment: Zbudować TRZY-CZTERY wabiki pokazowe - ciężko obudowane, ociężałe i trwałe
+      ("RoboCop"), pancerne dla oka i ze smaczkami dla naukowców - i TE wydać Akademii.
+      Spidey zostaje cały i nietknięty.
+    key_property: Wabiki NIE będą zakotwiczone (bez Death_Anchor) - sekcja na nich to utrata
       materiału, nie towarzysza.
     key_constraints:
-      - Wabik chroni Spideya, NIE chroni metody - sekcja pokaże vitae tak samo.
-      - Okaz nie może przy nikim reagować na polecenie; tellem jest NOWOŚĆ reakcji, nie gest.
-      - Nikomu z widowni nie wolno pozwolić zamówić gestu.
-      - Jeden krok obudowania = 8 energii z 13,5 - wychodzi JEDEN wabik, nie kilka.
+      - Okaz pokazowy - ok. 4 h za sztukę, czyli kilka modyfikacji po godzinie (retcon_000024).
+      - Ciała nie są wąskim gardłem; skalę daje dostawa Akademii za ok. 7 dni.
+      - Stopień biologiczności to decyzja estetyczna, nie czynnik obrony (retcon_000023).
+    deferred: Start odłożony o kilka dni - do materiałów z Akademii. Decyzja gracza, nie brak
+      możliwości.
     rationale_ref: planning/act-03-defence.yaml#decoy_construct
     material_dates:
-      academy_collections: od zaraz, ale utrwalone - do przeszczepu bezużyteczne
-      fresh_supply: za ok. 7 dni
-      webber_night_haul: w baszcie, za małe na odnóże, dobre na małe okazy
+      academy_collections: od zaraz, utrwalone - bezużyteczne do przeszczepu, dobre na obudowę
+      fresh_supply: za ok. 7 dni - to jest materiał, na który plan czeka
+      webber_night_haul: w baszcie, dobre na małe okazy
+      free_night_hunts: piwnice, spichlerz i zaplecze rzeźnickie wokół rynku - bez kosztu
     schedule:
       showing_or_seminar: 15 dni (clock_father_arranges_academy_showing)
       open_dispute: 16 dni (npc_neris_aldhen kontra npc_ivar_kolm)
       interlude_length_requested: około dwóch tygodni na trening i pozostałe sprawy
     steps:
-      - {id: obtain_body_from_webber_night_haul_or_academy_collections, state: pending}
-      - {id: invest_growth_steps_into_plating_to_look_mechanical, state: pending}
+      - {id: wait_for_academy_fresh_supply, state: pending}
+      - {id: obtain_bodies_for_three_or_four_specimens, state: pending}
+      - {id: plate_them_heavy_and_slow_for_show, state: pending}
       - {id: register_research_unit_before_any_showing, state: done,
          source_event_id: event_turn_interlude_071_unit_signed_and_the_heat_answer,
          summary: 'Druk gildii podpisany z dzisiejsza data, ZADEN okaz nie wymieniony;
            przedmiot przypisuje sie do jednostki pozniej.'}
-      - {id: keep_it_unanchored, state: standing_decision}
-      - {id: hand_the_decoy_not_spidey_to_the_academy, state: standing_decision}
+      - {id: keep_them_unanchored, state: standing_decision}
+      - {id: hand_the_decoys_not_spidey_to_the_academy, state: standing_decision}
 
   - id: objective_claim_act_02_rewards
     status: pending_guild_leadership_review

@@ -30,14 +30,15 @@ decoy_construct:
   constraints:
     - id: time_budget
       supersedes: energy_budget
-      retcon_ref: retcon_000017
-      text: 'CZAS, NIE ENERGIA - trwały krok obudowania kosztuje 8 x 1.5^n GODZIN pracy
-        ręcznej, a energii nie kosztuje wcale. Dawne ograniczenie "wychodzi JEDEN wabik, nie
-        kilka" UPADA: liczbę wabików ogranicza teraz liczba godzin przy stole w ciągu ~15 dni
-        interludium, a nie rezerwa 13,5/15. Obiecane ojcu "kilka" staje się osiągalne, o ile
-        Lucan faktycznie przesiedzi te godziny i ma ciała. Uwaga - drugi krok TEGO SAMEGO
-        okazu to już 12 godzin, więc kilka prostych wabików jest tańsze czasowo niż jeden
-        bardzo dopracowany.'
+      retcon_ref: [retcon_000017, retcon_000021]
+      retcon_ref_2: retcon_000024
+      text: 'OKAZ POKAZOWY - okolo 4 GODZIN pracy recznej za wabik, czyli kilka modyfikacji
+        obudowy po ok. godzinie kazda (retcon_000021 + retcon_000024, bez zadnej eskalacji). Osiem godzin to budzet dla pracy klasy Spideya,
+        czyli okazu dopracowanego i bojowego; wabik ma imponowac oku i miec smaczki dla
+        naukowcow, wiec robi sie go na odwal. Trzy-cztery wabiki to JEDEN dzien przy stole.
+        Energii nie kosztuje wcale. Liczba wabikow nie jest niczym ograniczona poza wola
+        gracza - nie przedstawiac tego jako wyboru kosztem prawnika czy przesluchania
+        (retcon_000022).'
     - id: doctrine_refined
       source_event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
       text: 'Lucan podniósł trafny kontrargument i Seraphine go przyznała: z zewnątrz NIE DA
@@ -61,19 +62,22 @@ decoy_construct:
         event_turn_interlude_031, gdy dowiedziała się o katedrze Lucana: członek MOŻE być
         widoczny, byle jako badacz. Pułapka dotyczy więc wystąpienia BEZ płaszcza.'
     - id: seraphine_obedience_rule
+      demoted_to: npc_opinion
+      retcon_ref: retcon_000023
       source_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
-      text: 'REGUŁA SERAPHINE - okaz NIE MOŻE przy nikim reagować na polecenie. Konstrukt
-        wykonuje, sługa słucha; mechanizm nie odpowiada na prośbę. Demonstracja posłuszeństwa
-        jest różnicą między "posiada dziwactwo" i "kontroluje nieumarłych". Zderza się to
-        frontalnie z planem wystawienia okazu na publicznej dyspucie, gdzie npc_ivar_kolm ma
-        zadanie nazwać go nieumarłym - jedno posłuszne drgnięcie kończy spór w jednym zdaniu.
-        Seraphine NIE wie o dyspucie.'
+      text: 'NIE JEST OGRANICZENIEM PLANU (retcon_000023). Seraphine uwaza, ze okaz nie
+        powinien przy nikim reagowac na polecenie, bo demonstracja posluszenstwa jest roznica
+        miedzy "posiada dziwactwo" i "kontroluje nieumarlych". Kanon sam to podwazyl w
+        event_turn_interlude_026b: z zewnatrz nie da sie odroznic wyuczonej sztuczki od
+        swiezego posluszenstwa, ani mozgu pacynki od dzialania pupeteera - i Seraphine to
+        Lucanowi przyznala. Zostaje jako mozliwy argument oponenta na dyspucie, nie jako
+        zakaz nalozony na plan. Zakaz zamawiania gestu przez widownie SKASOWANY.'
     - id: structural_flaw
-      text: 'WADA STRUKTURALNA planu, wyłożona przez ojca bez cienia niepokoju - im mniej
-        biologiczny okaz, tym słabszy argument o odżywianiu, bo to metabolizm miał dowodzić
-        procesu ciągłego. A jeśli okaz zostanie biologiczny dość, żeby argument działał,
-        sekcja pokaże dokładnie to samo co u Spideya - vitae w martwej tkance. Wabik chroni
-        Spideya, nie chroni metody.'
+      status: removed_unsourced
+      retcon_ref: retcon_000023
+      text: 'USUNIETE. Byl to jedyny wpis w tej sekcji bez source_event_id - narratorska
+        konstrukcja podana jako wada wylozona przez ojca. Stopien biologicznosci wabika NIE
+        jest czynnikiem obrony; to wylacznie decyzja estetyczna gracza.'
   material_timetable:
     source_event_id: event_turn_interlude_021_timetable_and_offprint
     academy_collections: 'Dostępne od zaraz, ale okazy są UTRWALONE (spirytus, suszenie). Do
@@ -131,11 +135,15 @@ institutional_defence:
         dlatego, że chroni własne przywileje). Najprostsza droga według gracza - ojciec Lucana
         (npc_lucan_father), bo pierwszy raz w życiu Lucan ma coś, co może go zainteresować.'
     argument_sharpened_by_father:
+      demoted_to: npc_rhetoric_with_known_hole
+      retcon_ref: retcon_000023
       source_event_id: event_turn_interlude_019_vitae_disclosure_to_father
-      text: 'Najmocniejszy argument to NIE "vitae", a ODŻYWIANIE. Spidey utrzymuje się sam,
-        poluje na drobną zdobycz i się z niej żywi; utrzymanie znaczy przemianę materii, a
-        przemiana materii znaczy proces ciągły. Ożywienie nie je. Słowa "vitae" nie używać
-        przy nikim w stule - kapłan usłyszy w nim dokładnie to, co chce usłyszeć.'
+      text: 'Ojciec uwaza, ze mocniejszym argumentem od "vitae" jest ODZYWIANIE - Spidey
+        poluje i zywi sie sam, utrzymanie znaczy przemiane materii, a przemiana materii
+        znaczy proces ciagly. DZIURA WSKAZANA PRZEZ GRACZA (retcon_000023): ozywieniec tez
+        sie odzywia, wiec odzywianie samo z siebie niczego nie rozstrzyga. To jedna z linii
+        retorycznych ojca, nie najmocniejszy argument obrony. ZOSTAJE bez zmian jedna rzecz:
+        nie mowic "vitae" przy nikim w stule - to ostroznosc operacyjna, nie teza prawna.'
     risk_note: 'Akademia strukturalnie chce DOSTĘPU do okazów - w jej pliku frakcji stoi
       fears loss_of_access_to_specimens_or_evidence oraz incentives
       inspect_or_claim_access_to_spidey. Spidey jest okazem. Ochrona przez instytucję jest
@@ -144,6 +152,18 @@ institutional_defence:
       wystarczający dowód nekromancji przeciw Lucanowi? Wiąże się z conflict_axis
       secular_classification_of_spidey_and_the_webber_network w
       planning/act-03-city-power-dynamics.yaml.'
+  academy_revival_manual_as_precedent:
+    source_event_id: event_turn_interlude_085
+    step_ref: determine_spidey_and_webbers_legal_classification
+    text: 'NOWY, MOCNIEJSZY FUNDAMENT OBRONY KLASYFIKACYJNEJ. Argument o odzywianiu upadl
+      (retcon_000023 - ozywieniec tez sie odzywia). Zastapienie: Akademia trzyma we wlasnej
+      bibliotece licencjonowany, recenzowany podrecznik o przywracaniu ruchu i oddechu cialu,
+      ktore przestalo - utopionym, porazonym, pozornie zmarlym. Jesli instytucja sadzaca ma na
+      polce procedure przywracania zatrzymanego ciala, to granica zywe/martwe jest w JEJ
+      wlasnym jezyku ciagloscia z procedura, nie przepascia. Lucan ma egzemplarz fizycznie
+      (item_library_marked_volume), z ich sygnatura wypalona w okladce. To nie jest
+      uniewinnienie - to jezyk i precedens z ich wlasnej polki, po ktory nie trzeba niczego
+      zmyslac, i pasuje do taktyki "nie umiem tego jeszcze sformalizowac".'
   legal_doctrine_stress_test:
     step_ref: legal_doctrine_stress_tested_by_seraphine
     source_event_id: event_turn_interlude_027_legal_argument_and_the_father_answer

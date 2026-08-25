@@ -10,13 +10,25 @@ caches:
     location_id: loc_city_wall_hideout
     zone_id: container_interlude_loot_pile
     contents:
-      - {id: necromantic_preservative, quantity: 1, unit: container}
-      - {id: ritual_salt, quantity: 1, unit: packet}
-      - {id: corpse_drying_powder, quantity: 1, unit: packet}
-      - {id: decay_suppressing_vial, quantity: 2, unit: vial}
+      - {id: necromantic_preservative, quantity: 1, unit: container,
+         assessed_use: 'event_turn_interlude_087 - tlumi rozklad, czyli wydluza TRZYDNIOWA
+           SMYCZ (zbiornik 3, ubytek 1 na dobe). Zamienia gatunki krotkiej smyczy w mozliwe
+           posterunki tam, gdzie nie ma co jesc.'}
+      - {id: ritual_salt, quantity: 1, unit: packet,
+         assessed_use: 'event_turn_interlude_087 - utrwala tkanke, wiec do przeszczepu
+           bezuzyteczna, do OBUDOWY WABIKA idealna (sucha, solona skorupa mechaniczna).'}
+      - {id: corpse_drying_powder, quantity: 1, unit: packet,
+         assessed_use: 'event_turn_interlude_087 - jak sol rytualna: material obudowy
+           wabika, nie material przeszczepu.'}
+      - {id: decay_suppressing_vial, quantity: 2, unit: vial,
+         assessed_use: 'event_turn_interlude_087 - razem z preparatem konserwujacym daje
+           TRZY porcje wydluzajace smycz, czyli trzy okazy.'}
       - {id: necromantic_conduction_agent, quantity: 1, unit: vial,
          role: trwale ulepszenie dla istniejacej slugi, NIE material zuzywany przy ozywieniu
-           (retcon_000015)}
+           (retcon_000015),
+         assessed_use: 'event_turn_interlude_087 - jedyna pozycja uderzajaca w STRATE
+           PROPAGACJI (80 proc. do Varkhena, 70 proc. Lucan/Spidey, mnozne). Jedna fiolka
+           podnosi JEDNEGO sluge, nie siec.'}
       - {id: small_ritual_tool_set, quantity: 1, unit: set}
     exclusions:
       - silver_ritual_dagger_remained_with_expedition
@@ -24,6 +36,7 @@ caches:
       - unopened_pouch_carried_by_lucan
       - wagon_side_compartment_silver_not_taken
     source_event_id: event_act_02_closeout_interlude_import
+    assessed_event_id: event_turn_interlude_087
     approval_ref: migration_package_03_companions_revision_5
 evidence:
   - {id: evidence_varkhen_chamber_damage, state: present, location_id: loc_varkhen_chamber, source_event_id: milestone_045_varkhen_takeover}

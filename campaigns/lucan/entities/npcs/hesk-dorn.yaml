@@ -1,0 +1,58 @@
+schema_version: 1
+id: npc_hesk_dorn
+name: Hesk Dorn
+status: active
+review_status: created_in_play
+importance: recurring_information_source
+role: junk_and_secondhand_book_dealer
+lifecycle: {state: alive}
+current_location_id: loc_lumaria_market
+zone_id: zone_market_main_row
+has_character_sheet: false
+sheet_note: Zwykly czlowiek bez arkusza - nie jest przeciwnikiem w tescie. Rozstrzygac
+  narracyjnie (zasada gracza 2026-08-19).
+relationship_to_lucan: {attitude: frightened_loyal_informant, score: 45, confidence: moderate}
+profile:
+  temperament: Gadatliwy, uprzejmy, niebyt bystry i szczerze zadowolony, gdy ktos okaze
+    zainteresowanie jego rzemioslem.
+  trade: Ksiazki na wage, losowo, z partii kupowanych hurtem. Nie zna wartosci tego, co
+    sprzedaje - zna wage i obrot.
+  the_want_list: Spis opisow ksiag, o ktore pytano i ktorych nie mial. Prowadzi go od lat
+    jako czysta ksiegowosc, zeby wiedziec, co odlozyc z nastepnej partii. Nie uwaza go za
+    tajemnice. Nikt go o niego dotad nie pytal.
+  the_list_works_both_ways: Notuje takze, co KUPIL - stad wiedza o nieprzebranej skrzyni
+    po zmarlym.
+knowledge:
+  confirmed:
+    - {fact_id: fact_hesk_remembers_lucan_as_a_customer, source_event_id: event_turn_interlude_082,
+       claim: 'Zapamietal mieszczanina, ktory w jednym podejsciu kupil klatwy dworskie, odpis
+         formul prawnych i odbitki OBU stron nadchodzacej dysputy, a potem poprosil o spis
+         zyczen. Nie podejrzewa niczego - uwaza rozmowe za mila i chetnie o niej opowie.'}
+    - {fact_id: fact_hesk_told_lucan_the_meat_questions_stopped, source_event_id: event_turn_interlude_083,
+       claim: 'Sam zauwazyl i powiedzial, ze pytania o "mieso, ktore sie nie psuje" URWALY
+         SIE mniej wiecej miesiac temu i nie wrocily - handel zrobil sie cichszy, nie
+         glosniejszy. Podal tez date wizyty chlopca w liverii: za osiem dni.'}
+  does_not_know:
+    - Nazwiska Lucana ani jego afiliacji.
+    - Ze "cos, zeby mieso sie nie psulo" pytali ludzie handlu zwlokami, a nie rzeznicy.
+    - Czyja barwe nosi chlopiec na posylki - nie zna heraldyki.
+  false_beliefs:
+    - Uwaza, ze powtarzajace sie pytania o niepsujace sie mieso pochodza od rzeznikow.
+arrangement_with_lucan:
+  established_event_id: event_turn_interlude_083
+  terms: 'Notuje dalej OPISY i TWARZE. Nie chce pieniedzy - chce, zeby ktos raz na jakis
+    czas przyszedl i wysluchal. Lucan przedstawil sie jako czlonek grupy badajacej wydarzenia
+    na cmentarzu; legenda jest prawdziwa (operacja gildii z oficjalnym raportem).'
+  cost_original: 'Po turze 083 Hesk zamierzal chwalic sie udzialem w sledztwie.'
+  cost_after_warning:
+    source_event_id: event_turn_interlude_084
+    text: 'ODWROCONE W DUZEJ MIERZE. Lucan ostrzegl go, ze sprawa moze byc powiazana z
+      NEKROMANCJA - konkretny powod zadzialal tam, gdzie samo "niebezpieczne" nie dzialaloby.
+      Hesk ze strachu nie pisnie o gildii ani slowa na targu. ALE slowo "nekromancja" jest
+      teraz w jego ustach, nie w domysle: zapytany WPROST przez urzad, gildie albo Kosciol
+      wysypie wszystko natychmiast i skwapliwie, razem z tym, ze czlowiek od gildii ostrzegl
+      go o nekromancji. Z paniki i z checi bycia po dobrej stronie, nie z ulosci.'
+  his_own_condition: Prosi, zeby Lucan przychodzil sam i nie w liberii. Sam na to wpadl.
+  owed_by_lucan: Zjawiac sie i sluchac.
+agenda: [sell_by_weight, keep_the_ledger_tidy, enjoy_a_conversation, be_part_of_something]
+source_refs: [event_turn_interlude_081, event_turn_interlude_082]

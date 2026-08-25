@@ -2,9 +2,9 @@ schema_version: 1
 owner_id: pc_lucan
 status: active
 currency:
-  carried_silver: 34
+  carried_silver: 24
   hidden_silver: 50
-  leftover_market_savings_silver: 30
+  leftover_market_savings_silver: 0
   refundable_deposits_silver: 5
   liquid_silver_available_now: 114
   total_known_net_silver: 119
@@ -15,6 +15,13 @@ currency:
     - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
     - 'carried_silver obnizone o 2 (event_turn_interlude_013_market_food_run) - jedzenie kupione na targu.'
     - 'carried_silver obnizone o 1 (event_turn_interlude_015_silkworms_and_specimen_order) - koszyk zywych jedwabnikow na wage.'
+    - 'carried_silver obnizone o 18 (event_turn_interlude_083) - skrzynia ksiag po
+      zmarlym balwierzu kupiona na wage 15, obiad dla npc_hesk_dorn 3.'
+    - 'carried_silver obnizone o 22 (event_turn_interlude_082) - "Uprzejmosci" 12,
+      odpis brulionu formul prawnych 4, dwie akademickie odbitki po 3.'
+    - 'carried_silver podniesione o 30, leftover_market_savings_silver wyzerowane
+      (event_turn_interlude_081) - Lucan zabral ze schowka w murze reszte z targu po Akcie 1
+      i zostawil hidden_silver: 50 nietkniete, zgodnie z wlasna decyzja.'
     - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_claim_act_02_rewards).'
 containers:
   - id: container_personal_pockets_and_belt
@@ -41,8 +48,13 @@ items:
     inherently_magical: false
     instructional_function: imprecise_visualizations_and_partly_reproducible_procedures
     reliability: poor
+    contents_canon: 'Losowy zbior umiejetnosci nekromanty i warlocka - glownie poziom 0 i 1,
+      pojedyncze poziomu 2 z kiepskim, nieuzytecznym opisem. Duzo bredni. Lucan wycisnal z
+      tego juz wszystko, co bylo do wyciskania; nie jest to zasob do ponownego czytania.'
+    exhausted: true
     notes: [ironic_alias, imprecise_cantrips, basic_necromancy, thematically_related_skills]
-    source_refs: [source_user_decisions_current#correction:poor-mans-necronomicon-amateur-nature]
+    source_refs: [source_user_decisions_current#correction:poor-mans-necronomicon-amateur-nature,
+      player_declaration_day2_market]
   - id: item_beginner_curses_book
     name: Klątwy dla początkujących
     location: wall_hideout
@@ -72,6 +84,109 @@ items:
     location: wall_hideout
     type: training_manual
     source_refs: [source_luka_b_fragment#line:4377-4403]
+  - id: item_courtesies_curse_book
+    name: Uprzejmosci
+    location: carried
+    type: training_manual
+    inherently_magical: false
+    instructional_function: reproducible_curse_procedures_disguised_as_court_etiquette
+    level: Wyzszy niz item_beginner_curses_book - zbior praktyka, nie podrecznik dla poczatkujacych.
+    cost_silver: 12
+    disguise: Kazdy rozdzial o powitaniu, toascie i kondolencjach jest procedura klatwy;
+      z zewnatrz ksiega dworskich grzecznosci. Klatwy sa w Lumarii legalna sztuka, wiec
+      przebranie nie jest konieczne prawnie - jest wygodne spolecznie.
+    study_status: not_yet_studied
+    source_refs: [event_turn_interlude_081, event_turn_interlude_082]
+  - id: item_petition_formulae_notebook
+    name: Odpis brulionu formul prawnych
+    location: carried
+    type: training_manual
+    inherently_magical: false
+    instructional_function: phrasings_that_survive_a_hearing_and_refusals_that_did_not
+    cost_silver: 4
+    provenance: Bruliony skrybow piszacych petycje zawodowo - nie kodeks, ktory siedzi w
+      rejestrze magistratu i w Akademii, a praktyka tego, co przechodzi.
+    relevance: objective_prepare_institutional_defense#acquire_surveillance_rhetoric_and_law_references
+    study_status: not_yet_studied
+    source_refs: [event_turn_interlude_081, event_turn_interlude_082]
+  - id: item_offprint_ivar_kolm
+    name: Akademicka odbitka prac Ivara Kolma
+    location: carried
+    type: academic_offprint
+    cost_silver: 3
+    value: Definicje i ulubione argumenty wyznaczonego oponenta z dysputy, szesnascie dni
+      przed terminem. Kolm nie wie, ze bedzie mial kogo atakowac.
+    read_status: unread
+    source_refs: [event_turn_interlude_081, event_turn_interlude_082]
+  - id: item_offprint_neris_aldhen
+    name: Akademicka odbitka prac Neris Aldhen
+    location: carried
+    type: academic_offprint
+    cost_silver: 3
+    value: Strona szerokiej definicji - ta, ktorej Lucan teoretycznie pomaga i ktorej jest
+      jednoczesnie najlepszym kontrprzykladem.
+    read_status: unread
+    source_refs: [event_turn_interlude_081, event_turn_interlude_082]
+  - id: item_barber_surgeon_anatomy_atlases
+    name: Atlasy anatomiczne balwierza-chirurga
+    location: wall_hideout
+    type: reference_work
+    inherently_magical: false
+    contents: Rysunki z sekcji, marginalia jedna reka poprawiajace drukarza.
+    storage_plan: Przeznaczone do przeniesienia do schowka w baszcie - tam stoi warsztat i
+      stol Lucana, a atlasy sa materialem do PRACY, nie do czytania.
+    mechanical_relevance: 'Uderza w jawnie zapisane ograniczenie ability_corpse_stitch
+      (mastery 35, "anatomical mistakes remain possible") - i to na skali LUDZKIEJ, nie
+      owadziej. Nie do kupienia u skryby.'
+    study_status: not_yet_studied
+    source_refs: [event_turn_interlude_083]
+  - id: item_barber_surgeon_casebook
+    name: Brulion podreczny balwierza
+    location: wall_hideout
+    type: private_ledger
+    contents: Kto, kiedy, co zszyte, ile zaplacono - lata cichego latania ludzi bez
+      zglaszania ran.
+    value: Spis cichej przemocy w dzielnicy, z nazwiskami albo przezwiskami, datami i
+      kwotami. Rodzina sprzedala pokoj na wage i nikt tego nie schowal.
+    storage_plan: Przeznaczone do przeniesienia do schowka w baszcie - nie trzymac w celi
+      dwoje drzwi od czworki wspolpracujacych swiadkow.
+    read_status: unread
+    source_refs: [event_turn_interlude_083]
+  - id: item_library_marked_volume
+    name: Akademicki podrecznik przywracania ruchu i oddechu (sygnatura biblioteki Akademii)
+    location: wall_hideout
+    type: stolen_institutional_property
+    identification: examined_event_turn_interlude_085
+    subject: 'Przywracanie ruchu i oddechu cialu, ktore przestalo - utopieni, porazeni,
+      zaczadzeni, pozornie zmarli. Rzecz licencjonowana i recenzowana.'
+    provenance: Skradziony przez balwierza; przywrocenie utopionego to jedyny cud, ktory
+      balwierz moze zrobic publicznie i za ktory moze policzyc.
+    defence_value: 'MOCNIEJSZY FUNDAMENT NIZ ARGUMENT O ODZYWIANIU (rozebrany w
+      retcon_000023). Instytucja, ktora bedzie Lucana sadzic, trzyma we wlasnej bibliotece
+      licencjonowany traktat o przywracaniu ruchu ciala, ktore stanelo - granica zywe/martwe
+      jest u nich samych opisana jako CIAGLOSC z procedura. Jezyk i precedens z ich wlasnej
+      polki, nie uniewinnienie.'
+    marginalia: Ta sama reka co w atlasach - proby balwierza: kto, kiedy, jak dlugo pod woda,
+      czy wrocil. Wiekszosc konczy sie nie. Sekwencja prob i granica, po ktorej przestawal.
+    problem: Biblioteki prowadza rejestr ubytkow - ktos w Akademii ma zapis, ze wolumin
+      zniknal, i date. Lucan jest czlonkiem tej Akademii i za ok. czternascie dni ma tam byc
+      wezwany.
+    disposition: keep_then_return_after_study
+    disposition_event_id: event_turn_interlude_086
+    disposition_note: 'Decyzja gracza - oddac Akademii jako znaleziony DOPIERO po
+      przyswojeniu wiedzy. Do tego czasu lezy w schowku w murze.'
+    source_refs: [event_turn_interlude_083, event_turn_interlude_085]
+  - id: item_dead_mans_book_crate_remainder
+    name: Reszta skrzyni po zmarlym - makulatura
+    location: guild_basement_cell
+    type: bulk_junk
+    contents: Traktaty dewocyjne, almanachy, poradniki o humorach - trzy czwarte skrzyni.
+    cost_silver: 15
+    note: Cena dotyczyla calej skrzyni na wage; wartosc siedzi w trzech pozycjach powyzej.
+    cover_use: 'REKWIZYT PRZYKRYWKI (event_turn_interlude_084) - cela miala udawac pokoj
+      badacza dopiero od jutra, po zaplacie Borosa za lawe alchemiczna. Makulatura zalatwia
+      to dzis i za darmo: przeszukanie znajdzie pokoj czlowieka czytajacego nudne rzeczy.'
+    source_refs: [event_turn_interlude_083]
   - id: item_leased_surgical_kit
     name: Wypożyczony zestaw chirurgiczny gildii
     location: wall_hideout
@@ -171,9 +286,13 @@ items:
     identification: examined_ordinary
     weight_kg: 60
     composition: mostly_gold_and_silver_mortuary_jewelry
-    estimated_value_silver: 4000
-    estimated_value_note: Bardzo zgrubny szacunek Borosa po wadze - realna cena
-      zalezy od tego, kto to kupi. Niepoliczone jeszcze na gotowke.
+    estimated_value_silver: 100000
+    estimated_value_note: 'Brutto, kruszec plus robocizna jubilerska (retcon_000020 -
+      dawne 4000 bylo o dwa rzedy wielkosci za nisko dla 60 kg zlota i srebra). Cena
+      paserska to ulamek, ale ulamek tej skali daje 10-15 tys. srebra NA OSOBE do
+      podzialu, mozliwe wiecej. Niepoliczone jeszcze na gotowke.'
+    earmarked: Znaczna czesc udzialu Lucana jest juz przeznaczona na kupiona wspolprace
+      kontaktow prawnych polswiatka - nie honorarium za porade, a oplacona lojalnosc.
     inherently_magical: false
     ownership: unfortunate_provenance_systematic_grave_looting
     liquidation_status: requires_illicit_or_discreet_buyer
@@ -182,7 +301,7 @@ items:
       gildii bez pytan. Prawdopodobnie zwiazane z siecia handlu zwlokami
       (faction wpisany w crisis_dossier aktu 3) - potrzebny ktos dyskretny,
       zeby to spieniezyc.
-    source_refs: [event_turn_interlude_009_three_bags_opened, retcon_000002]
+    source_refs: [event_turn_interlude_009_three_bags_opened, retcon_000002, retcon_000020]
   - id: item_church_reliquary
     name: Ciężki, srebrny relikwiarz z fragmentem kości
     location: lumaria_adventurers_guild
@@ -223,10 +342,9 @@ items:
       (lead_webber_silk_upgrade_human_scale). Jedwab jedwabnika jest ciągły i mocny,
       ale nielepki i bez kontroli wyrzutu - kleistość i przenoszenie trucizny nicią
       to osobne, kolejne kroki wzrostu.
-    growth_cost_note: Pierwszy trwały krok sieci to 8 GODZIN pracy ręcznej, nie energia
-      (permanent_growth_steps sieci = 0, reguła 8 x 1.5^n godzin z
-      system/companion-growth.md, patrz retcon_000017). Zasobem jest czas przy stole i
-      materiał dawcy.
+    growth_cost_note: Przeszczep gruczołu przędnego to OKOŁO GODZINY pracy ręcznej na
+      sieciarza, bez eskalacji (retcon_000024). Czterej sieciarze to ok. cztery godziny.
+      Zasobem jest czas przy stole i materiał dawcy, nie energia.
     legal_status: legalny, nudny, hodowany masowo
     source_refs: [event_turn_interlude_015_silkworms_and_specimen_order]
 external_claims:

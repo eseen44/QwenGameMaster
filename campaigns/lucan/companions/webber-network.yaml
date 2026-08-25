@@ -43,7 +43,7 @@ growth:
   permanent_growth_steps: 0
   historical_life_force_total: unknown_not_reconstructed
   current_investment: 0
-  rule: Future trapper functions must be purchased through explicit, increasingly costly growth rather than assumed from autonomous hunting.
+  rule: Future trapper functions must be purchased through explicit growth steps rather than assumed from autonomous hunting. Cost is about an hour of handwork per modification, no escalation (retcon_000024).
 state:
   location_ref: dispersed_to_named_posts_and_guild_rooftop
   condition: redeployed_after_overnight_recharge_at_wall_hideout
@@ -119,11 +119,24 @@ network_cost_model:
     plaskie sa tanie, gleboka hierarchia jest droga. Dla informacji ten sam mechanizm dziala
     jako spadek WIERNOSCI, nie energii - patrz fidelity_by_member degraded_by_distance w
     rozkazie order_collect_live_specimens_from_posts.'
+  attention_is_serial:
+    source_event_id: event_turn_interlude_086
+    text: 'ZMIERZONE W GRZE, NIE OSZACOWANE. Lacze przenosi tyle, ile przenosi, ale
+      ODBIORNIK jest jeden - Lucan skupia sie na jednym wezle naraz. Przeglad dwudziestu
+      jednu wezlow zajal mu trzy kwadranse marszu. Przy stu okazach ten sam przeglad jest
+      niewykonalny w ciagu dnia. Pierwsza realna granica skalowania sieci nie jest ani
+      energia, ani czas przy stole - jest UWAGA. Wnioski projektowe: (1) agregacja
+      (jeden wezel zbiera od kilku) oplaca sie bardziej niz kolejne cialo, (2) alarm
+      czytany OKIEM albo kurier fizyczny nie zuzywa uwagi w ogole, (3) roj bez
+      hierarchii jest tani w utrzymaniu i nieczytelny w odbiorze.'
   animation_cost_calibration: 'Ozywienie ciala owadziej skali to koszt formalny - material i
     czas, nie rezerwa Lucana. Setki malych okazow sa osiagalne. Trzy rozne rzeczy nie mieszac:
     (1) utrzymanie = 0, (2) propagacja = 20-30 procent straty na przeskok, mnozne,
-    (3) kupno funkcji (wezel, nowa zdolnosc) = 8 x 1.5^n GODZIN pracy recznej,
-    jednorazowo, per slug - CZAS, nie energia (retcon_000017).'
+    (3) kupno funkcji (wezel, nowa zdolnosc) = OKOLO GODZINY pracy recznej za modyfikacje,
+    do dwoch przy wyzszej trudnosci, BEZ eskalacji - CZAS, nie energia (retcon_000017,
+    retcon_000024). Pierwszy krok na wszystkich czterech sieciarzach to ok. 4 godziny lacznie.
+    (4) UWAGA = seryjna, jeden wezel naraz - jedyne ograniczenie, ktorego nie da sie kupic
+    godzinami (event_turn_interlude_086).'
 abilities:
   - {id: ability_sparse_web_alarm, capability_ref: capability_sparse_web_alarm, current: true, role: current_monitoring_function}
   - {id: ability_autonomous_small_prey_hunting, current: true}

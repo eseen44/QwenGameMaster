@@ -3,11 +3,11 @@ id: pc_lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 76
+revision: 84
 position:
-  location_id: loc_lumaria_guild_basement
-  zone_id: zone_temporary_holding
-  formation: with_seraphine
+  location_id: loc_city_wall_hideout
+  zone_id: zone_hideout_workshop
+  formation: alone_with_spidey
 integrity:
   current: 19
   maximum: 19
@@ -19,9 +19,8 @@ resources:
     permanent_expansion: 3
     expansion_source_event_id: milestone_043a_logistics_collector_overload
     expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
-      podniosl rezerwe z 12 na 15. 15 jest nowa baza I NOWYM PROGIEM, nie stanem
-      przeciazenia; dawna dwunastka nie ma zadnych skutkow ubocznych - patrz
-      retcon_000004 i retcon_000019.
+      podniosl rezerwe z 12 na 15. 15 jest nowa baza I NOWYM PROGIEM, nie stanem przeciazenia;
+      dawna dwunastka nie ma zadnych skutkow ubocznych - patrz retcon_000004 i retcon_000019.
     campaign_calibration: true
     decision_status: approved
     runtime: {}
@@ -29,17 +28,17 @@ conditions: []
 retired_conditions:
 - id: elevated_energy_signature_above_old_threshold
   retired_by: retcon_000019
-  reason: 'Prog Lucana to 15, nie 12. Warunek naliczal podwyzszona detekowalnosc w calym
-    normalnym zakresie pracy po incydencie cmentarnym, co przeczylo retconowi 000004,
-    ktory ustanawial 15 jako NOWA BAZE. Detekowalnosc jest funkcja tego, co Lucan robi
-    (slad czaru), nie tego, ile ma w rezerwie.'
+  reason: Prog Lucana to 15, nie 12. Warunek naliczal podwyzszona detekowalnosc w
+    calym normalnym zakresie pracy po incydencie cmentarnym, co przeczylo retconowi
+    000004, ktory ustanawial 15 jako NOWA BAZE. Detekowalnosc jest funkcja tego, co
+    Lucan robi (slad czaru), nie tego, ile ma w rezerwie.
 status_flags:
 - living
 - conscious
 - post_overload_stable
 - permanently_expanded_reservoir
 - within_normal_capacity
-last_event_id: event_turn_interlude_080
+last_event_id: event_turn_interlude_088
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

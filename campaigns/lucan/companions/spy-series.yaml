@@ -71,6 +71,31 @@ species_assessment:
     strengths: [opancerzony - przezyje kieszen, worek i przenoszenie, uniesie duzo
       na swoja skale, da sie go przewiezc jak przedmiot]
     weaknesses: [powolny, slabo trzyma sie gladkich powierzchni, klika po kamieniu]
+haul_assessment_night1:
+  source_event_id: event_turn_interlude_088
+  order_ref: order_collect_moths_and_butterflies
+  volume: ok. 30 miekkich, skrzydlatych rzeczy
+  composition: [cmy, muchy, komary, dwie zlotooki, para motyli dziennych, jeden zawisak]
+  usable_with_intact_wings: 4-5 cm plus zawisak
+  method_flaw: 'NIE JEST WADA SIECIARZY. Sieciarz lowi w siec i gryzie - dla zuka bez
+    znaczenia (chityna), dla cmy SKRZYDLA sa cala wartoscia i niszcza sie pierwsze. Z
+    kilkunastu cm cale skrzydla ma 4-5.'
+  free_fix: 'Cma sama leci do swiatla. LAMPA I SLOIK w baszcie zbieraja wiecej CALYCH okazow
+    niz czterech lowcow - bez rozkazu, bez strat propagacji i bez zuzycia uwagi. Sieciarze do
+    tego nie sa potrzebni; ich nocna rotacja moze wrocic do polowania na energie dla Varkhena.'
+  find_hawk_moth:
+    id: candidate_body_hawk_moth
+    name: Zawisak (cma zmierzchnicowa)
+    condition: caly - za mocny, zeby sieciarz go poszarpal
+    strengths: [lot bezszelestny, lot szybki, zawisanie w miejscu, nocny z natury,
+      gruby masywny tulow z miejscem na modyfikacje, unosi wiecej niz osa]
+    weaknesses: [zywi sie cukrem i musi WYCHODZIC - trzydniowa smycz na zamknietym
+      posterunku jak u osy, duzy jak na cme wiec w dzien jest zjawiskiem, nie owadem]
+    verdict: 'Lepszy kurier od spy_wasp_01 na kazdej osi poza jedna - jest okazem nocnym i
+      tylko nocnym. Odpowiada na key_insight z oceny spy_wasp_01: kurier bije szersza rure.'
+    leash_fix: 'Trzy porcje tlumiace rozklad na stole (necromantic_preservative + 2x
+      decay_suppressing_vial) adresuja dokladnie te slabosc.'
+    status: not_yet_animated
 feeding_model:
   source: out_of_game_question_2026-08-24
   rule: Zbiornik 3 przy ubytku 1 na dobe daje trzydniowa smycz, wiec o uzytecznosci
@@ -102,8 +127,8 @@ standing_decisions:
     ale pozyczenie zmyslu nie jest tym zablokowane (retcon_000016). Zysk: sekcja na
     dowolnym z nich nie ujawnia Death_Anchor, a strata sztuki nie boli.'
   no_modifications_yet: 'Pajaki idace do sieciarzy sa nieruszone. Modyfikacje pozniej,
-    swiadomie, za 8 x 1.5^n GODZIN przy stole (retcon_000017 - energia w to nie
-    wchodzi). WYJATEK: spy_cellar_spider_01 dostal gruczol przedny
+    swiadomie, za OKOLO GODZINY przy stole za sztuke, bez eskalacji (retcon_000017 +
+    retcon_000024 - energia w to nie wchodzi).' WYJATEK: spy_cellar_spider_01 dostal gruczol przedny
     jedwabnika w event_turn_interlude_079, a potem zostal wyssany (retcon_000018). Po tym
     seria nie ma ANI JEDNEGO zmodyfikowanego okazu.'
   wasps_abandoned: 'Pozostale osy zostaja nieozywione - zbyt widoczne. Decyzja gracza,
@@ -120,8 +145,8 @@ standing_decisions:
     mechanics: 'Zbiornik ma pojemnosc 3 i szybko sie zapelnia; nadwyzka idzie do
       rezerwy przeznaczonej na tego sluge (growth_bank w instancji). Samo karmienie NIE
       powoduje ewolucji (system/companion-growth.md) - trwaly krok trzeba potem
-      zadeklarowac i przepracowac - 8 godzin przy stole za pierwszy krok, bez kosztu
-      energetycznego (retcon_000017). Karmienie sluzy wiec masie i dojrzewaniu okazu, nie
+      zadeklarowac i przepracowac - okolo godziny przy stole, bez kosztu energetycznego
+      (retcon_000017 + retcon_000024). Karmienie sluzy wiec masie i dojrzewaniu okazu, nie
       finansowaniu upgradu. Realnym ogranicznikiem tempa jest WIELKOSC bezpiecznej
       zdobyczy: po wykluczeniu kotow zostaja glownie szczury,
       objete i tak stalym rozkazem z tury 055.'
