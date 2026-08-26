@@ -1,0 +1,47 @@
+schema_version: 1
+id: relationship_neris_aldhen_to_lucan
+object_type: relationship
+subject_id: npc_neris_aldhen
+target_id: pc_lucan
+direction: subject_to_target
+layer: personal
+created_event_id: event_turn_interlude_138
+axes:
+  cooperation: 15
+  judgment_confidence: 45
+  discretion_trust: -20
+  personal_regard: 5
+axes_reasoning:
+  cooperation: 'Uklad transakcyjny, stanowisko nierozstrzygniete (-19..19). Rozmawia, bo
+    nie ma innego wyjscia, nie z sympatii i nie z wdziecznosci. Nic mu jeszcze nie
+    obiecala.'
+  judgment_confidence: 'Wysoko i to jest gorzkie. Jego odczyt Kolma wytrzymal test jej
+    wlasnym polem, a jej siedmiotygodniowe tlumaczenie ("Kolm jest glupi") nie wytrzymal.
+    Uznaje, ze on liczy lepiej niz ona, i nie jest z tego zadowolona.'
+  discretion_trust: 'Nisko. Wszedl bez wpisu do ksiegi, ktora ona prowadzi wlasna reka,
+    rzucil w jej pokoju skan smierci przed wyjasnieniem czegokolwiek i nazwisko podal
+    dopiero, gdy targ tego wymagal. Wysokie judgment_confidence przy niskim
+    discretion_trust znaczy: wierze, ze umiesz to rozwiazac, i chce wiedziec, jakie
+    jeszcze zwloki ukryles.'
+  personal_regard: 'Prawie zero, lekko na plus. Zawodowa ciekawosc wobec okazu i to, ze
+    przyszedl POWIEDZIEC jej rzecz, ktorej nikt inny w tej instytucji jej nie powiedzial,
+    mimo ze wszyscy wiedzieli.'
+obligations: []
+leverage_she_holds:
+  - 'Jest referentka szerokiej definicji, wiec jej mowa rozstrzyga o linii obrony
+    klasyfikacyjnej Lucana. Moze ja napisac tak, jak zechce.'
+  - 'Zna jego nazwisko i wie, ze jest synem profesora Veyra. Na otwartej dyspucie
+    za szesnascie dni.'
+leverage_he_holds:
+  - 'Wie o ukladzie, w ktorym ona jest podpisem, i jest jedynym zrodlem tej wiedzy.'
+  - 'Ma okaz, ktory jest dla niej jednoczesnie najlepszym argumentem i dowodem, ze jej
+    definicja jest merytorycznie falszywa.'
+constraints:
+  - 'Nie przyjmuje wykladow o wlasnej przyszlosci bez nazwiska - warunek postawiony
+    i spelniony (event_turn_interlude_138).'
+  - 'Nie zwija sie pod cios w fundament (retcon_000039). Kazde uderzenie w jej pozycje
+    odbija zarzutem, nie zgoda.'
+open_question: 'Czego Lucan od niej chce - postawione przez nia jako warunek dalszej
+  rozmowy, nie jako zgoda.'
+last_updated_event_id: event_turn_interlude_138
+source_refs: [system/social-intrigue.md, campaigns/lucan/entities/npcs/neris-aldhen.yaml]
