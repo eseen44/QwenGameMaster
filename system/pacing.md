@@ -79,3 +79,13 @@ poranek — a pięć tur to jeden wątek rozmowy, nie pół dnia.
 Z **luk między scenami**: czekania na wpuszczenie, ważenia towaru, siedzenia w głównej sali,
 tego, że kontrolerka gildii nie jest wolna na żądanie. Czas świata między scenami może
 płynąć swobodnie; czas wewnątrz zalogowanej tury nie.
+
+### Poprawka do powyższego (retcon_000043)
+
+Pierwsza próba tej kalibracji skróciła długości tur, ale **zostawiła starą godzinę
+zaczepienia** — a ta godzina była wyliczona z sumy, która miała dokładnie ten sam błąd.
+Skrócenie ogona przy zachowanej kotwicy dało wynik nadal o trzy i pół godziny za późny.
+
+**Wniosek: przy korekcie zegara przelicz dzień od pierwszej kotwicy, nie od ostatniej.**
+Godzina, która jest sumą zawyżonych tur, nie jest kotwicą — jest tym samym błędem
+w innym przebraniu.
