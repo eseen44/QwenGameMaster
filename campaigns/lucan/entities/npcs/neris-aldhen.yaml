@@ -45,7 +45,12 @@ knowledge:
     source_event_id: event_turn_interlude_132
   - fact: 'Nadal nie zna jego nazwiska, nie zna sieci, nie zna Varkhena, nie slyszala slowa vitae i nie wie o profesorze Veyrze ze skrzydla laboratoryjnego.'
     source_event_id: event_turn_interlude_132
-  suspected: []
+  - fact: 'Widziala, jak okaz zszedl ze stolu wlasciciela na JEJ stol, obszedl blat, sprawdzil parapet i SAM wybral stanowisko z widokiem na oba okna i drzwi. Nie polecenie punktowe - wlasny wybor miejsca. Zaczela to notowac na pismie, zanim Lucan cokolwiek powiedzial.'
+    source_event_id: event_turn_interlude_133
+  - fact: 'Widziala, jak gosc oparl dlon o JEJ sciane i rzucil skan SMIERCI po jej pokojach - swiadek w chwili rzucania rozpoznaje z grubsza CO (system/magic.md). Pierwszy moment, w ktorym rozmowa dotyczy jej wlasnego mieszkania, a nie okazu. Odlozyla pioro.'
+    source_event_id: event_turn_interlude_134
+  suspected:
+  - 'Ze to, co ma na stole, planuje samodzielnie - a konstrukt w jej wlasnej definicji wykonuje, nie wybiera. Drugi po karmieniu argument przeciw jej wlasnemu stanowisku w ciagu dziesieciu minut.'
   false_beliefs: []
   forbidden_without_event: [spidey_network, varkhen_identity, lucans_identity_at_all, the_word_vitae, fathers_parallel_showing]
 agenda:
@@ -53,5 +58,5 @@ agenda:
   scheduled_event: Dysputa otwarta za około 16 dni od event_turn_interlude_022.
   opponent: npc_ivar_kolm
 relationships: []
-last_updated_event_id: event_turn_interlude_132
+last_updated_event_id: event_turn_interlude_134
 source_refs: [campaigns/lucan/entities/factions/lumaria-magical-academy.yaml, campaigns/lucan/planning/act-03-city-power-dynamics.yaml]

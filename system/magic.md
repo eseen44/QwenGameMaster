@@ -63,3 +63,22 @@ o cenie społecznej.
 Skalowanie z `system/metamagic.md` nadal obowiązuje: mocniejszy efekt jest w chwili użycia
 jaśniejszy i trudniejszy do przeoczenia przez OBECNEGO obserwatora. To zwiększa szansę
 zauważenia na żywo, a nie trwałość ani przypisywalność śladu.
+
+## Zmysł wrodzony ożywieńca: ciepło i życie (retcon_000051)
+
+Nekromanckie ożywieńce postrzegają **ciepło i życie**. Zmysł jest wrodzony — wynika z natury
+ożywienia, nie z przeszczepu. Nie wymaga modyfikacji, nie zużywa energii i nie da się go
+odebrać inaczej niż przez zniszczenie okazu. Lista `state.modifications` na karcie sługi
+opisuje wyłącznie to, co **dodano ponad** ten zmysł, i nigdy nie jest pełnym opisem percepcji.
+
+- **Rozdzielczość jest niska.** Daje obecność, liczbę, położenie i z grubsza wielkość źródła.
+  Nie daje twarzy, treści ani tożsamości. Potwierdzone przez Lucana wprost w
+  `event_turn_interlude_071` — „pająki nadają się raczej do wykrywania źródeł ciepła
+  niż do czytania listów".
+- **Działa w pełnej ciemności.** Brak światła nie jest przeszkodą; przeszkodą jest wyłącznie
+  materiał, który faktycznie odcina ciepło.
+- **Symetryczna słepota, i to jest ważniejsze od samego wykrywania.** Ożywieniec **nie widzi
+  nieumarłego**. Martwe ciało bez ciepła i bez życia jest dla tego zmysłu luką, nie sygnałem.
+  Każdy posterunek zbudowany na sługach ma więc wrodzoną dziurę dokładnie tam, gdzie stoi coś
+  takiego jak Varkhen albo jak własne okazy Lucana. Przeciwnik, który o tym wie, przechodzi
+  przez taki posterunek nietknięty.

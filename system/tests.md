@@ -114,6 +114,11 @@ Test wraca dopiero wtedy, gdy powtórka przestaje być darmowa:
 - kończy się okno (ktoś wchodzi, cel wychodzi, zegar dobija);
 - każda kolejna próba ma własną cenę rosnącą szybciej niż czas (świadek, zużyty materiał,
   narastające podejrzenie celu);
+  **Doprecyzowanie po retcon_000052:** świadek liczy się tylko wtedy, gdy KOLEJNA próba
+  daje mu coś nowego. Ktoś, kto już raz to widział, nie jest narastającą ceną - jest ceną
+  zapłaconą przy pierwszym podejściu. Tak samo materiał zużyty jednorazowo. Bez tego
+  zastrzeżenia "świadek" staje się uniwersalną furtką do rzutu w każdej scenie z kimkolwiek
+  w pokoju - i tak został użyty w roll_turn_interlude_134.
 - niepowodzenie robi coś nieodwracalnego, czego druga próba nie cofnie.
 
 Osobno: **nie testuj tam, gdzie stawką jest wyłącznie wykonanie po stronie gracza, a nie

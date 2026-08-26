@@ -3,7 +3,7 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 57
+revision: 60
 position:
   location_id: loc_lumaria
   zone_id: in_transit_to_boros_and_mara
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 5640
-      hunting_recovery_elapsed_seconds: 5640
+      decay_elapsed_seconds: 6000
+      hunting_recovery_elapsed_seconds: 6000
 status_flags:
 - death_anchored
 - moth_tympanal_hearing_organ
@@ -40,7 +40,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_132
+last_event_id: event_turn_interlude_135
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

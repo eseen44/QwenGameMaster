@@ -3,11 +3,11 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 124
+revision: 127
 position:
-  location_id: loc_lumaria
-  zone_id: in_transit_to_boros_and_mara
-  formation: with_lucan_under_the_coat_default_of_retcon_000005_restored
+  location_id: loc_lumaria_magical_academy
+  zone_id: zone_academy_scaffolded_wing
+  formation: on_the_far_window_sill_in_neris_aldhens_rooms_moved_out_of_lucans_near_channel_still_covering_both_windows_and_the_door
 integrity:
   current: 27
   maximum: 33
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 58800
-      hunting_recovery_elapsed_seconds: 58800
+      decay_elapsed_seconds: 59160
+      hunting_recovery_elapsed_seconds: 59160
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -36,7 +36,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 15600
+      regeneration_elapsed_seconds: 15960
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -62,7 +62,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_132
+last_event_id: event_turn_interlude_135
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906
