@@ -1,0 +1,55 @@
+schema_version: 1
+id: npc_academy_porter
+name: Cieć z portierni Akademii (imię nieustalone)
+status: active
+importance: positional_witness_low_power_high_reach
+role: Portier w portierni przy bramie Akademii Magii Lumarii - stanowisko nowe od
+  czasów studiów Lucana. Prowadzi księgę odwiedzin i przypina obwieszczenia.
+faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+current_location_id: loc_lumaria_magical_academy
+current_zone_id: zone_academy_gatehouse
+lifecycle: {state: alive_confirmed, last_confirmed_event_id: event_turn_interlude_128}
+portrayal:
+  tone: uprzejmy_gadatliwy_bez_wladzy_ale_z_widokiem
+  traits:
+    - Nie jest magicznie piśmienny i nie ma czym się bronić przed klątwą - zwykły
+      człowiek bez karty (kalibracja 19.08.2026).
+    - Jego wiedza jest ŚCIŚLE STANOWISKOWA. Wie, kto wchodzi, kto wychodzi, kto pyta
+      i co wisi na tablicy. Nie wie nic o treści sporów, o polityce wydziałów ani o
+      tym, kto ma rację - i nie udaje, że wie.
+    - Mówi o ludziach przez ich nawyki przy bramie, nie przez ich dorobek.
+    - Nie sortuje spraw Lucana na kolumny i nie robi przeciw-odczytów. Jest ciekawy.
+  what_he_wants_from_a_conversation: Żeby rozmowa była miła i żeby wpis w księdze się
+    zgadzał. To dwie osobne rzeczy i pierwsza jest dla niego ważniejsza.
+  what_he_refuses: Nic wprost - nie ma czym odmawiać. Jego opór jest bierny - jeśli
+    czegoś nie rozumie, przekręci to i poniesie dalej.
+  what_he_can_lose: Posadę. Portiernia jest nowa, więc jego stanowisko też, i on to wie.
+knowledge:
+  confirmed:
+    - fact: Twarz Lucana widział już raz, wieczorem, i nie umie tego ułożyć.
+      source_event_id: event_turn_interlude_017_misnotice_past_porter
+      note: Półrozpoznanie zgaszone Misnotice, ale nie usunięte. Odżyło w dzień, przy
+        podanej ręce (event_turn_interlude_127).
+    - fact: Mężczyzna bez nazwiska pytał go o profesora Veyra i o Neris Aldhen, i nie
+        odpowiedział na pytanie, czy jest rodziną.
+      source_event_id: event_turn_interlude_128
+  suspected: []
+  false_beliefs:
+    - id: belief_visitor_comes_to_aldhen_at_night
+      text: Że Lucan przychodzi wieczorami do Neris Aldhen. Zlepione z półrozpoznania
+        wieczornej twarzy i z pytania o nią, przy obniżonym hamowaniu po
+        curse_loosened_tongue. Powtarzane każdemu, kto przechodzi przez bramę.
+      source_event_id: event_turn_interlude_128
+      standing: Krazy dalej po Akademii, ale BEZ RYSOPISU - po curse_memory_trap (event_turn_interlude_129) portier nie potrafi powiedziec, jak ten ktos wygladal.
+  forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity, lucans_surname]
+conditions_applied_by_lucan:
+  - {id: curse_induced_sleep, source_event_id: event_turn_interlude_129, delivery: kondolencje_dlon_na_przedramieniu, note: Zasnal na stanowisku okolo 16:00, przy otwartej bramie, w dzien.}
+  - {id: curse_memory_trap, source_event_id: event_turn_interlude_129, delivery: pozegnanie_klasa_opozniona, note: Nie potrafi Lucana opisac - rysopis nie powstal. Rozmowe i wlasne wnioski pamieta.}
+  - {id: curse_loosened_tongue, source_event_id: event_turn_interlude_127, delivery: powitanie_usciska_dloni, note: Obniżone hamowanie utrzymuje się godzinami; człowiek mówi wszystko, co mu przyjdzie do głowy, i konfabuluje tam, gdzie ma lukę.}
+agenda:
+  current_goal: Dosiedzieć zmianę i mieć księgę w porządku.
+  reach: Przez bramę przechodzi cała Akademia, więc to, co on powie, wie do wieczora
+    pół uczelni. Jego siła to zasięg, nie pozycja.
+relationships: []
+last_updated_event_id: event_turn_interlude_129
+source_refs: [campaigns/lucan/locations/lumaria-academy/location.yaml, system/curses.md]

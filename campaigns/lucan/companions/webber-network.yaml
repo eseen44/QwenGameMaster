@@ -38,6 +38,12 @@ survival_model:
   food_source: autonomous_small_prey_hunting
   routine_upkeep_cost: 0
   limitation: self_sufficiency_maintains_small_bodies_and_separate_reservoirs_not_unlimited_power
+  hunting_modes:
+    source: retcon_000047
+    standby: "Posterunek monitoringowy - 1 na dobe przy decay 1, netto zero. Okaz robi minimum i nie zwraca na siebie uwagi. Tryb wszystkich malych szpiegow."
+    grazing: "Brak innego zadania plus staly rozkaz polowania na energie (event_turn_interlude_055) - 3 na dobe, netto plus 2. Tryb czworki sieciarzy."
+    active_hunt: "Okaz wypuszczony na lowy - wielokrotnosc powyzszych; Spidey na zwierzynie ludzkiej skali do okolo 20 na dobe. Nie dotyczy okazu noszonego pod plaszczem."
+    carried: "Okaz niesiony w kieszeni nie poluje wcale. Silnik tego nie sprawdza - patrz retcon_000047 punkt 4."
 growth:
   model_ref: system/companion-growth.md
   permanent_growth_steps: 0

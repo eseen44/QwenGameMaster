@@ -1,0 +1,20 @@
+schema_version: 1
+location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+id: discovery_loc_lumaria_magical_academy
+status: active
+knowledge_level: former_student_plus_two_recent_visits
+visits:
+  - {event_id: event_turn_interlude_017_misnotice_past_porter, day: 1, time: wieczor, entry: misnotice_past_the_porter_no_entry_in_the_book, reached: zone_academy_laboratory_wing}
+  - {event_id: event_turn_interlude_127, day: 3, time: '15:40', entry: openly_at_the_gatehouse_window_curse_loosened_tongue, reached: zone_academy_gatehouse}
+  - {event_id: event_turn_interlude_130, day: 3, time: '16:10', entry: walked_past_a_sleeping_porter_and_an_unattended_book_no_entry_at_all, reached: zone_academy_scaffolded_wing}
+revealed_zones:
+  - {id: zone_academy_gatehouse, note: 'Portiernia z ksiega odwiedzin i tablica obwieszczen. Nowa od czasow Lucana. Zawiadomienie o dyspucie przypinane trzy razy - dwa razy urwano rog.'}
+  - {id: zone_academy_main_court, note: 'Dziedziniec miedzy skrzydlami, przechodni.'}
+  - {id: zone_academy_laboratory_wing, note: 'Laboratorium ojca. Pracuje tam po nocy, praktycznie nie wychodzi.'}
+  - {id: zone_academy_scaffolded_wing, note: 'BRAK KONTROLI DOSTEPU - zadnej portierni, zadnej ksiegi, nikt nie liczy wchodzacych. Korytarz w polowie zastawiony materialem, dwa przejscia pod plandeka, pyl zapisuje kazdy but. Pokoje Neris Aldhen. Rusztowanie z zewnatrz daje poziom z widokiem na jej okna i droge do nich.'}
+not_yet_seen:
+  - {id: zone_academy_former_student_annex, note: 'Dawna przybudowka Lucana - przebudowana, wedlug location.yaml niemieszkalna. Nie ogladana od powrotu.'}
+open_observations:
+  - {id: obs_tracks_at_aldhens_door, event_id: event_turn_interlude_130, text: 'Slady w pyle przychodza pod drzwi i wracaja - ktos stal i nie zapukal. Nie robotnik. Kto i kiedy - nieustalone.'}
+  - {id: obs_disturbed_dust_on_the_scaffold_level, event_id: event_turn_interlude_130, text: 'Poziom rusztowania z widokiem na jej okna ma naruszony pyl. Niesprawdzony z bliska.'}
+last_updated_event_id: event_turn_interlude_130

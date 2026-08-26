@@ -3,7 +3,7 @@ id: spy_beetle_08
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 49
+revision: 55
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_streets_and_refuse
@@ -20,12 +20,12 @@ resources:
       units: 1
     hunting_recovery:
       interval_seconds: 86400
-      units: 1
+      units: 3
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 84240
-      hunting_recovery_elapsed_seconds: 84240
+      decay_elapsed_seconds: 1440
+      hunting_recovery_elapsed_seconds: 1440
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -39,6 +39,6 @@ status_flags:
 - audible_clicking_on_stone
 - scattered_no_standing_order_left_to_mature
 conditions: []
-last_event_id: event_turn_interlude_126
+last_event_id: event_turn_interlude_132
 source_refs:
 - event_turn_interlude_078

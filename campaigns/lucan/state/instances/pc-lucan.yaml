@@ -3,17 +3,17 @@ id: pc_lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 122
+revision: 128
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  formation: shown_out_of_seraphines_office_at_1950_heading_to_his_own_registered_duty_room_upstairs_never_the_basement_cell_four_thousand_in_gold_and_the_syndicate_pass_under_the_coat_spidey_at_his_ribs
+  location_id: loc_lumaria_magical_academy
+  zone_id: zone_academy_scaffolded_wing
+  formation: inside_neris_aldhens_rooms_door_latched_spidey_openly_on_his_shoulder_she_is_asking_who_else_has_seen_it
 integrity:
   current: 19
   maximum: 19
 resources:
   lucan_necrotic_energy:
-    current: 7.8
+    current: 11.05
     capacity: 15
     comfortable_capacity: 15
     permanent_expansion: 3
@@ -23,7 +23,17 @@ resources:
       dawna dwunastka nie ma zadnych skutkow ubocznych - patrz retcon_000004 i retcon_000019.
     campaign_calibration: true
     decision_status: approved
-    runtime: {}
+    runtime:
+      regeneration_elapsed_seconds: 0
+    regeneration:
+      interval_seconds: 3600
+      units: 0.25
+      requires:
+      - living
+      note: Dodane retconem 000045. Zywy nekromanta odbudowuje wlasna rezerwe sam,
+        niezaleznie od snu - 6 jednostek na dobe, pelna pula z zera w ok. 2,5 dnia.
+        Surplus sieciarzy to OSOBNY kanal (state/sustained-links.yaml), dzisiaj caly
+        skierowany w Varkhena.
 conditions: []
 retired_conditions:
 - id: elevated_energy_signature_above_old_threshold
@@ -38,7 +48,7 @@ status_flags:
 - post_overload_stable
 - permanently_expanded_reservoir
 - within_normal_capacity
-last_event_id: event_turn_interlude_126
+last_event_id: event_turn_interlude_132
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

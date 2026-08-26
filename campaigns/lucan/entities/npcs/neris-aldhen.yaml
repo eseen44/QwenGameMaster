@@ -8,6 +8,7 @@ role: Akademiczka Akademii Magii Lumarii; referentka stanowiska SZEROKIEJ defini
   kontra nieumarły.
 faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
 current_location_id: loc_lumaria_magical_academy
+current_zone_id: zone_academy_scaffolded_wing
 lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
 first_learned_by_lucan:
   event_id: event_turn_interlude_022_notice_board_identification
@@ -18,7 +19,15 @@ lucan_recognition: none
   # z części instytucji, której nigdy nie dotknął. NIE jest jego dawną wykładowczynią.
 portrayal:
   tone: not_yet_established
-  known_only_through: [her_offprint, the_dispute_announcement]
+  known_only_through: [her_offprint, the_dispute_announcement, the_gatehouse_porters_description]
+  seen_from_the_gatehouse:
+    source_event_id: event_turn_interlude_128
+    added_by: retcon_000050
+    rooms: 'Skrzydlo POD RUSZTOWANIEM, nie laboratoryjne. Urzedowy powod - brak miejsca w laboratoryjnym. Miejsce, w ktore sadza sie kogos, komu nie chce sie robic wygodnie.'
+    hours: 'Przychodzi przed pierwszym swiatlem, wychodzi po zmroku. O 16:00 najpewniej jest w srodku.'
+    appearance: 'Drobna, chuda, chodzi szybko. Nosi swoje rzeczy sama - skrzynki, ksiazki, odbitki - i nikt jej ich nie nosi, co na tej uczelni jest informacja o pozycji. Ciezki ciemny plaszcz bez wzgledu na pogode. Wlosy spiete w pospiechu. Atrament na palcach i mankietach. Mloda na katedre.'
+    the_detail_that_matters: 'Mowi portierowi dzien dobry PO IMIENIU. Nikt inny tego nie robi i on to pamieta. Jest wiec jedyna osoba w Akademii, ktora zauwazy, ze cieć spal na stanowisku, i jedyna, ktorej moze zalezec, zeby zapytac dlaczego.'
+    guest_book_habit: 'Sama wpisuje swoich gosci do ksiegi odwiedzin - czego nikt inny na tej uczelni nie robi.'
   fathers_assessment: Odważniejsza, niż jej się to opłaci - tak ojciec Lucana pamięta
     swoją myśl przy lekturze jej tekstu.
 attitude_to_pc:
@@ -27,14 +36,22 @@ attitude_to_pc:
     niej ARGUMENTEM. To czyni ją naturalną sojuszniczką i jednocześnie osobą, która
     ma własny interes w tym, żeby okaz był pokazany, zbadany i opisany.
 knowledge:
-  confirmed: []
+  confirmed:
+  - fact: 'Widziala zywy, ozywiony okaz pajaka na ramieniu obcego i widziala PRZEPLYW energii wchodzacy w to cialo. Rozpoznala z grubsza, co to jest (system/magic.md - swiadek w chwili rzucania wie).'
+    source_event_id: event_turn_interlude_132
+  - fact: 'Jej wlasny pierwszy odczyt fachowy: to nie jest konstrukt, bo konstrukt sie nie karmi. Wypowiedziany na glos, przed jakimkolwiek rachunkiem interesu.'
+    source_event_id: event_turn_interlude_132
+  - fact: 'Ze cwiczyla mowe na glos w skrzydle bez portierni i bez ksiegi, i ze byla sluchana - dowiedziala sie tego od obcego, ktory wszedl ta sama droga.'
+    source_event_id: event_turn_interlude_132
+  - fact: 'Nadal nie zna jego nazwiska, nie zna sieci, nie zna Varkhena, nie slyszala slowa vitae i nie wie o profesorze Veyrze ze skrzydla laboratoryjnego.'
+    source_event_id: event_turn_interlude_132
   suspected: []
   false_beliefs: []
-  forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity, lucans_identity_at_all]
+  forbidden_without_event: [spidey_network, varkhen_identity, lucans_identity_at_all, the_word_vitae, fathers_parallel_showing]
 agenda:
   current_goal: Wygrać otwartą dysputę o szeroką definicję ożywionego konstruktu.
   scheduled_event: Dysputa otwarta za około 16 dni od event_turn_interlude_022.
   opponent: npc_ivar_kolm
 relationships: []
-last_updated_event_id: event_turn_interlude_022_notice_board_identification
+last_updated_event_id: event_turn_interlude_132
 source_refs: [campaigns/lucan/entities/factions/lumaria-magical-academy.yaml, campaigns/lucan/planning/act-03-city-power-dynamics.yaml]
