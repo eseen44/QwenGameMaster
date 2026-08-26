@@ -51,3 +51,31 @@ W zwykłym planowaniu narrator:
 Napięcie, testy i niedobory należą do aktu. Cztery kolejne korekty tego samego rodzaju
 (retcon_000015 odczynniki, retcon_000017 energia, retcon_000021 godziny, retcon_000022 sama
 rama) wynikały z łamania tej zasady w trzech różnych jednostkach.
+
+## Skala miasta i długość tury rozmowy (retcon_000042, kalibracja gracza 26.08.2026)
+
+Lumaria to **małe miasto średniowieczne**, nie stolica. Narrator systematycznie zawyżał
+`time_advanced_seconds`, aż dzień trzeci interludium zaczął mieć dziewięć godzin
+zalogowanej rozmowy i trzydziestopięciominutowy podwójny rachunek w jednej scenie.
+
+**Referencyjne czasy podane przez gracza:**
+
+| rzecz | dobrze | źle (co robiłem) |
+|---|---|---|
+| cała negocjacja w pokoju syndykatu | do 1 h | 2 h 50 |
+| rozmowa z Seraphine w jej biurze | ~30 min | 1 h 15 |
+| przejście przez miasto (targ → gildia) | ~20 min | 40 min |
+
+**Reguła praktyczna.** Jedna tura rozmowy to **3–8 minut**, nie 15–40. Wymiana zdań, jedno
+pytanie i jedna odpowiedź to minuty. Dwadzieścia minut na turę oznacza, że pięć tur zjada
+poranek — a pięć tur to jeden wątek rozmowy, nie pół dnia.
+
+- Dziesięciotorowa scena rozmowna trwa około godziny, nie trzech.
+- Przejście przez to miasto liczy się w minutach. Nie ma dzielnic oddalonych o godzinę.
+- Robota przy stole, rytuał, badanie i podróż poza mury mają swoje własne, dłuższe stawki —
+  ta kalibracja dotyczy **rozmów i ruchu w mieście**.
+
+**Skąd brać zapas czasu, jeśli fikcja potrzebuje, żeby było później.** Nie z wydłużania tur.
+Z **luk między scenami**: czekania na wpuszczenie, ważenia towaru, siedzenia w głównej sali,
+tego, że kontrolerka gildii nie jest wolna na żądanie. Czas świata między scenami może
+płynąć swobodnie; czas wewnątrz zalogowanej tury nie.

@@ -246,3 +246,7 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 - **Lucan ŚPI NA GÓRZE, w pokoju dyżurnym** (retcon_000038). Cela po Varkhenie w piwnicy
   jest jego formalnie i trzyma jego rzeczy, ale celowo nie sypia tam do końca sprawy.
   Nie wrzucaj go do piwnicy przy otwarciu sesji.
+- **CZAS: 3–8 MINUT NA TURĘ ROZMOWY** (retcon_000042). Lumaria to małe miasto średniowieczne.
+  Cała negocjacja w pokoju syndykatu ≤1 h, rozmowa u Seraphine ~30 min, przejście przez
+  miasto ~20 min. Jeśli fikcja potrzebuje, żeby było później, bierz to z **luk między
+  scenami** (czekanie, ważenie, kolejka), nie z wydłużania tur. Patrz `system/pacing.md`.
