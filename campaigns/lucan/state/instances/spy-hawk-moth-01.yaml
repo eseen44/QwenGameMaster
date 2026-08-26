@@ -27,6 +27,28 @@ resources:
     runtime:
       decay_elapsed_seconds: 0
       hunting_recovery_elapsed_seconds: 0
+traits:
+  # Osobowosc maja WYLACZNIE okazy zakotwiczone. Reszta jest masa bez cech.
+  # Zasada i kierunek rozwoju: planning/anchored-companions.yaml
+  source: player_declaration_day3_evening_anchored_personalities
+  decided_on: '2026-08-26'
+  gender: female
+  list:
+  - glutton
+  - regal
+  - witty
+  - egotistic
+  subordination: >-
+    Zwierzchnictwo Lucana uznaje bez sporu i bez ironii - to jedyna rzecz, z ktorej nie
+    zartuje. Wobec wszystkiego innego jest krolowa.
+  note: >-
+    Zer traktuje jak nalezna danine, nie jak posilek - co ma oparcie w tym, jak powstala:
+    od pierwszego dnia karmiona z reki sila zyciowa jedwabnikow, nigdy nie zerowala sama
+    (flaga fed_on_silkworm_life_force_not_foraging, t_088/090).
+  development_direction: >-
+    Od lasucha do dworu. Wlasne owady-karmiciele przestaja byc mechanika zasilania i
+    zaczynaja byc SWITA - regal plus glutton daje krolowa, ktora nie poluje, bo nie musi.
+    Egotyzm i ciety jezyk rosna razem z liczba poddanych. Docelowo dialog z Lucanem.
 status_flags:
 - newly_animated
 - death_anchored

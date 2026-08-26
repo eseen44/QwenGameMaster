@@ -1,0 +1,90 @@
+schema_version: 1
+campaign_id: campaign_lucan
+object_type: planning_store
+status: accepted_by_player_not_yet_executed
+decided_on: '2026-08-26'
+source: player_declaration_day3_evening_specimen_builds
+materials_ref: worlds/solmara/lore/concealment-materials.yaml
+personalities_ref: campaigns/lucan/planning/anchored-companions.yaml
+
+execution_note: >-
+  ZADNA z tych modyfikacji NIE JEST wykonana. Cechy osobowosci sa wrodzone i weszly do
+  instancji od razu; ulepszenia to GODZINY PRZY STOLE (retcon_000017: 8 x 1.5^n h,
+  bez energii, bez odczynnikow) i zmieniaja stan dopiero po turach pracy.
+  Liczby mechaniczne ponizej sa propozycja narratora przyjeta bez sprzeciwu, nie
+  deklaracja gracza - wolno je poprawic przed wykonaniem.
+
+builds:
+- id: build_beetle_tank_and_battery
+  target_instance: spy_beetle_01
+  concept: Maly tank, ruchoma bateria, punkt kontaktowy spajajacy siec. Im leniwszy, tym lepszy.
+  steps:
+  - id: fit_concha_surda_plate
+    hours: 16
+    first_of_series: true
+    note: Kazda nastepna plyta 6-8 h, bo forma jest.
+    grants_flags: [armoured_concha_surda_plate, stone_camouflage_visual_and_arcane]
+  - id: teach_feeding_without_moving
+    note: Zer sam przychodzi do okazu siedzacego pod plyta na murze.
+    grants_flags: [feeds_without_moving]
+    mechanical_effect: decay spada z 1/dobe do 0.5/dobe
+  - id: enlarge_reservoir_to_tank
+    mechanical_effect: necrotic_reservoir capacity 3 -> 12
+    grants_flags: [power_source_for_linked_specimens]
+  - id: make_it_a_network_hub
+    mechanical_effect: >-
+      Wszystko, co idzie przez zuka, liczy sie jako JEDEN przeskok. Gwiazda z zukiem
+      w srodku zamiast lancucha z mnozonymi stratami
+      (companions/webber-network.yaml#network_cost_model).
+    grants_flags: [network_hub_single_hop]
+
+- id: build_moth_glutton
+  target_instance: spy_hawk_moth_01
+  concept: Zarazona tona pasozytow, wszystko trwale i samoodrastajace, zero serwisowania.
+  starting_point: >-
+    Zawisak istnieje i jest zakotwiczony - lezy na warsztacie w baszcie do stwardnienia
+    (held_back_pending_hardening, t_090). Ma juz cichy i szybki lot, zawis w miejscu,
+    ciezki tulow z miejscem na modyfikacje i zniesiony trzydniowy smycz (decay_suppressed).
+    Jest nocna i tylko nocna, a w dzien rzuca sie w oczy.
+  steps:
+  - id: implant_sordina
+    hours: 8
+    grants_flags: [sound_dampening_symbiont, symbiotic_parasite_load]
+  - id: implant_lichen_speculans
+    hours: 12
+    grants_flags: [substrate_matching_lichen, passive_concealment_when_still]
+  properties:
+  - nie ciezsza i nie wolniejsza - lata normalnie
+  - wszystkie modyfikacje trwale, same odrastaja, nie rusza Death_Anchor
+  - zero serwisowania i zero nakladania
+  energy_model:
+    text: >-
+      Cena siedzi w spalaniu, nie w wadze. Zywi kolonie z siebie.
+    implementation_note: >-
+      NIE ruszac pola decay - zawisak ma decay zniesione fiolka z t_090
+      (decay_suppressed_no_three_day_leash) i tego sie nie cofa. Spalanie na symbionty
+      to OSOBNA pozycja w resources, zeby dwie rzeczy sie nie mieszaly.
+    symbiont_upkeep:
+      pool: necrotic_reservoir
+      units_per_day: 2
+      capacity_unchanged: 3
+    consequences:
+    - >-
+      Autonomia okolo poltora dnia na pelnej rezerwie i to jest caly mechanizm cechy
+      glutton - musi sie ciagle pasc albo byc dokarmiana.
+    - >-
+      Nie zeruje sama i nigdy nie zerowala - od pierwszego dnia karmiona z reki sila
+      zyciowa jedwabnikow (fed_on_silkworm_life_force_not_foraging). Karmienie jest
+      czynnoscia Lucana albo kogos w jego imieniu, nie automatem.
+    - >-
+      Dluzsza praca wymaga zasilenia: z Lucana albo laczem od innego nieumarlego,
+      wpisanym do state/sustained-links.yaml ze strata na przeskok. Naturalne zrodlo:
+      spy_beetle_01 jako bateria.
+  daylight_note: >-
+    Porost slepy NIE znosi flag nocturnal_and_only_nocturnal ani conspicuous_in_daylight.
+    Daje kryjowke w BEZRUCHU na korze, tynku i kamieniu. Lot za dnia pozostaje ryzykiem,
+    ktorego zaden z tych materialow nie zdejmuje.
+  development_direction: >-
+    Wlasne owady-karmiciele. Podrzedne okazy przynoszace jej zer i utrzymujace ja w
+    polu bez udzialu Lucana - cecha glutton przelozona na strukture. Docelowo cma
+    przestaje byc wezlem, ktory Lucan dokarmia, i zaczyna byc wezlem z wlasnym zapleczem.

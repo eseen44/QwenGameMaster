@@ -1,0 +1,93 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_dusk_father_laboratory_with_neris
+object_type: scene_snapshot
+closed_at: '2026-08-26T21:09:42+02:00'
+summary: 'Zmierzch dnia trzeciego, laboratorium profesora Veyra. Lucan wszedl bez
+  pukania z krzykiem o konsultacje i haczyk zadzialal natychmiast - ojciec porzucil
+  stosy. Kartka z szescioma problemami przebila jego wlasna agende; odbitki Neris
+  przeszly mu przez rece NIEPRZECZYTANE i leza na rogu stolu naglowkiem w dol, jedna
+  z narysowana na odwrocie krzywa kosztu. Pytanie o to, dla kogo okazy maja byc niewykrywalne,
+  zostalo skonsumowane przeramowaniem na funkcje kosztu i juz nie wrocilo. Lucan podal
+  przy swiadku specyfikacje: male i zbywalne obiekty, optimum materialowe przy produkcji
+  na masowa skale. Neris przedstawiona jako jego doktorantka i przyjeta bez weryfikacji
+  - siedzi w rozmowie jako para rak z notatnikiem, czyli referentka szerokiej definicji
+  publicznie przypieta do Lucana szesnascie dni przed dysputa. Ojciec planuje serie
+  porownawcza z materialu Akademii. Scena zamknieta w momencie, w ktorym ojciec pyta
+  Neris wprost, kto pisze rozsadnie o granicy konstruktu - czyli prosi ja o jej wlasne
+  nazwisko, nie wiedzac o tym. Zapalnik uzbrojony i nierozbrojony.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_dusk_father_laboratory_with_neris
+  location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+  started_at: '2026-08-18T17:08:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_neris_aldhen
+  - npc_lucan_father
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - Ojciec pyta Neris wprost, kto pisze rozsadnie o granicy konstruktu - czyli prosi
+    ja o jej wlasne nazwisko, nie wiedzac o tym. Lucan moze pozwolic jej odpowiedziec
+    prawde, wejsc jej w slowo i podac inne nazwisko albo zamknac temat i wrocic do
+    krzywej.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_147
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_afternoon_aldhen_rooms_terms.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-academy/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - Ojciec pyta Neris wprost, kto pisze rozsadnie o granicy konstruktu - czyli prosi
+    ja o jej wlasne nazwisko, nie wiedzac o tym. Lucan moze pozwolic jej odpowiedziec
+    prawde, wejsc jej w slowo i podac inne nazwisko albo zamknac temat i wrocic do
+    krzywej.
+  last_refreshed_event_id: event_turn_interlude_147
+  context_bytes: 33363
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 13094
+  - ref: system/narrator.md
+    bytes: 7603
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+    bytes: 2264

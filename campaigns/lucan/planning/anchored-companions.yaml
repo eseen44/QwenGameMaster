@@ -1,0 +1,128 @@
+schema_version: 1
+campaign_id: campaign_lucan
+object_type: planning_store
+status: accepted_by_player
+decided_on: '2026-08-26'
+source: player_declaration_day3_evening_anchored_personalities
+
+rule_personalities_are_anchor_only:
+  text: >-
+    Znaczace i zauwazalne cechy osobowosci maja WYLACZNIE okazy zakotwiczone
+    (status_flag death_anchored, i to te wskazane ponizej). Reszta - zuki 02-08,
+    pajaki piwniczne, wije, osa, sieciarze home/tannery/dump - jest MASA.
+    Nie pisac im osobowosci, nie prowadzic z nimi dialogow, nie sledzic ich cech,
+    nie nadawac im imion ani rodzaju.
+  why: >-
+    Trzy postacie z charakterem sa warte wiecej niz dwadziescia z etykietami, a
+    narrator, ktory personifikuje cala mase, zamienia siec w zoo i gubi te trzy.
+
+constraints:
+  autonomy_horizon:
+    decided_on: '2026-08-27'
+    text: >-
+      Cechy i kierunki rozwoju ponizej to WZORCE ZACHOWAN, nie obecne mozliwosci.
+      Przez dlugi czas zaden z tych okazow nie ma niezaleznosci pozwalajacej na mocne
+      wersje tych cech - zuk nie dowodzi jeszcze niczym, cma nie ma dworu, tkacz nie
+      prowadzi wlasnej polityki. Cechy maja BARWIC wykonanie rozkazu, nie zastepowac go
+      wlasna agenda.
+  no_infighting:
+    text: >-
+      Okazy nie atakuja sie wzajemnie. Wrogosc, zazdrosc, rywalizacja i zlosliwosc sa
+      dozwolone jako ton; realna przemoc, sabotaz i usuwanie sie nawzajem nie - chyba ze
+      gracz sam to zadeklaruje.
+  not_the_main_plot:
+    text: >-
+      Osobowosci okazow to przyprawa, nie danie. Jedno-dwa zdania na scene. Nie budowac
+      z tego watku i nie robic z kampanii zarzadzania dworem nieumarlych.
+
+development_direction_dialogue:
+  text: >-
+    Kierunek kampanii: zakotwiczone okazy z wiekiem dojrzewaja do DIALOGU z Lucanem.
+    Nie od razu i niekoniecznie ludzka mowa - ale cechy ponizej sa fundamentem tego,
+    jak kazde z nich bedzie brzmiec, gdy zacznie mowic. Rejestry musza byc rozne;
+    trzy okazy mowiace tym samym glosem to ta sama awaria co retcon_000040 wobec NPC.
+
+anchored:
+- id: companion_spidey
+  gender: male
+  traits: [diligent, partner, spec_ops, professional, proud_of_his_craft, stylist, daring]
+  concept: >-
+    Pajeczy protagonista: James Bond skrzyzowany z ninja i samurajem. DUMA Z DOBRZE
+    WYKONANEJ PRACY, nie honor - nie ma kodeksu, ma standard wykonania i to jest cala
+    jego tozsamosc. Obraza go niechlujstwo, nie zadanie.
+  tells: [czysci sie po robocie, nie chodzi dwa razy ta sama droga, czeka bez ruchu i
+    dziala raz, wybiera trudniejsze wyjscie jesli czystsze]
+  voice_when_it_speaks: >-
+    Zawodowy, oszczedny, meldunkowy - i z ledwie slyszalna satysfakcja, gdy wyszlo
+    elegancko. Zglasza wynik i stan, nie prosi o nic, nie mowi o sobie. Nie klóci sie o
+    rozkaz, ale poprawia go w wykonaniu i potrafi rzucic jedno suche zdanie o planie,
+    ktory obrazil jego rzemioslo.
+- id: spy_beetle_01
+  gender: male
+  traits: [lazy, somnolent, militaristic, general_of_arms]
+  voice_when_it_speaks: >-
+    Doktrynalny i leniwy jednoczesnie. Mysli w kategoriach pozycji, obsady, zmiany
+    warty i zaopatrzenia - i konsekwentnie przydziela to komus innemu. O sobie mowi
+    jak o stanowisku dowodzenia, nie jak o zuku.
+  build_direction: >-
+    Maly tank pod plyta z Concha surda: ruchoma bateria dla innych okazow i punkt
+    kontaktowy spajajacy siec w gwiazde (jeden przeskok) zamiast lancucha z
+    mnozonymi stratami - patrz companions/webber-network.yaml#network_cost_model.
+    Docelowo je bez poruszania sie i dowodzi podleglymi robalami.
+- id: spy_hawk_moth_01
+  name_note: Zawisak. Istnieje, jest zakotwiczony, lezy na warsztacie do stwardnienia (t_090).
+  gender: female
+  traits: [glutton, regal, witty, egotistic]
+  subordination: >-
+    Zwierzchnictwo Lucana uznaje bez sporu i bez ironii - to jedyna rzecz, z ktorej nie
+    zartuje. Wobec wszystkiego innego jest krolowa.
+  voice_when_it_speaks: >-
+    Wladcza, cieta i zapatrzona w siebie. Nie prosi - informuje, ze cos jej sie nalezy,
+    i robi to w jednym zdaniu, ktore jest zabawne dokladnie na tyle, zeby trudno bylo
+    odmowic. Zer traktuje jak nalezna danine, nie jak posilek: gdzie jest, ile go jest,
+    kto jej go przyniesie. O pozostalych okazach mowi z rozbawiona pogarda, o Lucanie
+    nigdy.
+  development_direction: >-
+    Od lasucha do dworu. Wlasne owady-karmiciele przestaja byc mechanika zasilania i
+    zaczynaja byc SWITA - regal plus glutton daje krolowa, ktora nie poluje, bo nie musi.
+    Egotyzm i ciete jezyk rosna razem z liczba poddanych.
+  build_direction: >-
+    Symbionty stale i samoodrastajace (plesn gluszaca + porost slepy), bez
+    serwisowania. Nie ciezsza i nie wolniejsza; cena siedzi w spalaniu.
+    Kierunek rozwoju: wlasne owady-karmiciele, ktore utrzymuja ja w polu bez udzialu
+    Lucana.
+  existing_traits_from_creation: >-
+    Zawisak ma juz z warsztatu: silent_flight, fast_flight, can_hover_in_place,
+    heavy_thorax_room_for_modifications, carries_more_than_a_wasp, decay_suppressed.
+    Oraz dwie flagi, ktore trzeba pamietac przy prowadzeniu: nocturnal_and_only_nocturnal
+    i conspicuous_in_daylight - w dzien jest rzucajaca sie w oczy i porost slepy daje jej
+    tylko kryjowke W BEZRUCHU, nie prawo do lotu za dnia.
+  status: >-
+    Istnieje, zakotwiczony, integralnosc 6/6, rezerwa 3/3, lezy na warsztacie w baszcie
+    do stwardnienia (held_back_pending_hardening, t_090). Ulepszenia niewykonane.
+- id: webber_anchored
+  gender: female
+  traits: [sadistic, subservient, shy]
+  voice_when_it_speaks: >-
+    Cicha, krotka, chetna do przytakniecia - dopoki mowi do Lucana. Zupelnie inna,
+    gdy mowi o tym, co robi pozostalym sieciarzom: wtedy jest dokladna i nie
+    przeprasza. Nie prosi o pozwolenie na okrucienstwo i nie spodziewa sie zakazu.
+  development_direction: >-
+    Yandere jako WZORZEC ZACHOWAN, nie jako watek fabularny. Wyjasnia, skad bierze sie
+    jej okrucienstwo: nie jest sadyzmem bez adresu, jest zazdroscia - kazdy inny okaz
+    dostaje uwage, ktora mogla byc jej. Uleglosc i niesmialosc sa prawdziwe i wylacznie
+    dla Lucana. To sposob, w jaki brzmi i reaguje, a nie silnik wydarzen.
+  hard_limits:
+  - >-
+    NIE WOLNO JEJ REALNIE ZAATAKOWAC innego familiara. Wrogosc, zazdrosc, chlod,
+    zlosliwosc, opieszalosc w pomocy - tak. Przemoc, sabotaz, uszkodzenie, usuniecie -
+    NIE, dopoki gracz sam tego nie zadeklaruje.
+  - >-
+    Nie jest to glowna tresc kampanii i nie robi sie z tego watku. Ma byc wyczuwalna
+    w jednym zdaniu na scene, nie napedzac scen.
+  - >-
+    Zadnej pelnej niezaleznosci jeszcze dlugo - patrz constraints.autonomy_horizon.
+  contrast_with_the_moth: >-
+    Obie sa "ona" i obie chca czegos od Lucana, ale nie wolno im brzmiec podobnie.
+    Tkacz mowi za cicho i o nim; cma mowi za glosno i o sobie. Tkacz boi sie, ze przestanie
+    byc potrzebna; cma nie dopuszcza mysli, ze mogloby jej sie cos nie naleze.

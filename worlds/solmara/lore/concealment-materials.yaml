@@ -1,0 +1,142 @@
+schema_version: 1
+world_id: solmara
+object_type: lore_store
+status: accepted_by_player
+decided_on: '2026-08-26'
+source: player_declaration_day3_evening_concealment_materials
+rationale_ref: campaigns/lucan/planning/anchored-companions.yaml
+
+detection_model:
+  source_event_id: event_turn_interlude_150
+  text: >-
+    Wykrywalnosc nie jest gladka krzywa, jest SCHODAMI. Nie ma jednej wykrywalnosci -
+    sa klasy obserwatora i kazda widzi co innego.
+  steps:
+  - id: step_1_a_person_looking
+    defeated_by: ksztalt i ruch, nie magia
+    cost: praktycznie zero
+  - id: step_2_a_person_searching_magically_literate
+    defeated_by: konstrukcja - brak czynnego kanalu, brak lacza, nic aktywnego
+    cost: decyzja projektowa, nie pieniadz
+  - id: step_3_active_field_or_consecrated_instrument
+    defeated_by: nie da sie kupic - da sie tylko unikac
+    note: >-
+      Oslona jest dowodem zamiaru. Przedmiot bez oslony jest okazem, z oslona jest
+      zamiarem. Wyjatek: Concha surda, ktora nie robi dziury, tylko podszywa sie pod mur.
+  cut_off_point: >-
+    Kupowac do stopnia drugiego. Wszystko wydane powyzej kupuje juz tylko dowod na
+    siebie. Srebro: swietne pod ryt, beznadziejne przy optimum - poza wykresem.
+
+delivery_in_fiction:
+  status: NIE POWIEDZIANE W SWIECIE - do wydania w nastepnej scenie
+  who_delivers: npc_lucan_father
+  when: >-
+    Bezposrednio po pytaniu "do ktorego stopnia kupujemy" (event_turn_interlude_150).
+    To sa TRZY RZECZY, ktore ojciec ma wymyslic - narrator nie improwizuje zamiennikow
+    i nie podaje ich w innej kolejnosci ani w innej liczbie.
+  order:
+  - step: 1
+    for: zuk
+    material: concha_surda
+    how_he_gets_to_it: >-
+      Zna ja, bo go WKURZA - skarbce Akademii sa nia wylozone i jego wlasne przyrzady
+      nie czytaja w srodku. Poda ja jako skarge, nie jako rozwiazanie, i dopiero potem
+      zauwazy, ze to jest odpowiedz.
+  - step: 2
+    for: cma - noc, nietoperze
+    material: sordina_deafening_mould
+    how_he_gets_to_it: >-
+      Zna ja jako SZKODNIKA - to ona zjada okazy w magazynie. Zacznie od narzekania,
+      dokladnie tak samo jak przy muszli. To jego jedyny tryb dostepu do tej wiedzy.
+  - step: 3
+    for: cma - dzien, bezruch
+    material: lichen_speculans
+    how_he_gets_to_it: >-
+      Kamienie graniczne i cokoly. Tego juz nie poda jako skargi, tylko jako
+      obserwacje z pola - i to jest moment, w ktorym przestaje odpowiadac na pytanie
+      Lucana i zaczyna projektowac wlasny eksperyment.
+  player_sequence_for_the_scene:
+    source: player_declaration_2026_08_26
+    text: >-
+      1. Ojciec podaje najpierw DWIE substancje dla zuka. 2. Lucan przedstawia Neris i
+      rozmowa przechodzi na dysputa. 3. Dopiero potem naprowadzenie na cme i procedura
+      na kamuflaz dzienny plus nietoperze. Zachowac te kolejnosc.
+
+materials:
+- id: concha_surda
+  name: Skorupa milczaca (Concha surda, malz milczacy)
+  what: >-
+    Malz z glebokiej toni, ktorego muszla rosnie spirala zwracajaca podpis wlasnej
+    masy mineralnej. Mielona z olowiem szmelcowym daje zaprawe. Odlewana i dopasowywana
+    jako PLYTA na grzbiet okazu - oporzadzenie, nie modyfikacja ciala.
+  effect: >-
+    Na kamieniu, tynku i murze okaz jest niewidoczny DLA OKA I DLA ZMYSLOW MAGICZNYCH.
+    Pole czyta kamien tam, gdzie jest kamien, i idzie dalej. Nie robi dziury, wiec nie
+    jest podpisem zamiaru.
+  properties:
+  - zdejmowana i zakladana
+  - okaz pod plyta chodzi i zywi sie normalnie
+  - lacze z siecia dziala bez zmian
+  - dziala tylko na kamieniu i murze
+  cost: >-
+    Muszla to odpad rybacki, wapiennicy i tak ja miela. Materialowo grosze.
+    Pracochlonna: pierwsza plyta ok. 16 h, kazda nastepna 6-8 h, bo forma jest.
+  known_because: >-
+    Skarbce Akademii sa nia wylozone i przyrzady profesora Veyra nie czytaja w srodku -
+    zna ja jako rzecz, ktora go wkurza.
+  tactical_note: >-
+    Zuk w plycie siedzacy na scianie pokoju narad gildii jest murem dla przeszukania
+    i SLYSZY NA ZYWO przez siec. Rejestrator z zywicy zbedny.
+
+- id: sordina_deafening_mould
+  name: Plesn gluszaca (Sordina)
+  what: >-
+    Rosnie w dzwonnicach i piwnicach, gdzie nocuja nietoperze; wyewoluowala tak, zeby
+    jej nie bylo slychac - nietoperze omijaja plamy, na ktorych siedzi. Zdrapywana nozem.
+  effect: >-
+    Sfilcowana w luski skrzydel zjada echo powrotne. Okaz jest dziura w obrazie
+    pomieszczenia dla nietoperza i niesłyszalny dla ludzkiego ucha - brak trzepotu.
+  properties:
+  - TRWALA, wchodzi w symbioze z okazem i zyje z niego
+  - NIE zuzywalna, nie wymaga nakladania ani serwisowania
+  - nie rusza Death_Anchor
+  - nie czyni okazu ciezszym ani wolniejszym
+  cost: zero materialowo; nakladana raz
+  known_because: >-
+    Profesor Veyr zna ja jako SZKODNIKA - to ona zjada okazy w magazynie. Zacznie od
+    narzekania.
+
+- id: lichen_speculans
+  name: Porost slepy (Lichen speculans)
+  what: >-
+    Porost z zacienionej strony kamieni granicznych i cmentarnych murkow. Przez kilka
+    minut przyjmuje ton i desen podloza, na ktorym siedzi. Grzyb plus alga, wiec siada
+    obok Sordiny bez kolizji - to samo utrzymanie.
+  effect: >-
+    Okaz siedzacy na korze, tynku, kamieniu albo desce jest tym, na czym siedzi.
+    W locie nie robi nic. Dla przeszukania polem czyta sie jako POROST, bo jest
+    porostem - organizm, nie zaklecie, nie oslona.
+  properties:
+  - TRWALY, wszczepiany raz, rosnie razem z okazem
+  - odrasta sam, zero serwisowania i zero utrzymania
+  - pasywny w bezruchu, nic nie kosztuje
+  - nie rusza Death_Anchor
+  cost: zero - kamienie graniczne i cokoly, wystarczy noz. Wszczepienie ok. 12 h.
+
+rejected_variants:
+- id: pyl_cmy_zwierciadlanej
+  reason: >-
+    Powloka schodzaca i dzialajaca tylko w bezruchu. Zastapiona porostem slepym, ktory
+    daje to samo, ale trwale i bez nakladania.
+- id: pierzga_slepinca
+  reason: >-
+    Kamuflaz w locie w dzien. Odrzucony razem z cala linia "zuzywalne i wymagajace
+    ponawiania" - gracz zada modyfikacji trwalych i samoodrastajacych.
+- id: silver_plating_for_rune_engraving
+  reason: >-
+    Swietny substrat pod ryt, ale lezy grubo powyzej optimum na krzywej kosztu ojca -
+    poza wykresem. Runy zostaja, ale na chitynie, nie na blasze (event_turn_interlude_148).
+- id: resin_recorder_plate
+  reason: >-
+    Niemagiczny rejestrator dla pokoju narad. Zbedny, odkad plyta z Concha surda
+    pozwala zukowi siedziec na scianie i sluchac na zywo przez siec.

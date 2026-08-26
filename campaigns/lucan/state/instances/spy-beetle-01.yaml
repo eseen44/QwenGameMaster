@@ -3,7 +3,7 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 68
+revision: 75
 position:
   location_id: loc_lumaria
   zone_id: in_transit_to_boros_and_mara
@@ -24,8 +24,27 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 7920
-      hunting_recovery_elapsed_seconds: 7920
+      decay_elapsed_seconds: 9900
+      hunting_recovery_elapsed_seconds: 9900
+traits:
+  # Osobowosc maja WYLACZNIE okazy zakotwiczone. Reszta jest masa bez cech.
+  # Zasada i kierunek rozwoju: planning/anchored-companions.yaml
+  source: player_declaration_day3_evening_anchored_personalities
+  decided_on: '2026-08-26'
+  gender: male
+  list:
+  - lazy
+  - somnolent
+  - militaristic
+  - general_of_arms
+  note: >-
+    Len, ktory z lenistwa zrobil doktryne. Nie rusza sie, jesli moze sie nie ruszac -
+    docelowo nauczy sie jesc bez poruszania sie. Ciezka muszla, maly tank, ruchoma
+    bateria dla innych owadow i punkt kontaktowy spajajacy siec w gwiazde zamiast
+    lancucha przeskokow.
+  development_direction: >-
+    Dowodzenie. Nie robi sam - KAZE robic. Wlasne podlegle robale wykonujace rozkazy
+    w polu, podczas gdy on siedzi pod plyta na murze. Docelowo dialog z Lucanem.
 status_flags:
 - death_anchored
 - moth_tympanal_hearing_organ
@@ -40,7 +59,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_143
+last_event_id: event_turn_interlude_150
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

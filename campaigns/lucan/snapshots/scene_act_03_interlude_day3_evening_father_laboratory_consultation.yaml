@@ -1,0 +1,112 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_evening_father_laboratory_consultation
+object_type: scene_snapshot
+closed_at: '2026-08-27T00:25:11+02:00'
+summary: 'Konsultacja u ojca w laboratorium, zmierzch dnia trzeciego, 17:28-17:41.
+  Haczyk ''konsultacja'' otworzyl profesora Veyra od progu; kartka z szescioma problemami
+  przebila jego wlasna agende. Neris weszla jako cicha towarzyszka, potem zostala
+  podana jako doktorantka Lucana - przykrywka przyjeta bez weryfikacji, jej imie padlo
+  i nic nie uruchomilo, bo ojciec gubi nazwiska i pamieta papier. Jej dwie odbitki
+  przeszly przez jego rece NIEPRZECZYTANE i skonczyly w dloni Lucana, krzywa do gory,
+  naglowkiem w dol. Pytanie ''niewykrywalny dla kogo'' padlo z ust ojca i zostalo
+  przeramowane na wykrywalnosc jako funkcje kosztu; cena przeramowania to specyfikacja
+  produkcji masowej wypowiedziana przy Neris. Lucan zdjal z niej pytanie o literature,
+  wetkajac ojcu pod nos kartke z krzywa i nowy problem o srebrze - srebro odrzucone
+  wlasna krzywa ojca, ''twoj profesor nie liczyl''. Przypisy zlecone Neris; atrybucja
+  rozwiazana bez zadnego nazwiska - odeslanie do tabel zaopatrzenia Akademii. Dokument,
+  ktory Neris pisze wlasna reka, zmienil gatunek z zapisu o niewykrywalnosci na POROWNANIE
+  CEN MATERIALU, czyli produkt zarejestrowanej jednostki badawczej gildii. Cena: cena
+  za sztuke swiezego towaru padla przy niej na glos, wraz z nazwa rejestru. Na koniec
+  os poprawiona z materialu na wykrywalnosc: nie jedna krzywa, a SCHODY - trzy klasy
+  obserwatora, punkt odciecia na stopniu drugim, antymagia odrzucona jako samooskarzajaca,
+  stopien trzeci nie do kupienia, tylko do unikania. Rejestr zaopatrzenia zostal w
+  szafie. Neris porzucila przypisy, zeby powiedziec przy profesorze Veyrze, ze granica
+  moze nie byc cecha przedmiotu, tylko cecha patrzacego. Scena zamknieta na pytaniu
+  ojca: do ktorego stopnia kupujemy - czyli na pytaniu ''dla kogo'' wrocanym przez
+  drzwi wejsciowe i wywolanym przez samego Lucana.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_evening_father_laboratory_consultation
+  location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+  started_at: '2026-08-18T17:28:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_neris_aldhen
+  - npc_lucan_father
+  pressures: []
+  immediate_facts:
+  - Odbitki Neris leza na rogu stolu ojca naglowkiem w dol, nieprzeczytane; na odwrocie
+    jednej z nich narysowana krzywa kosztu.
+  - Neris uchodzi za doktorantke Lucana i notuje dyktowana przez ojca serie porownawcza.
+  - Deklaracja gracza czekajaca na rozstrzygniecie (tura nie zostala rozegrana - blokada
+    narzedzi, nie fikcja) - Lucan wchodzi ojcu w slowo z napylaniem glinu na powierzchnie
+    nosna konstruktu pod rzezbienie run.
+  immediate_questions:
+  - Ojciec pyta wprost, do ktorego stopnia kupujemy - a wybor stopnia jest specyfikacja
+    przeciwnika, czyli tym samym pytaniem "dla kogo", ktore Lucan zamknal w t_146,
+    tylko zadanym od drugiej strony i wywolanym przez niego samego. Lucan nazywa stopien
+    drugi i przyjmuje, ze przed przyrzadem swieconym nie broni sie sprzetem, mowi
+    trzeci i tlumaczy, przed kim, albo znow przestawia rozmowe - tym razem przy Neris,
+    ktora wlasnie przestala pisac.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_150
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_dusk_father_laboratory_with_neris.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-academy/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - Ojciec pyta wprost, do ktorego stopnia kupujemy - a wybor stopnia jest specyfikacja
+    przeciwnika, czyli tym samym pytaniem "dla kogo", ktore Lucan zamknal w t_146,
+    tylko zadanym od drugiej strony i wywolanym przez niego samego. Lucan nazywa stopien
+    drugi i przyjmuje, ze przed przyrzadem swieconym nie broni sie sprzetem, mowi
+    trzeci i tlumaczy, przed kim, albo znow przestawia rozmowe - tym razem przy Neris,
+    ktora wlasnie przestala pisac.
+  last_refreshed_event_id: event_turn_interlude_150
+  context_bytes: 34395
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 13352
+  - ref: system/narrator.md
+    bytes: 7603
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: campaigns/lucan/state/instances/pc-lucan.yaml
+    bytes: 2315

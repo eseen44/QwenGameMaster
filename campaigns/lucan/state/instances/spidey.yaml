@@ -3,7 +3,7 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 135
+revision: 142
 position:
   location_id: loc_lumaria_magical_academy
   zone_id: zone_academy_scaffolded_wing
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 61080
-      hunting_recovery_elapsed_seconds: 61080
+      decay_elapsed_seconds: 63060
+      hunting_recovery_elapsed_seconds: 63060
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -36,13 +36,59 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 17880
+      regeneration_elapsed_seconds: 19860
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
   stacks: 1
   magnitude: 30
   source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+traits:
+  # Osobowosc maja WYLACZNIE okazy zakotwiczone. Reszta jest masa bez cech.
+  # Zasada i kierunek rozwoju: planning/anchored-companions.yaml
+  source: player_declaration_day3_evening_anchored_personalities
+  decided_on: '2026-08-26'
+  gender: male
+  list:
+  - diligent
+  - partner
+  - spec_ops
+  - professional
+  - proud_of_his_craft
+  - stylist
+  - daring
+  note: >-
+    Pajeczy protagonista, nie narzedzie: James Bond skrzyzowany z ninja i samurajem.
+    Nie sluga i nie zwierze - wspolnik o kwalifikacjach, ktory sam wybiera stanowisko
+    (t_133: zszedl ze stolu, obszedl blat, sprawdzil parapet i wybral miejsce z widokiem
+    na oba okna i drzwi, bez polecenia punktowego).
+  the_core: >-
+    DUMA Z DOBRZE WYKONANEJ PRACY, nie honor. Nie ma kodeksu i nie ma linii, ktorej nie
+    przekroczy - brudna robota jest robota. Ma natomiast standard, jak sie ja robi, i to
+    jest jego cala tozsamosc. Obraza go nie zadanie, tylko NIECHLUJSTWO: plan zrobiony
+    na kolanie, halas, ktorego mozna bylo uniknac, druga droga ta sama co pierwsza,
+    zabicie czterech, gdy wystarczylo jedno.
+  tells:
+  - >-
+    Czysci sie po robocie. Zawsze, drobiazgowo, przy Lucanie i bez pospiechu - to jest
+    jego wytarcie ostrza i jednoczesnie komunikat, ze skonczyl.
+  - >-
+    Nie chodzi dwa razy ta sama droga. Nawet gdy to nadklada. Nawet gdy nikt nie patrzy.
+  - >-
+    Czeka. Godzinami, bez ruchu, jak pajak - a potem dziala raz. Poganiany nie przyspiesza.
+  - >-
+    Trudniejsze wyjscie wybiera swiadomie, jesli jest czystsze. Ryzykuje ze stylu, nie
+    z brawury.
+  what_offends_him: >-
+    Uzycie go jak przedmiotu tam, gdzie mogl byc operatorem: wysłanie bez informacji,
+    rozkaz punktowy na cos, co sam zrobilby lepiej, albo praca, po ktorej ktos inny
+    musi sprzatac. Nie klóci sie o to. Zapamietuje.
+  contrast_with_the_moth: >-
+    Cma jest prozna z POZYCJI, Spidey z WYKONANIA. Ona chce, zeby jej sie nalezalo; on
+    chce, zeby bylo zrobione dobrze. Zuk kaze robic, Spidey robi sam - i o to mu chodzi.
+  development_direction: >-
+    Dialog z Lucanem, gdy podrosnie wiekiem. Rejestr zawodowy, nie sluzalczy: meldunek,
+    nie prosba, i suchy komentarz do planu, ktory obrazil jego rzemioslo.
 status_flags:
 - death_anchored
 - moth_tympanal_hearing_organ
@@ -62,7 +108,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_143
+last_event_id: event_turn_interlude_150
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906

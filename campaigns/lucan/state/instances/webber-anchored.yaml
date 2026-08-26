@@ -3,7 +3,7 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 135
+revision: 142
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_hideout_workshop
@@ -24,14 +24,40 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 61080
-      hunting_recovery_elapsed_seconds: 61080
+      decay_elapsed_seconds: 63060
+      hunting_recovery_elapsed_seconds: 63060
 conditions: []
+traits:
+  # Osobowosc maja WYLACZNIE okazy zakotwiczone. Pozostali sieciarze sa masa bez cech.
+  # Zasada i kierunek rozwoju: planning/anchored-companions.yaml
+  source: player_declaration_day3_evening_anchored_personalities
+  decided_on: '2026-08-26'
+  gender: female
+  list:
+  - sadistic
+  - subservient
+  - shy
+  note: >-
+    Meczy inne okazy - nie z rozkazu, z wlasnej potrzeby. Wobec Lucana odwrotnie:
+    ulegla, podporzadkowana, wycofana. Dwie strony tego samego mechanizmu - w dol
+    okrutna, w gore bez wlasnej woli.
+  development_direction: >-
+    Yandere jako WZORZEC ZACHOWAN, nie watek fabularny. Spina jej trzy cechy: okrucienstwo
+    wobec pozostalych okazow nie jest sadyzmem bez adresu, jest zazdroscia - kazdy inny
+    sluga dostaje uwage, ktora mogla byc jej, a ona jest ta, ktora zostala przy warsztacie.
+    Uleglosc i niesmialosc sa prawdziwe i wylacznie dla Lucana. Dialog, gdy podrosnie
+    wiekiem: glos cichy, krotki, chetny do przytakniecia - i zupelnie inny, gdy mowi o
+    pozostalych sieciarzach.
+  hard_limits:
+  - NIE WOLNO JEJ REALNIE ZAATAKOWAC innego familiara ani go uszkodzic czy usunac.
+  - Wrogosc, zazdrosc, chlod, zlosliwosc i opieszalosc w pomocy - tak. Przemoc - nie.
+  - Nie jest to watek kampanii. Jedno zdanie na scene, nie napedzanie scen.
+  - Zadnej niezaleznosci jeszcze dlugo - planning/anchored-companions.yaml#constraints.
 status_flags:
 - autonomous_hunting
 - death_anchored
 - posted_at_tannery_meadow
-last_event_id: event_turn_interlude_143
+last_event_id: event_turn_interlude_150
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
