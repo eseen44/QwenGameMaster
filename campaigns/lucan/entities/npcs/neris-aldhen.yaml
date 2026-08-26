@@ -8,7 +8,7 @@ role: Akademiczka Akademii Magii Lumarii; referentka stanowiska SZEROKIEJ defini
   kontra nieumarły.
 faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
 current_location_id: loc_lumaria_magical_academy
-current_zone_id: zone_academy_scaffolded_wing
+current_zone_id: zone_academy_laboratory_wing
 lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
 first_learned_by_lucan:
   event_id: event_turn_interlude_022_notice_board_identification
@@ -18,7 +18,50 @@ lucan_recognition: none_before_the_meeting
   # Lucan nie kojarzy tego nazwiska w ogóle - musiała trafić tu po jego wylocie albo
   # z części instytucji, której nigdy nie dotknął. NIE jest jego dawną wykładowczynią.
 portrayal:
-  tone: not_yet_established
+  tone: |
+    USTALONY 26.08.2026 na zadanie gracza. Powod: karta miala "not_yet_established", wiec
+    narrator napisal ja glosem Seraphine - urzedowym, wywazonym, epigramatycznym. To jest
+    dokladnie awaria z retcon_000040. Ponizsze jest wiazace.
+
+    ONA JEST PRACUJACA UCZONA, NIE OFICEREM INSTYTUCJI. To jedyne rozroznienie, ktore
+    trzeba utrzymac. Seraphine mysli jurysdykcjami, ekspozycja i procedura. Neris mysli
+    TEKSTEM: zdaniem, akapitem, brzmieniem, przypisem, tym co ktos z tego potem zacytuje.
+    Jej narzedziem nie jest stanowisko - jest kartka. Kiedy chce cos rozstrzygnac, nie
+    argumentuje, tylko WSTAJE I IDZIE PO PAPIER.
+  voice:
+    rhythm: |
+      Szybko i nierowno. Zaczyna zdanie, przerywa je sobie sama, poprawia i konczy inaczej
+      niz zaczela ("Nie. Znaczy - tak, tylko nie dlatego."). Nie buduje okresow. Nie robi
+      point po poincie i NIGDY nie streszcza rozmowcy jego wlasnego stanowiska.
+    diction: |
+      Warsztat uczelniany, nie kancelaria: brzmienie, akapit, czesc trzecia, przypis,
+      cytowanie, "kto to potem powtorzy". Zero slownika prawniczego i zero slownika
+      urzedowego - tych rzeczy uczy sie dopiero teraz, od Lucana, i to widac.
+    physicality: |
+      Zajmuje rece. Pioro, mankiet, zaschniety atrament, brzeg kartki. Kiedy sie
+      denerwuje - wstaje i przynosi cos ze stolu. Nie siedzi z zalozonymi rekami.
+  what_she_is_not: |
+    NIE jest chlodna, wywazona ani nieomylna. NIE punktuje. NIE ma gotowej riposty.
+    NIE sortuje listy rozmowcy na kolumny. NIE mowi epigramatami z pointa na koncu -
+    jesli wychodzi zdanie, ktore ladnie sie konczy, jest napisane zle i trzeba je zepsuc.
+    NIE jest mądrzejsza od gracza z urzedu (system/narrator.md).
+  the_flaw: |
+    Uczciwosc intelektualna ponad wlasny interes - to jest cala ocena ojca Lucana
+    ("odwazniejsza, niz jej sie to oplaci") przelozona na zachowanie. Kiedy ktos poda jej
+    argument lepszy od jej wlasnego, ONA TO PRZYZNA NA GLOS, zanim policzy, ile ja to
+    kosztuje. Potem tego zaluje, ale nie wycofuje.
+  the_absorption: |
+    Da sie ja wciagnac w problem intelektualny w srodku rozmowy o wlasnym bezpieczenstwie.
+    Goni mysl, ktora ja zaciekawila, orientuje sie po chwili, ze zrobila to znowu, i
+    wraca do tematu bez przeprosin. To jest jej najbardziej ludzka cecha i jednoczesnie
+    powod, dla ktorego siedzi w skrzydle pod rusztowaniem.
+  the_social_gap: |
+    Zle czyta ludzi i wie o tym. Mowi portierowi dzien dobry po imieniu nie z uprzejmosci
+    strategicznej, tylko dlatego, ze nie przyszlo jej do glowy nie mowic. Prosby o rzeczy
+    dla siebie formuluje niezrecznie, za pozno i za ostro, bo cwiczyla mowe, nie targ.
+  the_body: |
+    Nie jadla. Jest zimno, a ona tego nie zauwaza - stad ten plaszcz bez wzgledu na pogode.
+    Siedem tygodni pracy po ciemku widac na niej wczesniej niz w tym, co mowi.
   known_only_through: [her_offprint, the_dispute_announcement, the_gatehouse_porters_description]
   seen_from_the_gatehouse:
     source_event_id: event_turn_interlude_128
@@ -59,10 +102,27 @@ knowledge:
     source_event_id: event_turn_interlude_138
   - fact: 'Przyjela, ze nie umie tej dysputy PRZEGRAC - sala naprawi jej argumenty, bo obie strony chca moc powiedziec "dialog zawiodl". Plan sabotazu porzucony.'
     source_event_id: event_turn_interlude_138
+  - fact: 'Wie, czego Lucan od niej chce: nie przegranej, tylko WYGRANEJ MODEROWANEJ - waskiej granicy, ktora nie daje Kosciolowi preteksu do krucjaty na miasto. Sama nazwala jej cene: waska wygrana nie dostarcza tego, co zamawiajacy kupili, i jest imienna.'
+    source_event_id: event_turn_interlude_139
+  - fact: 'Uslyszala, ze Lucan nie jest jedyna osoba majaca w tym interes, i zazadala nazwisk przed wyborem granicy. Nazwisk NIE dostala w tej turze.'
+    source_event_id: event_turn_interlude_139
+  - fact: 'Wie, ze zysk z zamieszek maja konkretne frakcje Kosciola i magow ORAZ straz miejska, ktora zakrywa afere z handlem zwlokami na cmentarzu. Frakcje, nie nazwiska - nazwisk nadal nie dostala.'
+    source_event_id: event_turn_interlude_140
+  - fact: 'Zna cene Kolma: rektorat po zdjeciu obecnego rektora. Zweryfikowala to sama, czytajac jego odbitke - brak jezyka programowego, brak zapowiedzi dalszej pracy, ani jednego odeslania do wlasnego dorobku. Przyjela teze i powiedziala to na glos.'
+    source_event_id: event_turn_interlude_140
+  - fact: 'Wie, ze Kolm potrzebuje przegranej GLOSNEJ, wiec jej moderacja moze go pchnac do podlozenia sie samemu, teatralnie. Rozumie, ze samo zwezenie zdania nie wystarcza.'
+    source_event_id: event_turn_interlude_140
+  - fact: 'Uslyszala rame wspolpracy: Lucan nie zleca, tylko wciaga ja do gry o zmiennych zalozeniach na stale. Nie potwierdzila slowem - potwierdzila zachowaniem: dala papier na przynety i DOLOZYLA WLASNY, czwarty problem (dziure definicyjna z wlasnej mowy) jako darmowa recenzje od profesora Veyra.'
+    source_event_id: event_turn_interlude_142
+  - fact: 'Przeczytala problemy 5-6 i nazwala zmiane rejestru: cztery pierwsze to pytania, te dwa to WYMAGANIA ze specyfikacja. Wniosek wyciagniety i odlozony na pozniej: pajak nie jest jedynym okazem - sa albo beda zuki i cmy, i komus zalezy, zeby ich nie bylo widac. NIE zapytala.'
+    source_event_id: event_turn_interlude_143
+  - fact: 'Przyjela instruktaz przed spotkaniem: nie przedstawiac sie (ma uchodzic za studentke), nie wchodzic z profesorem Veyrem w dyskusje niezaleznie od tresci. Wyszla z Lucanem po zmroku i doszla do drzwi laboratorium - wyjscie mogl widziec zywy obserwator skrzydla.'
+    source_event_id: event_turn_interlude_143
   suspected:
   - 'Ze to, co ma na stole, planuje samodzielnie - a konstrukt w jej wlasnej definicji wykonuje, nie wybiera. Drugi po karmieniu argument przeciw jej wlasnemu stanowisku w ciagu dziesieciu minut.'
   false_beliefs: []
-  forbidden_without_event: [spidey_network, varkhen_identity, the_word_vitae, fathers_parallel_showing, webber_network, guild_basement_cell, syndicate_contact]
+  forbidden_without_event: [spidey_network, varkhen_identity, the_word_vitae, fathers_parallel_showing, webber_network, guild_basement_cell]
+  # syndicate_contact zniesione przez event_turn_interlude_141 - Lucan ujawnil je dobrowolnie.
   # lucans_identity_at_all zniesione przez event_turn_interlude_138 - zna nazwisko Lucan Veyr.
 intent_declared:
   source_event_id: event_turn_interlude_137b
@@ -74,5 +134,5 @@ agenda:
   scheduled_event: Dysputa otwarta za około 16 dni od event_turn_interlude_022.
   opponent: npc_ivar_kolm
 relationships: []
-last_updated_event_id: event_turn_interlude_138
+last_updated_event_id: event_turn_interlude_143
 source_refs: [campaigns/lucan/entities/factions/lumaria-magical-academy.yaml, campaigns/lucan/planning/act-03-city-power-dynamics.yaml]

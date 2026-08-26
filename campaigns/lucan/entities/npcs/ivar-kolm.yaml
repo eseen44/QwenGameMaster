@@ -2,7 +2,7 @@ schema_version: 1
 id: npc_ivar_kolm
 name: Ivar Kolm
 status: needs_review
-importance: named_opponent_not_yet_met_minimal_detail
+importance: named_opponent_not_yet_met_but_his_payoff_is_now_known
 role: Akademik Akademii Magii Lumarii; oponent w otwartej dyspucie, reprezentuje
   stanowisko WĄSKIEJ definicji - czyli tezę, że coś takiego jak Spidey jest nieumarłym
   i niczym więcej.
@@ -44,12 +44,36 @@ the_dispute_is_thrown:
     likwidacje forum, bo poza forum srodek zaradczy zmienia rece z papieru na ludzi.
     Precedens: ojca Lucana potepiono dwa razy, a potem ktos przyszedl do laboratorium
     osobiscie.'
-  known_to_kolm: nierozstrzygniete - czy wie, ze ma przegrac, czy jest prowadzony
+  known_to_kolm: 'ROZSTRZYGNIETE (event_turn_interlude_140, declared_by player_as_world_canon):
+    WIE. Nie jest prowadzony w ciemno - jest oplacony wynikiem.'
+the_price_of_kolm:
+  source_event_id: event_turn_interlude_140
+  declared_by: player_as_world_canon
+  text: 'CZLOWIEK, KTORY NISZCZY WLASNY TEMAT, NIE ZAMIERZA JUZ O NIM PUBLIKOWAC.
+    Waska definicja, gdyby wygrala, podcina golemy, homunkulusy, protezy i chowance,
+    czyli wlasna katedre Kolma - a on jest starszy i osadzony. Nikt takiej linii nie
+    bierze dla dorobku. Bierze sie ja, kiedy przyszlosc lezy w ADMINISTRACJI, nie w
+    dorobku. Zaplata Kolma to REKTORAT. Mechanizm: po zatrzymaniu wojenki (albo po
+    zamieszkach) wladze beda otwarte na zdjecie rektora "ktory do tego doprowadzil",
+    a wtedy potrzebny jest nastepca proreligijny i konserwatywny, ktory publicznie stal
+    po waskiej stronie. Kolm jest tym kandydatem i dlatego stoi tam, gdzie stoi.'
+  the_operational_consequence: 'JESLI KOLM JEST OPLACONY WYNIKIEM, A NIE ARGUMENTEM, TO
+    POTRZEBUJE PRZEGRANEJ ODPOWIEDNIO GLOSNEJ. Wygrana moderowana zamowienia nie realizuje.
+    W chwili, w ktorej Kolm zauwazy, ze Neris Aldhen nie jest tak krwiozercza, jak miala
+    byc, jego wlasny interes kaze mu PODLOZYC SIE SAMEMU - i zrobic to teatralnie, bo
+    o teatr wlasnie chodzi. Skutek dla planu Lucana: samo zwezenie zdania nie wystarcza,
+    bo druga strona pulpitu potrafi wyprodukowac pretekst bez udzialu Neris.'
+  the_textual_tell:
+    source_event_id: event_turn_interlude_140
+    read_by: npc_neris_aldhen
+    text: 'Weryfikacja po jej stronie, wlasnym narzedziem: odbitka Kolma nie ma jezyka
+      programowego, nie zapowiada dalszej pracy i nie odsyla ani razu do jego wlasnego
+      dorobku. Aparat czlowieka, ktory temat ZAMYKA, nie otwiera. Teza przeszla.'
 agenda:
   current_goal: Wygrać dysputę dla wąskiej definicji.
-  actual_function: Przegrać ją w sposób wyglądający na uczciwy spór.
+  actual_function: Przegrać ją w sposób wyglądający na uczciwy spór - I ODPOWIEDNIO GLOSNY (patrz #the_price_of_kolm).
   scheduled_event: Dysputa otwarta za około 16 dni od event_turn_interlude_022.
   opponent: npc_neris_aldhen
 relationships: []
-last_updated_event_id: event_turn_interlude_137b
+last_updated_event_id: event_turn_interlude_140
 source_refs: [campaigns/lucan/entities/factions/lumaria-magical-academy.yaml]
