@@ -95,3 +95,27 @@ Test świata może zostać uruchomiony przez:
 - dojrzewanie trucizny, pożaru, konstrukcji, pościgu lub innego procesu.
 
 Rozmowa w nawiasach nie przesuwa czasu i nie może sama uruchomić testu świata.
+
+## Nieograniczona powtórka znosi test
+
+Kalibracja gracza z 25.08.2026, obowiązująca. Doprecyzowuje „przygotowanie bez presji"
+z sekcji „Kiedy wykonywać test", bo ogólne sformułowanie okazało się za słabe —
+narrator rzucił na pierwsze użycie procedury w interludium, gdzie porażka nie kosztowała
+nic poza minutami (`roll_turn_interlude_095`).
+
+**Jeżeli postać może natychmiast spróbować jeszcze raz, nie ma czego testować.** Rzut
+zakłada, że wynik rozstrzyga sytuację. Przy dowolnej liczbie podejść nie rozstrzyga
+niczego — odmierza tylko, ile razy trzeba powtórzyć, a to jest koszt CZASU i zasobu, nie
+test. Rozstrzygnij narracyjnie: opisz, co poszło nie tak i czego to uczy, nalicz czas
+oraz zużyty zasób, i pozwól powtórzyć.
+
+Test wraca dopiero wtedy, gdy powtórka przestaje być darmowa:
+
+- kończy się okno (ktoś wchodzi, cel wychodzi, zegar dobija);
+- każda kolejna próba ma własną cenę rosnącą szybciej niż czas (świadek, zużyty materiał,
+  narastające podejrzenie celu);
+- niepowodzenie robi coś nieodwracalnego, czego druga próba nie cofnie.
+
+Osobno: **nie testuj tam, gdzie stawką jest wyłącznie wykonanie po stronie gracza, a nie
+opór świata.** Trening to trening. Cel bez własnej obrony nie tworzy testu tylko dlatego,
+że ma kartę w `entities/npcs/`.

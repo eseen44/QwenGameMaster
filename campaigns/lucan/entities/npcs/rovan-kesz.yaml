@@ -1,0 +1,50 @@
+schema_version: 1
+id: npc_rovan_kesz
+name: Rovan Kesz
+status: active
+review_status: created_in_play
+importance: full_agent
+role: criminal_circuit_lawyer
+first_appearance_event_id: event_turn_interlude_104
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_113}
+current_location_id: loc_lumaria_market
+portrayal:
+  temperament: [precise, unsentimental, states_his_position_before_he_has_to]
+  appearance: "Po pięćdziesiątce, ubrany jak urzędnik ze średniej półki, teczka, atrament na palcu wskazującym."
+  group_role: "Prawnik obiegu przestępczego - ten z pakietu drogi Mary. Zna urzędników magistratu, nie Akademię."
+oren_connection:
+  status: strong_description_match_not_yet_confirmed_identity
+  source_event_id: event_turn_interlude_105b
+  established_by: player_worldbuilding_interlude
+  claim: "Rysopis Kesza pasuje do czlowieka SPOZA ZALOGI, po spotkaniach z ktorym Oren zmienial trasy wozu ze zwlokami - zeznanie Halveka, event_turn_interlude_048, urwane wtedy na 'na razie nie podaje wiecej'."
+  confirmation_route: "npc_halvek_wagonman siedzi w celach gildii (loc_guild_holding_cells) i widzial tego czlowieka. Rozpoznanie przez niego zamienilo by dopasowanie w tozsamosc."
+  implication: "Syndykat - albo przynajmniej Kesz osobiscie - JEST w linii transportu cial. Pierwsza teza Lucana z tej rozmowy byla trafna."
+  lucan_said_it_out_loud: false
+
+standing:
+  primary_client: the_syndicate
+  is_lucans_lawyer: false
+  moved_seats: "Po mowie Lucana przesiadl sie po te sama strone stolu (event_turn_interlude_105b) - wobec Lucana przestal byc prawnikiem pokoju i nazwal wspolny problem wprost." 
+  declared_at_event_id: event_turn_interlude_104
+  declaration: "Powiedział Lucanowi wprost, przy pierwszym kontakcie, że dziś jest prawnikiem tego pokoju i to pokój decyduje, czego Kesz o Lucanie może się dowiedzieć."
+  consequence: "Nic powiedzianego przy nim teraz nie jest objęte tajemnicą zawodową wobec Lucana."
+  serves_defence_line: criminal_not_classificatory
+knowledge:
+  confirmed:
+    - {fact_id: fact_kesz_knows_lucan_entered_on_teln_vouching, source_event_id: event_turn_interlude_104, claim: "To on zatrzymał rewizję Lucana jednym zdaniem - 'Gość Teln'. Wie zatem, że Lucan wszedł nieprzeszukany i dlaczego."}
+    - {fact_id: fact_kesz_knows_lucan_broke_the_body_line_and_holds_the_leverage, source_event_id: event_turn_interlude_105b, claim: "Lucan powiedzial mu, ze gildia zna punkty kontrolne, ma blankiet autoryzacji trasy, ma rysopis i dosc nitek, by spowolnic biznes ze straza i magistratem - i oddal to jako prezent, nie jako szantaz."}
+    - {fact_id: fact_kesz_understood_the_category_without_asking, source_event_id: event_turn_interlude_105b, claim: "Nie zapytal, o jakie kategorie towaru chodzi - zapytal o ilosc, czestotliwosc i stan. Obslugiwal logistyke dostarczajaca Orenowi to samo."}
+    - {fact_id: fact_kesz_knows_about_the_two_week_deadline, source_event_id: event_turn_interlude_105b, claim: "Lucan zapowiedzial, ze w ciagu dwoch tygodni wywola i rozwiaze w miescie wojne domowa. Kesz przyjal to jako date w kalendarzu i chce wiedziec, po ktorej stronie ma stac jego pokoj."}
+    - {fact_id: fact_kesz_knows_lucan_declared_war_on_the_church, source_event_id: event_turn_interlude_110, claim: "Lucan potwierdzil, ze zapowiedziana wojna domowa za dwa tygodnie dotyczy Kosciola."}
+    - {fact_id: fact_kesz_holds_lucans_acceptance_of_the_priest_meeting, source_event_id: event_turn_interlude_113, claim: "Lucan przyjal oferte na odchodnym. Kesz organizuje i przysle wiadomosc. Odbil pytanie: KIM Lucan ma tam siedziec - czlonkiem Akademii na urlopie dziekanskim, czlonkiem gildii czy Veyrem. Chce odpowiedzi PRZED spotkaniem."}
+  converging_target:
+    id: the_local_priest
+    source_event_id: event_turn_interlude_110
+    logic: "Lokalny kaplan jest umoczony w sprawe cmentarza - znal wlasciwe wejscie, ogladal pieczecie, przy ostatniej wizycie przyszedl Z ORENEM (faction_lumaria_church.knowledge). Kesz jest czlowiekiem spoza zalogi, po spotkaniach z ktorym Oren zmienial trasy. Sciezka Lucana do Kosciola i ekspozycja Kesza celuja w te sama osobe."
+    consequence: "Kesz przestaje byc uslugodawca i staje sie strona z wlasnym motywem. Zaden z nich nie dopowiedzial tego do konca na glos."
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_house_structure]
+  known_about_lucans_father: "Wiedza, ze ojciec Lucana byl dwa razy potepiony przez Inkwizycje i przezyl to (event_turn_interlude_109/110). Ukladu rodu Veyr nie znaja i nie interesuje ich - licza precedens operacyjny, nie nazwisko."
+agenda: [arrange_the_meeting_with_the_priest, protect_the_room_first, assess_whether_lucan_is_a_liability, take_lucan_as_client_only_if_the_room_allows]
+source_refs: [event_turn_interlude_101, event_turn_interlude_104, campaigns/lucan/planning/act-03-defence.yaml#criminal_circuit_lawyer, campaigns/lucan/planning/lucan-leads.yaml#lead_two_contradictory_defences]

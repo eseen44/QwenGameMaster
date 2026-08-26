@@ -1,0 +1,136 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_predawn_guild_cell
+object_type: scene_snapshot
+closed_at: '2026-08-25T12:10:10+02:00'
+summary: 'Noc dnia trzeciego w pokoju na gorze: Lucan przeczytal Uprzejmosci do konca
+  i przyswoil jedenascie procedur klatw poziomu 1-2 TEORETYCZNIE - potrafi je nazwac,
+  rozlozyc na kroki i opisac przeplyw, ale zadna nie ma jeszcze udanego przebiegu.
+  Bramka praktyki to CEL, nie energia: fizyczne i biologiczne da sie cwiczyc na szczurach,
+  ale zapadnia pamieci, rozwiazanie jezyka i usypianie nie maja wersji szczurzej i
+  pierwsza proba bedzie na czlowieku. Skala poziomow i metamagia potwierdzone jako
+  istniejacy kanon (system/metamagic.md); dotyk to os range na zerze warta okolo jednego
+  poziomu; klatwy w swiecie uchodza za slabe i nikt sie przed nimi nie broni, a przewaga
+  Lucana to celowanie kupione anatomia. Potem cztery godziny snu w prawdziwym lozku,
+  co przy okazji daje przykrywce realne slady zamieszkania. Rano dnia trzeciego: spotkanie
+  z Borosem i Mara o pieniadze i prawnika, dwa pajaki nadal nie postawione, Tkacz
+  i zawisak czekaja w baszcie z nieskonczona robota.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_predawn_guild_cell
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-18T03:16:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  pressures:
+  - boros_and_mara_money_and_mob_lawyer_appointment_is_today
+  - two_unanchored_cellar_spiders_sit_in_a_box_unplaced_council_room_and_seraphines_office
+  - the_council_room_bug_is_agreed_with_nobody_the_office_one_is_agreed_with_seraphine
+  - lucan_has_been_awake_since_dawn_of_day_two_and_worked_seven_hours_at_the_bench
+  - tkacz_and_the_hawk_moth_both_wait_at_the_tower_bench_for_lucan_to_come_back
+  - the_hawk_moth_is_held_at_the_tower_bench_until_hardened_retcon_000026
+  - three_webbers_are_out_for_orthopterans_the_donor_material_for_hearing_words
+  - spy_centipede_01_is_in_somebodys_cellar_under_the_guild_quarter_not_in_a_drain
+  - the_anchored_beetle_in_his_pocket_hears_bats_and_rats_but_no_words
+  - four_anchors_exist_and_only_four_everything_else_is_expendable_retcon_000025
+  - varkhen_sits_at_17_of_72_and_8_of_65_in_seraphines_office_on_a_months_long_drip
+  - the_livery_boy_returns_to_hesk_in_seven_days_and_nobody_is_watching_that_stall
+  - hearing_and_dispute_are_thirteen_and_fourteen_days_out
+  - three_purchased_texts_and_the_barber_casebook_are_still_unread
+  - she_still_does_not_know_the_father_knows_the_method
+  immediate_facts:
+  - lucan_is_upstairs_in_the_cover_room_alone_with_only_books_at_03_16_on_day_three
+  - carried_silver_24_plus_50_under_the_brick_and_boros_pays_today_from_a_100k_gross_lot
+  - lucan_is_at_14_5_of_15_energy_and_19_of_19_integrity_no_conditions
+  - the_curse_collection_is_open_in_a_real_bed_first_session_done_nothing_memorised
+  - courtesies_is_a_book_about_DELIVERY_touch_buys_cost_intensity_and_no_concentration
+  - the_suspicious_books_stay_in_the_wall_stash_the_cell_holds_only_boring_ones
+  - spidey_the_anchored_beetle_and_the_spider_box_are_all_down_in_the_cell_without_him
+  - spy_cellar_spider_06_already_holds_the_cell_post
+  - the_moth_ear_hears_the_bat_band_the_fix_for_words_is_an_orthopteran_ear
+  - modification_costs_about_one_hour_no_escalation_retcon_000024
+  immediate_questions:
+  - 'Rano dnia trzeciego, pokoj na gorze, gildia budzi sie pietro nizej. Dzis jest
+    spotkanie z Borosem i Mara - pieniadze i prawnik z polswiatka jednym posiedzeniem.
+    Przed nim Lucan ma jeszcze wolne godziny i cztery rzeczy w zasiegu reki: postawic
+    dwa pajaki (pokoj i gabinet), wrocic do baszty do Tkacza i zawisaka, zaczac cwiczyc
+    pierwsza klatwe na szczurze, albo domknac linie obrony przed przesluchaniem, ktora
+    nadal nie jest wybrana.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_092
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day2_afternoon_tower_workshop.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  search_terms:
+  - 'Rano dnia trzeciego, pokoj na gorze, gildia budzi sie pietro nizej. Dzis jest
+    spotkanie z Borosem i Mara - pieniadze i prawnik z polswiatka jednym posiedzeniem.
+    Przed nim Lucan ma jeszcze wolne godziny i cztery rzeczy w zasiegu reki: postawic
+    dwa pajaki (pokoj i gabinet), wrocic do baszty do Tkacza i zawisaka, zaczac cwiczyc
+    pierwsza klatwe na szczurze, albo domknac linie obrony przed przesluchaniem, ktora
+    nadal nie jest wybrana.'
+  - boros_and_mara_money_and_mob_lawyer_appointment_is_today
+  - two_unanchored_cellar_spiders_sit_in_a_box_unplaced_council_room_and_seraphines_office
+  - the_council_room_bug_is_agreed_with_nobody_the_office_one_is_agreed_with_seraphine
+  - lucan_has_been_awake_since_dawn_of_day_two_and_worked_seven_hours_at_the_bench
+  - tkacz_and_the_hawk_moth_both_wait_at_the_tower_bench_for_lucan_to_come_back
+  - the_hawk_moth_is_held_at_the_tower_bench_until_hardened_retcon_000026
+  - three_webbers_are_out_for_orthopterans_the_donor_material_for_hearing_words
+  - spy_centipede_01_is_in_somebodys_cellar_under_the_guild_quarter_not_in_a_drain
+  - the_anchored_beetle_in_his_pocket_hears_bats_and_rats_but_no_words
+  - four_anchors_exist_and_only_four_everything_else_is_expendable_retcon_000025
+  - varkhen_sits_at_17_of_72_and_8_of_65_in_seraphines_office_on_a_months_long_drip
+  - the_livery_boy_returns_to_hesk_in_seven_days_and_nobody_is_watching_that_stall
+  - hearing_and_dispute_are_thirteen_and_fourteen_days_out
+  - three_purchased_texts_and_the_barber_casebook_are_still_unread
+  - she_still_does_not_know_the_father_knows_the_method
+  last_refreshed_event_id: event_turn_interlude_092
+  context_bytes: 28041
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 10526
+  - ref: system/narrator.md
+    bytes: 3127
+  - ref: campaigns/lucan/context/scene.yaml
+    bytes: 2834
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366

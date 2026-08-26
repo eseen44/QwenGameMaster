@@ -1,0 +1,122 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_midday_boros_and_mara
+object_type: scene_snapshot
+closed_at: '2026-08-25T16:49:27+02:00'
+summary: 'Zaplecze targu, poludnie dnia trzeciego. Boros przedstawil lup rozdzielony
+  na anonimowe dwie trzecie i ryta, identyfikowalna trzecia; Lucan odrzucil przetop
+  i oddal CALOSC drodze Mary - syndykatowi. Marze kazal napisac urzednikowi akt prawdziwe
+  daty i dopisac Halvena Ruska jako obecnego w garbarni. Uzgodnil z Mara godzine treningu
+  dziennie od rana dnia czwartego. Syndykat odpowiedzial w ciagu godziny: dzis, towar
+  i czlowiek w jednym pokoju, kwota nienazwana, i wiedza czyj to towar. W drodze Lucan
+  uprzedzil Mare, ze idzie po wspolprace - dostep do ich rynku i prawnikow - czym
+  przestawil jej poreczenie z transakcji na czlowieka. Wyrywkowy przeglad sieci pokazal
+  dwoch sieciarzy na lace po narzad prostoskrzydlego, trzeciego w drodze, czwartego
+  przy stole w baszcie, milczace czujniki w gildii, Varkhena na kroplowce - oraz trzy
+  slugi chodzace bez rozkazu i bez nadzoru. Scena konczy sie pod drzwiami syndykatu:
+  szescdziesiat kilo na progu, Boros odchodzi.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_midday_boros_and_mara
+  location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+  started_at: '2026-08-18T11:40:00+02:00'
+  tension:
+    level: 1
+    reason: Spotkanie z syndykatem wyznaczone na dzis; szescdziesiat kilo ma przejsc
+      przez miasto bez wpisu do rejestru.
+  participants:
+  - pc_lucan
+  - npc_boros_keld
+  - npc_mara_teln
+  pressures:
+  - id: syndicate_wants_goods_and_man_in_one_room_today
+    note: Godzina i miejsce po ich stronie, kwota nienazwana. Wiedza, czyj to towar
+      - operacja gildii na cmentarzu w tym samym miesiacu nie jest dla nich zagadka.
+      Pospiech jest rzeczowy, bo ryta robota mortualna traci na wartosci z kazdym
+      tygodniem.
+  - id: sixty_kilos_must_cross_the_city_without_a_registry_entry
+    note: Kontrola na wjazdach na targ i obwieszczenie o zezwoleniach na transport
+      szczatkow - kazda formalna trasa zostawia wpis. Boros poniesie towar i przekaze
+      go, potem konczy.
+  - id: mara_vouches_for_lucan_and_asked_for_advance_warning
+    note: Wprowadzenie idzie na jej nazwisko. Chce byc uprzedzona, jesli Lucan zamierza
+      zrobic cos, czego syndykat pozaluje.
+  immediate_facts:
+  - Mara napisze urzednikowi akt prawdziwe daty i dopisze Halvena Ruska jako obecnego
+    w garbarni - kategoria wpisu zmienia sie na wypadek inspektora z asysta gildii.
+  - Rusk jest swiadkiem NIEZYCZLIWYM (podejrzewa Lucana o sabotaz ucieczki) i jednoczesnie
+    nie moze pisac wlasnym piorem bez zasniecia; zeznac ustnie moze.
+  - Prawnik z obiegu przestepczego jest przyjety w pakiecie i staje sie dostepny od
+    wejscia do pokoju; jego staly klient to nie Lucan.
+  immediate_questions:
+  - 'Stoja pod drzwiami. Pierwsze pytanie w pokoju nie bedzie o zloto, tylko o to,
+    co Lucan ma poza zlotem - i on nie ma na to jeszcze odpowiedzi. Co wnosi na stol
+    jako wartosc: okazy, wiedze, Varkhena, nazwisko Veyr, coś innego - i ile z tego
+    pokazuje przy Marze, ktora za niego reczy?'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_103
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_morning_guild.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-market/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Stoja pod drzwiami. Pierwsze pytanie w pokoju nie bedzie o zloto, tylko o to,
+    co Lucan ma poza zlotem - i on nie ma na to jeszcze odpowiedzi. Co wnosi na stol
+    jako wartosc: okazy, wiedze, Varkhena, nazwisko Veyr, coś innego - i ile z tego
+    pokazuje przy Marze, ktora za niego reczy?'
+  - '{''id'': ''syndicate_wants_goods_and_man_in_one_room_today'', ''note'': ''Godzina
+    i miejsce po ich stronie, kwota nienazwana. Wiedza, czyj to towar - operacja gildii
+    na cmentarzu w tym samym miesiacu nie jest dla nich zagadka. Pospiech jest rzeczowy,
+    bo ryta robota mortualna traci na wartosci z kazdym tygodniem.''}'
+  - '{''id'': ''sixty_kilos_must_cross_the_city_without_a_registry_entry'', ''note'':
+    ''Kontrola na wjazdach na targ i obwieszczenie o zezwoleniach na transport szczatkow
+    - kazda formalna trasa zostawia wpis. Boros poniesie towar i przekaze go, potem
+    konczy.''}'
+  - '{''id'': ''mara_vouches_for_lucan_and_asked_for_advance_warning'', ''note'':
+    ''Wprowadzenie idzie na jej nazwisko. Chce byc uprzedzona, jesli Lucan zamierza
+    zrobic cos, czego syndykat pozaluje.''}'
+  last_refreshed_event_id: event_turn_interlude_103
+  context_bytes: 26550
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 11578
+  - ref: system/narrator.md
+    bytes: 3127
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2365
+  - ref: campaigns/lucan/context/scene.yaml
+    bytes: 2130

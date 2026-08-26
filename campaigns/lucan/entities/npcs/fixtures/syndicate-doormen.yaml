@@ -1,0 +1,25 @@
+schema_version: 1
+id: fixture_syndicate_doormen
+name: Dwaj odźwierni syndykatu
+status: active
+object_type: fixture_group
+count: 2
+importance: fixture_no_card
+first_appearance_event_id: event_turn_interlude_104
+location_id: loc_lumaria_market
+note: "Zwykli ludzie bez arkusza - jeden rozbroił Marę i sięgnął do płaszcza Lucana, drugi wnosił worki. Nie są przeciwnikami w teście (kalibracja gracza 19.08)."
+active_effects:
+  - id: effect_syndicate_doormen_minor_bad_luck
+    source: ability_minor_bad_luck
+    caster_id: pc_lucan
+    source_event_id: event_turn_interlude_105b
+    source_retcon_id: retcon_000032_reanchored_by_retcon_000033
+    cost_paid: 0.2
+    cast_unnoticed: true
+    target_condition: condition_unaware_of_subtle_curse
+    duration: about_one_day
+    effect: "Drobne wypadki i zawodzące ręce - upuszczone, pęknięte, zaczepione, źle policzone. Bez śladu magicznego, czytane jako niezdarność."
+    first_manifestation: "Cały pokój idzie źle naraz (retcon_000034): obaj odźwierni na posadzce, złoto rozsypane po całej podłodze, ramię wagi przechylone i ważona część zmieszana z nieważoną, świece zrzucone z kandelabra i zgaszone, światło siada."
+    social_payload: "Nikt nie nazywa tego magią. Wszyscy zapamiętują, że zrobiło się źle przy tym konkretnym człowieku - to jest właściwy skutek, do prowadzenia w kolejnych scenach."
+    legal_status: "Brak kategorii przestępstwa - klątwy nie występują w legal-order.yaml ani necromancy-law.yaml (system/curses.md)."
+source_refs: [event_turn_interlude_104, event_turn_interlude_105, retcon_000032, campaigns/lucan/player/abilities.yaml#ability_minor_bad_luck]

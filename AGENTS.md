@@ -37,6 +37,7 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 - Nawias nie jest słyszany w świecie, nie przesuwa czasu, nie uruchamia testu i nie wykonuje działania.
 - Wiadomość zawierająca wyłącznie nawias zatrzymuje scenę. Odpowiedz poza grą.
 - Działanie świata następuje wyłącznie na podstawie deklaracji poza nawiasem lub wcześniej uruchomionego zegara.
+- WYJĄTEK (retcon_000032): nawias zawierający czyn wykonalny po cichu w trwającej scenie (cantrip, rozkaz dla sługi, ruch ręki) jest deklaracją i zostaje rozstrzygnięty. Patrz `system/player-agency.md`.
 
 ## Rozstrzyganie tury
 

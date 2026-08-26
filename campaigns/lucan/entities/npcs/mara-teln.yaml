@@ -6,9 +6,9 @@ review_status: accepted_by_user_pending_package_activation
 importance: full_agent
 role: ranger
 guild_rank: C
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_007_redeploy_and_guild_walk}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_117}
 mechanics_ref: candidate_npc_mara_teln
-current_location_id: loc_lumaria_adventurers_guild
+current_location_id: loc_lumaria_market
 equipment: [bow, short_sword]
 portrayal:
   temperament: [quiet, observant, dry_humor_when_safe]
@@ -19,10 +19,14 @@ knowledge:
     - {fact_id: fact_mara_witnessed_varkhen_assault, source_event_id: milestone_045_varkhen_takeover, claim: Lucan i Boros obezwładnili bardzo starego nieumarłego w sarkofagu.}
     - {fact_id: fact_mara_saw_varkhen_weaken_during_lucans_contact, source_event_id: milestone_045_varkhen_takeover, claim: Mara widziała, że Varkhen wyraźnie słabnie, gdy Lucan utrzymuje z nim bezpośredni kontakt magiczny; nie zna pełnego mechanizmu ani nie może pewnie przypisać wyniku wyłącznie temu kontaktowi.}
     - {fact_id: fact_mara_knows_varkhen_compact, source_event_id: milestone_046_varkhen_oath_compact, claim: Varkhen dobrowolnie przyjął układ dotyczący naprawy trzech pieczęci i oddania skarbca grupie.}
+    - {fact_id: fact_mara_received_records_clerk_letter_about_tannery_dates, source_event_id: event_turn_interlude_101, claim: "Dostala pismo urzednika akt magistratu z prosba o potwierdzenie dat pobytu w garbarni i skladu grupy; nazwiska urzednika nie zna. Na polecenie Lucana napisze PRAWDZIWE daty i dopisze npc_halven_rusk jako obecnego (event_turn_interlude_102)."}
+    - {fact_id: fact_mara_overheard_the_whole_syndicate_room, source_event_id: event_turn_interlude_113, claim: "Slyszala cala rozmowe w pokoju powroznika: zapowiedz wojny z Kosciolem, sprzedaz wiedzy wyprzedzajacej, obietnice pustki wokol cmentarza na czas prob gildii, plan sciagniecia zakonu mieczowego do roboty, o ktorej gildia nie wie, i kwote 52 000 srebra. Przy obcych nie skomentowala niczego. Na ulicy oswiadczyla, ze o Kosciol NIE zapyta - woli nie musiec pozniej odpowiadac, czy wiedziala."}
+    - {fact_id: fact_mara_knows_lucan_is_physically_weak_and_asked_for_training, source_event_id: event_turn_interlude_101, claim: "Lucan sam przyznal slabosc fizyczna i poprosil ja o pomoc z cwiczeniami; uzgodniona godzina dziennie rano od dnia czwartego."}
+    - {fact_id: fact_mara_believes_lucan_sleeps_in_the_upstairs_duty_room, source_event_id: event_turn_interlude_117, claim: "Lucan powiedzial jej -pokoj w gildii, spie tam teraz- i nie sprostowal. Mara czyta to jako dyzurke na gorze zarejestrowana na Lucana i przyjdzie tam o swicie dnia czwartego na godzine cwiczen. FAKTYCZNIE Lucan spi w celi po Varkhenie w piwnicy; dyzurka jest przykrywka pod przeszukanie (event_turn_interlude_072), o ktorej z gory wiadomo, ze nie wytrzyma rozpytywania czlonkow gildii - a Mara jest czlonkiem."}
   suspicions:
     - {id: suspicion_lucan_controls_varkhen, basis_event_ids: [milestone_045_varkhen_takeover], confidence: medium}
     - {id: suspicion_lucan_has_remote_necromantic_support, basis_event_ids: [milestone_045_varkhen_takeover], confidence: medium}
   false_beliefs: []
   forbidden_without_source: [varkhen_future_offer, inquisition_conversation, voluntary_agreement]
-agenda: [protect_group, help_secure_seals, assess_varkhen_as_new_risk, await_next_group_decision]
+agenda: [protect_group, help_secure_seals, assess_varkhen_as_new_risk, answer_the_records_clerk_letter_truthfully, train_lucan_each_morning, vouch_for_lucan_with_the_syndicate, await_next_group_decision]
 source_refs: [source_luka_a_fragment#line:797-805, source_luka_b_fragment#line:11251-11409, source_user_decisions_current#approval:mara_card]

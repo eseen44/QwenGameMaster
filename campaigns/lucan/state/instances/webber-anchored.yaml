@@ -3,17 +3,17 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 80
+revision: 115
 position:
-  location_id: loc_tannery
-  zone_id: zone_upper_meadow
-  formation: solo_regular_post
+  location_id: loc_city_wall_hideout
+  zone_id: zone_hideout_workshop
+  formation: stationed_at_the_tower_awaiting_lucans_return_to_the_bench
 integrity:
   current: 13
   maximum: 13
 resources:
   necrotic_reservoir:
-    current: 5
+    current: 4.5
     capacity: 6
     decay:
       interval_seconds: 86400
@@ -24,14 +24,14 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 35160
-      hunting_recovery_elapsed_seconds: 35160
+      decay_elapsed_seconds: 53400
+      hunting_recovery_elapsed_seconds: 53400
 conditions: []
 status_flags:
 - autonomous_hunting
 - death_anchor
 - posted_at_tannery_meadow
-last_event_id: event_turn_interlude_088
+last_event_id: event_turn_interlude_124
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559

@@ -42,3 +42,54 @@ Narrator może opisać bezpośrednie wykonanie zadeklarowanej czynności i oczyw
 ## Rozwój zamiast rehabilitacji
 
 System nie zakłada łuku moralnego ani obowiązkowej naprawy Lucana. Bardziej empatyczne zachowania mogą być trudniejsze, ale otwierać relacje, reputację i wartościowe okazje. Poprawa nie usuwa dotychczasowych kompetencji, cynizmu ani zdolności do okrucieństwa.
+
+## Interludium jest budowane przez gracza (retcon_000033, kalibracja 25.08.2026)
+
+Brak rzutów w interludium **nie znaczy, że rzutów nie ma**. Znaczy, że interludium to etap
+budowy świata prowadzony przez gracza.
+
+- Fabuła deklarowana przez gracza w interludium **ląduje tak, jak została zadeklarowana**.
+- Jeżeli coś ma się nie udać, **gracz o tym napisze**.
+- Narrator nie produkuje oporu „żeby było ciekawiej", nie wymyśla przeciwfaktów i nie
+  odbiera graczowi zagrywki bez rzutu.
+- Jeżeli narrator uważa, że coś powinno się nie udać, ma dwie legalne drogi: wskazać PLIK,
+  z którego to wynika, albo zadeklarować test PRZED rzutem i podać próg oraz modyfikatory
+  do akceptacji gracza.
+
+Powód: pięć razy z rzędu narrator neutralizował mocne zagrywki gracza faktami wymyślonymi
+na poczekaniu — `retcon_000015`, `000023`, `000029`, `000031`, `000033`. To jest główny
+tryb awarii tej kampanii.
+
+## Każdy NPC jest kimś innym (retcon_000040, kalibracja gracza 26.08.2026)
+
+Zarzut gracza: wszystkie postacie są symulowane tak samo — jak kontrolerzy finansowi, bez
+osobowości, bez pilnowania własnych priorytetów. Jest trafny i ma nazywalną przyczynę.
+
+**Mechanizm awarii.** `brief` nie wypisuje kart NPC w `load`. Narrator odtwarza więc NPC
+z pól `summary` w dzienniku, a te są pisane w jednym rejestrze księgowym: numerowane
+punkty, „NAZYWA", „WNIOSEK", „ODCZYT". Kto pisze postać z takiego źródła, produkuje kolejny
+audytor. Karta istnieje — 20 z 23 plików NPC ma blok `portrayal` — tylko nie zostaje
+wczytana. `AGENTS.md` punkt 3 już tego wymaga; to była awaria wykonania, nie luka w regułach.
+
+**Obowiązek przed pierwszą kwestią NPC w scenie.** Wczytaj jego plik i ustal dla siebie
+trzy rzeczy, zanim napiszesz choć jedno zdanie w jego imieniu:
+
+1. czego on chce **z tej rozmowy** — nie z kampanii;
+2. czego odmówi niezależnie od argumentów;
+3. co może na tym stracić.
+
+**Czego NPC nie robi.**
+
+- Nie sortuje listy Lucana na kolumny. Odpowiada na tę część, która dotyka jego interesu,
+  resztę zbywa, przekręca albo w ogóle pomija — i wraca do swojej sprawy.
+- Nie jest mądrzejszy od gracza z urzędu. NPC, który w każdej turze wyprzedza Lucana
+  o krok i robi błyskotliwy przeciw-odczyt, jest wyrocznią, nie osobą. Wolno mu się mylić,
+  nie zauważyć rzeczy oczywistej, przecenić własną pozycję i pytać o coś, co już wie.
+- Nie mówi w rejestrze dziennika. Oficer gildii, paser, uczona, czterysta lat martwy rycerz
+  i pryncypał syndykatu nie budują zdań tak samo i nie mają wspólnego słownika.
+- Nie przyjmuje spokojnie ciosu we własny fundament. Postać, dla której instytucja jest
+  jedyną dostępną drogą, nie kwituje jej rozmienienia przeliczeniem planu — patrz
+  `retcon_000039`.
+
+**Test przed wysłaniem odpowiedzi.** Zakryj imię. Jeśli po samych kwestiach nie da się
+powiedzieć, kto to mówi, kwestie są narratora, nie postaci — przepisz.

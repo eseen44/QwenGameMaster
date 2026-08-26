@@ -1,0 +1,30 @@
+schema_version: 1
+id: npc_ilva_rennat
+name: Ilva Rennat
+status: active
+review_status: created_in_play
+importance: full_agent
+role: syndicate_enforcer_and_front
+principal_ref: npc_syndicate_weigher
+authority: {sets_the_price: false, runs_the_conversation: true, screens_newcomers: true}
+first_appearance_event_id: event_turn_interlude_104
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_107}
+current_location_id: loc_lumaria_market
+portrayal:
+  temperament: [flat, unhurried, does_not_threaten]
+  group_role: "Mięśnie i front. Siada dopiero po gościu, płaszcza nie zdejmuje, nie mówi 'dzień dobry'. Wygląda na tę, która decyduje, i to jest jej funkcja."
+  method: "Prowadzi rozmowę i przesiew w imieniu człowieka przy wadze. Nie wycenia towaru - liczbę ustala pryncypał. Jej robota to wycisnąć z nowego wszystko, co da się wycisnąć, zanim padnie jakakolwiek kwota (retcon_000035)."
+knowledge:
+  confirmed:
+    - {fact_id: fact_ilva_knows_loot_comes_from_the_guild_cemetery_operation, source_event_id: event_turn_interlude_102, claim: "Wie, że sześćdziesiąt kilo grobowego towaru pochodzi z operacji gildii na cmentarzu i czyje jest. Nie jest to dla niej zagadka - jej fach polega na wiedzeniu, skąd przychodzi towar."}
+    - {fact_id: fact_ilva_knows_records_clerk_sent_tannery_letters, source_event_id: event_turn_interlude_104, claim: "Wie, że urzędnik akt magistratu rozesłał pisma z nazwiskami z obsady garbarni. Źródłem są ludzie syndykatu w kancelarii magistratu, nie magia i nie Mara."}
+    - {fact_id: fact_ilva_knows_mara_vouched_and_lucan_wants_access, source_event_id: event_turn_interlude_103, claim: "Mara Teln uprzedziła zawczasu, że przychodzi człowiek chcący współpracy i dostępu, nie jednorazowej sprzedaży. To jedyny powód, dla którego Ilva siedzi w tym pokoju osobiście."}
+    - {fact_id: fact_ilva_was_bypassed_at_her_own_table, source_event_id: event_turn_interlude_105b, source_retcon_id: retcon_000034, claim: "Lucan mowil wylacznie do Kesza i nie odwrocil sie do niej ani razu; jej wejscia nie ladowaly, a jej wlasny prawnik przesiadl sie po strone goscia bez wyjasnienia. Nie rozumie, czego byla swiadkiem, i pierwszy raz w tej scenie nie prowadzi pokoju."}
+    - {fact_id: fact_ilva_saw_the_room_go_wrong, source_event_id: event_turn_interlude_105b, source_retcon_id: retcon_000034, claim: "Obaj odzwierni na posadzce, zloto po calej podlodze, waga przechylona i liczenie od zera, swiece zgaszone. Nie nazywa tego magia. Zapamietuje, ze zdarzylo sie to przy tym czlowieku."}
+    - {fact_id: fact_ilva_was_walked_past_twice, source_event_id: event_turn_interlude_107, source_retcon_id: retcon_000035, claim: "Lucan dwa razy w tej scenie przeszedl obok niej do wlasciwej osoby - najpierw do Kesza, potem do czlowieka przy wadze - i za kazdym razem trafil. Nie zostala obrazona (wymowka o kasjerce byla dworna), ale jest wytracona z rytmu, bo jej przesiew przestal byc czescia tej rozmowy."}
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_name]
+agenda: [price_the_man_not_the_goods, extract_what_lucan_offers_besides_gold, keep_the_operation_insured_by_records, close_todays_transaction]
+leverage_over_lucan: "Towar jest fizycznie u nich od progu, kwota nienazwana, a Lucan wszedl bez rewizji jako wyjatek zrobiony na poreczenie Mary."
+source_refs: [event_turn_interlude_102, event_turn_interlude_103, event_turn_interlude_104, campaigns/lucan/planning/act-03-defence.yaml#syndicate_access]

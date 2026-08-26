@@ -164,6 +164,11 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 
 ## Zasady, o które łatwo się potknąć
 
+- **Nawias zawierający CZYN jest deklaracją** (retcon_000032, ustalone 25.08.2026). Jeśli
+  gracz pisze w nawiasie coś, co Lucan może zrobić po cichu w trwającej scenie - rzucić
+  cantripa, sięgnąć do kieszeni, wydać rozkaz słudze - to znacznik „robię to, nie mówię tego
+  na głos", a nie rozmowa z systemem. ROZSTRZYGNIJ TO. Zatrzymuj scenę tylko przy stawce
+  nieodwracalnej. Odmowa wykonania „(rzucam pecha)" kosztowała jedną turę do przepisania.
 - **Nawias = poza grą, ale nie „do zignorowania".** Tekst w nawiasach nie jest słyszany
   w świecie, nie przesuwa czasu i nie uruchamia testu. Mieści w sobie: pytanie do systemu,
   prośbę o przeszukanie zasobów, reklamację niespójności, przypomnienie dawnego faktu,
@@ -217,3 +222,26 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   Raz już spuchły do 22,8 KB i 4,2 KB, czyli 66% budżetu kontekstu.
 - Budżet aktywnego kontekstu to 40 KB. `context_warnings` w briefie nie przerywa gry, ale
   sygnalizuje, że trzeba odchudzić `active_refs`.
+
+- **INTERLUDIUM BUDUJE GRACZ, NIE TY** (retcon_000033, 25.08.2026 — najdroższy błąd tej
+  kampanii, dwie tury do przepisania). Brak rzutów w interludium nie znaczy, że rzutów nie
+  ma — znaczy, że to etap budowy świata prowadzony przez gracza. **Fabuła deklarowana przez
+  gracza ląduje tak, jak ją zadeklarował. Jeśli coś ma się nie udać, gracz o tym napisze.**
+  Nie produkuj oporu, żeby scena „nie zrobiła się za łatwa". Nie wymyślaj przeciwfaktów
+  („to nie jest ich linia", „nad nią jest właściciel", „to nikt"), żeby zneutralizować mocną
+  zagrywkę — to jest DOKŁADNIE ten sam błąd co retcon_000015/23/29/31, tylko w wersji
+  fabularnej zamiast zasobowej. Chcesz, żeby coś nie wyszło? Albo wskaż plik, albo zadeklaruj
+  test PRZED rzutem, z progiem i modyfikatorami, i daj graczowi je zaakceptować.
+
+- **KAŻDY NPC JEST KIMŚ INNYM** (retcon_000040, 26.08.2026). `brief` NIE wypisuje kart NPC
+  w `load` — i dlatego łatwo napisać postać z pól `summary` w dzienniku, które są w rejestrze
+  księgowym („NAZYWA", „WNIOSEK", numerowane punkty). Wychodzi z tego kontroler finansowy,
+  za każdym razem ten sam. **Przed pierwszą kwestią NPC wczytaj jego plik** (20 z 23 ma blok
+  `portrayal`) i ustal: czego chce Z TEJ ROZMOWY, czego odmówi, co może stracić. NPC nie
+  sortuje listy gracza na kolumny, nie jest z urzędu mądrzejszy od gracza i nie przyjmuje
+  spokojnie ciosu we własny fundament (`retcon_000039` — Seraphine i „rozmienna gildia").
+- **PUSH PO KAŻDYM ZAMKNIĘCIU SCENY.** `scene close` → commit → `git push`. Nie zostawiaj
+  dziesiątek tur niezacommitowanych; 26.08.2026 zaległość wynosiła 36 tur (089–124).
+- **Lucan ŚPI NA GÓRZE, w pokoju dyżurnym** (retcon_000038). Cela po Varkhenie w piwnicy
+  jest jego formalnie i trzyma jego rzeczy, ale celowo nie sypia tam do końca sprawy.
+  Nie wrzucaj go do piwnicy przy otwarciu sesji.

@@ -1,0 +1,35 @@
+schema_version: 1
+id: npc_malen_corth
+name: Malen Corth
+status: needs_review
+review_status: introduced_in_play_event_turn_interlude_097
+importance: specialist
+role: magistrate_records_clerk_reconciling_the_tannery_file
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_102}
+current_location_id: loc_lumaria
+faction_ref: campaigns/lucan/entities/factions/lumaria-civic-services.yaml
+introduced_by: >-
+  Wymieniony przez npc_halven_rusk pod dzialaniem rozwiazania jezyka
+  (event_turn_interlude_096, event_turn_interlude_097). Lucan zna na razie samo
+  nazwisko, funkcje i to, czego Corth chce - nie widzial go i nie rozmawial z nim.
+portrayal:
+  tone: procedural_and_incurious
+  threat_scope: paperwork_that_outlives_everyone_in_it
+  behavior: >-
+    Corth nie sciga nikogo i nie ma wlasnej teorii sprawy. Uzgadnia akta z garbarni tak,
+    zeby zgadzaly sie daty, obsady i podpisy, i dopisuje pytanie wszedzie tam, gdzie sie
+    nie zgadzaja. Jest niebezpieczny dokladnie tym, ze jest obojetny - nie da sie go
+    sprowokowac ani przekonac, bo nie ma zdania, tylko rubryki.
+knowledge:
+  confirmed:
+    - {fact_id: fact_corth_has_the_tannery_roster, source_event_id: event_turn_interlude_097, claim: "Ma pelna obsade operacji w garbarni z nazwiskami, w tym Lucana, i uzgadnia ja z zeznaniami."}
+    - {fact_id: fact_corth_sent_statement_requests_to_roster_names, source_event_id: event_turn_interlude_101, claim: "Rozeslal do nazwisk z obsady pisma o potwierdzenie dat i skladu grupy; jedno dostala npc_mara_teln. Rusk dostaje takie od tygodni. W drodze jest do niego zeznanie Mary z prawdziwymi datami i z npc_halven_rusk wpisanym jako obecny (event_turn_interlude_102)."}
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: [spidey_identity, lucan_secret_drain, varkhen_takeover, lucan_necromancy]
+agenda: [reconcile_the_tannery_file, close_the_rusk_competence_review, collect_missing_statements]
+relevance_to_lucan: >-
+  Nazwisko Lucana lezy w aktach, ktore Corth wlasnie porzadkuje, trzynascie dni przed
+  przesluchaniem przed kierownictwem gildii. To jest kanal, ktorym Lucan trafia do
+  papieru, i jest calkowicie niezalezny od Seraphine - magistrat, nie gildia.
+source_refs: [event_turn_interlude_096, event_turn_interlude_097, event_turn_interlude_101, event_turn_interlude_102]

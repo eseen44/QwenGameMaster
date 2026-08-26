@@ -3,11 +3,11 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 80
+revision: 115
 position:
-  location_id: loc_city_wall_hideout
-  zone_id: zone_hideout_workshop
-  formation: concealed_with_lucan
+  location_id: loc_lumaria
+  zone_id: in_transit_to_boros_and_mara
+  formation: with_lucan_under_the_coat_default_of_retcon_000005_restored
 integrity:
   current: 27
   maximum: 33
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 35160
-      hunting_recovery_elapsed_seconds: 35160
+      decay_elapsed_seconds: 53400
+      hunting_recovery_elapsed_seconds: 53400
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -36,7 +36,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 13560
+      regeneration_elapsed_seconds: 10200
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -44,6 +44,9 @@ conditions:
   magnitude: 30
   source_event_id: milestone_042_spiders_steal_wagon_chest_contents
 status_flags:
+- moth_tympanal_hearing_organ
+- hears_ultrasonic_band_not_words
+- decay_suppressed
 - autonomous_hunting
 - functional_implanted_gland
 - fed_or_energized_state
@@ -58,7 +61,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_088
+last_event_id: event_turn_interlude_124
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906

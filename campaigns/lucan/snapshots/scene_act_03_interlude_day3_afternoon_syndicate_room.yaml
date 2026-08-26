@@ -1,0 +1,100 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_afternoon_syndicate_room
+object_type: scene_snapshot
+closed_at: '2026-08-25T21:36:37+02:00'
+summary: 'Pokoj syndykatu, dzien trzeci, 14:15-16:20. Lucan wszedl jako sprzedajacy,
+  wyszedl jako klient aparatu i dostawca wiedzy wyprzedzajacej. Caly lup sprzedany
+  za 52 000 srebra (ryta trzecia i robota konsekracyjna wlacznie), pierwsza rata 12
+  000 w zlocie w kieszeni, 40 000 do odebrania w dwoch ratach; udzialy Borosa i Mary
+  osobno i w pelni, dodatkowy procent z Lucana. Hierarchia pokoju odczytana poprawnie
+  dopiero za drugim podejsciem: pryncypalem jest milczacy wagowy, Ilva Rennat jest
+  frontem i egzekucja, a Rovan Kesz - prawnik pakietu - okazal sie czlowiekiem spoza
+  zalogi, po spotkaniach z ktorym Oren zmienial trasy. Lucan rozbroil fork dwoch sprzecznych
+  obron jedna doktryna (golem z ciala, brak kategorii prawnych dla zwierzat, zero
+  ludzkich zwlok), sprzedal syndykatowi termin akademickiej dysputy jako zmiane kwalifikacji
+  calej kategorii towaru, odmowil przejecia pustej linii po Orenie, zadeklarowal wojne
+  z Kosciolem w ciagu dwoch tygodni i uzyskal przestrzen oraz waskie wsparcie dla
+  gildii przy cmentarzu. Klatwa pecha na obu odzwiernych rozlozyla pokoj naraz i zbudowala
+  pierwsza cegle reputacji czlowieka, przy ktorym rzeczy sie psuja. DLUGI I OTWARTE
+  DECYZJE: kanal ostrzegawczy dla syndykatu (nazwisko i sposob sygnalu), wybor drogi
+  po zakon mieczowy (gildia z papierem albo komandor Veyr ze smycza), nieprzyjeta
+  oferta Kesza na spotkanie z kaplanem, oraz rozmowa z Mara, ktora wyszla na ulice
+  po dwoch godzinach milczenia.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_afternoon_syndicate_room
+  location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+  started_at: '2026-08-18T14:05:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_mara_teln
+  - npc_ilva_rennat
+  - npc_rovan_kesz
+  - npc_syndicate_weigher
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Trzy drogi po zakon mieczowy: przez gildię (papier, kontrakt, nazwisko Lucana
+    w aktach przed przesłuchaniem) albo przez komendanta Veyra (natychmiast, bez śladu,
+    smycz) - syndykat odpada. Kesz oferuje zorganizowanie spotkania z kapłanem. Mara
+    czeka w drzwiach.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_112
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_midday_boros_and_mara.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-market/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Trzy drogi po zakon mieczowy: przez gildię (papier, kontrakt, nazwisko Lucana
+    w aktach przed przesłuchaniem) albo przez komendanta Veyra (natychmiast, bez śladu,
+    smycz) - syndykat odpada. Kesz oferuje zorganizowanie spotkania z kapłanem. Mara
+    czeka w drzwiach.'
+  last_refreshed_event_id: event_turn_interlude_112
+  context_bytes: 27646
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 12218
+  - ref: system/narrator.md
+    bytes: 4061
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: system/player-agency.md
+    bytes: 2187

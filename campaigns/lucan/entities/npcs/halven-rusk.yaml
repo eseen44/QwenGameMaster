@@ -5,21 +5,32 @@ status: accepted_by_user_pending_package_activation
 review_status: accepted_by_user_pending_package_activation
 importance: specialist
 role: municipal_underground_hazards_inspector
-lifecycle: {state: alive, last_confirmed_event_id: milestone_043_return_with_seraphine_to_northwest_logistics}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_094}
 mechanics_ref: candidate_npc_halven_rusk
-current_location_id: loc_lumaria
+current_location_id: loc_lumaria_adventurers_guild
 relationship_ref: campaigns/lucan/relationships/rusk--lucan.yaml
 portrayal:
   tone: comic_minor_antagonist
   threat_scope: bureaucratic_friction_and_small_scale_spite
+  register_calibration: "Gracz, 25.08.2026. Rusk jest PRZERYWNIKIEM i comedy relief, nie przeciwnikiem i nie wyzwaniem. Lucan nie traktuje go jak czlowieka, nie slucha, co Rusk mowi, i cwiczy na nim procedury bez obawy o porazke - nieudana proba jest powtarzana od razu, z usmiechem. Nie prowadzic scen z Ruskiem jako konfrontacji ani nie testowac ich rzutem, dopoki powtorka jest darmowa (system/tests.md#nieograniczona-powtorka-znosi-test). Narrator nie doklada Ruskowi godnosci ani moralnego komentarza - system/narrator.md#neutralnosc-przyczynowa."
+  player_declared_arc: "Intencja gracza, nie fakt swiata: Lucan zamierza obrocic zycie Ruska w niwecz i oczekuje, ze Rusk skonczy samobojstwem. Zapisane jako KIERUNEK, do ktorego gracz gra. Swiat rozstrzyga, czy i jak to nastapi; narrator nie przyspiesza tego ani nie chroni Ruska przed tym."
   behavior: "Rusk jest urażonym, niskoszczeblowym urzędnikiem bez własnej siły sprawczej na wielką skalę. Narzeka, dokumentuje i bywa złośliwy, ale poddaje się poleceniom Gildii oraz wyraźnej hierarchii."
 knowledge:
   confirmed:
     - {fact_id: fact_rusk_knows_lucan_survived_tannery, source_event_id: milestone_021_rusk_rescued, claim: Lucan uczestniczył w walce i pomógł odciągnąć szczuroogra.}
     - {fact_id: fact_rusk_knows_lucan_uses_cold, source_event_id: milestone_016_official_scout_and_support_decision, claim: Lucan używa skutecznej magii zimna.}
+    - {fact_id: fact_rusk_knows_lucan_is_in_the_guild_building, source_event_id: event_turn_interlude_094, claim: "Lucan jest w Lumarii i wchodzi mu do gabinetu w siedzibie gildii - do tury 094 Rusk nie wiedzial, ze Lucan w ogole tu jest (event_turn_interlude_011)."}
   suspicions:
     - {id: suspicion_lucan_sabotaged_escape, basis_event_ids: [milestone_020_rat_ogre_escape_and_rusk_betrayal], confidence: medium}
   false_beliefs: []
   forbidden_without_source: [spidey_identity, lucan_secret_drain, varkhen_takeover]
+standing_effects:
+  - id: effect_rusk_cursed_pen_usypianie
+    source_event_id: event_turn_interlude_097
+    carrier: "Pioro podarowane przez Lucana, w posiadaniu Ruska."
+    effect: "USYPIANIE niesione przez PODARUNEK - narastajace cisnienie senne przechodzace w sen prawdziwy za kazdym razem, gdy Rusk pisze tym piorem. Dziala bez obecnosci Lucana, tak dlugo jak pioro jest w uzyciu."
+    consequence: "Uderza w jedyna dzwignie Ruska - routine_reports_and_procedural_objections. Rusk obwinia siebie, wino albo dlugi dzien; nie podejrzewa przedmiotu."
+    detectability: "Brak sladu, brak dowodu, zaden prog karny nie przekroczony (retcon_000028). Wykrywalne tylko przez kogos, kto celowo zbada to pioro."
+memory_note: "Po rozwiazaniu jezyka (event_turn_interlude_096) Rusk pamieta rozmowe z Lucanem jako mila - ktos go wreszcie wysluchal, wspolczul mu i dal mu pioro. Relacja sie nie poprawia, ale zapamietana scena nie jest ta, ktora sie odbyla."
 agenda: [protect_infrastructure, document_hazards, avoid_being_used_as_lucan_cover, follow_guild_chain_of_command]
 source_refs: [source_luka_b_fragment#line:330-606, source_luka_b_fragment#line:1377-2510, source_user_decisions_current#approval:rusk_card]

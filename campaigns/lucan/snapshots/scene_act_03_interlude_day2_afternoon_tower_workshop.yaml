@@ -1,0 +1,134 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day2_afternoon_tower_workshop
+object_type: scene_snapshot
+closed_at: '2026-08-25T10:46:47+02:00'
+summary: Dzien drugi konczy sie siedmiogodzinna sesja przy stole w baszcie i marszem
+  do gildii. Doktryna kotwicy przyjeta - cztery zakotwiczone slugi i tylko cztery
+  (retcon_000025). Spidey i spy_beetle_01 dostaja przeszczep narzadu sluchu z cmy;
+  pomiar pokazuje, ze ucho cmy slyszy pasmo nietoperza, nie ludzkie slowa - i przez
+  to jest wykrywaczem nietoperzy i szczurow, a poprawka na slowa to ucho prostoskrzydlego.
+  Zawisak zakotwiczony, z jedyna fiolka przewodzaca i porcja tlumiaca rozklad, wypuszczony
+  z czterema cmami na laki za garbarnia bez rozkazu. Trzej sieciarze wyslani na laki
+  po prostoskrzydle; Tkacz zostaje w baszcie z nieskonczona robota. Podejrzane ksiazki
+  zostaja w schowku w murze, Uprzejmosci i papiery ida z Lucanem. Dwa niezakotwiczone
+  pajaki piwniczne dojechaly do gildii w pudelku i czekaja na postawienie w pokoju
+  narad i gabinecie Seraphine. Wij spy_centipede_01 zlokalizowany krzywa straty gdzies
+  pod dzielnica gildii, w cudzej piwnicy, nie w kanale. Lucan konczy po trzeciej nad
+  ranem dnia trzeciego nad zbiorem klatw udajacym podrecznik dworskich grzecznosci.
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day2_afternoon_tower_workshop
+  location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+  started_at: '2026-08-17T14:46:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  pressures:
+  - the_decoy_is_deferred_by_player_choice_until_academy_fresh_supply_in_about_six_days
+  - an_intact_hawk_moth_lies_unanimated_on_the_bench_best_courier_body_lucan_ever_held
+  - one_vial_of_conduction_agent_upgrades_exactly_one_servant_not_the_network
+  - three_doses_against_the_three_day_leash_preservative_plus_two_vials
+  - eight_beetles_two_centipedes_and_three_cellar_spiders_still_have_no_orders_at_all
+  - four_webbers_have_zero_growth_steps_the_cheapest_upgrade_in_the_whole_roster
+  - attention_is_serial_twentyone_nodes_took_fortyfive_minutes_to_poll
+  - varkhen_sits_at_17_of_72_and_8_of_65_in_seraphines_office_on_a_months_long_drip
+  - hesk_dorn_will_stay_quiet_out_of_fear_but_will_spill_everything_if_asked_directly
+  - the_livery_boy_returns_to_hesk_in_eight_days_and_nobody_is_watching_that_stall
+  - boros_and_mara_money_and_mob_lawyer_appointment_tomorrow
+  - four_purchased_texts_and_the_barber_casebook_are_all_still_unread
+  - the_academy_marked_volume_is_kept_until_studied_then_to_be_returned_as_found
+  - she_still_does_not_know_the_father_knows_the_method
+  immediate_facts:
+  - lucan_is_in_the_tower_workshop_with_spidey_at_14_46_on_interlude_day_two
+  - carried_silver_24_plus_50_under_the_brick_and_boros_pays_tomorrow_from_a_100k_gross_lot
+  - lucan_is_at_14_5_of_15_energy_and_19_of_19_integrity_no_conditions
+  - modification_costs_about_one_hour_no_escalation_retcon_000024
+  - the_workshop_is_complete_for_the_first_time_ritual_tools_guild_surgical_kit_and_anatomy_atlases
+  - silkworm_basket_still_full_one_gland_per_webber_is_about_an_hour_each
+  - lamp_and_jar_would_collect_more_intact_moths_than_four_hunters_for_free
+  - salt_and_drying_powder_are_decoy_plating_material_not_transplant_material
+  - the_silvery_preservation_essence_is_the_only_truly_magical_item_and_is_still_unidentified
+  - the_grave_whisper_ring_gives_one_question_to_a_fresh_corpse_per_day_and_is_unused
+  - the_defence_now_rests_on_the_academys_own_revival_manual_not_on_the_nutrition_argument
+  immediate_questions:
+  - Po trzeciej nad ranem, cela w piwnicy gildii, dwa pajaki w pudelku na pryczy,
+    klatwy otwarte na kolanach. Lucan moze isc spac przed spotkaniem z Borosem i Mara,
+    moze czytac dalej, moze postawic pajaka u siebie w celi, a moze wykorzystac martwa
+    godzine na wejscie do pokoju narad albo do gabinetu Seraphine, kiedy w gildii
+    nie ma nikogo.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_091
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day2_morning_guild_cell.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/wall-hideout/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  search_terms:
+  - Po trzeciej nad ranem, cela w piwnicy gildii, dwa pajaki w pudelku na pryczy,
+    klatwy otwarte na kolanach. Lucan moze isc spac przed spotkaniem z Borosem i Mara,
+    moze czytac dalej, moze postawic pajaka u siebie w celi, a moze wykorzystac martwa
+    godzine na wejscie do pokoju narad albo do gabinetu Seraphine, kiedy w gildii
+    nie ma nikogo.
+  - the_decoy_is_deferred_by_player_choice_until_academy_fresh_supply_in_about_six_days
+  - an_intact_hawk_moth_lies_unanimated_on_the_bench_best_courier_body_lucan_ever_held
+  - one_vial_of_conduction_agent_upgrades_exactly_one_servant_not_the_network
+  - three_doses_against_the_three_day_leash_preservative_plus_two_vials
+  - eight_beetles_two_centipedes_and_three_cellar_spiders_still_have_no_orders_at_all
+  - four_webbers_have_zero_growth_steps_the_cheapest_upgrade_in_the_whole_roster
+  - attention_is_serial_twentyone_nodes_took_fortyfive_minutes_to_poll
+  - varkhen_sits_at_17_of_72_and_8_of_65_in_seraphines_office_on_a_months_long_drip
+  - hesk_dorn_will_stay_quiet_out_of_fear_but_will_spill_everything_if_asked_directly
+  - the_livery_boy_returns_to_hesk_in_eight_days_and_nobody_is_watching_that_stall
+  - boros_and_mara_money_and_mob_lawyer_appointment_tomorrow
+  - four_purchased_texts_and_the_barber_casebook_are_all_still_unread
+  - the_academy_marked_volume_is_kept_until_studied_then_to_be_returned_as_found
+  - she_still_does_not_know_the_father_knows_the_method
+  last_refreshed_event_id: event_turn_interlude_091
+  context_bytes: 27318
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 10526
+  - ref: system/narrator.md
+    bytes: 3127
+  - ref: campaigns/lucan/context/scene.yaml
+    bytes: 2802
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366

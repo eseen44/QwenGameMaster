@@ -1,0 +1,48 @@
+schema_version: 1
+id: spy_hawk_moth_01
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 1
+position:
+  location_id: loc_city_wall_hideout
+  zone_id: zone_hideout_workshop
+  formation: held_at_the_bench_until_hardened_fed_on_silkworm_life_force
+integrity:
+  current: 6
+  maximum: 6
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+      suppressed_by: decay_suppressing_vial_applied_event_turn_interlude_090
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 0
+      hunting_recovery_elapsed_seconds: 0
+status_flags:
+- newly_animated
+- death_anchored
+- decay_suppressed_no_three_day_leash
+- necromantic_conduction_agent_applied
+- silent_flight
+- fast_flight
+- can_hover_in_place
+- nocturnal_and_only_nocturnal
+- heavy_thorax_room_for_modifications
+- carries_more_than_a_wasp
+- conspicuous_in_daylight
+- fed_on_silkworm_life_force_not_foraging
+- held_back_pending_hardening
+conditions: []
+last_event_id: event_turn_interlude_090
+source_refs:
+- event_turn_interlude_088
+- event_turn_interlude_090

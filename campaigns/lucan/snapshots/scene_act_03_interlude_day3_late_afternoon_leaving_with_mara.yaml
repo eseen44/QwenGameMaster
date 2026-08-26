@@ -1,0 +1,80 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_late_afternoon_leaving_with_mara
+object_type: scene_snapshot
+closed_at: '2026-08-26T00:10:07+02:00'
+summary: 'Dzien trzeci, targ: wyjscie od syndykatu, pierwsza rata 12 000 podzielona
+  po rowno na trzy, cala rzecz opowiedziana Borosowi, jego warunek - wspolna wersja
+  przed pierwszym butem na cmentarzu - i rozstanie o zmierzchu. Lucan idzie do gildii
+  po rozmowe z Seraphine.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_late_afternoon_leaving_with_mara
+  location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+  started_at: '2026-08-18T16:20:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_mara_teln
+  - npc_boros_keld
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - Seraphine podnosi wzrok. Lucan przyszedl sam i z wlasnej woli - teraz decyduje,
+    ile z ostatnich trzech godzin kladzie na stol i w jakiej kolejnosci.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_117
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_afternoon_syndicate_room.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-market/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - Seraphine podnosi wzrok. Lucan przyszedl sam i z wlasnej woli - teraz decyduje,
+    ile z ostatnich trzech godzin kladzie na stol i w jakiej kolejnosci.
+  last_refreshed_event_id: event_turn_interlude_117
+  context_bytes: 28034
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 12762
+  - ref: system/narrator.md
+    bytes: 4061
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2604
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: system/player-agency.md
+    bytes: 2187

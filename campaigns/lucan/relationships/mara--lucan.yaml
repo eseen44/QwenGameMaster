@@ -6,15 +6,21 @@ subject_id: npc_mara_teln
 target_id: pc_lucan
 layer: personal
 stance: positive_cautious_comrade
-axes: {cooperation: 40, judgment_confidence: 50, discretion_trust: 30, personal_regard: 30}
+axes: {cooperation: 50, judgment_confidence: 60, discretion_trust: 40, personal_regard: 35}
 reasons: [shared_tannery_and_cemetery_history, lucan_helped_save_rusk, lucan_repeatedly_found_workable_paths]
-obligations: []
+obligations: [{id: mara_vouches_for_lucan_with_the_syndicate, source_event_id: event_turn_interlude_102, note: "Wprowadzenie idzie na jej nazwisko. Lucan uprzedzil ja sam (event_turn_interlude_103), ze idzie po WSPOLPRACE, nie po transakcje - wiec reczy za przyszlego klienta aparatu, bez daty konca, a w pokoju wyceniany bedzie czlowiek, nie towar."}]
 shared_secrets: [varkhen_assault_witness, church_reliquary_possession]
 leverage: {held_by_subject: [knowledge_of_varkhen_assault_and_visible_weakening], held_by_target: []}
 constraints: [guild_duty, concern_about_unexplained_magic]
 history:
   - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_positive_history_and_trust_in_lucans_judgment}
   - {event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan, change: discretion_trust+5, reason: zgodzila_sie_milczec_o_posiadaniu_konsekrowanego_relikwiarza_bez_wahania}
+  - {event_id: event_turn_interlude_101, change: cooperation+5, reason: zaproponowala_uzgodnienie_wersji_dat_w_pismie_do_urzednika_akt_bez_proszenia}
+  - {event_id: event_turn_interlude_101, change: personal_regard+5, reason: przyjela_pierwsza_osobista_prosbe_lucana_i_jego_przyznanie_sie_do_slabosci_fizycznej}
+  - {event_id: event_turn_interlude_102, change: discretion_trust+5, reason: kazal_jej_napisac_prawde_zamiast_uzgadniac_wersje_i_dolozyl_fakt_ktory_pomaga_jej_zeznaniu}
+  - {event_id: event_turn_interlude_102, change: cooperation+5_judgment_confidence+5, reason: przyjela_porecznie_za_lucana_przy_syndykacie_i_uznala_jego_wybor_calej_drogi_za_trafny}
+  - {event_id: event_turn_interlude_103, change: discretion_trust+5, reason: uprzedzil_ja_zawczasu_i_z_wlasnej_inicjatywy_ze_zmienia_stawke_jej_poreczenia}
+  - {event_id: event_turn_interlude_114, change: judgment_confidence+5, reason: cena_wyszla_powyzej_oczekiwanej_stawki_paserskiej_i_bez_przetopu_a_poreczenie_szlo_na_jej_nazwisko}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
-last_event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
+last_event_id: event_turn_interlude_114
 source_refs: [source_user_decisions_current#approval:mara_card]

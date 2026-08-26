@@ -28,7 +28,7 @@ resources:
   paralytic_toxin_reservoir: {current: 4, capacity: 4, regeneration_hours_per_dose: 6}
 growth:
   model_ref: system/companion-growth.md
-  permanent_growth_steps: 1
+  permanent_growth_steps: 3
   historical_life_force_total: unknown_not_reconstructed
   current_investment: 0
   rule: Life force can fund unbounded but increasingly costly permanent growth; ordinary hunting only sustains the current body.
@@ -37,7 +37,10 @@ state:
   travel_default: Towarzyszy Lucanowi ukryty, jeśli nie ma innego przydziału (retcon_000005).
   condition: mobile_but_injured_and_recharged
   injuries: [partial_hind_leg_loss]
-  modifications: [reinforced_chitin_shell, enlarged_chelicerae, implanted_marsh_viper_fangs, separate_paralytic_gland, Corpse_Stitch, preservation, Death_Anchor]
+  modifications: [reinforced_chitin_shell, enlarged_chelicerae, implanted_marsh_viper_fangs, separate_paralytic_gland, Corpse_Stitch, preservation, Death_Anchor, moth_tympanal_hearing_organ, decay_suppressant]
+  modification_notes:
+    moth_tympanal_hearing_organ: "Przeszczep z cmy, event_turn_interlude_090. Narzad zyje i reaguje, ale jest nastrojony na pasmo NIETOPERZA - daje obecnosc mowy, liczbe glosow, rytm, nacisk i dzwieki ostre, NIE daje slow. Uzyteczny natychmiast, bo kanal Spideya niesie pozyczony zmysl przy skupieniu. Poprawka wskazana przez material: ucho swierszcza lub pasikonika, nastrojone na wlasny spiew, czyli na pasmo ludzkiego glosu."
+    decay_suppressant: "Jedna z trzech porcji ze schowka, event_turn_interlude_090. Zdejmuje dobowy ubytek na nieruchomym posterunku - Spidey moze siedziec ukryty dluzej, nie polujac."
 abilities:
   - {id: ability_spidey_bite, capability_ref: capability_spidey_bite, payload_choice: one_per_bite}
   - {id: ability_spidey_assassination, status: known, limitations: [requires_access_and_target_isolation, area_attacks_and_sustained_mass_combat_are_bad_matchups]}
@@ -47,5 +50,5 @@ knowledge:
   confirmed: [route_to_wall_hideout, locations_of_deployed_webbers, chapel_crypt_body_disposal, recovered_wagon_chest_lot_at_wall_hideout, visual_snapshot_link_demonstrated]
   suspected: []
   false_beliefs: []
-last_updated_event_id: event_turn_interlude_086
+last_updated_event_id: event_turn_interlude_090
 source_refs: [source_luka_b_fragment#line:4800-4906, source_luka_b_fragment#line:8504-8574, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368, source_luka_b_fragment#line:11919-11927, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

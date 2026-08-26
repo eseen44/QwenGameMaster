@@ -33,3 +33,33 @@ Konsekwencje:
   wyłączną zdolność tworzenia magii.
 
 Brutalne rozszerzanie intuicyjnego wzorca opisuje `system/metamagic.md`.
+
+## Ślad magiczny: co zostaje i jak długo
+
+Kalibracja gracza z 25.08.2026, obowiązująca. Ta zasada dotyczy CAŁEJ magii, nie tylko
+klątw, i nadpisuje wszystkie wcześniejsze narracyjne sugestie o „narastającym śladzie",
+który da się później zbadać i przypisać.
+
+Lumaria jest miastem pełnym magów. Magia dzieje się w nim stale i nie jest wydarzeniem.
+Z tego wynikają dwie rzeczy, które trzeba trzymać osobno:
+
+- **W chwili rzucania świadek wie.** Kto ma oczy do patrzenia i patrzy, ten widzi, że coś
+  się dzieje, i zwykle rozpoznaje z grubsza CO. Świadek jest realnym zagrożeniem
+  i nie da się go schować za subtelnością.
+- **Po kilku minutach nie ma już czyjego.** Zostaje najwyżej to, że coś takiego się tu
+  działo — kategoria zdarzenia, nie autor. Ślad nie niesie tożsamości, sygnatury ani
+  kanału konkretnego maga i nie da się go dopasować do osoby po fakcie.
+
+Czego więc NIE wolno prowadzić:
+
+- śladu jako dowodu rzeczowego przeciw konkretnej osobie;
+- „narastania" śladu na przedmiocie, który po dniach albo tygodniach wskaże sprawcę;
+- śledczego, który bada drzwi i ustala, kto je przeklął.
+
+Dowód w tej kampanii buduje się z **ludzi, papieru i czasu** — kto co widział, kto co
+podpisał, kto był w budynku o której. Nie z rezyduów. Patrz `system/curses.md`, sekcja
+o cenie społecznej.
+
+Skalowanie z `system/metamagic.md` nadal obowiązuje: mocniejszy efekt jest w chwili użycia
+jaśniejszy i trudniejszy do przeoczenia przez OBECNEGO obserwatora. To zwiększa szansę
+zauważenia na żywo, a nie trwałość ani przypisywalność śladu.

@@ -3,11 +3,11 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 13
+revision: 48
 position:
-  location_id: loc_city_wall_hideout
-  zone_id: zone_entry
-  formation: on_the_workbench
+  location_id: loc_lumaria
+  zone_id: in_transit_to_boros_and_mara
+  formation: carried_in_lucans_pocket
 integrity:
   current: 10
   maximum: 10
@@ -24,9 +24,12 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 68400
-      hunting_recovery_elapsed_seconds: 68400
+      decay_elapsed_seconds: 240
+      hunting_recovery_elapsed_seconds: 240
 status_flags:
+- death_anchored
+- moth_tympanal_hearing_organ
+- hears_ultrasonic_band_not_words
 - newly_animated
 - fresh_obedient_and_dull
 - autonomous_hunting
@@ -37,7 +40,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_088
+last_event_id: event_turn_interlude_124
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

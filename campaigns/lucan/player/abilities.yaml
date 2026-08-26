@@ -50,7 +50,9 @@ known:
     capability_ref: capability_lucan_minor_bad_luck
     name: Pomniejsza klątwa pecha
     mastery: 27
-    uses: [small_environmental_mishaps, exploit_existing_instability]
+    uses: [dramatic_room_wide_misfortune, exploit_existing_instability, build_reputation_as_a_man_things_go_wrong_around]
+    not_for: [tactical_combat_use, winning_an_exchange, repeated_small_trips]
+    calibration_ref: system/curses.md#do-czego-naprawde-sluzy-pech
     casting_profile: {subtle: true, quick: true, low_cost: true, usually_misread_as_coincidence: true}
     limits: [cannot_choose_an_impossible_accident, outcome_may_harm_the_situation_instead_of_the_target, unreliable_precision, prepared_magic_observer_may_detect_pattern_or_trace]
     source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]
@@ -159,5 +161,35 @@ discovering:
     current_use: [recognition, comparison, possible_future_contact_attempt]
     risks: [contact_may_be_reciprocal, source_is_not_understood]
     source_refs: [source_luka_b_fragment#line:11155-11164]
+theoretical_repertoire:
+  source_event_id: event_turn_interlude_092
+  source_item: item_courtesies_curse_book
+  status: known_in_theory_no_successful_run_yet
+  definition: 'Lucan potrafi kazda procedure nazwac, rozlozyc na kolejnosc krokow, wskazac
+    wizualizacje i opisac przeplyw energii - czyli ma pelna wiedze magiczna w rozumieniu
+    system/magic.md. Brakuje JEDNEGO UDANEGO PRZEBIEGU wlasnym kanalem, zeby wzorzec byl
+    powtarzalny. Nauka z ksiazki nie jest dla niego waskim gardlem; jest akademikiem.'
+  delivery: 'Wszystkie dostarczane dotykiem przyjetym dobrowolnie w ramach okazji
+    towarzyskiej (system/curses.md#dotyk-jako-kanal-dostarczenia). Dotyk to os range na
+    zerze, warta okolo jednego poziomu.'
+  procedures:
+  - {id: curse_focal_cramp, tier: 1, class: physical, note: Zaciska jedna grupe miesniowa - dlon na broni, przepona, kark.}
+  - {id: curse_laryngospasm, tier: 1-2, class: physical, note: Cel nie moze mowic ani krzyknac - brak alarmu i brak swiadka, ktory zawola.}
+  - {id: curse_orthostatic_collapse, tier: 1, class: physical, note: Omdlenie przy wstawaniu, opoznione, czyta sie jako choroba.}
+  - {id: curse_sensitisation, tier: 2, class: biological, note: Nastepny kontakt z pospolita substancja daje gwaltowna reakcje alergiczna. Moze zabic. Zaprzeczalne.}
+  - {id: curse_histamine_blistering, tier: 1-2, class: biological, note: Babel i palenie pod ubraniem - czysty bol bez dowodu poza wysypka.}
+  - {id: curse_unscratchable_itch, tier: 1, class: biological, note: Kilka dni bez snu, tortura bez sladu.}
+  - {id: curse_hormone_dump, tier: 2, class: biological, note: Panika bez powodu - podane przed przesluchaniem robi z kompetentnego czlowieka niewiarygodnego. Calkowicie niewidzialne.}
+  - {id: curse_induced_sleep, tier: 1-2, class: mental, note: Narastajace cisnienie senne przechodzace w sen prawdziwy; cel obwinia wino.}
+  - {id: curse_memory_trap, tier: 2, class: mental, note: Wspomnienie twarzy sie nie konsoliduje - godzine pozniej cel nie potrafi Lucana opisac. Najcenniejsza procedura w jego sytuacji.}
+  - {id: curse_loosened_tongue, tier: 2, class: mental, note: Obnizenie hamowania; badany pamieta mila rozmowe, nie przesluchanie.}
+  - {id: curse_sustained_dread, tier: 1-2, class: mental, note: Trzyma lek albo zal swiezym przez dni i degraduje osad.}
+  practice_gate:
+    physical_and_biological: 'Do wycwiczenia na kregowcu. Szczury sa darmowe i objete stalym
+      rozkazem polowania od event_turn_interlude_055 - material treningowy przychodzi sam.'
+    mental: 'NIE MA WERSJI SZCZURZEJ. Nie istnieje szczur, ktory nie potrafi opisac twarzy.
+      Pierwsza proba zapadni pamieci, rozwiazania jezyka i usypiania odbedzie sie na
+      czlowieku i bedzie jednoczesnie pierwszym uzyciem. Procedura, ktora zadziala w polowie,
+      zostawia czlowieka pamietajacego Lucana POLOWICZNIE - gorzej, niz gdyby nie rzucil.'
 suggested_not_confirmed: []
-last_updated_event_id: milestone_045_varkhen_takeover
+last_updated_event_id: event_turn_interlude_092

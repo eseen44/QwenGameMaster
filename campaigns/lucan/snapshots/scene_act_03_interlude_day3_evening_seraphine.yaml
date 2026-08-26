@@ -1,0 +1,92 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_evening_seraphine
+object_type: scene_snapshot
+closed_at: '2026-08-26T01:29:01+02:00'
+summary: 'Wieczor w gornych biurach gildii. Lucan przyszedl z kwiatami, Seraphine
+  rzucila kubkiem w drzwi, zeby nikt nie wszedl, i wieczor zamienil sie w pelne rozliczenie.
+  Ujawnione: linie wywozu cial prowadzi Straz Miejska (zrodlo niecytowalne), Lucan
+  ma uklad z syndykatem o pustke wokol cmentarza, ma siedem dzwigni i ani jednej obrony.
+  Seraphine posortowala liste - otwarla pioro nad Ruskiem, kaplana, kategorie prawnika,
+  fakt kopania pod garbarnia, dysputa i nude Varkhena; odmowila rejestru, nazwisk
+  i relikwii. Przyjela doktryne prawna Lucana i uchylila wlasna teze o dwoch sprzecznych
+  obronach. Bierze na siebie rozproszenie piora. Wynik dysputy okazal sie poza kontrola
+  Lucana, wiec przygotowanie przenosi sie na dzien po niej, a kontrakt z zakonem staje
+  sie konieczny. Varkhen, ktory stal w tym samym pokoju przez cala rozmowe, zgodzil
+  sie byc pokazany komandorowi PRZED kontraktem i pierwszy raz poprosil o cos dla
+  siebie: o naprawe, bo w obecnym stanie nie doniesie wlasnego ciala do trzech pieczeci.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_evening_seraphine
+  location_ref: campaigns/lucan/locations/lumaria-adventurers-guild/location.yaml
+  started_at: '2026-08-26T00:10:07+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_seraphine_vale
+  - companion_varkhen
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Wieczor konczy sie w gornych biurach. Przed switem Lucan ma rozstrzygnac: naprawa
+    Varkhena i kolejnosc wobec komandora zakonu, przykrywka dyzurki na przyjscie Mary
+    o brzasku, oraz kanal ostrzegawczy dla syndykatu.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_124
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_late_afternoon_leaving_with_mara.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-adventurers-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/varkhen.yaml
+  search_terms:
+  - 'Wieczor konczy sie w gornych biurach. Przed switem Lucan ma rozstrzygnac: naprawa
+    Varkhena i kolejnosc wobec komandora zakonu, przykrywka dyzurki na przyjscie Mary
+    o brzasku, oraz kanal ostrzegawczy dla syndykatu.'
+  last_refreshed_event_id: event_turn_interlude_124
+  context_bytes: 28231
+  context_budget_bytes: 40960
+  context_warnings:
+  - missing_refs:campaigns/lucan/locations/lumaria-adventurers-guild/location.yaml
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 12762
+  - ref: system/narrator.md
+    bytes: 4061
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: system/player-agency.md
+    bytes: 2187

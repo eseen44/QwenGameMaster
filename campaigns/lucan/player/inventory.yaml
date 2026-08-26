@@ -3,20 +3,25 @@ owner_id: pc_lucan
 status: active
 currency:
   carried_silver: 24
+  syndicate_payout_first_instalment_silver: 4000
   hidden_silver: 50
   leftover_market_savings_silver: 0
   refundable_deposits_silver: 5
-  liquid_silver_available_now: 114
-  total_known_net_silver: 119
+  liquid_silver_available_now: 4114
+  total_known_net_silver: 4119
+  syndicate_payout_outstanding_silver: 40000
   source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk, event_turn_interlude_013_market_food_run]
   notes:
     - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
     - 'hidden_silver: 50 to gotówka odłożona do schowka wprost po Akcie 1, zanim Lucan poszedł na targ w tamtym interludium (potwierdzone przez użytkownika, retcon_000001).'
     - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
+    - 'SPRZEDAZ LUPU CMENTARNEGO (event_turn_interlude_111): syndykat placi 52 000 srebra za calosc, ryta trzecia i robota konsekracyjna wlacznie, przy wartosci brutto ok. 100 000. Wyplata w TRZECH RATACH - pierwsza 12 000 wydana w pokoju, w zlotej monecie, zeby dalo sie ja wyniesc. Pozostale 40 000 do odebrania. Udzialy Borosa i Mary ida OSOBNO, ze strony syndykatu, pelna stawka; dodatkowy procent schodzi z Lucana zgodnie z jego wlasna propozycja.'
+    - 'PODZIAL PIERWSZEJ RATY (event_turn_interlude_116): 12 000 podzielone po rowno na trzy - 4 000 dla Lucana, 4 000 dla npc_boros_keld, 4 000 dla npc_mara_teln, w zlotej monecie. Boros i Mara zakladaja, ze idzie to NA POCZET ich osobnych dzialek ze strony syndykatu, dopoki Lucan nie powie inaczej. Do odebrania pozostaje 40 000 w dwoch ratach.'
     - 'carried_silver obnizone o 2 (event_turn_interlude_013_market_food_run) - jedzenie kupione na targu.'
     - 'carried_silver obnizone o 1 (event_turn_interlude_015_silkworms_and_specimen_order) - koszyk zywych jedwabnikow na wage.'
     - 'carried_silver obnizone o 18 (event_turn_interlude_083) - skrzynia ksiag po
       zmarlym balwierzu kupiona na wage 15, obiad dla npc_hesk_dorn 3.'
+    - 'SPRZEDAZ LUPU CMENTARNEGO (event_turn_interlude_111): syndykat placi 52 000 srebra za calosc, ryta trzecia i robota konsekracyjna wlacznie, przy wartosci brutto ok. 100 000. Wyplata w TRZECH RATACH - pierwsza 12 000 wydana w pokoju, w zlotej monecie, zeby dalo sie ja wyniesc. Pozostale 40 000 do odebrania. Udzialy Borosa i Mary ida OSOBNO, ze strony syndykatu, pelna stawka; dodatkowy procent schodzi z Lucana zgodnie z jego wlasna propozycja.'
     - 'carried_silver obnizone o 22 (event_turn_interlude_082) - "Uprzejmosci" 12,
       odpis brulionu formul prawnych 4, dwie akademickie odbitki po 3.'
     - 'carried_silver podniesione o 30, leftover_market_savings_silver wyzerowane
@@ -91,6 +96,79 @@ items:
     inherently_magical: false
     instructional_function: reproducible_curse_procedures_disguised_as_court_etiquette
     level: Wyzszy niz item_beginner_curses_book - zbior praktyka, nie podrecznik dla poczatkujacych.
+    read_status: read_event_turn_interlude_092_theory_absorbed_practice_pending
+    thesis: 'To ksiazka O DOSTARCZANIU, w ktorej klatwy sa przy okazji. Kazdy rozdzial to
+      okazja towarzyska - powitanie, toast, kondolencje, pozegnanie, przedstawienie
+      mlodszego starszemu - a procedura jest NIESIONA przez sama uprzejmosc: nosnikiem
+      jest forma, ktora cel przyjmuje dobrowolnie i ktorej nie moze odrzucic bez obrazy.
+      Uderza w to, co w klatwach jest trudne (dostarczenie rozstrzyga sie osobno od
+      odpornosci, system/curses.md).'
+    price_of_the_method: 'Zeby dzialac, Lucan musi byc OBECNY, poprawny i rozpoznany -
+      czyli w tych sytuacjach, ktorych unikal przez dwa lata i ktore nadchodza potrojnie:
+      przesluchanie, seminarium, rodzina. Czytanie defensywne daje liste tego, na co
+      patrzec, gdyby ktos probowal zrobic to JEMU.'
+    contents:
+      source_event_id: event_turn_interlude_091
+      calibration: 'Poprawione poza gra 25.08.2026. Ksiazka NIE jest zbiorem subtelnych
+        cantripow. Rozdzialy to okazje towarzyskie, bo tym jest DOSTARCZENIE, ale ladunki
+        sa realne: klatwy poziomu 1-2 wg system/metamagic.md, przez dotyk taniejace o okolo
+        jeden poziom (system/curses.md#dotyk-jako-kanal-dostarczenia). Ksiazka daje WEKTOR;
+        celowanie wnosi sam Lucan - anatomia, fizjologia i chemia zycia sa jego osia
+        precision kupiona wiedza, nie energia.'
+      delivery_chapters:
+      - 'POWITANIE - usciska dloni albo pocalunek w dlon. Nie trzeba sie znac. Najkrotszy
+        kontakt, najszybsza procedura.'
+      - 'TOAST - nosnikiem naczynie, nie skora. Klasa opozniona, kontakt i objaw rozjezdzaja
+        sie w czasie.'
+      - 'KONDOLENCJE - dlon na przedramieniu, jedyny dotyk, ktorego nikt nie odmawia, a cel
+        jest juz rozproszony.'
+      - 'PRZEDSTAWIENIE I UKLON - kontakt minimalny, pierwszenstwo jako nosnik.'
+      - 'POZEGNANIE - dotyk rozstania, klasa opozniona: efekt zaczyna sie, gdy rzucajacego
+        juz nie ma w pomieszczeniu.'
+      - 'PODARUNEK - przedmiot jako nosnik przedluzajacy dotyk w czasie, dziala bez obecnosci
+        Lucana. Najdrozsza i najwolniejsza procedura w zbiorze.'
+      payloads_physical_combat:
+      - 'SKURCZ OGNISKOWY (tier 1 dotykiem). Zaciska jedna grupe miesniowa - dlon na rekojesci,
+        przepone, kark. Przeciwnik nie puszcza broni, bo NIE MOZE jej puscic, albo nie moze
+        nabrac powietrza. Rozstrzyga starcie bez zadnego widocznego czaru.'
+      - 'SKURCZ KRTANI (tier 1-2). Cel nie moze mowic ani krzyknac. Wartosc nie jest bojowa,
+        tylko operacyjna: nie ma alarmu, nie ma swiadka, ktory zawola.'
+      - 'ZAPASC ORTOSTATYCZNA (tier 1, opozniona). Spadek cisnienia przy wstawaniu - cel mdleje,
+        kiedy sie podnosi. Czyta sie jako choroba, nie jako atak.'
+      payloads_biological_torture:
+      - 'UCZULENIE (tier 2, persistence). Zamienia nastepny kontakt celu z pospolita
+        substancja - kurz, welna, ryba, wino - w gwaltowna reakcje alergiczna. Zaprzeczalne
+        doskonale, bo alergie istnieja. Moze zabic i to tez jest czescia narzedzia.'
+      - 'WYRZUT HISTAMINY W SKORZE (tier 1-2). Babel, palenie i obrzek pod ubraniem. Czysty
+        bol bez dowodu poza wysypka.'
+      - 'SWIAD NIE DO ZDRAPANIA (tier 1, duration). Kilka dni bez snu. Tortura, ktora nie
+        zostawia niczego do pokazania.'
+      - 'WYRZUT HORMONOW (tier 2). Serce wali, pot, drzenie, panika bez powodu. Podane przed
+        przesluchaniem robi z kompetentnego czlowieka kogos, kto wyglada na winnego i
+        niewiarygodnego. Najgrozniejsza rzecz w tej ksiazce, bo jest calkowicie niewidzialna.'
+      payloads_mental_interrogation_and_erasure:
+      - 'USYPIANIE (tier 1-2 dotykiem). Nie "czar snu", tylko narastajace cisnienie senne
+        przechodzace w sen prawdziwy. Cel budzi sie i obwinia wino albo dlugi dzien.'
+      - 'ZAPADNIA PAMIECI (tier 2). Rodzina misnotice, ale mocniejsza: wspomnienie twarzy nie
+        konsoliduje sie, wiec godzine pozniej cel nie potrafi Lucana OPISAC. To jest wprost
+        narzedzie do usuwania wlasnej obecnosci i w obecnej sytuacji Lucana najcenniejsza
+        procedura w calym zbiorze.'
+      - 'ROZWIAZANIE JEZYKA (tier 2). Obnizenie hamowania, jak po alkoholu - cel mowi. Metoda
+        przesluchania, po ktorej badany pamieta mila rozmowe, nie przesluchanie.'
+      - 'PODTRZYMANY LEK ALBO ZAL (tier 1-2, duration). Utrzymuje stan emocjonalny swiezym
+        przez dni i degraduje osad. Wolne, tanie i trudne do powiazania z kimkolwiek.'
+      cost_note: 'Wg system/metamagic.md i precedensu Mroznego Dotyku: tier 1 to okolo 1
+        jednostki, tier 2 okolo 2, a dotyk zbija to o mniej wiecej jeden poziom. Przy rezerwie
+        15 oznacza to rzad wielkosci kilkunastu klatw poziomu 2 na dobe, o ile Lucan ma kogo
+        dotknac. Wąskim gardlem jest OKAZJA, nie energia.'
+      defensive_reading: 'Te same rozdzialy od drugiej strony to lista tego, na co patrzec,
+        gdyby ktos probowal zrobic to Lucanowi: kto podaje reke pierwszy, kto nalega na toast,
+        czyje kondolencje trwaja o dwie sekundy za dlugo.'
+      learning_cost: 'Godzina lektury dala STRUKTURE i teze, zero opanowanych procedur. Kazda
+        procedura jest osobnym punktem cwiczen (progression_curses_and_misdirection, E_to_low_D).'
+    location_note: 'Idzie z Lucanem do celi - przebrana za podrecznik dworskich
+      grzecznosci, wiec jest jedna z niewielu ksiazek, ktore w kwaterze czlonka gildii
+      wygladaja wlasciwie (event_turn_interlude_091).'
     cost_silver: 12
     disguise: Kazdy rozdzial o powitaniu, toascie i kondolencjach jest procedura klatwy;
       z zewnatrz ksiega dworskich grzecznosci. Klatwy sa w Lumarii legalna sztuka, wiec
@@ -116,7 +194,8 @@ items:
     cost_silver: 3
     value: Definicje i ulubione argumenty wyznaczonego oponenta z dysputy, szesnascie dni
       przed terminem. Kolm nie wie, ze bedzie mial kogo atakowac.
-    read_status: unread
+    read_status: read
+    read_event_id: event_turn_interlude_089
     source_refs: [event_turn_interlude_081, event_turn_interlude_082]
   - id: item_offprint_neris_aldhen
     name: Akademicka odbitka prac Neris Aldhen
@@ -125,7 +204,8 @@ items:
     cost_silver: 3
     value: Strona szerokiej definicji - ta, ktorej Lucan teoretycznie pomaga i ktorej jest
       jednoczesnie najlepszym kontrprzykladem.
-    read_status: unread
+    read_status: read
+    read_event_id: event_turn_interlude_089
     source_refs: [event_turn_interlude_081, event_turn_interlude_082]
   - id: item_barber_surgeon_anatomy_atlases
     name: Atlasy anatomiczne balwierza-chirurga
@@ -166,8 +246,9 @@ items:
       licencjonowany traktat o przywracaniu ruchu ciala, ktore stanelo - granica zywe/martwe
       jest u nich samych opisana jako CIAGLOSC z procedura. Jezyk i precedens z ich wlasnej
       polki, nie uniewinnienie.'
-    marginalia: Ta sama reka co w atlasach - proby balwierza: kto, kiedy, jak dlugo pod woda,
-      czy wrocil. Wiekszosc konczy sie nie. Sekwencja prob i granica, po ktorej przestawal.
+    marginalia: 'Ta sama reka co w atlasach - proby balwierza: kto, kiedy, jak dlugo pod
+      woda, czy wrocil. Wiekszosc konczy sie nie. Sekwencja prob i granica, po ktorej
+      przestawal.'
     problem: Biblioteki prowadza rejestr ubytkow - ktos w Akademii ma zapis, ze wolumin
       zniknal, i date. Lucan jest czlonkiem tej Akademii i za ok. czternascie dni ma tam byc
       wezwany.
@@ -272,7 +353,7 @@ items:
     type: recovered_loot_lot
     identification: examined
     contents_ref: cache_cemetery_north_bushes
-    contents_summary: Materialy do preparowania i konserwacji zwlok - necromantic_preservative, ritual_salt, corpse_drying_powder, decay_suppressing_vial x2, necromantic_conduction_agent, small_ritual_tool_set. Pasuja do opieki nad nekrotyczna tkanka Spideya i sieciarzy.
+    contents_summary: "Materialy do preparowania i konserwacji zwlok. STAN PO event_turn_interlude_090: ritual_salt i corpse_drying_powder nietkniete (material na obudowe wabikow), small_ritual_tool_set w uzyciu na stole. ZUZYTE: necromantic_conduction_agent - jedyna fiolka, poszla na spy_hawk_moth_01; decay_suppressing_vial x2 - spy_hawk_moth_01 i companion_spidey. ZOSTAJE: necromantic_preservative, trzecia i ostatnia porcja tlumiaca rozklad, odlozona i podpisana dla webber_anchored (Tkacz)."
     source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review, campaigns/lucan/state/resources.yaml#cache_cemetery_north_bushes]
   - id: item_tannery_owner_cache
     name: Papiery, klucze i srebrna pieczęć właściciela garbarni
@@ -339,12 +420,18 @@ items:
       w event_turn_interlude_079 - spy_cellar_spider_01; koszyk nadal pełny)
     cost_silver: 1
     intended_use: Materiał dawcy gruczołu przędnego do przeszczepu sieciarzom
-      (lead_webber_silk_upgrade_human_scale). Jedwab jedwabnika jest ciągły i mocny,
+      (lead_webber_silk_upgrade_human_scale). Jeden gruczol zakolejkowany dla Tkacza
+      jako DODATKOWY, bez usuwania starego (event_turn_interlude_090). Jedwab
+      jedwabnika jest ciągły i mocny,
       ale nielepki i bez kontroli wyrzutu - kleistość i przenoszenie trucizny nicią
       to osobne, kolejne kroki wzrostu.
     growth_cost_note: Przeszczep gruczołu przędnego to OKOŁO GODZINY pracy ręcznej na
       sieciarza, bez eskalacji (retcon_000024). Czterej sieciarze to ok. cztery godziny.
       Zasobem jest czas przy stole i materiał dawcy, nie energia.
+    fuel_use: 'Od event_turn_interlude_091 / retcon_000026 kosz sluzy TAKZE jako paliwo -
+      spy_hawk_moth_01 jest zywiony energia jedwabnikow zamiast wychodzic po nektar. Kilka
+      dni z zapasu. Konkurencja o ten sam material jest realna, ale niegrozna przy pelnym
+      koszu: gruczol przedny to jeden dawca na sluge, a sieciarzy do zrobienia jest czterech.'
     legal_status: legalny, nudny, hodowany masowo
     source_refs: [event_turn_interlude_015_silkworms_and_specimen_order]
 external_claims:
@@ -355,4 +442,4 @@ external_claims:
     status: opened_and_examined
     source_refs: [source_luka_b_fragment#line:8287-8301, event_turn_interlude_009_three_bags_opened]
 last_transaction_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
-last_updated_event_id: event_turn_interlude_015_silkworms_and_specimen_order
+last_updated_event_id: event_turn_interlude_089

@@ -31,13 +31,13 @@ player_declared:
       scope: Pieniądze plus prawnik z obiegu przestępczego - jedno spotkanie, oba tematy.
       logged_event_id: event_turn_interlude_014_market_beast_row_search
     steps:
-      - {id: keep_appointment_with_boros_and_mara_in_two_days, state: scheduled}
+      - {id: keep_appointment_with_boros_and_mara_in_two_days, state: done, source_event_id: event_turn_interlude_101}
       - {id: loot_custody_with_boros, state: done,
          source_event_id: event_turn_interlude_073_furnishing_the_cell,
          summary: 'Szescdziesiat kilo trzyma Boros Keld - na razie. Nie lezy u Lucana
            ani pod rejestrem gildii, wiec nie obciaza Seraphine.'}
-      - {id: find_discreet_buyer, state: pending}
-      - {id: move_60kg_without_registry_entry, state: pending}
+      - {id: find_discreet_buyer, state: done, source_event_id: event_turn_interlude_102, summary: "Caly lup do syndykatu (droga Mary), ryta trzecia wlacznie. Przetop Borosa odrzucony. Kwota nienazwana do pokoju."}
+      - {id: move_60kg_without_registry_entry, state: solved_by_counterparty, source_event_id: event_turn_interlude_103, summary: "Syndykat wyznaczyl pokoj osiagalny bez punktu kontrolnego. Cena: ostatni odcinek po ich terenie."}
       - {id: keep_reliquary_out_of_the_sale, state: standing_decision}
 
   - id: objective_build_decoy_construct_for_academy
@@ -112,6 +112,9 @@ player_declared:
         summary: Ustalić gospodarstwo domowe wskazanego strażnika wyłącznie jako mapę możliwego nacisku.
       - {id: legal_doctrine_stress_tested_by_seraphine, state: done}
       - {id: acquire_surveillance_rhetoric_and_law_references, state: pending}
+      - {id: retain_criminal_circuit_lawyer, state: bundled_accepted_pending_the_room, source_event_id: event_turn_interlude_102, summary: "Przyjety w pakiecie z syndykatem. Jego staly klient to nie Lucan. Obsluguje obrone KARNA."}
+      - {id: physical_training_with_mara, state: agreed_starts_day4_morning, source_event_id: event_turn_interlude_101, summary: "Godzina dziennie rano. Cel: oddech, upadanie, wychodzenie z linii - sekundy, nie sila."}
+      - {id: handle_magistrate_records_channel_corth, state: truth_given_no_alignment, source_event_id: event_turn_interlude_102, summary: "Mara pisze prawdziwe daty i dopisuje Ruska. Corth nadal nieujawniony Borosowi i Marze."}
       - {id: disclose_noble_name_angle_to_allies, state: done}
       - {id: map_city_factions_and_noble_relative_thread, state: pending}
       - id: reactivate_the_dormant_academy_post
@@ -123,6 +126,10 @@ player_declared:
       - {id: prepare_one_canonical_account_before_anyone_asks, state: pending}
       - {id: seminar_tactic_do_not_refuse, state: standing_decision}
       - {id: acquire_anti_detection_countermeasures, state: pending}
+      - {id: secure_or_recall_unassigned_servants, state: housekeeping_not_a_defence_task, source_event_id: retcon_000031, summary: "Trzy slugi bez rozkazu marnuja material i uwage. NIE jest to ryzyko dowodowe - patrz retcon_000031."}
+      - {id: decide_what_lucan_offers_the_syndicate_besides_gold, state: open_question_asked_in_the_room, source_event_id: event_turn_interlude_103, summary: "Dostepu sie nie dostaje, dostep sie wymienia. Pytanie padnie przed jakakolwiek kwota."}
+      - {id: meeting_with_the_local_priest, state: accepted_kesz_arranges_it, source_event_id: event_turn_interlude_113, summary: "Lucan przyjal oferte Kesza. Kesz przysle wiadomosc. Otwarte: kim Lucan tam siada - Akademia, gildia czy Veyr; odpowiedz przed spotkaniem, nie na nim."}
+      - {id: name_the_warning_channel_for_the_syndicate, state: promised_not_yet_named, source_event_id: event_turn_interlude_113, summary: "Pryncypal kupuje WYPRZEDZENIE - sygnal wart mniej niz doba jest wart zero. Nazwisko i sposob nadal po stronie Lucana."}
       - id: decide_what_to_do_about_being_an_unmanaged_asset
         state: pending
         summary: System Veyrów nie skazuje i nie broni - PRZYDZIELA. Dwa lata uciekania
@@ -135,9 +142,14 @@ player_declared:
         summary: 'Rozwiazane dwoma pokojami zamiast jednego. Pokoj dyzurny na gorze
           zostaje zarejestrowany na Lucana na cale interludium jako PRZYKRYWKA do
           przeszukania - Seraphine utrzymuje slad zamieszkania wlasna rota sprzatania.
-          Lucan spi w celi po Varkhenie w piwnicy gildii. Wady nazwane: przykrywka nie
-          wytrzyma rozpytywania czlonkow, a cela wychodzi na ten sam korytarz co pokoj
-          czworki wspolpracujacych swiadkow.'
+          Lucan SPI W POKOJU DYZURNYM NA GORZE - przykrywka nie jest inscenizowana,
+          jest prawdziwa (retcon_000038; snapshot day3_predawn mowi wprost "cztery
+          godziny snu w prawdziwym lozku, co przy okazji daje przykrywce realne slady
+          zamieszkania"). Cela po Varkhenie w piwnicy trzyma jego rzeczy i stoi w
+          rezerwie, ale NIE jest uzywana do spania do konca sprawy - decyzja stala.
+          Wady nazwane: przykrywka nie wytrzyma rozpytywania czlonkow; cela wychodzi
+          na ten sam korytarz co pokoj czworki wspolpracujacych swiadkow, ale skoro
+          Lucan tam nie sypia, nie znaja jego godzin pod ziemia.'
 long_term_context:
   - {id: seal_one_broken, state: broken, source_event_id: milestone_046_varkhen_oath_compact}
   - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}

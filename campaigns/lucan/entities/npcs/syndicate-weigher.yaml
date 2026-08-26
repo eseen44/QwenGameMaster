@@ -1,0 +1,33 @@
+schema_version: 1
+id: npc_syndicate_weigher
+name: Wagowy
+name_status: nie_podal_nazwiska_i_nikt_go_nie_przedstawil
+status: active
+review_status: created_in_play
+importance: full_agent
+role: syndicate_principal_the_actual_owner
+established_by: retcon_000035
+first_appearance_event_id: event_turn_interlude_104
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_110}
+current_location_id: loc_lumaria_market
+portrayal:
+  appearance: "Rzemieślnik, nie zbir. Siedzi przy wadze uchylnej z probierzem i kamieniem probierczym, ręce ma robocze."
+  method: "Milczy przez całą rozmowę i słucha wszystkiego. Nikt go nie przedstawia i sam się nie przedstawia - to jest wybór, nie zaniedbanie. Rozmowę i nacisk oddaje Ilvie; liczbę zostawia sobie."
+  tell: "Sortuje grobowy towar odruchowo i bezbłędnie, w tym odkłada na bok robotę konsekracyjną bez pytania - robił to już wcześniej."
+authority:
+  sets_the_price: true
+  runs_the_conversation: false
+  delegates_pressure_to: npc_ilva_rennat
+knowledge:
+  confirmed:
+    - {fact_id: fact_weigher_heard_the_entire_conversation, source_event_id: event_turn_interlude_107, claim: "Siedzial przy stole przez cala rozmowe: dzwignie Lucana, blankiet, zapowiedz wojny domowej za dwa tygodnie, odlozenie dostaw i obie prosby - prawnik i materialy."}
+    - {fact_id: fact_weigher_was_addressed_directly_and_correctly, source_event_id: event_turn_interlude_107, claim: "Lucan poprosil wlasnie JEGO o wspolne liczenie pieniedzy, pod dworna wymowka o kasjerce. Trafil w pryncypala za drugim podejsciem."}
+    - {fact_id: fact_weigher_agreed_to_stock_ahead_of_the_ruling, source_event_id: event_turn_interlude_109, claim: "Przyjal liste Lucana - zakazane podreczniki, materialy, egzotyczne stworzenia - i rozbil ja na tempa: materialy czwartek, zwierzeta w tygodniach, ksiazki bez terminu i tym samym kanalem co robota konsekracyjna. Zapas NIE bedzie lezal w miescie: stoi poza Lumaria i wchodzi na zamowienie, czyli kazde zamowienie jest nazwanym zyczeniem konkretnego czlowieka."}
+    - {fact_id: fact_weigher_has_a_stake_in_lucan_surviving, source_event_id: event_turn_interlude_109, claim: "Powiedzial wprost: jesli Kosciol przejdzie z papieru na rece, celem bedzie Lucan, a zapas kupiony pod jego termin umiera razem z nim. Interes transakcyjny, nie zyczliwosc."}
+    - {fact_id: fact_weigher_knows_lucan_declared_war_on_the_church, source_event_id: event_turn_interlude_110, claim: "Nie odradza i nie moralizuje. Kosciol jest zarazem jedyna instytucja miedzy nim a kategoria towaru, w ktora mial wlozyc pieniadze - dwa ryzyka na tej samej szali, wiec inwentarz na ten tydzien bedzie mniejszy i ostrozniejszy."}
+    - {fact_id: fact_weigher_knows_a_bigger_cemetery_problem_exists, source_event_id: event_turn_interlude_110, claim: "Lucan nazwal ISTNIENIE wiekszego problemu z przyszloscia cmentarza, nie jego tresc. Dla ludzi zyjacych z wiedzenia wczesniej to najdrozszy rodzaj zdania."}
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, seals_and_lower_gate, veyr_house_structure]
+agenda: [set_the_number_himself, stay_unnamed, judge_lucan_by_what_he_declines_not_by_what_he_offers]
+source_refs: [event_turn_interlude_104, event_turn_interlude_107, retcon_000035]

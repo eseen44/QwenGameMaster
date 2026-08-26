@@ -6,12 +6,13 @@ entity_kind: companion
 created_event_id: event_turn_interlude_076
 representation:
   mode: group_of_individually_distinct_members
-  count: 16
+  count: 21
   body_scale: insect
   member_ids: [spy_cellar_spider_02, spy_cellar_spider_03,
     spy_cellar_spider_04, spy_cellar_spider_05, spy_cellar_spider_06, spy_wasp_01,
     spy_centipede_01, spy_centipede_02, spy_beetle_01, spy_beetle_02, spy_beetle_03,
-    spy_beetle_04, spy_beetle_05, spy_beetle_06, spy_beetle_07, spy_beetle_08]
+    spy_beetle_04, spy_beetle_05, spy_beetle_06, spy_beetle_07, spy_beetle_08,
+    spy_moth_01, spy_moth_02, spy_moth_03, spy_moth_04, spy_hawk_moth_01]
   can_split: true
   split_rule: Kazdy okaz jest innego gatunku i ma inne zdolnosci, wiec kazdy ma wlasny
     stan od poczatku. To proba gatunkowa, nie roj.
@@ -41,6 +42,11 @@ survival_model:
   self_sufficient: true
   food_source: autonomous_small_prey_hunting
   routine_upkeep_cost: 0
+  decay_suppressant_rule: 'Kalibracja gracza 25.08.2026. Porcja tlumiaca rozklad dziala
+    PERMANENTNIE - zdejmuje dobowy ubytek raz na zawsze, a nie na czas trwania. NIE zwalnia
+    to z zywienia: jedzenie finansuje MASE, DOJRZEWANIE i rozwoj (system/companion-growth.md,
+    hand_feeding_program), a nie utrzymanie. Dlatego spy_hawk_moth_01 mimo zdjetej smyczy
+    dostaje energie z koszyka jedwabnikow - zeby rosnac, nie zeby przetrwac.'
   limitation: Zbiornik 3 i ubytek 1 na dobe daja trzydniowa smycz bez polowania.
     Okaz na posterunku, ktory nie ma na czym polowac, konczy sie sam.
 species_assessment:
@@ -122,15 +128,21 @@ feeding_model:
     kurierem jednorazowego uzytku, nie mieszkancem.'
 standing_decisions:
   source_event_id: event_turn_interlude_078
-  no_anchoring: 'Zaden okaz serii nie jest zakotwiczony. Skutek: brak WZMOCNIENIA
-    sygnalu, czyli krotszy zasieg i mniejsza wiernosc lacza, oraz mniej trwala wiez -
-    ale pozyczenie zmyslu nie jest tym zablokowane (retcon_000016). Zysk: sekcja na
-    dowolnym z nich nie ujawnia Death_Anchor, a strata sztuki nie boli.'
+  anchoring_doctrine: 'UCHYLA no_anchoring z tury 078 (event_turn_interlude_090). Kotwica
+    przestaje byc wyjatkiem dla Spideya i staje sie ZNACZNIKIEM: dostaje ja sluga, ktorej
+    Lucan nie moze stracic i w ktora inwestuje. Mechanicznie sluszne - Death_Anchor to
+    wzmacniacz sygnalu i tether trwalosci wiezi (retcon_000016), wiec poprawia dokladnie
+    to, co u swiezego okazu jest najgorsze: zasieg i wiernosc. Cena kupiona swiadomie:
+    (a) uszkodzenie propaguje przez kotwice w OBIE strony, (b) sekcja zakotwiczonego okazu
+    UJAWNIA Death_Anchor - zakotwiczony sluga to juz nie martwy robak, tylko nazwana
+    technika nekromantyczna i dowod rzeczowy. Zakotwiczone na dzien 2: spy_beetle_01,
+    spy_hawk_moth_01 (plus companion_spidey i webber_anchored sprzed doktryny). Reszta
+    serii zostaje niezakotwiczona i pozostaje zbywalna.'
   no_modifications_yet: 'Pajaki idace do sieciarzy sa nieruszone. Modyfikacje pozniej,
     swiadomie, za OKOLO GODZINY przy stole za sztuke, bez eskalacji (retcon_000017 +
-    retcon_000024 - energia w to nie wchodzi).' WYJATEK: spy_cellar_spider_01 dostal gruczol przedny
-    jedwabnika w event_turn_interlude_079, a potem zostal wyssany (retcon_000018). Po tym
-    seria nie ma ANI JEDNEGO zmodyfikowanego okazu.'
+    retcon_000024 - energia w to nie wchodzi). WYJATKI: spy_cellar_spider_01 dostal gruczol
+    przedny jedwabnika w event_turn_interlude_079, a potem zostal wyssany (retcon_000018);
+    od event_turn_interlude_090 zmodyfikowany jest spy_beetle_01 (kotwica + ucho cmy).'
   wasps_abandoned: 'Pozostale osy zostaja nieozywione - zbyt widoczne. Decyzja gracza,
     nie ograniczenie swiata. spy_wasp_01 zyje dalej jako jedyny egzemplarz skrzydlaty.'
   scatter_and_wait: 'Zuki i przyszle nabytki dostaja BRAK rozkazu celowo, zeby
@@ -192,4 +204,88 @@ production_note: Ozywienie jest jednym gestem - bez odczynnikow, bez zuzycia zap
   (retcon_000015). Produkcje ogranicza wylacznie dostepnosc cial i czas Lucana, a cial
   miasto ma nieskonczenie duzo. Zapasy ze schowka w baszcie sa osobna pula TRWALYCH
   ULEPSZEN do nalozenia na wybranego sluge, jesli gracz tak zadeklaruje.
-last_updated_event_id: event_turn_interlude_076
+last_updated_event_id: event_turn_interlude_090
+hearing_transplant_finding:
+  source_event_id: event_turn_interlude_090
+  method: >-
+    Przeszczep narzadu sluchu (tympanalnego) z cmy. Narzad siedzi w tulowiu, nie w
+    skrzydlach, wiec material dawcy wychodzi z POSZARPANEJ kupki - cme z urwanym
+    skrzydlem stac na oddanie ucha. Ok. godziny pracy recznej na sluge (retcon_000024).
+  recipients: [companion_spidey, spy_beetle_01]
+  queued_recipients: [webber_anchored]
+  measured_result: >-
+    ZMIERZONE, NIE OSZACOWANE. Cma ma uszy do lapania NIETOPERZA, wiec narzad jest
+    nastrojony wysoko, daleko ponad ludzki glos. Sluga wie, ZE ktos mowi, ilu ich jest,
+    w jakim rytmie, gdzie pada nacisk i kiedy pada dzwiek ostry (klucz, zgrzyt krzesla,
+    brzek, podniesiony glos). SLOW NIE DOSTARCZA. Przeszczep dziala; pasmo jest zle.
+  indicated_fix: >-
+    Narzad sluchu nastrojony na ludzkie pasmo maja owady sluchajace WLASNEGO spiewu -
+    swierszcze i pasikoniki, u ktorych ucho siedzi w przedniej nodze. Material darmowy,
+    legalny i osiagalny natychmiast: koniec sierpnia, laki za murem graja nocami, a
+    posterunek Tkacza stoi w gornej lace.
+  second_layer_unchanged: >-
+    Najlepsze ucho nie poszerza rury. U Spideya nie boli - jego kanal niesie pozyczony
+    zmysl przy skupieniu, wiec Lucan JUZ moze przez niego sluchac pokoju. U zuka i reszty
+    serii zostaje minimal_status plus pozyczenie zmyslu z bliska; kotwica to poprawia,
+    ale nie zamienia w telefon.
+deployment_update_day2_night:
+  source_event_id: event_turn_interlude_090
+  spy_beetle_01: >-
+    Zakotwiczony i z uchem, dalej na blacie w baszcie, bez przydzialu pomieszczenia.
+    Najtrwalszy mozliwy posterunek dlugoterminowy - je rozklad, wiec przetrwa tygodnie
+    w zamknietym budynku bez zywej zdobyczy.
+  spy_cellar_spider_06: Obsadza cele w piwnicy gildii - byl tam juz od wczoraj, wiec post
+    dziala od zaraz.
+  spy_cellar_spider_03: Przydzielony do POKOJU NARAD gildii, czeka w pudelku w baszcie.
+  spy_cellar_spider_04: Przydzielony do GABINETU SERAPHINE, czeka w pudelku w baszcie.
+  transport_constraint: >-
+    GRANICA PASMA, NIE ODLEGLOSCI. Rozkaz "przejdz przez pol miasta, wejdz do gildii i
+    zajmij pokoj narad" jest dla swiezego okazu z minimal_status nieczytelny. Okazy ida
+    w pudelku, w kieszeni Lucana, przy najblizszym powrocie do celi.
+  consent_status:
+    seraphines_office: Uzgodnione - Seraphine przyjela oba kanaly alarmowe w
+      event_turn_interlude_070 i czeka na okaz.
+    guild_council_room: 'NIEUZGODNIONE z nikim. Pluskwa w sali, w ktorej za dwa tygodnie
+      toczy sie przesluchanie Lucana, postawiona w instytucji, ktora go ukrywa i oslania.
+      KOREKTA (retcon_000025): te pajaki NIE sa zakotwiczone - doktryna kotwicy obejmuje
+      cztery slugi i tylko cztery. Znaleziony okaz jest martwym pajakiem piwnicznym,
+      sekcja nie ujawnia Death_Anchor, strata nie propaguje na Lucana. Ryzykiem jest
+      ZNALEZIENIE PAJECZYNY, nie podpisany dowod.'
+  spy_moth_01_to_04: Ozywione, na blacie, BEZ ROZKAZU. Male, ciche, nocne latacze; smycz
+    cukrowa jak u osy, skrzydla lamia sie pierwsze.
+  spy_hawk_moth_01: >-
+    Zakotwiczony, z fiolka przewodzaca i porcja tlumiaca rozklad. Nie tylko kurier, ale
+    LATAJACY PRZEKAZNIK - moze zawisnac pod oknem i skrocic droge sygnalu. Fiolka byla
+    jedna, wiec lacze Lucan-Spidey zostaje na 70 procentach.
+deployment_update_day2_night_release:
+  source_event_id: event_turn_interlude_091
+  spy_moth_01_to_04: >-
+    Wypuszczone na laki za garbarnia (loc_tannery#zone_upper_meadow), BEZ ROZKAZU, maja
+    dojrzewac. Laka rozwiazuje ich jedyna slabosc sama - nektar jest tam, gdzie one, wiec
+    cukrowa smycz przestaje istniec, a dojrzewanie nic nie kosztuje. Cena: laka noca nalezy
+    do NIETOPERZY, ale cma ma uszy wlasnie po to, wiec nie sa bezbronne.
+  spy_hawk_moth_01: >-
+    COFNIETE (retcon_000026). NIE zostal wypuszczony. Zostaje w baszcie przy stole, bez
+    rozkazu, zywiony energia z koszyka zywych jedwabnikow - kilka dni starczy, a dzialajace
+    juz tlumienie rozkladu i tak zdejmuje z niego dobowy ubytek, wiec jedwabniki sa drugim
+    zabezpieczeniem, nie warunkiem. Powod: jako jedyny zakotwiczony i noszacy jedyna fiolke
+    przewodzaca w kampanii ma byc najpierw UTWARDZONY.
+  spy_beetle_01: >-
+    Jedzie w kieszeni Lucana do celi w piwnicy gildii. Pierwszy odczyt z przeszczepionego
+    ucha: kotwica przy odleglosci kieszeni daje kierunek i natezenie czysto, a pasmo okazuje
+    sie uzyteczniejsze, niz wygladalo przy stole - noc nad ulica nalezy do NIETOPERZY, a
+    SZCZURY piszcza wysoko i czlowiek nie slyszy ich w ogole. Zuk z uchem cmy nie jest
+    podsluchem, jest WYKRYWACZEM NIETOPERZY I SZCZUROW: w piwnicy, kanale i spichlerzu
+    pokazuje, gdzie jest zywe zarcie dla reszty sieci. Zza oswietlonego okna daje obecnosc
+    mowy i rytm, bez slow.
+centipede_localisation:
+  source_event_id: event_turn_interlude_091
+  method: >-
+    KRZYWA STRATY JAKO DALMIERZ. Rura nie niesie polozenia, ale Lucan zmierzyl w
+    event_turn_interlude_086, ze sygnal wyostrza sie przy zblizaniu - i uzyl tego w marszu.
+  spy_centipede_01: >-
+    Sygnal ROSNIE w drodze do gildii: gdzies pod dzielnica gildii, a kanaly siegaja pod sama
+    piwnice. Pozyczony zmysl surowy, ale jedno wychodzi wyraznie i jest niepokojace -
+    ciosany kamien i powietrze STOJACE, bez ciagu i bez wody. To nie kanal, to czyjas
+    piwnica, do ktorej wij wszedl otworem od spodu. KTORA - NIE WIADOMO. Watek otwarty.
+  spy_centipede_02: Matowy, po stronie muru i garbarni. Zyje, syta, bez wspolrzednych.

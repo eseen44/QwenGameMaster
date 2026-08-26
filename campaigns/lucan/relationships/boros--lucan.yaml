@@ -7,12 +7,14 @@ layer: personal
 stance: practical_comrade
 axes: {cooperation: 55, judgment_confidence: 50, discretion_trust: 40, personal_regard: 45}
 reasons: [shared_tannery_and_cemetery_history, lucan_helped_save_rusk, lucan_plans_repeatedly_produced_results]
-obligations: []
+obligations: [{id: lucan_owes_boros_a_date_for_moving_the_loot, source_event_id: event_turn_interlude_101, note: "Termin dany (event_turn_interlude_102). Boros poniesie towar i przekaze go, potem konczy - nie chce znac nazwiska placacego, udzial wezmie z reki Lucana."}]
 shared_secrets: [varkhen_assault_witness, church_reliquary_possession]
 leverage: {held_by_subject: [knowledge_of_varkhen_assault], held_by_target: []}
 constraints: [guild_duty, immediate_group_safety]
 history:
   - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_positive_comradery_and_practical_trust}
   - {event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan, change: discretion_trust+5, reason: zgodzil_sie_milczec_o_posiadaniu_konsekrowanego_relikwiarza_bez_wahania}
+  - {event_id: event_turn_interlude_101, change: obligation_added, reason: przeliczyl_i_posortowal_lup_oraz_dalej_ponosi_ryzyko_przechowania_na_prosbe_lucana}
+  - {event_id: event_turn_interlude_102, change: obligation_updated, reason: dostal_termin_o_ktory_prosil_i_zgodzil_sie_poniesc_i_przekazac_szescdziesiat_kilo}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
-last_event_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
+last_event_id: event_turn_interlude_102

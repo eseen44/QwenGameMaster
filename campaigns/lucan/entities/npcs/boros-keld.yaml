@@ -5,9 +5,9 @@ status: accepted_by_user_pending_package_activation
 importance: full_agent
 role: warrior
 guild_rank: C
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_007_redeploy_and_guild_walk}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_115}
 mechanics_ref: candidate_npc_boros_keld
-current_location_id: loc_lumaria_adventurers_guild
+current_location_id: loc_lumaria_market
 equipment: [shield, axe]
 portrayal:
   temperament: [calm, practical, dry_humor]
@@ -18,9 +18,12 @@ knowledge:
     - {fact_id: fact_boros_witnessed_varkhen_assault, source_event_id: milestone_045_varkhen_takeover, claim: Boros osobiście rozbijał sarkofag i ciało starego nieumarłego według planu Lucana.}
     - {fact_id: fact_boros_saw_varkhen_weaken_during_lucans_contact, source_event_id: milestone_045_varkhen_takeover, claim: Boros widział, że Varkhen wyraźnie słabnie, gdy Lucan utrzymuje z nim bezpośredni kontakt magiczny; nie zna pełnego mechanizmu ani nie może pewnie przypisać wyniku wyłącznie temu kontaktowi.}
     - {fact_id: fact_boros_knows_varkhen_compact, source_event_id: milestone_046_varkhen_oath_compact, claim: Varkhen dobrowolnie przyjął układ pomocy przy pieczęciach, a skarbiec ma przypaść grupie.}
+    - {fact_id: fact_boros_weighed_and_sorted_the_cemetery_loot, source_event_id: event_turn_interlude_101, claim: "Przez dwa dni przeliczyl 60 kg: dwie trzecie anonimowe (kruszec, moneta, oprawy), jedna trzecia ryta i identyfikowalna (pierscienie zaloby z nazwiskami i datami, medaliony rodowe). Zna zlotnika z piecem, ktory bierze anonimowa czesc na wage."}
+    - {fact_id: fact_boros_told_everything_after_the_sale, source_event_id: event_turn_interlude_115, claim: "Lucan opowiedzial mu cala rzecz z pokoju powroznika: 52 000 srebra za calosc w trzech ratach, 12 000 pierwszej raty w reku, jego i Mary dzialki 18-20 tys. pelna stawka ze strony syndykatu, ryta trzecia sprzedana razem z reszta, zapowiedziana wojna z Kosciolem, pustka obiecana wokol cmentarza na czas prob gildii, plan sciagniecia zakonu mieczowego i Kesz, ktory przestal byc uslugodawca. Boros nie moralizowal - zapytal o obsade ostrego konca."}
+    - {fact_id: fact_boros_stayed_out_of_the_room_on_purpose, source_event_id: event_turn_interlude_115, claim: "Nie wszedl do pokoju powroznika swiadomie, zeby jego twarz nie trafila do zapisu kupca. To byla oplata, nie nieobecnosc - i on to nazwal."}
   suspicions:
     - {id: suspicion_varkhen_remains_extremely_dangerous, basis_event_ids: [milestone_045_varkhen_takeover], confidence: high}
   false_beliefs: []
   forbidden_without_source: [varkhen_future_offer, inquisition_conversation, voluntary_agreement]
-agenda: [protect_group, help_secure_seals, claim_agreed_share_of_treasure, await_next_group_decision]
+agenda: [protect_group, help_secure_seals, claim_agreed_share_of_treasure, stay_out_of_the_buyers_ledger, settle_the_engraved_third_question, agree_one_shared_version_of_why_the_group_returns_to_the_cemetery, await_next_group_decision]
 source_refs: [source_luka_a_fragment#line:797-805, source_luka_b_fragment#line:11251-11409]

@@ -182,7 +182,15 @@ institutional_defence:
         wysypiskowe pochowane albo spalone miesiąc temu), najemnik może nosić narzędzia mordu,
         a zarzut siatki zamyka się na oskarżeniu ("jeśli bezmyślny konstrukt, to nie
         raportuje"). Seraphine oddała wszystkie trzy. Zostaje jej tylko fizyczny osad -
-        pajęczyny w trzech miejscach - i sama nazwała to cienkim.'
+        pajęczyny w trzech miejscach - i sama nazwała to cienkim. KOREKTA GRACZA
+        25.08.2026: to nie jest cienkie, to jest ŻADNE. Pajęczyny są wszędzie i w każdym
+        budynku; sama sieć nie odróżnia się od innych i nie wskazuje niczego ani nikogo.
+        Osad staje się dowodem WYŁĄCZNIE wtedy, gdy ktoś odzyska OKAZ i stwierdzi, że pająk
+        jest martwy i chodzi. Nie prowadzić pajęczyny jako tropu, poszlaki ani obciążenia -
+        ani przeciw Lucanowi, ani przeciw komukolwiek, u kogo leży. Czwarta dziura jest więc
+        zamknięta razem z trzema pozostałymi; z tej osi zostaje wyłącznie fizyczne
+        ZNALEZIENIE sługi.'
+      - 'ZAWEZENIE (retcon_000031, 25.08.2026): samo fizyczne ZNALEZIENIE slugi tez nie jest dowodem. Niezakotwiczony okaz to martwy owad; do stwierdzenia "martwy i chodzi" potrzebna jest SEKCJA, a Lucan konczy sluge decyzja, wiec sekcja idzie na zwyklej zwloce. Death_Anchor nie jest wiedza powszechna - ujawnia sie tylko sekcja wykonana przez kogos pismiennego nekromantycznie albo akademicko. Realna ekspozycja to wiec okaz ZAKOTWICZONY plus kompetentny czytelnik, jednoczesnie.'
       - 'Brak przepisu nie jest bezpieczeństwem - zostaje zagrożenie publiczne,
         świętokradztwo, bezprawna magia, zniszczenie własności, zakłócenie porządku. Brak
         definicji jest osłoną TEGO, KTO TRZYMA FORUM, nie oskarżonego.'
@@ -364,6 +372,275 @@ clocks_rationale:
       dysputą (16) jest zamierzona przez gracza: jeśli postępowanie i dysputa wypadną w jednym
       tygodniu, akademicy mają własny interes w tym, żeby Lucan nie siedział w areszcie.'
 
+cemetery_loot_routes:
+  objective_ref: objective_liquidate_cemetery_loot
+  step_ref: find_discreet_buyer
+  source_event_id: event_turn_interlude_101
+  two_categories: |
+    Boros przeliczyl i posortowal 60 kg. DWIE TRZECIE SA ANONIMOWE - kruszec luzem, moneta,
+    wylamane oprawy, drut, blacha trumienna; nie ma na tym niczego, co cokolwiek mowi.
+    JEDNA TRZECIA JEST DOKUMENTEM - pierscienie zaloby z nazwiskiem i data rytymi po
+    wewnetrznej stronie, medaliony mortualne ze znakami rodow, kilka sztuk z robota
+    konsekracyjna. Duplikaty takich zapisow leza po stronie parafii i rodu. Wartosc rytej
+    trzeciej jest wielokrotnie wyzsza WLASNIE dlatego, ze jest robota - i dokladnie dlatego
+    nie da sie jej sprzedac nikomu, kto nie wywiezie jej z miasta.
+  route_a_boros_melt: |
+    Zlotnik z piecem w zapleczu targu, uzywany przez Borosa wczesniej. Bierze anonimowe dwie
+    trzecie NA WAGE i przetapia tej samej nocy. Bez rejestru, bez wjazdu, bez trasy, bez
+    nowego czlowieka, ktory zapamietuje nazwiska. CENA: okolo jednej trzeciej wartosci
+    obrobkowej, ryta trzecia zostaje w worku na nieokreslony czas, i ZADEN prawnik z tego
+    nie wychodzi.
+  route_b_mara_circuit: |
+    Operacja, ktora wchlonie calosc (ryta trzecia wlacznie) i wyprowadzi ja z Lumarii
+    kanalami nietykajacymi zapory. Placi realna liczbe. CENA POTROJNA, wylozona przez Mare
+    bez owijania: (a) beda WIEDZIELI, co przyszlo i skad, bo inaczej tego nie kupuja;
+    (b) prowadza zapis, bo zapis jest ich ubezpieczeniem, nie zaniedbaniem; (c) wejscie idzie
+    przez ICH prawnika - tego samego, o ktorego Lucan prosil.
+  decision_taken: 'CALY LUP DO SYNDYKATU (event_turn_interlude_102) - droga B, ryta trzecia wlacznie. Przetop odrzucony jako trzy tygodnie nocy przy piecu, jedna trzecia ceny i worek identyfikowalnej roboty lezacy dalej pod czyjas podloga. Uzasadnienie gracza: zorganizowana przestepczosc jest bezpieczniejsza od przypadkowej slamazarnosci.'
+  boros_custody_pressure: |
+    Boros trzyma grobowy towar pod podloga jako czlonek gildii rangi C w tygodniu, w ktorym
+    magistrat porzadkuje akta. Nie odmawia i nie podnosi ceny - prosi o TERMIN, nie o
+    zapewnienie. Relikwiarz pozostaje wylaczony ze sprzedazy i jest u Lucana.
+
+criminal_circuit_lawyer:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: retain_criminal_circuit_lawyer
+  decision_taken: "PRZYJETY W PAKIECIE (event_turn_interlude_102) - Lucan wybral cala droge syndykatu, wiec prawnik staje sie dostepny od wejscia do pokoju. Konflikt lojalnosci pozostaje nierozwiazany, a wybor miedzy obrona karna i klasyfikacyjna nadal niepodjety."
+  source_event_id: event_turn_interlude_101
+  text: |
+    Prawnik NIE jest dostepny osobno - jest czescia drogi Mary, bo operacja, ktora moze
+    wchlonac 60 kg grobowego towaru, ma czlowieka trzymajacego ja poza sadem. Jeden czlowiek,
+    dwa problemy, jedna transakcja. HACZYK, ktory nie jest haczykiem Mary: ten prawnik ma
+    stalego klienta i to nie jest Lucan. Lucan wchodzi jako klient przyprowadzony przez
+    strone, ktora go sprawdzila, do czlowieka, ktorego pierwsza lojalnosc jest gdzie indziej.
+    Zgodne z uwaga Seraphine (two_contradictory_defences): prawnik z ulicy zna urzednikow
+    magistratu, a nie Akademie, wiec obsluguje obrone KARNA - a Lucan nie wybral jeszcze,
+    ktora linia jest glowna.
+
+physical_training_with_mara:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: physical_training_with_mara
+  source_event_id: event_turn_interlude_101
+  what_two_weeks_give: |
+    Mara nie obiecuje sily i mowi wprost, ze dwa tygodnie nie robia nikogo silnym. Daja trzy
+    rzeczy: oddech (zeby nie byc skonczonym po dziesieciu sekundach), upadanie bez lamania
+    sie, oraz wychodzenie z linii - nieobecnosc tam, gdzie pada pierwszy cios. Jej wlasna
+    obserwacja z garbarni i z komory Varkhena: Lucana nikt nie przegral w walce, jego problem
+    jest ten, ze wszystko, co robi, wymaga stania w miejscu i uwagi. Trening kupuje SEKUNDY,
+    nie wygrywa wymiany.
+  cost: |
+    Godzina dziennie, rano, przez wiekszosc dni - inaczej to dekoracja. Trzynascie dni jest
+    juz obsadzone (wabiki, jedna kanoniczna wersja opowiesci, prawnik, zbyt zlota, trzy
+    pieczecie). CENA NIEWYMIENIONA PRZEZ MARE: godzina dziennie z bliska przez dwa tygodnie
+    z osoba, ktora widziala Varkhena slabnacego pod dotykiem Lucana i trzyma dwa podejrzenia
+    o sredniej pewnosci. Zobaczy, ile Lucan spi, jak oddycha po wysilku i co nosi pod
+    plaszczem.
+
+magistrate_records_channel:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: handle_magistrate_records_channel_corth
+  source_event_id: event_turn_interlude_101
+  text: |
+    Lucan zdecydowal, ze Corth nie jest sprawa Borosa i Mary, i wykonal to czysto - nie padlo
+    ani nazwisko Cortha, ani odpis kanalow Ruska. Corth zdecydowal inaczej dwa dni wczesniej:
+    rozeslal do nazwisk z obsady garbarni pisma o potwierdzenie dat i skladu grupy. Mara ma
+    jedno takie pismo, nie zna nazwiska urzednika, uwaza je za nudne i ZAMIERZA ODPOWIEDZIEC,
+    bo nieodpowiedzenie urzednikowi akt jest sposobem na stanie sie interesujacym. Zapytala
+    Lucana lagodnie, czy jest wersja tych dat, ktora by mu bardziej pasowala.
+  consequence: |
+    Decyzja o zatrzymaniu Cortha dla siebie ma termin waznosci liczony w DNIACH, nie
+    tygodniach. Lucan ma proponowana wspolprace swiadka, o ktora nie prosil: przyjecie daje
+    spojnosc zeznan i wymaga wtajemniczenia Mary, odrzucenie zostawia ja przy prawdzie,
+    ktorej Lucan nie zna w jej wersji. Zasada nadrzedna: JEDNA wersja opowiesci na wszystkie
+    fora - rozjazd zabija szybciej niz tresc.
+
+  decision_taken: |
+    PRAWDA, BEZ UZGADNIANIA (event_turn_interlude_102). Lucan kazal Marze napisac dokladne
+    daty i nie pytac go o wersje, bo nikt nic na niego nie ma, oraz dolozyl fakt, ktorego
+    Mara nie miala: Halven Rusk byl w garbarni, to jego odciagano od szczuroogra
+    (milestone_021_rusk_rescued). Mechanizm, ktory Mara nazwala: urzednik akt nie porownuje
+    zeznania z rzeczywistoscia, bo nie ma do niej dostepu - porownuje zeznania ZE SOBA, wiec
+    uzgodniona wersja jest ryzykiem rosnacym z liczba osob na obsadzie, a prawda nie ma tego
+    problemu w ogole.
+  rusk_as_witness: |
+    KORZYSC: dopisanie Ruska zmienia kategorie wpisu z "czterech czlonkow gildii w cudzej
+    garbarni" na "wypadek inspektora zagrozen podziemnych z asysta gildii" - kategoria z
+    wlasnym formularzem i precedensem. Rubryka, ktora sie zgadza, nie generuje pytania.
+    CENA: Rusk jest swiadkiem niezyczliwym - suspicion_lucan_sabotaged_escape (srednia
+    pewnosc), agenda avoid_being_used_as_lucan_cover. Wpisanie go kladzie go celowo na tej
+    samej stronie co Lucana.
+    GRANICA KLATWY - NIE PRZESADZAC: effect_rusk_cursed_pen_usypianie uruchamia sie, gdy Rusk
+    PISZE TYM PIOREM. Wezwany moze zeznac ustnie i ktos to spisze. Klatwa odjela Ruskowi
+    zdolnosc dosypywania papieru z WLASNEJ INICJATYWY (jego jedyna dzwignia: wolumen raportow
+    i sprzeciwow), a wroga wersja potrzebuje wlasnie inicjatywy. Druga strona medalu: urzednik
+    miejski, ktory nie oddaje zeznania na pismie, generuje u Cortha OTWARTA RUBRYKE przy
+    nazwisku Lucana na trzynascie dni, a urzednik, ktory przestaje produkowac raporty, w koncu
+    zostaje zastapiony - a nastepca zaczyna od zera, bez zmeczenia Corthem i bez piora.
+
+syndicate_access:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: decide_what_lucan_offers_the_syndicate_besides_gold
+  source_event_id: event_turn_interlude_103
+  what_changed: |
+    Lucan sam, przed wejsciem, powiedzial Marze, ze nie idzie po jednorazowa transakcje, a po
+    WSPOLPRACE: dostep do ich rynku i do ich prawnikow. To honoruje jej prosbe o uprzedzenie i
+    jednoczesnie przestawia cala stawke. Poreczenie za sprzedawce zlota konczy sie razem z
+    workiem; poreczenie za przyszlego klienta aparatu nie ma daty konca, a w pokoju wyceniany
+    bedzie CZLOWIEK, nie towar.
+  the_question: |
+    Dostepu sie nie dostaje - dostep sie WYMIENIA. Pytanie "co masz poza zlotem" padnie
+    pierwsze, przed jakakolwiek kwota. Mara nie odpowiada za Lucana i nie zgaduje na glos na
+    targu; mowi tylko, ze ludzie zyjacy z kupowania i sprzedawania placa za MOZLIWOSCI, a ona
+    widziala go przy robocie, ktorej nikt inny w grupie nie umial zrobic. Kandydaci na stole
+    (nierozstrzygniete): okazy, wiedza, Varkhen, nazwisko Veyr. Kazdy z nich ma inna cene
+    ujawnienia przy Marze, ktora za niego reczy.
+  route_note: |
+    Transport rozwiazal sie sam - zawodowcy wyznaczaja pokoje osiagalne bez punktu
+    kontrolnego, wiec kontrola na wjazdach i obwieszczenie o szczatkach nie dotykaja trasy.
+    Cena: ostatni odcinek biegnie po ICH terenie. Boros donosi towar do progu i konczy - nie
+    wchodzi, nie widzi placacego, udzial bierze z reki Lucana.
+
+    martwy i chodzi. Trzy takie okazy sa poza kontrola.
+
+syndicate_room:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: decide_what_lucan_offers_the_syndicate_besides_gold
+  source_event_id: event_turn_interlude_104
+  who_is_in_the_room: |
+    npc_ilva_rennat prowadzi pokoj i wycenia CZLOWIEKA - liczbe za towar zostawia na koniec,
+    bo obie strony znaja ja z grubsza. npc_rovan_kesz to prawnik z pakietu; przy pierwszym
+    kontakcie sam powiedzial, ze jest prawnikiem POKOJU, nie Lucana, i to pokoj decyduje,
+    czego moze sie o Lucanie dowiedziec. Wagowy przy stole jest rzemieslnikiem bez karty i
+    nie odzywa sie ani razu. Mara siedzi obok, rozbrojona przy wejsciu, i reczy.
+  what_the_entry_cost: |
+    Towar przeszedl w ich rece NA PROGU, przed jakakolwiek liczba - to byla zapowiedziana
+    cena ostatniego odcinka i jest nie do cofniecia. Rewizja Lucana byla o jedno slowo:
+    odzwierny siegnal do plaszcza, Kesz zatrzymal go zdaniem "Gosc Teln". Spidey i
+    spy_beetle_01 sa nietkniete WYLACZNIE dzieki poreczeniu Mary.
+  what_they_already_know: |
+    Wiedza, czyj to towar i z jakiej operacji (event_turn_interlude_102). Ilva pokazala tez,
+    ze wie o pismach urzednika akt do obsady garbarni - maja ludzi w kancelarii magistratu od
+    zawsze. Sledza wiec te sama nitke co Corth, z drugiej strony i z wieksza wiedza niz Lucan.
+    Nie uzywa tego jako grozby, tylko jako cennika: klient z otwarta rubryka przy nazwisku
+    jest drozszy w obsludze.
+  the_question_as_asked: |
+    "Dostep kosztuje. Nie srebrem - srebro macie wy, my mamy go wiecej. Co pan ma, czego my
+    nie mamy i czego nie kupimy gdzie indziej?" Warunek: odpowiedz W TYM POKOJU, dzis, nie
+    obietnica namyslu - bo kto potrzebuje tygodnia na wymyslenie, co ma do zaoferowania, nie
+    ma nic. Kandydaci nierozstrzygniete: okazy, wiedza, Varkhen, nazwisko Veyr. Nowy czynnik
+    przy wycenie kazdego z nich: Kesz slucha jako prawnik pokoju, wiec nie ma tajemnicy
+    zawodowej, a Mara slyszy wszystko i za to reczy.
+
+
+lucans_legal_doctrine_and_the_syndicate_pitch:
+  objective_ref: objective_prepare_institutional_defense
+  source_event_id: event_turn_interlude_108
+  the_doctrine: |
+    Nie ma sprawy, bo nie ma nekromanty - jest akademik budujacy golemy z ciala. Gdyby ktos
+    jednak uznal to za sily nieczyste, NIE ISTNIEJA KATEGORIE PRAWNE DOTYCZACE ZWIERZAT.
+    Konsekwencja przyjeta przez Lucana jako wlasne ograniczenie: NIE TYKA LUDZKICH ZWLOK -
+    i to jest tez powod, dla ktorego odmowil dostaw cial od syndykatu.
+    Pokrycie: necromancy-law.yaml#animal_and_vermin_modification, #construct_boundary.
+    Skutek: obrona karna i klasyfikacyjna przestaja sobie przeczyc.
+  the_one_seam: |
+    Kosciol nie uznaje szarej strefy zwierzecej doktrynalnie
+    (church_position.animal_gray_zone_recognized_doctrinally: false). Doktryna jest szczelna
+    wobec forum swieckiego i bezwartosciowa wobec kaplana. Drugie ostrzezenie Kesza, identyczne
+    z uwaga Seraphine, tylko z drugiej strony barykady: gdy sciezka formalna cichnie, srodek
+    zaradczy zmienia rece z papieru na LUDZI - a jego klienci sa tymi rekami.
+  the_pitch_to_the_principal: |
+    Lucan nie sprzedal syndykatowi towaru ani uslugi, tylko WIEDZE WYPRZEDZAJACA: rownolegle do
+    sledztwa gildii ta sama kwestia lezy u akademikow (otwarta dysputa za ok. 16 dni,
+    npc_neris_aldhen kontra npc_ivar_kolm), a okazy, na ktorych dysputa bedzie orzekac,
+    dostarcza Lucan. Mechanizm zmiany prawa jest w plikach i Lucan go zna: nikt nie oglasza
+    legalnosci, tylko przestaje sie rozpatrywac skargi
+    (necromancy-law.yaml#de_facto_liberalisation_mechanism, precedens: ludzka transmutacja).
+    Kto wie o tym wczesniej, kupuje tanio to, co przestanie byc kontrabanda.
+  what_it_bought: |
+    Pryncypal (npc_syndicate_weigher) nie zazadal dowodu - zapytal o DATE i o INWENTARZ: co ma
+    zaczac kupowac teraz, zeby wtedy juz to miec. To jest dostep, po ktory Lucan przyszedl, ale
+    POWIERZONY, nie udzielony - czyli zobowiazanie w druga strone.
+  what_the_room_still_does_not_know: |
+    Spidey, Varkhen, nazwisko Veyr. Utrzymywanie bardzo starego nieumarlego jest jedynym
+    faktem, ktory rozbija cala doktryne o zwierzetach w jedno popoludnie.
+
+unassigned_servants_housekeeping:
+  objective_ref: objective_prepare_institutional_defense
+  step_ref: secure_or_recall_unassigned_servants
+  source_event_id: retcon_000031
+  supersedes: unassigned_servants_risk (event_turn_interlude_103, uchylone)
+  inventory: |
+    Wyrywkowy przeglad sieci w turze 103 (piec wezlow, uwaga seryjna, ok. 2 min na wezel wg
+    event_turn_interlude_086) pokazal trzy slugi bez rozkazu: spy_centipede_02 (kanaly,
+    released_unsupervised_no_standing_order), spy_beetle_05 (ulice i odpadki wokol baszty,
+    dispersed_solo_no_order), spy_moth_01 (laka, released_no_orders_maturing).
+  correction: |
+    TO NIE JEST RYZYKO DOWODOWE (retcon_000031) - narrator to zawyzyl. Niezakotwiczony okaz
+    odzyskany przez kogokolwiek jest martwym owadem; do stwierdzenia "martwy i chodzi"
+    potrzebna byla sekcja, a na sekcji nie ma czego znalezc, bo Lucan konczy sluge decyzja i
+    odzyskanie nastepuje na zwykej zwloce. Death_Anchor nie jest wiedza powszechna - sekcja
+    ujawnia go wylacznie komus pismiennemu nekromantycznie albo akademicko, a znalazca,
+    sprzataczka, straznik czy urzednik nie rozpozna nazwanej techniki i nie ma powodu jej
+    szukac.
+  real_costs: |
+    (a) Marnuja material i uwage - nie robia nic pozytecznego.
+    (b) Okaz W RUCHU obserwowany przez uwazna osobe ok. pol minuty daje PODEJRZENIE, nie
+    dowod (event_turn_interlude_099), a przeciwdzialaniem jest stala mozliwosc zakonczenia go
+    na odleglosc.
+    (c) Realna ekspozycja dotyczy wylacznie okazow ZAKOTWICZONYCH i wylacznie w rekach kogos
+    pismiennego magicznie - i wymaga JEDNOCZESNIE odzyskania okazu ORAZ sekcji wykonanej przez
+    kompetentnego czytelnika.
+
+
+cemetery_syndicate_arrangement:
+  objective_ref: objective_prepare_institutional_defense
+  source_event_ids: [event_turn_interlude_109, event_turn_interlude_110, event_turn_interlude_120, event_turn_interlude_121]
+  what_lucan_bought: |
+    Sygnal zamiast terminu - Lucan mowi, kiedy bedzie dym. Pustka wokol cmentarza na czas
+    prob gildii wobec wszystkich, ktorych syndykat zna (a zna wiekszosc): zbieraczy,
+    ciekawskich, cudzych ludzi i komorek probujacych przejac pusta linie. Wsparcie rzeczowe:
+    ludzie do noszenia i pilnowania, wozy, kwatera poza murami, materialy poza kolejnoscia.
+    Nie wchodza na teren, nie chca wiedziec, co tam jest, nie biora odpowiedzialnosci za
+    wynik. Pryncypal kupuje CZAS I PUSTKE, nie wspolne przedsiewziecie.
+  the_price_named: |
+    Ostrzezenie z WYPRZEDZENIEM - nazwisko i sposob, w jaki syndykat dostanie sygnal, ze ma
+    zamykac. Sygnal wart mniej niz doba jest wart zero. Nadal nienazwany.
+  the_open_seam_on_the_watch: |
+    NIEROZSTRZYGNIETE I ISTOTNE. Lucan relacjonuje uklad tak, jakby obejmowal odsuniecie
+    STRAZY z okolic terenu. W zapisie pokoju to nie pada: pustka byla zadeklarowana wobec
+    polswiatka, a o strazy ta sama organizacja powiedziala w tej samej rozmowie, ze z
+    klientem w mundurze SIE NIE KONKURUJE (event_turn_interlude_100). Do rozstrzygniecia
+    przez gracza: czy padlo z ich ust, czy jest domyslem Lucana. Obie odpowiedzi sa duze -
+    brak obietnicy oznacza dziure w obwodnicy dokladnie tam, gdzie syndykat nie pomoze;
+    obietnica oznacza, ze syndykat deklaruje ruch przeciw instytucji prowadzacej linie,
+    czyli zapowiedz przejecia.
+  seraphines_reading_of_the_motive: |
+    Syndykat nie robi uprzejmosci - kupuje PRZYSZLOSC terenu. Pryncypal sam powiedzial, ze
+    pusta linia sciagnie kogos w ciagu tygodni, ze ktokolwiek ja wezmie, bedzie potrzebowal
+    cmentarza, i ze on tego dlugo nie zatrzyma. Wiec chce, zeby w dniu otwarcia niszy
+    cmentarz byl juz oczyszczony CUDZYMI ludzmi, bezpieczny i otoczony osobami z dlugiem u
+    niego. "Na razie nie sa zainteresowani handlem" czytac jako DATE, nie usposobienie.
+    Koszt dla gildii: pali ludzi i zasoby na oczyszczenie terenu, ktorego wartosc zainkasuje
+    ten, kto na niego nie wszedl.
+  contamination_risk: |
+    Proby gildii odbeda sie w pustce kupionej od organizacji przestepczej. Dopoki nikt tego
+    nie wie, jest to przewaga. Z chwila ujawnienia operacja zostaje skazona WSTECZ: kazdy
+    czlonek gildii, ktory tam pracowal, staje sie czlowiekiem pracujacym pod oslona
+    syndykatu, a Seraphine oficerem, ktory to dopuscil. Zbiega sie to z warunkiem Borosa -
+    jedna wspolna wersja przed pierwszym butem na cmentarzu (event_turn_interlude_116).
+  seraphines_two_conditions: |
+    (1) Chce KSZTALTU, nie nazwisk: musi znac, czego spodziewac sie w terenie (obcy ludzie,
+    wozy, kwatera, materialy), bo odpowiada za obwodnice operacji; nie chce nazwisk, adresu
+    pokoju, twarzy ani tresci umowy, bo rano staje przed sluzbami miejskimi. Powtorzenie
+    doktryny z glejtu: wiedza jest droga, posiadanie dyskwalifikujace
+    (event_turn_interlude_036).
+    (2) Zanim padnie data prob, chce ustalic WLASNA wersje na protokol - nie wersje Lucana,
+    tylko zdanie prawdziwe i niepelne, bo tylko takie wytrzymuje urzednika.
+  method_for_further_disclosure: |
+    Seraphine odmawia dalszego wybierania w ciemno (Lucan dwa razy kazal jej wybrac wlasna
+    niewiedze, co czyni ja wspolwinna wszystkiego, o co nie zapytala). Nowa metoda: Lucan
+    wymienia nitki po JEDNEJ LINII kazda - czym to jest i co sciaga na nia, jesli ona to wie
+    - a ona wskazuje, ktore otwiera. Nazwiska dopiero po wskazaniu.
 source_refs:
   - campaigns/lucan/state/objectives.yaml
   - campaigns/lucan/state/clocks.yaml

@@ -1,0 +1,43 @@
+schema_version: 1
+id: spy_moth_04
+object_type: entity_instance
+status: active
+definition_ref: candidate_spy_series_01
+revision: 1
+position:
+  location_id: loc_tannery
+  zone_id: zone_upper_meadow
+  formation: released_no_orders_maturing
+integrity:
+  current: 4
+  maximum: 4
+resources:
+  necrotic_reservoir:
+    current: 3
+    capacity: 3
+    decay:
+      interval_seconds: 86400
+      units: 1
+    hunting_recovery:
+      interval_seconds: 86400
+      units: 1
+      requires:
+      - autonomous_hunting
+    runtime:
+      decay_elapsed_seconds: 0
+      hunting_recovery_elapsed_seconds: 0
+status_flags:
+- newly_animated
+- fresh_obedient_and_dull
+- autonomous_hunting
+- intact_wings_capable_of_flight
+- silent_flight
+- nocturnal
+- drawn_to_light
+- fragile_wings_first_to_break
+- sugar_feeder_must_leave_a_closed_post
+conditions: []
+last_event_id: event_turn_interlude_090
+source_refs:
+- event_turn_interlude_088
+- event_turn_interlude_090

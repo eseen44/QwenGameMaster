@@ -41,6 +41,17 @@ leads:
       tez wlasny, osobisty brak techniki podsluchu (nie tylko przez siec) -
       ability_borrowed_sense dziala tylko przez linked servant, wiec to osobna luka.
     related_ref: system/companion-growth.md
+    update: 'ROZLOZONE NA CZESCI (event_turn_interlude_089). Trzy warstwy, nie jedna.
+      (a) CZUJNIK: sieciarz juz czyta drgania nici, ale mowa idzie POWIETRZEM - wersja
+      darmowa to duza, luzna plachta sieci jako membrana (rytm, liczba glosow, czy ktos
+      mowi - nie slowa), wersja wlasciwa to przeszczep narzadu sluchu z CMY, ok. godziny
+      pracy recznej na sieciarza (retcon_000024); material dawcy lezy juz na blacie w
+      baszcie. (b) KANAL - waskie gardlo, nie czujnik: lacze niesie thread_break_signal
+      i minimal_status, wiec USLYSZANE NIE ZNACZY PRZEKAZANE; wiek daje sad, nie pasmo,
+      a pasmo to osobny krok wzrostu; agregacja przez Spideya kosztuje 0,8 x 0,7 = ok. 56
+      procent. (c) UWAGA: sluchanie na zywo zjada caly slot Lucana na caly czas rozmowy
+      (event_turn_interlude_086), wiec realny podsluch jest problemem ZAPISU -
+      voice_recording z development_path, osobna nieoplacona funkcja.'
     status: open
   - id: lead_countermeasure_vs_cemetery_ghost
     topic: Znalezc/opanowac cos co realnie dziala przeciw duchowi/genius loci cmentarza
@@ -89,6 +100,14 @@ leads:
     note: Obecna niedostatecznosc - nic wystarcza na muchy, czlowiek jej nawet nie
       zauwaza. Rozwiniecie tego otworzyloby granie w pulapki.
     related_ref: system/companion-growth.md
+    update: 'ROZLOZONE NA CZESCI (event_turn_interlude_089). Brakuje trzech rzeczy naraz:
+      KLEISTOSCI (jedwab jedwabnika jest ciagly i mocny, ale NIELEPKI i bez kontroli
+      wyrzutu), ILOSCI (male cialo daje metry, nie siec; jedwab w skali ludzkiej to problem
+      MATERIALU, nie magii - event_turn_interlude_081) i ZAKOTWICZENIA (wieksze cialo wnosi
+      sile; puszczaja punkty mocowania, nie nic). Kolejnosc wymuszona: gruczol przedny
+      (ok. godzina na sieciarza, jedwabniki w koszyku) -> kleistosc -> kontrola wyrzutu.
+      Pulapka na cos duzego DZISIAJ to MECHANIZM - ciezar, petla, napiecie na belce -
+      czyli stolarka z nicia, nie krok wzrostu. Czterej sieciarze maja permanent_growth_steps 0.'
     status: open
   - id: lead_market_run_spidey_parts_and_exotic_creatures
     topic: Wyprawa na targ po nowe czesci dla Spideya i bardziej egzotyczne zwierzatka
@@ -196,6 +215,16 @@ leads:
     related_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
     status: open
   - id: lead_two_contradictory_defences
+    resolution: 'ZAMKNIETY (event_turn_interlude_108) - NIE przez wybor linii, tylko przez
+      rozbrojenie forka. Doktryna Lucana: sprawy nie ma, bo nie jest nekromanta, tylko
+      akademikiem budujacym golemy z ciala; a gdyby ktos uznal to za sily nieczyste, nie ma
+      kategorii prawnych dotyczacych ZWIERZAT - stad jego wlasne ograniczenie, ze nie tyka
+      ludzkich zwlok. Obie obrony mowia wtedy to samo zdanie: przedmiotu sprawy nie ma.
+      Pokrycie w kanonie: necromancy-law.yaml#animal_and_vermin_modification (gray zone) oraz
+      #construct_boundary (Akademia klasyfikuje po mechanizmie, bo szeroka definicja zabija
+      golemy i biokonstrukty). JEDYNA SZCZELINA, wskazana przez Kesza: Kosciol nie uznaje
+      szarej strefy zwierzecej doktrynalnie, wiec doktryna jest szczelna wobec sadu i
+      bezwartosciowa wobec kaplana.'
     logged_event_id: event_turn_interlude_027_legal_argument_and_the_father_answer
     topic: Rozstrzygnac, ktora obrona jest glowna - klasyfikacyjna czy karna - bo one
       sobie przecza
@@ -543,8 +572,134 @@ leads:
     related_ref: campaigns/lucan/companions/spy-series.yaml#haul_assessment_night1
     status: open
 
+  - id: lead_necromancy_interest_register
+    logged_event_id: event_turn_interlude_122
+    topic: Rejestr osob potencjalnie zainteresowanych nekromancja w Lumarii - aktyw
+      zadeklarowany przez gracza, ujawniony Seraphine jako kategoria, bez nazwisk
+    note: Seraphine ODMOWILA przyjecia tej pozycji i nazwala ja z drugiej strony -
+      to nie jest lista kontaktow, tylko gotowa lista donosu. W rekach Inkwizycji
+      albo Kosciola ten sam papier jest wyrokiem dla kazdego nazwiska na nim.
+      Dopoki spis istnieje w jednym kawalku, jest grozniejszy dla ludzi na nim niz
+      dla Lucana. Nierozstrzygniete - skad Lucan ma te wiedze i czy istnieje ona
+      fizycznie, czy tylko w jego glowie.
+    status: open
+  - id: lead_ruskys_pen_must_be_switched_off_before_the_hearing
+    logged_event_id: event_turn_interlude_122
+    topic: Wygasic dzialanie zakletego piora wreczonego Ruskowi, zanim zbierze sie
+      kierownictwo gildii
+    note: Pioro dziala bez obecnosci Lucana i tak dlugo, jak jest w uzyciu
+      (event_turn_interlude_095, retcon_000028 - zero sladu, zero dowodu, zero progu
+      karnego). Problem NIE jest karny, tylko instytucjonalny - Rusk jest wlasnie
+      sprawdzany na kompetencje, a jego jedyna dzwignia to raporty; wynik tego
+      postepowania jest wiec produkowany przez Lucana. Komplikacja praktyczna -
+      pioro bylo i jest WLASNOSCIA Ruska, lezalo na jego biurku, a "Podarunek" to
+      nazwa procedury klatwy, nie wreczenie prezentu (retcon_000036); nie bylo
+      swiadkow i Rusk niczego nie rozpoznal - wygaszenie jest problemem technicznym
+      przy cudzym biurku, nie spolecznym. Seraphine zazadala wygaszenia przed
+      posiedzeniem i chce znac sposob wczesniej.
+    status: open
 notes:
   - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,
     szerszy temat niz pojedyncze leady wyzej - beda pod nim wisiec, dopoki gracz
     nie zadeklaruje konkretnego kroku (np. eksperyment, rozmowa z ekspertem, zdobycie
     materialu).
+
+declared_intents_awaiting_normal_declaration:
+  - id: intent_spider_in_the_cover_room_and_seraphines_drawer
+    declared: 'Poza gra, 25.08.2026 - wiadomosc wylacznie nawiasowa, wiec NIE wykonana i
+      czas nie ruszyl (system/player-agency.md).'
+    content: 'Jeden pajak piwniczny ma sie rozgoscic w pokoju Lucana na gorze, drugi w
+      gabinecie Seraphine. Ten w gabinecie ma rozsnuc mala siec W SZUFLADZIE BIURKA, nie
+      musi w niej mieszkac, ale ma miec kontrole nad tym, czy ona jest, i zameldowac jej
+      zniszczenie. Ma NIE gryzc Seraphine, nie wazne co.'
+    feasibility:
+      web_in_a_drawer: 'Wykonalne bez ulepszenia. Pajak piwniczny potrafi rozsnuc rzadka
+        siec jak sieciarze (species_assessment spy_cellar_spider_01), a nic sygnalowa z
+        sieci do kryjowki to naturalne zachowanie pajaka - nie musi w niej siedziec, zeby
+        czuc, ze pekla.'
+      alarm_channel: 'Kanal serii to minimal_status, ale sygnal zerwania nici to nie
+        raport strukturalny, tylko jedno bitowe zdarzenie - miesci sie w rurze tak samo
+        jak thread_break_signal u sieciarzy.'
+      do_not_bite_order: 'Rozkaz zakazujacy przechodzi, ale rozpoznanie KONKRETNEJ osoby
+        przez swiezy okaz jest watpliwe. Przejdzie czysciej w wersji "nie gryz nikogo w
+        tym pokoju".'
+      real_problem: 'SZUM. Szuflada uzywanego biurka jest otwierana codziennie i siec bedzie
+        rwana bez przerwy, wiec alarm z niej to strumien falszywych trafien. Wartosc pojawia
+        sie dopiero, gdy siec siedzi w szufladzie, do ktorej Seraphine nie zaglada - wtedy
+        kazde zerwanie znaczy, ze ktos SZUKAL. To jest pulapka na przeszukanie jej biurka,
+        nie na nia.'
+      consent: 'Gabinet jest uzgodniony co do pajaka alarmowego (event_turn_interlude_070).
+        Siec w szufladzie jej wlasnego biurka nie jest - to obserwacja jej mebla, nie pokoju.'
+    status: awaiting_declaration_outside_parentheses
+  - id: lead_council_room_beetle_deferred
+    logged_event_id: event_turn_interlude_100
+    topic: Postawic zakotwiczonego zuka w pokoju narad gildii - ale dopiero po dwoch ulepszeniach
+    note: >-
+      Deklaracja planu gracza, NIE wykonanie. Lucan odklada podsluch sali narad do czasu, az
+      zuk dostanie (1) ucho prostoskrzydlego zamiast cmiego i (2) lepsze maskowanie/antydetekcje.
+      Trzy rzeczy do zapamietania, bo kazda zmienia ten plan:
+      (a) spy_beetle_01 JUZ MA uszy - przeszczep cmi z tury 089. Problem nie jest w braku ucha,
+      tylko w PASMIE: cma slyszy nietoperze, nie slowa. Potrzebny jest narzad prostoskrzydlego
+      (swierszcz, konik polny; ucho w przedniej nodze), ok. godziny pracy recznej. Trzej
+      sieciarze sa juz wyslani po material, laki graja do konca sierpnia.
+      (b) DRUGA WARSTWA ZOSTAJE. Nawet wlasciwe ucho nie poszerza lacza - zuk niesie
+      minimal_status plus pozyczenie zmyslu z bliska. Kotwica to poprawia, nie zamienia w
+      telefon. Sluchanie na zywo zjada caly slot uwagi Lucana na czas rozmowy
+      (event_turn_interlude_086), a uwaga jest seryjna. Prawdziwy podsluch jest problemem
+      ZAPISU (voice_recording, nieoplacona funkcja w development_path).
+      (c) "ANTYDETEKCJA" NIE JEST PROBLEMEM MAGICZNYM. Slad magiczny nie niesie autora
+      (system/magic.md, retcon_000028), a sama pajeczyna jest brudem, nie dowodem
+      (retcon_000029). Realne ryzyka sa dwa i oba fizyczne: but sprzataczki, oraz to, ze zuk
+      jest ZAKOTWICZONY - sekcja ujawnia Death_Anchor, czyli nazwana technike nekromantyczna,
+      a nie martwego robaka (event_turn_interlude_089). Maskowanie znaczy wiec schowek
+      niedostepny dla miotly, a nie zaklecie.
+    tension: >-
+      Pokoj narad to sala, w ktorej za trzynascie dni odbedzie sie przesluchanie Lucana, i
+      NIE jest uzgodniony z nikim. Seraphine pytala "gdzie jeszcze" w turze 098 i uznala temat
+      za zamkniety po odpowiedzi o pokoju Lucana. Jesli okaz zostanie tam znaleziony, bedzie to
+      rzecz zrobiona w instytucji, ktora Lucana ukrywa, karmi i oslania.
+    ref: campaigns/lucan/state/instances/spy-beetle-01.yaml
+    status: open
+  - id: lead_empty_corpse_transport_line
+    logged_event_id: event_turn_interlude_110
+    topic: Linia transportu cial stoi pusta od cmentarza i nikt jej nie prowadzi
+    note: 'Odnotowane przez npc_syndicate_weigher, bez oferty. Lucan odmowil jej przejecia -
+      brak kwalifikacji do kontynuacji pracy Orena. Konsekwencja nazwana przez pryncypala:
+      pusta linia sciaga kogos w ciagu TYGODNI, a ktokolwiek ja wezmie, bedzie potrzebowal
+      cmentarza. Cmentarz ma wiec przyszlego wlasciciela problemu niezaleznie od woli Lucana.
+      Kanon: faction_lumaria_criminal_networks ma exploit_power_vacuum wsrod interesow, a
+      komorki sa rozproszone i NIE sa automatycznie sojusznikiem sieci Orena.'
+    status: open
+  - id: lead_priest_is_the_converging_target
+    logged_event_id: event_turn_interlude_110
+    topic: Wojna Lucana z Kosciolem i ekspozycja Kesza celuja w tego samego kaplana
+    note: 'Lokalny kaplan znal wlasciwe wejscie, ogladal pieczecie i przy ostatniej wizycie
+      przyszedl z Orenem. Kesz jest czlowiekiem spoza zalogi, po spotkaniach z ktorym Oren
+      zmienial trasy. Obaj wyciagneli ten wniosek w tej samej sekundzie i zaden nie dopowiedzial
+      go do konca. Powiazane: lead_varkhen_as_witness_against_the_priest - Varkhen jest JEDYNYM
+      swiadkiem, a jego uzycie rozbija doktryne o zwierzetach.'
+    status: open
+  - id: lead_three_routes_to_a_martial_order
+    logged_event_id: event_turn_interlude_112
+    topic: Jak sciagnac zakon mieczowy do roboty na cmentarzu
+    note: 'Zlecenia nie trzeba nikomu wciskac - powstrzymywanie niekontrolowanych nieumarlych
+      jest wpisane w to, czym zakony chca byc (faction_lumaria_martial_orders.interests), a
+      kontrakty ochronne sa ich chlebem. Chodzi wylacznie o to, CZYJA reka prosba przychodzi.
+      (a) PRZEZ SYNDYKAT - odpada. Maja dzwignie na pojedynczych ludzi (kwatermistrz z dlugiem,
+      wyrzucony brat), ale nie maja kanalu do komandora, a zakony boja sie bycia czyjas
+      jednorazowa palka - prosba ich reka jest zatruta w chwili dotkniecia.
+      (b) PRZEZ GILDIE - wlasciwa i najtansza, gildia kontraktuje zakony rutynowo. CENA:
+      kontrakt jest PAPIEREM (karta, komandor z nazwiska, zakres, data), wiec operacja
+      cmentarna staje sie udokumentowana dokladnie w tygodniach przesluchania, z nazwiskiem
+      Lucana jako powodem. Niszczy tez wygodne "gildia nie wie, ze wspolpracuje z syndykatem".
+      (c) PRZEZ KOMANDORA VEYRA - natychmiast, bez sladu w gildii, i jest to dokladnie ta
+      smycz, z ktorej Lucan zazartowal piec minut wczesniej (faction_house_veyr_main_line).'
+    status: open
+  - id: lead_kesz_offers_a_meeting_with_the_priest
+    logged_event_id: event_turn_interlude_112
+    topic: Rovan Kesz zorganizuje spotkanie z lokalnym kaplanem
+    note: 'Nie twierdzi, ze zna kaplana - mowi, ze wie, jak sie do takiego czlowieka podchodzi.
+      Nie dodaje, ze kaplan jest jego wlasnym problemem; obaj to wiedza od kwadransa i zaden
+      nie dopowiada (lead_priest_is_the_converging_target). Oferta otwarta, nieprzyjeta.'
+    status: open
+
