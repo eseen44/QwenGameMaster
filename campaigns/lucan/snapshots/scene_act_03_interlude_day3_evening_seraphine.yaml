@@ -1,0 +1,102 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_evening_seraphine
+object_type: scene_snapshot
+closed_at: '2026-08-26T12:29:40+02:00'
+summary: 'Popoludnie u Seraphine zamkniete. Triaz listy nitek pod jutrzejszy poranek:
+  przed switem istnieja tylko urzednik magistratu, garbarnia i pioro; reszta odlozona.
+  Seraphine sprawdzila rejestr korespondencji i NIE MA ani jednej kopii pism Cortha
+  - relacja z garbarni jest skladana bez gildii, z ludzi gildii, imiennie. Bierze
+  pioro na siebie i gasi je ta noca; kradziez pajakiem odrzucona, bo zgloszenie kazaloby
+  Ruskowi podejrzewac przedmiot. Prawdziwe daty u Mary i Borosa przyjete bez sporu.
+  Wlasciciela garbarni nie potwierdza i nie zgaduje - nazywa cene sprawdzenia. Jutro
+  reklamuje rozdzielnik, nie akta. Kanal ostrzegawczy dla syndykatu: autoryzacji nie
+  ma i nie bedzie, bo nie ma czego podpisac; linia podzialu to liczba osob, ktore
+  mogly miec informacje, nie jej tajnosc; kalendarz instytucji wolno oddawac, wiedza
+  wylacznie gildijna wskazuje na nia; nie chce wiedziec, kiedy Lucan tego uzyje. Skutek
+  uboczny: pioro gasnie w nocy, wiec Rusk pisze od rana i pierwsze pismo idzie do
+  Cortha. Lucan wychodzi z gildii i idzie do Akademii - okolo dwudziestu minut piechota.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_evening_seraphine
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-18T14:30:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_seraphine_vale
+  - companion_varkhen
+  pressures:
+  - seraphine_refused_to_keep_choosing_blind_and_demanded_the_list_one_line_each_event_121
+  - she_stands_before_the_city_services_at_first_light_tomorrow_and_wants_a_list_of_what_she_does_not_know
+  - varkhen_has_been_in_the_room_the_whole_time_and_hears_everything_retcon_000037
+  - lucan_sleeps_in_the_registered_duty_room_upstairs_not_the_basement_cell_retcon_000038
+  immediate_facts:
+  - Rewind trzech tur (122-124) na zadanie gracza - retcon_000041. Scena wraca do
+    momentu, w ktorym Seraphine dostaje liste nitek i wylicza, co z niej chce wiedziec.
+  immediate_questions:
+  - Lucan idzie do Akademii. Brama ma teraz portiernie z ksiega odwiedzin, ktorej
+    za jego czasow nie bylo, a on jest czlonkiem na urlopie dziekanskim - wejscie
+    jako czlonek albo jako gosc zostawia dwa rozne slady.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_126
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_late_afternoon_leaving_with_mara.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/varkhen.yaml
+  search_terms:
+  - Lucan idzie do Akademii. Brama ma teraz portiernie z ksiega odwiedzin, ktorej
+    za jego czasow nie bylo, a on jest czlonkiem na urlopie dziekanskim - wejscie
+    jako czlonek albo jako gosc zostawia dwa rozne slady.
+  - seraphine_refused_to_keep_choosing_blind_and_demanded_the_list_one_line_each_event_121
+  - she_stands_before_the_city_services_at_first_light_tomorrow_and_wants_a_list_of_what_she_does_not_know
+  - varkhen_has_been_in_the_room_the_whole_time_and_hears_everything_retcon_000037
+  - lucan_sleeps_in_the_registered_duty_room_upstairs_not_the_basement_cell_retcon_000038
+  last_refreshed_event_id: event_turn_interlude_126
+  context_bytes: 33890
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 13036
+  - ref: system/narrator.md
+    bytes: 7603
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2366
+  - ref: system/player-agency.md
+    bytes: 2187
