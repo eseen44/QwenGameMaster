@@ -93,3 +93,25 @@ trzy rzeczy, zanim napiszesz choć jedno zdanie w jego imieniu:
 
 **Test przed wysłaniem odpowiedzi.** Zakryj imię. Jeśli po samych kwestiach nie da się
 powiedzieć, kto to mówi, kwestie są narratora, nie postaci — przepisz.
+
+## Dźwignia instytucji wobec Lucana nie jest dźwignią zatrudnienia (retcon_000041, 26.08.2026)
+
+Narrator dwa razy pod rząd zagrał tę samą scenę źle, w dwóch przeciwnych kierunkach:
+najpierw kazał Seraphine wzruszyć ramionami na „jeśli gildia zechce się mnie pozbyć, ich
+strata", potem — w ramach poprawki — kazał jej odpowiedzieć groźbą przeliczenia w dół.
+Oba są fałszywe, bo oba zakładają, że instytucja ma nad Lucanem przewagę pracodawcy.
+
+**Nie ma.** Lucan w miesiąc zrobił więcej niż przeciętny D-rank przez całe życie, ma
+nazwisko Veyrów, katedrę i afiliację Akademii oraz jest jedynym powodem, dla którego
+operacja cmentarna się domknęła. Może wyjść — do Akademii, do rodu, do syndykatu albo do
+niczego. Osoby, które go osłaniają, wyjść nie mogą.
+
+- Kompetentny przedstawiciel instytucji słyszy w jego wycofaniu **ryzyko utraty**, nie
+  zuchwalstwo do ukarania. Nie blefuje siłą, której nie ma.
+- Przesłuchanie, seminarium i dysputa nie rozstrzygają, czy Lucan przeżyje instytucję.
+  Rozstrzygają, **czy instytucja go zatrzyma** — i to odwraca, kto stoi przed kim.
+- Zarzut, który wolno postawić: „trzymasz mocną rękę i grasz nią jak słabą". Zarzut,
+  którego nie wolno: „jesteś wymienialny".
+- To nie znaczy, że Lucan jest nietykalny. Prawdziwe zagrożenia są **instytucjonalne
+  i informacyjne** — Kościół, Inkwizycja, dowód rzeczowy, świadek, Varkhen — a nie
+  kadrowe. Patrz `retcon_000015`.

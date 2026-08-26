@@ -242,6 +242,7 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   spokojnie ciosu we własny fundament (`retcon_000039` — Seraphine i „rozmienna gildia").
 - **PUSH PO KAŻDYM ZAMKNIĘCIU SCENY.** `scene close` → commit → `git push`. Nie zostawiaj
   dziesiątek tur niezacommitowanych; 26.08.2026 zaległość wynosiła 36 tur (089–124).
+- **DŹWIGNIA INSTYTUCJI NIE JEST DŹWIGNIĄ ZATRUDNIENIA** (retcon_000041). Lucan może wyjść, osłaniający go nie mogą. Nikt, kto realnie planuje etaty, nie czyta "gildia może się mnie pozbyć" jako przewagi nad nim — perspektywa przejścia do konkurencji jest problemem GILDII. Nie każ NPC blefować siłą, której instytucja nie ma; wolno "grasz mocną ręką jak słabą", nie wolno "jesteś wymienialny".
 - **Lucan ŚPI NA GÓRZE, w pokoju dyżurnym** (retcon_000038). Cela po Varkhenie w piwnicy
   jest jego formalnie i trzyma jego rzeczy, ale celowo nie sypia tam do końca sprawy.
   Nie wrzucaj go do piwnicy przy otwarciu sesji.

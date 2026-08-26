@@ -1,20 +1,27 @@
 schema_version: 1
 campaign_id: campaign_lucan
 status: active
-scene_id: scene_act_03_interlude_day3_night_duty_room
+scene_id: scene_act_03_interlude_day3_evening_seraphine
 location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
-started_at: '2026-08-26T01:29:01+02:00'
+started_at: '2026-08-26T00:10:07+02:00'
 tension:
   level: 0
   reason: null
 participants:
 - pc_lucan
+- npc_seraphine_vale
+- companion_varkhen
 pressures:
-- lucan_sleeps_in_the_registered_duty_room_upstairs_not_in_the_cell_retcon_000038
-- mara_stands_at_the_duty_room_door_before_first_light_in_under_ten_hours
-- three_things_seraphine_left_for_before_dawn_varkhen_before_or_after_the_commander_the_dawn_cover_the_warning_channel
-immediate_facts: []
-immediate_questions: []
+- seraphine_refused_to_keep_choosing_blind_and_demanded_the_list_one_line_each_event_121
+- she_stands_before_the_city_services_at_first_light_tomorrow_and_wants_a_list_of_what_she_does_not_know
+- varkhen_has_been_in_the_room_the_whole_time_and_hears_everything_retcon_000037
+- lucan_sleeps_in_the_registered_duty_room_upstairs_not_the_basement_cell_retcon_000038
+immediate_facts:
+- Rewind trzech tur (122-124) na zadanie gracza - retcon_000041. Scena wraca do momentu,
+  w ktorym Seraphine dostaje liste nitek i wylicza, co z niej chce wiedziec.
+immediate_questions:
+- Seraphine ma przed soba liste podana po jednej linii. Wylicza, ktore pozycje otwiera,
+  ktorych nie chce znac i czego dokladnie chce sie dowiedziec przed jutrzejszym rankiem.
 pending_world_reactions: []
-last_event_id: event_turn_interlude_124
-previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_evening_seraphine.yaml
+last_event_id: event_turn_interlude_121
+previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_late_afternoon_leaving_with_mara.yaml
