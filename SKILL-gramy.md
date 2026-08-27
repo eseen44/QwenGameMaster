@@ -164,6 +164,30 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 
 ## Zasady, o które łatwo się potknąć
 
+- **ADRESATEM TEKSTU POZA NAWIASEM JEST OSOBA W SCENIE, NIE TY** (retcon_000054, 27.08.2026).
+  Wiadomość gracza może mieszać rejestry w jednym akapicie: fakt o świecie, deklarację ruchu
+  i pytanie — ale jeśli obok Lucana ktoś stoi, to **domyślnie mówi do tej osoby**. Zanim uznasz
+  zdanie za skierowane do systemu, sprawdź `participants` w scenie. Pytanie o samopoczucie
+  („trzymasz się?") bez nawiasu jest kwestią w dialogu, nie troską o narratora. Koszt pomyłki:
+  zignorowany rozmówca, Lucan teleportowany w inne miejsce i zacommitowany dialog z NPC,
+  którego nikt nie zadeklarował — do cofnięcia revertem.
+  Uwaga na pułapkę: `scene close` z poprzedniej sesji potrafi zgubić uczestnika, który fizycznie
+  wychodzi razem z Lucanem. Puste `participants` NIE dowodzą, że Lucan jest sam.
+- **NIE DRAMATYZUJ TRYWIAŁÓW** (retcon_000055, 27.08.2026). Nie każda rzecz „nie na miejscu"
+  jest wektorem zagrożenia. Brakująca książka biblioteczna to kara biblioteczna, nie sprawa;
+  Lucan jest członkiem Akademii z katedrą, a nie podsądnym z dowodem rzeczowym. Zanim nadasz
+  czemuś rangę zagrożenia, **wskaż plik, który tak mówi — a jeśli tym plikiem jest twój własny
+  wcześniejszy wpis, to nie jest źródło.** To ta sama rodzina awarii co
+  retcon_000015/23/29/31/33: produkowanie kosztu i oporu, których kanon nie stawia, tylko
+  w wersji „stawki" zamiast „zasoby". Objaw do wyłapania u siebie: budujesz twardy termin
+  i wybór moralny z czegoś, co w pliku ma jedno zdanie.
+- **Sprawdzaj lokalizację przedmiotu w PLIKU, nie z pamięci.** `player/inventory.yaml` trzyma
+  `location:` per przedmiot, a mapowanie na kontener i strefę jest w `containers:` oraz w
+  `locations/*/location.yaml`. Akademicki tom z sygnaturą leży w `zone_wall_void`
+  (`container_wall_hideout`) w **Opuszczonej baszcie przy murze**, a droga cela↔baszta to
+  **trzy kwadranse marszu** (t_086) — nie „pełna noc" i nie „włazem od kanału" (właz jest
+  drogą stonóg). Świeży audyt: `python tools/audit_refs.py`.
+
 - **Nawias zawierający CZYN jest deklaracją** (retcon_000032, ustalone 25.08.2026). Jeśli
   gracz pisze w nawiasie coś, co Lucan może zrobić po cichu w trwającej scenie - rzucić
   cantripa, sięgnąć do kieszeni, wydać rozkaz słudze - to znacznik „robię to, nie mówię tego
