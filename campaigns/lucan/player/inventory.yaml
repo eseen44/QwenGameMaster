@@ -373,7 +373,32 @@ items:
     appraisal_status: pending
     heraldry_recognition: attempted_and_failed
     heraldry_notes: Lucan rozpoznaje autentyczny, stary herb szlachecki, ale nie moze przypomniec sobie konkretnego rodu - wymaga dalszego researchu (roll_turn_interlude_004_signet_recognition, 28 vs 55).
-    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review]
+    provenance:
+      settled_by: 'Gracz, 2026-08-27 (retcon_000057). Wczesniej przypisany do lupu Aktu 2.'
+      text: |
+        DWIE RZECZY NARAZ, I TO JEST CALA WARTOSC TEGO PRZEDMIOTU: (a) jest SLADEM PO
+        POPRZEDNIM WLASCICIELU garbarni, (b) jest jednoczesnie czyms, co Lucan ZABRAL ZE
+        SKARBCA obecnego wlasciciela. Herb nie jest wiec ozdoba - jest lacznikiem miedzy
+        dwoma wlascicielami, ktory Lucan ma fizycznie w rekach i ktorego jeszcze nie
+        odczytal.
+    if_it_surfaces:
+      text: |
+        W MOMENCIE, W KTORYM TEN SYGNET WYPLYNIE, WLASCICIEL WIE, ZE OKRADLA GO GILDIA
+        ALBO LUCAN. Nie jest to nowa wiedza - podejrzewa to i tak - ale podejrzenie i
+        dowod to dwie rozne rzeczy (slowa gracza). Sygnet jest tym, co jedno zamienia
+        w drugie.
+      the_shield: 'AMBIWALENCJA JEST OSLONA: Lucan czesc materialow oficjalnie PRZEKAZAL
+        GILDII (tak brzmi jego wlasne roszczenie), wiec trop wskazuje na PARE
+        "gildia albo Lucan", nie na Lucana samego. Osloną przestaje byc dopiero wtedy,
+        gdy ktos ustali, ktory z dwoch kanalow mial ten konkretny przedmiot.'
+      do_not_fire_automatically: 'To ekspozycja, nie zegar. Sygnet lezy w stosie lupu w
+        baszcie i nie wyplynie sam - wyplynie przy wycenie, sprzedazy, zastawie albo
+        przy researchu heraldycznym u kogos, kto zapamietuje.'
+    research_stake: 'Rzut na heraldyke nie jest juz kosmetyka: nazwisko z tego herbu
+      otwiera watek dwoch wlascicieli i - wedlug kierunku zatwierdzonego przez gracza -
+      prowadzi do npc_ivar_kolm albo jego pracowni.'
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review,
+      'migration/sources/normalized/historical-full-run.utf8.txt#line:5240-5340']
   - id: item_silver_preservation_essence
     name: Srebrzysta esencja zachowania zwłok
     location: container_interlude_loot_pile
