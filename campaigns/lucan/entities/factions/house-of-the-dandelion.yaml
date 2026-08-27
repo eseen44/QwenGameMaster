@@ -1,0 +1,82 @@
+schema_version: 1
+id: faction_house_of_the_dandelion
+name: 'Dom narzeczonej Lucana (nazwa rodu nieustalona)'
+status: named_in_play_not_yet_encountered
+first_named_event_id: event_turn_interlude_162
+named_by: npc_lucan_father
+name_status: |
+  NAZWA RODU I IMIE NARZECZONEJ NIEUSTALONE - NIE WYMYSLAC.
+  player/background.yaml#unknown_not_to_invent_silently zabrania nadawania imion
+  glowie rodu i bylej narzeczonej. Do czasu decyzji gracza rod identyfikujemy
+  wylacznie po herbie.
+heraldry:
+  tinctures: [czerwien, purpura]
+  charge: mniszek lekarski
+  etymology: |
+    Herb pochodzi z gry slow "zab lwa" (tooth of the lion / dent-de-lion -> mniszek).
+    Ojciec Lucana uwaza ten kalambur za glupi i wlasnie dlatego go pamieta.
+profile:
+  character: rod militarny
+  economic_base: kontrola handlu bronia
+  political_tie: powiazany z aktualnie panujacym monarcha regionu
+  wealth: zamozny (player/background.yaml#background_arranged_marriage_rejected)
+relation_to_lucan:
+  source_refs:
+    - player/background.yaml#background_arranged_marriage_rejected
+    - player/background.yaml#background_family_retaliation_and_education_sabotaged
+    - player/background.yaml#background_main_family_line_opportunistic
+  history: |
+    Glowna linia rodu Veyr postanowila wydac Lucana za zamozna, rudowlosa kobiete z
+    tego domu - kobiete, ktora przesladowala go przez polowe dziecinstwa. Lucan
+    odmowil natychmiast, przed jakimkolwiek etapem formalnym. Do spotkania z
+    narzeczona i jej rodzina NIGDY NIE DOSZLO, wiec STANOWISKO SAMEJ KOBIETY I JEJ
+    DOMU W TEJ SPRAWIE POZOSTAJE CALKOWICIE NIEZNANE. Glowna linia Veyr brnela w
+    formalnosci jednostronnie; odmowa Lucana skonczyla sie podcieciem jego edukacji.
+  lucans_current_stance:
+    source_event_id: event_turn_interlude_160
+    text: 'Nie widzial jej od kilkunastu lat, nie ma dobrych wspomnien, ale glownym
+      powodem odmowy nie jest uraza - jest brak zainteresowania byciem arystokrata.
+      Katedra Lucana pozostaje zamrozona tak dlugo, jak dlugo odmawia.'
+  fathers_assessment:
+    source_event_id: event_turn_interlude_162
+    text: '"To mila dziewczyna." Ojciec nie zaprzecza kanonowi o przesladowaniu - on go
+      ILUSTRUJE (npc_lucan_father#portrayal.behavior: nigdy nie stanal w obronie syna,
+      nie z kalkulacji, tylko dlatego, ze nie zauwazyl na czas). To informacja o ojcu,
+      nie o niej.'
+structural_interest_in_lucans_boundary:
+  source_event_id: event_turn_interlude_162
+  rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
+  text: |
+    NAJWIEKSZY NATURALNY BENEFICJENT KLAUZULI "NIGDY TLUM". Projekt Lucana z t_160
+    kalibruje sankcje tak, zeby zlamanie tabu zagrazalo innym grupom interesow, wiec
+    kazda z nich ma wlasny powod je egzekwowac. Kontrola tlumu nieumarlych to armia,
+    ktora nie potrzebuje broni - czyli jedyne realne zagrozenie dla domu, ktory bronia
+    handluje. Zaden inny gracz w Lumarii nie ma silniejszego wlasnego interesu w
+    twardym, wieloforowym zakazie.
+  the_reading_problem:
+    corrected_by: retcon_000053
+    text: |
+      SKORYGOWANE. Wczesniejsza wersja tego akapitu przypisywala temu domowi podciecie
+      edukacji Lucana. To nieprawda: zrobila to GLOWNA LINIA RODU VEYR
+      (player/background.yaml#background_family_retaliation_and_education_sabotaged).
+      Jedyna mozliwa uraza po stronie tego domu to niedotrzymanie ustalen - obraza
+      formalna, nie krzywda.
+      Wlasciwy odczyt jest wiec ODWROTNY i korzystniejszy dla Lucana: stroną, ktora
+      zerwala ustalenia, byl on. Bardzo glosna praca sluzaca ich interesowi, z jego
+      podpisem, moze zostac odczytana przez ten dom jako ZADOSCUCZYNIENIE za wczesniejsza
+      krzywde - nie jako uwertura i nie jako prowokacja. Nierozstrzygniete, czy Lucan
+      chce, zeby tak zostala odczytana.
+  the_forum_problem: |
+    Caly sens projektu byl taki, zeby spor zostal w forach, bo poza forami oslona
+    Seraphine nie dziala (act-03-defence#legalisation_horizon). Dom powiazany z
+    panujacym monarcha jest z definicji powyzej forow miejskich.
+what_we_deliberately_do_not_know:
+  policy_ref: player/background.yaml#unknown_not_to_invent_silently
+  reinforced_by: retcon_000053
+  text: |
+    O SAMEJ KOBIECIE NIE WIEMY NIC I JEST TO CELOWE. Wspomnienia Lucana pochodza z
+    okresu, gdy mial 10-14 lat, i NIE przekladaja sie automatycznie na jej dzisiejsza
+    dyspozycje, charakter ani stosunek do niego. Nie pisac jej jako wrogiej. Nie pisac
+    jej w ogole bez decyzji gracza. To samo dotyczy nazwy rodu i imion.
+
+knowledge_of_lucan: unknownlast_updated_event_id: event_turn_interlude_162

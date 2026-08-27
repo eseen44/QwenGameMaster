@@ -130,6 +130,15 @@ player_declared:
       - {id: decide_what_lucan_offers_the_syndicate_besides_gold, state: open_question_asked_in_the_room, source_event_id: event_turn_interlude_103, summary: "Dostepu sie nie dostaje, dostep sie wymienia. Pytanie padnie przed jakakolwiek kwota."}
       - {id: meeting_with_the_local_priest, state: accepted_kesz_arranges_it, source_event_id: event_turn_interlude_113, summary: "Lucan przyjal oferte Kesza. Kesz przysle wiadomosc. Otwarte: kim Lucan tam siada - Akademia, gildia czy Veyr; odpowiedz przed spotkaniem, nie na nim."}
       - {id: name_the_warning_channel_for_the_syndicate, state: promised_not_yet_named, source_event_id: event_turn_interlude_113, summary: "Pryncypal kupuje WYPRZEDZENIE - sygnal wart mniej niz doba jest wart zero. Nazwisko i sposob nadal po stronie Lucana."}
+      - id: design_the_boundary_instead_of_defending_against_it
+        state: shape_settled_wording_deferred_to_lawyer_and_priest
+        revised_event_id: event_turn_interlude_168
+        source_event_id: event_turn_interlude_160
+        rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
+        key_constraint: Warunek nadrzedny: nie trywializowac nekromancji na ludziach, nie bezczescic zwlok. Wyzsi nieumarli NIEwymienieni. Nigdy tlum.
+        open:
+        - Brzmienie warunku nadrzednego - slowa \"trywializowanie\" i \"bezczeszczenie\" sa nieostre.
+        - Instrument zgody antemortem nadal nienazwany; pisza go sciagnieci eksperci.
       - id: decide_what_to_do_about_being_an_unmanaged_asset
         state: pending
         summary: System Veyrów nie skazuje i nie broni - PRZYDZIELA. Dwa lata uciekania
