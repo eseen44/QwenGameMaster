@@ -45,6 +45,22 @@ items:
     mechanics_ref: capability_lucan_saber_strike
     state: functional_good_blade
     modifications: [heraldry_removed, ornaments_destroyed, surface_aged, flat_notched_for_coatings, ugly_oversized_scabbard]
+    provenance: |
+      ZE SKRYTKI OBECNEGO WLASCICIELA GARBARNI (Akt 1) - drewniany futeral pod zelaznymi
+      drzwiczkami w podlodze tylnego magazynku, otwartymi jego wlasnym pekiem kluczy.
+      Opisana w zrodle jako "bogato zdobiona, zdecydowanie droga i KOMPLETNIE NIEPASUJACA
+      DO GARBARZA". Pod nia lezal dokument z herbem, ktory "wymienia jego nazwisko ORAZ
+      WCZESNIEJSZEGO POSIADACZA SZABLI" - czyli szabla juz raz zmienila rece w sposob
+      wymagajacy dokumentu. Lucan wtedy sam skomentowal: "mozliwe, ze te szable sam
+      wczesniej komus zajebal".
+    why_it_was_disfigured: |
+      Oszpecenie NIE bylo kaprysem estetycznym - bylo zerwaniem tego wlasnie tropu.
+      Zdjecie herbu i ozdob zamienia rozpoznawalny lup z czyjegos rodu w anonimowe
+      narzedzie pracy. Nosi ja jednak PRZY SOBIE, co znaczy, ze jedyny przedmiot wprost
+      wiazacy go z wlamaniem do skrytki chodzi z nim po miescie.
+    hook_two_owners: 'Wczesniejszy posiadacz szabli jest kandydatem numer jeden na
+      powiazanie obecnego wlasciciela z poprzednim - patrz
+      planning/act-03-anticipated-shape.yaml#watek_garbarni_dwaj_wlasciciele.'
     source_refs: [source_luka_b_fragment#line:3541-3657, source_luka_b_fragment#line:4702-4780]
   - id: item_poor_mans_necronomicon
     name: Necronomicon dla biedoty
@@ -405,16 +421,23 @@ items:
     two_open_debts:
       - 'WOBEC OBECNEGO WLASCICIELA: kazal przynosic wszystko z nazwiskiem poprzednika
          NAJPIERW SOBIE, zanim zobaczy to miasto. Lucan tego nie zrobil - wzial papiery
-         i swiadomie postanowil nie wracac ani nie spotykac pracodawcy. Do tego zabral
-         mu pieczec. Ten czlowiek zna Lucana z nazwiska i z twarzy ("Veyr. Znowu ty."),
-         podal mu reke i PRZEZYL katastrofe.'
+         i swiadomie postanowil nie wracac ani nie spotykac pracodawcy. Do tego obrabowal
+         mu MIESZKANIE i SKRYTKE (jego wlasnymi kluczami), zabral pieczec i ZATRZYMAL
+         KLUCZE. Ten czlowiek zna Lucana z nazwiska i z twarzy ("Veyr. Znowu ty."), podal
+         mu reke i PRZEZYL. Pelna karta: entities/npcs/tannery-owner.yaml.'
+      - 'ODWROTNIE TEZ: to WLASCICIEL wisi Lucanowi pieniadze za eksploracje i Lucan
+         zlozyl na to formalne roszczenie przez gildie - patrz
+         objectives#tannery_owner_release_tripwire. Dlug idzie w dwie strony.'
       - 'WOBEC POPRZEDNIEGO WLASCICIELA: nigdy nienazwany, los nieustalony. Jesli zyje,
          Lucan trzyma jedyny znany zbior dowodow przeciw niemu.'
-    location_note: 'container_wall_hideout = zone_wall_void w loc_city_wall_hideout. UWAGA:
-      zrodlo Aktu 1 mowi, ze wieksze fanty i skradzione dokumenty zostaly w PIWNICY POD
-      GARBARNIA, a nie w baszcie. Konsolidacja do baszty nastapila w importach Aktu 2
-      i tak stoi w stanie; nie zmieniam tego bez decyzji gracza, ale jest to szew warty
-      sprawdzenia, jesli gra tam wroci.'
+    location_note: 'container_wall_hideout = zone_wall_void w loc_city_wall_hideout.
+      SZEW ROZSTRZYGNIETY przez gracza 2026-08-27: rzeczy faktycznie lezaly najpierw w
+      piwnicy pod garbarnia, ale WSZYSTKO zostalo przeniesione do baszty w ramach
+      przeprowadzki. Powod byl operacyjny, nie porzadkowy: piwnice uznano za NARUSZONA
+      i ZNANA BOROSOWI - a wiec i gildii - czyli niedosc bezpieczna. Zrodlo potwierdza
+      sam ruch: "Przenosze tu moje prawie meble. Wszystkie zdobycze, pieczec, plaszcz,
+      kolejne ubrania, ktore zabralismy z mieszkania wlasciciela... zabrac sie ostatecznie
+      z piwnicy". Zaden szew, decyzja.'
     source_refs: [source_luka_b_fragment#line:3541-3657,
       'migration/sources/normalized/historical-full-run.utf8.txt#line:2352',
       'migration/sources/normalized/historical-full-run.utf8.txt#line:2536-2612',

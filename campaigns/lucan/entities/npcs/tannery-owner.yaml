@@ -1,0 +1,123 @@
+schema_version: 1
+id: npc_tannery_owner
+name: Właściciel garbarni (nazwisko znane Lucanowi, nieustalone w zapisie)
+status: active
+importance: act_01_creditor_and_victim_of_lucan_currently_detained
+role: Właściciel garbarni i podziemi pod nią. Zatrudnił Lucana przez gildię do
+  eksploracji podziemi. Obecnie w areszcie miejskim.
+current_location_id: loc_guild_holding_cells
+current_zone_id: unknown
+location_note: 'Areszt miejski PRZY ZACHODNIEJ STRAZNICY - nie jest to areszt gildii.
+  loc_guild_holding_cells to najblizszy istniejacy identyfikator i jest NIEDOKLADNY;
+  wlasnego pliku lokacji ta lokacja nie ma.'
+lifecycle: {state: alive_confirmed, last_confirmed_event_id: event_act_02_closeout_interlude_import}
+name_status: |
+  Zrodlo Aktu 1 nigdy nie podaje jego nazwiska w tekscie, ALE Lucan je zna: dokument
+  herbowy znaleziony przy szabli "wymienia jego nazwisko oraz wczesniejszego posiadacza
+  szabli". Zapisywac jako znane postaci, nieustalone dla nas. Gracz moze nazwac bez retconu.
+
+portrayal:
+  tone: 'twardy pracodawca, ktory nagle stracil grunt - nie zbir i nie arystokrata w salonie'
+  register: |
+    Mowi krotko i z pozycji kogos, kto place. "Za duzo myslisz, Veyr." Nie tlumaczy sie,
+    nie prosi, wzdycha i przechodzi do rzeczy. Nie jest to czlowiek doktryny ani polityki -
+    jest to czlowiek INTERESU, ktory ma cos do ukrycia i wie, ile to warte.
+  the_incongruity: |
+    NAJWAZNIEJSZA RZECZ W TEJ KARCIE. Na garbarza mial stanowczo za duzo: ceremonialna
+    szable "kompletnie niepasujaca do garbarza", dokument z HERBEM i wlasnym nazwiskiem,
+    zapasowy sygnet w mieszkaniu i DWA kolejne sygnety w skrytce, akty wlasnosci, weksle,
+    klejnoty, cienki zloty lancuszek. Cztery sygnety i herb. Kim on wiec jest naprawde -
+    NIEUSTALONE i wlasnie to jest ciekawe.
+  what_he_wants: |
+    Wyjsc z aresztu i odzyskac zamrozony majatek. Wszystko inne jest wobec tego wtorne -
+    lacznie z Lucanem, o ktorym na razie nie ma czasu myslec.
+  what_he_refuses: |
+    Powiedziec, po co chcial papiery poprzednika. Zlecenie bylo sformulowane tak, zeby nie
+    trzeba tego mowic ("przynosisz je najpierw mnie" - zanim zobaczy je miasto).
+  what_he_can_lose: 'Zaklad, majatek i wolnosc. Czesc juz stracil.'
+
+current_situation:
+  source: 'historical-full-run.utf8.txt#line:6255-6290'
+  detained: 'Areszt miejski przy zachodniej straznicy. Sledczy przesluchuja go od
+    poprzedniego dnia. Recepcjonistka gildii: "Nie wejdziesz tam po prostu z ulicy."'
+  estate_frozen: 'Miasto zamrozilo mu CZESC MAJATKU, a sledczy grzebia w jego dokumentach.'
+  tannery_now: 'Garbarnie prowadzi tymczasowo BRYGADZISTA. Podziemia nadal zabezpieczone
+    przez ekipe A-rank gildii.'
+  summed_up: 'Zywy, wkurzony i bardzo zajety wlasnymi problemami.'
+
+# ---------------------------------------------------------------------------
+what_lucan_did_to_him:
+  the_unpaid_job: 'Zatrudnil Lucana przez gildie i obiecal mu pieniadze OSOBNO, poza premia
+    gildii. Nie zaplacil - wpadl wczesniej.'
+  the_undelivered_papers: |
+    Kazal przynosic wszystko z nazwiskiem poprzednika NAJPIERW SOBIE. Lucan nie dostarczyl:
+    wzial papiery i swiadomie postanowil nie wracac ani nie spotykac pracodawcy.
+  the_lodging: |
+    Lucan obrabowal jego MIESZKANIE: osobiste papiery, zapasowy sygnet, 9 srebra, woreczek
+    z trzema kamieniami szlachetnymi, dwa komplety ubran, ciezki plaszcz, pas z sakiewka,
+    metalowa szkatulke i pakiet starych listow. Zamknal pokoj na klucz I ZATRZYMAL KLUCZ.
+  the_vault: |
+    Lucan obrabowal jego SKRYTKE - zelazne drzwiczki w podlodze tylnego magazynku, otwarte
+    JEGO WLASNYM pekiem kluczy. Wynios: dwie kasetki z monetami (druga wylamana lomem:
+    18 srebra, DWA SYGNETY, pakiet dokumentow, zloty lancuszek), pakiet klejnotow, AKTY
+    WLASNOSCI, WEKSLE i drewniany futeral z ceremonialna szabla oraz dokumentem herbowym.
+  the_seal: 'Zabral z biurka jego SREBRNA PIECZEC. Lucan sam nazwal ja "dowodem zbrodni".'
+  the_keys: 'NADAL MA pek kluczy zakladu i podziemi, klucz "III", klucz do mieszkania oraz
+    maly zbyt porzadny kluczyk z kieszeni jego plaszcza (do czego pasuje - nieustalone).'
+
+exposure:
+  who_he_would_suspect: |
+    Lucan jest JEDYNA osoba, ktora przychodzi na mysl przy tym wlamaniu, i to nie wymaga
+    sledztwa: skrytke otwarto jego wlasnymi kluczami, ktore dal jednemu czlowiekowi,
+    a ten czlowiek zniknal i sie nie zglosil po obiecane pieniadze.
+  why_it_is_worse_than_it_looks: |
+    SLEDCZY JUZ TERAZ PRZEGLADAJA JEGO DOKUMENTY I ROZLICZAJA MAJATEK. Akty wlasnosci
+    i weksle, ktore Lucan wynios, sa wlasnie tym, czego w takim audycie MA NIE BYC -
+    czyli brak zostanie zauwazony przez miasto, nie przez niego. Nie trzeba tego rozgrywac
+    jako zegara; wystarczy pamietac, ze audyt trwa.
+  what_he_does_NOT_have: |
+    NIE MA nic na nekromancje Lucana. NIKT W AKCIE 1 NIE WIDZIAL SPIDEYA - a juz na pewno
+    nikt, kto przezyl (kalibracja gracza 2026-08-27). Spidey dzialal wylacznie skrycie:
+    szczelinami, rowem odplywowym, po dachach garbarni, na czatach. Widzial wiec robotnika
+    E-rank, ktory zszedl w podziemia i zniknal - nie nekromante.
+  the_claim_cuts_both_ways: |
+    Roszczenie zlozone przez Lucana jest dowodem, ze Lucan tam byl i mial dostep. Zrodlo
+    nazywa to wprost: "im dokladniej opiszesz zlecenie, tym bardziej wychodzi, ze mialies
+    niszczyc dowody". Dlatego wniosek opisuje eksploracje i zabezpieczenie zagrozenia,
+    a nie tresc zlecenia.
+
+knowledge:
+  confirmed:
+    - fact: 'Zna Lucana z nazwiska i z twarzy - "Veyr. Znowu ty." Podal mu reke publicznie,
+        przy inspektorze i ekipie.'
+      source_event_id: event_act_02_closeout_interlude_import
+    - fact: 'Wie, ze wyslal Lucana w podziemia po papiery poprzednika i ze Lucan nie wrocil
+        z niczym.'
+      source_event_id: event_act_02_closeout_interlude_import
+  suspected:
+    - 'Ze to Lucan obrobil skrytke i mieszkanie. Nie potwierdzone zdarzeniem, ale nie ma
+       innego kandydata.'
+  false_beliefs: []
+  forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity,
+    webber_network, guild_basement_cell, cemetery_operation_role, academy_affiliation]
+
+relationships:
+  - {id: npc_boros_keld, nature: znany_z_tej_samej_roboty, note: Boros i Mara zlozyli raport
+     po katastrofie.}
+  - {id: pc_lucan, nature: dluznik_i_ofiara_jednoczesnie, ref: campaigns/lucan/entities/npcs/tannery-owner.yaml}
+
+do_not_invent:
+  - 'Nazwiska, herbu, rodu ani zwiazku z poprzednim wlascicielem - patrz
+     planning/act-03-anticipated-shape.yaml#watek_garbarni_dwaj_wlasciciele.'
+  - 'Tego, czy wyszedl z aresztu. Wyjscie jest ZDARZENIEM, o ktorym Lucan ma dostac
+     informacje z gildii (objectives#tannery_owner_release_tripwire).'
+  - 'Zadnej wiedzy o nekromancji, Spideyu ani sieci.'
+
+last_updated_event_id: player_declaration_2026_08_27_act_01_review
+source_refs:
+  - 'migration/sources/normalized/historical-full-run.utf8.txt#line:1555'
+  - 'migration/sources/normalized/historical-full-run.utf8.txt#line:2340-2360'
+  - 'migration/sources/normalized/historical-full-run.utf8.txt#line:5240-5340'
+  - 'migration/sources/normalized/historical-full-run.utf8.txt#line:6255-6310'
+  - campaigns/lucan/player/inventory.yaml
+  - campaigns/lucan/locations/tannery/location.yaml
