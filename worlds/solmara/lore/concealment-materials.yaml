@@ -28,15 +28,20 @@ detection_model:
     siebie. Srebro: swietne pod ryt, beznadziejne przy optimum - poza wykresem.
 
 delivery_in_fiction:
-  status: NIE POWIEDZIANE W SWIECIE - do wydania w nastepnej scenie
+  status: CZESCIOWO WYDANE - kroki 1 i 2 padly w event_turn_interlude_151, krok 3 nadal nie
+  delivered_event_id: event_turn_interlude_151
+  remaining: [lichen_speculans]
   who_delivers: npc_lucan_father
   when: >-
     Bezposrednio po pytaniu "do ktorego stopnia kupujemy" (event_turn_interlude_150).
     To sa TRZY RZECZY, ktore ojciec ma wymyslic - narrator nie improwizuje zamiennikow
     i nie podaje ich w innej kolejnosci ani w innej liczbie.
+    UWAGA DLA NARRATORA: kroki 1 i 2 sa JUZ WYPOWIEDZIANE W SWIECIE (t_151, na pytanie
+    Lucana "jakie to sa substancje" - nie na pytanie o stopien). Nie podawac ich drugi raz.
   order:
   - step: 1
     for: zuk
+    delivered: event_turn_interlude_151
     material: concha_surda
     how_he_gets_to_it: >-
       Zna ja, bo go WKURZA - skarbce Akademii sa nia wylozone i jego wlasne przyrzady
