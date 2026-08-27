@@ -387,10 +387,16 @@ items:
         ALBO LUCAN. Nie jest to nowa wiedza - podejrzewa to i tak - ale podejrzenie i
         dowod to dwie rozne rzeczy (slowa gracza). Sygnet jest tym, co jedno zamienia
         w drugie.
-      the_shield: 'AMBIWALENCJA JEST OSLONA: Lucan czesc materialow oficjalnie PRZEKAZAL
-        GILDII (tak brzmi jego wlasne roszczenie), wiec trop wskazuje na PARE
-        "gildia albo Lucan", nie na Lucana samego. Osloną przestaje byc dopiero wtedy,
-        gdy ktos ustali, ktory z dwoch kanalow mial ten konkretny przedmiot.'
+      the_shield: 'AMBIWALENCJA JEST OSLONA: Lucan DOKUMENTY oficjalnie PRZEKAZAL GILDII
+        (tak brzmi jego wlasne roszczenie), wiec trop wskazuje na PARE "gildia albo Lucan",
+        nie na Lucana samego.'
+      the_hole_in_the_shield: |
+        DOPRECYZOWANIE GRACZA 2026-08-27, WAZNE: przekazane zostaly DOKUMENTY. Sygnet i
+        pieczec ZOSTALY PRZY LUCANIE - celowo. Osloną z lancucha posiadania kryje wiec
+        papiery, a NIE te dwa przedmioty: one nigdy nie weszly do zadnego oficjalnego
+        obiegu i nie maja zadnej wersji "poszlo do gildii". Kto porowna spis rzeczy
+        przekazanych z audytem zamrozonego majatku, znajdzie sygnet i pieczec w luce
+        miedzy jednym a drugim - w miejscu, w ktorym nie ma nikogo poza Lucanem.
       do_not_fire_automatically: 'To ekspozycja, nie zegar. Sygnet lezy w stosie lupu w
         baszcie i nie wyplynie sam - wyplynie przy wycenie, sprzedazy, zastawie albo
         przy researchu heraldycznym u kogos, kto zapamietuje.'
@@ -425,7 +431,9 @@ items:
       disputy. Nie jest to zloto ani narzedzie; jest to precedens plus dwa dlugi.'
     contents:
       - 'Srebrna pieczec OBECNEGO wlasciciela - zabrana z jego biurka. Lucan sam nazwal ja
-         "dowodem zbrodni" i dlatego jej nie nosil przy sobie.'
+         "dowodem zbrodni" i dlatego jej nie NOSIL przy sobie - ale jej nie zniszczyl i nie
+         oddal. ZAMIAR JEST FALSZERSKI (doprecyzowanie gracza 2026-08-27): trzyma ja z
+         nadzieja na podrabianie dokumentow. Patrz #forgery_intent nizej.'
       - 'Pek kluczy zakladu i podziemi, w tym klucz "III", oraz maly, zbyt porzadny kluczyk
          z kieszeni plaszcza wlasciciela - do czego pasuje, NIEUSTALONE do dzis.'
       - 'Rejestr rachunkowy z wpisami pod symbolem POPRZEDNIEGO wlasciciela: "transport nocny",
@@ -455,6 +463,23 @@ items:
          objectives#tannery_owner_release_tripwire. Dlug idzie w dwie strony.'
       - 'WOBEC POPRZEDNIEGO WLASCICIELA: nigdy nienazwany, los nieustalony. Jesli zyje,
          Lucan trzyma jedyny znany zbior dowodow przeciw niemu.'
+    forgery_intent:
+      declared_by: player
+      source_event_id: player_ruling_2026_08_27
+      text: |
+        LUCAN ZACHOWAL PIECZEC I SYGNET Z ZAMIAREM UZYCIA ICH DO FALSZERSTW. Nie jest to
+        wiec balast po Akcie 1 ani pamiatka - jest to narzedzie odlozone na pozniej.
+      co_to_realnie_daje: |
+        Srebrna pieczec zakladu uwierzytelnia dokumenty handlowe: umowy dostaw, kwity,
+        zlecenia, zamowienia. Sygnet szlachecki uwierzytelnia pisma OSOBISTE i listy
+        polecajace. Sa to dwa rozne rejestry i nie zastepuja sie.
+      dlaczego_to_teraz_ciekawsze_niz_bylo: |
+        Wlasciciel SIEDZI, a miasto ROZLICZA jego majatek (npcs/tannery-owner.yaml).
+        Dokument opieczetowany jego pieczecia z data z tego okresu jest wiec albo bardzo
+        mocny, albo natychmiast podejrzany - zaleznie od tego, czy pasuje do audytu,
+        ktory wlasnie ktos prowadzi. Narzedzie zyskalo ostrosc w obie strony.
+      nieustalone: 'Czy Lucan umie podrobic rekе i jezyk dokumentu, czy tylko odcisk.
+        Sama pieczec daje piecz, nie autora. Rozstrzygnac, gdy padnie deklaracja uzycia.'
     location_note: 'container_wall_hideout = zone_wall_void w loc_city_wall_hideout.
       SZEW ROZSTRZYGNIETY przez gracza 2026-08-27: rzeczy faktycznie lezaly najpierw w
       piwnicy pod garbarnia, ale WSZYSTKO zostalo przeniesione do baszty w ramach
