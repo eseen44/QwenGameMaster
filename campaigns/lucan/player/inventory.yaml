@@ -253,6 +253,24 @@ items:
       zniknal, i date. Lucan jest czlonkiem tej Akademii i za ok. czternascie dni ma tam byc
       wezwany.
     disposition: keep_then_return_after_study
+    return_window:
+      source_event_id: event_turn_interlude_170
+      declared_by: player
+      plan: 'Przekartkowac w nocy 3/4 dnia interludium i oddac. Lucan nie spodziewa sie tresci,
+        ktorej nie ma gdzie indziej albo ktorej nie da sie szybko przepisac.'
+      logistics: 'Tom lezy w container_wall_hideout (loc_city_wall_hideout, wejscie wlazem od
+        kanalu, minuty pieszo). Akademia -> schowek -> Akademia to pelna noc, nie wieczor.'
+      hard_deadline: 'NERIS WCHODZI DO BIBLIOTEKI O PIERWSZYM SWIETLE. Ma sygnature z karty
+        katalogowej i wie, ze egzemplarza nie ma na polce - jej nastepnym krokiem jest ZAPYTAC
+        czlowieka, gdzie sie podzial. To pytanie otwiera rejestr ubytkow z data.'
+      complication_return_as_found: 'Dopoki nikt nie zapytal, wolumin moze wrocic jako
+        ZNALEZIONY. Jesli Neris zapyta pierwsza, ubytek ma date i nazwisko pytajacego, a tom
+        oddany nastepnego dnia nie jest znaleziony - jest ODDANY.'
+      cost_of_copying: 'Przepisanie tresci licencjonowanej jest szybkie. MARGINALIA NIE SA
+        tresci licencjonowana - proby balwierza (kto, kiedy, jak dlugo pod woda, czy wrocil,
+        wiekszosc nie) to osobny dokument o czyichs smiertelnych probach na ludziach. Oddanie
+        woluminu oddaje TE KARTKI Akademii, czternascie dni przed wezwaniem Lucana. Zostawienie
+        ich sobie znaczy wyrwanie albo przepisanie recznie - godziny, nie minuty.'
     disposition_event_id: event_turn_interlude_086
     disposition_note: 'Decyzja gracza - oddac Akademii jako znaleziony DOPIERO po
       przyswojeniu wiedzy. Do tego czasu lezy w schowku w murze.'

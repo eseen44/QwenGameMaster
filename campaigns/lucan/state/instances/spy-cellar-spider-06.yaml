@@ -3,7 +3,7 @@ id: spy_cellar_spider_06
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 92
+revision: 93
 position:
   location_id: loc_lumaria_guild_basement
   zone_id: zone_temporary_holding
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 14520
-      hunting_recovery_elapsed_seconds: 14520
+      decay_elapsed_seconds: 15120
+      hunting_recovery_elapsed_seconds: 15120
     growth_bank:
       units_earmarked: 0
       note: Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
@@ -45,6 +45,6 @@ status_flags:
 - hand_fed_growth_program
 - excluded_prey_children_and_cats
 conditions: []
-last_event_id: event_turn_interlude_169
+last_event_id: event_turn_interlude_170
 source_refs:
 - event_turn_interlude_078
