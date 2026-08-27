@@ -59,19 +59,53 @@ strony_fazy_fizycznej:
     note: |
       Ta strona NIE atakuje Lucana za nekromancje - atakuje za to, ze patrzy na
       cmentarz. Motyw jest zatarcie, nie doktryna.
-  - id: zbiry_poprzedniego_wlasciciela_garbarni
-    canon_status: NOWE_OD_GRACZA
-    anchor: |
-      Sam wlasciciel jest juz implikowany: loc_tannery ma zone_office opisana jako
-      "Dawny kantor WLASCICIELA". Garbarnia zostala wiec po kims, kto ja stracil albo
-      porzucil - i to jest zaczep, ktorego nie trzeba wymyslac.
-      Podziemia garbarni lacza sie z loc_tannery_cellar_hideout i loc_ronada_canals
-      (tannery-mound/location.yaml), czyli ta strona ma gotowa geografie.
+  - id: watek_garbarni_dwaj_wlasciciele
+    canon_status: MA_MOCNE_POKRYCIE_W_AKCIE_1
+    correction: |
+      POPRAWKA 2026-08-27. Narrator zapisal wczesniej "NOWE_OD_GRACZA - poprzedni wlasciciel
+      nie istnieje w kanonie". BYLO TO BLEDNE: sprawdzil tylko pliki stanu, nie zrodlo Aktu 1.
+      Watek jest jednym z najlepiej udokumentowanych w calej kampanii i ma DWIE osoby.
+    obecny_wlasciciel:
+      status: ZYJE, przezyl katastrofe szczuroogra
+      relacja_z_lucanem: |
+        Zna go z nazwiska i z twarzy - "Veyr. Znowu ty." - podal mu reke, zatrudnil go przez
+        gildie, dal mu pek kluczy i wlasny szkic podziemi, i obiecal mu pieniadze osobno,
+        poza premia gildii.
+      jego_zlecenie: |
+        "Jesli znajdziesz tam stare ksiegi, skrzynie albo dokumenty z nazwiskiem poprzedniego
+        wlasciciela... przynosisz je NAJPIERW MNIE." Wprost: zanim zobaczy je miasto.
+      co_lucan_zrobil: |
+        Nie dostarczyl. Wzial papiery, swiadomie postanowil NIE WRACAC i nie spotykac
+        pracodawcy, a przy okazji zabral z jego biurka SREBRNA PIECZEC - ktora sam nazwal
+        dowodem zbrodni. Garbarnia zostala potem ewakuowana, a gildia wyslala ekipe A-rank
+        do zamkniecia podziemi.
+      dlaczego_to_zywe: |
+        Jest to jedyny znany czlowiek w miescie, ktory ma wobec Lucana konkretny, imienny
+        i uzasadniony zal - i to nie o nekromancje, a o niedostarczone papiery i kradziez.
+        Nie potrzebuje zadnej doktryny, zeby go szukac.
+    poprzedni_wlasciciel:
+      status: nigdy nienazwany, los NIEUSTALONY
+      co_robil: |
+        Prowadzil pod garbarnia NIELEGALNA HODOWLE OKAZOW: Komora III z dostepem technicznym,
+        sluza, harmonogram karmienia ("Okazy niestabilne. Karmic wylacznie po zamknieciu
+        sluzy."), nocne transporty i "dolny sklad" bez ksiegowania miejskiego.
+      gdzie_sa_dowody: 'U LUCANA, w zone_wall_void baszty - item_tannery_owner_cache.'
+    dlaczego_to_dotyka_aktu_3: |
+      Nie jest to poboczny watek zbirow. Nielegalna hodowla okazow jest DOKLADNIE ta
+      kategoria prawna, o ktora toczy sie otwarta dysputa (necromancy-law#construct_boundary),
+      a katedra npc_ivar_kolm to BIOMUTANTY. Lucan trzyma wiec precedens z wlasnego miasta:
+      ktos to robil, miasto tego nie zobaczylo, zaklad dzialal dalej. Papiery moga byc
+      argumentem, dzwignia albo obciazeniem - zaleznie od tego, kto pokaze je pierwszy.
     do_not_invent_yet: |
-      Kim on jest, dlaczego stracil garbarnie i co go laczy z pozostalymi stronami -
-      NIEUSTALONE. Nie dopisywac mu motywu, nazwiska ani liczebnosci przed decyzja
-      gracza. Lucan trzyma tam sieciarza (webber_tannery) i posterunek na lakach nad
-      garbarnia, wiec jest to miejsce, w ktorym ma juz cos do stracenia.
+      Imiona obu, motyw poprzednika, jego los, liczebnosc czyichkolwiek ludzi oraz to, czy
+      te dwie strony sie znaja - NIEUSTALONE. Nie dopisywac przed decyzja gracza. Nie
+      przydzielac tez zadnej z nich wiedzy o dzisiejszej nekromancji Lucana: obecny
+      wlasciciel widzial robotnika E-rank z pajakiem, nie nekromante z siecia.
+    geografia_gotowa: |
+      loc_tannery ma zone_office ("Dawny kantor wlasciciela"), a podziemia loc_rat_mound
+      lacza sie z loc_tannery_cellar_hideout i loc_ronada_canals. Lucan trzyma tam
+      webber_tannery i posterunek na lakach nad garbarnia (zone_upper_meadow), wiec ma
+      w tym miejscu co stracic i ma tam oczy.
   - id: warianty_eskalacji
     canon_status: MA_POKRYCIE_CZESCIOWE
     variants:
