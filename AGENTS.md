@@ -15,6 +15,12 @@ Każda tura wysyła całą dotychczasową rozmowę od nowa, więc koszt rozmowy 
 z kwadratem jej długości. Stan kampanii żyje w plikach, więc rozmowa jest
 jednorazowa i ma być krótka.
 
+Głównym środowiskiem prowadzenia jest zdolny narrator cloudowy z dostępem do repo
+(obecnie Claude Opus High). Projektuj pracę dla modelu, który potrafi punktowo
+przeszukiwać źródła, porównywać kilka plików i używać runtime'u. Nie duplikuj całego
+kanonu w aktywnym kontekście ani nie upraszczaj fikcji pod słabszy model; repo ma
+jednak pozostać przenośne i nie może zależeć od zachowania jednego dostawcy.
+
 - Otwieraj sesję komendą `tools/gm.ps1 brief` — jeden blok ze sceną, czasem, zegarami, celami, uczestnikami i listą plików do wczytania. W czacie bez dostępu do dysku użyj `brief --full`, który dokleja treść tych plików.
 - Zamykaj rozmowę razem ze sceną (`scene close`) i zaczynaj nową od `brief`. Nie ciągnij jednej rozmowy przez kilka scen.
 - Wyjście komend `turn` i `context` jest **domyślnie skrócone** i zawiera wyłącznie decyzje. `--verbose` drukuje pełny dokument i służy do diagnozowania, nie do gry. Pełna transakcja zawsze leży w `journal/transactions/<turn_id>.yaml`.
@@ -33,21 +39,26 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 
 ## Interpretacja wejścia gracza
 
-- Tekst w nawiasach jest rozmową z systemem albo prywatną myślą Lucana.
-- Nawias nie jest słyszany w świecie, nie przesuwa czasu, nie uruchamia testu i nie wykonuje działania.
-- Wiadomość zawierająca wyłącznie nawias zatrzymuje scenę. Odpowiedz poza grą.
+- Tekst w nawiasach jest kanałem niewidocznym z zewnątrz: rozmową z systemem, prywatną myślą Lucana albo natychmiastową decyzją, mentalnym rozkazem lub czarem niewidocznym dla innych postaci.
+- Nawias nie jest słyszany w świecie i nigdy nie przesuwa czasu. Może zmienić stan wyłącznie wtedy, gdy zawiera akt wykonywany całkowicie wewnętrznie i natychmiastowo; nie zastępuje widocznego ruchu fizycznego.
+- Wiadomość wyłącznie nawiasowa bez takiego aktu zatrzymuje scenę. Odpowiedz poza grą.
 - Działanie świata następuje wyłącznie na podstawie deklaracji poza nawiasem lub wcześniej uruchomionego zegara.
-- WYJĄTEK (retcon_000032): nawias zawierający czyn wykonalny po cichu w trwającej scenie (cantrip, rozkaz dla sługi, ruch ręki) jest deklaracją i zostaje rozstrzygnięty. Patrz `system/player-agency.md`.
+- Natychmiastowy akt nawiasowy przekazuj do runtime jako `parenthetical_action: true`; zawsze otrzymuje `time_seconds: 0`. Patrz `system/player-agency.md`.
 
 ## Rozstrzyganie tury
 
 1. Ustal deklarowany zamiar i podmiot ewentualnego testu.
 2. Sprawdź poziom napięcia i czy mija krytyczna ilość czasu.
+   Przy napięciu 0 nie wykonuj rzutu dla wykonalnej, powtarzalnej czynności. Twarda niemożliwość i wymaganie nowej dźwigni nadal obowiązują.
+   Jeżeli `state/time.yaml#roll_policy.mode` ma wartość `disabled`, nie wykonuj żadnych rzutów
+   niezależnie od lokalnego napięcia. Rozstrzygaj według możliwości, metody, czasu i pewnych
+   kosztów. Rzuty wracają dopiero po jawnej zmianie fazy kampanii.
 3. Dla działania mechanicznego przygotuj request i uruchom `tools/gm.ps1 turn resolve`; do sprawdzenia bez zapisu użyj `turn preview`.
 4. Runtime stosuje `system/capabilities.md`, wykonuje najwyżej jeden potrzebny rzut i zapisuje go przed narracją.
 5. Rozstrzygnij akcję, reakcję świata i nową sytuację decyzyjną.
 6. Przed odpowiedzią uruchom `turn commit` z outcome; po przerwaniu użyj `turn recover` z tym samym identyfikatorem.
 7. Każda trwała tura ma `actor_id`, także automatyczna i bez testu. Samo `actor_id` nie uruchamia silnika zdolności; test mechaniczny wymaga dodatkowo `capability_id`, `target_id` i `intent_id`.
+8. Przy napięciu 0 wynik `worsened`, `complicated` albo `mixed` wymaga `consequence_source_refs`: istniejącego źródła kanonicznego lub jawnej deklaracji gracza. Nie twórz stawki tylko po to, żeby tura miała komplikację.
 
 ## Aktualizacja pamięci
 

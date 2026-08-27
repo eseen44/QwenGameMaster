@@ -1,6 +1,7 @@
 schema_version: 1
 id: pc_lucan
 name: Lucan
+age: 23
 status: needs_review
 world_ref: worlds/solmara
 current_location_ref: loc_varkhen_chamber
@@ -28,6 +29,19 @@ resistances:
   neuromuscular: 23
   mental: 26
 conditions: []
+perks:
+  - id: perk_crisis_surfer
+    name: Surfer chaosu
+    source_ref: retcon_000071
+    mechanics:
+      trait: crisis_surfer
+      ignore_modifier_category: stress
+      exploitable_crisis_bonus: 10
+      bonus_requires_two_situation_tags: true
+    applies_when: >-
+      Sytuacja jest aktywnym kryzysem, co najmniej dwa źródła chaosu działają równocześnie,
+      a deklarowana akcja rzeczywiście wykorzystuje zamieszanie, zamiast jedynie się w nim odbywać.
+    does_not_ignore: [magical_fear, supernatural_compulsion, pain, wounds, sensory_impairment, lack_of_knowledge, capability_limits]
 retired_conditions:
   - id: elevated_energy_signature_above_old_threshold
     retired_by: retcon_000019
@@ -37,6 +51,8 @@ retired_conditions:
 facts_confirmed:
   - Lucan jest żywy, przytomny i nie odniósł w komorze Varkhena jawnej rany fizycznej.
   - Jego przewaga wynika z wiedzy, przygotowania, sług, osłabień i wykorzystywania słabości, nie z siły fizycznej.
+  - Doktorat i badania Lucana dotyczyły anatomii, biologii oraz chemii. Ten warsztat tłumaczy szybki rozwój materialnej i eksperymentalnej części nekromancji, ale nie daje automatycznej wiedzy o duszach, rytuałach ani pradawnych nieumarłych.
+  - Praca z ojcem wyrobiła w Lucanie wysoką tolerancję na chaos, mało tabu badawczych i umiejętność zarządzania ciągłym kryzysem; najlepiej działa, gdy może przekształcać katastrofę w serię problemów roboczych.
   - Bez przygotowania pozostaje fizycznie w zakresie zwykłego, niezbyt silnego człowieka.
   - Bezpośrednio przed granicą kanonu przejął kontrolę nad Varkhenem przy pomocy Mary i Borosa.
   - Przeciążenie kolektora (milestone_043a_logistics_collector_overload, przesył energii z serca cmentarza) trwale poszerzyło rezerwę z 12 do 15. 15 jest nową bazą i nowym progiem komfortowym, nie stanem przeciążenia. Dawna dwunastka NIE POZOSTAWIA żadnego skutku ubocznego - nie ma podwyższonej detekowalności powyżej 12 (retcon_000004 i retcon_000019).

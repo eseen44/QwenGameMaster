@@ -15,7 +15,7 @@ Ta tabela jest kompletną mapą aktualizacji: każdy plik projektu wpada w dokł
 | `campaigns/*/journal/retcons.jsonl` | dziennik niezmienny | Dopisz przy poprawie faktu historycznego; nigdy nie usuwaj starego wpisu. |
 | `campaigns/*/context/scene.yaml` | bieżąca scena | Każdy `turn commit`, który zmienia uczestników, lokację, napięcie, presję, pytanie lub reakcję świata; obowiązkowo przy otwarciu/zamknięciu sceny. |
 | `campaigns/*/context/active.yaml` | minimalny kontekst | Po każdym commicie, gdy zmienia się zestaw potrzebnych plików; zawsze po zmianie sceny. Generuje `gm context refresh`. |
-| `campaigns/*/state/time.yaml` | czas | Gdy akcja ma czas większy od zera albo zostaje domknięty downtime. |
+| `campaigns/*/state/time.yaml` | czas i faza kampanii | Gdy akcja ma czas większy od zera albo zostaje domknięty downtime. `campaign_phase` i `roll_policy` zmieniaj wyłącznie przy jawnie zatwierdzonym przejściu między interludium i aktem. |
 | `campaigns/*/state/clocks.yaml` | zegary i reakcje świata | Gdy czas, konsekwencja albo decyzja zmienia postęp zegara; należną reakcję dodaj też do sceny. |
 | `campaigns/*/state/instances/*.yaml` | zmienny stan bytów | Gdy byt zmienia pozycję, integralność, zasób, warunek, właściciela, rozkaz lub rewizję. Używaj operacji transakcyjnych, nie ręcznego nadpisania. |
 | `campaigns/*/state/resources.yaml` | dobra, dowody, świadkowie, saldo | Gdy zmieniają się pieniądze, własność, dowód, świadek, dług lub zasób wspólny. |

@@ -1,25 +1,153 @@
 schema_version: 1
 id: npc_lucan_former_fiancee
-name: Domniemana narzeczona Lucana (imię nieustalone)
+name: Klara Brandt
 status: needs_review
 importance: background_only_potential_future_thread
 role: Zamożna, rudowłosa kobieta, którą głowa rodu Veyr zdecydowała wydać za
   Lucana bez jego zgody.
+mechanics_ref: candidate_npc_lucan_former_fiancee
+classification:
+  operational_rank: C
+  calibration: low_C
+  combat_role: heavy_greatsword_frontliner
+affiliation:
+  kind: secular_sword_order
+  exact_order: unknown_not_to_invent
+  position: junior_officer_commanding_a_small_unit
+  senior_leadership: false
 lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
 current_location_id: unknown
+name_status:
+  given_name: confirmed_by_player
+  family_name: confirmed_by_player
 portrayal:
-  tone: childhood_tormentor_possible_future_antagonist_or_complication
+  tone: loud_athletic_socially_skilled_childhood_crush_filtered_through_lucans_melodramatic_memory
   threat_scope: personal_and_social_not_yet_defined_in_current_timeline
-  behavior: Prześladowała Lucana przez połowę jego dzieciństwa, jeszcze przed
-    decyzją głowy rodu o małżeństwie. Lucan odmówił natychmiast po otrzymaniu
-    tej decyzji - do żadnego formalnego etapu (spotkania, zaręczyn) nigdy nie
-    doszło. Rodzina Lucana odmówiła nawet spotkania z nią i jej rodziną, mimo
-    że głowa rodu Veyr brnęła w formalności jednostronnie i próbowała
-    zastraszyć ich do uległości.
+  appearance:
+    hair: red_curly
+    silhouette: physically_imposing_almost_fairytale_knight
+    usual_kit: [heavy_armor, two_handed_greatsword]
+  behavior: >-
+    W dzieciństwie była głośną, sprawną fizycznie i społecznie dziewczyną z równie głośnego,
+    bezpośredniego rodu militarnego. Miała typowego dziecięcego crusha na Lucanie i okazywała
+    go zaczepkami, publiczną uwagą oraz wciąganiem go w aktywności. Lucan był zakompleksionym
+    molem książkowym, stojącym poza grupą "tych fajnych", więc jej zainteresowanie odbierał
+    jako ekspozycję i prześladowanie. Czasem realnie przekraczała jego granice, ale nie działała
+    z intencją poniżenia. Jego późniejsza relacja pozostaje przefiltrowana przez melodramatyzm
+    i drobny narcyzm. Ojciec pamięta ją jako "miłą dziewczynę".
 attitude_to_pc:
-  summary: Całkowicie nieznane. Lucan nigdy się z nią nie spotkał ani nie
-    rozmawiał odkąd zapadła decyzja o małżeństwie - jej opinia o całej sprawie
-    (i o nim) jest niedostępna, nie tylko nierozstrzygnięta.
+  summary: >-
+    Historycznie co najmniej życzliwe - zgodziła się na zaręczyny, mimo że społecznie i
+    majątkowo była dla Lucana znacznie lepszą partią niż on dla niej. Jej zgoda wynikała także
+    ze starej sympatii i dziecięcego crusha, nie wyłącznie z posłuszeństwa rodzinie. Na odmowę spotkania
+    zareagowała przede wszystkim smutkiem i niezrozumieniem, nie urażoną dumą, żądzą odwetu
+    ani ostrą wściekłością. Jej obecna opinia po niemal dwóch latach pozostaje nieznana.
+  historical_reaction_to_refusal:
+    source_ref: retcon_000085
+    dominant: [sadness, incomprehension]
+    not_assigned_to_her: [status_humiliation, revenge, sharp_anger, demand_for_punishment]
+    interpretation: >-
+      Mogła nie rozumieć, dlaczego Lucan odmówił nawet spotkania, ale nie należy z tego
+      automatycznie budować antagonistki ani osoby kierowanej zranioną próżnością.
+  childhood_dynamic:
+    source_ref: retcon_000086
+    her_side: [childhood_crush, loud_direct_attention, athletic_confidence, social_confidence]
+    lucans_side: [insecure_bookworm, outside_the_cool_group, uncomfortable_with_public_attention]
+    shared_result: >-
+      Jej próby kontaktu często wyglądały dla Lucana jak ściganie, zaczepianie i wystawianie
+      go na widok innych. Część dyskomfortu była realna; określenie całej relacji jako
+      złośliwego prześladowania jest jego późniejszym wyolbrzymieniem.
+  current_social_contrast:
+    source_ref: retcon_000087
+    general: loud_direct_physically_and_socially_confident
+    around_lucan: persistently_flustered_and_less_composed
+    rule: >-
+      Zakłopotanie przy Lucanie nie odbiera jej kompetencji bojowej ani całej osobowości.
+      Jest szczególnym wyjątkiem w jej zwykle bezpośrednim sposobie bycia, nie permanentną
+      niezdarnością wobec wszystkich.
+combat_profile:
+  source_ref: retcon_000087
+  rank: low_C
+  organization: >-
+    Czynna członkini świeckiego zakonu mieczowego: profesjonalnej, hierarchicznej i
+    ciężkozbrojnej odmiany Gildii, a nie wspólnoty zakonnej związanej ślubami religijnymi.
+  signature_weapon: two_handed_greatsword
+  professional_standing:
+    source_ref: retcon_000088
+    office: junior_officer
+    command_scope: small_unit
+    entry_advantage: family_name_and_connections_improved_access_and_visibility
+    earned_status: low_C_combat_competence_is_genuine
+    sensitivity: >-
+      Drażni ją sugestia, że całą pozycję kupiła rodzina. Nie zaprzecza przewadze startowej,
+      ale szkolenie, dyscyplinę i zdolność dowodzenia wypracowała sama.
+    command_style:
+      source_ref: retcon_000091
+      preference: leads_from_the_front_and_shares_operational_risk
+      rejects: [ceremonial_command, protected_rear_command, family_selected_safe_post]
+      motive: >-
+        Uważa się za dorosłą zawodową żołnierkę. Nie jest zainteresowana dowodzeniem z tylnego
+        rzędu ani stanowiskiem skonstruowanym po to, żeby rodzice mogli nazywać je służbą,
+        jednocześnie trzymając ją z dala od zagrożenia.
+  family_pressure:
+    source_ref: retcon_000091
+    parents: overly_protective
+    father: especially_overprotective
+    preferred_outcome: safe_rear_or_representative_post
+    current_effect: recurring_family_friction_not_loss_of_klaras_agency
+    mother_toward_lucan:
+      source_ref: retcon_000095
+      initial_attitude: cold_detached_and_formally_correct
+      current_story_role: not_planned_for_current_act
+      guardrail: >-
+        Nie dopisywać jej aktywnej zemsty, intrygi ani głębszej motywacji, dopóki rzeczywiście
+        nie zostanie wprowadzona do gry. Chłód jest punktem startowym, nie pełnym profilem.
+    younger_brother_toward_lucan:
+      source_ref: retcon_000096
+      age_at_broken_match: 14
+      current_age: 16
+      established_reaction: childish_anger_on_behalf_of_klara
+      threat_calibration: irritating_protected_adolescent_not_a_serious_personal_nemesis
+      social_hazard: >-
+        Trudno brać go na poważnie, ale równie trudno całkowicie ignorować albo potraktować
+        fizycznie bez wywołania nieproporcjonalnych konsekwencji rodzinnych i społecznych.
+      family_dynamic:
+        source_ref: retcon_000097
+        view_of_klara: idolizes_her_as_a_hero
+        information_basis: mostly_family_version_not_lucans_perspective
+        anger: borrowed_exaggerated_and_adolescent
+        klaras_reaction: deeply_embarrassed_by_his_honor_defense
+        klaras_control: can_shut_him_down_quickly_when_present
+        limit: may_continue_posturing_when_klara_is_absent
+      unknowns: [name, current_opinion, training, capabilities, current_location]
+    institutional_channel:
+      source_ref: retcon_000092
+      basis: house_brandt_funds_and_supplies_the_order
+      fathers_reach: can_contact_senior_officers_apply_pressure_and_arrange_safe_opportunities
+      hard_limit: father_is_not_in_the_chain_of_command_and_cannot_issue_orders_to_klara
+    fathers_view_of_lucan:
+      source_ref: retcon_000093
+      understands:
+        - Lucan został postawiony przez główną linię Veyrów przed narzuconym faktem.
+        - Odmowa samego małżeństwa była zrozumiała i nie dowodzi tchórzostwa ani egoizmu.
+      grievance: >-
+        Zrozumienie sytuacji Lucana nie zmienia faktu, że Klara została zraniona jego odmową
+        nawet spotkania i późniejszym zniknięciem. Dla ojca nie jest to abstrakcyjny spór o
+        autonomię, tylko konkretny smutek jego córki.
+      unspoken_expectation:
+        source_ref: retcon_000094
+        formal_claim: none
+        desired_recognition: >-
+          Lucan sam powinien zauważyć, że choć miał pełne prawo odmówić narzuconego małżeństwa,
+          sposób odmowy zranił Klarę, i samodzielnie to uznać.
+        expression: never_stated_as_a_demand_or_condition
+        test: >-
+          Ojciec obserwuje, czy Lucan dochodzi do tego bez podpowiedzi. Przeprosiny wyduszone
+          formalnym żądaniem nie miałyby dla niego tej samej wartości.
+        boundary: Klara sama decyduje, czy chce kontaktu, rozmowy albo dalszej relacji.
+  strengths: [frontal_melee, heavy_armor, disciplined_formation_work, physical_presence]
+  hard_limits: [human_anatomy, no_confirmed_supernatural_power, equipment_dependent]
+  weaknesses: [cramped_spaces, low_stealth, reduced_mobility_in_heavy_armor, exotic_magic_without_preparation]
 knowledge:
   confirmed: []
   suspected: []
@@ -36,5 +164,8 @@ notes:
     ukręciła Lucanowi dalszą edukację jako odwet za sprzeciw wobec zaaranżowanego
     małżeństwa - NIE była narzeczona. Ona jest powodem konfliktu (jego niechcianą
     stroną), nie jego sprawczynią.'
-source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+  - 'Nie pisać jej automatycznie jako antagonistki. Określenie dziecięcej prześladowczyni
+    pochodzi od Lucana i mówi również o nim; obiektywna skala konfliktu jest nieustalona
+    (retcon_000066).'
+source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000085, retcon_000086, retcon_000087, retcon_000088, retcon_000090, retcon_000091, retcon_000092, retcon_000093, retcon_000094, retcon_000095, retcon_000096, retcon_000097]
 last_updated_event_id: null

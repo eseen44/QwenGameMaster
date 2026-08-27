@@ -9,6 +9,18 @@ i bez uzasadnienia ktoś rozsądny cofnąłby ją przy następnym przeglądzie.
 
 ---
 
+## 2026-08-28 — docelowy narrator cloudowy
+
+Główna rozgrywka odbywa się obecnie przez Claude Opus High z dostępem do repo.
+System może wymagać od narratora punktowego wyszukiwania, łączenia kilku źródeł
+i poprawnego użycia runtime'u; nie projektujemy już przebiegu pod ograniczenia
+słabego modelu jednorazowego. Nie oznacza to powiększania każdego promptu:
+krótki `brief` nadal jest pożądany, bo ogranicza koszt rozmowy i zmniejsza ryzyko
+twórczego dopowiadania na podstawie nieistotnych danych. Format pozostaje
+niezależny od dostawcy, żeby repo można było przenieść do innego zdolnego agenta.
+
+---
+
 ## 2026-08-17 — koszt tury i trwałość rzutu
 
 Kontekst: kampania Lucana była wcześniej prowadzona ~900 tur w samym czacie.

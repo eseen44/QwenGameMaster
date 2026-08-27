@@ -3,27 +3,48 @@ id: npc_lucan_mother
 name: Matka Lucana (imię nieustalone)
 status: needs_review
 importance: background_only_not_yet_appeared_in_play
-role: Nieszlachetnie urodzona żona ojca Lucana; z odgrywania damy dworu uczyniła
-  sobie punkt honoru.
+role: Córka bogatej rodziny mieszczańskiej; żona wysoko postawionego, lecz emocjonalnie
+  nieobecnego akademika z rodu Veyr.
 lifecycle: {state: presumed_alive, last_confirmed_event_id: null}
 current_location_id: unknown
 portrayal:
-  tone: performative_status_anxiety_not_a_direct_antagonist
-  threat_scope: ideological_pressure_rather_than_active_harm
-  behavior: Przez połowę dzieciństwa Lucana wpajała mu "obowiązki szlachcica" -
-    nie z uczucia, tylko z własnej potrzeby udowodnienia przynależności do stanu,
-    do którego sama nie urodziła się.
+  tone: caring_but_overdemanding_survivor_of_an_alien_social_environment
+  threat_scope: projected_expectations_not_active_harm
+  behavior: >-
+    Musiała samodzielnie nauczyć się funkcjonowania w wymagającym i obcym
+    środowisku arystokracji, ponieważ mąż praktycznie jej nie zauważał. Przelewała na syna
+    własne trudności i strategie przetrwania: maniery, status oraz "obowiązki szlachcica".
+    Troska i presja nie wykluczały się; mogła chcieć dla niego dobrze i być zbyt wymagająca.
+  response_to_disappearance:
+    source_ref: retcon_000084
+    concern: Autentycznie martwiła się o Lucana i chciała, żeby wrócił.
+    attempts: >-
+      Próbowała uzyskiwać informacje przez główną linię rodu oraz Akademię. Nie miała jednak
+      własnej skutecznej sieci kontaktów ani pozycji Beatrix i dostawała głównie uspokajające,
+      niepełne odpowiedzi.
+    mixed_expectation: >-
+      Równocześnie uważała, że Lucan powinien wrócić i społecznie "naprawić sytuację". Nie
+      potrafiła całkowicie oddzielić troski o syna od przekonania, że przetrwanie wymaga
+      podporządkowania się formom, manierom i oczekiwaniom środowiska.
+    limit: >-
+      Nie była agentką głównej linii ani sprawczynią rodzinnej blokady. Jej problemem była
+      zależność i uwewnętrzniona presja, nie własna władza nad Akademią lub rodem.
 attitude_to_pc:
-  summary: Inwestowała w Lucana jako w dowód własnego awansu społecznego, nie
-    w niego samego. Nieznane stanowisko wobec jego zerwania zaręczyn i późniejszej
-    dyskredytacji przez główną linię rodu.
+  summary: >-
+    Relacja obciążona wymaganiami, ale nie pozbawiona uczucia. Lucan mógł odbierać
+    jej nacisk jako kolejną próbę wtłoczenia go w rolę arystokraty; dla niej był to sposób
+    przygotowania syna do świata, w którym sama z trudem znalazła miejsce. Wobec głównej
+    linii nie miała realnej siły sprawczej.
 knowledge:
-  confirmed: []
+  confirmed:
+    - fact: Lucan odszedł po konflikcie wokół narzuconych zaręczyn i przez prawie dwa lata
+        nie wrócił ani nie utrzymywał regularnego kontaktu.
+      source_event_id: retcon_000084
   suspected: []
   false_beliefs: []
 agenda:
-  current_goal: maintain_appearance_of_noble_standing
+  current_goal: unknown_after_nearly_two_years_without_contact
   next_action: null
 relationships: []
-source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000084]
 last_updated_event_id: null

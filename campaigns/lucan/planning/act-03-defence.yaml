@@ -32,13 +32,14 @@ decoy_construct:
       supersedes: energy_budget
       retcon_ref: [retcon_000017, retcon_000021]
       retcon_ref_2: retcon_000024
-      text: 'OKAZ POKAZOWY - okolo 4 GODZIN pracy recznej za wabik, czyli kilka modyfikacji
-        obudowy po ok. godzinie kazda (retcon_000021 + retcon_000024, bez zadnej eskalacji). Osiem godzin to budzet dla pracy klasy Spideya,
-        czyli okazu dopracowanego i bojowego; wabik ma imponowac oku i miec smaczki dla
-        naukowcow, wiec robi sie go na odwal. Trzy-cztery wabiki to JEDEN dzien przy stole.
-        Energii nie kosztuje wcale. Liczba wabikow nie jest niczym ograniczona poza wola
-        gracza - nie przedstawiac tego jako wyboru kosztem prawnika czy przesluchania
-        (retcon_000022).'
+      text: 'OKAZ POKAZOWY - okolo 4 GODZIN pracy recznej za sztuke, czyli kilka modyfikacji
+        po ok. godzinie każda (retcon_000021 + retcon_000024). Osiem godzin to budzet dla
+        pracy klasy Spideya, czyli okazu dopracowanego i bojowego. Jednostki pokazowe maja
+        byc przeszyte i LEKKO opancerzone: wolniejsze, sztywniejsze i ciezsze od Spideya.
+        Twarde zobowiazanie wynosi jeden okaz; zapas dodatkowych jest nieprecyzyjny i ma
+        uwzgledniac mozliwosc zniszczenia okazu przez demonstracje albo sekcje. Energii nie
+        kosztuje to wcale. Nie przedstawiac liczby jako wyboru kosztem prawnika lub innych
+        przygotowan (retcon_000022, retcon_000063).'
     - id: doctrine_refined
       source_event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
       text: 'Lucan podniósł trafny kontrargument i Seraphine go przyznała: z zewnątrz NIE DA
@@ -59,8 +60,10 @@ decoy_construct:
         Lucana dla tej frakcji jest realna, ale musi być NIEWIDZIALNA: źródło, nie sojusznik;
         karmi argument, nie występuje w nim. To jest nie do pogodzenia z planem ojca, który
         chce wystawić okazy pod nazwiskiem syna. UWAGA - Seraphine wycofała tę radę w
-        event_turn_interlude_031, gdy dowiedziała się o katedrze Lucana: członek MOŻE być
-        widoczny, byle jako badacz. Pułapka dotyczy więc wystąpienia BEZ płaszcza.'
+        event_turn_interlude_031, gdy dowiedziała się o doktoracie, publikacjach oraz
+        formalnie zachowanym stanowisku i pokoju Lucana: może być widoczny jako badacz,
+        choć nie ma własnej katedry. Pułapka dotyczy więc wystąpienia bez wiarygodnej
+        ramy badawczej.'
     - id: seraphine_obedience_rule
       demoted_to: npc_opinion
       retcon_ref: retcon_000023
@@ -83,8 +86,9 @@ decoy_construct:
     academy_collections: 'Dostępne od zaraz, ale okazy są UTRWALONE (spirytus, suszenie). Do
       przeszczepu bezużyteczne - utrwalona tkanka nie przewodzi. Wartościowe jako referencja i
       jako części "mechaniczne" do obudowy wabika.'
-    fresh_supply: Stała dostawa żywego towaru Akademii - najbliższa za około 7 dni. To samo
-      okno co konferencja, więc odnóże dla Spideya i wabik łapią się w jeden termin.
+    fresh_supply: Duże żywe pajęczaki przychodzą w 6.-7. dniu interludium. Posłużą jako
+      dawcy dla Spideya i materiał na jednostki pokazowe. Drugi tydzień interludium jest
+      przeznaczony na pracę nad nimi.
     webber_night_haul: Już zdobyte, czeka w baszcie. Pająki piwniczne, osy, chrząszcze,
       stonogi - za małe na odnóże dla Spideya, wystarczające jako ciała małych okazów serii.
   schedule_and_alignment:
@@ -98,9 +102,10 @@ decoy_construct:
       stoi wyznaczony oponent (npc_ivar_kolm), którego zadaniem jest wykazać, że taki okaz to
       nieumarły.'
   cost_already_incurred:
-    text: 'Lucan powiedział "kilka" i "konferencja" na głos człowiekowi, który uważa, że dobra
-      praca ma być widziana. Ojciec przyjął to jako zgodę i zaczął organizować pokaz we
-      własnym tempie. Sprawa przestała być prywatna. CZĘŚCIOWO ODZYSKANE
+    text: 'Lucan zobowiązał się wobec ojca do dostarczenia PRZYNAJMNIEJ JEDNEGO okazu na
+      dyskusję. Dodatkowe jednostki na demonstracje i sekcje są planem roboczym bez ustalonej
+      liczby, nie odrębnym zobowiązaniem. Ojciec zaczął organizować pokaz we własnym tempie,
+      więc sprawa przestała być prywatna. CZĘŚCIOWO ODZYSKANE
       (event_turn_interlude_021) - Lucan przestawił clock_father_arranges_academy_showing z
       trzech dni na osiem, potem na piętnaście, używając własnego argumentu ojca: jeden okaz
       to anekdota, seria to materiał, a serii nie zrobi się w trzy dni.'
@@ -216,32 +221,31 @@ institutional_defence:
       jurysdykcji, w której nie siedzi; ale nazwisko jest powodem, dla którego ktoś wysoko
       może CHCIEĆ korzystnej klasyfikacji.'
   academy_post:
-    step_ref: reactivate_the_dormant_academy_post
+    step_ref: clarify_or_reactivate_the_frozen_academy_post_if_needed
     correction:
-      source_event_id: event_turn_interlude_031_the_dormant_sinecure
-      text: 'POPRAWKA - poprzedni krok (acquire_institutional_coat_at_the_academy) założył, że
-        Lucan nie ma afiliacji. To było błędne i zapisane, zanim gracz to ujawnił. Lucan MA
-        katedrę i umocowanie przy Akademii; jest członkiem na wymuszonym urlopie dziekańskim
-        od ponad dwóch lat. Płaszcza nie trzeba zdobywać, trzeba zdecydować, czy go użyć.'
+      source_event_id: retcon_000068
+      text: 'POPRAWKA - Lucan uzyskal doktorat w wieku 21 lat dzieki mocnemu dorobkowi
+        wspolautora prac ojca. Ma formalne stanowisko mlodego badacza w jego zespole i pokoj
+        obok laboratorium; stanowisko obejmowalo okazjonalne obowiazkowe prowadzenie zajec.
+        Rodzina jako duzy darczynca od prawie dwoch lat blokuje wykonywanie pracy, granty
+        i wyjazdy. Nie ma wlasnej katedry ani kanonicznego urlopu dziekanskiego.'
     player_correction:
-      source_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
-      text: 'Reaktywacja jest ZBĘDNA. Afiliacja w tym środowisku nie jest procedurą, jest
-        ROZPOZNANIEM: wystarczy, że wiedzą, kim jest. To ludzie, którzy mogą kogoś nie widzieć
-        trzydziestu lat i zaczynają rozmowę w punkcie, w którym ją skończyli. Żaden podpis nie
-        jest potrzebny, bo nie ma czego włączać. Synekura jest przy tym nietykalna - Lucan
-        mógłby być woźnym i nikt nie ruszyłby jego pokoju. Lucan nie jest zainteresowany
-        powrotem na uczelnię.'
-    gain: 'Jako członek przestaje być okazem, którego nikt nie chroni; ma trzy płaszcze
-      (cechowy, rodowy, akademicki), czyli jest STAWKĄ w sporze o jurysdykcję, nie oskarżonym.
-      Plan ojca przestaje być "nikt wystawia trupa" i staje się "członek prezentuje badanie
-      członka" - Seraphine odwołała z tego powodu swoją radę o niewidzialności.'
+      source_event_id: retcon_000068
+      text: 'Pokoj nadal nalezy do Lucana, mimo blokady pracy. Z perspektywy Seraphine wyglada
+        to jak synekura i "cos tu smierdzi": instytucja przez dwa lata nie pozwala komus
+        pracowac, ale nadal trzyma dla niego stanowisko i pokoj. Synekura jest jej etykieta
+        politycznego paradoksu, nie formalnym tytulem. Lucan nie jest zainteresowany prostym
+        powrotem na uczelnie.'
+    gain: 'Doktorat, publikacje, zachowane stanowisko i pokoj pozwalaja przedstawic Lucana jako
+      badacza z historia instytucjonalna, a nie anonimowego nekromante. Daje to Akademii powod,
+      by walczyc o autorstwo i klasyfikacje jego pracy, lecz nie gwarantuje ochrony.'
     costs:
-      - 'Akademia ma wobec członka WŁASNĄ procedurę dyscyplinarną, więc wezwanie na seminarium
-        staje się WYKONALNE. Ten sam płaszcz, który chroni przed Kościołem, daje Akademii
-        tytuł do wezwania.'
-      - 'Niepłatna synekura jest niewidzialna tylko dopóki właściciel jest nudny - z chwilą,
-        gdy Lucan staje się interesujący, ktoś sięga po akta, a tam jest urlop dziekański, jego
-        przyczyna i podcięcie edukacji przez rodzinę.'
+      - 'Seraphine zaklada, ze formalnie zachowane stanowisko moze dac Akademii proceduralny
+        pretekst do wezwania Lucana. Dokladny zakres tej jurysdykcji nie zostal ustalony;
+        nie traktowac go jako automatycznie wykonalnego nakazu bez zrodla.'
+      - 'Z chwila, gdy Lucan staje sie interesujacy, ktos moze siegnac po akta i znalezc
+        podejrzany uklad: doktorat w wieku 21 lat, dorobek ojca, zachowane stanowisko i pokoj,
+        a obok rodzinna blokada pracy, grantow i wyjazdow.'
     why_the_coat_matters:
       source_event_id: event_turn_interlude_030_the_seminar_problem
       text: 'Kościół ma rację, że Akademia jest pełna ludzi, których nazwałby nekromantami -
@@ -265,21 +269,16 @@ institutional_defence:
       identyczną na seminarium, na przesłuchaniu przed kierownictwem i u prawnika. Rozjazd
       między forami zabija szybciej niż sama treść. Do zrobienia w ciągu dwutygodniowego
       interludium.'
-  unmanaged_asset:
-    step_ref: decide_what_to_do_about_being_an_unmanaged_asset
+  family_expectations_if_house_veyr_takes_notice:
+    step_ref: decide_how_to_handle_family_expectations_if_house_veyr_takes_notice
     source_event_id: event_turn_interlude_033_veyr_is_not_a_family
-    text: 'NAJWAŻNIEJSZA ZMIANA RAMY. Rod Veyr nie jest rodziną, jest systemem obsadzonych
-      foteli i rodem WIELKIM - patrz faction_house_veyr_main_line#structure. Wnioski
-      Seraphine: (1) spór o jurysdykcję może być wewnętrzną realokacją, w której nikt nie musi
-      wygrać, ktoś musi tylko zdecydować; (2) taki system nie skazuje i nie broni -
-      PRZYDZIELA, więc najbardziej prawdopodobnym końcem sprawy nie jest kara, a posada ze
-      smyczą; (3) system nie prowadzi rejestru sympatii, tylko rejestr POZYCJI - dwa lata
-      uciekania nie wypisały Lucana z niczego, zrobiły z niego AKTYW NIEZARZĄDZANY, a takie
-      zostają zarządzone w chwili widoczności. Widoczność przychodzi za dwa tygodnie trzy razy
-      z rzędu: przesłuchanie, seminarium, dysputa. ZADANIE - rozstrzygnąć, czy Lucan chce
-      negocjować warunki własnego przydziału, czy próbować pozostać niezarządzany, i jakim
-      kosztem. Seraphine przy tym przyznała, że jest prawdopodobnie jedyną stroną, której
-      osłona nad Lucanem nie jest transakcją, i jednocześnie najsłabszą stroną przy stole.'
+    text: 'Rod Veyr działa jak arystokratyczna korporacja i nieformalny kartel patronacki.
+      Zakłada, że udział jest tak korzystny, iż każdy członek rodu sam uzna posłuszeństwo
+      starszyźnie za oczywiste - nawet gdy starszyzna przez większość życia nie pamiętała,
+      że istnieje. Nie ma aktywnej procedury zarządzania Lucanem ani pewności, że obecne fora
+      uruchomią zainteresowanie rodu. Jeżeli ród go zauważy, możliwa będzie oferta ochrony,
+      pozycji albo obowiązku; wtedy dopiero Lucan zdecyduje, czy korzysta z patronatu,
+      negocjuje jego warunki, czy odrzuca oczekiwania (retcon_000064).'
   safe_house:
     step_ref: find_a_searchable_but_empty_place_to_sleep
     source_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
@@ -418,12 +417,12 @@ the_boundary_lucan_designed:
   signature_question:
     status: 'ODDANA NERIS, NIEROZSTRZYGNIETA.'
     lucans_position: 'Podpisze sie z radoscia, jesli chodzi o rozproszenie uwagi z niej na
-      niego. Nie zalezy mu - katedra zamrozona i praktycznie martwa, dopoki odmawia ozenku
-      z bogata i wplywowa kobieta; formalnie jest dzis bardziej najemnikiem Gildii niz
-      akademikiem. Spojne z #academy_post.player_correction.'
-    disclosure_cost: 'Ujawnil przy tym Neris przyczyne urlopu dziekanskiego oraz
-      przynaleznosc do Gildii. #academy_post.costs przewidywalo, ze ktos siegnie po akta i
-      to znajdzie - Lucan podal to sam, dobrowolnie, oszczedzajac jej szukania.'
+      niego. Nie zalezy mu - wykonywanie jego pracy, granty i wyjazdy sa zamrozone, dopoki
+      odmawia ozenku z bogata i wplywowa kobieta; formalnie jest dzis bardziej najemnikiem
+      Gildii niz czynnym akademikiem. Spojne z #academy_post.player_correction.'
+    disclosure_cost: 'Ujawnil przy tym Neris przyczyne zamrozenia kariery oraz przynaleznosc
+      do Gildii. #academy_post.costs przewidywalo, ze ktos siegnie po akta i to znajdzie -
+      Lucan podal to sam, dobrowolnie, oszczedzajac jej szukania.'
 
 legalisation_horizon:
   objective_ref: objective_prepare_institutional_defense
@@ -471,23 +470,25 @@ act_02_rewards:
       podała recepcjonistka (event_turn_interlude_012) ani nocny urzędnik
       (event_turn_interlude_023).'
   reward_is_hostage: 'Seraphine dopilnowała, żeby w rejestrze stało "oczekuje przeglądu", a nie
-    "zamknięte" - to jej robota i realna przysługa. Cena: rozliczenie idzie TĄ SAMĄ sesją co
-    przesłuchanie, więc nagroda Lucana zależy od tego, jak on na tym przesłuchaniu wypadnie.'
+    "zamknięte". Nagroda została wstrzymana do ZAKOŃCZENIA wewnętrznego śledztwa gildii i
+    działa jednocześnie jako kij i marchewka. Nie ma ustalenia, że musi zostać rozliczona
+    podczas jednej konkretnej sesji ani że zależy wyłącznie od występu Lucana na przesłuchaniu
+    (retcon_000062).'
   why_no_date_announced: 'Służby miejskie żądają przekazania ciał, akt i dowodów z operacji
     cmentarnej, gildia się opiera, a dopóki nie jest jasne, kto trzyma materiał, nikt nie
     wyznacza terminu - bo termin oznacza przyznanie, kto prowadzi sprawę.'
   standing_stipend: 'Standardowe stypendium polowe (15 srebra) wypłacone przy recepcji
     (event_turn_interlude_012_reception_desk). Pełna nagroda za rozwiązanie kryzysu
-    cmentarnego oznaczona jako oczekująca na przegląd kierownictwa i zleje się z
-    przesłuchaniem instytucjonalnym, nie zostanie załatwiona osobno.'
+    cmentarnego oznaczona jako oczekująca na przegląd kierownictwa. Zostanie odblokowana
+    albo inaczej rozliczona dopiero po zamknięciu śledztwa wewnętrznego.'
 
 clocks_rationale:
   father_arranges_academy_showing:
     clock_ref: clock_father_arranges_academy_showing
-    origin: 'Zegar powstał z wyboru gracza, nie z nacisku świata. Lucan świadomie nie wytrącił
-      ojca z równowagi i powiedział na głos, że zrobi kilka okazów na konferencję - człowiek,
-      który uważa, że dobra praca ma być widziana, potraktował to jako zgodę i zaczął działać
-      we własnym tempie.'
+    origin: 'Zegar powstał z wyboru gracza, nie z nacisku świata. Lucan zobowiązał się wobec
+      ojca do dostarczenia przynajmniej jednego okazu na dyskusję. Dodatkowy zapas do
+      demonstracji i sekcji jest planem, którego liczby nie ustalono. Ojciec zaczął działać
+      we własnym tempie, ponieważ uważa, że dobra praca ma być widziana.'
     reschedules: 'Przestawiony 3 -> 8 (event_turn_interlude_021), potem 8 -> 15
       (event_turn_interlude_022). Lucan użył własnego argumentu ojca: jeden okaz to anekdota,
       seria to materiał, a serii nie zrobi się w trzy dni. Materiał dochodzi za 7 dni, a praca

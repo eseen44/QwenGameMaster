@@ -1,7 +1,9 @@
 schema_version: 1
 id: act_03_witness_framework
-status: required_thread_flexible_cast_and_timing
-purpose: Wprowadzać przeszłość Lucana przez ludzi, dokumenty i sprzeczne zeznania, aby obecni NPC oraz przedstawiciele Gildii i Kościoła mogli wyrobić sobie własne zdanie.
+status: deferred_optional_resource_not_required_for_act_03_entry
+purpose: >-
+  Magazyn możliwych sposobów wprowadzania przeszłości Lucana, jeżeli późniejsza gra stworzy
+  naturalny kanał. Nie jest bieżącym planem, warunkiem interludium ani obowiązkiem początku Aktu 3.
 witness_options:
   ordinary_impact:
     - id: former_teacher_or_academic_supervisor
@@ -23,7 +25,8 @@ witness_options:
 selection_policy:
   - Nie ma obowiązkowej kolejności ani minimalnej liczby świadków.
   - Świadek pojawia się tylko wtedy, gdy instytucja ma sposób i powód go odnaleźć albo gdy działania Lucana przyciągną go do sprawy.
-  - Konkretna osoba z przeszłości albo jej aktywny ślad w dokumentach i relacjach musi wejść do aktu; dokładna forma i moment pozostają elastyczne.
+  - Żadna konkretna osoba z przeszłości ani aktywny ślad nie musi wejść przed dwoma przesłuchaniami ani w ich trakcie.
+  - Dom Brandt i Beatrix nie są zaplanowani; możliwa jest krótka informacja od Seraphine tylko wtedy, gdy naturalnie wyniknie ze śledztwa.
   - Sam suchy wpis archiwalny nie wystarcza, jeśli nie wpływa na żywą relację, decyzję lub stanowisko instytucji.
 testimony_model:
   required_fields: [witness_id, firsthand_facts, interpretation, uncertainty, bias, incentive, audience, source_event_id]

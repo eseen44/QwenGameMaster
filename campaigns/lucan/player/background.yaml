@@ -10,82 +10,221 @@ confirmed_minimum:
       (faction_lumaria_magical_academy, loc_lumaria_magical_academy). Ostatnio był
       tam około dwóch lat temu - tyle minęło od przerwania edukacji.
     source_refs: [event_turn_interlude_016_walk_to_academy]
-  - id: background_formal_academy_post_on_dean_leave
-    claim: Lucan formalnie NADAL ma afiliacje przy Akademii Magii Lumarii - katedre i
-      umocowanie, ktore nigdy nie zniklo. Edukacja nie zostala zamknieta wydaleniem, tylko
-      WYMUSZONYM URLOPEM DZIEKANSKIM, ponad dwa lata temu (to jest formalna postac
-      background_family_retaliation_and_education_sabotaged). Posada jest nieplatna
-      synekura, a nieplatnej synekury trzymanej przez szlachcica nikt nie audytuje - kto
-      taka widzi, po prostu przechodzi dalej. Od tego czasu Lucan aktywnie unikal wszystkiego,
-      co zwiazane z tym miejscem, wiec plaszcz lezy nieuzywany, ale wazny.
+  - id: background_accelerated_doctorate_and_frozen_academic_post
+    claim: >-
+      Lucan szybko przeszedł przez edukację i uzyskał doktorat w wieku 21 lat; obecnie ma
+      23 lata. Dostał własny pokój obok laboratorium ojca. Ponieważ praktycznie nikt inny
+      nie potrafił pracować z wybitnym, niestabilnym profesorem Veyrem, Lucan stał się jego
+      tłumaczem, organizatorem i współautorem. Nagromadzony wpływ wspólnych publikacji dał mu
+      podejrzanie mocny dorobek jak na wiek i wystarczył do doktoratu.
+    calibration:
+      - Nie oznacza to, że Lucan jest geniuszem równym ojcu. Jego wyjątkową kompetencją było
+        umożliwianie pracy z ojcem i przekładanie jej na dorobek, który dało się opublikować.
+      - Starsi magowie rozumieją różnicę między samodzielnym geniuszem a kluczem do zarządzania
+        wybitnym i niestabilnym badaczem; niżsi rangą akademicy mogą być zdumieni 23-latkiem
+        z doktoratem i takim wykazem publikacji.
+      - Lucan nigdy nie miał własnej katedry.
+    doctorate_and_research_domain:
+      source_ref: retcon_000070
+      core_fields: [anatomy, biology, chemistry]
+      character_of_work: experimental_material_and_organism_work_with_magical_applications
+      transfer_to_necromancy: >-
+        Nekromancja jest dla Lucana nową praktyką magiczną, ale większość jej materialnego
+        warsztatu nie jest nowa: zna anatomię, sekcję, reakcje chemiczne, konserwację,
+        integrację tkanek i pracę eksperymentalną. Dlatego rozwija się podejrzanie szybko,
+        nie zaczynając od poziomu laika.
+      limits:
+        - Wykształcenie nie daje mu automatycznej wiedzy o rytuałach, duszach, pradawnych
+          nieumarłych ani tradycjach nekromantycznych.
+        - Szybki transfer dotyczy przede wszystkim ciała, materiałów, preparatyki, modyfikacji
+          i empirycznego testowania efektów.
+    crisis_formation:
+      source_ref: retcon_000070
+      description: >-
+        Praca z ojcem pozostawiła Lucanowi bardzo mało tabu badawczych oraz wyrobiła zdolność
+        działania w chaosie i zarządzania niekończącymi się kryzysami. Lucan nie tyle zachowuje
+        spokój na spokojnym morzu, ile potrafi surfować po katastrofie, która już trwa.
+    current_status:
+      doctorate: valid_earned_at_age_21
+      age_now: 23
+      academic_post: young_researcher_attached_to_fathers_team_formally_retained_but_work_blocked
+      independent_chair_or_department: none
+      assigned_room_beside_fathers_laboratory: still_his
+      room_preserved_by: npc_lucan_former_promoter
+      room_preservation_public_reason: still_contains_research_materials
+      room_preservation_actual_reason: beatrix_expected_lucan_to_return_or_resign_in_person
+      teaching_duties_before_freeze: occasional_and_mandatory
+      teaching_subjects: [practical_anatomy, specimen_preparation, introductory_laboratory_chemistry]
+      teaching_profile: >-
+        Zajęcia były praktyczne. Lucan prowadził sekcje, preparatykę i podstawowe doświadczenia
+        chemiczne kompetentnie, lecz jako bardzo młody doktor wyglądał podejrzanie. Był też
+        niepokojąco swobodny przy materiale biologicznym, a część jego standardów bezpieczeństwa
+        pochodziła z laboratorium ojca i była nieortodoksyjna, nawet jeśli funkcjonalna.
+      student_reputation:
+        overall: mixed_not_uniform
+        positive_reading: >-
+          Praktyczny, bezpośredni i znacznie łatwiejszy we współpracy niż jego ojciec.
+          Szczególnie dobrze odbierali go studenci lubiący eksperymenty i naukę przez działanie.
+        suspicious_reading: >-
+          Ambitni akademicy oraz studenci pilnujący hierarchii widzieli 21-letniego doktora
+          z nazwiskiem Veyr i dorobkiem ojca, więc podejrzewali nepotyzm, dopisywanie do prac
+          albo szczególne traktowanie.
+        conservative_reading: >-
+          Bardziej konserwatywne osoby niepokoiła jego swoboda wobec sekcji, ryzyka i tabu
+          badawczych oraz wyniesione od ojca nieortodoksyjne standardy bezpieczeństwa.
+        use_in_play: >-
+          Dawny student może należeć do dowolnej z tych grup, ale konkretnej opinii nie wolno
+          dobierać pod wygodny konflikt sceny; musi wynikać z karty tej postaci i jej historii.
+      grants: blocked_by_family_pressure
+      academic_travel: blocked_by_family_pressure
+      chair: none
+      dean_leave: not_canonical
     consequences:
-      - Lucan NIE jest nieafiliowanym nekromanta - jest czlonkiem Akademii na urlopie.
-      - Ma trzy plaszcze naraz: cechowy, rodowy (Veyr) i akademicki.
-      - Akademia ma wobec czlonka wlasna procedure dyscyplinarna, wiec wezwanie na
-        seminarium jest wobec niego WYKONALNE, nie tylko spolecznie natarczywe.
-      - Kamuflaz dziala, dopoki nikt nie patrzy; w aktach jest urlop, jego przyczyna i
-        podciecie edukacji przez wlasna rodzine.
-      - 'POPRAWKA (event_turn_interlude_033_veyr_is_not_a_family) - nietykalnosc synekury NIE
-        wisi na zyciu ojca. Jest strukturalna: zawsze bedzie jakis Veyr w odpowiednim fotelu.
-        Patrz faction_house_veyr_main_line#structure.'
-      - Powrot z urlopu po dwoch latach wymaga czyjegos podpisu albo braku sprzeciwu -
-        najbardziej naturalna osoba to npc_lucan_father.
-    source_refs: [event_turn_interlude_031_the_dormant_sinecure]
+      - Rodzina, jako duży darczyńca Akademii, zablokowała wykonywanie pracy, granty i wyjazdy,
+        lecz nie usunęła doktoratu ani formalnego stanowiska. Pokój przetrwał osobno, ponieważ
+        Beatrix Witte nie zgodziła się na jego opróżnienie ani ponowny przydział.
+      - Stanowisko młodego badacza w zespole ojca obejmowało obowiązkowe, okazjonalne
+        prowadzenie zajęć. Studenci widzieli więc wykładowcę niewiele starszego od siebie,
+        z doktoratem i podejrzanie mocnym dorobkiem. Naturalne podejrzenie dotyczy nepotyzmu,
+        dopisywania się do prac ojca albo szczególnego traktowania, nie nekromancji.
+      - >-
+        Z perspektywy Seraphine układ wygląda jak synekura: ktoś jest od prawie dwóch lat
+        odsunięty od pracy, a stanowisko i pokój nadal na niego czekają. Jest to jej trafna
+        etykieta paradoksu, nie formalna nazwa stanowiska.
+      - Obowiązek dostarczenia okazów na dyskusję wynika z jawnej obietnicy złożonej ojcu;
+        ewentualna dyscyplinarna jurysdykcja Akademii wymaga osobnego ustalenia.
+    source_refs: [retcon_000068, retcon_000078]
   - id: background_period_of_homelessness
-    claim: Przed rejestracją w Gildii Lucan doświadczył okresu bezdomności.
+    claim: Po nieproporcjonalnych naciskach rodu Lucan wpadł w ciąg alkoholowy, a następnie
+      uciekł nie tyle z domu, ile z własnego dotychczasowego życia. Przed rejestracją w Gildii
+      doświadczył okresu bezdomności.
     source_refs: [source_compiled_historical_run#line:1559-1564]
   - id: background_impoverished_side_branch_nobility
-    claim: 'Lucan formalnie należy do zubożałej bocznej linii rodu Veyr - arystokrata
+    claim: 'Lucan formalnie należy do relatywnie ubogiej bocznej linii rodu Veyr - arystokrata
       z tytułu, bez rodzeństwa do sporu o dziedzictwo, ale też bez realnego majątku
       do odziedziczenia. UWAGA - sam rod Veyr jest rodem WIELKIM (patrz
       faction_house_veyr_main_line#scale); ubogie i pomijane jest wyłącznie to jedno
-      ramię. Boczna linia jest ostracyzowana i ignorowana, a przyczyny leżą po obu
-      stronach - ojciec jest politycznie ślepy i nie zabiega o nic, a Lucan sam odmawia
-      wypełniania zobowiązań wobec głównej linii i utrzymywania z nią kontaktu.'
+      ramię. Apolityczność ojca trzymała Lucana z dala od głównej linii jeszcze przed
+      konfliktem małżeńskim; późniejsza odmowa pogłębiła zerwanie.'
     source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
-  - id: background_father_academic_disinterested
-    claim: Ojciec Lucana jest akademikiem, czwartym lub piątym synem głównej linii
-      rodu Veyr bez szans na dziedzictwo takich synów (prawo, akademia, wojsko lub
-      utracjusz to typowe ścieżki); zawsze bardziej interesowały go własne badania
-      niż syn.
-    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
-  - id: background_mother_commoner_performing_nobility
-    claim: Matka Lucana nie urodziła się szlachcianką; uczyniła sobie punkt honoru
-      z odgrywania damy dworu i przez połowę jego dzieciństwa wpajała mu "obowiązki
-      szlachcica".
-    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+  - id: background_father_deliberately_apolitical_academic
+    claim: >-
+      Ojciec Lucana jest akademikiem, piątym lub szóstym synem głównej linii
+      rodu Veyr, około 28 lat starszym od Lucana (obecnie około 51), bez szans na dziedzictwo takich synów (prawo, akademia, wojsko lub
+      utracjusz to typowe ścieżki). Jest wariatem i ekscentrykiem, ale nie idiotą. Polityczna
+      "bezużyteczność" jest dla niego wygodnym, w znacznej mierze świadomym wyborem, który
+      pozwala mu robić to, co chce. Rozumiał bezsens rodowej maskarady małżeńskiej, nie widział
+      powodu, by zmuszać do niej syna, i nie zamierzał przedkładać politycznych bzdur nad wolę
+      Lucana. Po odejściu nie próbował go zawracać. Jest rozkojarzony, wpada w letargi i
+      zapomina o urodzinach oraz zwykłych obowiązkach, lecz ma konkretną hierarchię wartości:
+      osobista wolność stoi w niej bardzo wysoko. Lubi swojego syna; zawodność uwagi i opieki
+      nie jest obojętnością. Wiedział o dyskretnych poszukiwaniach Beatrix i chciał być
+      powiadomiony, gdyby ujawniły śmierć, uwięzienie albo bezpośrednie zagrożenie. Nie zgadzał
+      się jednak, by poszukiwania służyły sprowadzeniu Lucana wbrew jego woli.
+    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000081, retcon_000082, retcon_000083]
+  - id: background_former_promoter
+    claim: >-
+      Formalną promotorką Lucana była profesor Beatrix Witte: siwiejąca rówieśniczka jego ojca,
+      ostra jak brzytwa, cyniczna, babcina i od dawna jawnie nim zainteresowana. Jest całkowicie
+      czynna zawodowo, w pełni władz i trzęsie swoim budynkiem Akademii do tego stopnia, że
+      dziekan woli zniknąć, gdy idzie korytarzem. Formalnie kieruje Katedrą Anatomii Magicznej
+      i Biochemii Stosowanej, kontrolując jej laboratoria, kadrę, zajęcia i dostęp do materiałów.
+      Rozumiała, że
+      Lucan nie jest geniuszem profesora Veyra, lecz jest osobą, która potrafi zamienić jego
+      chaos w badania, publikacje i działające laboratorium. Uczciwie uznała ten wkład za
+      samodzielną podstawę doktoratu. Przez niemal dwa lata osobiście nie pozwoliła też
+      opróżnić ani oddać pokoju Lucana: oficjalnie nadal znajdowały się tam materiały badawcze,
+      a wokalnie uznała, że Lucan wróci albo sam powie jej, że nie wraca. Zna go jednak przez
+      całe jego życie i realnie martwiła się o niego przez okres zniknięcia; zachowany pokój
+      był także dyskretnym pozostawieniem mu miejsca powrotu. Uruchomiła kilka zaufanych
+      kontaktów Akademii i sprawdziła szpitale, kostnice oraz miejskie rejestry, lecz bez
+      oficjalnego alarmu i bez angażowania głównej linii Veyrów. Nic nie dało jej wiarygodnej
+      wiedzy o miejscu pobytu ani działalności Lucana.
+    npc_ref: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml
+    source_refs: [retcon_000074, retcon_000075, retcon_000076, retcon_000077, retcon_000078, retcon_000079, retcon_000080]
+  - id: background_mother_bourgeois_adapting_to_nobility
+    claim: >-
+      Matka Lucana pochodziła z bogatej rodziny mieszczańskiej. Małżeństwo dało jej
+      wysoko postawionego, lecz całkowicie niezainteresowanego nią męża i zmusiło do
+      znalezienia sobie miejsca w wymagającym, obcym środowisku arystokracji. Strategie,
+      dzięki którym sama próbowała przetrwać - maniery, status i obowiązki - przelewała
+      na syna. Mogła się o niego troszczyć, a jednocześnie być wobec niego zbyt wymagająca.
+      Po jego odejściu szukała informacji przez rodzinę i Akademię, ale bez własnej sieci ani
+      pozycji Beatrix otrzymywała głównie uspokajające półodpowiedzi. Chciała jego powrotu,
+      lecz częściowo wyobrażała go sobie jako powrót połączony ze społecznym "naprawieniem"
+      konfliktu. Autentyczna troska pozostawała spleciona z uwewnętrznioną presją środowiska.
+    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000084]
   - id: background_main_family_line_opportunistic
-    claim: Główna, zamożniejsza linia rodu Veyr nigdy nie interesowała się życiem
-      Lucana, dopóki nie pojawiła się możliwość zarobku na nim.
+    claim: Główna linia rodu Veyr prawie nie interesowała się Lucanem. Zauważyła go dopiero,
+      gdy zaczął względnie dobrze radzić sobie na uczelni i stał się atrakcyjnym materiałem
+      na korzystny mariaż. Od niemal dwóch lat nikt poza ojcem nie widział Lucana i główna
+      linia nie wie obecnie o jego powrocie ani działalności.
     source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
   - id: background_educated_but_poor_among_peers
-    claim: Rodzina była dość zamożna, by sfinansować Lucanowi edukację, ale zbyt
-      biedna, by w najlepszych istniejących instytucjach edukacyjnych nie uchodzić
-      niemal za żebraka i pariasa.
+    claim: Rodzina była dość zamożna, by Lucan uczęszczał do tych samych szkół co najbogatsi,
+      ale wśród ostentacyjnie bogatej szlachty samo "nie być biednym" nie wystarczało.
+      Był znany i czuł się jak ubogi krewny, nie jak równy członek elity.
     source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
   - id: background_arranged_marriage_rejected
-    claim: Główna linia rodu zdecydowała wydać Lucana za zamożną, rudowłosą
-      kobietę, która prześladowała go przez połowę dzieciństwa. Lucan odmówił
-      od razu po otrzymaniu tej decyzji, zanim doszło do jakiegokolwiek formalnego
-      etapu. Główna linia rodu mimo to brnęła w formalności jednostronnie,
-      próbując zastraszyć go do uległości. Lucan i jego rodzina nigdy nie
-      zgodzili się nawet na spotkanie z narzeczoną i jej rodziną, więc jej
-      stanowisko w tej sprawie pozostaje całkowicie nieznane.
-    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+    claim: Główna linia uznała dobrze rokującego studenta za użyteczny materiał na mariaż
+      i bez konsultacji zorganizowała mu zaręczyny z kobietą z bogatej, dobrze usytuowanej
+      rodziny. Własny ruch rozumiała jako świetną partię, przysługę i zaproszenie bocznej
+      gałęzi "na łono" rodu. Lucan widział w tym narzucanie życia przez ludzi, których znał
+      co najwyżej z daleka, i odmówił nawet formalnego spotkania z narzeczoną. Ponieważ dla
+      rodu sprawa była już przesądzona, odmowę uznano za afront i robienie rodzinie złej prasy.
+      Była to znana mu wcześniej rudowłosa Klara Brandt. Lucan opisuje ją jako dawną
+      prześladowczynię. W dzieciństwie była głośna, sprawna fizycznie i społecznie oraz miała
+      na nim typowego crusha, który okazywała zaczepkami i bezpośrednim wciąganiem go w swoje
+      aktywności. Lucan był zakompleksionym molem książkowym wykluczonym z grupy "tych fajnych";
+      publiczną uwagę odbierał jako ekspozycję i prześladowanie. Czasem naprawdę przekraczała
+      jego granice, ale skala i złośliwość opisu są jego melodramatyczną, egocentryczną
+      perspektywą, nie neutralnym faktem. Ojciec pamięta ją jako "miłą dziewczynę".
+      Zgodziła się na układ także z powodu starej sympatii i nie była do Lucana wroga;
+      społecznie oraz majątkowo stanowiła
+      znacznie lepszą partię niż on. Na jego odmowę spotkania zareagowała przede wszystkim
+      smutkiem i niezrozumieniem. Urazę, poczucie upokorzenia oraz ostre emocje przejęli jej
+      rodzice, a jej młodszy brat zareagował dziecinną wściekłością. Nie oznacza to jeszcze
+      aktywnej zemsty ani gotowego antagonisty. Ojciec Klary rozumie przy tym, że Lucan został
+      postawiony przez Veyrów przed narzuconym faktem i nie musi uważać go za tchórza ani
+      egoistę. Nadal widzi jednak konkretną krzywdę córki w odmowie nawet spotkania i późniejszym
+      zniknięciu. Formalnie nie ma wobec Lucana roszczenia i nie wypowie żądania. Oczekuje
+      jednak, że Lucan sam rozpozna różnicę między prawem do odmowy a zranieniem Klary sposobem
+      wykonania tej odmowy. Nie będzie go ścigał ani wymuszał przeprosin; Klara sama decyduje,
+      czy chce dalszego kontaktu. Obecny stosunek samej Klary pozostaje nieznany.
+      Młodszy brat Klary miał wtedy 14 lat, a obecnie ma 16. Jest potencjalnie głośnym,
+      irytującym i chronionym nastolatkiem, którego trudno brać na poważnie, ale którego
+      pobicie albo upokorzenie byłoby społecznie katastrofalnie nieproporcjonalną reakcją.
+      Idealizuje siostrę, zna konflikt głównie z rodzinnej wersji i przejął jej rzekomą obronę
+      honoru z nastoletnią przesadą. Klara jest tym wyraźnie zakłopotana i potrafi go uciszyć,
+      choć bez niej może dalej pozować na jej obrońcę.
+      Obecnie jest niską C-rankerką w świeckim zakonie mieczowym, walczącą ciężkim pancerzem
+      i wielkim mieczem dwuręcznym. Ma czerwone, kręcone włosy i niemal bajkowy wygląd
+      ciężkozbrojnej rycerki. Zwykle jest głośna oraz pewna fizycznie i społecznie, lecz przy
+      Lucanie pozostaje wyraźnie zakłopotana.
+    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000085, retcon_000086, retcon_000087, retcon_000093, retcon_000094, retcon_000096, retcon_000097]
   - id: background_family_retaliation_and_education_sabotaged
-    claim: Po sprzeciwie wobec zaaranżowanego małżeństwa rodzina eskalowała do
-      poczucia wyższości, prześladowań mających przekonać Lucana że jego miejsce
-      jest pod stopami głowy rodziny, i prób dyskredytacji - włącznie z podcięciem
-      jego prawa do dalszej edukacji. To bezpośrednia przyczyna zakończenia
-      background_higher_magical_education, poprzedzająca background_period_of_homelessness.
-    source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+    claim: Z powodu apolityczności ojca i braku realnego wpływu matki główna linia próbowała
+      samodzielnie "przywrócić Lucanowi rozsądek". Jako duży darczyńca Akademii użyła wpływu,
+      by zablokować wykonywanie jego pracy, granty i wyjazdy. Doktorat, formalne stanowisko
+      pozostały, ale dalsza kariera została zamrożona. Pokój pozostał przypisany Lucanowi
+      nie dzięki łagodności rodu, lecz dlatego, że Beatrix Witte odmówiła jego ponownego
+      przydziału. Reakcja była
+      nieproporcjonalna; wywołała ciąg alkoholowy i zakończyła się ucieczką Lucana z
+      dotychczasowego życia.
+    source_refs: [retcon_000068, retcon_000078]
+  - id: background_nearly_two_year_disappearance
+    claim: Przez następne prawie dwa lata nikt z głównej linii rodu nie widział Lucana i nie
+      wiedział, co właściwie robi. Ojciec jest pierwszym krewnym, który zobaczył go po powrocie.
+    source_refs: [retcon_000065]
 unknown_not_to_invent_silently:
-  - field_and_formal_qualification
-  - teachers_and_mentors
+  - exact_formal_name_of_doctorate_and_internal_title_of_young_researcher_post
+  - exact_courses_catalogue_names_and_specific_past_student_incidents
+  - other_teachers_and_mentors_besides_father_and_former_promoter
+  - current_research_goals_of_beatrix_witte
   - classmates_and_former_acquaintances
-  - exact_mechanism_of_education_sabotage
+  - exact_academy_procedure_that_froze_work_while_preserving_formal_post
   - cause_and_duration_of_homelessness
-  - given_names_of_father_mother_family_head_and_former_fiancee (nazwisko rodowe Veyr jest kanoniczne)
+  - given_names_of_father_mother_and_family_head (nazwiska rodowe Veyr i Brandt oraz imię Klara są kanoniczne)
   - current_status_and_location_of_father_mother_and_former_fiancee
   - major_former_rivals
 revelation_policy:

@@ -28,6 +28,14 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CAMPAIGN_ROOT = ROOT / "campaigns" / "lucan"
 CONTEXT_BUDGET_BYTES = 40 * 1024
 SAFE_ID = re.compile(r"^[A-Za-z0-9_.-]+$")
+CRISIS_SURFER_TAGS = {
+    "time_pressure",
+    "multiple_simultaneous_failures",
+    "environmental_chaos",
+    "others_panicking",
+    "resource_triage",
+    "rapidly_changing_situation",
+}
 
 
 class _StringDatesLoader(yaml.SafeLoader):
@@ -50,7 +58,7 @@ _StringDatesLoader.yaml_implicit_resolvers = {
 }
 ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
 TIME_SECONDS = {
-    0: {"instant": 0, "brief": 600, "significant": 3600},
+    0: {"instant": 0, "brief": 300, "significant": 3600},
     1: {"instant": 0, "brief": 120, "significant": 600},
     2: {"instant": 0, "brief": 30, "significant": 120},
     3: {"instant": 0, "brief": 6, "significant": 30},
@@ -232,20 +240,67 @@ def system_only_message(text: str) -> bool:
     return depth == 0
 
 
+def crisis_surfer_modifiers(actor: dict[str, Any], request: dict[str, Any]) -> list[dict[str, Any]]:
+    """Apply Lucan's learned response to generic stress and exploitable chaos."""
+    if "crisis_surfer" not in actor.get("traits", []):
+        return []
+    situation_tags = request.get("situation_tags", [])
+    if not isinstance(situation_tags, list) or any(not isinstance(tag, str) for tag in situation_tags):
+        raise RuntimeError("situation_tags must be a list of strings")
+    exploitable = request.get("crisis_exploitable", False)
+    if not isinstance(exploitable, bool):
+        raise RuntimeError("crisis_exploitable must be boolean")
+    modifiers = request.get("modifiers", [])
+    if not isinstance(modifiers, list):
+        raise RuntimeError("modifiers must be a list")
+    generic_stress_penalty = sum(
+        int(item.get("value", 0))
+        for item in modifiers
+        if isinstance(item, dict)
+        and item.get("category") == "stress"
+        and isinstance(item.get("value"), int)
+        and item["value"] < 0
+    )
+    result: list[dict[str, Any]] = []
+    if generic_stress_penalty:
+        result.append(
+            {
+                "source": "perk_crisis_surfer_ignore_generic_stress",
+                "value": -generic_stress_penalty,
+            }
+        )
+    crisis_signals = sorted(set(situation_tags) & CRISIS_SURFER_TAGS)
+    if exploitable and len(crisis_signals) >= 2:
+        result.append(
+            {
+                "source": "perk_crisis_surfer_exploits_active_chaos",
+                "value": 10,
+                "situation_tags": crisis_signals,
+            }
+        )
+    return result
+
+
 def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]:
     turn_id = require_id(request.get("turn_id"), "turn_id")
     declaration = request.get("declared_action")
     if not isinstance(declaration, str) or not declaration.strip():
         raise RuntimeError("declared_action is required")
     scene = scene_document(campaign_root)
-    if system_only_message(declaration):
+    parenthetical = system_only_message(declaration)
+    parenthetical_action = request.get("parenthetical_action", False)
+    if not isinstance(parenthetical_action, bool):
+        raise RuntimeError("parenthetical_action must be boolean")
+    if parenthetical_action and not parenthetical:
+        raise RuntimeError("parenthetical_action requires a fully parenthetical declaration")
+    if parenthetical and not parenthetical_action:
         return {
             "turn_id": turn_id,
             "status": "system_only_noop",
             "time_seconds": 0,
             "roll_allowed": False,
             "state_changes_allowed": False,
-            "reason": "Parenthetical-only input stops the scene.",
+            "reason": "Parenthetical system contact or thought stops the scene unless marked as an instant internal action.",
         }
 
     required = ("actor_id", "capability_id", "target_id", "intent_id")
@@ -259,9 +314,11 @@ def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]
     if has_mechanics and not all(isinstance(request.get(field), str) for field in required):
         raise RuntimeError("mechanical turns require actor_id, capability_id, target_id and intent_id")
     assessment: dict[str, Any]
+    automatic_roll_modifiers: list[dict[str, Any]] = []
     if has_mechanics:
         registry = runtime_registry()
         actor, actor_instance = compile_runtime_entity(campaign_root, request["actor_id"], registry)
+        automatic_roll_modifiers = crisis_surfer_modifiers(actor, request)
         target, target_instance = compile_runtime_entity(campaign_root, request["target_id"], registry)
         persistent_condition_ids: list[str] = []
         for instance in (actor_instance, target_instance):
@@ -292,18 +349,43 @@ def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]
             "resource_costs": [],
             "rule": "Obvious fictional result; no mechanical roll.",
         }
-    seconds = action_seconds(request, scene)
+    tension = scene.get("tension", {}).get("level", 0)
+    time_state = load_optional_yaml(campaign_root / "state" / "time.yaml", {})
+    roll_policy = time_state.get("roll_policy", {})
+    rolls_disabled = isinstance(roll_policy, dict) and roll_policy.get("mode") == "disabled"
+    # An explicit campaign-phase lock overrides local tension. This is used for
+    # Lucan's interlude: capability limits, costs and missing leverage remain
+    # real, but uncertainty is resolved by method and time rather than dice.
+    # Tension zero retains the same no-roll behavior for ordinary downtime even
+    # in campaigns without an explicit phase lock.
+    if (rolls_disabled or tension == 0) and assessment.get("verdict") not in {
+        "impossible",
+        "possible_only_with_new_leverage",
+    }:
+        costs = assessment.get("resource_costs", [])
+        assessment["verdict"] = "automatic_with_cost" if costs else "automatic"
+        assessment["roll_allowed"] = False
+        assessment["rule"] = (
+            "Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs."
+            if rolls_disabled
+            else "Tension-zero scene: a viable action resolves without a roll."
+        )
+    seconds = 0 if parenthetical_action else action_seconds(request, scene)
     due = list(scene.get("pending_world_reactions", []))
     return {
         "turn_id": turn_id,
         "status": "preview",
         "scene_id": scene.get("scene_id"),
+        "tension_level": tension,
+        "roll_policy_mode": roll_policy.get("mode") if isinstance(roll_policy, dict) else None,
         "declaration": declaration,
+        "parenthetical_action": parenthetical_action,
         "assessment": assessment,
         "roll_allowed": assessment.get("roll_allowed", False),
         "time_seconds": seconds,
         "world_reactions_due_before": due,
         "required_resource_costs": assessment.get("resource_costs", []),
+        "automatic_roll_modifiers": automatic_roll_modifiers,
     }
 
 
@@ -368,6 +450,7 @@ def build_roll(
         for item in modifiers
     ):
         raise RuntimeError("modifiers must contain source/value mappings")
+    modifiers.extend(copy.deepcopy(preview.get("automatic_roll_modifiers", [])))
     score = request.get("character_score")
     if score is not None:
         if not isinstance(score, int) or not 0 <= score <= 10:
@@ -847,6 +930,26 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.summary is required")
     if not isinstance(outcome.get("operations", []), list):
         raise RuntimeError("outcome.operations must be a list")
+    source_refs = outcome.get("consequence_source_refs", [])
+    if not isinstance(source_refs, list) or not all(
+        isinstance(ref, str) and ref.strip() for ref in source_refs
+    ):
+        raise RuntimeError("outcome.consequence_source_refs must be a list of non-empty strings")
+
+
+def validate_interlude_outcome(transaction: dict[str, Any], outcome: dict[str, Any]) -> None:
+    """Prevent narrator-created resistance during tension-zero preparation."""
+    preview = transaction.get("preview", {})
+    if preview.get("tension_level") != 0:
+        return
+    if outcome.get("arrangement") not in {"worsened", "complicated", "mixed"}:
+        return
+    if outcome.get("consequence_source_refs") or outcome.get("resolved_world_reaction_ids"):
+        return
+    raise RuntimeError(
+        "tension-zero complication requires consequence_source_refs "
+        "(canonical file/event/retcon or player_declaration:...)"
+    )
 
 
 def refresh_after_commit(campaign_root: Path, transaction: dict[str, Any]) -> dict[str, Any]:
@@ -878,6 +981,7 @@ def commit_turn(
     if transaction.get("status") != "resolved":
         raise RuntimeError(f"turn {turn_id} cannot be committed from {transaction.get('status')}")
     validate_outcome(outcome)
+    validate_interlude_outcome(transaction, outcome)
     due = transaction.get("preview", {}).get("world_reactions_due_before", [])
     resolved_ids = set(outcome.get("resolved_world_reaction_ids", []))
     if due and not resolved_ids.intersection(item.get("id") for item in due if isinstance(item, dict)):
@@ -1376,6 +1480,38 @@ def instance_digest(instance: dict[str, Any]) -> dict[str, Any]:
     return digest
 
 
+def objective_digest(objective: dict[str, Any]) -> dict[str, Any]:
+    """Keep a goal useful in a fresh session without inlining its audit trail."""
+    digest = {
+        key: objective.get(key)
+        for key in ("id", "status", "commitment")
+        if objective.get(key) is not None
+    }
+    steps = [step for step in objective.get("steps", []) if isinstance(step, dict)]
+    terminal_prefixes = ("done", "completed", "standing_decision", "solved")
+    open_step_ids = [
+        step.get("id")
+        for step in steps
+        if isinstance(step.get("id"), str)
+        and not str(step.get("state", "pending")).startswith(terminal_prefixes)
+    ]
+    if open_step_ids:
+        digest["open_step_ids"] = open_step_ids[:5]
+        digest["open_step_count"] = len(open_step_ids)
+    return digest
+
+
+def interlude_scope_digest(scope: dict[str, Any]) -> dict[str, Any]:
+    """Expose the current play boundary without copying objective metadata."""
+    if not isinstance(scope, dict) or not scope:
+        return {}
+    return {
+        key: scope.get(key)
+        for key in ("detail_ref", "completion_gate", "rolls", "entry_rule", "workstreams")
+        if scope.get(key) is not None
+    }
+
+
 def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
     """One self-contained block that opens a fresh conversation.
 
@@ -1420,6 +1556,9 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
         "time": {
             "current_datetime": time_doc.get("current_datetime"),
             "elapsed_seconds_total": time_doc.get("elapsed_seconds_total"),
+            "campaign_phase": time_doc.get("campaign_phase"),
+            "roll_policy": (time_doc.get("roll_policy") or {}).get("mode"),
+            "roll_policy_until": (time_doc.get("roll_policy") or {}).get("until"),
         },
         "clocks": [
             {
@@ -1430,7 +1569,12 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             for clock in clocks_doc.get("clocks", [])
             if isinstance(clock, dict) and not clock.get("triggered")
         ],
-        "objectives": objectives.get("player_declared", []),
+        "current_scope": interlude_scope_digest(objectives.get("current_interlude_scope", {})),
+        "objectives": [
+            objective_digest(objective)
+            for objective in objectives.get("player_declared", [])
+            if isinstance(objective, dict)
+        ],
         "participants": participants,
         "load": [
             {"ref": ref, "bytes": ref_path(ref).stat().st_size}

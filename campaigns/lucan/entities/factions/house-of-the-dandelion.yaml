@@ -1,14 +1,13 @@
 schema_version: 1
 id: faction_house_of_the_dandelion
-name: 'Dom narzeczonej Lucana (nazwa rodu nieustalona)'
+name: Dom Brandt
 status: named_in_play_not_yet_encountered
 first_named_event_id: event_turn_interlude_162
 named_by: npc_lucan_father
 name_status: |
-  NAZWA RODU I IMIE NARZECZONEJ NIEUSTALONE - NIE WYMYSLAC.
-  player/background.yaml#unknown_not_to_invent_silently zabrania nadawania imion
-  glowie rodu i bylej narzeczonej. Do czasu decyzji gracza rod identyfikujemy
-  wylacznie po herbie.
+  NAZWA RODU USTALONA: BRANDT. BYLA NARZECZONA TO KLARA BRANDT.
+  Imie i nazwisko nie padly jeszcze w biezacej scenie i nie sa automatycznie wiedza Neris.
+  Imiona rodzicow, mlodszego brata i glowy rodu pozostaja nieustalone.
 heraldry:
   tinctures: [czerwien, purpura]
   charge: mniszek lekarski
@@ -20,6 +19,19 @@ profile:
   economic_base: kontrola handlu bronia
   political_tie: powiazany z aktualnie panujacym monarcha regionu
   wealth: zamozny (player/background.yaml#background_arranged_marriage_rejected)
+  martial_culture: >-
+    Rod jest glosny, bezposredni i zwiazany ze swieckimi zakonami mieczowymi - zawodowymi,
+    hierarchicznymi, ciezkozbrojnymi odpowiednikami Gildii, a nie organizacjami religijnymi.
+  relationship_to_klaras_order:
+    source_ref: retcon_000092
+    role: major_supplier_and_patron_not_owner
+    leverage: >-
+      Brandtowie dostarczaja bron i finansowanie, wiec ojciec Klary ma dostep do starszych
+      oficerow, moze naciskac oraz aranżowac jej bezpieczne stanowiska i awanse.
+    limits: >-
+      Zakon zachowuje wlasne dowodztwo, statut, kontrakty i interesy. Ojciec nie nalezy do
+      lancucha rozkazodawczego, nie moze wydawac Klarze rozkazow, a dowodcy moga go wysluchac
+      bez obowiazku spelnienia jego zyczen.
 relation_to_lucan:
   source_refs:
     - player/background.yaml#background_arranged_marriage_rejected
@@ -27,22 +39,101 @@ relation_to_lucan:
     - player/background.yaml#background_main_family_line_opportunistic
   history: |
     Glowna linia rodu Veyr postanowila wydac Lucana za zamozna, rudowlosa kobiete z
-    tego domu - kobiete, ktora przesladowala go przez polowe dziecinstwa. Lucan
-    odmowil natychmiast, przed jakimkolwiek etapem formalnym. Do spotkania z
-    narzeczona i jej rodzina NIGDY NIE DOSZLO, wiec STANOWISKO SAMEJ KOBIETY I JEJ
-    DOMU W TEJ SPRAWIE POZOSTAJE CALKOWICIE NIEZNANE. Glowna linia Veyr brnela w
-    formalnosci jednostronnie; odmowa Lucana skonczyla sie podcieciem jego edukacji.
+    tego domu. W dziecinstwie byla glosna, sprawna fizycznie i spolecznie, miala na nim
+    typowego crusha i okazywala go bezposrednimi zaczepkami. Lucan byl zakompleksionym molem
+    ksiazkowym poza grupa "tych fajnych" i nazywa ja dawna przesladowczynia; czesc granic
+    rzeczywiscie przekraczala, lecz zlosliwe przesladowanie jest jego melodramatycznym
+    odczytem, nie neutralnym faktem. Kobieta przyjela
+    propozycje; ojciec Lucana pamieta ja jako "mila dziewczyne", a spolecznie byla dla
+    Lucana znacznie lepsza partia niz on dla niej. Lucan odmowil formalnego spotkania,
+    zanim uklad przeszedl do osobistego etapu. Glowna linia Veyr brnela w formalnosci;
+    odmowa Lucana skonczyla sie podcieciem jego edukacji. Jej obecne stanowisko jest nieznane.
+  family_reaction_to_refusal:
+    source_ref: retcon_000085
+    former_fiancee: >-
+      Zareagowala przede wszystkim smutkiem i niezrozumieniem. Nie przypisywac jej automatycznie
+      upokorzenia statusowego, ostrej urazy ani pragnienia odwetu.
+    parents: >-
+      Rodzice przejeli ciezar urazy, poczucia upokorzenia i ostrych emocji zwiazanych z
+      zerwaniem uzgodnionego mariazu. Ich konkretne dzialania i obecne stanowisko pozostaja
+      nieustalone; nie uruchamiac automatycznej zemsty.
+    father_in_particular:
+      source_ref: retcon_000093
+      reading: >-
+        Rozumie, ze Veyrowie postawili Lucana przed narzuconym faktem i ze odmowa malzenstwa
+        nie czyni go automatycznie tchorzem ani egoista. To nie uniewaznia w jego oczach
+        sposobu, w jaki Lucan zranil Klare: odmowil nawet spotkania, a potem zniknal.
+      emotional_center: hurt_done_to_his_daughter_not_failure_to_understand_lucans_autonomy
+      formal_position: >-
+        Nie ma sie czego czepic: Lucan nie zawarl malzenstwa ani osobistego zobowiazania wobec
+        Brandtow i mial prawo odmowic ukladu narzuconego przez Veyrow.
+      unspoken_expectation: >-
+        Nie bedzie scigal, karal ani zadal przeprosin. Oczekuje jednak, ze Lucan sam uzna
+        roznice miedzy prawem do odmowy a sposobem, ktory zranil Klare. Nie wypowie tego jako
+        warunku; wymuszona deklaracja niczego by mu nie dowiodla.
+      daughters_boundary: Klara sama decyduje, czy chce dalszego kontaktu.
+    mother_in_particular:
+      source_ref: retcon_000095
+      current_story_role: not_planned_for_current_act
+      initial_attitude_to_lucan: cold_detached_formally_correct
+      limits: >-
+        To jedynie punkt startowy na wypadek przyszlego wprowadzenia. Nie tworzyc teraz
+        zemsty, operacji politycznej ani ukrytej agendy matki Klary.
+    younger_brother: >-
+      Mlodszy brat mial czternascie lat przy zerwaniu ukladu i ma obecnie szesnascie. Zareagowal
+      dziecinna wsciekloscia na potraktowanie siostry. Trudno brac go na powaznie, ale trudno
+      tez ignorowac albo fizycznie spacyfikowac bez nieproporcjonalnych konsekwencji. Jest to
+      potencjalnie irytujacy, chroniony nastolatek, nie gotowy osobisty nemesis ani aktywny spisek.
+      Idealizuje Klare jako bohaterke i zna konflikt glownie z rodzinnej wersji, nie z perspektywy
+      Lucana. Jego gniew jest pozyczony, przesadzony i nastoletni. Klara uwaza te obrone honoru
+      za potwornie krepujaca i potrafi szybko go uciszyc, kiedy jest obecna; bez niej moze nadal
+      pozowac na obronce siostry.
+  former_fiancees_current_profile:
+    source_ref: retcon_000087
+    full_name: Klara Brandt
+    position: active_member_of_an_unnamed_secular_sword_order
+    office: junior_officer_commanding_a_small_unit
+    leadership_limit: not_part_of_the_orders_senior_command
+    combat_rank: low_C
+    signature: [heavy_armor, two_handed_greatsword, red_curly_hair]
+    contrast: >-
+      Jest niemal bajkowym obrazem ciężkozbrojnej rycerki: zwykle głośna, sprawna fizycznie
+      i społecznie, lecz przy Lucanie stale zakłopotana. Nie ma potwierdzonej mocy
+      nadnaturalnej; jej niskie C wynika z treningu, dyscypliny, pancerza i broni.
+    advancement: >-
+      Nazwisko i kontakty rodu ulatwily wejscie, dostep do szkolenia oraz widocznosc, lecz
+      nie zastepuja realnej kompetencji. Niskie C i zdolnosc prowadzenia malego oddzialu sa
+      zasluzone. Sugestie, ze rodzina kupila jej wszystko, wywoluja ostra reakcje.
+    family_service_conflict:
+      source_ref: retcon_000091
+      parents: overly_protective
+      father: especially_overprotective
+      parents_preference: protected_rear_ceremonial_or_staff_command
+      klaras_position: >-
+        Jest dorosla, chce prowadzic oddzial z przodu i nie jest zainteresowana bezpiecznym
+        dowodzeniem z tylnego rzedu. Wplywy rodziny moga tworzyc nacisk i niezreczne propozycje,
+        ale nie wolno nimi automatycznie odebrac jej decyzji ani kompetencji.
   lucans_current_stance:
     source_event_id: event_turn_interlude_160
     text: 'Nie widzial jej od kilkunastu lat, nie ma dobrych wspomnien, ale glownym
       powodem odmowy nie jest uraza - jest brak zainteresowania byciem arystokrata.
-      Katedra Lucana pozostaje zamrozona tak dlugo, jak dlugo odmawia.'
+      Rodzinny nacisk zablokowal mu wykonywanie pracy, granty i wyjazdy, lecz formalne
+      stanowisko oraz pokoj przetrwaly. Lucan nigdy nie mial wlasnej katedry.'
   fathers_assessment:
     source_event_id: event_turn_interlude_162
-    text: '"To mila dziewczyna." Ojciec nie zaprzecza kanonowi o przesladowaniu - on go
-      ILUSTRUJE (npc_lucan_father#portrayal.behavior: nigdy nie stanal w obronie syna,
-      nie z kalkulacji, tylko dlatego, ze nie zauwazyl na czas). To informacja o ojcu,
-      nie o niej.'
+    text: '"To mila dziewczyna." Jest to slaby, lecz realny kontrapunkt wobec relacji Lucana,
+      a nie automatyczne potwierdzenie jego oskarzenia. W polaczeniu z prawdopodobna zgoda
+      kobiety na korzystny dla Lucana mariaż przemawia przeciw rozpoczynaniu jej jako wroga
+      (retcon_000066).'
+  childhood_social_contrast:
+    source_ref: retcon_000086
+    house_style: loud_direct_military_and_physically_confident
+    her_position: socially_skilled_and_among_the_cool_children
+    lucans_position: insecure_bookworm_excluded_from_that_group
+    effect: >-
+      Jej zainteresowanie bylo dla niej oczywistym crashem, a dla niego serią publicznych
+      zaczepek i naruszen bezpiecznego dystansu. Ten sam zestaw zdarzen mogl uczciwie zostawic
+      im bardzo rozne wspomnienia.
 structural_interest_in_lucans_boundary:
   source_event_id: event_turn_interlude_162
   rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
@@ -74,10 +165,12 @@ what_we_deliberately_do_not_know:
   policy_ref: player/background.yaml#unknown_not_to_invent_silently
   reinforced_by: retcon_000053
   text: |
-    O SAMEJ KOBIECIE NIE WIEMY NIC I JEST TO CELOWE. Wspomnienia Lucana pochodza z
-    okresu, gdy mial 10-14 lat, i NIE przekladaja sie automatycznie na jej dzisiejsza
-    dyspozycje, charakter ani stosunek do niego. Nie pisac jej jako wrogiej. Nie pisac
-    jej w ogole bez decyzji gracza. To samo dotyczy nazwy rodu i imion.
+      Wiemy, ze byla Lucanowi znana, zgodzila sie na mariaż, po odmowie czula smutek i
+      niezrozumienie, a ojciec pamieta ja jako mila. Nie znamy jej obecnego charakteru,
+      celow ani stosunku po niemal dwoch
+      latach. Wspomnienie o przesladowaniu jest perspektywa Lucana, nie obiektywnym profilem.
+      Nie pisac jej jako wrogiej. Nie znamy imion jej rodzicow ani mlodszego brata.
 
 knowledge_of_lucan: unknown
+source_refs: [retcon_000085, retcon_000086, retcon_000087, retcon_000088, retcon_000090, retcon_000091, retcon_000092, retcon_000093, retcon_000094, retcon_000095, retcon_000096, retcon_000097]
 last_updated_event_id: event_turn_interlude_162

@@ -1,0 +1,37 @@
+schema_version: 1
+id: candidate_npc_lucan_former_fiancee
+object_type: entity
+status: proposed_calibrated
+name: Klara Brandt — kandydat mechaniczny
+classification: {operational_rank: C, calibration: low_C, role: heavy_greatsword_frontliner, organizational_role: junior_officer}
+anatomy: {human: true}
+ratings:
+  physical_force: 44
+  mobility: 28
+  reflexes: 39
+  stealth: 11
+  durability: 48
+  martial_discipline: 51
+  social_presence: 45
+defenses:
+  vitality: 42
+  awareness: 40
+  mobility: 29
+  anatomical_severing: 44
+  plate_guard: 54
+resistances: {cold: 31, venom: 33, necrotic: 30, neuromuscular: 37, mental: 42}
+resources: {combat_stamina: {current: 12, capacity: 12}}
+capabilities: [capability_former_fiancee_greatsword_strike]
+strengths: [frontal_melee, leads_from_front, disciplined_formation_work, small_unit_command, heavy_armor, physical_and_social_presence]
+limitations: [human_anatomy, requires_heavy_equipment_for_peak_defense, no_confirmed_supernatural_power]
+weaknesses: [cramped_spaces, low_stealth, reduced_armored_mobility, exotic_magic_without_preparation]
+social_conditionals:
+  around_lucan:
+    effect: visibly_flustered
+    rule: affects_social_composure_only_not_automatic_combat_penalty
+organizational_pressure:
+  source_ref: retcon_000091
+  family_preference: protected_rear_command
+  personal_preference: frontline_command
+  mechanical_rule: family_pressure_is_social_context_not_an_automatic_combat_modifier
+provenance: {source_refs: [retcon_000087, retcon_000088, retcon_000089, retcon_000090, retcon_000091], active_canon: false}

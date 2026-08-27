@@ -3,8 +3,9 @@ id: npc_lucan_father
 name: Ojciec Lucana (imię nieustalone)
 status: active
 importance: appeared_in_play_active_social_scene
-role: Akademik; czwarty lub piąty syn głównej linii rodu Veyr, bez szans na
+role: Akademik; piąty lub szósty syn głównej linii rodu Veyr, bez szans na
   dziedzictwo.
+age: approximately_51_about_28_years_older_than_lucan
 lifecycle: {state: alive_confirmed, last_confirmed_event_id: event_turn_interlude_017_misnotice_past_porter}
 current_location_id: loc_lumaria_magical_academy
 current_zone_id: zone_academy_laboratory_wing
@@ -21,27 +22,47 @@ portrayal:
       (bo i tak jest w polowie wlasnej mysli), sporadycznie po imieniu.
       Do OBCYCH forma grzecznosciowa jest w porzadku - z Neris przez wieksza czesc
       wieczoru rozmawia jak z doktorantka, ktora dostaje polecenia.
-  tone: warm_verbally_caring_but_functionally_absent
-  threat_scope: neglect_rather_than_active_harm
+  tone: warm_verbally_caring_selectively_absent_and_deliberately_apolitical
+  threat_scope: catastrophic_research_without_malice_not_intellectual_or_moral_incapacity
   profile_confirmed_by_user: true
   profile_source_event_id: event_turn_interlude_016_walk_to_academy
   traits:
-    - Profil autystyczny - żyje we własnym świecie, nie w złej woli.
+    - Profil autystyczny i ekscentryczny sposób funkcjonowania nie odbierają mu rozumu,
+      rozeznania ani zdolności świadomego wyboru.
     - Ciepły i werbalnie troskliwy; mówi rzeczy, które brzmią na opiekuńcze, i
       naprawdę tak myśli.
     - Gubi wątek w trakcie rozmowy i de facto jest nieobecny, nawet będąc obok.
+    - Jest rozkojarzony, wpada w okresy letargu i potrafi zapomnieć o urodzinach albo
+      praktycznych obowiązkach. Są to awarie uwagi i wykonania, nie brak uczuć.
     - Egocentryczny nie z pogardy, a z pochłonięcia własnymi badaniami.
     - Regularny pracoholizm, mało ruchu; stałe laboratorium, w którym spędza 99% życia.
     - O istnieniu żony często zapomina.
-    - Polityka go nie interesuje i nie orientuje się w niej.
+    - Nie śledzi polityki i odmawia regularnego uczestnictwa, ale potrafi zrozumieć układ,
+      kiedy uzna go za istotny. Jego polityczna "bezużyteczność" jest w znacznej części
+      wygodną, świadomie utrzymywaną pozycją, dzięki której może robić to, co chce.
+    - Ma konkretną hierarchię priorytetów. Osobista wolność - własna i cudza - znajduje się
+      w niej bardzo wysoko, wyżej niż obowiązki rodowe, reputacja i polityczna użyteczność.
+    - Lubi swojego syna. Nie jest to abstrakcyjne poczucie obowiązku ani wyłącznie uznanie
+      dla jego funkcji w laboratorium.
     - KOSZMAR ALUMNOW tej uczelni - nie ze zlosliwosci, a z braku jakiejkolwiek kalibracji
       spolecznej. Bedzie ryl w odpowiedzi tak dlugo, az cos z niej zostanie, i nie zauwazy,
       ze kogos przy tym niszczy. To ta sama cecha, ktora w domu wyglada jak nieobecnosc
       (event_turn_interlude_031_the_dormant_sinecure).
-  behavior: Zawsze bardziej interesowały go własne badania niż syn. Nie brał
-    czynnego udziału w naciskach głównej linii rodu ani w wymuszonych zaręczynach
-    - ale też nigdy nie stanął w obronie Lucana. Nie z kalkulacji; po prostu nie
-    zauważył na czas.
+  behavior: >-
+    Badania zwykle pochłaniają większość jego uwagi, ale nie jest idiotą ani bezwolnym
+    obserwatorem. Rozumiał, że narzucone zaręczyny są polityczną maskaradą, nie widział
+    powodu, by zmuszać do niej syna, i nie zamierzał przedkładać rodowych bzdur nad wolę
+    Lucana. Nie próbował go zawracać po odejściu. Wiedział, że Beatrix dyskretnie sprawdza
+    ślady, i nie uczestniczył w próbie "odzyskania" syna. Oczekiwał wyłącznie informacji,
+    gdyby znalazła dowód śmierci, uwięzienia albo bezpośredniego zagrożenia.
+  priority_model:
+    source_ref: retcon_000082
+    high: [personal_freedom, freedom_of_inquiry, problems_he_considers_real, lucans_autonomy]
+    low: [birthdays, routine_obligations, family_reputation, political_theatre, social_performance]
+    interpretation: >-
+      Niski priorytet może zostać całkowicie zapomniany; wysoki może przebić rozkojarzenie.
+      Nie zakładać jednak, że sama etykieta "rodzina" automatycznie uruchamia uwagę - ważna
+      jest konkretna osoba, jej wolność albo realny problem.
 not_a_party:
   source_event_id: event_turn_interlude_169
   declared_by: player_as_world_canon
@@ -51,15 +72,25 @@ not_a_party:
     OJCIEC NIE JEST STRONA. Nie modelowac go jako aktora frakcyjnego, ktory ma interesy
     do negocjowania, pozycje do obrony albo cene do zaplacenia. Wlasciwym opisem jest
     POGODA - slowo Lucana. Nie da sie nim administrowac, przekupic, zastraszyc ani
-    pozyskac; da sie przewidziec i da sie pod niego ubrac. Skutek dla gry: zaden NPC
-    instytucjonalny nie ma nad nim dzwigni, a on nie ma agendy wobec nikogo - ma tylko
-    wlasny problem badawczy. Nie wpisywac go do zadnej koalicji ani listy sojusznikow.
+    pozyskac; da sie przewidziec i da sie pod niego ubrac. Nie wynika to z braku rozumu:
+    polityczna bezuzytecznosc jest dla niego wygodna i pozwala odmowic uczestnictwa w cudzej
+    grze. Rozumie zasade autonomii syna i nie podporzadkuje jej rodowej maskaradzie. Skutek
+    dla gry: zaden NPC instytucjonalny nie ma nad nim prostej dzwigni. Nie wpisywac go do
+    koalicji ani listy sojusznikow tylko dlatego, ze rozumie sytuacje albo kocha syna.
   power_level: |
     Rzuca SIODMY poziom BEZ INKANTACJI, a osmy, jesli go cos zaciekawi. Czyni go to
     jednym z najgrozniejszych ludzi w miescie i jednoczesnie osoba calkowicie
-    nieziainteresowana tym, zeby z tego korzystac. Wyjasnia, dlaczego nieplatnej
-    synekury Lucana nikt nigdy nie audytowal ("bo trzyma ja Veyr") i dlaczego polityka
-    Akademii omija to laboratorium, zamiast przez nie przechodzic.
+    nieziainteresowana tym, zeby z tego korzystac. Lucan byl praktycznie jedyna osoba,
+    ktora potrafila z nim pracowac: organizowal badania i zamienial je we wspolautorskie
+    publikacje. To wyjasnia doktorat Lucana w wieku 21 lat, formalne stanowisko i pokoj
+    obok laboratorium, ale nie daje mu geniuszu ojca ani wlasnej katedry. Rodzinny nacisk
+    zablokowal wykonywanie pracy, granty i wyjazdy; pokoj nadal pozostaje przypisany.
+    Stanowisko bylo mlodym etatem badawczym w zespole ojca i obejmowalo okazjonalne,
+    obowiazkowe prowadzenie praktycznych zajec z anatomii, preparatyki i podstaw chemii
+    laboratoryjnej. Wspolna praca dotyczyla przede wszystkim
+    anatomii, biologii i chemii z magicznymi zastosowaniami. Dala Lucanowi warsztat idealnie
+    przenosny do materialnej nekromancji, niewiele tabu badawczych oraz odruch zarzadzania
+    laboratorium jako wiecznym kryzysem.
   the_forest: |
     Gdy Lucan byl maly, ojciec PODPALIL KILOMETRY LASU, testujac hipotezy o powstawaniu
     wulkanow. Praktycznie - nie na papierze. To jest wlasciwa kalibracja threat_scope:
@@ -67,17 +98,26 @@ not_a_party:
     sprawdza sie wykonujac ja, a skala jest kwestia tego, ile materialu bylo pod reka.
     Nikt go za to nie ukaral, co tez jest informacja - o uczelni, nie o nim.
 attitude_to_pc:
-  summary: Ciepło bez obecności. Nie wrogość ani pogarda - brak uwagi. Prawdopodobnie
-    nie wie nic o obecnym (nekromantycznym, przestępczym) życiu Lucana.
-  institutional_usefulness: Podwójna krawędź - obojętność wobec polityki oznacza, że
-    nie sprzeda Lucana dla własnej pozycji ani nie kalkuluje, ale też nie będzie o
-    niego walczył w żadnym sporze o jurysdykcję. Wartościowy jest jako ekspert i
-    kanał do Akademii, nie jako obrońca.
+  summary: >-
+    Ciepło połączone z selektywną obecnością. Nie wrogość, pogarda ani brak rozumu. Ojciec
+    zwykle wybiera badania zamiast życia społecznego, ale szanuje wolę Lucana i świadomie
+    odmówił uczestnictwa w próbie przymuszenia go do mariażu. Po prostu lubi swojego syna,
+    nawet jeżeli rozkojarzenie, letargi i fatalna pamięć czynią go zawodnym w zwykłej opiece.
+    Prawdopodobnie nie wie nic o obecnym nekromantycznym i przestępczym życiu syna.
+  institutional_usefulness: >-
+    Nie sprzeda Lucana dla własnej pozycji i nie pomoże rodom wymuszać posłuszeństwa. Nie
+    należy jednak zakładać, że da się go automatycznie zmobilizować jako politycznego obrońcę:
+    świadomie odrzuca tę grę i reaguje przede wszystkim na konkretny problem, własne zasady
+    albo próbę bezpośredniego przymusu.
   likely_hook: Prawdziwie nowatorski problem badawczy przyciągnie jego uwagę
     natychmiast, skuteczniej niż jakikolwiek apel rodzinny - Lucan pierwszy raz w
     życiu ma coś, co może go zainteresować.
 knowledge:
   confirmed:
+    - fact: Wiedział o dyskretnych poszukiwaniach Beatrix podczas zniknięcia Lucana i chciał
+        zostać powiadomiony tylko o śmierci, uwięzieniu albo bezpośrednim zagrożeniu; nie
+        chciał, by wykorzystano je do sprowadzenia syna wbrew jego woli.
+      source_event_id: retcon_000083
     - fact: Lucan zjawił się u niego w laboratorium wieczorem.
       source_event_id: event_turn_interlude_017_misnotice_past_porter
     - fact: Lucan przyniósł żywe jedwabniki.
@@ -197,5 +237,5 @@ history_disclosed_by_lucan:
     z Inkwizycja dwa razy i trzyma dowod na warsztatach. To nie jest naiwny, gubiacy watek
     akademik - to sojusznik znacznie mocniejszy i znacznie grozniejszy, niz zakladala.'
 
-source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed]
+source_refs: [source_user_decisions_current#background:family-fiancee-and-education-sabotage-revealed, retcon_000081, retcon_000082, retcon_000083]
 last_updated_event_id: event_turn_interlude_167

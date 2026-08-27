@@ -10,6 +10,36 @@ fears: [unlicensed_magic_linked_to_its_training, restrictive_precedent, loss_of_
 relationship_to_lucan:
   institutional_attitude: potential_subject_asset_or_liability
   possible_bargain: classification_or_expert_cover_in_exchange_for_access_or_obligation
+  historical_role:
+    source_ref: retcon_000069
+    post: young_researcher_attached_to_professor_veyrs_team
+    duties: [coauthor_and_research_organizer, occasional_mandatory_student_teaching]
+    teaching_subjects: [practical_anatomy, specimen_preparation, introductory_laboratory_chemistry]
+    teaching_style: >-
+      Kompetentne zajecia praktyczne, sekcje i proste doswiadczenia. Lucan byl bardzo mlody,
+      swobodny przy materiale biologicznym i przynosil z laboratorium ojca funkcjonalne, ale
+      nieortodoksyjne standardy bezpieczenstwa.
+    research_fields: [anatomy, biology, chemistry, magical_applications]
+    student_impression: >-
+      Odbior byl mieszany. Studenci praktyczni i eksperymentalni cenili bezposredni styl oraz
+      fakt, ze Lucan byl znacznie latwiejszy we wspolpracy niz ojciec. Ambitni i wrazliwi na
+      hierarchie widzieli doktora niewiele starszego od siebie, z nazwiskiem Veyr i podejrzanie
+      mocnym dorobkiem, wiec podejrzewali nepotyzm, dopisywanie do prac ojca albo specjalne
+      traktowanie. Konserwatywnych niepokoila swoboda wobec sekcji, ryzyka i tabu. Nie jest to
+      automatyczne podejrzenie nekromancji.
+    room_status:
+      source_ref: retcon_000078
+      assigned_to_lucan: true
+      preserved_by: npc_lucan_former_promoter
+      public_reason: still_contains_research_materials
+      actual_reason: beatrix_expected_him_to_return_or_resign_in_person
+  historical_people:
+    - id: npc_lucan_former_promoter
+      name: Profesor Beatrix Witte
+      role: head_of_magical_anatomy_and_applied_biochemistry_former_promoter_and_independent_evaluator_of_lucans_contribution
+      current_status: active_senior_professor_and_dominant_informal_power_in_her_building
+      formal_office: head_of_department_of_magical_anatomy_and_applied_biochemistry
+      institutional_shorthand: the_dean_has_the_office_beatrix_has_the_building
 knowledge:
   confirmed: []
   forbidden_without_event: [lucan_necromancy, spidey_network, varkhen_identity]
@@ -19,16 +49,19 @@ archive_and_recordkeeping:
       pochodzi od gracza jako kanon swiata i ZOSTAJE, ale w fikcji Lucan nie powiedzial tego
       jeszcze Seraphine - nie przypisywac jej tej wiedzy.'
   source_event_id: event_turn_interlude_040_grey_zone_and_the_glass_skull
-  source: 'Podane przez gracza jako wiedza Lucana o instytucji, w ktorej sam ma katedre.'
+  source: 'Podane przez gracza jako wiedza Lucana o instytucji, w ktorej uzyskal doktorat,
+    zachowal formalne stanowisko i wspoltworzyl prace ojca.'
   text: 'Akademia zbiera wszystko, co moze, i zapisuje to AUTOMATYCZNIE - gdzies. Kartoteka
     ma wiecej wymiarow, niz ktokolwiek potrafi ogarnac, wiec zapis nie jest tym samym co
     dostepnosc: leza tam notatki arcymagow z przed eonow, ktore wyleczylyby wszystkie
     choroby, i nikt nie umie ich znalezc. SKUTEK DLA GRY - nie modelowac archiwum Akademii
     jako rejestru, ktory da sie odpytac. Zapisanie czegos jest niemal pewne, odnalezienie
-    tego jest osobnym, trudnym zadaniem. Dotyczy to takze akt samego Lucana i przyczyny jego
-    urlopu dziekanskiego: sa zapisane, ale ktos musi ich SZUKAC, zeby na nie trafic.'
+    tego jest osobnym, trudnym zadaniem. Dotyczy to takze akt samego Lucana, jego doktoratu,
+    publikacji i rodzinnego nacisku, ktory zablokowal wykonywanie pracy, granty i wyjazdy,
+    pozostawiajac stanowisko oraz pokoj: sa zapisane, ale ktos musi ich SZUKAC, zeby na nie
+    trafic.'
 
-source_refs: [source_user_decisions_current#canon:construct_golem_boundary_conflict, source_user_decisions_current#direction:major_city_interest_groups]
+source_refs: [source_user_decisions_current#canon:construct_golem_boundary_conflict, source_user_decisions_current#direction:major_city_interest_groups, retcon_000078]
 leadership:
   source_event_id: event_turn_interlude_140
   declared_by: player_as_world_canon

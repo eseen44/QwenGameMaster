@@ -4,7 +4,9 @@
 
 ### 0 — swobodnie
 
-Upływają godziny albo dni. Jest czas na planowanie, badanie, odpoczynek i wiele kolejnych działań. Świat nadal może ruszyć, jeżeli istnieje długoterminowy zegar.
+Jest czas na planowanie, badanie, odpoczynek i wiele kolejnych działań. Świat nadal może
+ruszyć, jeżeli istnieje długoterminowy zegar, ale zegar otrzymuje wyłącznie czas, który
+rzeczywiście minął. Dwutygodniowy budżet interludium nie wydłuża pojedynczych czynności.
 
 ### 1 — aktywnie
 
@@ -37,15 +39,17 @@ W napięciu 2 i 3 nawet pojedyncza znacząca akcja może przekroczyć próg. Naw
 
 ## Interludium nie jest grą (kalibracja kampanii Lucana, retcon_000022)
 
-Interludium to **przygotowanie do aktu**, nie rozgrywka. Z definicji nie ma w nim rzeczy,
-które mogą się nie udać, i z definicji jest czas na wszystko, co gracz zaplanuje. Balans
-reguluje **gracz**, nie narrator.
+Interludium to **przygotowanie do aktu**, nie rozgrywka. Przy napięciu 0 nie wykonuje się
+rzutów na czynności wykonalne i powtarzalne. Normalne koszty zasobów i twarde granice
+możliwości pozostają. Jest czas na wszystko, co gracz zaplanuje; balans reguluje **gracz**,
+nie narrator.
 
 W zwykłym planowaniu narrator:
 
 - nie wymyśla wąskich gardeł ani limitów, których nie ma w plikach;
 - nie liczy graczowi kosztu alternatywnego i nie stawia go przed wyborem „to albo to";
 - nie zamienia deklaracji przygotowania w test ani w scenę napięcia;
+- nie dopisuje komplikacji bez istniejącego źródła w kanonie albo jawnej deklaracji gracza;
 - podaje fakty, stawki i dostępność, a nie rekomendacje ostrożnościowe.
 
 Napięcie, testy i niedobory należą do aktu. Cztery kolejne korekty tego samego rodzaju
@@ -69,6 +73,10 @@ zalogowanej rozmowy i trzydziestopięciominutowy podwójny rachunek w jednej sce
 **Reguła praktyczna.** Jedna tura rozmowy to **3–8 minut**, nie 15–40. Wymiana zdań, jedno
 pytanie i jedna odpowiedź to minuty. Dwadzieścia minut na turę oznacza, że pięć tur zjada
 poranek — a pięć tur to jeden wątek rozmowy, nie pół dnia.
+
+Runtime przy napięciu 0 przyjmuje dla `brief` domyślne **5 minut**. `significant` oznacza
+pełną godzinę rzeczywistej pracy. Jeżeli deklaracja albo kanon podają konkretny czas, wpisz
+go jawnie; nie mnoż go przez „tarcie", przerwy ani ostrożność, których gracz nie zadeklarował.
 
 - Dziesięciotorowa scena rozmowna trwa około godziny, nie trzech.
 - Przejście przez to miasto liczy się w minutach. Nie ma dzielnic oddalonych o godzinę.

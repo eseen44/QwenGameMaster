@@ -14,7 +14,7 @@ Narrator nie może dopisywać Lucanowi:
 
 ## Nawiasy
 
-Tekst w nawiasach może zawierać:
+Tekst w nawiasach jest kanałem niewidocznym z zewnątrz. Może zawierać:
 
 - pytanie do systemu;
 - prośbę o przeszukanie zasobów;
@@ -22,25 +22,36 @@ Tekst w nawiasach może zawierać:
 - przypomnienie dawnego faktu;
 - prywatne rozważanie Lucana;
 - doprecyzowanie intencji przyszłego działania.
+- natychmiastową decyzję zachodzącą wyłącznie w umyśle Lucana;
+- mentalny rozkaz albo czar, który uruchamia się natychmiast i pozostaje niezauważalny dla innych postaci.
 
-Nie jest on działaniem fizycznym ani wypowiedzią słyszaną przez NPC. Musi zostać poparty normalną deklaracją poza nawiasem, aby zmienić świat.
+Nie jest wypowiedzią słyszaną przez NPC i nigdy nie przesuwa czasu. Pytanie, myśl albo
+przyszła intencja nie wykonują działania. Natychmiastowy akt może jednak zmienić stan bez
+deklaracji poza nawiasem, jeżeli jego cały trigger i wykonanie mieszczą się wewnątrz postaci
+lub niewidocznego kanału. Runtime oznacza go jako `parenthetical_action: true` i wymusza
+`time_seconds: 0`.
 
-Wiadomość wyłącznie nawiasowa zatrzymuje czas sceny. Wyjątkiem jest zatwierdzenie korekty kanonu: może zmienić pliki, ale nadal nie przesuwa czasu w świecie.
+Nawias nie ukrywa fizyczności przed fikcją. Sięgnięcie po przedmiot, ruch ręki, gest,
+przemieszczenie się albo wypowiedzenie słów wymaga normalnej deklaracji poza nawiasem,
+jeżeli może zostać zauważone.
+
+Wiadomość wyłącznie nawiasowa zawsze zatrzymuje czas sceny. Może mimo to wykonać opisany
+wyżej akt wewnętrzny albo zatwierdzić korektę kanonu; oba przypadki zmieniają odpowiedni
+stan przy zerowym upływie czasu.
 
 ## Sprzeczności
 
 Jeśli gracz zgłasza błąd, narrator najpierw sprawdza lokalne źródła. Gdy źródła są niejednoznaczne, przedstawia konflikt i proponuje najmniejszą korektę potrzebną do odzyskania spójności. Zasada „gracz zawsze ma rację” nie zastępuje sprawdzenia kanonu.
 
 
-## Nawias zawierający czyn (retcon_000032, kalibracja gracza 25.08.2026)
+## Nawias zawierający akt wewnętrzny (retcon_000032, doprecyzowanie retcon_000060)
 
-Powyższa zasada dotyczy nawiasu jako **rozmowy z systemem**. Nie dotyczy nawiasu użytego
-jako znacznik „robię to po cichu, nie mówię tego na głos".
+Nawias może być znacznikiem „dzieje się to wyłącznie wewnątrz i teraz", a nie tylko
+rozmową z systemem.
 
-Jeżeli nawias zawiera deklarację CZYNU wykonalnego dyskretnie w trwającej scenie —
-rzucenie cantripa, sięgnięcie po coś w kieszeni, wydanie rozkazu słudze — narrator
-**rozstrzyga ten czyn** jak zwykłą deklarację. Zatrzymuje scenę i pyta tylko wtedy, gdy
-stawka jest nieodwracalna albo intencja jest realnie niejednoznaczna.
+Jeżeli nawias zawiera decyzję, mentalny rozkaz lub czar uruchamiany bez widocznego gestu,
+narrator rozstrzyga go jak deklarację, lecz nie przesuwa czasu. Dyskretność nie wystarcza:
+akt musi być rzeczywiście natychmiastowy i niezauważalny z zewnątrz.
 
-Nawiasem pozostają: pytanie do systemu, prośba o przeszukanie zasobów, reklamacja
-niespójności, przypomnienie faktu, prywatna myśl i deklaracja intencji na przyszłość.
+Pytanie do systemu, przeszukanie zasobów, reklamacja, przypomnienie faktu, luźna myśl i
+intencja na przyszłość nie są wykonanym działaniem.

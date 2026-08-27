@@ -13,6 +13,12 @@ Przed testem nietrywialnego działania fizycznego, magicznego albo wykonywanego 
 
 Naturalne `1` ani `100` nie omijają ograniczeń anatomii, skali, zasięgu, zasobu i dostępnych kanałów działania.
 
+Jawna blokada fazy w `campaigns/<id>/state/time.yaml#roll_policy` ma pierwszeństwo przed
+lokalnym werdyktem `conditional` albo `contested`. Przy `mode: disabled` nie rzucamy:
+wykonalna akcja daje `automatic` albo `automatic_with_cost`, a `impossible` i
+`possible_only_with_new_leverage` pozostają twardymi granicami. Odblokowanie wymaga jawnego
+przejścia do następnego aktu; nie wymaga ukończenia wszystkich planów interludium.
+
 ## Kiedy wykonywać test
 
 Test jest potrzebny, gdy:
@@ -23,6 +29,19 @@ Test jest potrzebny, gdy:
 - rezultat nie wynika już bezpośrednio z fikcji.
 
 Nie wykonuj testu na rutynowe przejście, zwykłe pytanie, oczywiste oględziny, przygotowanie bez presji ani czynność, której wynik został już ustalony.
+
+## Perk Lucana: Surfer chaosu
+
+Lucan ma trait `crisis_surfer` (`retcon_000071`). W żądaniu testu oznacz ogólną karę
+wynikającą ze stresu lub zamieszania jako modyfikator z `category: stress`. Runtime
+automatycznie ją neutralizuje. Nie obejmuje to magicznego strachu, przymusu, bólu, ran,
+zaburzeń zmysłów, braku wiedzy ani twardych ograniczeń zdolności.
+
+Jeżeli kryzys jest dla działania Lucana realnym narzędziem, ustaw
+`crisis_exploitable: true` i podaj co najmniej dwa prawdziwe `situation_tags` spośród:
+`time_pressure`, `multiple_simultaneous_failures`, `environmental_chaos`,
+`others_panicking`, `resource_triage`, `rapidly_changing_situation`. Runtime doda `+10`.
+Samo wysokie napięcie sceny albo dramatyczny opis nie uruchamia bonusu.
 
 ## Konstrukcja testu
 

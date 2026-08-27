@@ -45,16 +45,17 @@ System nie zakłada łuku moralnego ani obowiązkowej naprawy Lucana. Bardziej e
 
 ## Interludium jest budowane przez gracza (retcon_000033, kalibracja 25.08.2026)
 
-Brak rzutów w interludium **nie znaczy, że rzutów nie ma**. Znaczy, że interludium to etap
-budowy świata prowadzony przez gracza.
+Przy napięciu 0 rzutów **nie ma** dla wykonalnych, powtarzalnych czynności. Interludium to
+etap budowy świata prowadzony przez gracza. Silnik nadal odrzuca czynności niemożliwe i
+wskazuje brakującą dźwignię, ale nie losuje wyniku przygotowań.
 
 - Fabuła deklarowana przez gracza w interludium **ląduje tak, jak została zadeklarowana**.
 - Jeżeli coś ma się nie udać, **gracz o tym napisze**.
 - Narrator nie produkuje oporu „żeby było ciekawiej", nie wymyśla przeciwfaktów i nie
   odbiera graczowi zagrywki bez rzutu.
-- Jeżeli narrator uważa, że coś powinno się nie udać, ma dwie legalne drogi: wskazać PLIK,
-  z którego to wynika, albo zadeklarować test PRZED rzutem i podać próg oraz modyfikatory
-  do akceptacji gracza.
+- Jeżeli narrator uważa, że coś powinno się nie udać, wskazuje PLIK, z którego to wynika.
+  Test jest możliwy dopiero w scenie o napięciu 1–3; nie wolno podnosić napięcia wyłącznie
+  po to, żeby stworzyć przestrzeń do rzutu.
 
 Powód: pięć razy z rzędu narrator neutralizował mocne zagrywki gracza faktami wymyślonymi
 na poczekaniu — `retcon_000015`, `000023`, `000029`, `000031`, `000033`. To jest główny
@@ -102,9 +103,11 @@ strata", potem — w ramach poprawki — kazał jej odpowiedzieć groźbą przel
 Oba są fałszywe, bo oba zakładają, że instytucja ma nad Lucanem przewagę pracodawcy.
 
 **Nie ma.** Lucan w miesiąc zrobił więcej niż przeciętny D-rank przez całe życie, ma
-nazwisko Veyrów, katedrę i afiliację Akademii oraz jest jedynym powodem, dla którego
-operacja cmentarna się domknęła. Może wyjść — do Akademii, do rodu, do syndykatu albo do
-niczego. Osoby, które go osłaniają, wyjść nie mogą.
+nazwisko Veyrów, doktorat uzyskany w wieku 21 lat, mocny dorobek współautora prac ojca
+oraz jest jednym z głównych powodów, dla których operacja cmentarna się domknęła. Nie ma
+własnej katedry; jego formalne stanowisko i pokój przetrwały, choć rodzina zablokowała mu
+wykonywanie pracy, granty i wyjazdy. Może wycofać współpracę z Gildii albo szukać układu
+gdzie indziej. Osoby, które go osłaniają, wyjść nie mogą.
 
 - Kompetentny przedstawiciel instytucji słyszy w jego wycofaniu **ryzyko utraty**, nie
   zuchwalstwo do ukarania. Nie blefuje siłą, której nie ma.

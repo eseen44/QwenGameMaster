@@ -1,0 +1,51 @@
+schema_version: 1
+id: interlude_act_03_entry_scope
+status: approved_current_scope
+source_ref: retcon_000099
+phase: interlude_before_act_03
+purpose: >-
+  Ogranicza bieżącą grę do spraw, które Lucan może podjąć przed dwoma przesłuchaniami.
+  Nie jest warunkiem ukończenia: instytucje nie czekają, aż Lucan odhaczy całą listę.
+roll_policy:
+  mode: disabled_during_interlude
+  resolution: capability_method_time_resources_and_existing_consequences
+  hard_limits_remain: [impossible, possible_only_with_new_leverage]
+  ends_when: first_of_the_two_act_03_hearings_begins
+act_03_entry:
+  hearings:
+    - guild_leadership_hearing
+    - academy_church_showing_and_dispute_involving_kolm
+  rule: >-
+    Rozpoczęcie pierwszego przesłuchania kończy interludium i przywraca rzuty. Niewykonane
+    prace pozostają niewykonane i przechodzą do Aktu 3; nie opóźniają terminu.
+workstreams:
+  - id: guild_and_watch
+    scope: Przygotować rozprawę w Gildii i sposób poradzenia sobie ze Strażą.
+  - id: lawyer_and_priest
+    scope: Odbyć spotkania z prawnikiem oraz kapłanem.
+  - id: church_and_kolm
+    scope: Przygotować linię na dyskusję z Kościołem i starcie argumentacyjne z Kolmem.
+  - id: tannery_signet_owner
+    scope: Zbadać sygnet jelenia oraz obecnego i poprzedniego właściciela garbarni.
+  - id: rusk_and_magistracy
+    scope: Zbadać Ruska i kanał magistratu; wolno połączyć z wątkiem sygnetu i garbarni.
+  - id: companion_workshop
+    scope: Dokończyć naprawy zwierzątek; po dostawie dużych pajęczaków w 6.-7. dniu wykonać co najmniej jeden okaz pokazowy.
+  - id: mara_training
+    scope: Kontynuować codzienne ćwiczenia z Marą.
+  - id: lucan_development
+    scope: Rozwijać aktywne zdolności oraz przez lektury umiejętności używane w testach.
+  - id: necromantic_high_houses
+    scope: Zbadać wysoko urodzonych zainteresowanych nekromancją przez comiesięcznego gońca w liberii z targu książek.
+not_currently_scheduled:
+  - Dom Brandt i Klara nie wchodzą obowiązkowo przed ani na początku Aktu 3.
+  - Dopuszczalna jest wyłącznie krótka migawka lub informacja od Seraphine, jeśli naturalnie wyniknie ze śledztwa.
+  - Beatrix nie ma zaplanowanego wejścia; jej karta określa zachowanie tylko na wypadek naturalnego spotkania.
+  - Nie planować dalszych faz, fizycznej eskalacji, świadków z przeszłości ani zakończenia Aktu 3 przed rozegraniem dwóch przesłuchań.
+refs:
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_signet_heraldry_research
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_tannery_owner_followup
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_ruskys_pen_must_be_switched_off_before_the_hearing
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_want_list_livery_boy_monthly

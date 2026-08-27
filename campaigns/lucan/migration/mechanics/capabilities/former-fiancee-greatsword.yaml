@@ -1,0 +1,16 @@
+schema_version: 1
+id: capability_former_fiancee_greatsword_strike
+object_type: capability
+status: proposed_calibrated
+name: Klara Brandt — cięcie wielkim mieczem
+tags: [contact, trauma, structural_trauma, heavy_weapon]
+delivery:
+  method: two_handed_greatsword
+  requirements: [reach_contact, both_hands_free, stable_footing, sufficient_swing_room]
+  rating_path: ratings.accuracy
+  target_defense_path: defenses.mobility
+ratings: {accuracy: 48, tissue_trauma: 55, structural_trauma: 48, armor_pressure: 46}
+resource_costs: [{pool: combat_stamina, units: 1}]
+effects: []
+strengths: [reach, stopping_power, punishes_static_targets, formation_lane_control]
+weaknesses: [cramped_spaces, interrupted_windup, highly_mobile_targets, disarm_or_entanglement]

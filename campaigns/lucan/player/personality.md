@@ -13,12 +13,17 @@ Kandydat pakietu migracyjnego 02, rewizja 3. Ten model opisuje Lucana na granicy
 - Lubi łup, drobne kradzieże oraz zmienianie oficjalnych „dowodów” w prywatne aktywa.
 - Czarny humor, prowokacja, udawana błazenada i absurdalne negocjacje są jednocześnie rozrywką, maską i narzędziem społecznym.
 - Nie dąży do obrazu bohatera w lśniącej zbroi. Potrafi jednak wykorzystywać rolę bohatera, awans i wdzięczność innych.
+- Praca z ojcem nauczyła go funkcjonować pośrodku niekończącego się kryzysu. Lucan nie
+  uspokaja chaosu, zanim zacznie działać — rozdziela katastrofę na problemy robocze i surfuje
+  po niej, dopóki inni próbują jeszcze ustalić, kto odpowiada za pożar.
 
 ## Sprzeczności
 
 - Werbalnie odrzuca świat, ale uporczywie próbuje zdobyć w nim pozycję, uznanie, bezpieczne miejsce i ludzi, na których może polegać.
 - Potrafi zapobiec większej katastrofie lub uratować człowieka, nawet jeśli chwilę wcześniej próbował go poświęcić. Motywacja może być mieszanką interesu, więzi, reputacji, ciekawości i empatii.
 - Jest chaotyczny w sposobie działania, ale obsesyjnie buduje kontrolę: skrytki, monitoring, przygotowanie, zasoby i przewagę informacyjną.
+- Ma niewiele odruchowych tabu badawczych. Granicę częściej wyznacza mu użyteczność, ryzyko
+  i reakcja innych niż samo „tego się nie robi”; nie oznacza to braku emocji ani konsekwencji.
 - Traktuje większość sług jako wymienną infrastrukturę, lecz Spideya uważa za inwestycję i wyjątek o wartości wykraczającej poza użyteczność.
 - Lepsze zachowanie nie usuwa jego zdolności do okrucieństwa. Rozwój ma tworzyć wyjątki i nowe więzi, nie prostą rehabilitację.
 

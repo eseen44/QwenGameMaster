@@ -22,6 +22,31 @@ def write_yaml(path: Path, document: dict) -> None:
 
 
 class GameMasterRuntimeTests(unittest.TestCase):
+    def test_crisis_surfer_cancels_generic_stress_and_exploits_real_chaos(self) -> None:
+        actor = {"traits": ["crisis_surfer"]}
+        request = {
+            "modifiers": [{"source": "crowd_panic", "category": "stress", "value": -15}],
+            "situation_tags": ["others_panicking", "time_pressure"],
+            "crisis_exploitable": True,
+        }
+
+        modifiers = gm_runtime.crisis_surfer_modifiers(actor, request)
+
+        self.assertEqual([item["value"] for item in modifiers], [15, 10])
+
+    def test_crisis_surfer_does_not_cancel_fear_or_pain(self) -> None:
+        actor = {"traits": ["crisis_surfer"]}
+        request = {
+            "modifiers": [
+                {"source": "magical_fear", "category": "mental_effect", "value": -15},
+                {"source": "broken_rib", "category": "pain", "value": -10},
+            ],
+            "situation_tags": ["time_pressure"],
+            "crisis_exploitable": False,
+        }
+
+        self.assertEqual(gm_runtime.crisis_surfer_modifiers(actor, request), [])
+
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.campaign = Path(self.temp.name)
@@ -48,7 +73,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
                 "status": "active",
                 "scene_id": "scene_test",
                 "location_ref": None,
-                "tension": {"level": 0, "reason": None},
+                "tension": {"level": 1, "reason": "test fixture"},
                 "participants": ["spidey", "target"],
                 "pressures": [],
                 "immediate_questions": [],
@@ -166,7 +191,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
             "intent_id": "intent_apply_condition",
             "stakes": "Paraliż albo alarm.",
             "scope": "execution",
-            "time_class": "brief",
+            "time_seconds": 600,
         }
 
     def outcome(self) -> dict:
@@ -203,12 +228,106 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual(result["status"], "system_only_noop")
         self.assertEqual(result["time_seconds"], 0)
 
+    def test_parenthetical_internal_action_can_change_state_without_advancing_time(self) -> None:
+        request = {
+            "turn_id": "turn_internal_action",
+            "declared_action": "(Wydaje mentalny rozkaz Spideyowi.)",
+            "actor_id": "spidey",
+            "parenthetical_action": True,
+            "fiction_verdict": "automatic",
+            "time_seconds": 999,
+        }
+        preview = gm_runtime.preview_turn(self.campaign, request)
+        self.assertEqual(preview["status"], "preview")
+        self.assertTrue(preview["parenthetical_action"])
+        self.assertEqual(preview["time_seconds"], 0)
+        transaction = gm_runtime.resolve_turn(self.campaign, request, False)
+        gm_runtime.commit_turn(
+            self.campaign,
+            "turn_internal_action",
+            {
+                "intent_achieved": True,
+                "arrangement": "unchanged",
+                "perspective": "pc_lucan",
+                "summary": "Spidey otrzymuje mentalny rozkaz.",
+                "operations": [],
+            },
+            False,
+        )
+        time_doc = gm_runtime.load_yaml(self.campaign / "state" / "time.yaml")
+        self.assertEqual(time_doc["elapsed_seconds_total"], 0)
+
+    def test_tension_zero_interlude_never_rolls_a_viable_repeatable_action(self) -> None:
+        scene_path = self.campaign / "context" / "scene.yaml"
+        scene = gm_runtime.load_yaml(scene_path)
+        scene["tension"] = {"level": 0, "reason": None}
+        write_yaml(scene_path, scene)
+        request = self.request("turn_interlude")
+        request.pop("time_seconds")
+        request["time_class"] = "brief"
+        preview = gm_runtime.preview_turn(self.campaign, request)
+        self.assertFalse(preview["roll_allowed"])
+        self.assertIn(preview["assessment"]["verdict"], {"automatic", "automatic_with_cost"})
+        self.assertEqual(preview["time_seconds"], 300)
+        transaction = gm_runtime.resolve_turn(self.campaign, request, False)
+        self.assertIsNone(transaction["roll"])
+
+    def test_explicit_interlude_policy_disables_rolls_even_above_tension_zero(self) -> None:
+        time_path = self.campaign / "state" / "time.yaml"
+        time_doc = gm_runtime.load_yaml(time_path)
+        time_doc["roll_policy"] = {
+            "mode": "disabled",
+            "until": "act_03_starts",
+        }
+        write_yaml(time_path, time_doc)
+        scene_path = self.campaign / "context" / "scene.yaml"
+        scene = gm_runtime.load_yaml(scene_path)
+        scene["tension"] = {"level": 2, "reason": "social friction without Act 3 stakes"}
+        write_yaml(scene_path, scene)
+
+        preview = gm_runtime.preview_turn(self.campaign, self.request("turn_locked_interlude"))
+
+        self.assertEqual(preview["roll_policy_mode"], "disabled")
+        self.assertFalse(preview["roll_allowed"])
+        self.assertIn(preview["assessment"]["verdict"], {"automatic", "automatic_with_cost"})
+        self.assertIn("Campaign phase disables rolls", preview["assessment"]["rule"])
+
+    def test_tension_zero_complication_requires_a_source(self) -> None:
+        scene_path = self.campaign / "context" / "scene.yaml"
+        scene = gm_runtime.load_yaml(scene_path)
+        scene["tension"] = {"level": 0, "reason": None}
+        write_yaml(scene_path, scene)
+        request = {
+            "turn_id": "turn_interlude_complication",
+            "declared_action": "Lucan porzadkuje notatki.",
+            "actor_id": "spidey",
+            "fiction_verdict": "automatic",
+            "time_seconds": 0,
+        }
+        gm_runtime.resolve_turn(self.campaign, request, False)
+        outcome = {
+            "intent_achieved": True,
+            "arrangement": "complicated",
+            "perspective": "pc_lucan",
+            "summary": "Porzadek ujawnia istniejacy problem.",
+            "operations": [],
+        }
+        with self.assertRaisesRegex(gm_runtime.RuntimeError, "consequence_source_refs"):
+            gm_runtime.commit_turn(
+                self.campaign, "turn_interlude_complication", outcome, False
+            )
+        outcome["consequence_source_refs"] = ["player_declaration:problem_was_requested"]
+        committed = gm_runtime.commit_turn(
+            self.campaign, "turn_interlude_complication", outcome, False
+        )
+        self.assertEqual(committed["status"], "committed")
+
     def test_automatic_turn_records_actor_without_entering_capability_engine(self) -> None:
         request = {
             "turn_id": "turn_automatic_actor",
             "declared_action": "Spidey przechodzi pod stół i nasłuchuje.",
             "actor_id": "spidey",
-            "time_class": "brief",
+            "time_seconds": 600,
         }
         transaction = gm_runtime.resolve_turn(self.campaign, request, False)
         self.assertEqual(transaction["preview"]["assessment"]["verdict"], "automatic")
@@ -673,9 +792,51 @@ class GameMasterRuntimeTests(unittest.TestCase):
         )
 
     def test_brief_opens_a_session_without_the_journal(self) -> None:
+        time_path = self.campaign / "state" / "time.yaml"
+        time_doc = gm_runtime.load_yaml(time_path)
+        time_doc["campaign_phase"] = "interlude_before_act_03"
+        time_doc["roll_policy"] = {
+            "mode": "disabled",
+            "until": "first_of_two_act_03_hearings_begins",
+            "source_ref": "retcon_test",
+        }
+        write_yaml(time_path, time_doc)
+        objectives_path = self.campaign / "state" / "objectives.yaml"
+        objectives_doc = gm_runtime.load_yaml(objectives_path)
+        objectives_doc["current_interlude_scope"] = {
+            "source_ref": "retcon_test",
+            "detail_ref": "planning/interlude.yaml",
+            "completion_gate": False,
+            "rolls": "disabled_until_hearing",
+            "entry_rule": "The first hearing starts the act; unfinished work carries over.",
+            "workstreams": ["training", "investigation"],
+        }
+        objectives_doc["player_declared"] = [
+            {
+                "id": "objective_test",
+                "status": "active",
+                "commitment": "Prepare for the hearing.",
+                "source_refs": ["journal/huge-history.jsonl"],
+                "rationale": "x" * 10000,
+                "steps": [
+                    {"id": "finished", "state": "done", "summary": "x" * 1000},
+                    {"id": "open", "state": "pending", "summary": "x" * 1000},
+                ],
+            }
+        ]
+        write_yaml(objectives_path, objectives_doc)
+
         brief = gm_runtime.session_brief(self.campaign, full=False)
         self.assertEqual(brief["campaign"], "campaign_test")
         self.assertEqual(brief["scene"]["id"], "scene_test")
+        self.assertEqual(brief["time"]["campaign_phase"], "interlude_before_act_03")
+        self.assertEqual(brief["time"]["roll_policy"], "disabled")
+        self.assertEqual(
+            brief["time"]["roll_policy_until"],
+            "first_of_two_act_03_hearings_begins",
+        )
+        self.assertFalse(brief["current_scope"]["completion_gate"])
+        self.assertEqual(brief["objectives"][0]["open_step_ids"], ["open"])
         self.assertIn("AGENTS.md", brief["rules"])
         self.assertEqual(
             [item["id"] for item in brief["participants"]], ["spidey", "target"]
@@ -686,6 +847,8 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual([clock["id"] for clock in brief["clocks"]], ["clock_patrol"])
         rendered = json.dumps(brief, ensure_ascii=False)
         self.assertNotIn("source_refs", rendered)
+        self.assertNotIn("rationale", rendered)
+        self.assertLess(len(rendered), 10000)
         full = gm_runtime.session_brief(self.campaign, full=True)
         self.assertIn("documents", full)
 

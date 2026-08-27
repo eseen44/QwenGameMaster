@@ -20,10 +20,11 @@ clocks:
   seconds_per_step: 86400
   elapsed_seconds: 51000
   last_source_event_id: event_turn_interlude_030_the_seminar_problem
-  trigger: lucan_agreed_out_loud_to_provide_several_specimens_for_a_conference
-  effect: Okazy Lucana trafiają do JUŻ WYZNACZONEJ otwartej dysputy (ok. 16 dni, npc_neris_aldhen
-    kontra npc_ivar_kolm), a nie na prywatny pokaz. Wezwanie ma postać SEMINARIUM,
-    którego nie da się odrzucić, i seminarium ZAPISUJE. Gildia nie ma nad tym jurysdykcji.
+  trigger: lucan_committed_to_at_least_one_specimen_for_the_discussion
+  effect: Co najmniej jeden okaz Lucana trafia do JUŻ WYZNACZONEJ otwartej dysputy (ok. 16 dni,
+    npc_neris_aldhen kontra npc_ivar_kolm). Dodatkowe jednostki mogą posłużyć demonstracji
+    i destrukcyjnej sekcji, ale ich liczba nie jest zobowiązaniem. Wezwanie ma postać
+    seminarium, a Gildia nie ma nad nim jurysdykcji.
   world_test_required: false
   reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.father_arranges_academy_showing
@@ -40,8 +41,9 @@ clocks:
     oficjalnie), nie zna sztywnej daty. Nie pozwalać mu planować "na piętnasty dzień"
     jak na datę pewną.
   trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
-  effect: Wezwanie i przesłuchanie Lucana przed kierownictwem gildii w kontekście
-    przesłuchań instytucjonalnych; na tej samej sesji rozstrzyga się nagroda za Akt
-    2.
+  effect: Wewnętrzne śledztwo gildii dochodzi do etapu rozstrzygnięcia przez kierownictwo;
+    Lucan może zostać wezwany. Dopiero po zakończeniu śledztwa gildia odblokuje albo
+    inaczej rozliczy nagrodę za Akt 2. Nagroda jest kijem i marchewką, ale nie musi być
+    rozstrzygana podczas jednego konkretnego przesłuchania.
   world_test_required: false
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.guild_leadership_hearing

@@ -207,11 +207,11 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   **trzy kwadranse marszu** (t_086) — nie „pełna noc" i nie „włazem od kanału" (właz jest
   drogą stonóg). Świeży audyt: `python tools/audit_refs.py`.
 
-- **Nawias zawierający CZYN jest deklaracją** (retcon_000032, ustalone 25.08.2026). Jeśli
-  gracz pisze w nawiasie coś, co Lucan może zrobić po cichu w trwającej scenie - rzucić
-  cantripa, sięgnąć do kieszeni, wydać rozkaz słudze - to znacznik „robię to, nie mówię tego
-  na głos", a nie rozmowa z systemem. ROZSTRZYGNIJ TO. Zatrzymuj scenę tylko przy stawce
-  nieodwracalnej. Odmowa wykonania „(rzucam pecha)" kosztowała jedną turę do przepisania.
+- **Nawias może zawierać natychmiastowy akt wewnętrzny** (retcon_000032 doprecyzowany
+  przez retcon_000060). Decyzja, mentalny rozkaz albo czar bez widocznego gestu zostają
+  rozstrzygnięte i mogą zmienić stan, ale zawsze kosztują `0` sekund. Sama dyskretność nie
+  wystarcza: sięgnięcie do kieszeni, ruch ręki lub inne zauważalne działanie wymaga tekstu
+  poza nawiasem. W runtime ustaw `parenthetical_action: true`.
 - **Nawias = poza grą, ale nie „do zignorowania".** Tekst w nawiasach nie jest słyszany
   w świecie, nie przesuwa czasu i nie uruchamia testu. Mieści w sobie: pytanie do systemu,
   prośbę o przeszukanie zasobów, reklamację niespójności, przypomnienie dawnego faktu,
