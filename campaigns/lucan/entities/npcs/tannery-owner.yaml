@@ -2,14 +2,14 @@ schema_version: 1
 id: npc_tannery_owner
 name: Właściciel garbarni (nazwisko znane Lucanowi, nieustalone w zapisie)
 status: active
-importance: act_01_creditor_and_victim_of_lucan_currently_detained
+importance: act_01_creditor_and_victim_of_lucan_at_large_case_still_open
 role: Właściciel garbarni i podziemi pod nią. Zatrudnił Lucana przez gildię do
-  eksploracji podziemi. Obecnie w areszcie miejskim.
-current_location_id: loc_guild_holding_cells
+  eksploracji podziemi. Był w areszcie miejskim, WYSZEDŁ.
+current_location_id: loc_lumaria
 current_zone_id: unknown
-location_note: 'Areszt miejski PRZY ZACHODNIEJ STRAZNICY - nie jest to areszt gildii.
-  loc_guild_holding_cells to najblizszy istniejacy identyfikator i jest NIEDOKLADNY;
-  wlasnego pliku lokacji ta lokacja nie ma.'
+location_note: 'NA WOLNOSCI od event_turn_interlude_032. Dokladne miejsce pobytu
+  nieustalone; loc_lumaria to miasto jako calosc. Areszt, w ktorym siedzial, byl przy
+  ZACHODNIEJ STRAZNICY i nie jest to areszt gildii.'
 lifecycle: {state: alive_confirmed, last_confirmed_event_id: event_act_02_closeout_interlude_import}
 name_status: |
   Zrodlo Aktu 1 nigdy nie podaje jego nazwiska w tekscie, ALE Lucan je zna: dokument
@@ -29,21 +29,37 @@ portrayal:
     klejnoty, cienki zloty lancuszek. Cztery sygnety i herb. Kim on wiec jest naprawde -
     NIEUSTALONE i wlasnie to jest ciekawe.
   what_he_wants: |
-    Wyjsc z aresztu i odzyskac zamrozony majatek. Wszystko inne jest wobec tego wtorne -
-    lacznie z Lucanem, o ktorym na razie nie ma czasu myslec.
+    Zdjac z siebie sprawe i odzyskac to, co miasto zamrozilo. Sprawa jest FORMALNIE OTWARTA,
+    wiec nie jest wolny - jest na zewnatrz. Wszystko inne jest wobec tego wtorne, lacznie
+    z Lucanem.
   what_he_refuses: |
     Powiedziec, po co chcial papiery poprzednika. Zlecenie bylo sformulowane tak, zeby nie
     trzeba tego mowic ("przynosisz je najpierw mnie" - zanim zobaczy je miasto).
   what_he_can_lose: 'Zaklad, majatek i wolnosc. Czesc juz stracil.'
 
 current_situation:
-  source: 'historical-full-run.utf8.txt#line:6255-6290'
-  detained: 'Areszt miejski przy zachodniej straznicy. Sledczy przesluchuja go od
-    poprzedniego dnia. Recepcjonistka gildii: "Nie wejdziesz tam po prostu z ulicy."'
-  estate_frozen: 'Miasto zamrozilo mu CZESC MAJATKU, a sledczy grzebia w jego dokumentach.'
-  tannery_now: 'Garbarnie prowadzi tymczasowo BRYGADZISTA. Podziemia nadal zabezpieczone
-    przez ekipe A-rank gildii.'
-  summed_up: 'Zywy, wkurzony i bardzo zajety wlasnymi problemami.'
+  status_corrected: 'retcon_000058, 2026-08-27. Karta mowila "SIEDZI" - bylo to
+    NIEAKTUALNE. Seraphine powiedziala Lucanowi wprost, ze wlasciciel wyszedl.'
+  released:
+    source_event_id: event_turn_interlude_032_relic_watch_lead_and_a_bed
+    told_by: npc_seraphine_vale
+    text: 'Wlasciciel WYSZEDL - za poreczeniem albo po prostu z braku kogokolwiek, kto by
+      sprawe prowadzil. Sprawa garbarnika jest FORMALNIE OTWARTA.'
+  the_lever_seraphine_handed_over: |
+    Przy tej samej okazji Seraphine dala Lucanowi dzwignie, ktorej nie uzyl: DOM
+    PRZYPISANY DO OTWARTEGO POSTEPOWANIA MOZNA LEGALNIE PRZESZUKAC Z NAKAZEM. Sprawa jest
+    otwarta, wiec droga stoi otworem do dzis.
+  earlier_detention_history: |
+    Wczesniej: areszt miejski przy zachodniej straznicy, sledczy przesluchiwali go od
+    poprzedniego dnia, miasto zamrozilo CZESC MAJATKU, garbarnie prowadzil tymczasowo
+    brygadzista, podziemia zabezpieczone przez ekipe A-rank gildii. To jest HISTORIA,
+    nie stan biezacy. Czy majatek nadal jest zamrozony i czy brygadzista nadal prowadzi
+    zaklad - NIEUSTALONE.
+  why_he_was_detained: |
+    Lucan przekazal Seraphine dokumenty dowodzace, ze wlasciciel WCZESNIEJ ZNAL SKALE
+    ZAGROZENIA i probowal zlecic zniszczenie sladow (milestone_022_owner_exposed_and_detained,
+    fact_seraphine_received_tannery_evidence). Czyli to Lucan go wsadzil - papierami,
+    ktore mial przyniesc jemu.
 
 # ---------------------------------------------------------------------------
 what_lucan_did_to_him:
@@ -67,14 +83,18 @@ what_lucan_did_to_him:
 
 exposure:
   who_he_would_suspect: |
-    Lucan jest JEDYNA osoba, ktora przychodzi na mysl przy tym wlamaniu, i to nie wymaga
-    sledztwa: skrytke otwarto jego wlasnymi kluczami, ktore dal jednemu czlowiekowi,
-    a ten czlowiek zniknal i sie nie zglosil po obiecane pieniadze.
-  why_it_is_worse_than_it_looks: |
-    SLEDCZY JUZ TERAZ PRZEGLADAJA JEGO DOKUMENTY I ROZLICZAJA MAJATEK. Akty wlasnosci
-    i weksle, ktore Lucan wynios, sa wlasnie tym, czego w takim audycie MA NIE BYC -
-    czyli brak zostanie zauwazony przez miasto, nie przez niego. Nie trzeba tego rozgrywac
-    jako zegara; wystarczy pamietac, ze audyt trwa.
+    Lucan jest naturalnym kandydatem - skrytke otwarto jego wlasnymi kluczami, danymi
+    jednemu czlowiekowi, ktory potem zniknal. ALE JEST TO PODEJRZENIE, NIE WIEDZA, i nie
+    zamienia sie w wiedze samo z siebie.
+  co_on_realnie_wie: |
+    Ze rzeczy znikly i ze ktos je zabral. NIE WIE co dokladnie ani kto
+    (inventory#item_three_arrow_deer_signet.if_it_surfaces.nobody_has_a_list). Nie ma
+    spisu do porownania - poprzednia wersja tej karty budowala hak z "audytu majatku
+    kontra spis przekazanych rzeczy". Takich list w kanonie nie ma; usuniete
+    retconem 000058. NIE ODBUDOWYWAC.
+  co_lucan_moze_powiedziec: |
+    Stojac przed nim ma wolny wybor wersji - ze przedmiot jest z gildii, albo ze go
+    znalazl. Obie sa nieweryfikowalne.
   what_he_does_NOT_have: |
     NIE MA nic na nekromancje Lucana. NIKT W AKCIE 1 NIE WIDZIAL SPIDEYA - a juz na pewno
     nikt, kto przezyl (kalibracja gracza 2026-08-27). Spidey dzialal wylacznie skrycie:
@@ -109,11 +129,12 @@ relationships:
 do_not_invent:
   - 'Nazwiska, herbu, rodu ani zwiazku z poprzednim wlascicielem - patrz
      planning/act-03-anticipated-shape.yaml#watek_garbarni_dwaj_wlasciciele.'
-  - 'Tego, czy wyszedl z aresztu. Wyjscie jest ZDARZENIEM, o ktorym Lucan ma dostac
-     informacje z gildii (objectives#tannery_owner_release_tripwire).'
+  - 'Haka z porownywania spisow. Nie ma zadnych spisow - patrz #exposure.co_on_realnie_wie
+     oraz retcon_000058. Trzeci raz w jednej sesji ten sam tryb awarii.'
+  - 'Tego, ze szuka Lucana. Ma na glowie otwarte postepowanie i zamrozony majatek.'
   - 'Zadnej wiedzy o nekromancji, Spideyu ani sieci.'
 
-last_updated_event_id: player_declaration_2026_08_27_act_01_review
+last_updated_event_id: retcon_000058
 source_refs:
   - 'migration/sources/normalized/historical-full-run.utf8.txt#line:1555'
   - 'migration/sources/normalized/historical-full-run.utf8.txt#line:2340-2360'

@@ -164,6 +164,25 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 
 ## Zasady, o które łatwo się potknąć
 
+- **NIE SZUKAJ HAKÓW NA GRACZA — a zwłaszcza nie buduj ich z list, które nie istnieją**
+  (retcon_000058, 27.08.2026, TRZECI raz w jednej sesji po retcon_000055 i całej serii
+  retcon_000015/23/29/31/33). Mechanizm awarii jest konkretny i powtarzalny: narrator
+  sprawdza, czy ktoś **mógłby w zasadzie** zestawić dwa zbiory informacji, i traktuje samą
+  teoretyczną możliwość jako dowód, że te zbiory istnieją. Przykład: „spis rzeczy
+  przekazanych gildii" kontra „audyt zamrożonego majątku" — żadnego z nich nie ma w plikach.
+  **Test przed napisaniem ekspozycji: wskaż PLIK, w którym ta lista/ten świadek/ten zapis
+  istnieje. Jeśli nie umiesz, ekspozycji nie ma.** NPC wie tyle, ile zdobył zdarzeniem;
+  „rzeczy zniknęły i ktoś je zabrał" NIE jest równe „wiadomo co i kto".
+  Domyślnie **ambiwalencja działa na korzyść gracza** — gdy nie ma z czym skonfrontować jego
+  wersji, może wybrać wersję. Proporcjonalna konsekwencja to zwykle czyjaś irytacja, nie
+  śledztwo.
+- **Sprawdź KARTY NPC, nie tylko źródło aktu, zanim opiszesz stan świata** (retcon_000058).
+  Karta właściciela garbarni mówiła „SIEDZI w areszcie", bo narrator napisał ją ze źródła
+  Aktu 1 i nie sprawdził późniejszych tur. Seraphine powiedziała Lucanowi w `t_032`, że
+  **wyszedł**. Źródło aktu daje historię; bieżący stan mieszka w `entities/npcs/*.yaml`
+  i w dzienniku. Przy wątku z przeszłości czytaj OBA i pytaj, kto od tamtej pory coś o tym
+  powiedział — `gm.ps1 recall <fraza>` jest do tego.
+
 - **ADRESATEM TEKSTU POZA NAWIASEM JEST OSOBA W SCENIE, NIE TY** (retcon_000054, 27.08.2026).
   Wiadomość gracza może mieszać rejestry w jednym akapicie: fakt o świecie, deklarację ruchu
   i pytanie — ale jeśli obok Lucana ktoś stoi, to **domyślnie mówi do tej osoby**. Zanim uznasz
