@@ -1,0 +1,108 @@
+schema_version: 1
+campaign_id: campaign_lucan
+status: player_expectation_not_binding
+declared_by: player
+source_event_id: player_declaration_2026_08_27_out_of_scene
+purpose: |
+  Zarys tego, jak GRACZ spodziewa sie ksztaltu Aktu 3. Zapisany, zeby narrator wiedzial,
+  w ktora strone przygotowywac swiat i czego NIE psuc. Nie jest to harmonogram fabuly.
+
+# ---------------------------------------------------------------------------
+gdzie_jestesmy:
+  correction_source: 'Poprawka gracza 2026-08-27: "nadal jestesmy PRZED aktem 3".'
+  text: |
+    INTERLUDIUM NIE JEST AKTEM 3 - jest przygotowaniem do niego. Nazwy plikow
+    (planning/act-03-*.yaml, scene_act_03_interlude_*) sa MYLACE i zostaja wylacznie
+    dla stabilnosci referencji; nie renowac. Czytac je jako "materialy do Aktu 3",
+    nie "Akt 3 w toku".
+  akt_3_zaczyna_sie_od: |
+    Trzy zdarzenia instytucjonalne, ktore juz maja zegary i daty:
+      1. przesluchanie przed kierownictwem gildii (clock_guild_leadership_hearing),
+         na tej samej sesji rozstrzyga sie nagroda za Akt 2;
+      2. otwarta dysputa npc_neris_aldhen kontra npc_ivar_kolm;
+      3. seminarium, ktorego nie da sie odrzucic i ktore ZAPISUJE
+         (clock_father_arranges_academy_showing).
+    To jest "rozprawa, dyskusja i ten trzeci" ze slow gracza.
+
+# ---------------------------------------------------------------------------
+przewidywany_luk:
+  faza_1_instytucjonalna: 'Trzy zdarzenia wyzej. Papier, forum, swiadkowie.'
+  faza_2_burza_polityczna: |
+    Rozstrzygniecia z fazy 1 przestaja byc sprawa Lucana i staja sie sprawa miasta.
+    Kanon juz to zapowiada: otwarta dysputa jest ETAPEM OBSADZANIA WLADZY Akademii
+    (factions/lumaria-magical-academy.yaml#leadership), a zysk z zamieszek maja
+    konkretne frakcje Kosciola i magow.
+  faza_3_fizyczna: |
+    Dopiero tu wraca przemoc. Gracz wymienia trzy strony i dwa warianty eskalacji.
+    Nie sa to przeciwnicy do wystawienia po kolei - sa to strony, ktore moga sie
+    ZLOZYC, i wlasnie dlatego jest to burza, a nie seria walk.
+
+# ---------------------------------------------------------------------------
+# Rozdzial jest istotny: czesc tej listy stoi juz w plikach, czesc jest nowa.
+# Narrator NIE MOZE traktowac calosci jako ustalonej ani jako zabronionej.
+strony_fazy_fizycznej:
+  - id: religijni_fanatycy
+    canon_status: MA_POKRYCIE
+    where: |
+      Kosciol "fanatycznie zwalcza praktyke" (migration 04-npcs-factions, rewizja 10);
+      necromancy-law#church_position. Co wiecej, fanatyzm jest JUZ wpisany w projekt
+      granicy jako narzedzie: Lucan liczy, ze "profesor Veyr nie doczyta do konca,
+      fanatycy religijni tak" (t_168 / neris-aldhen knowledge).
+    note: 'Czyli zapis, ktory Lucan wlasnie wspolpisze, sam sciaga te strone na siebie.'
+  - id: straz_miejska_zacierajaca_slady
+    canon_status: MA_POKRYCIE
+    where: |
+      Straz miejska ma wlasny zysk w zamieszkach, bo ZAKRYWA afere z handlem zwlokami
+      na cmentarzu - ustalone t_140, powtorzone w planning/lucan-leads.yaml#711 oraz
+      w wiedzy Neris. Osobno wisi nierozwiazany lancuch autoryzacji polnocno-zachodniej
+      zapory (objectives#trace_northwest_gate_authorisation_chain, zlecone Seraphine).
+    note: |
+      Ta strona NIE atakuje Lucana za nekromancje - atakuje za to, ze patrzy na
+      cmentarz. Motyw jest zatarcie, nie doktryna.
+  - id: zbiry_poprzedniego_wlasciciela_garbarni
+    canon_status: NOWE_OD_GRACZA
+    anchor: |
+      Sam wlasciciel jest juz implikowany: loc_tannery ma zone_office opisana jako
+      "Dawny kantor WLASCICIELA". Garbarnia zostala wiec po kims, kto ja stracil albo
+      porzucil - i to jest zaczep, ktorego nie trzeba wymyslac.
+      Podziemia garbarni lacza sie z loc_tannery_cellar_hideout i loc_ronada_canals
+      (tannery-mound/location.yaml), czyli ta strona ma gotowa geografie.
+    do_not_invent_yet: |
+      Kim on jest, dlaczego stracil garbarnie i co go laczy z pozostalymi stronami -
+      NIEUSTALONE. Nie dopisywac mu motywu, nazwiska ani liczebnosci przed decyzja
+      gracza. Lucan trzyma tam sieciarza (webber_tannery) i posterunek na lakach nad
+      garbarnia, wiec jest to miejsce, w ktorym ma juz cos do stracenia.
+  - id: warianty_eskalacji
+    canon_status: MA_POKRYCIE_CZESCIOWE
+    variants:
+      - 'Sam npc_ivar_kolm - gra o rektorat, cena znana (ivar-kolm#the_price_of_kolm).'
+      - 'Skorumpowany przedstawiciel magistratu - frakcja istnieje
+         (factions/lumaria-magistracy.yaml), kanal do akt tez (npc_malen_corth),
+         ale KONKRETNA skorumpowana osoba nie jest nazwana.'
+      - '"Gory strazy" - skala, nie strona. Znaczy: moment, w ktorym sprawa przestaje
+         byc rozgrywana pojedynczymi ludzmi.'
+
+# ---------------------------------------------------------------------------
+zasady_dla_narratora:
+  non_binding: |
+    TO NIE JEST HARMONOGRAM. Gracz powiedzial "prawdopodobnie", "moze" i "kto wie".
+    Nie prowadzic do tych scen na sile, nie zapowiadac ich w fikcji i nie traktowac
+    ich jako zapowiedzianych. Jesli gra pojdzie indziej, ten plik po prostu sie nie
+    zrealizuje i to jest w porzadku.
+  nie_budowac_przeszkod_z_tej_listy: |
+    Szczegolne ostrzezenie, bo to swiezy tryb awarii (retcon_000015/23/29/31/33/54/55):
+    swiadomosc, ze w Akcie 3 ma byc walka, NIE jest licencja na dokladanie kosztow,
+    terminow i oporu w interludium "zeby przygotowac grunt". Interludium buduje GRACZ.
+  co_wolno_robic_z_tym_plikiem: |
+    (a) Trzymac przygotowane karty i geografie stron, ktore MAJA pokrycie w kanonie,
+        zeby nie improwizowac ich w scenie (retcon_000040 - kazdy NPC jest kims innym).
+    (b) Pozwalac tym stronam dzialac WLASNYMI celami w tle, jesli zegar to uzasadnia.
+    (c) NIE nadawac im wiedzy o Lucanie, ktorej nie zdobyly zdarzeniem.
+
+last_updated_event_id: player_declaration_2026_08_27_out_of_scene
+source_refs:
+  - campaigns/lucan/planning/act-03-defence.yaml
+  - campaigns/lucan/planning/act-03-city-power-dynamics.yaml
+  - campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+  - campaigns/lucan/locations/tannery/location.yaml
+  - campaigns/lucan/state/clocks.yaml
