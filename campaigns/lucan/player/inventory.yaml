@@ -249,31 +249,32 @@ items:
     marginalia: 'Ta sama reka co w atlasach - proby balwierza: kto, kiedy, jak dlugo pod
       woda, czy wrocil. Wiekszosc konczy sie nie. Sekwencja prob i granica, po ktorej
       przestawal.'
-    problem: Biblioteki prowadza rejestr ubytkow - ktos w Akademii ma zapis, ze wolumin
-      zniknal, i date. Lucan jest czlonkiem tej Akademii i za ok. czternascie dni ma tam byc
-      wezwany.
+    not_a_threat:
+      established: retcon_000055 (reklamacja gracza 2026-08-27)
+      text: 'BRAKUJACA KSIAZKA BIBLIOTECZNA NIE JEST WEKTOREM ZAGROZENIA I NIE WOLNO JEJ TAK
+        ROZGRYWAC. Rzecz jest zwyklym, licencjonowanym podrecznikiem medycznym, a Lucan jest
+        czlonkiem tej Akademii z katedra i afiliacja. Najgorszy realny skutek to KARA
+        BIBLIOTECZNA albo nota w aktach - nie sprawa, nie dowod rzeczowy, nie dzwignia.
+        Rejestr ubytkow owszem istnieje i owszem ma date; to nadal jest ksiegowosc biblioteki,
+        nie material na przesluchanie. Nie budowac z tego terminow, wyborow moralnych ani
+        nocnych wypraw. Poprzednia wersja tego pola nazywala to problemem - to byla
+        dramatyzacja trywialu, ten sam tryb awarii co retcon_000015/23/29/31/33/54.'
     disposition: keep_then_return_after_study
     return_window:
       source_event_id: event_turn_interlude_170
+      corrected_by: retcon_000055
       declared_by: player
-      plan: 'Przekartkowac w nocy 3/4 dnia interludium i oddac. Lucan nie spodziewa sie tresci,
-        ktorej nie ma gdzie indziej albo ktorej nie da sie szybko przepisac.'
-      logistics: 'Tom lezy w container_wall_hideout (loc_city_wall_hideout, wejscie wlazem od
-        kanalu, minuty pieszo). Akademia -> schowek -> Akademia to pelna noc, nie wieczor.'
-      hard_deadline: 'NERIS WCHODZI DO BIBLIOTEKI O PIERWSZYM SWIETLE. Ma sygnature z karty
-        katalogowej i wie, ze egzemplarza nie ma na polce - jej nastepnym krokiem jest ZAPYTAC
-        czlowieka, gdzie sie podzial. To pytanie otwiera rejestr ubytkow z data.'
-      complication_return_as_found: 'Dopoki nikt nie zapytal, wolumin moze wrocic jako
-        ZNALEZIONY. Jesli Neris zapyta pierwsza, ubytek ma date i nazwisko pytajacego, a tom
-        oddany nastepnego dnia nie jest znaleziony - jest ODDANY.'
-      cost_of_copying: 'Przepisanie tresci licencjonowanej jest szybkie. MARGINALIA NIE SA
-        tresci licencjonowana - proby balwierza (kto, kiedy, jak dlugo pod woda, czy wrocil,
-        wiekszosc nie) to osobny dokument o czyichs smiertelnych probach na ludziach. Oddanie
-        woluminu oddaje TE KARTKI Akademii, czternascie dni przed wezwaniem Lucana. Zostawienie
-        ich sobie znaczy wyrwanie albo przepisanie recznie - godziny, nie minuty.'
-    disposition_event_id: event_turn_interlude_086
-    disposition_note: 'Decyzja gracza - oddac Akademii jako znaleziony DOPIERO po
-      przyswojeniu wiedzy. Do tego czasu lezy w schowku w murze.'
+      plan: 'Przekartkowac i oddac. Gracz nie spodziewa sie tresci, ktorej nie ma gdzie indziej
+        albo ktorej nie da sie szybko przepisac - i ma racje, bo rzecz jest licencjonowana
+        i recenzowana.'
+      where_it_is: 'container_wall_hideout = zone_wall_void w loc_city_wall_hideout
+        (Opuszczona baszta przy murze), obok stolu warsztatowego. NIE ma tam trasy kanalem;
+        wlaz istnieje jako droga dla stonog, nie jako droga Lucana.'
+      distance: 'Trzy kwadranse marszu cela gildii <-> baszta (event_turn_interlude_086,
+        zmierzone w fikcji). To sprawa wieczoru, nie calej nocy.'
+      marginalia_note: 'Marginalia balwierza (proby na topielcach) nie sa tresci licencjonowana,
+        wiec przepisanie ich recznie zajmuje wiecej niz przepisanie traktatu. To jedyny realny
+        koszt czasu i NIE jest to zagrozenie - patrz not_a_threat.'
     source_refs: [event_turn_interlude_083, event_turn_interlude_085]
   - id: item_dead_mans_book_crate_remainder
     name: Reszta skrzyni po zmarlym - makulatura

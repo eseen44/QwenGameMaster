@@ -8,3 +8,16 @@ orientation: {north: along_outer_wall, confidence: estimated}
 connections: [{id: connection_wall_access, zone_id: zone_entry, leads_to: loc_lumaria_wall, travel_time: needs_review}]
 map_refs: {layout: campaigns/lucan/locations/wall-hideout/maps/layout.yaml, gm: campaigns/lucan/locations/wall-hideout/maps/gm.svg, player: campaigns/lucan/locations/wall-hideout/maps/player.svg}
 source_refs: [source_user_decisions_current#correction:wall-hideout-critical-find]
+zones:
+  - {id: zone_entry, note: Wejscie od korony muru (connection_wall_access).}
+  - {id: zone_main, note: 'Izba glowna - legowisko i STOL WARSZTATOWY (feature_workbench). To jest
+      "warsztat baszty"; instancje uzywaly wczesniej nieistniejacej nazwy zone_hideout_workshop.'}
+  - {id: zone_storage, note: 'Skladzik - nisze pajakow (feature_spider_niches) oraz stos lupu
+      Aktu 2 (container_interlude_loot_pile).'}
+  - {id: zone_upper, note: Schody przy murze na poziom gorny (feature_wall_stairs).}
+  - {id: zone_wall_void, note: 'SCHOWEK W MURZE - pustka konserwatorska (feature_maintenance_void),
+      niewidoczna na mapie gracza. container_wall_hideout, security concealed_inside_wall. Tu leza
+      rzeczy ukryte, m.in. akademicki tom z sygnatura (item_library_marked_volume).'}
+  - {id: zone_surrounding_streets_and_refuse, note: 'Ulice i smietniki wokol baszty - obszar
+      ZEWNETRZNY, poza geometria layoutu, wiec nie ma go w maps/layout.yaml. Posterunek okazow
+      serii (companions/spy-series.yaml). Zadeklarowany 2026-08-27 przy audycie.'}
