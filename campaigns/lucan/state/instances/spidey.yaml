@@ -3,7 +3,7 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 160
+revision: 161
 position:
   location_id: loc_lumaria_magical_academy
   zone_id: zone_academy_scaffolded_wing
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 71280
-      hunting_recovery_elapsed_seconds: 71280
+      decay_elapsed_seconds: 71880
+      hunting_recovery_elapsed_seconds: 71880
   paralytic_toxin_reservoir:
     current: 4
     capacity: 4
@@ -36,7 +36,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 6480
+      regeneration_elapsed_seconds: 7080
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -99,7 +99,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_168
+last_event_id: event_turn_interlude_169
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906
