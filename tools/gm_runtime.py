@@ -1085,9 +1085,10 @@ def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
         contextual_ref("state/clocks.yaml"),
         contextual_ref("state/objectives.yaml"),
     ]
-    sustained_links = campaign_root / "state" / "sustained-links.yaml"
-    if sustained_links.exists():
-        refs.append(project_ref(sustained_links))
+    for state_file in ("sustained-links.yaml", "obligations.yaml"):
+        optional_state = campaign_root / "state" / state_file
+        if optional_state.exists():
+            refs.append(project_ref(optional_state))
     if isinstance(scene.get("location_ref"), str):
         refs.append(scene["location_ref"])
     index = load_instance_index(campaign_root)
@@ -1540,6 +1541,7 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
     time_doc = load_optional_yaml(campaign_root / "state" / "time.yaml", {})
     clocks_doc = load_optional_yaml(campaign_root / "state" / "clocks.yaml", {"clocks": []})
     objectives = load_optional_yaml(campaign_root / "state" / "objectives.yaml", {})
+    obligations = load_optional_yaml(campaign_root / "state" / "obligations.yaml", {})
 
     participants: list[dict[str, Any]] = []
     participant_refs: list[str] = []
@@ -1606,6 +1608,15 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             objective_digest(objective)
             for objective in objectives.get("player_declared", [])
             if isinstance(objective, dict)
+        ],
+        "obligations": [
+            {
+                key: obligation.get(key)
+                for key in ("id", "status", "commitment")
+                if obligation.get(key) is not None
+            }
+            for obligation in obligations.get("obligations", [])
+            if isinstance(obligation, dict)
         ],
         "participants": participants,
         "participant_refs": list(dict.fromkeys(participant_refs)),

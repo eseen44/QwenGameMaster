@@ -2,210 +2,91 @@ schema_version: 1
 campaign_id: campaign_lucan
 status: active
 rationale_store: planning/act-03-defence.yaml
-rationale_note: Pełne uzasadnienia wyprowadzone 19.08.2026 do planning/act-03-defence.yaml
-  (context/active.yaml -> load_when_choosing_a_plan). Tutaj zostają struktura, terminy,
-  stany kroków i jednolinijkowe `key_constraint`. Przy turze planistycznej wczytaj magazyn.
+rationale_note: >-
+  Ten plik przechowuje wyłącznie aktywne cele, ich etapy i krótkie ograniczenia.
+  Uzasadnienia, wykonane kroki i historia decyzji pozostają w planning oraz journal.
 current_interlude_scope:
   source_ref: retcon_000099
   detail_ref: planning/interlude-act-03-entry-scope.yaml
   completion_gate: false
   rolls: disabled_until_first_of_two_act_03_hearings_begins
   entry_rule: >-
-    Rozpoczęcie pierwszego przesłuchania kończy interludium niezależnie od liczby wykonanych
-    prac. Niewykonane sprawy przechodzą do Aktu 3 zamiast opóźniać instytucje.
+    Pierwsze z dwóch przesłuchań rozpoczyna Akt 3 niezależnie od liczby wykonanych prac.
+    Niewykonane cele przechodzą dalej.
   workstreams:
-    - guild_hearing_and_watch
-    - lawyer_and_priest_meetings
-    - church_discussion_and_kolm_preparation
-    - signet_and_tannery_owners
-    - rusk_and_magistracy_may_merge_with_tannery
-    - finish_creature_repairs
-    - daily_training_with_mara
-    - active_ability_development
-    - books_and_skill_related_development
-    - build_specimen_after_week_one_material_delivery
-    - investigate_necromancy_linked_high_houses_via_book_market_livery_courier
-  excluded_from_required_opening: [house_brandt, klara_brandt, beatrix_witte, forced_past_witness, physical_escalation, preselected_act_03_ending]
+    - objective_prepare_guild_hearing_and_watch
+    - objective_prepare_academy_church_dispute
+    - objective_interlude_investigations
+    - objective_develop_lucan
+    - objective_prepare_companions_and_specimens
+
 player_declared:
-  - id: objective_fulfill_varkhen_oath
-    status: active_long_term_no_timer
-    declaration_event_id: milestone_046_varkhen_oath_compact
-    commitment: Pomóc Varkhenowi zabezpieczyć trzy pieczęcie i nie dopuścić żywych do dolnych wrót.
-    steps:
-      - {id: restore_first_seal, state: pending, location: under_oldest_mausoleum}
-      - {id: cleanse_second_seal, state: pending, location: beneath_chapel}
-      - {id: reinforce_third_seal, state: pending, location: at_lower_gate}
-
-  - id: objective_liquidate_cemetery_loot
-    status: declared_plan_next_days
-    declaration_event_id: event_turn_interlude_013_market_food_run
-    commitment: Spieniężyć cmentarny łup (ok. 60 kg mortualnej biżuterii i złota),
-      nie relikwiarz - ten zostaje wyłączony ze sprzedaży.
-    key_constraint: 60 kg to "cięższy ładunek" - kontrola na wjazdach zostawia wpis w rejestrze.
-    value_silver_gross: 100000
-    expected_share_silver: 10000-15000 na osobę po cenie paserskiej, możliwe więcej (retcon_000020)
-    earmarked: Większość udziału idzie na kupioną współpracę prawników półświatka, nie na poradę.
-    rationale_ref: planning/act-03-defence.yaml#cemetery_loot
-    appointment:
-      when: dzień 3 interludium (dwa dni od dnia 1)
-      with: [npc_boros_keld, npc_mara_teln]
-      scope: Pieniądze plus prawnik z obiegu przestępczego - jedno spotkanie, oba tematy.
-      logged_event_id: event_turn_interlude_014_market_beast_row_search
-    steps:
-      - {id: keep_appointment_with_boros_and_mara_in_two_days, state: done, source_event_id: event_turn_interlude_101}
-      - {id: loot_custody_with_boros, state: done,
-         source_event_id: event_turn_interlude_073_furnishing_the_cell,
-         summary: 'Szescdziesiat kilo trzyma Boros Keld - na razie. Nie lezy u Lucana
-           ani pod rejestrem gildii, wiec nie obciaza Seraphine.'}
-      - {id: find_discreet_buyer, state: done, source_event_id: event_turn_interlude_102, summary: "Caly lup do syndykatu (droga Mary), ryta trzecia wlacznie. Przetop Borosa odrzucony. Kwota nienazwana do pokoju."}
-      - {id: move_60kg_without_registry_entry, state: solved_by_counterparty, source_event_id: event_turn_interlude_103, summary: "Syndykat wyznaczyl pokoj osiagalny bez punktu kontrolnego. Cena: ostatni odcinek po ich terenie."}
-      - {id: keep_reliquary_out_of_the_sale, state: standing_decision}
-
-  - id: objective_build_decoy_construct_for_academy
-    status: declared_plan_deferred_until_academy_materials
-    declaration_event_id: event_turn_interlude_020_decoy_construct_plan
-    revised_event_ref: player_declaration_day2_morning
-    commitment: Dostarczyć przynajmniej jeden okaz na dyskusję. Przygotować także roboczy,
-      nieprecyzyjny zapas dodatkowych jednostek do demonstracji i sekcji, ponieważ procedura
-      klasyfikacji może zniszczyć badany okaz. Spidey zostaje cały i nietknięty.
-    key_property: Wabiki NIE będą zakotwiczone (bez Death_Anchor) - sekcja na nich to utrata
-      materiału, nie towarzysza.
-    key_constraints:
-      - Okaz pokazowy - ok. 4 h za sztukę, czyli kilka modyfikacji po godzinie (retcon_000024).
-      - Duże pajęczaki przychodzą na Akademię w 6.-7. dniu interludium. Drugi tydzień jest
-        przeznaczony na pracę nad okazami.
-      - Jednostki mają być przeszyte i lekko opancerzone - wolniejsze, sztywniejsze i cięższe
-        od Spideya, ale nie dopracowane jak bojowy towarzysz.
-      - Twarde zobowiązanie liczebne wynosi jeden. Liczba dodatkowych okazów nie jest ustalona.
-      - Stopień biologiczności to decyzja estetyczna, nie czynnik obrony (retcon_000023).
-    deferred: Start odłożony o kilka dni - do materiałów z Akademii. Decyzja gracza, nie brak
-      możliwości.
-    rationale_ref: planning/act-03-defence.yaml#decoy_construct
-    material_dates:
-      academy_collections: od zaraz, utrwalone - bezużyteczne do przeszczepu, dobre na obudowę
-      fresh_supply: 6.-7. dzień interludium - to jest materiał, na który plan czeka
-      webber_night_haul: w baszcie, dobre na małe okazy
-      free_night_hunts: piwnice, spichlerz i zaplecze rzeźnickie wokół rynku - bez kosztu
-    schedule:
-      showing_or_seminar: 15 dni (clock_father_arranges_academy_showing)
-      open_dispute: 16 dni (npc_neris_aldhen kontra npc_ivar_kolm)
-      interlude_length_requested: około dwóch tygodni na trening i pozostałe sprawy
-    steps:
-      - {id: wait_for_academy_fresh_supply, state: pending}
-      - {id: receive_large_arachnid_donors_on_interlude_day_6_or_7, state: pending}
-      - {id: build_at_least_one_committed_specimen_and_an_imprecise_working_surplus, state: pending}
-      - {id: stitch_and_lightly_plate_them_slower_stiffer_and_heavier_than_spidey, state: pending}
-      - {id: register_research_unit_before_any_showing, state: done,
-         source_event_id: event_turn_interlude_071_unit_signed_and_the_heat_answer,
-         summary: 'Druk gildii podpisany z dzisiejsza data, ZADEN okaz nie wymieniony;
-           przedmiot przypisuje sie do jednostki pozniej.'}
-      - {id: keep_them_unanchored, state: standing_decision}
-      - {id: hand_the_decoys_not_spidey_to_the_academy, state: standing_decision}
-
-  - id: objective_claim_act_02_rewards
-    status: pending_guild_leadership_review
-    commitment: Rozliczyć nagrody i udział Lucana po operacji cmentarnej.
-    hearing_date: 15 dni od dnia 1 interludium (clock_guild_leadership_hearing)
-    hearing_date_known_to_lucan: horyzont tak (ok. dwa tygodnie, od Seraphine), sztywna data nie
-    key_constraint: Seraphine wstrzymała nagrodę do końca wewnętrznego śledztwa gildii.
-      Działa jako kij i marchewka; wynik zależy od całości ustaleń, nie od pojedynczego
-      występu Lucana na jednej sesji.
-    rationale_ref: planning/act-03-defence.yaml#act_02_rewards
-    steps:
-      - {id: talk_to_mara_and_boros_about_money_and_rewards, state: done}
-
-  - id: objective_prepare_institutional_defense
-    status: active_interlude_planning
-    commitment: Przygotować się na przesłuchania i nacisk instytucji przed kolejnym aktem.
-    options: [research_legal_process, seek_representative_or_lawyer, study_defensive_skills, appraise_loot, manage_evidence]
-    key_constraints:
-      - "Obrona klasyfikacyjna i karna NIE przecza sobie (t_108, t_123) - obie mowia: nie ma przedmiotu sprawy."
-      - "Nie mowic \"vitae\" przy nikim w stule. Argument z ODZYWIANIA upadl (retcon_000023) - fundament to podrecznik Akademii."
-      - Na seminarium nigdy nie odmawiać - mówić "nie umiem tego jeszcze sformalizować".
-      - Jedna wersja opowieści na wszystkie fora; rozjazd zabija szybciej niż treść.
-      - Akademia chce DOSTĘPU do okazów; ochrona instytucji to dług, nie uniewinnienie.
-    player_declared_priority: [seek_representative_or_lawyer]
+  - id: objective_prepare_guild_hearing_and_watch
+    status: active_before_clock
+    commitment: Przygotować linię na przesłuchanie Gildii i sposób poradzenia sobie ze Strażą.
+    deadline_clock_ref: clock_guild_leadership_hearing
+    key_constraint: Nagroda za Akt 2 pozostaje wstrzymana do końca śledztwa Gildii.
     rationale_ref: planning/act-03-defence.yaml#institutional_defence
     steps:
-      - {id: determine_spidey_and_webbers_legal_classification, state: pending}
-      - {id: check_in_with_known_factions_especially_watch, state: pending}
-      - id: trace_northwest_gate_authorisation_chain
-        state: assigned_to_seraphine
-        source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit
-        summary: Seraphine ma połączyć obsadę północno-zachodniej zapory, podpisy i źródło rozkazów z magistratem albo pośrednikiem rodów, jeśli taki istnieje.
-      - id: map_gate_guard_household_for_nonviolent_leverage
-        state: assigned_to_seraphine
-        source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit
-        constraint: Nie kontaktować się z bliskimi ani nie kierować wobec nich działań bez nowej, wyraźnej deklaracji Lucana.
-        summary: Ustalić gospodarstwo domowe wskazanego strażnika wyłącznie jako mapę możliwego nacisku.
-      - {id: legal_doctrine_stress_tested_by_seraphine, state: done}
-      - {id: acquire_surveillance_rhetoric_and_law_references, state: pending}
-      - {id: retain_criminal_circuit_lawyer, state: bundled_accepted_pending_the_room, source_event_id: event_turn_interlude_102, summary: "Przyjety w pakiecie z syndykatem. Jego staly klient to nie Lucan. Obsluguje obrone KARNA."}
-      - {id: physical_training_with_mara, state: agreed_starts_day4_morning, source_event_id: event_turn_interlude_101, summary: "Godzina dziennie rano. Cel: oddech, upadanie, wychodzenie z linii - sekundy, nie sila."}
-      - {id: handle_magistrate_records_channel_corth, state: truth_given_no_alignment, source_event_id: event_turn_interlude_102, summary: "Mara pisze prawdziwe daty i dopisuje Ruska. Corth nadal nieujawniony Borosowi i Marze."}
-      - {id: disclose_noble_name_angle_to_allies, state: done}
-      - {id: map_city_factions_and_noble_relative_thread, state: narrowed_to_necromancy_linked_high_houses_via_book_market_livery_courier, source_event_id: retcon_000099}
-      - id: clarify_or_reactivate_the_frozen_academy_post_if_needed
-        state: optional_not_started
-        supersedes: acquire_institutional_coat_at_the_academy
-        source_event_id: retcon_000068
-        summary: Lucan ma ważny doktorat uzyskany w wieku 21 lat, mocny dorobek współautora
-          prac ojca oraz formalnie zachowane stanowisko młodego badacza w jego zespole i pokój
-          obok laboratorium. Stanowisko obejmowało okazjonalne obowiązkowe zajęcia ze studentami.
-          Rodzina jako duży darczyńca zablokowała jednak wykonywanie pracy, granty i wyjazdy.
-          Nie ma własnej katedry. Seraphine nazywa ten paradoks synekurą; dokładna procedura
-          powrotu oraz zakres jurysdykcji Akademii pozostają do ustalenia.
-      - {id: prepare_one_canonical_account_before_anyone_asks, state: pending}
-      - {id: seminar_tactic_do_not_refuse, state: standing_decision}
-      - {id: acquire_anti_detection_countermeasures, state: materials_chosen_work_not_started, source_event_id: event_turn_interlude_150, rationale_ref: "worlds/solmara/lore/concealment-materials.yaml", summary: "Punkt odciecia na stopniu drugim. Plyta Concha surda, plesn gluszaca, porost slepy. Zostaly godziny przy stole."}
-      - {id: secure_or_recall_unassigned_servants, state: housekeeping_not_a_defence_task, source_event_id: retcon_000031, summary: "Trzy slugi bez rozkazu marnuja material i uwage. NIE jest to ryzyko dowodowe - patrz retcon_000031."}
-      - {id: decide_what_lucan_offers_the_syndicate_besides_gold, state: open_question_asked_in_the_room, source_event_id: event_turn_interlude_103, summary: "Dostepu sie nie dostaje, dostep sie wymienia. Pytanie padnie przed jakakolwiek kwota."}
-      - {id: meeting_with_the_local_priest, state: accepted_kesz_arranges_it, source_event_id: event_turn_interlude_113, summary: "Lucan przyjal oferte Kesza. Kesz przysle wiadomosc. Otwarte: kim Lucan tam siada - Akademia, gildia czy Veyr; odpowiedz przed spotkaniem, nie na nim."}
-      - {id: name_the_warning_channel_for_the_syndicate, state: promised_not_yet_named, source_event_id: event_turn_interlude_113, summary: "Pryncypal kupuje WYPRZEDZENIE - sygnal wart mniej niz doba jest wart zero. Nazwisko i sposob nadal po stronie Lucana."}
-      - id: design_the_boundary_instead_of_defending_against_it
-        state: shape_settled_wording_deferred_to_lawyer_and_priest
-        revised_event_id: event_turn_interlude_168
-        source_event_id: event_turn_interlude_160
-        rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
-        key_constraint: Nie trywializowac nekromancji na ludziach, nie bezczescic zwlok. Wyzsi nieumarli NIEwymienieni. Nigdy tlum.
-        open:
-        - Brzmienie warunku nadrzednego - slowa trywializowanie i bezczeszczenie sa nieostre.
-        - Instrument zgody antemortem nadal nienazwany; pisza go sciagnieci eksperci.
-      - {id: return_the_borrowed_academy_volume, state: planned_tell_neris_then_skim_at_night_and_return, source_event_id: retcon_000059, summary: "Neris nie ma sygnatury. Lucan zamierza wyjasnic jej historie tomu, w nocy go przekartkowac i potem zwrocic. Nie oczekuje duzej wartosci; oddanie to formalnosc, nie zagrozenie."}
-      - {id: brief_the_dean_on_our_situation, state: declared_aloud_to_neris_not_yet_done, source_event_id: event_turn_interlude_169, summary: "Lucan zapowiedzial wizyte u dziekana i nazwal sprawe wspolna z Neris. Wizyta niewykonana."}
-      - {id: tannery_owner_claim_and_open_case, state: claim_filed_owner_already_out_case_still_open, source_event_id: retcon_000058, summary: "Garbarz WYSZEDL (Sera, t_032), sprawa otwarta. Czujka bezprzedmiotowa; zostaje dzwignia: nakaz na dom."}
-      - id: decide_how_to_handle_family_expectations_if_house_veyr_takes_notice
-        state: deferred_not_an_interlude_or_act_03_entry_requirement
-        summary: Ród działa jak arystokratyczna korporacja i zakłada, że korzyści z kartelu
-          czynią posłuszeństwo oczywistym. Na razie nie prowadzi sprawy Lucana. Jeżeli go
-          zauważy, trzeba będzie zdecydować, czy skorzystać z patronatu, negocjować jego
-          warunki, czy odrzucić rodzinne oczekiwania.
-      - id: find_a_searchable_but_empty_place_to_sleep
-        state: done
-        source_event_id: event_turn_interlude_072_moving_into_the_cell
-        summary: 'Rozwiazane dwoma pokojami zamiast jednego. Pokoj dyzurny na gorze
-          zostaje zarejestrowany na Lucana na cale interludium jako PRZYKRYWKA do
-          przeszukania - Seraphine utrzymuje slad zamieszkania wlasna rota sprzatania.
-          Lucan SPI W POKOJU DYZURNYM NA GORZE - przykrywka nie jest inscenizowana,
-          jest prawdziwa (retcon_000038; snapshot day3_predawn mowi wprost "cztery
-          godziny snu w prawdziwym lozku, co przy okazji daje przykrywce realne slady
-          zamieszkania"). Cela po Varkhenie w piwnicy trzyma jego rzeczy i stoi w
-          rezerwie, ale NIE jest uzywana do spania do konca sprawy - decyzja stala.
-          Wady nazwane: przykrywka nie wytrzyma rozpytywania czlonkow; cela wychodzi
-          na ten sam korytarz co pokoj czworki wspolpracujacych swiadkow, ale skoro
-          Lucan tam nie sypia, nie znaja jego godzin pod ziemia.'
+      - {id: prepare_one_canonical_account, state: pending}
+      - {id: check_in_with_watch, state: pending}
+      - {id: acquire_surveillance_law_and_rhetoric, state: pending}
+      - {id: meet_criminal_circuit_lawyer, state: accepted_pending_meeting, source_event_id: event_turn_interlude_102}
+      - {id: trace_northwest_gate_authorisation_chain, state: delegated_to_seraphine, source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit}
+      - {id: map_gate_guard_household_without_contact, state: delegated_to_seraphine, source_event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit}
+      - {id: resolve_act_02_reward, state: awaiting_guild_review}
+
+  - id: objective_prepare_academy_church_dispute
+    status: active_before_clock
+    commitment: Przygotować dysputę Akademia–Kościół, linię wobec Kolma i potrzebne wsparcie instytucjonalne.
+    deadline_clock_ref: clock_father_arranges_academy_showing
+    key_constraint: Nie odmawiać udziału; zawężać tezę i formalizować granicę z prawnikiem oraz kapłanem.
+    rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
+    steps:
+      - {id: settle_spidey_and_webber_classification, state: pending}
+      - {id: meet_local_priest, state: accepted_kesz_arranges, source_event_id: event_turn_interlude_113}
+      - {id: finish_boundary_wording_with_lawyer_and_priest, state: shape_settled_wording_pending, source_event_id: event_turn_interlude_168}
+      - {id: brief_dean_on_shared_situation, state: declared_not_started, source_event_id: event_turn_interlude_169}
+      - {id: prepare_kolm_discussion_line, state: pending}
+
+  - id: objective_interlude_investigations
+    status: active
+    commitment: Połączyć śledztwa sygnetu, garbarni, Ruska, magistratu i rodów zainteresowanych nekromancją.
+    rationale_ref: planning/lucan-leads.yaml
+    steps:
+      - {id: investigate_stag_signet_and_tannery_owners, state: active_case}
+      - {id: investigate_rusk_and_magistracy_channel, state: corth_contact_known_no_alignment}
+      - {id: follow_book_market_livery_courier_to_high_houses, state: waiting_for_monthly_visit}
+
+  - id: objective_develop_lucan
+    status: active_interlude
+    commitment: Wykorzystać interludium na trening fizyczny, aktywne zdolności i wiedzę używaną w testach.
+    steps:
+      - {id: daily_training_with_mara, state: agreed_starts_day4_morning, source_event_id: event_turn_interlude_101}
+      - {id: develop_active_abilities, state: planned}
+      - {id: read_and_develop_skill_related_knowledge, state: planned}
+
+  - id: objective_prepare_companions_and_specimens
+    status: active_waiting_for_materials
+    commitment: Dokończyć naprawy sług i przygotować co najmniej jeden okaz do dysputy.
+    key_constraint: Okazy pokazowe pozostają niezakotwiczone; Spidey nie jest materiałem do sekcji.
+    rationale_ref: planning/specimen-upgrades.yaml
+    steps:
+      - {id: finish_current_companion_repairs, state: active}
+      - {id: apply_selected_anti_detection_upgrades, state: materials_chosen_work_pending, source_event_id: event_turn_interlude_150}
+      - {id: recall_or_assign_unassigned_servants, state: housekeeping_pending}
+      - {id: receive_large_arachnid_donors, state: due_interlude_day_6_or_7}
+      - {id: build_at_least_one_unanchored_specimen, state: waiting_for_donors}
+
 long_term_context:
-  - {id: seal_one_broken, state: broken, source_event_id: milestone_046_varkhen_oath_compact}
-  - {id: seal_two_tainted, state: tainted, source_event_id: milestone_046_varkhen_oath_compact}
-  - {id: seal_three_weakened, state: weakened_no_known_deadline, source_event_id: milestone_046_varkhen_oath_compact}
+  - id: varkhen_three_seals_oath
+    state: active_no_timer
+    source_event_id: milestone_046_varkhen_oath_compact
+    steps:
+      - {id: seal_one, state: broken, location: under_oldest_mausoleum}
+      - {id: seal_two, state: tainted, location: beneath_chapel}
+      - {id: seal_three, state: weakened_no_known_deadline, location: at_lower_gate}
+
 external_pressures:
-  - {id: pressure_seraphine_needs_full_risk_disclosure, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import, note: "Obowiązek trwa (obligation_conditional_cover); sprawa dwóch ciał z wysypiska zamknięta - retcon_000003."}
   - {id: pressure_varkhen_guild_basement_custody, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
-  - {id: pressure_advance_warning_before_contacting_either_side, severity: personal_obligation, source_event_id: event_turn_interlude_029_academy_as_civic_risk, note: "Seraphine chce wiedzieć ZANIM Lucan skontaktuje się z którąkolwiek stroną sporu."}
-completed:
-  - id: objective_answer_seraphine_about_dump_bodies
-    status: resolved_in_conversation_with_seraphine
-    declaration_event_id: milestone_047_seraphine_risk_disclosure
-    resolution_ref: retcon_000003
-    note: Ciało stróża (znalezione dawno) i ciało szperacza; oba w wątku "choroba kanałów"
-      z Aktu 1 i tam rozliczone. Nie jest to otwarte ryzyko.
+  - {id: pressure_first_hearing_ends_interlude, severity: scheduled_institutional, source_event_id: retcon_000099}

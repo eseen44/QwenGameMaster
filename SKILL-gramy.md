@@ -1,13 +1,13 @@
 # SKILL-gramy — playbook narratora
 
-Kopia repozytoryjna skilla `gramy`, którym prowadzona jest ta kampania. Powstała 19.08.2026
-na prośbę gracza, żeby playbook był dostępny także narratorom poza Claude Code - przede
-wszystkim Codeksowi, który pracuje na tym samym repo i tym samym dysku.
+Repozytoryjne źródło playbooka `gramy`, którym prowadzona jest ta kampania. Powstało
+19.08.2026 na prośbę gracza, żeby te same reguły były dostępne narratorom niezależnie od
+dostawcy i prywatnej konfiguracji maszyny.
 
-**Egzemplarz roboczy żyje w `~/.claude/skills/gramy/SKILL.md`** i to on jest ładowany przez
-Claude Code. Ten plik jest kopią — przy zmianie w jednym zaktualizuj drugi. Rozjazd między
-nimi nie jest błędem krytycznym (nic go nie waliduje), ale znaczy, że dwa narratory prowadzą
-tę samą kampanię wg różnych reguł.
+Claude Code wykrywa skill przez wersjonowany plik `.claude/skills/gramy/SKILL.md`, który
+odsyła tutaj. Ten plik jest jedynym pełnym egzemplarzem roboczym; nie utrzymuj równoległej
+kopii w `~/.claude/skills/`. Dzięki temu checkout repo wystarcza do uzyskania aktualnych
+instrukcji i nie może powstać cichy rozjazd między lokalnym skillem a kanonem projektu.
 
 ## Co jest harnessowe, a co kanoniczne
 

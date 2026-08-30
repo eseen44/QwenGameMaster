@@ -26,7 +26,7 @@ decoy_construct:
       papier o autorstwie nie moze wymieniac Spideya, wiec nie da sie go wystawic,
       zanim wabik powstanie. Obejscie Seraphine: zarejestrowac sama JEDNOSTKE badawcza
       (datowana dzis), a okaz przypisac do niej pozniej.'
-  objective_ref: objective_build_decoy_construct_for_academy
+  objective_ref: objective_prepare_companions_and_specimens
   constraints:
     - id: time_budget
       supersedes: energy_budget
@@ -111,12 +111,14 @@ decoy_construct:
       to anekdota, seria to materiał, a serii nie zrobi się w trzy dni.'
 
 institutional_defence:
-  objective_ref: objective_prepare_institutional_defense
+  objective_refs:
+    - objective_prepare_guild_hearing_and_watch
+    - objective_prepare_academy_church_dispute
   lawyer_choice:
     step_ref: seek_representative_or_lawyer
     text: 'Gracz wprost poprosił o obrońcę równolegle ze spieniężaniem łupu. Doprecyzowane -
       ma to być prawnik z obiegu przestępczego ("mafijny"), nie zwykły pisarz pozwów, i idzie
-      tym samym spotkaniem co pieniądze (objective_liquidate_cemetery_loot.appointment - Boros
+      tym samym spotkaniem co pieniądze (state/resources.yaml#receivable_cemetery_loot_sale - Boros
       i Mara, za dwa dni). Rząd skrybów na targu (zone_market_scribes_and_notices) pozostaje
       wariantem publicznym i tanim, ale nie tym, o który gracz prosił.'
   two_contradictory_defences:
@@ -291,7 +293,7 @@ institutional_defence:
       jakimkolwiek otwartym postępowaniem.'
 
 the_boundary_lucan_designed:
-  objective_ref: objective_prepare_institutional_defense
+  objective_ref: objective_prepare_academy_church_dispute
   source_event_id: event_turn_interlude_160
   status: 'PROJEKT GRACZA, podany Neris Aldhen na glos w laboratorium profesora Veyra.
     Nie jest jeszcze prawem ani nawet tekstem - jest specyfikacja zdania, ktore ma stanac
@@ -425,7 +427,7 @@ the_boundary_lucan_designed:
       Lucan podal to sam, dobrowolnie, oszczedzajac jej szukania.'
 
 legalisation_horizon:
-  objective_ref: objective_prepare_institutional_defense
+  objective_ref: objective_prepare_academy_church_dispute
   source: 'Prognoza gracza. Tura 039 cofnieta (rollback A) - w fikcji Lucan NIE powiedzial
     tego jeszcze Seraphine, wiec nie przypisywac jej tej wiedzy ani jej wnioskow.'
   player_forecast: 'PROGNOZA GRACZA, podana Seraphine wprost: z duzym prawdopodobienstwem w
@@ -451,7 +453,7 @@ legalisation_horizon:
     osiagalny, a nie zamkniety albo przydzielony.'
 
 cemetery_loot:
-  objective_ref: objective_liquidate_cemetery_loot
+  state_ref: state/resources.yaml#receivable_cemetery_loot_sale
   text: 'Gracz zadeklarował kierunek na jutro/pojutrze, nie na dziś. Wymaga dyskretnego kupca
     - łup jest zbyt duży i zbyt oczywistego pochodzenia dla rzeczoznawcy gildii. Utrudnione
     przez kontrolę na wjazdach na targ i świeże obwieszczenie o zezwoleniach na transport
@@ -462,7 +464,8 @@ cemetery_loot:
     terminu, więc to uzupełnienie niesprecyzowanego szczegółu, nie retcon.'
 
 act_02_rewards:
-  objective_ref: objective_claim_act_02_rewards
+  objective_ref: objective_prepare_guild_hearing_and_watch
+  step_ref: resolve_act_02_reward
   hearing_date_knowledge:
     source_event_id: event_turn_interlude_024_seraphine_date_and_payments
     text: 'Lucan ZNA horyzont od Seraphine: około dwóch tygodni, dzień w tę czy w tę, jeszcze
@@ -511,8 +514,7 @@ clocks_rationale:
       tygodniu, akademicy mają własny interes w tym, żeby Lucan nie siedział w areszcie.'
 
 cemetery_loot_routes:
-  objective_ref: objective_liquidate_cemetery_loot
-  step_ref: find_discreet_buyer
+  state_ref: state/resources.yaml#receivable_cemetery_loot_sale
   source_event_id: event_turn_interlude_101
   two_categories: |
     Boros przeliczyl i posortowal 60 kg. DWIE TRZECIE SA ANONIMOWE - kruszec luzem, moneta,
@@ -541,8 +543,8 @@ cemetery_loot_routes:
     zapewnienie. Relikwiarz pozostaje wylaczony ze sprzedazy i jest u Lucana.
 
 criminal_circuit_lawyer:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: retain_criminal_circuit_lawyer
+  objective_ref: objective_prepare_guild_hearing_and_watch
+  step_ref: meet_criminal_circuit_lawyer
   decision_taken: "PRZYJETY W PAKIECIE (event_turn_interlude_102) - Lucan wybral cala droge syndykatu, wiec prawnik staje sie dostepny od wejscia do pokoju. Konflikt lojalnosci pozostaje nierozwiazany, a wybor miedzy obrona karna i klasyfikacyjna nadal niepodjety."
   source_event_id: event_turn_interlude_101
   text: |
@@ -556,8 +558,8 @@ criminal_circuit_lawyer:
     ktora linia jest glowna.
 
 physical_training_with_mara:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: physical_training_with_mara
+  objective_ref: objective_develop_lucan
+  step_ref: daily_training_with_mara
   source_event_id: event_turn_interlude_101
   what_two_weeks_give: |
     Mara nie obiecuje sily i mowi wprost, ze dwa tygodnie nie robia nikogo silnym. Daja trzy
@@ -575,8 +577,8 @@ physical_training_with_mara:
     plaszczem.
 
 magistrate_records_channel:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: handle_magistrate_records_channel_corth
+  objective_ref: objective_interlude_investigations
+  step_ref: investigate_rusk_and_magistracy_channel
   source_event_id: event_turn_interlude_101
   text: |
     Lucan zdecydowal, ze Corth nie jest sprawa Borosa i Mary, i wykonal to czysto - nie padlo
@@ -616,8 +618,7 @@ magistrate_records_channel:
     zostaje zastapiony - a nastepca zaczyna od zera, bez zmeczenia Corthem i bez piora.
 
 syndicate_access:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: decide_what_lucan_offers_the_syndicate_besides_gold
+  obligation_ref: obligation_define_syndicate_exchange_beyond_gold
   source_event_id: event_turn_interlude_103
   what_changed: |
     Lucan sam, przed wejsciem, powiedzial Marze, ze nie idzie po jednorazowa transakcje, a po
@@ -641,8 +642,7 @@ syndicate_access:
     martwy i chodzi. Trzy takie okazy sa poza kontrola.
 
 syndicate_room:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: decide_what_lucan_offers_the_syndicate_besides_gold
+  obligation_ref: obligation_define_syndicate_exchange_beyond_gold
   source_event_id: event_turn_interlude_104
   who_is_in_the_room: |
     npc_ilva_rennat prowadzi pokoj i wycenia CZLOWIEKA - liczbe za towar zostawia na koniec,
@@ -671,7 +671,7 @@ syndicate_room:
 
 
 lucans_legal_doctrine_and_the_syndicate_pitch:
-  objective_ref: objective_prepare_institutional_defense
+  objective_ref: objective_prepare_academy_church_dispute
   source_event_id: event_turn_interlude_108
   the_doctrine: |
     Nie ma sprawy, bo nie ma nekromanty - jest akademik budujacy golemy z ciala. Gdyby ktos
@@ -703,8 +703,8 @@ lucans_legal_doctrine_and_the_syndicate_pitch:
     faktem, ktory rozbija cala doktryne o zwierzetach w jedno popoludnie.
 
 unassigned_servants_housekeeping:
-  objective_ref: objective_prepare_institutional_defense
-  step_ref: secure_or_recall_unassigned_servants
+  objective_ref: objective_prepare_companions_and_specimens
+  step_ref: recall_or_assign_unassigned_servants
   source_event_id: retcon_000031
   supersedes: unassigned_servants_risk (event_turn_interlude_103, uchylone)
   inventory: |
@@ -731,7 +731,9 @@ unassigned_servants_housekeeping:
 
 
 cemetery_syndicate_arrangement:
-  objective_ref: objective_prepare_institutional_defense
+  obligation_refs:
+    - obligation_name_advance_warning_channel_for_syndicate
+    - obligation_define_syndicate_exchange_beyond_gold
   source_event_ids: [event_turn_interlude_109, event_turn_interlude_110, event_turn_interlude_120, event_turn_interlude_121]
   what_lucan_bought: |
     Sygnal zamiast terminu - Lucan mowi, kiedy bedzie dym. Pustka wokol cmentarza na czas

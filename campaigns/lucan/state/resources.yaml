@@ -46,4 +46,16 @@ witnesses:
   - {id: npc_boros_keld, witnessed_event_id: milestone_045_varkhen_takeover}
   - {id: npc_seraphine_vale, witnessed_event_id: milestone_047_seraphine_risk_disclosure}
 wanted_status: []
+receivables:
+  - id: receivable_cemetery_loot_sale
+    status: active_two_installments_remaining
+    counterparty: lumaria_criminal_syndicate
+    total_sale_silver: 52000
+    received_silver: 12000
+    remaining_silver: 40000
+    distribution: unresolved_after_first_installment_split
+    note: >-
+      Pierwszą ratę podzielono po 4000 między Lucana, Marę i Borosa. Mara i Boros uznają
+      ją na razie za zaliczkę na swoje osobne udziały; pozostały podział wymaga rozliczenia.
+    source_event_ids: [event_turn_interlude_111, event_turn_interlude_114, event_turn_interlude_116]
 transactions: []

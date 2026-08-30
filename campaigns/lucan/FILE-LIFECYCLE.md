@@ -20,6 +20,7 @@ Ta tabela jest kompletną mapą aktualizacji: każdy plik projektu wpada w dokł
 | `campaigns/*/state/instances/*.yaml` | zmienny stan bytów | Gdy byt zmienia pozycję, integralność, zasób, warunek, właściciela, rozkaz lub rewizję. Używaj operacji transakcyjnych, nie ręcznego nadpisania. |
 | `campaigns/*/state/resources.yaml` | dobra, dowody, świadkowie, saldo | Gdy zmieniają się pieniądze, własność, dowód, świadek, dług lub zasób wspólny. |
 | `campaigns/*/state/objectives.yaml` | cele | Gdy cel zostaje przyjęty, usunięty, zmienia etap albo otrzymuje nowe pytanie decyzyjne. |
+| `campaigns/*/state/obligations.yaml` | zobowiązania i obietnice | Gdy Lucan przyjmuje, spełnia, łamie albo renegocjuje konkretną obietnicę wobec osoby lub organizacji. Nie używaj jako listy zadań. |
 | `campaigns/*/state/reputations.yaml` | relacje i reputacje | Po społecznej konsekwencji, ale tylko gdy faktycznie zmieniła nastawienie, status albo dostęp. |
 | `campaigns/*/relationships/*.yaml` | relacje osobiste | Po trwałej zmianie współpracy, wiary w osąd, zaufania do dyskrecji, osobistego stosunku, długu, dźwigni albo ograniczenia. Zmieniaj wyłącznie naruszony wymiar. |
 | `campaigns/*/state/secrets.yaml` | sekrety i ekspozycja | Gdy ktoś poznaje, zaczyna podejrzewać, zapomina, fałszuje lub publicznie ujawnia sekret. |

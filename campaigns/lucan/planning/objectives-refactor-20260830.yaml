@@ -1,0 +1,28 @@
+schema_version: 1
+id: objectives_refactor_20260830
+status: applied
+purpose: Zachować mapowanie po odchudzeniu aktywnego pliku objectives.
+source_ref: user_approval_2026_08_30
+migrations:
+  - from: objective_fulfill_varkhen_oath
+    to: state/objectives.yaml#long_term_context.varkhen_three_seals_oath
+  - from: objective_liquidate_cemetery_loot
+    to: state/resources.yaml#receivable_cemetery_loot_sale
+    resolution: Sprzedaż dokonana; pierwsza rata wypłacona, pozostała należność nie jest celem fabularnym.
+  - from: objective_claim_act_02_rewards
+    to: objective_prepare_guild_hearing_and_watch#resolve_act_02_reward
+  - from: objective_build_decoy_construct_for_academy
+    to: objective_prepare_companions_and_specimens
+  - from: objective_prepare_institutional_defense
+    to:
+      - objective_prepare_guild_hearing_and_watch
+      - objective_prepare_academy_church_dispute
+      - objective_interlude_investigations
+      - objective_develop_lucan
+      - objective_prepare_companions_and_specimens
+      - state/obligations.yaml
+removed_from_active_context:
+  - Ukończone kroki pozostają w journal i plikach stanu, które już zmieniły.
+  - Stałe decyzje konstrukcyjne pozostają w planning/specimen-upgrades.yaml.
+  - Zamrożona posada i oczekiwania Veyrów pozostają w kartach postaci, rodu i Akademii.
+  - Nocleg jest rozstrzygnięty przez retcon_000038 i bieżący stan lokacji.

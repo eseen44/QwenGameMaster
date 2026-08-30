@@ -27,7 +27,7 @@ currency:
     - 'carried_silver podniesione o 30, leftover_market_savings_silver wyzerowane
       (event_turn_interlude_081) - Lucan zabral ze schowka w murze reszte z targu po Akcie 1
       i zostawil hidden_silver: 50 nietkniete, zgodnie z wlasna decyzja.'
-    - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_claim_act_02_rewards).'
+    - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_prepare_guild_hearing_and_watch#resolve_act_02_reward).'
 containers:
   - id: container_personal_pockets_and_belt
     location: carried
@@ -200,7 +200,7 @@ items:
     cost_silver: 4
     provenance: Bruliony skrybow piszacych petycje zawodowo - nie kodeks, ktory siedzi w
       rejestrze magistratu i w Akademii, a praktyka tego, co przechodzi.
-    relevance: objective_prepare_institutional_defense#acquire_surveillance_rhetoric_and_law_references
+    relevance: objective_prepare_guild_hearing_and_watch#acquire_surveillance_law_and_rhetoric
     study_status: not_yet_studied
     source_refs: [event_turn_interlude_081, event_turn_interlude_082]
   - id: item_offprint_ivar_kolm

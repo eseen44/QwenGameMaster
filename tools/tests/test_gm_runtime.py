@@ -825,6 +825,19 @@ class GameMasterRuntimeTests(unittest.TestCase):
             }
         ]
         write_yaml(objectives_path, objectives_doc)
+        write_yaml(
+            self.campaign / "state" / "obligations.yaml",
+            {
+                "obligations": [
+                    {
+                        "id": "obligation_test",
+                        "status": "active",
+                        "commitment": "Keep the promise.",
+                        "source_event_id": "event_test",
+                    }
+                ]
+            },
+        )
         scene_path = self.campaign / "context" / "scene.yaml"
         scene_doc = gm_runtime.load_yaml(scene_path)
         scene_doc["participants"].append("npc_test")
@@ -863,6 +876,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
         )
         self.assertFalse(brief["current_scope"]["completion_gate"])
         self.assertEqual(brief["objectives"][0]["open_step_ids"], ["open"])
+        self.assertEqual(brief["obligations"][0]["id"], "obligation_test")
         self.assertIn("AGENTS.md", brief["rules"])
         self.assertEqual(
             [item["id"] for item in brief["participants"]], ["spidey", "target", "npc_test"]
