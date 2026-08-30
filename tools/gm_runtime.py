@@ -1208,13 +1208,18 @@ def close_scene(
     if snapshot_path.exists():
         raise RuntimeError(f"scene snapshot already exists: {old_id}")
     atomic_yaml(snapshot_path, snapshot)
+    # Scena zaczyna sie w czasie KAMPANII, nie w czasie rzeczywistym. Zegar kampanii
+    # zostaje w tyle za realnym (18.08 fikcji przy 30.08 na sciennym), wiec now_iso()
+    # zapisywalo date z przyszlosci i validate_project.py odrzucal kazde zamkniecie
+    # sceny: "active scene starts after current campaign time".
+    campaign_time = load_yaml(campaign_root / "state" / "time.yaml").get("current_datetime")
     next_scene = {
         "schema_version": 1,
         "campaign_id": scene.get("campaign_id", "campaign_lucan"),
         "status": scene.get("status", "active"),
         "scene_id": new_scene_id,
         "location_ref": location_ref,
-        "started_at": now_iso(),
+        "started_at": campaign_time or now_iso(),
         "tension": {"level": 0, "reason": None},
         "participants": participants,
         "pressures": [],
