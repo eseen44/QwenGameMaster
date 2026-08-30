@@ -46,9 +46,10 @@ Zadanie tego skilla: w jednym przebiegu odtworzyć sytuację i oddać graczowi d
 ## Repo
 
 - Ścieżka: katalog główny bieżącego checkoutu repozytorium (GitHub: `eseen44/QwenGameMaster`). Nie zakładaj konkretnej ścieżki Windows.
-- Gałąź do gry: **`optimize/turn-cost`** (nie `codex/initial-game-master` — ta jest starsza,
-  mimo że GitHub trzyma ją jako default). Sprawdź `git branch --show-current`; jeśli inna,
-  spytaj gracza zanim cokolwiek przeliczysz.
+- Gałąź do gry: **`codex/initial-game-master`**. Dawna gałąź robocza
+  `optimize/turn-cost` została z nią wyrównana po audycie 30.08.2026. Sprawdź
+  `git branch --show-current` oraz czy checkout nie jest za `origin`; przy rozjeździe
+  zatrzymaj się przed prowadzeniem gry.
 - Wszystkie komendy `gm.ps1` są **niezależne od cwd** (`ROOT` liczony z lokalizacji skryptu),
   więc można je wołać z dowolnego katalogu podając pełną ścieżkę.
 - Bash tool resetuje cwd po każdym wywołaniu — komendy `gm` odpalaj przez PowerShell.

@@ -825,6 +825,32 @@ class GameMasterRuntimeTests(unittest.TestCase):
             }
         ]
         write_yaml(objectives_path, objectives_doc)
+        scene_path = self.campaign / "context" / "scene.yaml"
+        scene_doc = gm_runtime.load_yaml(scene_path)
+        scene_doc["participants"].append("npc_test")
+        write_yaml(scene_path, scene_doc)
+        write_yaml(
+            self.campaign / "entities" / "npcs" / "index.yaml",
+            {
+                "entities": [
+                    {
+                        "id": "npc_test",
+                        "ref": "entities/npcs/npc-test.yaml",
+                        "status": "active",
+                    }
+                ],
+                "fixtures": [],
+            },
+        )
+        write_yaml(
+            self.campaign / "entities" / "npcs" / "npc-test.yaml",
+            {
+                "id": "npc_test",
+                "name": "Test NPC",
+                "role": "A distinct participant.",
+                "source_refs": ["event_test"],
+            },
+        )
 
         brief = gm_runtime.session_brief(self.campaign, full=False)
         self.assertEqual(brief["campaign"], "campaign_test")
@@ -839,18 +865,26 @@ class GameMasterRuntimeTests(unittest.TestCase):
         self.assertEqual(brief["objectives"][0]["open_step_ids"], ["open"])
         self.assertIn("AGENTS.md", brief["rules"])
         self.assertEqual(
-            [item["id"] for item in brief["participants"]], ["spidey", "target"]
+            [item["id"] for item in brief["participants"]], ["spidey", "target", "npc_test"]
         )
         self.assertEqual(
             brief["participants"][0]["resources"]["paralytic_toxin_reservoir"], "4/4"
         )
         self.assertEqual([clock["id"] for clock in brief["clocks"]], ["clock_patrol"])
+        self.assertEqual(
+            brief["participants"][2]["entity_ref"],
+            str((self.campaign / "entities" / "npcs" / "npc-test.yaml").resolve()),
+        )
+        self.assertEqual(brief["participant_refs"], [brief["participants"][2]["entity_ref"]])
         rendered = json.dumps(brief, ensure_ascii=False)
         self.assertNotIn("source_refs", rendered)
         self.assertNotIn("rationale", rendered)
         self.assertLess(len(rendered), 10000)
         full = gm_runtime.session_brief(self.campaign, full=True)
         self.assertIn("documents", full)
+        self.assertTrue(
+            any(item["ref"] == brief["participants"][2]["entity_ref"] for item in full["documents"])
+        )
 
 
 if __name__ == "__main__":

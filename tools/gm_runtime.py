@@ -158,6 +158,14 @@ def resolve_campaign_ref(campaign_root: Path, ref: str) -> Path:
     return campaign_root / path
 
 
+def project_ref(path: Path) -> str:
+    """Return a portable repository-relative ref when the path belongs to the repo."""
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return str(path.resolve())
+
+
 def find_instance_path(campaign_root: Path, instance_id: str) -> Path | None:
     for entry in load_instance_index(campaign_root).get("instances", []):
         if isinstance(entry, dict) and entry.get("id") == instance_id:
@@ -165,6 +173,19 @@ def find_instance_path(campaign_root: Path, instance_id: str) -> Path | None:
             if not isinstance(ref, str):
                 raise RuntimeError(f"instance index entry {instance_id} has no ref")
             return resolve_campaign_ref(campaign_root, ref)
+    return None
+
+
+def find_named_entity_path(campaign_root: Path, entity_id: str) -> Path | None:
+    """Resolve an NPC or fixture card independently from runtime instances."""
+    index = load_optional_yaml(campaign_root / "entities" / "npcs" / "index.yaml", {})
+    for collection in ("entities", "fixtures"):
+        for entry in index.get(collection, []):
+            if isinstance(entry, dict) and entry.get("id") == entity_id:
+                ref = entry.get("ref")
+                if not isinstance(ref, str):
+                    raise RuntimeError(f"named entity index entry {entity_id} has no ref")
+                return resolve_campaign_ref(campaign_root, ref)
     return None
 
 
@@ -1055,12 +1076,6 @@ def recover_turn(
 
 
 def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
-    def project_ref(path: Path) -> str:
-        try:
-            return path.resolve().relative_to(ROOT.resolve()).as_posix()
-        except ValueError:
-            return str(path.resolve())
-
     def contextual_ref(relative: str) -> str:
         return project_ref(campaign_root / relative)
 
@@ -1527,15 +1542,32 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
     objectives = load_optional_yaml(campaign_root / "state" / "objectives.yaml", {})
 
     participants: list[dict[str, Any]] = []
+    participant_refs: list[str] = []
     for participant in scene.get("participants", []):
         participant_id = participant.get("id") if isinstance(participant, dict) else participant
         if not isinstance(participant_id, str):
             continue
         path = find_instance_path(campaign_root, participant_id)
-        if path is None or not path.exists():
-            participants.append({"id": participant_id})
+        if path is not None and path.exists():
+            digest = instance_digest(load_yaml(path))
+            digest["state_ref"] = project_ref(path)
+            participants.append(digest)
             continue
-        participants.append(instance_digest(load_yaml(path)))
+        entity_path = find_named_entity_path(campaign_root, participant_id)
+        if entity_path is not None and entity_path.exists():
+            entity = load_yaml(entity_path)
+            entity_ref = project_ref(entity_path)
+            participant_refs.append(entity_ref)
+            participants.append(
+                {
+                    "id": participant_id,
+                    "name": entity.get("name"),
+                    "role": entity.get("role"),
+                    "entity_ref": entity_ref,
+                }
+            )
+            continue
+        participants.append({"id": participant_id, "missing_card": True})
 
     brief: dict[str, Any] = {
         "campaign": campaign.get("id"),
@@ -1576,6 +1608,7 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             if isinstance(objective, dict)
         ],
         "participants": participants,
+        "participant_refs": list(dict.fromkeys(participant_refs)),
         "load": [
             {"ref": ref, "bytes": ref_path(ref).stat().st_size}
             for ref in context.get("active_refs", [])
@@ -1590,7 +1623,11 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
         # For a browser chat with no filesystem: inline everything to paste once.
         brief["documents"] = [
             {"ref": ref, "content": ref_path(ref).read_text(encoding="utf-8-sig")}
-            for ref in list(context.get("always_load", [])) + list(context.get("active_refs", []))
+            for ref in list(dict.fromkeys(
+                list(context.get("always_load", []))
+                + list(context.get("active_refs", []))
+                + participant_refs
+            ))
             if ref_path(ref).exists()
         ]
     return brief
