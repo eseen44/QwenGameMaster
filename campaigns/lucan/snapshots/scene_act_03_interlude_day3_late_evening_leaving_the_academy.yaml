@@ -1,0 +1,98 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_late_evening_leaving_the_academy
+object_type: scene_snapshot
+closed_at: '2026-08-30T16:04:55+02:00'
+summary: 'Scena na dziedzincu Akademii zamknieta. Lucan powiedzial Neris, ze tom jest
+  wlasnoscia biblioteki i nie jest jego wypozyczeniem, a jego dewastacja to odreczne
+  notatki poprzedniego wlasciciela, wiec zwrot pojdzie jawnie przez bibliotekarza
+  - ktorego Neris sama umowi. Ujawnil jej z wlasnej inicjatywy marginalia i ich ciezar
+  dla dysputy, a potem przestawil ramke: balwierz byl czarnorynkowym rzemieslnikiem
+  probujacym przywracac topielcow bez magii, z sukcesami, i cala roznica miedzy rzemieslnikiem
+  a liszem lezy w tym, kto pierwszy oprawi te notatki w zdanie. Neris odwrocila material
+  z obciazenia w zrodlo i przyjela koszt cytowania go pod wlasnym nazwiskiem. Ustalona
+  kolejnosc: targ jutro rano, introligatornia, potem ona. Rozmowa o tym, czy balwierz
+  wchodzi do jej tekstu, odlozona do czasu, az przeczyta. Lucan wyszedl brama o 19:42;
+  Neris wrocila poprawiac czesc trzecia przed pierwszym swiatlem.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_late_evening_leaving_the_academy
+  location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+  started_at: '2026-08-18T19:12:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_neris_aldhen
+  pressures: []
+  immediate_facts:
+  - Neris nadal nie ma sygnatury tomu i nie wie, ze egzemplarz Lucana pochodzi z biblioteki
+    Akademii.
+  - Lucan zamierza zaraz powiedziec jej, ze musi zwrocic ksiazke, i opisac jej historie;
+    jeszcze tego nie zrobil.
+  - Lucan planuje w nocy przekartkowac tom przed zwrotem. Nie spodziewa sie po nim
+    duzej wartosci.
+  immediate_questions:
+  - Scena na dziedzincu domknieta. Lucan wychodzi brama Akademii o 19:42 z zapowiedziana
+    na jutro rano wizyta na targu i z zadeklarowanym w nawiasie zamiarem przejscia
+    do baszty przy murze, zeby zrobic przeglad sluzb. Nastepna scena zaczyna sie od
+    tego marszu - trzy kwadranse - i od tego, co Lucan zastanie na miejscu.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_174
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_evening_father_laboratory_the_renamed_document.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-academy/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - Scena na dziedzincu domknieta. Lucan wychodzi brama Akademii o 19:42 z zapowiedziana
+    na jutro rano wizyta na targu i z zadeklarowanym w nawiasie zamiarem przejscia
+    do baszty przy murze, zeby zrobic przeglad sluzb. Nastepna scena zaczyna sie od
+    tego marszu - trzy kwadranse - i od tego, co Lucan zastanie na miejscu.
+  last_refreshed_event_id: event_turn_interlude_174
+  context_bytes: 30260
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5382
+  - ref: system/player-agency.md
+    bytes: 2804
+  - ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+    bytes: 2638
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 2608

@@ -3,7 +3,7 @@ id: spy_moth_02
 object_type: entity_instance
 status: destroyed
 definition_ref: candidate_spy_series_01
-revision: 1
+revision: 5
 position:
   location_id: loc_tannery
   zone_id: zone_upper_meadow
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 0
-      hunting_recovery_elapsed_seconds: 0
+      decay_elapsed_seconds: 1200
+      hunting_recovery_elapsed_seconds: 1200
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -39,9 +39,12 @@ status_flags:
 conditions: []
 lifecycle:
   state: destroyed
-  cause: 'Zjedzony na lace za garbarnia przez nietoperze albo ptaki. Cena zapisana z gory w t_091 (laka noca nalezy do nietoperzy), zrealizowana deklaracja gracza w t_164. Okaz NIE byl zakotwiczony - zero propagacji na Lucana, zero energii, strata wylacznie materialu.'
+  cause: Zjedzony na lace za garbarnia przez nietoperze albo ptaki. Cena zapisana
+    z gory w t_091 (laka noca nalezy do nietoperzy), zrealizowana deklaracja gracza
+    w t_164. Okaz NIE byl zakotwiczony - zero propagacji na Lucana, zero energii,
+    strata wylacznie materialu.
   destroyed_event_id: event_turn_interlude_164
-last_event_id: event_turn_interlude_164
+last_event_id: event_turn_interlude_174
 source_refs:
 - event_turn_interlude_088
 - event_turn_interlude_090

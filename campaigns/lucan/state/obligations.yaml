@@ -15,9 +15,23 @@ obligations:
     commitment: Odpowiedzieć, co Lucan oferuje syndykatowi poza złotem.
     source_event_id: event_turn_interlude_103
   - id: obligation_return_borrowed_academy_volume
-    status: planned_current_scene
-    commitment: Wyjaśnić Neris historię tomu, przekartkować go w nocy i potem zwrócić.
+    status: sequence_set_market_then_binder_then_neris
+    commitment: Zwrócić tom jawnie przez bibliotekarza (spotkanie umawia Neris), po przekartkowaniu
+      go w nocy. Historia tomu wyjaśniona Neris tylko częściowo - wie, że to własność biblioteki
+      i że jest zniszczony; nie wie o balwierzu ani o marginaliach.
     source_event_id: retcon_000059
+    updated_by_event_id: event_turn_interlude_174
+    sequence: 'USTALONA W t_174: (1) targ jutro rano - znalezc kogos, kto przepisze i oprawi,
+      oraz ustalic NA KIEDY; (2) introligatornia; (3) Neris dostaje oryginal do przeczytania;
+      (4) rozmowa o tym, czy i jak balwierz wchodzi do jej tekstu; (5) oprawiona kopia idzie do
+      biblioteki przez bibliotekarza, ktorego umawia Neris. Zaden z tych krokow nie ma terminu
+      narzuconego przez swiat - tempo wyznaczyl sam Lucan.'
+    declared_plan: 'Lucan zapowiedzial Neris (t_172), ze sprobuje zmajstrowac OPRAWIONA KOPIE
+      tresci licencjonowanej, ktora biblioteka przyjmie zamiast oryginalu - dzieki czemu
+      marginalia zostaja u niego. To ZAMIAR, nie rzecz zrobiona: brak introligatora, materialu
+      i czasu przy stole. Zadanie interludium.'
+    disclosed_to_neris: 'Marginalia, ich charakter i ich ciezar dla dysputy - ujawnione przez
+      Lucana z wlasnej inicjatywy w t_172. Pochodzenie tomu (kradziez, martwy balwierz) NIE.'
   - id: obligation_conditional_risk_disclosure_to_seraphine
     status: active_if_new_material_risk_appears
     commitment: Ujawnić Seraphine nowe ryzyko materialne, którego potrzebuje do zapewniania osłony.

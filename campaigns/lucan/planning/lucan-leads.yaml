@@ -598,6 +598,21 @@ leads:
       przy cudzym biurku, nie spolecznym. Seraphine zazadala wygaszenia przed
       posiedzeniem i chce znac sposob wczesniej.
     status: open
+  - id: lead_find_copyist_and_binder_at_the_market
+    logged_event_id: event_turn_interlude_174
+    topic: Znalezc na targu kogos, kto przepisze i oprawi akademicki tom - i ustalic termin
+    note: >-
+      Zapowiedziane Neris na glos: jutro (dzien 4 interludium) rano Lucan idzie na targ sprawdzic,
+      czy ktos sie tego podejmie i NA KIEDY. Cel: oprawiona kopia tresci licencjonowanej, ktora
+      biblioteka przyjmie zamiast oryginalu, dzieki czemu marginalia balwierza zostaja u Lucana.
+      Wykonawca, cena i termin NIEZNANE - do ustalenia w fikcji, nie zalozenia z gory. UWAGA NA
+      SASIEDZTWO WATKOW: targ ksiazkowy to teren Heska, a t_083 podal, ze chlopiec w liverii
+      zjawia sie u niego za osiem dni od tamtej tury (objective_interlude_investigations, krok
+      follow_book_market_livery_courier_to_high_houses). Okazja istnieje, ale gracz jej NIE
+      zadeklarowal - nie doklejac Heska do wyjscia po introligatora bez jego decyzji.
+    ref: campaigns/lucan/player/inventory.yaml#item_library_marked_volume
+    status: open
+
 notes:
   - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,
     szerszy temat niz pojedyncze leady wyzej - beda pod nim wisiec, dopoki gracz
@@ -605,6 +620,22 @@ notes:
     materialu).
 
 declared_intents_awaiting_normal_declaration:
+  - id: intent_walk_to_the_wall_tower_and_review_the_servants
+    declared: 'Poza gra, 30.08.2026 - nawias na koncu wiadomosci konczacej scene. Przejscie przez
+      miasto jest WIDOCZNYM przemieszczeniem, wiec nie wykonuje sie w nawiasie i czas nie ruszyl
+      (retcon_000060, system/player-agency.md).'
+    content: 'Lucan idzie z Akademii do Opuszczonej baszty przy murze i robi przeglad sluzb -
+      sprawdza, jak sie maja zwierzaki.'
+    feasibility:
+      route: 'Trzy kwadranse marszu (event_turn_interlude_086, zmierzone cela gildii <-> baszta).
+        Sprawa wieczoru, nie calej nocy. NIE ma trasy kanalem - wlaz jest droga stonog.'
+      cost: 'Utrzymanie sieci to routine_upkeep_cost 0. Sam przeglad tez nic nie kosztuje; t_086
+        pokazal, ze granica jest UWAGA, nie energia - uwaga idzie po jednym wezle naraz, wiec
+        pelny przeglad dwudziestu kilku wezlow zajmuje tyle, co spacer.'
+      what_is_there: 'W baszcie stoi warsztat i stol Lucana, a w container_wall_hideout leza
+        atlasy, brulion balwierza i tom z sygnatura - czyli ten sam wyjazd domyka tez zabranie
+        tomu na jutrzejszy targ, jesli gracz tak zadeklaruje.'
+    status: awaiting_declaration_outside_parentheses
   - id: intent_spider_in_the_cover_room_and_seraphines_drawer
     declared: 'Poza gra, 25.08.2026 - wiadomosc wylacznie nawiasowa, wiec NIE wykonana i
       czas nie ruszyl (system/player-agency.md).'
