@@ -1,4 +1,4 @@
-schema_version: 1
+﻿schema_version: 1
 id: companion_spy_series_01
 name: Seria pierwsza - proba gatunkowa
 status: active
@@ -35,8 +35,12 @@ link:
   maintenance_cost: 0
   communication: [minimal_status]
   note: 'Zadne nie jest zakotwiczone. Death_Anchor jest WZMACNIACZEM sygnalu i tetherem
-    trwalosci wiezi, NIE warunkiem pozyczenia zmyslu (retcon_000016) - dowod w plikach:
-    webber_anchored jest zakotwiczony i ma ten sam ubogi kanal co reszta sieci.
+    trwalosci wiezi, NIE warunkiem pozyczenia zmyslu (retcon_000016).
+    KOREKTA retcon_000106: dawny dowod "webber_anchored ma ten sam ubogi kanal co reszta
+    sieci" ZOSTAL UCHYLONY jako sprzeczny z retcon_000049 (kotwica dziala jak antena i daje
+    zasieg ORAZ przepustowosc). Kotwica nadaje KLASE KANALU: zakotwiczony niesie pozyczony
+    zmysl na dystans, kierunek i nacisk, nie sam minimal_status. Zakotwiczeni na dzien 3:
+    companion_spidey, webber_anchored, spy_beetle_01, spy_hawk_moth_01.
     Pozyczenie zmyslu zalezy od PASMA slugi, czyli jej dojrzalosci i rozwoju, oraz od
     odleglosci. Ta seria moze wiec zmysl pozyczyc, ale slabo i tylko z bliska, bo okazy
     sa swieze - a bez anchora nie ma wzmocnienia, wiec zasieg i wiernosc sa gorsze.
@@ -52,6 +56,17 @@ survival_model:
     dostaje energie z koszyka jedwabnikow - zeby rosnac, nie zeby przetrwac.'
   limitation: Zbiornik 3 i ubytek 1 na dobe daja trzydniowa smycz bez polowania.
     Okaz na posterunku, ktory nie ma na czym polowac, konczy sie sam.
+  daily_balance_model:
+    source: retcon_000105
+    posterunek_z_zadaniem_i_zerem: 0 - wychodzi na zero
+    bez_rozkazu_zer_normalny: +1,0 na dobe do growth_bank (laka, ulica)
+    bez_rozkazu_zer_obfity: +2,0 na dobe (wije w kanalach)
+    padlinozerca_bez_rozkazu: +0,5 na dobe - zuki zra gnilne, to nie jest polowanie
+    posterunek_bez_zeru: -1,0 na dobe, smycz bez zmian
+    kolejnosc: Zbiornik napelnia sie pierwszy; dopiero nadwyzka ponad pojemnosc idzie do growth_bank.
+    maturity_ladder: fresh -> osiadly 10, osiadly -> z sadem 30, z sadem -> wyrobiony 60 (narastajaco w growth_bank)
+    grants_per_step: +1 pojemnosci zbiornika, +2 integralnosci, plus nazwany zysk behawioralny
+    thresholds_adjustable: true - progi sa propozycja narratora; drabina wylacznie przyznaje, niczego nie odbiera
 species_assessment:
   - id: spy_cellar_spider_01
     role: staly obserwator i wyzwalacz alarmu
@@ -229,8 +244,10 @@ hearing_transplant_finding:
   second_layer_unchanged: >-
     Najlepsze ucho nie poszerza rury. U Spideya nie boli - jego kanal niesie pozyczony
     zmysl przy skupieniu, wiec Lucan JUZ moze przez niego sluchac pokoju. U zuka i reszty
-    serii zostaje minimal_status plus pozyczenie zmyslu z bliska; kotwica to poprawia,
-    ale nie zamienia w telefon.
+    serii NIEZAKOTWICZONEJ zostaje minimal_status plus pozyczenie zmyslu z bliska.
+    Zakotwiczeni maja klase kanalu Spideya (retcon_000106) - i to nadal nie jest telefon,
+    bo pozyczenie zmyslu zjada CALA uwage Lucana na czas sluchania, a uwaga idzie po jednym
+    wezle (event_turn_interlude_086). Granica przesunela sie z CZUJNIKA na ZAPIS.
 deployment_update_day2_night:
   source_event_id: event_turn_interlude_090
   spy_beetle_01: >-

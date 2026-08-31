@@ -10,7 +10,7 @@ clocks:
   threshold: uncalibrated
   last_source_event_id: milestone_047_seraphine_risk_disclosure
   trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
-  note: Nie przesuwa się z czasem ani od samego wypowiedzenia słowa; wymaga osobnego
+  note: Nie przesuwa siÄ™ z czasem ani od samego wypowiedzenia sĹ‚owa; wymaga osobnego
     wydarzenia eskalacyjnego.
 - id: clock_father_arranges_academy_showing
   label: Ojciec organizuje pokaz na Akademii - realnie wezwanie na seminarium
@@ -18,32 +18,32 @@ clocks:
   progress: 2
   threshold: 15
   seconds_per_step: 86400
-  elapsed_seconds: 52200
+  elapsed_seconds: 85680
   last_source_event_id: event_turn_interlude_030_the_seminar_problem
   trigger: lucan_committed_to_at_least_one_specimen_for_the_discussion
-  effect: Co najmniej jeden okaz Lucana trafia do JUŻ WYZNACZONEJ otwartej dysputy
-    (ok. 16 dni, npc_neris_aldhen kontra npc_ivar_kolm). Dodatkowe jednostki mogą
-    posłużyć demonstracji i destrukcyjnej sekcji, ale ich liczba nie jest zobowiązaniem.
-    Wezwanie ma postać seminarium, a Gildia nie ma nad nim jurysdykcji.
+  effect: Co najmniej jeden okaz Lucana trafia do JUĹ» WYZNACZONEJ otwartej dysputy
+    (ok. 16 dni, npc_neris_aldhen kontra npc_ivar_kolm). Dodatkowe jednostki mogÄ…
+    posĹ‚uĹĽyÄ‡ demonstracji i destrukcyjnej sekcji, ale ich liczba nie jest zobowiÄ…zaniem.
+    Wezwanie ma postaÄ‡ seminarium, a Gildia nie ma nad nim jurysdykcji.
   world_test_required: false
   reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.father_arranges_academy_showing
 - id: clock_guild_leadership_hearing
-  label: Przesłuchanie przed kierownictwem gildii
+  label: PrzesĹ‚uchanie przed kierownictwem gildii
   status: active_time_driven
   progress: 2
   threshold: 15
   seconds_per_step: 86400
-  elapsed_seconds: 47400
+  elapsed_seconds: 80880
   last_source_event_id: event_turn_interlude_024_seraphine_date_and_payments
   lucan_knows_the_date: horizon_only
-  knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie ogłoszone
-    oficjalnie), nie zna sztywnej daty. Nie pozwalać mu planować "na piętnasty dzień"
-    jak na datę pewną.
+  knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie ogĹ‚oszone
+    oficjalnie), nie zna sztywnej daty. Nie pozwalaÄ‡ mu planowaÄ‡ "na piÄ™tnasty
+    dzieĹ„" jak na datÄ™ pewnÄ….
   trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
-  effect: Wewnętrzne śledztwo gildii dochodzi do etapu rozstrzygnięcia przez kierownictwo;
-    Lucan może zostać wezwany. Dopiero po zakończeniu śledztwa gildia odblokuje albo
-    inaczej rozliczy nagrodę za Akt 2. Nagroda jest kijem i marchewką, ale nie musi
-    być rozstrzygana podczas jednego konkretnego przesłuchania.
+  effect: WewnÄ™trzne Ĺ›ledztwo gildii dochodzi do etapu rozstrzygniÄ™cia przez kierownictwo;
+    Lucan moĹĽe zostaÄ‡ wezwany. Dopiero po zakoĹ„czeniu Ĺ›ledztwa gildia odblokuje
+    albo inaczej rozliczy nagrodÄ™ za Akt 2. Nagroda jest kijem i marchewkÄ…, ale
+    nie musi byÄ‡ rozstrzygana podczas jednego konkretnego przesĹ‚uchania.
   world_test_required: false
   rationale_ref: planning/act-03-defence.yaml#clocks_rationale.guild_leadership_hearing

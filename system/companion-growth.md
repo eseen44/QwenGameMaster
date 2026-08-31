@@ -22,3 +22,67 @@ Sługa nekromantyczny nie jest ograniczony skalą zwierzęcia, z którego powsta
 4. Skompiluj obiekt oraz uruchom replayy dotyczące jego roli.
 
 Ta reguła jest kalibracją kampanii Lucana, nie uniwersalnym prawem każdego świata.
+
+## Rozwój z nadwyżki (retcon_000103, deklaracja gracza 31.08.2026)
+
+Zasada „samo polowanie nie powoduje automatycznej ewolucji" NIE znaczy „najedzony sługa nie
+zmienia się w ogóle". Znaczy tylko tyle, że **nowy narząd** wymaga deklaracji i godzin przy stole.
+
+Najedzony sługa z nadwyżką **powoli rośnie i się rozwija**: umysł, osobowość, doświadczenie
+w tym, co robi. To nie jest nagła zmiana i nie jest ewolucja narządowa — to dostosowanie formy
+do funkcji oraz do wyobrażeń i siły nekromanty, dokładnie tak, jak stało się ze Spideyem.
+Nadwyżka ponad pełny zbiornik idzie do `growth_bank` w instancji.
+
+## Bilans dobowy sługi (retcon_000105, deklaracja gracza 31.08.2026)
+
+| sytuacja | na dobę |
+|---|---|
+| posterunek ze zwykłym zadaniem i dostępnym żerem | 0 — wychodzi na zero |
+| bez rozkazu, żer normalny (łąka, ulica) | +1,0 do `growth_bank` |
+| bez rozkazu, żer obfity i bezpieczny (wije w kanałach) | +2,0 |
+| padlinożerca bez rozkazu (żuki żrące gnilne) | +0,5 — to nie jest polowanie |
+| posterunek bez żeru | −1,0 — smycz bez zmian |
+
+Zbiornik napełnia się pierwszy; dopiero nadwyżka ponad pojemność idzie do `growth_bank`.
+Porcja tłumiąca rozkład zdejmuje ostatni wiersz, **nie zastępuje żywienia**.
+
+Drabina dojrzałości, narastająco w `growth_bank`: `fresh` → osiadły **10**, osiadły → z sądem
+**30**, z sądem → wyrobiony **60**. Każdy stopień daje **+1 pojemności zbiornika, +2 integralności**
+oraz nazwany zysk behawioralny. Progi są propozycją narratora przyjętą w tej turze i wolno je
+zmienić — drabina wyłącznie **przyznaje**, niczego nie odbiera.
+
+## Siła nieumarłego jako dźwignia integralności (retcon_000104, deklaracja gracza 31.08.2026)
+
+Nieumarli są naturalnie **nieco** silniejsi od swoich żywych odpowiedników. To nie jest supermoc,
+tylko możliwość użycia integralności tkanek jako dźwigni: ciało, które nie chroni się przed bólem
+i zmęczeniem, może wydać z siebie więcej.
+
+Nadużywanie tej siły powoduje **zniszczenia mechaniczne w strukturze** okazu — ubytek
+**integralności, nie energii**. Skutek jest trwały do naprawy przy stole.
+
+## Nic nie przepada — sieć naczyń połączonych (retcon_000109, deklaracja gracza 31.08.2026)
+
+**Nie istnieje problem za dużej ilości energii.** Pełny zbiornik nie jest sufitem, przy którym
+nadmiar znika. Kolejność jest taka:
+
+1. węzeł napełnia własny zbiornik,
+2. część nadwyżki idzie na własny rozwój do `growth_bank`,
+3. **reszta płynie siecią** do pozostałych węzłów i do samego Lucana — na uzupełnienie rezerwy
+   albo na celowe wytrącenie w transporcie, jeżeli Lucan tak chce.
+
+Obowiązują zwykłe straty propagacji (`companions/webber-network.yaml#network_cost_model`:
+80% sieciarz→cel, 70% Lucan↔Spidey, mnożne na przeskok). **Strata przesyłowa jest jedynym
+realnym ubytkiem.**
+
+`surplus_routing` to **ustawienie na węźle**: `growth`, `network` albo podział. Domyślnie
+`growth`, dopóki Lucan nie wskaże odbiorcy. Zmienia się rozkazem — za darmo i bez czasu przy stole.
+
+Kierunek rozwojowy nazwany przez gracza: **żuki jako małe pojemniki energii** — buforowy węzeł
+magazynowy, nie tylko czujnik. Patrz `planning/specimen-upgrades.yaml#enlarge_reservoir_to_tank`.
+
+## Integralność odbudowuje się tak samo szybko jak rezerwa (retcon_000111)
+
+Jednostka na wejściu daje jednostkę odbudowy. Nie ma osobnego, wolniejszego przelicznika dla
+integralności. Ile dostaje konkretny odbiorca — np. Varkhen — jest **ustawieniem Lucana**,
+nie stałą kampanii: łącza wolno przepiąć, dołożyć i zwiększyć. Sufitem są pojemność i straty
+propagacji.

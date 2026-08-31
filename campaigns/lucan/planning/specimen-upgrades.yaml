@@ -1,4 +1,4 @@
-schema_version: 1
+﻿schema_version: 1
 campaign_id: campaign_lucan
 object_type: planning_store
 status: accepted_by_player_not_yet_executed
@@ -9,10 +9,12 @@ personalities_ref: campaigns/lucan/planning/anchored-companions.yaml
 
 execution_note: >-
   ZADNA z tych modyfikacji NIE JEST wykonana. Cechy osobowosci sa wrodzone i weszly do
-  instancji od razu; ulepszenia to GODZINY PRZY STOLE (retcon_000017: 8 x 1.5^n h,
-  bez energii, bez odczynnikow) i zmieniaja stan dopiero po turach pracy.
-  Liczby mechaniczne ponizej sa propozycja narratora przyjeta bez sprzeciwu, nie
-  deklaracja gracza - wolno je poprawic przed wykonaniem.
+  instancji od razu; ulepszenia to GODZINY PRZY STOLE (retcon_000017 + retcon_000024:
+  ~1 h za modyfikacje, do 2 h przy wyzszej trudnosci, BEZ ESKALACJI, bez energii, bez
+  odczynnikow) i zmieniaja stan dopiero po turach pracy. Regula 8 x 1.5^n NIE OBOWIAZUJE
+  i nie wolno jej cytowac - skasowana w calosci przez retcon_000024; permanent_growth_steps
+  jest zapisem historii, nie mnoznikiem ceny. Godziny ponizej PRZECENIONE przez gracza
+  w retcon_000107.
 
 builds:
 - id: build_beetle_tank_and_battery
@@ -20,9 +22,9 @@ builds:
   concept: Maly tank, ruchoma bateria, punkt kontaktowy spajajacy siec. Im leniwszy, tym lepszy.
   steps:
   - id: fit_concha_surda_plate
-    hours: 16
+    hours: 6
     first_of_series: true
-    note: Kazda nastepna plyta 6-8 h, bo forma jest.
+    note: 'Kazda nastepna plyta 2-3 h, bo forma jest. Przecena retcon_000107 (bylo 16 / 6-8).'
     grants_flags: [armoured_concha_surda_plate, stone_camouflage_visual_and_arcane]
   - id: teach_feeding_without_moving
     note: Zer sam przychodzi do okazu siedzacego pod plyta na murze.
@@ -48,10 +50,10 @@ builds:
     Jest nocna i tylko nocna, a w dzien rzuca sie w oczy.
   steps:
   - id: implant_sordina
-    hours: 8
+    hours: 2   # przecena retcon_000107, bylo 8
     grants_flags: [sound_dampening_symbiont, symbiotic_parasite_load]
   - id: implant_lichen_speculans
-    hours: 12
+    hours: 2   # przecena retcon_000107, bylo 12
     sourced_in_world: 'event_turn_interlude_163 - profesor Veyr nazwal porost slepy dopiero tutaj. W t_151 wyliczal SKARGI (Concha surda psuje mu przyrzady, Sordina zzera okazy w magazynie), a porost nie jest jego szkodnikiem, wiec nie mial powodu o nim mowic. Lucan opisal wymaganie, nie nazwe - nazwe znal wylacznie z warstwy planowania.'
     grants_flags: [substrate_matching_lichen, passive_concealment_when_still]
   properties:

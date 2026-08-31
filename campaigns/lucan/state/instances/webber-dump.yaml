@@ -3,7 +3,7 @@ id: webber_dump
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 166
+revision: 169
 position:
   location_id: loc_dump
   zone_id: zone_entry
@@ -13,7 +13,7 @@ integrity:
   maximum: 13
 resources:
   necrotic_reservoir:
-    current: 4.5
+    current: 6
     capacity: 6
     decay:
       interval_seconds: 86400
@@ -24,13 +24,13 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 73680
-      hunting_recovery_elapsed_seconds: 73680
+      decay_elapsed_seconds: 20760
+      hunting_recovery_elapsed_seconds: 20760
 conditions: []
 status_flags:
 - autonomous_hunting
 - at_dump
-last_event_id: event_turn_interlude_174
+last_event_id: event_turn_interlude_177
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:10555-10566

@@ -3,17 +3,17 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 166
+revision: 169
 position:
-  location_id: loc_city_wall_hideout
-  zone_id: zone_main
-  formation: stationed_at_the_tower_awaiting_lucans_return_to_the_bench
+  location_id: loc_lumaria_adventurers_guild
+  zone_id: zone_guild_upper_offices
+  formation: hunting_loose_within_a_room_of_lucan_decay_suppressant_applied_third_and_last_portion_no_longer_on_any_leash
 integrity:
   current: 13
   maximum: 13
 resources:
   necrotic_reservoir:
-    current: 4.5
+    current: 6
     capacity: 6
     decay:
       interval_seconds: 86400
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 73680
-      hunting_recovery_elapsed_seconds: 73680
+      decay_elapsed_seconds: 20760
+      hunting_recovery_elapsed_seconds: 20760
 conditions: []
 traits:
   source: player_declaration_day3_evening_anchored_personalities
@@ -52,8 +52,9 @@ traits:
 status_flags:
 - autonomous_hunting
 - death_anchored
-- posted_at_tannery_meadow
-last_event_id: event_turn_interlude_174
+- at_guild_upper_offices_with_lucan
+- decay_suppressed_permanent_event_turn_interlude_177
+last_event_id: event_turn_interlude_177
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
