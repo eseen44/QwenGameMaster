@@ -231,9 +231,12 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   to `routine_upkeep_cost: 0`; realna cena sieci to **straty propagacji miedzy wezlami**
   (80% sieciarz->Varkhen, 70% Lucan<->Spidey, mnozne na przeskok - patrz
   `companions/webber-network.yaml#network_cost_model`), a trwale ulepszenie slugi kosztuje
-  **CZAS PRZY STOLE, NIE ENERGIE**: `8 x 1.5^n` **godzin** pracy recznej (`retcon_000017` -
-  gracz uchylil dawna wersje energetyczna, to bylo trzecie wymyslone ograniczenie w jednej
-  sesji). Energia zostaje zasobem czarow, transferow w sieci i podtrzymywania Varkhena.
+  **CZAS PRZY STOLE, NIE ENERGIE**: **okolo godziny** pracy recznej za modyfikacje, do dwoch
+  przy wyzszej trudnosci, BEZ ESKALACJI (`retcon_000024` skasowal dawna formule `8 x 1.5^n`
+  w calosci; `permanent_growth_steps` to zapis historii, nie mnoznik ceny). Energia zostaje
+  zasobem czarow i transferow w sieci; nic nie przepada, bo nadwyzka plynie siecia do innych
+  wezlow i do samego Lucana (`retcon_000109`). Varkhen jest przy tym CELOWO ODCIETY albo
+  ograniczony przez Lucana - to jego decyzja, nie sufit systemu (`retcon_000113`).
   Nie mieszac tych trzech. Zanim nazwiesz cokolwiek
   ograniczeniem, sprawdz, czy stoi w pliku - jesli nie, to jest wymyslone i gracz to wylapie.
   Prawdziwe ograniczenia tej kampanii sa **instytucjonalne i informacyjne** (przesluchania,

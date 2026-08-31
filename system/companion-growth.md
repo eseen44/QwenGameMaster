@@ -86,3 +86,34 @@ Jednostka na wejściu daje jednostkę odbudowy. Nie ma osobnego, wolniejszego pr
 integralności. Ile dostaje konkretny odbiorca — np. Varkhen — jest **ustawieniem Lucana**,
 nie stałą kampanii: łącza wolno przepiąć, dołożyć i zwiększyć. Sufitem są pojemność i straty
 propagacji.
+
+## Nadmiar rozwija też Lucana (retcon_000112, deklaracja gracza 31.08.2026)
+
+Rozwój z nadwyżki **nie dotyczy wyłącznie sług**. Nadmiar energii rozwija trwale również
+nekromantę. Rodzaj rozwoju zależy od gatunku, a tempo **nie jest eksplozywne** — to powolne
+narastanie, nie skok.
+
+**Lucan:** pokrycie braku snu, szybsze uczenie się, przyrost mięśni, lepsza pamięć, powolny
+wzrost samej rezerwy. Efekty **nie są na tyle duże, żeby były oczywiste z zewnątrz** — najwyżej
+ktoś, kto trenuje z nim codziennie, zauważy, że szybko się regeneruje i wolno męczy *jak na maga*.
+W zasięgu jest dziś jedna taka osoba: `npc_mara`. To nie jest nadludzka sprawność i nie zdejmuje
+potrzeby treningu ani nauki — **skraca drogę, nie znosi jej**.
+
+**Sługi:** rozwój osobowości i ekspertyzy; samodzielne myślenie i stosowanie taktyki; większa
+pamięć **oraz zdolność dzielenia się wspomnieniami**; rozwój w roli, którą okaz pełni — fizyczny
+albo przez pojawianie się kolejnych umiejętności.
+
+Nowa umiejętność, która **pojawia się sama z dojrzałości**, nie wymaga godzin przy stole.
+Nowy **narząd** nadal wymaga (`retcon_000103`, `retcon_000024`).
+
+## Varkhen jest celowo odcięty (retcon_000113)
+
+Cztery łącza podtrzymujące to **racjonowana struga**, nie maksimum przepustowości. Varkhen nie
+jest niedożywiony przez wąskie gardło — jest ograniczony, **bo Lucan tak zdecydował**.
+
+Mechanika z `retcon_000111` obowiązuje (integralność odbudowuje się tak samo szybko jak rezerwa,
+wielkość strugi jest ustawieniem), ale **domyślnym stanem jest ograniczenie**. Zniesienie go
+byłoby zmianą polityki wobec Varkhena — deklaruje ją gracz, ma własne skutki.
+
+**Zakaz dla narratora:** nie podawać dokarmienia Varkhena jako oczywistej optymalizacji i nie
+liczyć go jako zmarnowanej okazji.

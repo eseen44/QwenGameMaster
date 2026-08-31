@@ -5,7 +5,7 @@ status: active
 rule_ref: system/companion-growth.md
 source_refs: [retcon_000103, retcon_000105, retcon_000109, retcon_000110]
 note: >-
-  Rejestr growth_bank trzymany OSOBNO od instancji, bo runtime przepisuje pliki
+  Rejestr growth_bank trzymany OSOBNO od instancji. Obejmuje TAKZE pc_lucan (retcon_000112), bo runtime przepisuje pliki
   state/instances/*.yaml przy kazdym commicie tury i nieznane klucze moglyby zostac zgubione.
   To jest miejsce prawdy dla nadwyzki i dojrzalosci; instancje trzymaja zbiornik i integralnosc.
   NIE dodawac tego pliku do active_refs - budzet aktywnego kontekstu to 40 KB.
@@ -42,4 +42,5 @@ banks:
   - {id: spy_cellar_spider_03, rate_per_day: 0.0, basis: 'gorne biura gildii - posterunek zamkniety, od t_177 pozwolenie na polowanie zdejmuje minus', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_04, rate_per_day: 0.0, basis: 'gabinet Seraphine - jw.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_06, rate_per_day: 0.0, basis: 'cela w piwnicy gildii - jw.; pokoj pusty, odkad Lucan spi na gorze (retcon_000038)', bank: 0.0, maturity: fresh}
-  - {id: companion_spidey, rate_per_day: 0.0, basis: 'przy Lucanie; decay_suppressed, poluje luzem od t_177', bank: 0.0, maturity: seasoned_by_history}
+  - {id: companion_spidey, rate_per_day: 1.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj', bank: 0.0, maturity: seasoned_by_history}
+  - {id: pc_lucan, rate_per_day: 6.0, basis: 'retcon_000112 - wlasna regeneracja 0,25/h nie ma gdzie isc po osiagnieciu sufitu 15; do tego wszystko, co siec do niego skieruje. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Nalicza sie dopiero PRZY SUFICIE - o 05:00 dnia 4 Lucan ma 14,10/15, wiec bufor rusza ok. 08:36.'}
