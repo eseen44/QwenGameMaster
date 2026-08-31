@@ -1,0 +1,86 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day3_night_to_the_wall_tower
+object_type: scene_snapshot
+closed_at: '2026-08-31T17:28:44+02:00'
+summary: 'Noc dnia trzeciego na czwarty. Marsz z Akademii do baszty i przeglad calej
+  sieci w drodze; cztery godziny przy stole - Tkacz dostaje oba pasma sluchu i drugi
+  gruczol przedni, Spidey ucho konika polnego i jako jedyny wezel zaczyna dostarczac
+  tresc rozmowy. Potem porcja tlumiaca dla Tkacza, pozwolenie na polowanie dla calej
+  sieci, trzy ksiazki ze schowka w murze i noc czytania w pokoju dyzurnym na gorze
+  w gildii: atlasy balwierza pierwsze przejscie, jego brulion przeczytany w calosci,
+  tom z sygnatura przekartkowany - czyli warunek zwrotu odhaczony. Lucan nie spal.
+  Swita dzien czwarty, w planach targ po introligatora i pierwszy trening z Mara.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day3_night_to_the_wall_tower
+  location_ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+  started_at: '2026-08-18T19:42:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Swita, Lucan nie spal, a poranek ma juz dwie wlasne rzeczy: targ po introligatora
+    i pierwszy trening z Mara. Ktora bierze pierwsza - i czy brulion balwierza idzie
+    z nim, czy zostaje na gorze?'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_177
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_late_evening_leaving_the_academy.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-academy/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Swita, Lucan nie spal, a poranek ma juz dwie wlasne rzeczy: targ po introligatora
+    i pierwszy trening z Mara. Ktora bierze pierwsza - i czy brulion balwierza idzie
+    z nim, czy zostaje na gorze?'
+  last_refreshed_event_id: event_turn_interlude_177
+  context_bytes: 30389
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5382
+  - ref: system/player-agency.md
+    bytes: 2804
+  - ref: campaigns/lucan/locations/lumaria-academy/location.yaml
+    bytes: 2672
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2651

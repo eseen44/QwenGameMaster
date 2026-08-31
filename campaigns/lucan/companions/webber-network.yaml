@@ -1,6 +1,6 @@
-﻿schema_version: 1
+schema_version: 1
 id: companion_webber_network
-name: SieÄ‡ czterech sieciarzy
+name: Sieć czterech sieciarzy
 status: accepted_by_user_pending_package_activation
 entity_kind: companion
 representation:
@@ -9,7 +9,7 @@ representation:
   body_scale: small_spiders
   member_ids: [webber_anchored, webber_home, webber_tannery, webber_dump]
   can_split: true
-  split_rule: Zakotwiczony lub trwale zmodyfikowany sieciarz otrzymuje wĹ‚asny stan; pozostaĹ‚e zachowujÄ… stabilne identyfikatory posterunkĂłw.
+  split_rule: Zakotwiczony lub trwale zmodyfikowany sieciarz otrzymuje własny stan; pozostałe zachowują stabilne identyfikatory posterunków.
 controller:
   entity_id: pc_lucan
   control_type: simple_necromantic_command
@@ -54,37 +54,37 @@ state:
   location_ref: dispersed_to_named_posts_and_guild_rooftop
   condition: redeployed_after_overnight_recharge_at_wall_hideout
   post_assignment:
-    webber_home: loc_city_wall_hideout  # posterunek, juĹĽ nie "przy Spideyu"
+    webber_home: loc_city_wall_hideout  # posterunek, już nie "przy Spideyu"
     webber_tannery: loc_tannery
     webber_dump: loc_dump
     webber_anchored: loc_tannery#zone_upper_meadow
   post_assignment_event_id: event_turn_interlude_007_redeploy_and_guild_walk
   standing_order: Od event_turn_interlude_055_distributed_varkhen_upkeep Lucan poleca
-    polowaÄ‡ dyskretnie na kaĹĽde osiÄ…galne ĹşrĂłdĹ‚o ĹĽycia, w tym szczury, koty i inne
-    maĹ‚e lub Ĺ›rednie zwierzÄ™ta. Priorytetem jest energia dla sieci i Varkhena;
-    ograniczeniem jest widoczny haĹ‚as, Ĺ›wiadkowie i ryzyko natychmiastowego ujawnienia,
-    nie status zwierzÄ™cia jako domowego.
+    polować dyskretnie na każde osiągalne źródło życia, w tym szczury, koty i inne
+    małe lub średnie zwierzęta. Priorytetem jest energia dla sieci i Varkhena;
+    ograniczeniem jest widoczny hałas, świadkowie i ryzyko natychmiastowego ujawnienia,
+    nie status zwierzęcia jako domowego.
   additional_order:
     id: order_collect_live_specimens_from_posts
     issued_event_id: event_turn_interlude_015_silkworms_and_specimen_order
-    intended_instruction: PrzynieĹ›Ä‡ do baszty prĂłbki tego, co kaĹĽdy sieciarz potrafi
-      znaleĹşÄ‡ w swoim biomie - inne pajÄ…ki, osy, muchy, karaluchy, Ä‡my, stonogi;
-      po jednej z kaĹĽdego gatunku, ĹĽywe.
-    actually_transmitted: ĹapaÄ‡ maĹ‚e rzeczy, nie zjadaÄ‡, nosiÄ‡ do baszty. Rozkaz
-      przekroczyĹ‚ pasmo Ĺ‚Ä…cza (control_type simple_necromantic_command,
+    intended_instruction: Przynieść do baszty próbki tego, co każdy sieciarz potrafi
+      znaleźć w swoim biomie - inne pająki, osy, muchy, karaluchy, ćmy, stonogi;
+      po jednej z każdego gatunku, żywe.
+    actually_transmitted: Łapać małe rzeczy, nie zjadać, nosić do baszty. Rozkaz
+      przekroczył pasmo łącza (control_type simple_necromantic_command,
       strength stable_for_simple_orders, communication thread_break_signal +
-      minimal_status), wiÄ™c kategoryzowanie po gatunku i utrzymywanie okazĂłw ĹĽywymi
-      nie przeszĹ‚o.
+      minimal_status), więc kategoryzowanie po gatunku i utrzymywanie okazów żywymi
+      nie przeszło.
     fidelity_by_member:
       webber_home: clean
       webber_anchored: clean
       webber_tannery: degraded_by_distance
       webber_dump: degraded_by_distance
     sorting_delegated_to: companion_spidey
-    sorting_timing: Spidey jest przy Lucanie (retcon_000005), wiÄ™c urobek leĹĽy w
+    sorting_timing: Spidey jest przy Lucanie (retcon_000005), więc urobek leży w
       baszcie do ich powrotu; nikt nie sortuje go w trakcie nocy.
-    expected_delivery: Nocny zbiĂłr; wynik czeka w baszcie nad ranem, prawdopodobnie
-      czÄ™Ĺ›ciowo poĹ‚amany, zdechĹ‚y lub uciekĹ‚y.
+    expected_delivery: Nocny zbiór; wynik czeka w baszcie nad ranem, prawdopodobnie
+      częściowo połamany, zdechły lub uciekły.
     compatible_with_standing_order: true
   additional_order_2:
     id: order_collect_moths_and_butterflies
@@ -109,7 +109,7 @@ state:
     expected_delivery: Nocny zbior, wynik czeka w baszcie nad ranem.
     compatible_with_standing_order: true
   casualties: 1
-  casualty_notes: [PiÄ…ty dodatkowy sieciarz kancelaryjny zostaĹ‚ odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalnoĹ›Ä‡ pozostajÄ… nieznane; nie naleĹĽaĹ‚ do podstawowej czwĂłrki.]
+  casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]
 network_cost_model:
   source: out_of_game_canon_clarification_2026-08-24
@@ -127,10 +127,14 @@ network_cost_model:
     rozkazie order_collect_live_specimens_from_posts.'
   attention_is_serial:
     source_event_id: event_turn_interlude_086
+    source: retcon_000100
     text: 'ZMIERZONE W GRZE, NIE OSZACOWANE. Lacze przenosi tyle, ile przenosi, ale
-      ODBIORNIK jest jeden - Lucan skupia sie na jednym wezle naraz. Przeglad dwudziestu
-      jednu wezlow zajal mu trzy kwadranse marszu. Przy stu okazach ten sam przeglad jest
-      niewykonalny w ciagu dnia. Pierwsza realna granica skalowania sieci nie jest ani
+      ODBIORNIK jest jeden - Lucan skupia sie na jednym wezle naraz.
+      Przeglad JEDNEGO wezla to ~15 s: ok. 10 s wyczucia plus ok. 5 s przelaczenia uwagi
+      (retcon_000100). 23 wezly to ~6 minut, wiec przeglad miesci sie w marszu; setka okazow
+      to ~25 minut i dopiero tam skala zaczyna bolec. UWAGA: "trzy kwadranse" z t_086 opisuje
+      DYSTANS marszu Akademia/gildia - baszta i nadal obowiazuje; NIE jest czasem przegladu.
+      Pierwsza realna granica skalowania sieci nie jest ani
       energia, ani czas przy stole - jest UWAGA. Wnioski projektowe: (1) agregacja
       (jeden wezel zbiera od kilku) oplaca sie bardziej niz kolejne cialo, (2) alarm
       czytany OKIEM albo kurier fizyczny nie zuzywa uwagi w ogole, (3) roj bez
@@ -153,7 +157,7 @@ development_path:
   intended_role: trapper
   current_stage: weak_sparse_monitoring_only
   future_capabilities: [movement_recording, prepared_snares, voice_recording, magic_detection, poison_delivery_through_threads]
-  rule: Ĺ»adna z przyszĹ‚ych funkcji nie jest dostÄ™pna bez osobnego ulepszenia, kosztu i wpisu zdarzenia.
+  rule: Żadna z przyszłych funkcji nie jest dostępna bez osobnego ulepszenia, kosztu i wpisu zdarzenia.
 last_updated_event_id: event_turn_interlude_090
 source_refs: [source_luka_b_fragment#line:4954-5082, source_luka_b_fragment#line:10555-10566, source_luka_b_fragment#line:11352-11368]
 named_members:
