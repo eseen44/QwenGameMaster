@@ -8,11 +8,11 @@ importance: full_agent
 role: syndicate_principal_the_actual_owner
 established_by: retcon_000035
 first_appearance_event_id: event_turn_interlude_104
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_110}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_195}
 current_location_id: loc_lumaria_market
 portrayal:
   appearance: "Rzemieślnik, nie zbir. Siedzi przy wadze uchylnej z probierzem i kamieniem probierczym, ręce ma robocze."
-  method: "Milczy przez całą rozmowę i słucha wszystkiego. Nikt go nie przedstawia i sam się nie przedstawia - to jest wybór, nie zaniedbanie. Rozmowę i nacisk oddaje Ilvie; liczbę zostawia sobie."
+  method: "Nikt go nie przedstawia i sam się nie przedstawia - to jest wybór, nie zaniedbanie. Liczbę zostawia sobie. UWAGA: milczenie z t_104/107 było funkcją NIEROZPOZNANIA, nie charakteru - od t_109, odkąd Lucan trafił w pryncypała, mówi sam i krótko: rozbił inwentarz na trzy tempa (t_109), przeliczył na głos wojnę z Kościołem (t_110), wycenił kanał ostrzegawczy jednym zdaniem (t_113), odpowiedział na powitanie przy własnym stole (t_195). Nie oddawaj już rozmowy Ilvie, jeśli Lucan mówi wprost do niego."
   tell: "Sortuje grobowy towar odruchowo i bezbłędnie, w tym odkłada na bok robotę konsekracyjną bez pytania - robił to już wcześniej."
 authority:
   sets_the_price: true
@@ -26,8 +26,14 @@ knowledge:
     - {fact_id: fact_weigher_has_a_stake_in_lucan_surviving, source_event_id: event_turn_interlude_109, claim: "Powiedzial wprost: jesli Kosciol przejdzie z papieru na rece, celem bedzie Lucan, a zapas kupiony pod jego termin umiera razem z nim. Interes transakcyjny, nie zyczliwosc."}
     - {fact_id: fact_weigher_knows_lucan_declared_war_on_the_church, source_event_id: event_turn_interlude_110, claim: "Nie odradza i nie moralizuje. Kosciol jest zarazem jedyna instytucja miedzy nim a kategoria towaru, w ktora mial wlozyc pieniadze - dwa ryzyka na tej samej szali, wiec inwentarz na ten tydzien bedzie mniejszy i ostrozniejszy."}
     - {fact_id: fact_weigher_knows_a_bigger_cemetery_problem_exists, source_event_id: event_turn_interlude_110, claim: "Lucan nazwal ISTNIENIE wiekszego problemu z przyszloscia cmentarza, nie jego tresc. Dla ludzi zyjacych z wiedzenia wczesniej to najdrozszy rodzaj zdania."}
+    - {fact_id: fact_weigher_priced_the_warning_channel_without_pressing, source_event_id: event_turn_interlude_113,
+       claim: "Przyjal obietnice kanalu ostrzegawczego BEZ nacisku: nie zadal terminu i nie targowal sie o nazwisko. Powiedzial tylko, na czym polega produkt - ostrzezenie, ktore przychodzi tego samego dnia co klopot, nie jest ostrzezeniem, tylko wiadomoscia. Kupuje WYPRZEDZENIE; sygnal wart mniej niz doba jest wart nic."}
+    - {fact_id: fact_weigher_saw_his_own_lawyer_arrive_beside_lucan, source_event_id: event_turn_interlude_195,
+       claim: "Lucan doszedl do jego stolu na targu z Rovanem Keszem obok, nie po niego. Kesz jest stalym klientem pryncypala (retcon_000124), wiec pryncypal widzi wlasnego prawnika przychodzacego z kims. Odnotowal spojrzeniem, nie skomentowal. NIEROZSTRZYGNIETE I JEGO DO ROZSTRZYGNIECIA: czy chce, zeby jego prawnik byl widoczny jako gwarant proceduralny naprzeciw Strazy i na wewnetrznym przesluchaniu gildii (t_194 punkt 3)."}
+    - {fact_id: fact_weigher_was_greeted_and_nothing_more, source_event_id: event_turn_interlude_195,
+       claim: "Lucan otworzyl samym powitaniem o 13:03, pytajac o poranek, ktory juz sie skonczyl. Zadnej sprawy nie postawil: kanal ostrzegawczy nadal nienazwany, pytanie 'co poza zlotem' nadal bez odpowiedzi, pajak nadal w pudelku w kieszeni."}
   suspicions: []
   false_beliefs: []
   forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, seals_and_lower_gate, veyr_house_structure]
 agenda: [set_the_number_himself, stay_unnamed, judge_lucan_by_what_he_declines_not_by_what_he_offers]
-source_refs: [event_turn_interlude_104, event_turn_interlude_107, retcon_000035]
+source_refs: [event_turn_interlude_104, event_turn_interlude_107, event_turn_interlude_113, event_turn_interlude_195, retcon_000035, retcon_000124]
