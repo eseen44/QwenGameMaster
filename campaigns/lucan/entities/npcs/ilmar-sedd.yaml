@@ -1,0 +1,80 @@
+schema_version: 1
+id: npc_ilmar_sedd
+name: Ilmar Sedd
+status: active
+review_status: created_in_play
+importance: specialist
+role: bookbinder_and_copy_broker_behind_the_book_row
+introduced_by: npc_hesk_dorn
+first_appearance_event_id: event_turn_interlude_191
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_191}
+current_location_id: loc_lumaria_market
+zone_id: zone_market_back_alleys
+has_character_sheet: false
+sheet_note: >-
+  Zwykly rzemieslnik bez arkusza - nie jest przeciwnikiem w tescie. Rozstrzygac narracyjnie
+  (zasada gracza 2026-08-19).
+relationship_to_lucan: {attitude: neutral_tradesman, score: 0, confidence: low}
+portrayal:
+  temperament: [rzeczowy, powolny_w_mowie, wyceniajacy_na_glos]
+  appearance: >-
+    Rece w kleju i w barwniku, fartuch przypalony przy brzegu od prasy. Mowi patrzac na
+    ksiazke, nie na klienta.
+  group_role: >-
+    Czlowiek od skladania z powrotem tego, co Hesk kupuje na wage. Zyje z tego, ze polowa
+    towaru handlarza starzyzna przychodzi rozklejona.
+  method: >-
+    Zanim poda cene, mowi, czym jest robota - i rozdziela ja na czesci, bo klienci myla
+    przepisanie z oprawa, a oprawe z podrobieniem cudzej oprawy. Nie pyta, skad ksiazka.
+  what_he_wants_from_a_conversation: Zamowienie z gory ustalonego rodzaju, zeby nie
+    przerabiac roboty drugi raz.
+  what_he_refuses: Nie bierze roboty opisanej ogolnikowo. Chce wiedziec, czy ma zrobic
+    KSIAZKE, czy ma zrobic ksiazke WYGLADAJACA NA CZYJAS.
+  what_he_can_lose: Heska. To jego staly zleceniodawca i cale jego obrocenie.
+  do_not_play: >-
+    Nie jest paserem, nie jest informatorem i nie jest sprytniejszy od Lucana. Nie szantazuje,
+    nie domysla sie, co Lucan kombinuje, i nie robi z ksiazki zagadki. Nie doklejac mu wiedzy
+    o Akademii - pracuje dla handlarza makulatura, nie dla biblioteki.
+no_order_book:
+  source_event_id: event_turn_interlude_191
+  claim: >-
+    Sedd NIE prowadzi ksiegi zamowien. To jest cala roznica miedzy nim a rzedem skrybow, gdzie
+    przepisanie jest tanie i powolne, ale zamowienie zostawia zapis, kto czego szukal
+    (planning/lucan-leads.yaml#lead_scribe_catalogue_and_the_order_record). Zaplecze za
+    straganami nie ma katalogu ani zapisu
+    (planning/lucan-leads.yaml#lead_anti_detection_only_through_back_alleys).
+quoted_terms:
+  source_event_id: event_turn_interlude_191
+  status: podane_zamowienie_niezlozone_zaliczki_brak
+  copy:
+    scope: pelen tom akademicki, czysta reka, bez marginaliow
+    one_hand: {days: 12, silver: 40}
+    two_hands: {days: 8, silver: 40, cost_in_kind: drugi kopista, czyli druga para oczu}
+  binding:
+    days: 2
+    silver: 18
+    note: >-
+      Sam Sedd mowi, ze oprawa jest najlatwiejsza czescia. UDAWANIE OPRAWY BIBLIOTECZNEJ to
+      inna robota niz zrobienie ksiazki i chce wiedziec z gory, ktora zamawia Lucan.
+  the_two_consequences_he_stated_plainly:
+    - Kopista musi miec tom U SIEBIE przez caly czas przepisywania.
+    - >-
+      Polecenie "przepisz bez marginaliow" znaczy, ze kopista marginalia widzi. Sedd mowi to
+      jako uwage rzemieslnicza, nie jako grozbe - dla niego marginalia to brud na stronie.
+knowledge:
+  confirmed:
+    - {fact_id: fact_sedd_knows_lucan_wants_a_copy_of_an_academic_volume, source_event_id: event_turn_interlude_191,
+       claim: 'Wie, ze klient przyslany przez Heska chce odpis i oprawe pelnego tomu akademickiego
+         i ze tom ma na marginesach cudza reke, ktorej nie nalezy przepisywac. Tomu nie mial
+         w rekach - Lucan go nie oddal.'}
+  does_not_know:
+    - Nazwiska Lucana, jego afiliacji ani tego, ze tom nalezy do biblioteki Akademii.
+    - Skad tom pochodzi i kto pisal po marginesach.
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_name, barber_provenance]
+agenda: [ustalic_rodzaj_zamowienia_zanim_zacznie, nie_stracic_zlecen_od_heska, dostac_tom_do_reki]
+source_refs:
+  - event_turn_interlude_191
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_find_copyist_and_binder_at_the_market
+  - campaigns/lucan/state/obligations.yaml#obligation_return_borrowed_academy_volume

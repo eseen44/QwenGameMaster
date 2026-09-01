@@ -1,0 +1,114 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_late_morning_market_bookbinder
+object_type: scene_snapshot
+closed_at: '2026-09-02T00:40:01+02:00'
+summary: 'Dzien 4 interludium, 11:39-13:00. Scena targowa zamknieta w progu pokoju
+  syndykatu. Lucan wyszedl z gildii z trzema ksiazkami i pajakiem piwnicznym spy_cellar_spider_06
+  w pudelku, przeszedl targ i domknal cztery sprawy. (1) Hesk Dorn wskazal introligatora
+  - npc_ilmar_sedd, zaplecze rzedu ksiazkowego, bez ksiegi zamowien; warunki podane,
+  zamowienie NIEZLOZONE, tom nadal u Lucana: 12 dni na jedna reke albo 8 na dwie,
+  40 srebra odpis plus 18 oprawa, a Sedd chce z gory wiedziec, czy ma zrobic ksiazke,
+  czy ksiazke udajaca cudza. (2) Warsztat alchemiczny kupiony za 70 srebra, skrzynka
+  oplacona i czeka pod straganem; kurs zlota do srebra celowo nieustanowiony. (3)
+  Czesci do slug: duze pajeczaki nie sa na targu, ale zamowienie u syndykatu jest
+  w tempie na dzien 6-7; jad i szczypce skorpionie do wziecia u handlarza zywego towaru
+  na zamowienie z zapisem; narzadow iluzji i kontroli umyslu nie ma nigdzie w kanonie.
+  Kamien szlachetny jako bateria to dodanie do kanonu, nie odczyt - otwarte, czeka
+  na deklaracje gracza; kamienie sa na zapleczu i w bizuterii grobowej, ktora Lucan
+  sam sprzedal syndykatowi trzy dni temu. (4) Rovan Kesz dostal odpowiedz na pytanie
+  z t_113 po 80 turach: u kaplana Lucan siada jako WSZYSTKIE TRZY naraz - Akademia
+  na urlopie dziekanskim, gildia i Veyr. Wiadomosc do kaplana idzie dzis z rama TO
+  CO JEST POD CMENTARZEM, ktorej Kesz nie rozumie i uznaje to za zalete. Dostal do
+  uzytku oslone, ze Lucan go szantazuje. Przyjal role GWARANTA PROCEDURALNEGO wobec
+  gildii i Strazy - nie obroncy - z wlasna poprawka, ze zadanie brzmi ''niech brak
+  przepisu wejdzie do protokolu''. Zgodzil sie byc linia do pryncypala. Zadnej umowy,
+  zadnego honorarium. DWIE KOREKTY KANONU W TEJ SCENIE: retcon_000123 skrocil ture
+  targowa z 90 na 45 minut i przeniosl skrzynke szkla z piwnicy gildii pod stragan;
+  retcon_000124 uniewaznil granie Kesza jako bramki pokoju (moved_seats z t_105b bije
+  declaration z t_104) i przekwalifikowal ostrzezenie Seraphine z obietnicy Lucana
+  na JEJ warunek, na ktory sie nigdy nie zgodzil. OTWARTE PRZY WEJSCIU DO POKOJU:
+  nazwisko do kanalu ostrzegawczego (pajak jest sposobem), co Lucan oferuje poza zlotem,
+  czy pryncypal uzna nowa role Kesza za aktyw, i czy Lucan bierze kamienie. Ilva Rennat
+  prawdopodobnie w pokoju, ale obecnosc niepotwierdzona.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_late_morning_market_bookbinder
+  location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+  started_at: '2026-08-19T11:39:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Kesz idzie obok, z teczka, i za czterdziesci krokow obaj staja przed czlowiekiem,
+    ktory milczy przez cale rozmowy i zostawia sobie liczbe. Lucan wnosi tam: pajaka
+    jako SPOSOB ostrzegania i wciaz bez NAZWISKA obiecanego w t_109; nowa role Kesza,
+    ktora pryncypal moze uznac za aktyw albo za wystawienie sie; nieodpowiedziane
+    od t_104 pytanie, co Lucan oferuje poza zlotem; oraz kamienie z bizuterii grobowej,
+    ktora sam im sprzedal trzy dni temu. Pryncypal ocenia ludzi po tym, czego ODMAWIAJA,
+    nie po tym, co oferuja.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_194
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_morning_training_with_mara.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-market/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Kesz idzie obok, z teczka, i za czterdziesci krokow obaj staja przed czlowiekiem,
+    ktory milczy przez cale rozmowy i zostawia sobie liczbe. Lucan wnosi tam: pajaka
+    jako SPOSOB ostrzegania i wciaz bez NAZWISKA obiecanego w t_109; nowa role Kesza,
+    ktora pryncypal moze uznac za aktyw albo za wystawienie sie; nieodpowiedziane
+    od t_104 pytanie, co Lucan oferuje poza zlotem; oraz kamienie z bizuterii grobowej,
+    ktora sam im sprzedal trzy dni temu. Pryncypal ocenia ludzi po tym, czego ODMAWIAJA,
+    nie po tym, co oferuja.'
+  last_refreshed_event_id: event_turn_interlude_194
+  context_bytes: 32854
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5424
+  - ref: campaigns/lucan/state/obligations.yaml
+    bytes: 4738
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877
+  - ref: system/player-agency.md
+    bytes: 2804

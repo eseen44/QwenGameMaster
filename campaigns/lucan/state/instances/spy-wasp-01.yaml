@@ -3,7 +3,7 @@ id: spy_wasp_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 115
+revision: 119
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_entry
@@ -13,7 +13,7 @@ integrity:
   maximum: 4
 resources:
   necrotic_reservoir:
-    current: 1
+    current: 0
     capacity: 3
     decay:
       interval_seconds: 86400
@@ -24,7 +24,7 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 83340
+      decay_elapsed_seconds: 1800
       hunting_recovery_elapsed_seconds: 0
     hunting_recovery_override:
       requires:
@@ -46,7 +46,7 @@ status_flags:
 - buzz_draws_attention_and_violence
 - starves_at_a_static_indoor_post
 conditions: []
-last_event_id: event_turn_interlude_190
+last_event_id: event_turn_interlude_194
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

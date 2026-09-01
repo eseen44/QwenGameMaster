@@ -5,7 +5,7 @@ status: active
 review_status: created_in_play
 importance: recurring_information_source
 role: junk_and_secondhand_book_dealer
-lifecycle: {state: alive}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_191}
 current_location_id: loc_lumaria_market
 zone_id: zone_market_main_row
 has_character_sheet: false
@@ -32,8 +32,16 @@ knowledge:
        claim: 'Sam zauwazyl i powiedzial, ze pytania o "mieso, ktore sie nie psuje" URWALY
          SIE mniej wiecej miesiac temu i nie wrocily - handel zrobil sie cichszy, nie
          glosniejszy. Podal tez date wizyty chlopca w liverii: za osiem dni.'}
+    - {fact_id: fact_hesk_named_his_binder_to_lucan, source_event_id: event_turn_interlude_191,
+       claim: 'Wskazal Lucanowi npc_ilmar_sedd - introligatora z tylu rzedu ksiazkowego,
+         ktory od lat sklada z powrotem partie kupowane przez Heska na wage. Podal to jako
+         rzemieslnicza oczywistosc, nie przysluge, i byl zadowolony, ze ktos pyta go o
+         robote, a nie o towar. Wzial cztery srebra za obiad i nie chcial wiecej.
+         NIE WIE, jaka ksiazke Lucan chce przepisac ani po co - nie pokazano mu tomu
+         i nie zapytal.'}
   does_not_know:
     - Nazwiska Lucana ani jego afiliacji.
+    - Ze tom, o ktory chodzi, jest wlasnoscia biblioteki Akademii i ma jej sygnature.
     - Ze "cos, zeby mieso sie nie psulo" pytali ludzie handlu zwlokami, a nie rzeznicy.
     - Czyja barwe nosi chlopiec na posylki - nie zna heraldyki.
   false_beliefs:

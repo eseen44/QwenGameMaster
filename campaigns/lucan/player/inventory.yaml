@@ -2,13 +2,13 @@ schema_version: 1
 owner_id: pc_lucan
 status: active
 currency:
-  carried_silver: 24
-  syndicate_payout_first_instalment_silver: 4000
+  carried_silver: 150
+  syndicate_payout_first_instalment_silver: 3800
   hidden_silver: 50
   leftover_market_savings_silver: 0
   refundable_deposits_silver: 5
-  liquid_silver_available_now: 4114
-  total_known_net_silver: 4119
+  liquid_silver_available_now: 4040
+  total_known_net_silver: 4045
   syndicate_payout_outstanding_silver: 40000
   source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk, event_turn_interlude_013_market_food_run]
   notes:
@@ -28,6 +28,13 @@ currency:
       (event_turn_interlude_081) - Lucan zabral ze schowka w murze reszte z targu po Akcie 1
       i zostawil hidden_silver: 50 nietkniete, zgodnie z wlasna decyzja.'
     - 'carried_silver podniesione o 15 (event_turn_interlude_012_reception_desk) - standardowe stypendium polowe za dni pracy przy operacji cmentarnej. Pelna nagroda/uznanie za Akt 2 NIE jest w tym - czeka na przeglad kierownictwa gildii, zlanie sie z nadchodzacym przesluchaniem instytucjonalnym (objective_prepare_guild_hearing_and_watch#resolve_act_02_reward).'
+    - 'ROZMIANA I ZAKUPY NA TARGU (event_turn_interlude_191): Lucan rozmienil czesc pierwszej
+      raty syndykatu na 200 srebra w bilonie (syndicate_payout_first_instalment_silver 4000 ->
+      3800, carried_silver +200). Wydane 74: 70 za komplet szkla i sprzetu alchemicznego
+      drugiego gatunku, 4 za obiad dla npc_hesk_dorn. carried_silver 24 -> 150.
+      KURS ZLOTA DO SREBRA NIE STOI W ZADNYM PLIKU i narrator go nie ustanawia - caly zapis
+      prowadzony jest w srebrze, a "rozmienil na 200 srebra" nie orzeka, ile monet poszlo.
+      Zamowienie u introligatora NIE zostalo zlozone, wiec zadnej zaliczki nie ma.'
 containers:
   - id: container_personal_pockets_and_belt
     location: carried
@@ -40,6 +47,15 @@ containers:
       przywiezione z baszty (atlasy i brulion balwierza, odpis formul prawnych,
       dwie odbitki akademickie, tom biblioteczny z sygnatura). location: guild_duty_room.
       Czujnik przeszukania wrocil w tej samej turze.
+  - id: container_guild_cellar_cell
+    location_ref: loc_lumaria_adventurers_guild
+    zone_id: zone_guild_cellar
+    security: lucans_own_cell_empty_since_he_sleeps_upstairs
+    note: >-
+      Cela po Varkhenie w piwnicy gildii - formalnie Lucana, ale nie sypia tam do konca
+      sprawy (retcon_000038). PRZEZNACZONA na warsztat alchemiczny kupiony w
+      event_turn_interlude_191, ale sprzet jeszcze tu NIE STOI - skrzynka czeka pod
+      straganem do odebrania. location: guild_cellar_cell.
   - id: container_wall_hideout
     location_ref: loc_city_wall_hideout
     security: concealed_inside_wall
@@ -48,6 +64,31 @@ containers:
     security: secured_unexamined_pile
     purpose: Act_02_loot_review
 items:
+  - id: item_basic_alchemical_bench
+    name: Podstawowy warsztat alchemiczny
+    location: market_stall_paid_awaiting_collection
+    acquired_event_id: event_turn_interlude_191
+    state: >-
+      kupiony_i_zaplacony_skrzynka_zostawiona_pod_straganem_bo_lucan_jest_na_targu_a_nie_w_gildii
+      - KOREKTA po retcon_000123, pierwsza wersja podania mowila, ze sprzet juz stoi w piwnicy,
+      co bylo niemozliwe w tej samej turze
+    contents: >-
+      Retorta, alembik, rura chlodzaca, trzy stojaki, mozdzierz z tluczkiem, waga uchylna,
+      palnik i komplet sloi z korkami. Wszystko szklo i metal z drugiej reki, kupione na
+      targu za 70 srebra.
+    why_it_matters: >-
+      Lucan ma doktorat z anatomii, biologii i chemii (player/character.yaml#facts_confirmed),
+      wiec sprzet nie wymaga niczyjej pomocy ani nauki - brakowalo wylacznie szkla. Warsztat
+      ma stanac w celi w piwnicy gildii, nie w baszcie przy murze, wiec praca chemiczna przestanie
+      wymagac trzech kwadransow marszu w kazda strone (event_turn_interlude_086).
+    what_it_does_not_do: >-
+      Nie jest wymagany do ozywiania ani do trwalych ulepszen slug - te kosztuja CZAS PRZY
+      STOLE, nie odczynniki (retcon_000015, retcon_000017, retcon_000024). Nie dodawac mu
+      zadnej roli, ktorej gracz nie zadeklaruje.
+    visibility: >-
+      Docelowo w budynku gildii, w celi formalnie przypisanej Lucanowi. Szklo alchemiczne u
+      czlowieka z doktoratem z chemii jest szklem alchemicznym u czlowieka z doktoratem
+      z chemii - narrator nie robi z tego dowodu ani zagrozenia (retcon_000055).
   - id: item_mara_wound_observation_record
     name: Zapis obserwacji ran wg Mary Teln
     location: carried
