@@ -195,6 +195,18 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   i w dzienniku. Przy wątku z przeszłości czytaj OBA i pytaj, kto od tamtej pory coś o tym
   powiedział — `gm.ps1 recall <fraza>` jest do tego.
 
+- **KARTA NPC JEST TAK SWIEZA, JAK OSTATNI DOPISEK - NIE JAK OSTATNIA TURA**
+  (retcon_000121, 01.09.2026; ta sama rodzina co retcon_000058, ale odwrotnym końcem).
+  Wpis w `knowledge.confirmed` z `source_event_id` to **zdarzenie**, nie stan bieżący.
+  Narrator wziął z karty Seraphine żądanie z `t_122` („wygaś pióro nad Ruskiem, podaj sposób")
+  i podał je jako otwarte — a `t_123`/`t_125` je zamknęły: wzięła to na siebie i zrobiła sama.
+  Karta tego nie wiedziała, bo **nie dostała ani jednego faktu z tur 123–126**,
+  a `lifecycle.last_confirmed_event_id` wskazywał turę sprzed ponad 140 tur.
+  **Przed pierwszą kwestią NPC:** po przeczytaniu karty sprawdź `recall`/dziennik na
+  frazę z tego żądania. Jeśli karta kończy się dawno przed `last_event_id` z briefu,
+  traktuj ją jako niekompletną, a nie jako aktualną. Po scenie z NPC **dopisz do karty**,
+  inaczej ta sama pułapka wraca.
+
 - **ADRESATEM TEKSTU POZA NAWIASEM JEST OSOBA W SCENIE, NIE TY** (retcon_000054, 27.08.2026).
   Wiadomość gracza może mieszać rejestry w jednym akapicie: fakt o świecie, deklarację ruchu
   i pytanie — ale jeśli obok Lucana ktoś stoi, to **domyślnie mówi do tej osoby**. Zanim uznasz
