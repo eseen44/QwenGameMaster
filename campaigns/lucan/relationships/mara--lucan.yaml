@@ -6,7 +6,7 @@ subject_id: npc_mara_teln
 target_id: pc_lucan
 layer: personal
 stance: positive_cautious_comrade
-axes: {cooperation: 50, judgment_confidence: 60, discretion_trust: 40, personal_regard: 35}
+axes: {cooperation: 50, judgment_confidence: 60, discretion_trust: 45, personal_regard: 40}
 reasons: [shared_tannery_and_cemetery_history, lucan_helped_save_rusk, lucan_repeatedly_found_workable_paths]
 obligations: [{id: mara_vouches_for_lucan_with_the_syndicate, source_event_id: event_turn_interlude_102, note: "Wprowadzenie idzie na jej nazwisko. Lucan uprzedzil ja sam (event_turn_interlude_103), ze idzie po WSPOLPRACE, nie po transakcje - wiec reczy za przyszlego klienta aparatu, bez daty konca, a w pokoju wyceniany bedzie czlowiek, nie towar."}]
 shared_secrets: [varkhen_assault_witness, church_reliquary_possession]
@@ -21,6 +21,7 @@ history:
   - {event_id: event_turn_interlude_102, change: cooperation+5_judgment_confidence+5, reason: przyjela_porecznie_za_lucana_przy_syndykacie_i_uznala_jego_wybor_calej_drogi_za_trafny}
   - {event_id: event_turn_interlude_103, change: discretion_trust+5, reason: uprzedzil_ja_zawczasu_i_z_wlasnej_inicjatywy_ze_zmienia_stawke_jej_poreczenia}
   - {event_id: event_turn_interlude_114, change: judgment_confidence+5, reason: cena_wyszla_powyzej_oczekiwanej_stawki_paserskiej_i_bez_przetopu_a_poreczenie_szlo_na_jej_nazwisko}
+  - {event_id: event_turn_interlude_184, change: discretion_trust+5_personal_regard+5, reason: odpowiedzial_prawde_na_pytanie_o_varkhena_ktore_mogl_zbyc_i_sam_nazwal_mechanizm_swojej_magii_czym_zdjal_polowe_constraintu_concern_about_unexplained_magic}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: []}
-last_event_id: event_turn_interlude_114
+last_event_id: event_turn_interlude_184
 source_refs: [source_user_decisions_current#approval:mara_card]
