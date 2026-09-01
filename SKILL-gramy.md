@@ -263,6 +263,18 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
 - Rzut zrobiony z góry przez `roll-d100.ps1` z identyfikatorem `roll_<turn_id>` zostaje
   automatycznie podpięty przez `turn resolve` — to droga dla akcji, które nie mają
   encji/capability w silniku możliwości.
+- **NIGDY nie wpisuj `advance_time` do `outcome.operations`** (retcon_000118, 31.08.2026,
+  pięć tur pod rząd). `commit` dokleja `transaction.time_operation` bezwarunkowo
+  (`tools/gm_runtime.py:1015`), więc ręcznie dopisany `advance_time` **podwaja czas tury**.
+  Zadeklarowane 90 minut przez tury 178–182 wjechało w zegar jako trzy godziny i wyszło
+  z ratyfikacją zamiast cofania, bo rewind dotknąłby liczników w 25 plikach instancji.
+  Czas bierze się z `request.time_seconds` i tylko z niego. Po commicie **sprawdź
+  `state/time.yaml#current_datetime`, zanim podasz graczowi godzinę** — nie licz jej
+  z własnej deklaracji.
+- **`state/growth-banks.yaml` NIE jest w `load` z briefu, a jest miejscem prawdy dla
+  nadwyżki, stawek dobowych i dojrzałości sług** (retcon_000114). Pominięcie go w turze 178
+  dało równoległy rejestr w plikach instancji i cztery fałszywe liczby podane graczowi jako
+  pomiar. Przed każdą turą o rozwoju, karmieniu, nadwyżce albo dojrzewaniu — przeczytaj go.
 - **Nie dopisuj prozy do `state/objectives.yaml` ani `state/clocks.yaml`.** To pliki
   `active_refs` - ładują się przy KAŻDYM otwarciu sceny. Uzasadnienia, cytaty i wnioski idą do
   `planning/act-03-defence.yaml`; w stanie zostaje struktura i `key_constraint` do 120 znaków.

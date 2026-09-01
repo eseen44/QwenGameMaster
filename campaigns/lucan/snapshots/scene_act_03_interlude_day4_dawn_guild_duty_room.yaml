@@ -1,0 +1,98 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_dawn_guild_duty_room
+object_type: scene_snapshot
+closed_at: '2026-09-01T08:56:31+02:00'
+summary: 'Swit dnia czwartego w gildii. Lucan nie spal i nie zamierza - retcon_000112
+  pokrywa brak snu z nadwyzki, a zaden plik nie stawia mu warunku zmeczenia. Zmierzyl
+  trzy wezly przy sobie, po czym okazalo sie, ze rejestr bankow wzrostu istnial od
+  dawna i narrator go pominal (retcon_000114) - stawki poprawione. Gracz zamknal ekonomie
+  nadwyzki jako regule stala (retcon_000115): parenascie jednostek na dobe, sufit
+  rozwoju rowny polowie pojemnosci zbiornika, rozdzial miedzy wezly, Varkhen racjonowany,
+  Lucan wezlem jak pozostale. Zuk dostal reczne ladowanie 3,5 na dobe i tym samym
+  najwyzsza stawke w sieci - ograniczona wlasnym sufitem 1,5 do czasu enlarge_reservoir_to_tank.
+  Trzy pajaki piwnicze zeszly z posterunkow na swobodny zer; pajak w szufladzie Seraphine
+  zostal w zasiegu, bo jest JEJ kanalem alarmowym, a nie pulapka (retcon_000116).
+  Lucan wszedl do sali narad - stoi otwarta, bez zamka i bez warty - i obejrzal ja
+  pod katem zdalnej infiltracji. Przewodow wentylacyjnych i instalacji wodnej w tym
+  budynku nie ma; sa trzy drogi: pustka miedzy legarami pod podloga, szyb ogniska
+  idacy prosto na dach z posterunkiem Tkacza, i szpara pod blatem na wysokosci glow.
+  Nie postawil tam niczego. Wrocil na gore i do przyjscia Mary cwiczyl pozyczony zmysl
+  przez Spideya i Tkacza, zdobywajac wzorzec tego, jak ludzka mowa brzmi przez pozyczone
+  ucho. Sciana nie jest juz czujnikiem ani droga, jest ZAPISEM. Na schodach krok Mary,
+  o umowionym switie dnia czwartego.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_dawn_guild_duty_room
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-19T05:00:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Na schodach krok, ktory Lucan zna: Mara, o switie dnia czwartego, dokladnie tak,
+    jak umowili sie trzy dni temu. Przychodzi na godzine cwiczen do pokoju, ktory
+    uwaza za jego sypialnie - i ma racje. Za nia zostaje poranek z dwiema wlasnymi
+    rzeczami: targiem po introligatora i tym, co Lucan wlasnie zaczal cwiczyc sam.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_182
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day3_night_to_the_wall_tower.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Na schodach krok, ktory Lucan zna: Mara, o switie dnia czwartego, dokladnie tak,
+    jak umowili sie trzy dni temu. Przychodzi na godzine cwiczen do pokoju, ktory
+    uwaza za jego sypialnie - i ma racje. Za nia zostaje poranek z dwiema wlasnymi
+    rzeczami: targiem po introligatora i tym, co Lucan wlasnie zaczal cwiczyc sam.'
+  last_refreshed_event_id: event_turn_interlude_182
+  context_bytes: 31289
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5424
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3876
+  - ref: system/player-agency.md
+    bytes: 2804
+  - ref: campaigns/lucan/state/clocks.yaml
+    bytes: 2569

@@ -3,11 +3,11 @@ id: spy_cellar_spider_06
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 100
+revision: 105
 position:
-  location_id: loc_lumaria_guild_basement
-  zone_id: zone_temporary_holding
-  formation: assigned_to_the_guild_cell_post
+  location_id: loc_lumaria_adventurers_guild
+  zone_id: zone_guild_surrounding_lanes
+  formation: released_outside_hunting_the_lanes_no_order_beyond_default_bring_back_what_the_web_catches
 integrity:
   current: 6
   maximum: 6
@@ -24,15 +24,16 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 49800
-      hunting_recovery_elapsed_seconds: 49800
+      decay_elapsed_seconds: 60600
+      hunting_recovery_elapsed_seconds: 60600
     growth_bank:
       units_earmarked: 0
-      note: Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
-        laduje w rezerwie przeznaczonej na tego sluge (system/companion-growth.md).
-        Prog pierwszego stopnia dojrzalosci to 10 w growth_bank (retcon_000105);
-        trwala modyfikacja kosztuje GODZINY PRZY STOLE, nie jednostki energii
-        (retcon_000024). Dawne "kosztuje 8" bylo cytatem ze skasowanej formuly 8 x 1.5^n.
+      note: 'Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
+        laduje w banku wzrostu tego slugi (system/companion-growth.md). KOREKTA t_178:
+        dawne zdanie "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia
+        po formule 8 x 1.5^n, skasowanej w calosci przez retcon_000024. Trwaly krok
+        kosztuje CZAS PRZY STOLE (ok. godziny), nie jednostki z banku; bank finansuje
+        mase i dojrzewanie.'
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -47,6 +48,6 @@ status_flags:
 - hand_fed_growth_program
 - excluded_prey_children_and_cats
 conditions: []
-last_event_id: event_turn_interlude_177
+last_event_id: event_turn_interlude_182
 source_refs:
 - event_turn_interlude_078

@@ -3,11 +3,11 @@ id: spy_cellar_spider_04
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 100
+revision: 105
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  detail: lucans_cover_room_search_sensor
+  zone_id: zone_guild_surrounding_lanes
+  detail: released_outside_hunting_the_lanes_no_order_beyond_default_bring_back_what_the_web_catches
 integrity:
   current: 6
   maximum: 6
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 49800
-      hunting_recovery_elapsed_seconds: 49800
+      decay_elapsed_seconds: 60600
+      hunting_recovery_elapsed_seconds: 60600
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -39,6 +39,6 @@ status_flags:
 - not_anchored_by_choice
 - assigned_to_webber_dump_pending_transit
 conditions: []
-last_event_id: event_turn_interlude_177
+last_event_id: event_turn_interlude_182
 source_refs:
 - event_turn_interlude_078

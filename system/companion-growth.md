@@ -106,6 +106,36 @@ albo przez pojawianie się kolejnych umiejętności.
 Nowa umiejętność, która **pojawia się sama z dojrzałości**, nie wymaga godzin przy stole.
 Nowy **narząd** nadal wymaga (`retcon_000103`, `retcon_000024`).
 
+## Ekonomia nadwyżki — skala, sufit, rozdział (retcon_000115, deklaracja gracza 31.08.2026)
+
+Trzy klauzule, wszystkie zadeklarowane przez gracza:
+
+1. **Skala.** Nadwyżka całej sieci to **kilkanaście jednostek na dobę**. Suma stawek
+   w `campaigns/lucan/state/growth-banks.yaml` daje 14,5 na dobę generowane przez sieć —
+   osobno od własnej regeneracji Lucana, która wynosi 6,0 na dobę.
+2. **Sufit rozwoju.** Nadmiar leci naturalnie w rozwój, ale węzeł wchłania najwyżej
+   **połowę własnej pojemności zbiornika na dobę**. Zbiornik 3 → sufit 1,5; zbiornik 6 →
+   3,0; zbiornik 12 → 6,0; Lucan przy 15 → 7,5. Realna presja idzie więc na **powiększanie
+   zbiorników** (`planning/specimen-upgrades.yaml#enlarge_reservoir_to_tank`, 3 → 12 za
+   około godzinę przy stole), nie na zdobywanie energii.
+3. **Rozdział.** Nadmiar ponad sufit nie przepada (`retcon_000109`) — jest rozdzielany
+   pomiędzy pozostałe obiekty sieci ze zwykłymi stratami propagacji. **Wyjątkiem jest
+   Varkhen**, racjonowany decyzją Lucana (`retcon_000113`).
+
+**Lucan jest obiektem w sieci jak pozostałe węzły.** Odbiera rozdzielaną nadwyżkę bez
+osobnego rozkazu i bez czekania na własny sufit rezerwy.
+
+**Zakaz dla narratora:** nie przedstawiać rozdziału nadwyżki jako niewydanego rozkazu ani
+nie liczyć go graczowi jako przeoczonej dźwigni. Dzieje się domyślnie.
+
+## Miejsce prawdy dla banków wzrostu (retcon_000114)
+
+`campaigns/lucan/state/growth-banks.yaml` jest **jedynym** rejestrem `growth_bank` i stawek
+dobowych. Nie ma go w `load` z `brief` (celowo — budżet kontekstu), więc łatwo go pominąć
+i policzyć stawki od nowa. Tak się stało w turze 178: powstał równoległy rejestr w plikach
+instancji i cztery fałszywe liczby podane graczowi jako pomiar. **Przed każdą turą dotyczącą
+rozwoju, nadwyżki, dojrzewania albo karmienia sieci — przeczytaj ten plik.**
+
 ## Varkhen jest celowo odcięty (retcon_000113)
 
 Cztery łącza podtrzymujące to **racjonowana struga**, nie maksimum przepustowości. Varkhen nie

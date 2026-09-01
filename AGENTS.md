@@ -56,7 +56,7 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 3. Dla działania mechanicznego przygotuj request i uruchom `tools/gm.ps1 turn resolve`; do sprawdzenia bez zapisu użyj `turn preview`.
 4. Runtime stosuje `system/capabilities.md`, wykonuje najwyżej jeden potrzebny rzut i zapisuje go przed narracją.
 5. Rozstrzygnij akcję, reakcję świata i nową sytuację decyzyjną.
-6. Przed odpowiedzią uruchom `turn commit` z outcome; po przerwaniu użyj `turn recover` z tym samym identyfikatorem.
+6. Przed odpowiedzią uruchom `turn commit` z outcome; po przerwaniu użyj `turn recover` z tym samym identyfikatorem. **`outcome.operations` nie może zawierać `advance_time`** — `commit` dokleja czas sam z `request.time_seconds`, a ręczny wpis podwaja turę (retcon_000118). Godzinę podawaną graczowi czytaj z `state/time.yaml` po commicie, nie z własnej deklaracji.
 7. Każda trwała tura ma `actor_id`, także automatyczna i bez testu. Samo `actor_id` nie uruchamia silnika zdolności; test mechaniczny wymaga dodatkowo `capability_id`, `target_id` i `intent_id`.
 8. Przy napięciu 0 wynik `worsened`, `complicated` albo `mixed` wymaga `consequence_source_refs`: istniejącego źródła kanonicznego lub jawnej deklaracji gracza. Nie twórz stawki tylko po to, żeby tura miała komplikację.
 

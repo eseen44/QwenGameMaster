@@ -1,0 +1,30 @@
+schema_version: 1
+location_id: loc_lumaria_adventurers_guild
+object_type: location_discovery
+status: active
+created_event_id: event_turn_interlude_181
+known_to_lucan: direct_member_access
+revealed_zones:
+  - {id: zone_guild_main_hall, since: pre_campaign_member_access}
+  - {id: zone_guild_upper_offices, since: pre_campaign_member_access, note: ma tu wlasny pokoj dyzurny i tu sypia (retcon_000038)}
+  - {id: zone_guild_rooftop, since: turn_interlude_007_redeploy_and_guild_walk, note: posterunek webber_anchored}
+  - {id: zone_guild_surrounding_lanes, since: event_turn_interlude_180}
+  - {id: zone_guild_council_room, since: event_turn_interlude_181, note: 'Wchodzil tu i wczesniej jako czlonek gildii, ale dopiero teraz obejrzal sale POD KATEM zdalnej infiltracji i dopiero teraz ma jej geometrie.'}
+visits:
+  - {event_id: event_turn_interlude_180, zone: zone_guild_council_room, purpose: sprawdzenie, czy wejscie jest w ogole mozliwe - bylo}
+  - {event_id: event_turn_interlude_181, zone: zone_guild_council_room, purpose: dokladny oglad pod katem drog zdalnego wejscia}
+lucan_now_knows:
+  - Sala narad ma ok. 7 na 5 metrow, trzy metry do sufitu, jedne drzwi na zapadke ze szpara pod skrzydlem.
+  - Pod deskami podlogi jest pustka miedzy legarami na ok. 20 cm, a pod nia sufit glownej sali.
+  - Komnata ma male, letnie zimne ognisko, a jego szyb idzie prosto na dach - tam, gdzie od tury 007 stoi Tkacz.
+  - Dwa okna od strony ulicy, okiennice zamykane od wewnatrz, otwierane na posiedzenia.
+  - Stol na kobylicach, 3,5 metra; szpara pod blatem jest na wysokosci glow i miotla tam nie dochodzi.
+  - Skrzynia na akta, okuta i zamknieta. Zawartosci nie zna.
+  - Dzban i miednica - czyli ktos wchodzi tu przed posiedzeniem i przynosi wode.
+  - PRZEWODOW WENTYLACYJNYCH I INSTALACJI WODNEJ NIE MA. To nie ta epoka i nie ten budynek.
+  - Nikt tej sali nie pilnuje i zaden plik nie stawia tu zamka na klucz.
+lucan_does_not_know:
+  - Co jest w okutej skrzyni.
+  - Kto konkretnie przynosi wode i o ktorej.
+  - Ktora piwnica w dzielnicy jest ta, do ktorej wszedl spy_centipede_01 w t_091 - watek otwarty.
+  - Sztywnej daty przesluchania. Zna od Seraphine wylacznie horyzont, ok. dwoch tygodni.

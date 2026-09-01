@@ -2,6 +2,33 @@ schema_version: 1
 campaign_id: campaign_lucan
 status: active
 links:
+- id: link_lucan_hand_charges_beetle_01
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: pc_lucan
+  source_pool_id: lucan_necrotic_energy
+  target_instance_id: spy_beetle_01
+  target_pool_id: necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 3.5
+  target_units_per_interval: 0
+  target_integrity_per_interval: 0
+  efficiency_percent: 100
+  purpose: hand_charging_for_growth_not_for_reservoir
+  source_event_id: event_turn_interlude_179
+  note: 'Deklaracja gracza w t_179: Lucan laduje zuka SAM, 3,5 jednostki na dobe.
+    target_units_per_interval jest ZEREM CELOWO - zbiornik zuka stoi pelny (3/3),
+    a dostarczone jednostki nie ida w zbiornik, tylko w bank wzrostu prowadzony w
+    campaigns/lucan/state/growth-banks.yaml. Podzial dostarczonych 3,5: 1,0 pokrywa
+    dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika
+    wg retcon_000115), 1,0 wraca w siec. Brak straty propagacji, bo nie ma przeskoku
+    - zuk siedzi w kieszeni i jest ladowany z reki, jak w hand_feeding_program. Sufit
+    rozwoju podnosi enlarge_reservoir_to_tank (3 -> 12), ok. godziny przy stole.'
+  runtime:
+    elapsed_seconds: 7200
+    successful_intervals: 0
+    missed_intervals: 0
+  last_event_id: event_turn_interlude_179
 - id: link_webber_home_to_varkhen_upkeep
   active: true
   controller_id: pc_lucan
@@ -17,7 +44,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 64560
+    elapsed_seconds: 75360
     successful_intervals: 2
     missed_intervals: 0
   last_event_id: event_turn_interlude_115
@@ -36,7 +63,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 64560
+    elapsed_seconds: 75360
     successful_intervals: 2
     missed_intervals: 0
   last_event_id: event_turn_interlude_115
@@ -55,7 +82,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 64560
+    elapsed_seconds: 75360
     successful_intervals: 2
     missed_intervals: 0
   last_event_id: event_turn_interlude_115
@@ -74,7 +101,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 64560
+    elapsed_seconds: 75360
     successful_intervals: 2
     missed_intervals: 0
   last_event_id: event_turn_interlude_115

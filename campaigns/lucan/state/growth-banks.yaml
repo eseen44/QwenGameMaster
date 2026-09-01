@@ -3,44 +3,80 @@ campaign_id: campaign_lucan
 object_type: growth_ledger
 status: active
 rule_ref: system/companion-growth.md
-source_refs: [retcon_000103, retcon_000105, retcon_000109, retcon_000110]
+source_refs: [retcon_000103, retcon_000105, retcon_000109, retcon_000110, retcon_000114, retcon_000115]
+as_of_event_id: event_turn_interlude_179
 note: >-
   Rejestr growth_bank trzymany OSOBNO od instancji. Obejmuje TAKZE pc_lucan (retcon_000112), bo runtime przepisuje pliki
   state/instances/*.yaml przy kazdym commicie tury i nieznane klucze moglyby zostac zgubione.
   To jest miejsce prawdy dla nadwyzki i dojrzalosci; instancje trzymaja zbiornik i integralnosc.
   NIE dodawac tego pliku do active_refs - budzet aktywnego kontekstu to 40 KB.
+  UWAGA DLA NARRATORA (retcon_000114): ten plik NIE JEST w `load` z briefu i wlasnie dlatego
+  w turze 178 zostal pominiety, a stawki wymyslone od nowa w instancjach. Przed kazda tura
+  dotyczaca rozwoju, nadwyzki, dojrzewania albo karmienia sieci - przeczytaj go.
 ladder:
   fresh_to_settled: 10
   settled_to_judging: 30
   judging_to_seasoned: 60
   grants_per_step: '+1 pojemnosci zbiornika, +2 integralnosci, plus nazwany zysk behawioralny'
   thresholds_adjustable: true
+surplus_economy:
+  source: retcon_000115
+  declared_by: player_declaration_2026_08_31_bracket
+  daily_network_surplus: >-
+    Parenascie jednostek na dobe. Suma stawek z tego pliku daje 14,5 na dobe generowane
+    przez siec (bez wlasnej regeneracji Lucana, ktora wynosi osobno 6,0 na dobe).
+  growth_intake_cap: >-
+    Wezel wchlania w ROZWOJ najwyzej POLOWE WLASNEJ POJEMNOSCI ZBIORNIKA na dobe.
+    Zbiornik 3 daje wiec sufit 1,5 na dobe, zbiornik 6 sufit 3,0, zbiornik 12 sufit 6,0,
+    a Lucan przy 15 sufit 7,5. Odczyt narratora: "1/2 calej baterii" = polowa pojemnosci
+    ODBIORCY. Gdyby gracz mial na mysli polowe LACZNEJ nadwyzki sieci, wystarczy jedno
+    slowo i przeliczam - roznica dotyczy dzis tylko Zawisaka, wijow i zuka 01.
+  overflow_rule: >-
+    Nadmiar ponad sufit rozwoju NIE PRZEPADA (retcon_000109) - jest rozdzielany pomiedzy
+    pozostale obiekty sieci, ze zwyklymi stratami propagacji
+    (companions/webber-network.yaml#network_cost_model).
+  lucan_is_a_node: >-
+    LUCAN JEST OBIEKTEM W SIECI JAK POZOSTALE WEZLY - odbiera rozdzielana nadwyzke bez
+    osobnego rozkazu i bez czekania na wlasny sufit. To zamyka dzwignie, ktora t_178
+    zostawil otwarta jako "rozkaz niewydany": deklaracja gracza JEST tym rozkazem.
+  varkhen_excepted: >-
+    Varkhen zostaje poza rozdzialem - cztery lacza podtrzymujace to racjonowana struga
+    ustawiona przez Lucana (retcon_000113). Nie liczyc mu tego jako zmarnowanej okazji.
+network_balance:
+  generated_per_day: 17.5   # 14.5 + 3.0 od t_180 (trzy pajaki piwniczne wypuszczone z posterunkow w gildii)
+  lucan_own_regeneration_per_day: 6.0
+  overflow_above_growth_caps_per_day: 2.5
+  overflow_sources: [spy_hawk_moth_01 1.5, spy_centipede_01 0.5, spy_centipede_02 0.5]
+  overflow_delivered_after_propagation_loss: ~2.0
+  rationed_to_varkhen_per_day: 1.0 na wejsciu, 0.8 na wyjsciu - bez zmian
 backlog_basis: >-
   Zaleglosc naliczona za ~1,25 doby kampanii - od wypuszczenia serii pierwszej w noc drugiego
   dnia (event_turn_interlude_077 dla wijow i zukow, event_turn_interlude_091 dla cmy i Zawisaka)
   do switu dnia czwartego (event_turn_interlude_177, 05:00). Stawki wg retcon_000105 i 000110.
+  Okno tur 178-179 to 35 minut, czyli mniej niz 0,1 jednostki na najszybszym wezle - ponizej
+  precyzji tego pliku, doliczane przy nastepnym istotnym tyknieciu.
 banks:
-  - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
-  - {id: spy_centipede_01, rate_per_day: 2.0, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
-  - {id: spy_centipede_02, rate_per_day: 2.0, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
-  - {id: spy_moth_01, rate_per_day: 1.0, basis: gorna laka, bez rozkazu, bank: 1.25, maturity: fresh}
-  - {id: spy_beetle_02, rate_per_day: 0.5, basis: padlinozerca, ulice i smietniki, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_03, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_04, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_05, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_06, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_07, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_08, rate_per_day: 0.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_01, rate_per_day: 0.5, basis: 'kieszen Lucana; dokarmiany recznie (hand_feeding_program) od t_176 - przedtem bez zeru', bank: 0.0, maturity: fresh}
-  - {id: spy_wasp_01, rate_per_day: 1.0, basis: 'od t_177 wylot i zer - male obiekty, z dala od duzych; przedtem -1,0 na posterunku bez zeru', bank: 0.0, maturity: fresh}
-  - {id: webber_anchored, name: Tkacz, rate_per_day: 1.0, basis: 'od t_177 poluje luzem przy Lucanie w gildii; porcja tlumiaca zdjela ubytek na stale', bank: 0.0, maturity: fresh}
-  - {id: webber_home, rate_per_day: 0.0, basis: rozkaz order_collect_meadow_orthopterans - posterunek z zadaniem, bank: 0.0, maturity: fresh}
-  - {id: webber_tannery, rate_per_day: 0.0, basis: rozkaz order_collect_meadow_orthopterans, bank: 0.0, maturity: fresh}
-  - {id: webber_dump, rate_per_day: 0.0, basis: rozkaz order_collect_meadow_orthopterans, degraded_by_distance, bank: 0.0, maturity: fresh}
+  - {id: spy_beetle_01, rate_per_day: 3.5, growth_cap_per_day: 1.5, overflow_per_day: 1.0, basis: 'od t_179 LUCAN LADUJE GO SAM z wlasnej rezerwy, 3,5 na dobe - kieszen, wiec bez przeskoku i bez straty. 1,0 pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika 3), 1,0 wraca w siec. Sufit podnosi enlarge_reservoir_to_tank (3 -> 12, ok. godziny przy stole) - wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
+  - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, growth_cap_per_day: 1.5, overflow_per_day: 1.5, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
+  - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
+  - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
+  - {id: spy_moth_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: gorna laka, bez rozkazu, bank: 1.25, maturity: fresh}
+  - {id: spy_beetle_02, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, ulice i smietniki, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_03, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_04, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_05, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_06, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_07, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_08, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_wasp_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_177 wylot i zer - male obiekty, z dala od duzych; przedtem -1,0 na posterunku bez zeru', bank: 0.0, maturity: fresh}
+  - {id: webber_anchored, name: Tkacz, rate_per_day: 1.0, growth_cap_per_day: 3.0, basis: 'od t_177 poluje luzem przy Lucanie w gildii; porcja tlumiaca zdjela ubytek na stale', bank: 0.0, maturity: fresh}
+  - {id: webber_home, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans - posterunek z zadaniem, bank: 0.0, maturity: fresh}
+  - {id: webber_tannery, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans, bank: 0.0, maturity: fresh}
+  - {id: webber_dump, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans, degraded_by_distance, bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_02, rate_per_day: 0.0, basis: skladzik baszty, sparowany z webber_home, bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_05, rate_per_day: 0.0, basis: wejscie baszty, czeka na rotacje, bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_03, rate_per_day: 0.0, basis: 'gorne biura gildii - posterunek zamkniety, od t_177 pozwolenie na polowanie zdejmuje minus', bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_04, rate_per_day: 0.0, basis: 'gabinet Seraphine - jw.', bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_06, rate_per_day: 0.0, basis: 'cela w piwnicy gildii - jw.; pokoj pusty, odkad Lucan spi na gorze (retcon_000038)', bank: 0.0, maturity: fresh}
-  - {id: companion_spidey, rate_per_day: 1.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj', bank: 0.0, maturity: seasoned_by_history}
-  - {id: pc_lucan, rate_per_day: 6.0, basis: 'retcon_000112 - wlasna regeneracja 0,25/h nie ma gdzie isc po osiagnieciu sufitu 15; do tego wszystko, co siec do niego skieruje. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Nalicza sie dopiero PRZY SUFICIE - o 05:00 dnia 4 Lucan ma 14,10/15, wiec bufor rusza ok. 08:36.'}
+  - {id: spy_cellar_spider_03, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_181 poluje swobodnie, ale ZOSTAJE W ZASIEGU GABINETU SERAPHINE - pustki sciany i szuflada biurka (retcon_000117: zwyczajny zer, z daleka od ludzi, a zer pajaka piwnicznego jest dostepny w budynku). Jego funkcja to KANAL ALARMOWY SERAPHINE uzgodniony w t_070 (retcon_000116), nie pulapka na nia - dziala dalej. Stawka +1,0, bo poza rozkazem domyslnym nie ma zadania.', bank: 0.0, maturity: fresh}
+  - {id: spy_cellar_spider_04, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
+  - {id: spy_cellar_spider_06, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w piwnicy i pustkach scian - zer normalny, z daleka od ludzi, +1,0. Cela i tak stala pusta, odkad Lucan spi na gorze (retcon_000038), wiec ten posterunek kosztowal najmniej. KOREKTA t_178: dawne zdanie w instancji "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia po formule 8 x 1.5^n, skasowanej przez retcon_000024 - trwaly krok kosztuje CZAS PRZY STOLE, nie jednostki z banku.', bank: 0.0, maturity: fresh}
+  - {id: companion_spidey, rate_per_day: 1.0, growth_cap_per_day: 6.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj. Stopnia z sadem nie trzeba mu przyznawac: zademonstrowal go w t_133, sam wybierajac stanowisko.', bank: 0.0, maturity: seasoned_by_history}
+  - {id: pc_lucan, rate_per_day: 4.5, growth_cap_per_day: 7.5, basis: 'retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Wlasna czesc nalicza sie dopiero PRZY SUFICIE rezerwy. O 05:35 dnia 4 Lucan ma 14,10/15, a bilans rezerwy to +6,0 regeneracji -3,5 oddawane zukowi +2,0 z rozdzialu sieci = +4,5 na dobe, wiec sufit 15 wypada ok. 10:30. Do tego czasu nadwyzka idzie w napelnienie rezerwy, po tym w rozwoj.'}

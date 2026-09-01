@@ -1,0 +1,101 @@
+schema_version: 1
+location_id: loc_lumaria_adventurers_guild
+object_type: location_layout
+status: active
+units: metres
+created_event_id: event_turn_interlude_181
+note: >-
+  Geometria autorytatywna (system/locations-and-maps.md). Powstala dopiero tutaj, bo do t_181
+  budynek nie potrzebowal wymiarow - potrzebowal ich w chwili, w ktorej Lucan zaczal szukac
+  drog zdalnej infiltracji sali narad. Opisana jest WYLACZNIE sala narad i to, co z niej
+  wychodzi; pozostale strefy maja na razie same identyfikatory.
+  UWAGA KANONICZNA: Lumaria to male miasto sredniowieczne (retcon_000042). W tym budynku
+  NIE MA przewodow wentylacyjnych ani instalacji wodnej. Sa: pustki miedzy legarami,
+  komin, okiennice, szpary pod drzwiami i dzban z miednica.
+zones:
+  - {id: zone_guild_main_hall, floor: ground}
+  - {id: zone_guild_upper_offices, floor: upper}
+  - {id: zone_guild_council_room, floor: upper}
+  - {id: zone_guild_rooftop, floor: roof}
+  - {id: zone_guild_surrounding_lanes, floor: outside}
+council_room:
+  id: zone_guild_council_room
+  dimensions: {length: 7.0, width: 5.0, ceiling_height: 3.0}
+  storey: upper
+  directly_below: zone_guild_main_hall
+  entrances:
+    - {id: feature_council_door, type: single_plank_door, leads_to: zone_guild_upper_offices, gap_under_leaf_cm: 1.5, lock: simple_latch_no_key_recorded}
+  features:
+    - id: feature_council_floor_void
+      type: void_between_joists
+      depth_cm: 20
+      deck: oak_boards_3_cm
+      access_from: [zone_guild_upper_offices wall void, zone_guild_main_hall ceiling]
+      value: >-
+        NAJLEPSZA droga zdalna z tych, ktore tu sa. Okaz w pustce podlogi NIE JEST W POKOJU,
+        wiec przeszukanie pokoju go nie znajduje, a miotla tam nie wchodzi. Cena: trzy
+        centymetry debu tlumia slyszalnosc, wiec narzad tympanalny dostaje rytm, nacisk
+        i dzwiek ostry pewnie, a slowa slabiej niz z pokoju.
+      reachable_by: [spy_centipede - chodzi w pustkach scian i pod podlogami, spy_cellar_spider]
+      hard_for: [spy_beetle_01 - slow, poor_climber_on_smooth_surfaces, audible_clicking_on_stone]
+    - id: feature_council_hearth_flue
+      type: small_hearth_with_flue
+      state_in_summer: cold_unused
+      rises_to: zone_guild_rooftop
+      value: >-
+        PIONOWY SZYB Z SALI NARAD PROSTO NA DACH - a na dachu stoi juz posterunek
+        (webber_anchored od turn_interlude_007). Nikt nigdy nie zamiata wnetrza komina,
+        sadza kryje wszystko, a szyb daje droge fizyczna, nie tylko akustyczna.
+      cost: >-
+        Jesienia ktos w koncu rozpali. Nie jest to termin narzucony przez plik - jest to
+        pora roku.
+    - id: feature_council_windows
+      type: two_shuttered_windows
+      wall: street_side
+      panes: small_leaded_glass_behind_inside_shutters
+      state_outside_sessions: shutters_closed
+      value: Wneki zawiasow daja schowek, ale okiennice sa OTWIERANE na posiedzenia i myte z zewnatrz.
+    - id: feature_council_table
+      type: long_trestle_table
+      length: 3.5
+      value: >-
+        Spod blatu, w zlaczu blatu z kobylica, jest szpara na wysokosci MOWIACYCH GLOW
+        i zaden kij od miotly tam nie dochodzi. Najlepsza akustyka w pokoju.
+      cost: To jednak JEST w pokoju - przeszukanie sali znajduje ten schowek.
+    - id: feature_council_record_chest
+      type: iron_bound_chest_on_a_sideboard
+      contents_known: nie - nikt nie otwieral tego przy Lucanie
+      lock: iron, zamknieta
+    - id: feature_council_water
+      type: earthenware_jug_and_pewter_basin
+      plumbing: none_in_the_building
+      value: >-
+        Nie jest to droga dla niczego. Jest natomiast DOWODEM, ze ktos wchodzi tu przed
+        posiedzeniem i przynosi wode - czyli ze pokoj ma obsluge, a obsluga ma miotle
+        (but sprzataczki jest jednym z dwoch realnych ryzyk nazwanych w
+        planning/lucan-leads.yaml#lead_council_room_beetle_deferred).
+  what_is_absent:
+    - Przewody wentylacyjne - nie istnieja w tym budynku i w tej epoce.
+    - Instalacja wodna, odplyw, rura - nie istnieja na tym pietrze.
+    - Zamek na klucz w drzwiach sali - zaden plik go nie stawia; jest zapadka.
+    - Warta, straz, dyzurny przy sali - zaden plik ich nie stawia.
+  route_from_below:
+    text: >-
+      Kanaly siegaja pod piwnice gildii przez feature_corridor_floor_drain (spy-series#note),
+      dwoje drzwi od dawnej celi Lucana, a spy_centipede_01 juz raz wszedl otworem od spodu
+      do CZYJEJS piwnicy z ciosanego kamienia i stojacym powietrzem - ktorej, nie wiadomo
+      (event_turn_interlude_091, watek otwarty). Droga kanal -> piwnica -> pustki scian ->
+      pustka podlogi sali narad jest wiec ciagla i przechodzi wij, nie zuk.
+  standing_limits_unchanged:
+    - >-
+      ZAPIS, NIE CZUJNIK. Sluchanie na zywo zjada CALA uwage Lucana i uwaga idzie po jednym
+      wezle (event_turn_interlude_086). voice_recording pozostaje nieoplacona funkcja
+      w development_path. Pluskwa w tej sali dziala wiec tylko dla posiedzen, na ktorych
+      Lucan NIE SIEDZI - a na wlasnym przesluchaniu bedzie siedzial.
+    - >-
+      TRESC ROZMOWY DOSTARCZAJA DZIS WYLACZNIE companion_spidey I webber_anchored
+      (retcon_000116). spy_beetle_01 ma ucho cmy i slow nie podaje.
+    - >-
+      Zakotwiczony okaz znaleziony i przecietny UJAWNIA Death_Anchor, czyli nazwana technike
+      nekromantyczna (event_turn_interlude_089). Niezakotwiczony pajak piwniczny jest martwym
+      pajakiem.

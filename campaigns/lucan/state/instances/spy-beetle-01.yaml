@@ -3,7 +3,7 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 102
+revision: 107
 position:
   location_id: loc_lumaria_adventurers_guild
   zone_id: zone_guild_upper_offices
@@ -24,8 +24,9 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 54000
-      hunting_recovery_elapsed_seconds: 54000
+      decay_elapsed_seconds: 64800
+      hunting_recovery_elapsed_seconds: 64800
+    growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 traits:
   source: player_declaration_day3_evening_anchored_personalities
   decided_on: '2026-08-26'
@@ -49,6 +50,7 @@ status_flags:
 - newly_animated
 - fresh_obedient_and_dull
 - autonomous_hunting
+- hand_charged_by_lucan_3_5_per_day
 - armoured_survives_handling_and_pockets
 - load_carrying_for_body_scale
 - transportable_as_an_inert_object
@@ -56,7 +58,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_177
+last_event_id: event_turn_interlude_182
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
