@@ -177,6 +177,17 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   Domyślnie **ambiwalencja działa na korzyść gracza** — gdy nie ma z czym skonfrontować jego
   wersji, może wybrać wersję. Proporcjonalna konsekwencja to zwykle czyjaś irytacja, nie
   śledztwo.
+- **KWESTIA DIALOGOWA NIE JEST ŹRÓDŁEM KANONU O LUCANIE** (retcon_000120, 01.09.2026).
+  Gracz odpowiada NPC-owi w scenie — to jest **wypowiedź postaci**, nie deklaracja o świecie.
+  Może być zmiękczona, niepełna albo wprost kłamliwa; Lucan zasiewa wersje celowo, żeby NPC
+  je roznosił. Narrator przepisał taką kwestię do `player/abilities.yaml` jako mechanikę
+  („tak działa moja magia") i dopiero gracz to wyłapał.
+  **Gdzie wolno to zapisać:** `knowledge` tego NPC (jako to, co usłyszał), `state/secrets.yaml`
+  → `cover_stories` (jako wersja zasiana, z `truth_status`), relacja. **Gdzie nie wolno:**
+  `player/abilities.yaml`, `secrets.yaml#truth`, żaden plik opisujący, jak coś naprawdę działa.
+  Mechanikę zmienia wyłącznie deklaracja gracza **do systemu** — poza nawiasem wprost albo
+  w nawiasie jako korekta kanonu. Test: „czy on to mówi komuś, czy mówi to mnie?".
+
 - **Sprawdź KARTY NPC, nie tylko źródło aktu, zanim opiszesz stan świata** (retcon_000058).
   Karta właściciela garbarni mówiła „SIEDZI w areszcie", bo narrator napisał ją ze źródła
   Aktu 1 i nie sprawdził późniejszych tur. Seraphine powiedziała Lucanowi w `t_032`, że
