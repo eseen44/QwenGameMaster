@@ -7,7 +7,7 @@ importance: specialist
 role: bookbinder_and_copy_broker_behind_the_book_row
 introduced_by: npc_hesk_dorn
 first_appearance_event_id: event_turn_interlude_191
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_191}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_191, amended_by: retcon_000125}
 current_location_id: loc_lumaria_market
 zone_id: zone_market_back_alleys
 has_character_sheet: false
@@ -45,11 +45,25 @@ no_order_book:
     (planning/lucan-leads.yaml#lead_anti_detection_only_through_back_alleys).
 quoted_terms:
   source_event_id: event_turn_interlude_191
+  amended_by: retcon_000125
   status: podane_zamowienie_niezlozone_zaliczki_brak
   copy:
     scope: pelen tom akademicki, czysta reka, bez marginaliow
     one_hand: {days: 12, silver: 40}
     two_hands: {days: 8, silver: 40, cost_in_kind: drugi kopista, czyli druga para oczu}
+    three_hands:
+      days: 6
+      silver: 40
+      premium_silver: 15
+      source_ref: retcon_000125
+      cost_in_kind: trzecia para oczu nad marginaliami - ta sama uwaga co przy dwoch rekach
+      note: >-
+        POPROSIL O TO LUCAN i sam zaoferowal premie za szybsze wykonanie (deklaracja gracza,
+        2026-09-02). Sedd liczy od arkusza, nie od dnia - stad te same 40 srebra co przy
+        jednej i dwoch rekach. 15 srebra to premia, ktora Sedd wycenil na glos: trzeciej
+        reki nie ma pod reka i musi zdjac czlowieka z innej roboty na szesc dni. Krzywa
+        jest jego wlasna: drugi kopista daje 1,5x przerobu, nie 2x, trzeci konczy w okolo
+        szesc dni. Z oprawa razem OSIEM DNI i 73 SREBRA.
   binding:
     days: 2
     silver: 18
@@ -78,3 +92,4 @@ source_refs:
   - event_turn_interlude_191
   - campaigns/lucan/planning/lucan-leads.yaml#lead_find_copyist_and_binder_at_the_market
   - campaigns/lucan/state/obligations.yaml#obligation_return_borrowed_academy_volume
+  - retcon_000125
