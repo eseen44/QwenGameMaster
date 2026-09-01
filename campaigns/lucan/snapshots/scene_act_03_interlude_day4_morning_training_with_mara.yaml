@@ -1,0 +1,104 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_morning_training_with_mara
+object_type: scene_snapshot
+closed_at: '2026-09-01T19:27:33+02:00'
+summary: 'Dzien czwarty interludium, 06:30-11:41. Trening z Mara Teln (3,5 h): pierwsza
+  kalibracja wzmocnienia miesni - nogi daja sus, rece nagly przyrost sily, sciegno
+  nie dostaje nic, 3 rzuty + 2 samoleczenia = 5 jednostek. Mara podyktowala godzine
+  obserwacji czterech ran przez dziewiec dni - kolejnosc i czas, czego nie ma w atlasach
+  balwierza. Lucan odpowiedzial jej na pytanie o Varkhena wersja czesciowo prawdziwa,
+  z celowo zasianym klamstwem o nieprobowaniu na zywych. Papiery z baszty zostaly
+  w pokoju dyzurnym, pajak-czujnik wrocil na posterunek, oba wije dostaly staly rozkaz
+  mapowania podziemia gildii. Potem gabinet Seraphine: odebrala oba zlecenia z t_052
+  - lancuch autoryzacji zapory konczy sie w gorze Strazy Miejskiej i nie da sie tego
+  napisac, gospodarstwo straznika celowo nietkniete, a jedynym otwartym koncem jest
+  czlowiek z plama atramentu na lewym kciuku, ktory spotykal sie z Orenem przed wyjazdami.
+  Lucan nazwal na glos, do czego sluzy mapa nacisku, i pierwszy raz komukolwiek powiedzial
+  swoja linie: zadnej obrony, bo nie ma paragrafu, zadnego milczenia, ratowanie miasta
+  niezaleznie od jego woli, metoda szantaz i wkurwianie wszystkich grup interesow.
+  Oddal Seraphine brulion balwierza - terminarz, faktury i klientow czlowieka obslugujacego
+  syndykat i Straz naraz przez dziesiec lat - dwadziescia minut przed jej spotkaniem
+  ze Straza. Przyjela, papieru do pokoju nie bierze, zastrzegla dwie rzeczy: pokoj
+  balwierza sprzedawano NA WAGE, wiec moze istniec drugi egzemplarz, a jedno wspomnienie
+  balwierza na zawsze ujawnia, ze papier istnieje. Nadal nie dostala odpowiedzi o
+  kolejnosc trzech dzwigni. Seraphine wyszla na spotkanie ze Straza; Lucan zostal
+  sam z atlasami i tomem bibliotecznym, targ po introligatora przed nim.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_morning_training_with_mara
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-19T06:30:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - npc_mara_teln
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Seraphine ma brulion i ma trzydziesci sekund, zeby zdecydowac, jak z nim wejdzie
+    do Strazy. Powiedziala jedno zastrzezenie: rodzina sprzedawala pokoj NA WAGE,
+    wiec nie wiadomo, kto jeszcze ma kartki z tego samego stosu. Lucan odpowiada na
+    to zastrzezenie, mowi jej wreszcie kolejnosc trzech dzwigni, o ktora prosila,
+    czy wychodzi na targ po introligatora i zostawia ja z tym?'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_190
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_dawn_guild_duty_room.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  search_terms:
+  - 'Seraphine ma brulion i ma trzydziesci sekund, zeby zdecydowac, jak z nim wejdzie
+    do Strazy. Powiedziala jedno zastrzezenie: rodzina sprzedawala pokoj NA WAGE,
+    wiec nie wiadomo, kto jeszcze ma kartki z tego samego stosu. Lucan odpowiada na
+    to zastrzezenie, mowi jej wreszcie kolejnosc trzech dzwigni, o ktora prosila,
+    czy wychodzi na targ po introligatora i zostawia ja z tym?'
+  last_refreshed_event_id: event_turn_interlude_190
+  context_bytes: 32859
+  context_budget_bytes: 40960
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5424
+  - ref: campaigns/lucan/state/obligations.yaml
+    bytes: 3983
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3873
+  - ref: system/player-agency.md
+    bytes: 2804
