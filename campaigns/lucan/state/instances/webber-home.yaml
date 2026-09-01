@@ -3,7 +3,7 @@ id: webber_home
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 174
+revision: 175
 position:
   location_id: loc_tannery
   zone_id: zone_upper_meadow
@@ -13,7 +13,7 @@ integrity:
   maximum: 13
 resources:
   necrotic_reservoir:
-    current: 6
+    current: 5.75
     capacity: 6
     decay:
       interval_seconds: 86400
@@ -24,13 +24,13 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 31560
-      hunting_recovery_elapsed_seconds: 31560
+      decay_elapsed_seconds: 44160
+      hunting_recovery_elapsed_seconds: 44160
 conditions: []
 status_flags:
 - autonomous_hunting
 - posted_at_tannery_meadow
-last_event_id: event_turn_interlude_182
+last_event_id: event_turn_interlude_183
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:10555-10566

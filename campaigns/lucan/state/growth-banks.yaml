@@ -4,7 +4,7 @@ object_type: growth_ledger
 status: active
 rule_ref: system/companion-growth.md
 source_refs: [retcon_000103, retcon_000105, retcon_000109, retcon_000110, retcon_000114, retcon_000115]
-as_of_event_id: event_turn_interlude_179
+as_of_event_id: event_turn_interlude_183
 note: >-
   Rejestr growth_bank trzymany OSOBNO od instancji. Obejmuje TAKZE pc_lucan (retcon_000112), bo runtime przepisuje pliki
   state/instances/*.yaml przy kazdym commicie tury i nieznane klucze moglyby zostac zgubione.
@@ -43,7 +43,7 @@ surplus_economy:
     Varkhen zostaje poza rozdzialem - cztery lacza podtrzymujace to racjonowana struga
     ustawiona przez Lucana (retcon_000113). Nie liczyc mu tego jako zmarnowanej okazji.
 network_balance:
-  generated_per_day: 17.5   # 14.5 + 3.0 od t_180 (trzy pajaki piwniczne wypuszczone z posterunkow w gildii)
+  generated_per_day: 16.5   # 14.5 + 3.0 od t_180 (trzy pajaki piwniczne wypuszczone) - 1.0 od t_183 (spider_04 zawrocony na posterunek)
   lucan_own_regeneration_per_day: 6.0
   overflow_above_growth_caps_per_day: 2.5
   overflow_sources: [spy_hawk_moth_01 1.5, spy_centipede_01 0.5, spy_centipede_02 0.5]
@@ -76,7 +76,7 @@ banks:
   - {id: spy_cellar_spider_02, rate_per_day: 0.0, basis: skladzik baszty, sparowany z webber_home, bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_05, rate_per_day: 0.0, basis: wejscie baszty, czeka na rotacje, bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_03, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_181 poluje swobodnie, ale ZOSTAJE W ZASIEGU GABINETU SERAPHINE - pustki sciany i szuflada biurka (retcon_000117: zwyczajny zer, z daleka od ludzi, a zer pajaka piwnicznego jest dostepny w budynku). Jego funkcja to KANAL ALARMOWY SERAPHINE uzgodniony w t_070 (retcon_000116), nie pulapka na nia - dziala dalej. Stawka +1,0, bo poza rozkazem domyslnym nie ma zadania.', bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_04, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
+  - {id: spy_cellar_spider_04, rate_per_day: 0.0, growth_cap_per_day: 1.5, basis: 'ZAWROCONY t_183 na posterunek czujnika przeszukania w pokoju dyzurnym Lucana - posterunek z zadaniem i dostepnym zerem wychodzi na 0,0 na dobe (retcon_000105), wiec stawka spada 1,0 -> 0,0, a generowana nadwyzka sieci 17,5 -> 16,5. Powod: w pokoju leza od t_183 takze papiery z baszty. Do t_183 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_06, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w piwnicy i pustkach scian - zer normalny, z daleka od ludzi, +1,0. Cela i tak stala pusta, odkad Lucan spi na gorze (retcon_000038), wiec ten posterunek kosztowal najmniej. KOREKTA t_178: dawne zdanie w instancji "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia po formule 8 x 1.5^n, skasowanej przez retcon_000024 - trwaly krok kosztuje CZAS PRZY STOLE, nie jednostki z banku.', bank: 0.0, maturity: fresh}
   - {id: companion_spidey, rate_per_day: 1.0, growth_cap_per_day: 6.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj. Stopnia z sadem nie trzeba mu przyznawac: zademonstrowal go w t_133, sam wybierajac stanowisko.', bank: 0.0, maturity: seasoned_by_history}
   - {id: pc_lucan, rate_per_day: 4.5, growth_cap_per_day: 7.5, basis: 'retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Wlasna czesc nalicza sie dopiero PRZY SUFICIE rezerwy. O 05:35 dnia 4 Lucan ma 14,10/15, a bilans rezerwy to +6,0 regeneracji -3,5 oddawane zukowi +2,0 z rozdzialu sieci = +4,5 na dobe, wiec sufit 15 wypada ok. 10:30. Do tego czasu nadwyzka idzie w napelnienie rezerwy, po tym w rozwoj.'}
