@@ -14,6 +14,9 @@ delivery:
   target_defense_path: defenses.awareness
 ratings: {accuracy: 27}
 effects: [effect_lucan_minor_bad_luck]
-limits: {cannot_create_impossible_accident: true, narrator_resolves_affected_arrangement: true}
+limits: {cannot_create_impossible_accident: true, narrator_resolves_affected_arrangement: true,
+  no_roll: true, no_resource_cost: true, no_combat_or_tactical_use: true,
+  does_not_affect_targets_stronger_than_lucan: true}
+calibration_ref: retcon_000133
 weaknesses: [stable_environment, precise_outcome_required, collateral_complications, alert_magic_literate_observer, repeated_pattern_recognition]
 source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]

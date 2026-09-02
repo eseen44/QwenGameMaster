@@ -46,22 +46,25 @@ portrayal:
     (retcon_000058). Nie robic z niego wyroczni madrzejszej od gracza (retcon_000040).
 knowledge:
   confirmed:
-    - {fact_id: fact_dast_copies_the_recurring_demand_to_the_guild, source_event_id: event_turn_interlude_206,
-       claim: >-
-         Wie z wlasnej reki, ze zadanie do gildii poszukiwaczy o ciala, akta i dowody z operacji
-         cmentarnej idzie i wraca od tygodnia, i ze przepisywal je na czysto kilka razy w tym
-         tygodniu. Zgodne z kanonem z t_034 ("zadanie sluzb miejskich o ciala, akta i dowody
-         wraca od TYGODNIA").}
-    - {fact_id: fact_dast_knows_the_demand_is_not_a_watch_initiative, source_event_id: event_turn_interlude_206,
-       claim: >-
-         Wie, ze pismo NIE POWSTAJE na jego pietrze - schodzi do niego juz rozstrzygniete,
-         a jego czescia jest przepisanie i pieczec. To jest odczyt zgodny z teza Seraphine
-         z t_034: za zadaniem stoi fotel, nie czlowiek. Nazwiska podpisujacego NIE PODAL.}
-    - {fact_id: fact_dast_took_lucan_for_a_tradesman_with_a_crate, source_event_id: event_turn_interlude_206,
-       claim: >-
-         Wzial Lucana za rzemieslnika albo dostawce - czlowieka, ktory niesie skrzynke szkla
-         i zaszedl przeczekac. NIE ZAPYTAL o nazwisko ani o sprawe przez cala rozmowe.
-         Zalozenie jest ZYWE i nie zostalo ani potwierdzone, ani zaprzeczone przez Lucana.}
+    - fact_id: fact_dast_copies_the_recurring_demand_to_the_guild
+      source_event_id: event_turn_interlude_206
+      claim: >-
+        Wie z wlasnej reki, ze zadanie do gildii poszukiwaczy o ciala, akta i dowody z operacji
+        cmentarnej idzie i wraca od tygodnia, i ze przepisywal je na czysto kilka razy w tym
+        tygodniu. Zgodne z kanonem z t_034 ("zadanie sluzb miejskich o ciala, akta i dowody
+        wraca od TYGODNIA").
+    - fact_id: fact_dast_knows_the_demand_is_not_a_watch_initiative
+      source_event_id: event_turn_interlude_206
+      claim: >-
+        Wie, ze pismo NIE POWSTAJE na jego pietrze - schodzi do niego juz rozstrzygniete,
+        a jego czescia jest przepisanie i pieczec. To jest odczyt zgodny z teza Seraphine
+        z t_034: za zadaniem stoi fotel, nie czlowiek. Nazwiska podpisujacego NIE PODAL.
+    - fact_id: fact_dast_took_lucan_for_a_tradesman_with_a_crate
+      source_event_id: event_turn_interlude_206
+      claim: >-
+        Wzial Lucana za rzemieslnika albo dostawce - czlowieka, ktory niesie skrzynke szkla
+        i zaszedl przeczekac. NIE ZAPYTAL o nazwisko ani o sprawe przez cala rozmowe.
+        Zalozenie jest ZYWE i nie zostalo ani potwierdzone, ani zaprzeczone przez Lucana.
   does_not_know:
     - Nazwiska Lucana, jego afiliacji z gildia ani zwiazku z operacja cmentarna.
     - Co jest na cmentarzu, po co komus ciala i akta, i kto na tym zarabia.
@@ -116,3 +119,9 @@ turn_210_curse_landed:
     - Ze rozmawial z Lucanem Veyrem. Imie Marc pozostaje jedynym, jakie zna.
     - Ze cokolwiek zostalo na nim rzucone.
     - Ze gosc zerknal na przybity arkusz lezacy na brzegu jego biurka.
+speech_traits:
+  # OBOWIAZKOWE do przeczytania PRZED pierwsza kwestia tej postaci w scenie
+  # (system/narrator.md#cechy-mowy). Ustanowione 2026-09-03 na zadanie gracza.
+  - 'O procedurze mowi precyzyjnie i z rozkosza, o ludziach ogolnikami - nie z ostroznosci, tylko dlatego, ze naprawde go nie obchodza.'
+  - 'Narzekanie jest u niego forma rozmowy, nie skarga. Rozkreca sie przy kims, kto NICZEGO od niego nie chce.'
+  - 'Nie wymawia nazwiska, za ktore musialby potem odpowiadac - dwadziescia lat nauki, nie zmowa.'

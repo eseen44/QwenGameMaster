@@ -200,3 +200,24 @@ Pech jest narzędziem **dramatycznym i reputacyjnym**:
   i to jest prawdziwy skutek, który narrator ma prowadzić dalej w kolejnych scenach.
 - **Narrator nie inscenizuje listy katastrof z deklaracji gracza punkt po punkcie.** Wybiera
   moment, uderza raz i niesie konsekwencję postrzegania.
+
+### Douszczegółowienie: pech jest darmowy, bezrzutowy i ma sufit (retcon_000133, 03.09.2026)
+
+Kalibracja z 25.08 szła w dobrą stronę, ale zostawiła pechowi cenę i miejsce w kategorii
+czarów, które się liczy. Gracz to zniósł. Obowiązuje:
+
+- **Zero kosztu.** `resource_cost` = 0, niezależnie od liczby celów. Nigdy nie odejmuj
+  energii za pech. Dawne 0,1 za aplikację jest martwe.
+- **Zero rzutów.** Nie testuje się pecha i nie testuje się przeciw niemu — niezależnie od
+  `roll_policy` i od napięcia sceny.
+- **Zakres:** kreacja sceny, tożsamość postaci, terroryzowanie niemagicznych postaci
+  w dialogu. **Nic mechanicznie ważnego od pecha nie zależy** — nie rozstrzyga wymiany,
+  ucieczki, pościgu ani żadnej sytuacji z wynikiem.
+- **Sufit mocy.** Na celu silniejszym od Lucana **nie dzieje się nic**. To nie jest
+  nieudany rzut, bo rzutu nie ma.
+- **Jedyne zastosowanie niefabularne, i jest realne: WYKRYWACZ SIŁY.** Brak jakiegokolwiek
+  skutku znaczy, że cel jest silniejszy od Lucana. To twarda informacja, którą gracz
+  dostaje za darmo — narrator **nie ma prawa jej zmiękczać ani zaszumiać**. Coś poszło
+  źle → cel jest słabszy. Nic się nie stało → cel jest mocniejszy. Bez trzeciej opcji.
+
+Skala, ładunek społeczny i status prawny opisane wyżej **nie zmieniają się**.

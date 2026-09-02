@@ -51,9 +51,18 @@ known:
     name: Pomniejsza klątwa pecha
     mastery: 27
     uses: [dramatic_room_wide_misfortune, exploit_existing_instability, build_reputation_as_a_man_things_go_wrong_around]
-    not_for: [tactical_combat_use, winning_an_exchange, repeated_small_trips]
+    not_for: [tactical_combat_use, winning_an_exchange, repeated_small_trips, resolving_anything_that_matters_mechanically]
     calibration_ref: system/curses.md#do-czego-naprawde-sluzy-pech
-    casting_profile: {subtle: true, quick: true, low_cost: true, usually_misread_as_coincidence: true}
+    calibration_ref_2: retcon_000133
+    cost: 'ZERO. Bez kosztu energii, niezaleznie od liczby celow (retcon_000133).'
+    roll: 'BRAK. Nie testuje sie jej i nie testuje sie przeciw niej, niezaleznie od
+      roll_policy i napiecia sceny (retcon_000133).'
+    scope: 'Wylacznie kreacja sceny, budowanie tozsamosci Lucana i terroryzowanie
+      niemagicznych postaci w dialogu. Zero zastosowania bojowego i taktycznego.'
+    power_ceiling: 'Nie dziala na cele silniejsze od Lucana - nic sie wtedy nie dzieje.'
+    diagnostic_use: 'Jedyne uzycie niefabularne i jest realne: WYKRYWACZ SILY. Brak
+      skutku = cel silniejszy od Lucana. Narrator podaje ten sygnal jednoznacznie.'
+    casting_profile: {subtle: true, quick: true, free: true, usually_misread_as_coincidence: true}
     limits: [cannot_choose_an_impossible_accident, outcome_may_harm_the_situation_instead_of_the_target, unreliable_precision, prepared_magic_observer_may_detect_pattern_or_trace]
     source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]
   - id: ability_necromantic_probe

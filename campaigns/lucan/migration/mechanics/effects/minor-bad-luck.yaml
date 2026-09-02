@@ -5,7 +5,15 @@ status: proposed_calibrated
 name: Pomniejszy pech sytuacyjny
 vector: situational_complication
 application_rating: 27
-resource_cost: {pool: lucan_necrotic_energy, units: 0.1}
+resource_cost: {pool: lucan_necrotic_energy, units: 0}
+cost_note: 'ZEROWY OD retcon_000133 (03.09.2026, deklaracja gracza do systemu). Dawne 0,1
+  za aplikacje zniesione w calosci - pech nie jest zdolnoscia zasobowa, tylko elementem
+  humorystycznym i tozsamosciowym. Nie odejmuje sie niczego niezaleznie od liczby celow.'
+no_roll: true
+power_ceiling: 'NIE DZIALA na cele silniejsze od Lucana - nic sie wtedy nie dzieje i nie
+  jest to nieudany rzut, bo rzutu nie ma (retcon_000133).'
+diagnostic_use: 'JEDYNE zastosowanie niefabularne: wykrywacz sily. Brak jakiegokolwiek
+  skutku = cel silniejszy od Lucana. Sygnal ma byc podawany jednoznacznie, bez szumu.'
 limitations: [requires_plausible_failure_mode, affected_arrangement_not_guaranteed_to_match_casters_preference]
 visibility: {magical_trace: faint, mundane_target_usually_interprets_as_coincidence: true}
 source_refs: [source_luka_a_fragment#line:388-515, source_luka_b_fragment#line:4363-4375]

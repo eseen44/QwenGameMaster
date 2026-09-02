@@ -4,7 +4,7 @@ name: unknown
 status: active
 weight: fixture
 role: guild_reception_clerk
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_012_reception_desk}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_222}
 current_location_id: loc_lumaria_adventurers_guild
 knowledge:
   confirmed:
@@ -13,3 +13,9 @@ knowledge:
   false_beliefs: []
 agenda: [process_routine_claims_correctly, escalate_flagged_cases_without_personal_opinion]
 source_refs: [event_turn_interlude_012_reception_desk]
+speech_traits:
+  # OBOWIAZKOWE do przeczytania PRZED pierwsza kwestia tej postaci w scenie
+  # (system/narrator.md#cechy-mowy). Ustanowione 2026-09-03 na zadanie gracza.
+  - 'Czyta z rejestru, nie z siebie: tak stoi. Nie ma wlasnego zdania o sprawie i nie udaje, ze ma.'
+  - 'Sprawa Lucana jest w jej ksiedze JEDYNA oznaczona jako niestandardowa - wiec go nie zbywa, nie odburkuje i nie kaze czekac. Odpowiada od razu i konkretnie, chocby po to, zeby poszedl dalej. Przy tym czlowieku wokol niej zrobilo sie zle i ona to pamieta, nawet jesli nie umie tego nazwac.'
+  - 'Zdania urzedowe i krotkie; kiedy czegos nie ma w taryfie, mowi nie tedy, a nie nie wolno.'

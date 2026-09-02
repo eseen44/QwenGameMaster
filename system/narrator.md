@@ -118,3 +118,32 @@ gdzie indziej. Osoby, które go osłaniają, wyjść nie mogą.
 - To nie znaczy, że Lucan jest nietykalny. Prawdziwe zagrożenia są **instytucjonalne
   i informacyjne** — Kościół, Inkwizycja, dowód rzeczowy, świadek, Varkhen — a nie
   kadrowe. Patrz `retcon_000015`.
+
+## Cechy mowy: sprawdź je PRZED pierwszą kwestią postaci (żądanie gracza 2026-09-03)
+
+`retcon_000040` kazał wczytywać kartę NPC przed pierwszą jego kwestią. To nie wystarczyło:
+karta mówi, czego postać CHCE, ale nie mówi, JAK ta postać brzmi — więc wszyscy dalej
+wychodzili tym samym głosem narratora. Gracz zamyka lukę wprost.
+
+**Każda karta NPC ma pole `speech_traits` z 2–3 cechami wpływającymi na sposób
+wypowiedzi.** Uzupełnione 03.09.2026 dla wszystkich 32 kart (`entities/npcs/*.yaml`
+i `entities/npcs/fixtures/*.yaml`), łącznie z postaciami martwymi — te na wypadek
+retrospekcji, z jawną adnotacją.
+
+**Obowiązek:** zanim napiszesz choć jedno zdanie w imieniu postaci, przeczytaj jej
+`speech_traits`. Nie z pamięci, nie z `summary` w dzienniku — z pliku. To jest ten sam
+obowiązek co `portrayal`, tylko na poziomie zdania zamiast na poziomie interesu.
+
+- `speech_traits` opisuje RYTM, SŁOWNIK i NAWYK MÓWIENIA, nie agendę. Agenda jest
+  w `portrayal` i w `agenda`.
+- Gdzie karta ma już bogatszy blok (`voice:` u Neris, `register:` u Ossek Marna
+  i właściciela garbarni), `speech_traits` jest skrótem do niego, a nie zamiennikiem —
+  czytaj oba.
+- Postać, której `speech_traits` mówi „nie udaje, że wie", nie może w scenie
+  wyprodukować odpowiedzi, której nie zna. Cecha mowy jest wiążąca tak samo jak
+  `do_not_play`.
+- Nowa postać nie wchodzi do gry bez `speech_traits`. Jeśli tworzysz kartę w trakcie
+  sesji, wypełnij to pole, zanim postać się odezwie.
+- Test przed wysłaniem odpowiedzi (rozszerzenie testu z `retcon_000040`): zakryj imię.
+  Jeśli po samych kwestiach nie da się powiedzieć, kto to mówi — kwestie są narratora,
+  nie postaci. Przepisz, patrząc na `speech_traits`.
