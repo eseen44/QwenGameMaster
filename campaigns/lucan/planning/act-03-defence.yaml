@@ -810,3 +810,54 @@ lucans_declared_line_2026_09_01:
     ktorej zaden plik nie stawia. Prawdziwe ograniczenia tej kampanii sa instytucjonalne
     i informacyjne (retcon_000015) - grozba jest dzwignia jak kazda inna i mierzy sie ja
     tym, komu i jak zostanie podana.
+
+syndicate_warning_channel:
+  source_event_ids: [event_turn_interlude_113, event_turn_interlude_200, event_turn_interlude_201]
+  obligation_ref: campaigns/lucan/state/obligations.yaml#obligation_name_advance_warning_channel_for_syndicate
+  what_was_ordered: >-
+    t_113, slowami pryncypala: ostrzezenie przychodzace tego samego dnia co klopot nie jest
+    ostrzezeniem, tylko wiadomoscia. Kupuje WYPRZEDZENIE warte co najmniej dobe, typu
+    "zamykajcie". Terminu nie zazadal i o nazwisko sie nie targowal.
+  what_was_delivered: >-
+    t_200. spy_cellar_spider_06, przedstawiony jako "Toby", oddany na stale i postawiony
+    w skrzynce na dolnej polce w pokoju syndykatu (loc_lumaria_market#zone_market_back_alleys).
+    Sterowany zdalnie przez Lucana. Sygnalem jest przejscie na kolejny talerzyk.
+    DLACZEGO TO DZIALA, Z PLIKOW SIECI: alarm czytany OKIEM nie zuzywa uwagi w ogole
+    (companions/webber-network.yaml#network_cost_model.attention_is_serial, wniosek nr 2);
+    uwaga Lucana jest seryjna i kosztuje ~15 s na wezel, ale Toby nie jest przegladany -
+    tylko wyzwalany. Sygnal jednobitowy nie odczuwa straty wiernosci, a Toby jest
+    not_anchored_by_choice, wiec ma strate na odleglosc, nie brak sterowania
+    (retcon_000049 - kotwica to antena, nie warunek kontroli). Utrzymanie 0, autonomous_hunting.
+    Terrarium/wlasny kat przyznane, bo okaz ma flagi destroyed_by_a_broom oraz
+    silhouette_ignored_by_everyone.
+    NIE JEST PODSLUCHEM: near_blind_vibration_and_air_sensing_only, a
+    ability_eavesdropping_through_threads ma current: false.
+  phases:
+    source_event_id: event_turn_interlude_201
+    source: player_declaration
+    "1": Stan obecny. Obowiazuje od chwili przekazania - Toby startuje na pierwszym talerzyku.
+    "2": >-
+      Wszystkie strony swiadome sytuacji: koniec przesluchan, powiadomieni rycerze w lsniacych
+      zbrojach, Akademia, Kosciol i tak dalej.
+    "3": Kordon dookola cmentarza.
+    "4": Rozpoczecie akcji - wejscie grupy badawczo-uderzeniowej na cmentarz.
+    lucans_estimate: >-
+      Od fazy 2 do wprowadzenia scislej kontroli okolicy cmentarza minie DZIEN, DWA.
+      TO JEST SZACUNEK LUCANA PODANY KONTRAHENTOWI, NIE ZEGAR. Nie ma wpisu w
+      state/clocks.yaml, nie wiaze sie z zadna data i nie zapowiada, ze cokolwiek nastapi
+      w tym oknie. Fazy sa wyzwalane RECZNIE przez Lucana, nie uplywem czasu.
+  which_saucer_is_the_product:
+    source_event_id: event_turn_interlude_201
+    text: >-
+      Pryncypal policzyl to na glos i potwierdzil konstrukcje gracza, nie poprawil jej.
+      Faza 3 i 4 sa dla niego bezuzyteczne jako ostrzezenia - przy kordonie nie ma juz czego
+      wywozic. Doba, o ktora prosil w t_113, mieszka wylacznie w FAZIE 2, bo po niej ma
+      wedlug szacunku Lucana dzien albo dwa. Faza 2 jest produktem; 3 i 4 sa potwierdzeniem,
+      ze slusznie sie wyniosl.
+  what_is_not_revealed: >-
+    Wszystkie cztery fazy opisuja REAKCJE INSTYTUCJI, nie przyczyne. Lucan nie powiedzial,
+    co jest pod cmentarzem, po co mialby tam wejsc oddzial ani czego szuka - ta sama
+    dyscyplina co w t_110 i t_194. forbidden_without_source obu obecnych nienaruszone:
+    varkhen_existence, seals_and_lower_gate (pryncypal), spidey_existence, lucan_necromancy.
+    Dla pryncypala to nie jest nowa kategoria, tylko harmonogram do
+    fact_weigher_knows_a_bigger_cemetery_problem_exists (t_110).

@@ -6,7 +6,7 @@ review_status: created_in_play
 importance: full_agent
 role: criminal_circuit_lawyer
 first_appearance_event_id: event_turn_interlude_104
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_200}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_201}
 current_location_id: loc_lumaria_market
 portrayal:
   temperament: [precise, unsentimental, states_his_position_before_he_has_to]
@@ -78,6 +78,7 @@ knowledge:
     - {fact_id: fact_kesz_asked_about_seraphine_a_second_time, source_event_id: event_turn_interlude_199, claim: "Powtorzyl pytanie z t_194: czy npc_seraphine_vale, oficer gildii oslaniajacy Lucana, wie, ze Kesz stanie na przesluchaniu. TO NIE JEST pulapka retcon_000121 - tamta polegala na powtorzeniu zadania, ktore pozniejsza tura ZAMKNELA; tego nie zamknela zadna, Lucan nigdy nie odpowiedzial. Teraz, gdy udzial jest przesadzony, pyta drugi raz - i znowu NIE ZADA odpowiedzi na miejscu. Odpowiedzi nadal nie ma."}
     - {fact_id: fact_kesz_got_his_seraphine_answer_and_it_costs_him, source_event_id: event_turn_interlude_200, claim: "ZAMKNIETE po drugim pytaniu. Seraphine NIE wie i ma sie dowiedziec dopiero po tym, jak zezna przed Straza to, co musi - powod Lucana jest sekwencyjny, nie osobisty: nie chce, zeby powiedziala za duzo i za szybko. Kesz przyjmuje bez sporu, bo jest juz w srodku, ale nazywa, co stracil: w t_194 mowil, ze wolalby nie dowiedziec sie tego RAZEM z nia, a ta odpowiedz znaczy dokladnie tyle, ze dowie sie razem z nia albo po niej. NIE PYTAC O TO TRZECI RAZ - pytanie jest odpowiedziane (retcon_000121)."}
     - {fact_id: fact_kesz_saw_the_spider_obey_after_he_was_already_lucans_lawyer, source_event_id: event_turn_interlude_200, claim: "ZAPISYWAC DOKLADNIE TYLE. Widzial pajaka machajacego lapka na polecenie Lucana. Slowo nieumarly, martwy ani nekromancja NIE PADLO i on nie zapytal - zgodnie z fact_kesz_understood_the_category_without_asking z t_105b, gdzie tez nie zapytal o kategorie towaru, tylko o ilosc, czestotliwosc i stan. Jego jedyna uwaga dotyczyla JEGO, nie Lucana: jest prawnikiem Lucana od okolo dziesieciu minut (t_199) i dopiero potem zobaczyl pokaz; powiedzial, ze doradzilby dokladnie taka kolejnosc. NIE ORZEKL nic o tajemnicy zawodowej i narrator tez nie - legal-order.yaml nie zawiera ZADNEGO zapisu o przywileju, a Kesz sam mowi, ze zna urzednikow magistratu, nie statuty korporacji. forbidden_without_source nadal obejmuje lucan_necromancy i spidey_existence."}
+    - {fact_id: fact_kesz_finally_has_the_calendar_he_asked_for, source_event_id: event_turn_interlude_201, claim: "DOSTAL ETAPY DO DATY, KTORA MIAL OD t_105b. fact_kesz_knows_about_the_two_week_deadline mowi, ze przyjal zapowiedz wojny domowej jako date w kalendarzu i chcial wiedziec, po ktorej stronie ma stac jego pokoj - ale mial sama date, bez etapow. Teraz zna cztery fazy protokolu Tobiego: stan obecny, wszystkie strony swiadome, kordon, wejscie oddzialu na cmentarz. NIE ZAPYTAL, co jest pod cmentarzem - konsekwentnie z t_194, gdzie sam uznal wlasna niewiedze za zalete, bo nie da sie go zmusic do rozwiniecia czegos, czego nie wie. forbidden_without_source nienaruszone."}
   converging_target:
     id: the_local_priest
     source_event_id: event_turn_interlude_110
@@ -88,4 +89,4 @@ knowledge:
   forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_house_structure]
   known_about_lucans_father: "Wiedza, ze ojciec Lucana byl dwa razy potepiony przez Inkwizycje i przezyl to (event_turn_interlude_109/110). Ukladu rodu Veyr nie znaja i nie interesuje ich - licza precedens operacyjny, nie nazwisko."
 agenda: [arrange_the_meeting_with_the_priest, protect_the_room_first, assess_whether_lucan_is_a_liability, take_lucan_as_client_only_if_the_room_allows]
-source_refs: [event_turn_interlude_101, event_turn_interlude_104, event_turn_interlude_199, event_turn_interlude_200, retcon_000124, campaigns/lucan/planning/act-03-defence.yaml#criminal_circuit_lawyer, campaigns/lucan/planning/lucan-leads.yaml#lead_two_contradictory_defences]
+source_refs: [event_turn_interlude_101, event_turn_interlude_104, event_turn_interlude_199, event_turn_interlude_200, event_turn_interlude_201, retcon_000124, campaigns/lucan/planning/act-03-defence.yaml#criminal_circuit_lawyer, campaigns/lucan/planning/lucan-leads.yaml#lead_two_contradictory_defences]
