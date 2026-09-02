@@ -1,0 +1,118 @@
+schema_version: 1
+id: npc_verek_dast
+name: Verek Dast
+status: active
+review_status: created_in_play
+importance: minor_functionary
+role: dyzurny_za_kontuarem_komendy_strazy_miejskiej
+first_appearance_event_id: event_turn_interlude_206
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_207}
+current_location_id: loc_lumaria_watch_house
+zone_id: zone_watch_front_room
+has_character_sheet: false
+sheet_note: >-
+  Zwykly czlowiek bez arkusza - urzednik w mundurze, nie przeciwnik w tescie. Rozstrzygac
+  narracyjnie, bez rzutu (zasada gracza 2026-08-19). Gdyby rzut kiedys byl potrzebny, prog
+  15-20, nie 40+.
+relationship_to_lucan: {attitude: neutral_talkative, score: 0, confidence: low}
+portrayal:
+  temperament: [znudzony, drobiazgowy_w_procedurze, mgliszy_w_ludziach, wygadany_gdy_nikt_od_niego_nic_nie_chce]
+  appearance: >-
+    Piecdziesiat kilka lat, siedzacy tulow, palce z jednej strony zawsze poplamione. Mundur
+    ma sluzbowy, ale nosi go jak fartuch, nie jak mundur. Broni przy sobie nie trzyma - lezy
+    na kolku za nim i widac, ze wisi tam od dawna.
+  group_role: >-
+    Nie jest komendantem i nie jest patrolem. Jest CZLOWIEKIEM OD PAPIERU: przepisuje na
+    czysto, pieczetuje, wpisuje do ksiegi, wydaje i odbiera. Dwadziescia lat za tym samym
+    kontuarem, bez awansu i bez checi na niego.
+  method: >-
+    Mowi o procedurze precyzyjnie, a o ludziach ogolnikami - nie z ostroznosci, tylko dlatego,
+    ze naprawde go nie obchodza. Rozroznia "pismo", "zadanie" i "odpis" jak rzemieslnik
+    rozroznia narzedzia, a nazwiska sa dla niego czescia naglowka.
+  what_he_wants_from_a_conversation: >-
+    Poskarzyc sie komus, kto NIE PRZYSZEDL SIE SKARZYC. Kazdy, kto staje przy tym kontuarze,
+    czegos od niego chce. Czlowiek, ktory niczego nie chce, jest u niego rzadkim towarem.
+  what_he_refuses: >-
+    Nie wpuszcza za kontuar. Nie wpisuje niczego do ksiegi, dopoki nie musi. Nie wymawia
+    nazwiska, za ktore musialby potem odpowiadac - to nie jest zmowa, to jest dwadziescia
+    lat nauki, ze nazwisko w cudzych ustach wraca do tego, kto je podal.
+  what_he_can_lose: >-
+    Spokojne popoludnie i opinie czlowieka, ktory nie gada. Jedno i drugie ma od dawna
+    i o oba dba bardziej niz o awans.
+  do_not_play: >-
+    NIE jest informatorem, nie jest zepsuty i nie jest w spisku. Nie jest tez naiwny do
+    smiesznosci. Nie wie, co jest na cmentarzu, nie wie, po co komus akta, i NIE DOMYSLA SIE,
+    kim jest Lucan. Nie dawac mu list, spisow ani zestawien, ktorych zaden plik nie ma
+    (retcon_000058). Nie robic z niego wyroczni madrzejszej od gracza (retcon_000040).
+knowledge:
+  confirmed:
+    - {fact_id: fact_dast_copies_the_recurring_demand_to_the_guild, source_event_id: event_turn_interlude_206,
+       claim: >-
+         Wie z wlasnej reki, ze zadanie do gildii poszukiwaczy o ciala, akta i dowody z operacji
+         cmentarnej idzie i wraca od tygodnia, i ze przepisywal je na czysto kilka razy w tym
+         tygodniu. Zgodne z kanonem z t_034 ("zadanie sluzb miejskich o ciala, akta i dowody
+         wraca od TYGODNIA").}
+    - {fact_id: fact_dast_knows_the_demand_is_not_a_watch_initiative, source_event_id: event_turn_interlude_206,
+       claim: >-
+         Wie, ze pismo NIE POWSTAJE na jego pietrze - schodzi do niego juz rozstrzygniete,
+         a jego czescia jest przepisanie i pieczec. To jest odczyt zgodny z teza Seraphine
+         z t_034: za zadaniem stoi fotel, nie czlowiek. Nazwiska podpisujacego NIE PODAL.}
+    - {fact_id: fact_dast_took_lucan_for_a_tradesman_with_a_crate, source_event_id: event_turn_interlude_206,
+       claim: >-
+         Wzial Lucana za rzemieslnika albo dostawce - czlowieka, ktory niesie skrzynke szkla
+         i zaszedl przeczekac. NIE ZAPYTAL o nazwisko ani o sprawe przez cala rozmowe.
+         Zalozenie jest ZYWE i nie zostalo ani potwierdzone, ani zaprzeczone przez Lucana.}
+  does_not_know:
+    - Nazwiska Lucana, jego afiliacji z gildia ani zwiazku z operacja cmentarna.
+    - Co jest na cmentarzu, po co komus ciala i akta, i kto na tym zarabia.
+    - Kto podpisuje zadanie - a raczej: nie powiedzial i nie da sie stwierdzic, czy nie wie, czy nie mowi.
+  suspicions: []
+  false_beliefs:
+    - {belief_id: belief_dast_thinks_lucan_is_a_tradesman, claim: 'Uwaza, ze rozmawia z rzemieslnikiem albo dostawca. Rozmawial swobodniej wlasnie dlatego.'}
+  forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_name, guild_affiliation, cemetery_operation_role]
+agenda:
+  - dokonczyc_dzisiejsza_ksiege_bez_nowych_wpisow
+  - poskarzyc_sie_komus_kto_niczego_nie_chce
+  - nie_podac_nazwiska_ktore_do_niego_wroci
+source_refs:
+  - event_turn_interlude_206
+  - event_turn_interlude_034_the_watch_is_an_unknown
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_watch_side_corpse_transport
+  - campaigns/lucan/locations/lumaria-watch-house/location.yaml
+turn_207_additions:
+  source_event_id: event_turn_interlude_207
+  lifecycle_last_confirmed_event_id: event_turn_interlude_207
+  new_confirmed_facts:
+    - {fact_id: fact_dast_gave_the_gate_mans_name_to_marc, claim: "Osadzil rysopis (wiek, posterunek, 'ten od podnoszenia bramy wozom') i podal nazwisko: npc_ossek_marn. Nie uznal tego za wyjawienie czegokolwiek - nazwisko czlowieka z rozdzielnika jest dla niego naglowkiem, a nie czyms, za co bedzie odpowiadal."}
+    - {fact_id: fact_dast_complained_the_gate_details_pass_wagons_on_papers_he_never_sees, claim: "Poskarzyl sie, ze oddzialy bramne przepuszczaja na papiery, ktorych on nigdy nie oglada. Dla niego to niechlujstwo i lekcewazenie kontuaru. NIE WIE, ze opisuje od dolu blankiet z t_035/t_036, i nie wolno mu tego skojarzyc."}
+    - {fact_id: fact_dast_heard_a_silver_haired_guild_woman_is_hounding_a_gate_man, claim: "Uslyszal od 'Marca', ze siwa kobieta z gildii nie daje zyc czlowiekowi od bramy. NIE identyfikuje npc_seraphine_vale i nie ma jak - trafilo go samo slowo GILDIA, bo trzeci raz w tym tygodniu przepisywal pismo, na ktore gildia nie odpisuje. Zadnego polaczenia ze sprawa cmentarna nie zrobil."}
+  updated_false_belief:
+    - {belief_id: belief_dast_thinks_lucan_is_a_tradesman, claim: "WZMOCNIONE. Lucan sam potwierdzil zalozenie ('skrzynki nosze') i podal imie MARC - falszywe. Dast sciska mu reke i przez cala ture NIE PYTA o nazwisko ani o sprawe. Nic tego nie testuje."}
+  open_offer:
+    id: dast_offers_to_check_marns_shift_in_the_corridor_roster
+    text: "Sam z siebie zaproponowal sprawdzenie zmiany Ossena Marna w biezacym rozdzielniku, ktory lezy w korytarzu za kontuarem. Oferta jest nierozstrzygnieta - decyzja gracza."
+  what_he_can_repeat:
+    text: "Dast GADA - to jego cecha z portrayal, nie kara. 'Marc pytajacy o Marna i o babe z gildii' jest historia, ktora moze powtorzyc. Narrator NIE rozstrzyga, komu ani czy w ogole, i nie wyprowadza z tego zadnej konsekwencji bez zdarzenia."
+turn_210_curse_landed:
+  source_event_id: event_turn_interlude_210
+  lifecycle_last_confirmed_event_id: event_turn_interlude_210
+  what_happened: >-
+    Przyjal uscisk dloni na pozegnanie od "Marca". Dotyk byl kanalem dostawy
+    curse_memory_trap (player/abilities.yaml, mastered_repeatable od t_129, klasa opozniona).
+    Nie zauwazyl niczego - klasa opozniona nie daje objawu przy dostawie.
+  effect_exactly:
+    loses: >-
+      RYSOPIS. Wspomnienie twarzy sie nie konsoliduje; okolo godziny po rozmowie Dast nie
+      potrafi juz powiedziec, jak wygladal czlowiek, ktory u niego byl.
+    keeps: >-
+      CALA RESZTE. Nadal pamieta, ze byl czlowiek ze skrzynka, ze przedstawil sie jako MARC,
+      ze pytal o npc_ossek_marn, ze wspomnial o siwej kobiecie z gildii i ze on sam poszedl
+      po rozdzielnik i podal zmiane oraz szynk Pod Obrecza.
+    narrator_boundary: >-
+      NIE WOLNO tego poszerzyc do wymazania rozmowy ani zwezic do niczego mniejszego.
+      Jesli ktokolwiek kiedykolwiek zapyta Dasta o te wizyte, odpowie tresc i nie odpowie
+      rysopisu - i sam bedzie tym zdziwiony, jesli sie nad tym zastanowi.
+  what_he_never_learned:
+    - Ze rozmawial z Lucanem Veyrem. Imie Marc pozostaje jedynym, jakie zna.
+    - Ze cokolwiek zostalo na nim rzucone.
+    - Ze gosc zerknal na przybity arkusz lezacy na brzegu jego biurka.

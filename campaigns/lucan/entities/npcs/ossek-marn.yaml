@@ -1,0 +1,55 @@
+schema_version: 1
+id: npc_ossek_marn
+name: Ossek Marn
+status: active
+review_status: created_in_play
+importance: light_named
+role: straznik_miejski_od_zapory_czlowiek_ktory_podnosil_brame_wozom
+first_appearance_event_id: null
+named_at_event_id: event_turn_interlude_207
+lifecycle: {state: alive_offscreen, last_confirmed_event_id: event_turn_interlude_207}
+current_location_id: unknown
+has_character_sheet: false
+sheet_note: >-
+  Szeregowy straznik, bez arkusza. Nie byl jeszcze w zadnej scenie - istnieje wylacznie
+  jako rysopis, posterunek i nazwisko.
+identification_chain:
+  rysopis_source:
+    source_event_ids: [event_turn_interlude_048, event_turn_interlude_052_assign_watch_inquiry_and_exit]
+    declared_by: player_correction_2026-09-02
+    text: >-
+      RYSOPIS PODALI ZATRZYMANI Z WOZU, przesluchiwani w celach gildii. Opisali czlowieka,
+      ktory PODNOSIL BRAME wozom, posterunek, na ktorym sie pojawia, oraz jego wiek.
+      Nazwiska NIE podali.
+      TO JEST POPRAWKA ZAPISU, NIE NOWY FAKT. Dowod, ze rysopis istnial od t_052, stoi
+      w samym t_052: Seraphine przyjela zlecenie na "gospodarstwo domowe WSKAZANEGO
+      straznika" - wskazac mozna wylacznie kogos, kogo sie ma. Rysopis nigdy nie zostal
+      dopisany do karty npc_halvek_wagonman ani do leadu, co jest dokladnie awaria opisana
+      w retcon_000121 (karta jest tak swieza, jak ostatni dopisek, nie jak ostatnia tura).
+  name_source:
+    source_event_id: event_turn_interlude_207
+    text: >-
+      Nazwisko podal npc_verek_dast, dyzurny komendy, osadzajac rysopis w swoim wlasnym
+      rejestrze posterunkow i zmian. Podal je czlowiekowi, ktory przedstawil sie jako MARC
+      i ktorego wzial za rzemieslnika ze skrzynka. Dast nie uwazal tego za wyjawienie
+      czegokolwiek - dla niego nazwisko czlowieka od zapory jest czescia naglowka.
+what_is_known:
+  - Podnosil brame wozom wyjezdzajacym stala trasa przez polnocno-zachodnia zapore.
+  - Wiek i posterunek podane przez zatrzymanych; potwierdzone przez Dasta jako pasujace.
+  - >-
+    NIE jest podpisujacym glejt. item_watch_transport_permit ma nieczytelne nazwisko, a
+    Seraphine ustalila w t_036, ze TYP autoryzacji stalej trasy stoi PONAD szeregowym
+    konstablem. Marn jest reka, ktora podnosila drag, nie glowa, ktora wystawiala papier.
+what_is_not_known:
+  - Czy wiedzial, co wozi woz, czy podnosil drag na okazany papier i nie patrzyl dalej.
+  - Gdzie mieszka. Zlecenie map_gate_guard_household_without_contact jest u Seraphine i nie zostalo rozliczone.
+  - Czy ktokolwiek juz z nim rozmawial.
+do_not_play: >-
+  Nie robic z niego ani skruszonego swiadka, ani czlowieka spisku, dopoki nie stanie w scenie.
+  Nie dopisywac mu wiedzy o cmentarzu. Nie zakladac, ze uslyszal o pytaniu "Marca" - nikt tego
+  nie ustanowil.
+source_refs:
+  - event_turn_interlude_052_assign_watch_inquiry_and_exit
+  - event_turn_interlude_207
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_watch_side_corpse_transport
+  - campaigns/lucan/state/objectives.yaml#map_gate_guard_household_without_contact

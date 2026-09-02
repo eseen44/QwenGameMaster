@@ -1,0 +1,40 @@
+schema_version: 1
+id: loc_lumaria_watch_house
+name: Komenda straży miejskiej w Lumarii
+status: active
+world_ref: worlds/solmara
+type: municipal_watch_station
+access: public_front_room_back_corridor_by_invitation_only
+known_to_lucan: first_visit_event_turn_interlude_206
+scale: building_minutes_on_foot
+created_at_event_id: event_turn_interlude_206
+creation_note: >-
+  Lokacja zalozona przy pierwszym wejsciu Lucana (t_206). Wczesniej komenda istniala
+  w kampanii wylacznie jako POJECIE w leadach - Lucan sam powiedzial w t_034, ze nie wie
+  o tej strazy nic, "jeden zepsuty glina czy caly komisariat", i ze musialby sie tam
+  przejsc. Komenda nie miala wlasnego pliku.
+connections:
+  - {id: connection_watch_house_street, zone_id: zone_watch_front_room, leads_to: loc_lumaria, travel_time: about_twenty_minutes_from_the_market}
+zones:
+  - {id: zone_watch_front_room, note: 'Izba od ulicy. Kontuar z podniesionym blatem, za nim biurko dyzurnego, po bokach lawa dla petentow i tablica z obwieszczeniami. Jedyna czesc budynku otwarta dla kazdego.'}
+  - {id: zone_watch_back_corridor, note: 'Korytarz za kontuarem - akta, izba z zamknieciem, cele. Wejscie tylko z zaproszeniem. Seraphine ostrzegala w t_034, ze w tylnym pokoju komendy nie ma zadnej pozycji.'}
+  - {id: zone_watch_yard, note: 'Podworzec od tylu - sprzet, wozek, stojaki na drzewce, kwatera oddzialow bramnych przy zmianie. Nie ogladany przez Lucana.'}
+notes:
+  - >-
+    STAN OBSADY JEST DEKLARACJA GRACZA (2026-09-02, t_206): ludzie majacy udzial w sprawie
+    cmentarza nie siedza z przodu w czasie tej wizyty. Narrator NIE ustanawia, dlaczego, i nie
+    rozstrzyga, czy sa u Seraphine, czy na cmentarzu. Operacyjnie: z przodu jest zwykla obsada
+    dyzurna, bez strony w sprawie Lucana.
+  - >-
+    NIE JEST TO MIEJSCE "PUSTE" ANI BEZPIECZNE Z URZEDU. Kanoniczny stan straży to NIEZNANY
+    (planning/lucan-leads.yaml#lead_watch_side_corpse_transport, t_034) i tak ma zostac,
+    dopoki gracz albo zdarzenie tego nie zmieni. Nie dopisywac spisku ani niewinnosci.
+  - >-
+    Zwykla obsada dyzurna nie ma arkuszy i nie jest przeciwnikiem w tescie (zasada gracza
+    2026-08-19). Rozstrzygac narracyjnie.
+source_refs:
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_watch_side_corpse_transport
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_city_watch_covers_cemetery_corpse_trade
+  - campaigns/lucan/state/objectives.yaml#check_in_with_watch
+  - event_turn_interlude_034_the_watch_is_an_unknown
+  - event_turn_interlude_206

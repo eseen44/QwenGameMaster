@@ -1,0 +1,33 @@
+schema_version: 1
+id: loc_tavern_pod_obrecza
+name: Szynk "Pod Obreczą"
+status: active
+world_ref: worlds/solmara
+type: working_tavern_by_the_gate
+access: public
+known_to_lucan: arrived_outside_first_time_event_turn_interlude_210
+scale: single_room_meters
+created_at_event_id: event_turn_interlude_210
+creation_note: >-
+  Nazwany przez npc_verek_dast w t_208 jako miejsce, w ktorym oddzialy bramne siedza po
+  zmianie. Dla niego to ta sama kategoria wiedzy co godzina zmiany - nie poufne i nie
+  przysluga.
+connections:
+  - {id: connection_obrecza_to_northwest_barrier, zone_id: zone_obrecza_street, leads_to: loc_lumaria, travel_time: at_the_barrier_a_minute_on_foot}
+zones:
+  - {id: zone_obrecza_street, note: 'Ulica przed szynkiem, w cieniu polnocno-zachodniej zapory. Szyld z zelaznej obreczy od kola.'}
+  - {id: zone_obrecza_common_room, note: 'Izba szynkowa. NIE OGLADANA jeszcze przez Lucana - opis przy pierwszym wejsciu wg system/locations-and-maps.md.'}
+notes:
+  - >-
+    LOKAL ROBOCZY, NIE JASKINIA. Zaden plik nie czyni z niego miejsca niebezpiecznego ani
+    zmowy. Nie dopisywac zagrozenia bez zrodla (retcon_000055). Ludzie z oddzialow bramnych
+    to zwykli ludzie bez arkuszy - rozstrzygac narracyjnie, bez rzutu (zasada gracza
+    2026-08-19).
+  - >-
+    npc_ossek_marn zszedl ze zmiany w poludnie (rozdzielnik odczytany przez Dasta w t_208).
+    NIE JEST USTALONE, czy tu jest. Narrator nie orzeka tego z gory ani w jedna, ani
+    w druga strone przed deklaracja gracza o wejsciu.
+source_refs:
+  - event_turn_interlude_208
+  - event_turn_interlude_210
+  - campaigns/lucan/entities/npcs/ossek-marn.yaml
