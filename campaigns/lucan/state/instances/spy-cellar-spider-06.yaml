@@ -3,11 +3,11 @@ id: spy_cellar_spider_06
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 122
+revision: 123
 position:
   location_id: loc_lumaria_market
-  zone_id: zone_market_main_row
-  formation: boxed_in_lucans_pocket_pulled_off_the_guild_lanes_to_be_offered_to_the_syndicate_as_a_warning_channel_no_new_order_yet
+  zone_id: zone_market_back_alleys
+  formation: handed_over_and_stationed_in_the_syndicate_back_room_as_toby_the_phase_signal_terrarium_or_a_corner_granted_saucer_protocol_agreed_in_principle_number_and_content_of_phases_not_yet_set
 integrity:
   current: 6
   maximum: 6
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 85980
-      hunting_recovery_elapsed_seconds: 85980
+      decay_elapsed_seconds: 60
+      hunting_recovery_elapsed_seconds: 60
     growth_bank:
       units_earmarked: 0
       note: 'Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
@@ -48,6 +48,6 @@ status_flags:
 - hand_fed_growth_program
 - excluded_prey_children_and_cats
 conditions: []
-last_event_id: event_turn_interlude_199
+last_event_id: event_turn_interlude_200
 source_refs:
 - event_turn_interlude_078
