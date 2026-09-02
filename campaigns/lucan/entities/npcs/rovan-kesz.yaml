@@ -6,7 +6,7 @@ review_status: created_in_play
 importance: full_agent
 role: criminal_circuit_lawyer
 first_appearance_event_id: event_turn_interlude_104
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_193}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_199}
 current_location_id: loc_lumaria_market
 portrayal:
   temperament: [precise, unsentimental, states_his_position_before_he_has_to]
@@ -19,11 +19,36 @@ oren_connection:
   claim: "Rysopis Kesza pasuje do czlowieka SPOZA ZALOGI, po spotkaniach z ktorym Oren zmienial trasy wozu ze zwlokami - zeznanie Halveka, event_turn_interlude_048, urwane wtedy na 'na razie nie podaje wiecej'."
   confirmation_route: "npc_halvek_wagonman siedzi w celach gildii (loc_guild_holding_cells) i widzial tego czlowieka. Rozpoznanie przez niego zamienilo by dopasowanie w tozsamosc."
   implication: "Syndykat - albo przynajmniej Kesz osobiscie - JEST w linii transportu cial. Pierwsza teza Lucana z tej rozmowy byla trafna."
-  lucan_said_it_out_loud: false
+  lucan_said_it_out_loud: said_obliquely_as_shared_interest_identity_still_unspoken
+  said_out_loud_detail: >-
+    event_turn_interlude_199. Lucan powiedzial przy pryncypale, ze jest niewinny dokladnie
+    tak samo jak rzeczony prawnik, ktory ma interes w tym, zeby nikt w Strazy ani w gildiach
+    nie dokopal sie do JEGO albo JEGO KLIENTOW udzialu w procederze cmentarnym. Nazwal wiec
+    EKSPOZYCJE Kesza jako wspolny interes - nie jako oskarzenie i nie jako szantaz.
+    CZEGO NIE PADLO: Oren, zeznanie npc_halvek_wagonman z event_turn_interlude_048,
+    dopasowanie rysopisu ani zdanie, ze to Kesz jest czlowiekiem, po ktorego spotkaniach
+    Oren zmienial trasy. Tozsamosc NADAL niepotwierdzona, confirmation_route przez Halveka
+    w loc_guild_holding_cells nietknieta.
 
 standing:
   primary_client: the_syndicate
-  is_lucans_lawyer: false
+  is_lucans_lawyer: true
+  became_lucans_lawyer_at_event_id: event_turn_interlude_199
+  scope_of_representation: >-
+    WASKI I TAKI, JAKI PRZYJAL SAM W t_194: GWARANT PROCEDURY, nie obronca. Lucan broni sie
+    SAM. Zadanie wg jego wlasnej poprawki zawodowej: nie "niech nazwia przepis", tylko "niech
+    to WEJDZIE DO PROTOKOLU" - swiadek milczacy, ktory na koncu zapisuje, ze zadnego przepisu
+    nie przywolano. Dotyczy przesluchania kierownictwa gildii i rozmowy ze Straza.
+  fee: >-
+    ZERO. Pryncypal nie wzial honorarium, bo prawnik stojacy przy Lucanie chroni 40 000 srebra
+    jeszcze niewyplaconych, kategorie towaru kupiona pod termin Lucana i szescdziesiat kilo,
+    ktore juz przez ten dom przeszlo (fact_weigher_has_a_stake_in_lucan_surviving, t_109).
+    Po stronie Lucana nie ma wydanego srebra.
+  room_condition: >-
+    JEDYNY warunek pryncypala: SYNDYKAT WIDOCZNY, PRYNCYPAL NIENAZWANY. Straz i gildia moga
+    wiedziec, ze przy sprawie stoi syndykat - to jest produkt. Nikt nie wymawia jego osoby,
+    nie opisuje wagi i nie podaje stolu na targu (agenda#stay_unnamed, jego name_status).
+    Warunek nie blokuje planu Lucana, zaweza go o jedno slowo.
   moved_seats: "Po mowie Lucana przesiadl sie po te sama strone stolu (event_turn_interlude_105b) - wobec Lucana przestal byc prawnikiem pokoju i nazwal wspolny problem wprost." 
   declared_at_event_id: event_turn_interlude_104
   declaration: "Powiedział Lucanowi wprost, przy pierwszym kontakcie, że dziś jest prawnikiem tego pokoju i to pokój decyduje, czego Kesz o Lucanie może się dowiedzieć."
@@ -48,6 +73,9 @@ knowledge:
     - {fact_id: fact_kesz_accepted_the_procedural_guarantor_role, source_event_id: event_turn_interlude_194, claim: "Rola przeformulowana przez Lucana i przyjeta: NIE obronca, tylko GWARANT PROCEDURY. Lucan broni sie sam i zamierza szantazowac zarowno Straz, jak i kierownictwo gildii; Kesz ma stac i pilnowac, zeby nie doszlo do rozwiazania nieformalnego. Jego wlasna poprawka zawodowa: zadanie brzmi nie 'niech nazwia przepis', tylko 'niech to wejdzie do PROTOKOLU' - swiadek milczacy, ktory na koncu zapisuje brak przywolanego przepisu, jest wart wiecej niz obronca. Zauwazyl tez, ze jego obecnosc JEST komunikatem: po tej rozmowie Straz wie, ze przy sprawie stoi syndykat. Zadnej umowy ani honorarium - is_lucans_lawyer nadal formalnie false."}
     - {fact_id: fact_kesz_is_the_authorised_line_to_the_principal, source_event_id: event_turn_interlude_194, claim: "Lucan wprost zgodzil sie, zeby Kesz powtarzal pryncypalowi tresc obu rozpraw, i sam zaproponowal uzywanie go jako linii do powiadamiania o terminach. To zamienia udzial Kesza z ekspozycji w aktyw dla pokoju (protect_the_room_first). NIE zamyka obligation_name_advance_warning_channel_for_syndicate - t_109 zadal sygnalu wartego dobe przewagi typu 'zamykajcie', a nie prawnika noszacego terminy."}
     - {fact_id: fact_kesz_asked_whether_seraphine_knows_he_will_be_there, source_event_id: event_turn_interlude_194, claim: "Zapytal, czy oficer gildii oslaniajacy Lucana wie, ze Kesz stanie na przesluchaniu. Pytanie operacyjne, nie moralne. Odpowiedzi nie zazadal na miejscu i nie dostal."}
+    - {fact_id: fact_kesz_became_lucans_lawyer_with_the_rooms_blessing, source_event_id: event_turn_interlude_199, claim: "is_lucans_lawyer false -> true, pierwszy raz w kampanii. Warunek z jego wlasnej agendy - take_lucan_as_client_only_if_the_room_allows - spelniony, bo pokoj byl obecny i zostal zapytany. GRANICA retcon_000124: Kesz NIE prosil o zgode na wlasny udzial i nikt go po nia nie odsylal; role przyjal SAM w t_194. Pryncypalowi nalezalo co innego, co Kesz sam nazwal w t_194 - czy POKOJ chce byc widziany, bo widoczna obecnosc Kesza jest deklaracja zainteresowania syndykatu. Chce. Honorarium zero, zakres waski, warunek jeden: syndykat widoczny, pryncypal nienazwany."}
+    - {fact_id: fact_kesz_heard_lucan_name_his_cemetery_exposure_out_loud, source_event_id: event_turn_interlude_199, claim: "Lucan po raz pierwszy nazwal na glos, przy pryncypale, ze Kesz ma wlasny interes w tym, by sledztwo nie dokopalo sie do jego albo jego klientow udzialu w procederze cmentarnym - patrz oren_connection.said_out_loud_detail. Kesz PRZYJAL to bez oporu, bo rozpoznaje wzor: w t_105b Lucan oddal mu dzwignie JAKO PREZENT i wlasnie dlatego przesiadl sie po te sama strone stolu. Ten sam ruch drugi raz, w mniejszej skali. Reaguje jak czlowiek rozpoznajacy wzor, nie jak przylapany."}
+    - {fact_id: fact_kesz_asked_about_seraphine_a_second_time, source_event_id: event_turn_interlude_199, claim: "Powtorzyl pytanie z t_194: czy npc_seraphine_vale, oficer gildii oslaniajacy Lucana, wie, ze Kesz stanie na przesluchaniu. TO NIE JEST pulapka retcon_000121 - tamta polegala na powtorzeniu zadania, ktore pozniejsza tura ZAMKNELA; tego nie zamknela zadna, Lucan nigdy nie odpowiedzial. Teraz, gdy udzial jest przesadzony, pyta drugi raz - i znowu NIE ZADA odpowiedzi na miejscu. Odpowiedzi nadal nie ma."}
   converging_target:
     id: the_local_priest
     source_event_id: event_turn_interlude_110
@@ -58,4 +86,4 @@ knowledge:
   forbidden_without_source: [lucan_necromancy, spidey_existence, varkhen_existence, veyr_house_structure]
   known_about_lucans_father: "Wiedza, ze ojciec Lucana byl dwa razy potepiony przez Inkwizycje i przezyl to (event_turn_interlude_109/110). Ukladu rodu Veyr nie znaja i nie interesuje ich - licza precedens operacyjny, nie nazwisko."
 agenda: [arrange_the_meeting_with_the_priest, protect_the_room_first, assess_whether_lucan_is_a_liability, take_lucan_as_client_only_if_the_room_allows]
-source_refs: [event_turn_interlude_101, event_turn_interlude_104, campaigns/lucan/planning/act-03-defence.yaml#criminal_circuit_lawyer, campaigns/lucan/planning/lucan-leads.yaml#lead_two_contradictory_defences]
+source_refs: [event_turn_interlude_101, event_turn_interlude_104, event_turn_interlude_199, retcon_000124, campaigns/lucan/planning/act-03-defence.yaml#criminal_circuit_lawyer, campaigns/lucan/planning/lucan-leads.yaml#lead_two_contradictory_defences]
