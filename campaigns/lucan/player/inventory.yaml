@@ -54,8 +54,9 @@ containers:
     note: >-
       Cela po Varkhenie w piwnicy gildii - formalnie Lucana, ale nie sypia tam do konca
       sprawy (retcon_000038). PRZEZNACZONA na warsztat alchemiczny kupiony w
-      event_turn_interlude_191, ale sprzet nadal tu NIE STOI - skrzynka zostala odebrana spod
-      straganu w t_206 i Lucan niesie ja przy sobie. Docelowo location: guild_cellar_cell.
+      event_turn_interlude_191, ale sprzet nadal tu NIE STOI - stoi oplacony pod straganem
+      i ma tu przyjsc dostawa (retcon_000129). Lucan nigdy go nie niosl. Docelowo
+      location: guild_cellar_cell.
   - id: container_wall_hideout
     location_ref: loc_city_wall_hideout
     security: concealed_inside_wall
@@ -66,13 +67,19 @@ containers:
 items:
   - id: item_basic_alchemical_bench
     name: Podstawowy warsztat alchemiczny
-    location: carried_in_the_crate
+    location: paid_at_the_stall_awaiting_delivery_to_the_guild_basement
     acquired_event_id: event_turn_interlude_191
     state: >-
-      ODEBRANY SPOD STRAGANU w event_turn_interlude_206 i niesiony przez miasto. Skrzynka jest
-      w rekach Lucana, NIE stoi jeszcze w celi w piwnicy gildii. Wczesniejsza korekta z
-      retcon_000123 (sprzet nie mogl trafic do piwnicy w t_191, bo Lucan byl przez cala ture
-      na targu) pozostaje w mocy - do piwnicy trafi dopiero wtedy, gdy Lucan tam zajdzie.
+      OPLACONY 70 SREBRA w event_turn_interlude_191 i MA BYC DOSTARCZONY PRZEZ STRAGAN DO
+      PIWNICY GILDII (retcon_000129). Miejsce docelowe stalo w deklaracji gracza z t_191 od
+      poczatku - "kupuje podstawowy sprzet alchemiczny DO PIWNICY GILDII". Lucan NIGDY tej
+      skrzynki nie niosl: zapis z t_206 o odbiorze spod straganu byl dopiskiem narratora,
+      a skrzynka, ktora Lucan faktycznie mial przy sobie od t_206 do t_210, to anonimowy
+      rekwizyt z targu, porzucony na komendzie i niebedacy tym przedmiotem.
+      NIE STOI JESZCZE W PIWNICY - retcon_000123 zostaje w mocy co do tego, ze Lucan tam nie
+      zaszedl, a moment dostawy nie jest ustalony zadnym plikiem i czeka na ture albo
+      deklaracje gracza. Zaden plik nie czyni z tego przedmiotu dowodu ani zegara
+      (retcon_000055).
     contents: >-
       Retorta, alembik, rura chlodzaca, trzy stojaki, mozdzierz z tluczkiem, waga uchylna,
       palnik i komplet sloi z korkami. Wszystko szklo i metal z drugiej reki, kupione na
@@ -183,7 +190,7 @@ items:
     inherently_magical: false
     instructional_function: reproducible_curse_procedures_disguised_as_court_etiquette
     level: Wyzszy niz item_beginner_curses_book - zbior praktyka, nie podrecznik dla poczatkujacych.
-    read_status: read_event_turn_interlude_092_theory_absorbed_practice_pending
+    read_status: 'read_event_turn_interlude_092_theory_absorbed_practice_pending; POWTORKA 40 min w event_turn_interlude_212 pod sciana szynku Pod Obrecza - lektura bez zadeklarowanego kata, wiec zalicza sie jako sesja do objective_develop_lucan#read_and_develop_skill_related_knowledge, a NIE jako czytanie defensywne (to jest osobny kat opisany w price_of_the_method i wymaga deklaracji gracza)'
     thesis: 'To ksiazka O DOSTARCZANIU, w ktorej klatwy sa przy okazji. Kazdy rozdzial to
       okazja towarzyska - powitanie, toast, kondolencje, pozegnanie, przedstawienie
       mlodszego starszemu - a procedura jest NIESIONA przez sama uprzejmosc: nosnikiem

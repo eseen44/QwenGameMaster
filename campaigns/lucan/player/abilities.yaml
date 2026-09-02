@@ -100,7 +100,26 @@ known:
     name: Borrowed Sense
     mastery: 31
     limits: [linked_servant_required, low_bandwidth, switching_causes_brief_disorientation]
-    source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:5062-5072]
+    casting_from_the_node:
+      source: retcon_000131
+      text: >-
+        RZUCANIE Z POZYCJI SLUGI. Wezel, w ktorym siedzi uwaga Lucana, jest punktem, z ktorego
+        liczy sie zasieg (range_m), line_of_effect oraz wymog widzenia/wiedzy o celu. Widocznosc
+        i slad magiczny powstaja PRZY SLUDZE, nie przy Lucanie; przy Lucanie moze powstac
+        wylacznie slad DUZEGO przesylu energii siecia, a cantrip nim nie jest.
+      energy: >-
+        Energia idzie siecia i placi standardowa strate propagacji - Lucan<->Spidey 70 procent
+        na krotkim dystansie z narastajaca strata na odleglosc, sieciarz 80 procent, straty
+        mnoza sie na kazdym przeskoku (webber-network.yaml#network_cost_model). Zeby zlozyc
+        X jednostek przy sludze, Lucan wydaje X / sprawnosc lancucha.
+      does_not_change: >-
+        Nie znosi zadnego innego wymogu konkretnej zdolnosci - kontakt wzrokowy, koncentracja
+        i wlasna widocznosc czaru nadal obowiazuja, tylko sprawdzane sa na sludze. NIE dotyczy
+        dostarczania DOTYKIEM: dotyk to dlon Lucana i cala metoda z "Uprzejmosci" zostaje przy
+        jego ciele. Nie znosi retcon_000100 - uwaga jest szeregowa, wiec rzucanie z wezla
+        znaczy, ze Lucan jest w tym wezle. Nie tworzy nowej zdolnosci i nie podnosi mastery.
+      precedent: campaigns/lucan/migration/mechanics/capabilities/oren-control.yaml
+    source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:5062-5072, retcon_000131]
   - id: ability_network_energy_transfer
     capability_ref: capability_lucan_network_energy_transfer
     name: Transfer energii przez sieć sług
@@ -199,9 +218,23 @@ theoretical_repertoire:
     wizualizacje i opisac przeplyw energii - czyli ma pelna wiedze magiczna w rozumieniu
     system/magic.md. Brakuje JEDNEGO UDANEGO PRZEBIEGU wlasnym kanalem, zeby wzorzec byl
     powtarzalny. Nauka z ksiazki nie jest dla niego waskim gardlem; jest akademikiem.'
-  delivery: 'Wszystkie dostarczane dotykiem przyjetym dobrowolnie w ramach okazji
-    towarzyskiej (system/curses.md#dotyk-jako-kanal-dostarczenia). Dotyk to os range na
-    zerze, warta okolo jednego poziomu.'
+  delivery: 'KANAL NIE JEST ZROSNIETY Z KLATWA (retcon_000132). Pole delivery na karcie
+    procedury nizej jest ZAPISEM PIERWSZEGO PRZEBIEGU, NIE WYMOGIEM. Kazda z tych klatw
+    moze pojsc kazdym kanalem - dotykiem, rozdzialem towarzyskim, na dystans jak numb,
+    przez przedmiot, z opoznieniem albo bez, z pozycji slugi (retcon_000131). Metamagia
+    jest DODATKOWA: modyfikuje koszt, sile, widocznosc, rzuty obronne, zasieg i skale,
+    ale zaden czar jej nie wymusza.
+    CO KUPUJE ROZDZIAL TOWARZYSKI: obnizenie kosztu (dotyk to os range na zerze, warta
+    okolo jednego poziomu), ZNIESIENIE RZUTU NA ODPARCIE (rytual spoleczny to automatyzm,
+    a nie swiadomy akt - nie ma czym rzucac) oraz, w polaczeniu z OPOZNIENIEM, ZNIESIENIE
+    RZUTU NA WYKRYCIE (opoznienie zrywa lancuch przyczynowo-skutkowy). Bez opoznienia rzut
+    obronny nadal odpada, ale dopuszczalny jest rzut na rozpoznanie-skojarzenie.
+    ZBIOR KANALOW JEST OTWARTY: liczy sie AKT PRZYJECIA CZEGOS, CO NALEZY DO RZUCAJACEGO -
+    powitanie, toast, podziekowanie, kondolencje, podarunek, ale takze rzeczy spoza ksiazki,
+    np. wysluchanie z emocja czyjegos koncertu. Narratorowi nie wolno odmawiac kanalu
+    dlatego, ze nie ma go w spisie tresci.
+    NIEZMIENIONE: jedna procedura na kontakt (t_095), odpornosc celu na sam EFEKT, kara
+    2^luka, cena zasiegu zdjetego z zera. Pelny opis: system/curses.md.'
   procedures:
   - {id: curse_focal_cramp, tier: 1, class: physical, note: Zaciska jedna grupe miesniowa - dlon na broni, przepona, kark.}
   - {id: curse_laryngospasm, tier: 1-2, class: physical, note: Cel nie moze mowic ani krzyknac - brak alarmu i brak swiadka, ktory zawola.}

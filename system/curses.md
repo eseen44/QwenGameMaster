@@ -70,6 +70,57 @@ zoptymalizowanego wzorca, ani zasięgu. Trzeba stać obok i mieć okazję do kon
 podać ci rękę na powitanie; okazja towarzyska jest właśnie tym, co produkuje kontakt między
 obcymi.
 
+## Klątwa i dostarczenie są niezależne (retcon_000132, kalibracja gracza 2026-09-02)
+
+Awaria narratora: traktował jedenaście procedur z `item_courtesies_curse_book` jak zamknięty
+zbiór przepisów, w którym każda klątwa jest zrośnięta na stałe z jednym rozdziałem
+dostarczenia. Pole `delivery` na karcie procedury czytał jako **wymóg**. Jest **zapisem
+pierwszego przebiegu**. Żaden plik nie mówił, że te pary są obowiązkowe.
+
+**Mix and match.** Każda znana klątwa może pójść każdym kanałem: dotykiem, rozdziałem
+towarzyskim, na dystans jak `Numb`, przez przedmiot, z opóźnieniem albo bez, z pozycji sługi
+(`retcon_000131`). Zapadnia pamięci naturalnie wypada na pożegnanie — i wolno ją rzucić
+powitaniem albo z daleka i niewidocznie.
+
+**Metamagia jest dodatkowa, nie konieczna.** Żaden czar nie wymusza żadnej metamagii.
+Metamagia modyfikuje koszt, siłę, widoczność, rzuty obronne, zasięg i skalę. Czar rzucony
+goły działa — jest tylko droższy, głośniejszy albo łatwiejszy do skojarzenia.
+
+### Co kupują rozdziały z książki
+
+Preoptymalizowane kombinacje. `POWITANIE` = dotyk + opóźnienie. Poza klasycznym efektem
+metamagii kupują trzy rzeczy naraz:
+
+1. **Obniżenie kosztu** — dotyk jako oś `range` na zerze, warta około jednego poziomu.
+2. **Zniesienie rzutu na odparcie.** Oparcie się klątwie wymaga aktywnego, świadomego aktu.
+   Człowiek wykonujący rytuał społeczny działa **automatyzmem** — ręka wyciąga się sama.
+   Nie ma czym rzucać. Fizyczny efekt dotknięcia czyjejś klatki piersiowej i dotknięcia jej
+   gestem powitania jest **identyczny**; różnica siedzi wyłącznie w tym, że w drugim
+   przypadku ani ofiara, ani otoczenie nie dostają rzutu na rozpoznanie ani na odparcie.
+3. **Zniesienie rzutu na wykrycie.** Klątwę można zauważyć w chwili rzutu. **Opóźnienie
+   zrywa łańcuch przyczynowo-skutkowy**, więc w zwykłym zabieganym dniu rzut na detekcję
+   jest **pomijany całkowicie**, nie utrudniany.
+
+**Powitanie bez opóźnienia** nadal znosi rzut obronny, ale dopuszcza rzut na
+**rozpoznanie-skojarzenie**: „ten ktoś coś mi zrobił". Przykład kanoniczny: przywitanie się
+mrożącym dotykiem — cel nie ma szansy na refleks, pierwsze rzucenie idzie z **karą do rzutów
+obronnych**, po czym cel orientuje się, że ręka mu zamarzła, i zaczyna się walka.
+
+### Zbiór kanałów jest otwarty
+
+Liczy się **akt przyjęcia czegoś, co należy do rzucającego**. Powitanie, toast,
+podziękowanie, kondolencje, podarunek, przedstawienie — konkretny rytuał **nie ma
+znaczenia**. Nie ogranicza się to do spisu treści książki: akt wysłuchania z emocją czyjegoś
+koncertu otwiera człowieka dokładnie tak samo jak podana dłoń. **Narratorowi nie wolno
+odmawiać kanału tylko dlatego, że nie ma go w książce.**
+
+Toast jest w książce połączony z opóźnieniem, ale go **nie wymaga** — opóźnienie jest osobną,
+doklejalną osią.
+
+Czego to nie zmienia: odporności celu na sam **efekt** (dwa osobne pytania z góry tego
+pliku), kary `2^luka`, ceny zasięgu zdjętego z zera, ani zasady z `event_turn_interlude_095`
+— **jedna procedura na kontakt**.
+
 ## Dlaczego to działa, czyli status klątw w świecie
 
 Kalibracja gracza z 25.08.2026, obowiązująca.

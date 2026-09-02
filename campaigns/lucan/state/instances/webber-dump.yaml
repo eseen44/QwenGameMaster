@@ -3,7 +3,7 @@ id: webber_dump
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 202
+revision: 213
 position:
   location_id: loc_dump
   zone_id: zone_entry
@@ -24,13 +24,13 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 63000
-      hunting_recovery_elapsed_seconds: 63000
+      decay_elapsed_seconds: 68880
+      hunting_recovery_elapsed_seconds: 68880
 conditions: []
 status_flags:
 - autonomous_hunting
 - at_dump
-last_event_id: event_turn_interlude_210
+last_event_id: event_turn_interlude_221
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:10555-10566

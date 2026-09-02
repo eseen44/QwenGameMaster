@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 202
+revision: 213
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  formation: hunting_loose_within_a_room_of_lucan_decay_suppressant_applied_third_and_last_portion_no_longer_on_any_leash
+  zone_id: zone_guild_main_hall
+  formation: followed_lucan_round_the_side_lane_to_the_yard_gate_standing_order_never_revoked
 integrity:
   current: 13
   maximum: 13
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 63000
-      hunting_recovery_elapsed_seconds: 63000
+      decay_elapsed_seconds: 68880
+      hunting_recovery_elapsed_seconds: 68880
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -55,7 +55,7 @@ status_flags:
 - death_anchored
 - at_guild_upper_offices_with_lucan
 - decay_suppressed_permanent_event_turn_interlude_177
-last_event_id: event_turn_interlude_210
+last_event_id: event_turn_interlude_221
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559

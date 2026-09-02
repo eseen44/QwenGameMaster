@@ -3,11 +3,11 @@ id: companion_spidey
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 202
+revision: 213
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  formation: hunting_loose_within_a_room_of_lucan_not_required_to_stay_on_his_body
+  zone_id: zone_guild_main_hall
+  formation: came_down_off_the_beam_on_the_standing_order_and_rejoined_lucan_in_the_side_lane_retcon_000130
 integrity:
   current: 27
   maximum: 33
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 63000
-      hunting_recovery_elapsed_seconds: 63000
+      decay_elapsed_seconds: 68880
+      hunting_recovery_elapsed_seconds: 68880
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
   paralytic_toxin_reservoir:
     current: 4
@@ -37,7 +37,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 19800
+      regeneration_elapsed_seconds: 4080
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
@@ -100,7 +100,7 @@ orders:
   precedent_for_future_parenthetical_messages: false
   time_advanced_when_issued: false
   execution_started: true
-last_event_id: event_turn_interlude_210
+last_event_id: event_turn_interlude_221
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906

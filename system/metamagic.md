@@ -33,6 +33,18 @@ Obsługiwane osie to: `intensity`, `area`, `range`, `duration`, `targets`,
 określa końcowy `target_tier`. Nadal zwiększają trudność kontroli, niestabilność
 i zakres możliwych konsekwencji.
 
+## Metamagia jest dodatkowa, nie konieczna (retcon_000132)
+
+**Żaden czar nie wymusza żadnej metamagii i żaden nie jest zrośnięty z jednym kanałem
+dostarczenia.** Metamagia modyfikuje koszt, siłę, widoczność, rzuty obronne, zasięg i skalę —
+i nic poza tym. Czar rzucony goły działa; jest tylko droższy, głośniejszy albo łatwiejszy do
+skojarzenia z rzucającym.
+
+Wynika z tego zasada **mix and match**: dowolna znana technika idzie dowolnym kanałem, z
+dowolnym zestawem osi. Zapis `delivery` na karcie procedury jest **historią pierwszego
+przebiegu**, nie ograniczeniem. Pełne rozwinięcie dla klątw i kanałów społecznych:
+`system/curses.md`, sekcja „Klątwa i dostarczenie są niezależne".
+
 ## Konsekwencje
 
 - Brak wyższego czaru nie czyni rezultatu metafizycznie niemożliwym.

@@ -14,9 +14,12 @@ creation_note: >-
   przysluga.
 connections:
   - {id: connection_obrecza_to_northwest_barrier, zone_id: zone_obrecza_street, leads_to: loc_lumaria, travel_time: at_the_barrier_a_minute_on_foot}
+  - {id: connection_obrecza_side_lane_to_back_yard, zone_id: zone_obrecza_street, leads_to: zone_obrecza_back_yard, travel_time: under_a_minute_on_foot_nobody_on_the_way, note: 'Boczna uliczka wzdluz sciany szynku do furtki na skobel bez klodki. Ustalona w event_turn_interlude_213.'}
+  - {id: connection_obrecza_common_room_to_back_yard, zone_id: zone_obrecza_common_room, leads_to: zone_obrecza_back_yard, travel_time: seconds_but_in_full_view_of_the_room, note: 'Tylne drzwi za szynkwasem, uchylone. Przejscie tedy widzi cala izba.'}
 zones:
   - {id: zone_obrecza_street, note: 'Ulica przed szynkiem, w cieniu polnocno-zachodniej zapory. Szyld z zelaznej obreczy od kola.'}
-  - {id: zone_obrecza_common_room, note: 'Izba szynkowa. NIE OGLADANA jeszcze przez Lucana - opis przy pierwszym wejsciu wg system/locations-and-maps.md.'}
+  - {id: zone_obrecza_common_room, note: 'Izba szynkowa. OBSERWOWANA PIERWSZY RAZ w event_turn_interlude_211, ale NIE PRZEZ LUCANA - przez Spideya spod krokwi i Tkacza spod lawy. Lucan sam w niej jeszcze nie stanal, wiec przy jego wlasnym wejsciu naleza mu sie te zmysly, ktorych szpiegi nie maja (zapach, cieplo, spojrzenia na niego). Jedno pomieszczenie, niskie, ok. 8 x 12 krokow. Szynkwas po prawej od wejscia, za nim szynkarka i wyrostek. Pod dluzsza sciana dwa zsuniete stoly. Lawy pod oknami, dwa male stoliki. Drugie wyjscie na tylach za szynkwasem, na podworzec, uchylone. Klepisko, trociny.'}
+  - {id: zone_obrecza_back_yard, note: 'Podworzec od tylu. OBSERWOWANY PIERWSZY RAZ w event_turn_interlude_213, przez Spideya, nie przez Lucana. Waski prostokat miedzy tylna sciana szynku a murem polnocno-zachodniej zapory. Beczki pod sciana, stos drewna, koryto na pomyje, sznur ze scierkami. W rogu furtka na boczna uliczke, uchylona, na skobel bez klodki. Zapora zamyka podworzec od polnocnego zachodu - to sciana, nie przejscie.'}
 notes:
   - >-
     LOKAL ROBOCZY, NIE JASKINIA. Zaden plik nie czyni z niego miejsca niebezpiecznego ani
@@ -24,9 +27,11 @@ notes:
     to zwykli ludzie bez arkuszy - rozstrzygac narracyjnie, bez rzutu (zasada gracza
     2026-08-19).
   - >-
-    npc_ossek_marn zszedl ze zmiany w poludnie (rozdzielnik odczytany przez Dasta w t_208).
-    NIE JEST USTALONE, czy tu jest. Narrator nie orzeka tego z gory ani w jedna, ani
-    w druga strone przed deklaracja gracza o wejsciu.
+    ROZSTRZYGNIETE W event_turn_interlude_211: npc_ossek_marn JEST w izbie szynkowej.
+    Zszedl ze zmiany w poludnie (rozdzielnik odczytany przez Dasta w t_208), siedzi
+    w srodku osmioosobowej grupy po zmianie przy zsunietych stolach i ma za soba trzy
+    godziny przy dzbanku. Wskazany WYLACZNIE po imieniu, zawolany przez kolege przez stol -
+    nie po wygladzie, bo jego karta nie zawiera zadnego opisu wygladu.
 source_refs:
   - event_turn_interlude_208
   - event_turn_interlude_210

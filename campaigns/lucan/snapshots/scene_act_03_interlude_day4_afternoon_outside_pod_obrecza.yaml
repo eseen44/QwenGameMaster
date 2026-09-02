@@ -1,0 +1,98 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_afternoon_outside_pod_obrecza
+object_type: scene_snapshot
+closed_at: '2026-09-02T22:55:28+02:00'
+summary: 'Podworzec Pod Obrecza, t_211-221. Rekonesans dwoma okazami, czterdziesci
+  minut czekania z ksiazka, i Ossek Marn wyciagniety z osmioosobowej grupy trzema
+  stackami numb rzuconymi z pozycji Spideya. Dwa razy podniesiony z ziemi: pierwszy
+  dotyk niosl rozwiazanie jezyka, drugi zapadnie pamieci. Zdobyte: czwarte niezalezne
+  potwierdzenie, ze glejt stalej trasy schodzi Z GORY, tym razem od czlowieka przy
+  dragu, plus opis mechanizmu od dolu - woz stalej trasy NIE STAJE. Zmierzona tez
+  pierwsza konfabulacja kampanii: przechwalka o zalatwieniu papieru, za ktora nie
+  stoi nic. Niezdobyte: nazwisko, urzad, szczebel, zawartosc, trasa - i nie padlo
+  pytanie, czy Marn wiedzial, co wozi. Zaplacone 7,38 energii z 15, w tym 3 za confusion,
+  ktory skonczyl sie w chwili odejscia. Marn zostal na podworcu, partially_immobilized,
+  z cala trescia rozmowy i bez twarzy Lucana. Cztery retcony: 128 i 129 rozdzielily
+  rekwizytowa skrzynke od warsztatu alchemicznego, 130 przywrocilo Spideya i Tkacza
+  do orbity Lucana, 131 wprowadzilo rzucanie z pozycji slugi, 132 rozerwalo klatwe
+  od kanalu dostarczenia. Lucan konczy przy okienku recepcji gildii z niezadanym pytaniem
+  o dostep do nauczycieli.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_afternoon_outside_pod_obrecza
+  location_ref: campaigns/lucan/locations/pod-obrecza/location.yaml
+  started_at: '2026-08-19T15:14:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Lucan stoi przy okienku recepcji w glownej sali gildii z pytaniem, ktorego jeszcze
+    nie zadal: czy gildia daje dostep do nauczycieli. Rezerwa ponizej polowy, dzien
+    czwarty.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_221
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_early_afternoon_market_after_the_syndicate_room.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/pod-obrecza/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Lucan stoi przy okienku recepcji w glownej sali gildii z pytaniem, ktorego jeszcze
+    nie zadal: czy gildia daje dostep do nauczycieli. Rezerwa ponizej polowy, dzien
+    czwarty.'
+  last_refreshed_event_id: event_turn_interlude_221
+  context_bytes: 41955
+  context_budget_bytes: 40960
+  context_warnings:
+  - over_budget:41955>40960
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8022
+  - ref: campaigns/lucan/state/obligations.yaml
+    bytes: 5704
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5411
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4201
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877

@@ -7,8 +7,8 @@ importance: light_named
 role: straznik_miejski_od_zapory_czlowiek_ktory_podnosil_brame_wozom
 first_appearance_event_id: null
 named_at_event_id: event_turn_interlude_207
-lifecycle: {state: alive_offscreen, last_confirmed_event_id: event_turn_interlude_207}
-current_location_id: unknown
+lifecycle: {state: alive_onscreen_unaware, last_confirmed_event_id: event_turn_interlude_211}
+current_location_id: loc_tavern_pod_obrecza
 has_character_sheet: false
 sheet_note: >-
   Szeregowy straznik, bez arkusza. Nie byl jeszcze w zadnej scenie - istnieje wylacznie
@@ -40,7 +40,154 @@ what_is_known:
     NIE jest podpisujacym glejt. item_watch_transport_permit ma nieczytelne nazwisko, a
     Seraphine ustalila w t_036, ze TYP autoryzacji stalej trasy stoi PONAD szeregowym
     konstablem. Marn jest reka, ktora podnosila drag, nie glowa, ktora wystawiala papier.
+observed_at_event_211:
+  text: >-
+    OBSERWOWANY PIERWSZY RAZ, ale NIE PRZEZ LUCANA i NIE TWARZA - przez Spideya i Tkacza
+    w izbie szynkowej Pod Obrecza, 15:26 czwartego dnia interludium. Siedzi przy dwoch
+    zsunietych stolach w srodku osmioosobowej grupy po zmianie, nie z kraju. Trzy godziny
+    przy dzbanku i tyle po nim widac. Wskazany wylacznie dlatego, ze kolega zawolal go przez
+    stol po imieniu przy odliczaniu miedziakow.
+    NIE ZOSTAL DOPISANY ZADEN RYSOPIS - szpiegi przyniosly slowa, nie obraz, a karta nadal
+    nie ma opisu wygladu. Gdyby byl potrzebny, musi wziac sie ze sceny, nie stad.
+  he_does_not_know: >-
+    Nie wie o niczym. Nie zauwazyl zadnego okazu, nie slyszal o pytaniu "Marca" na komendzie
+    (nikt mu nic nie przekazal) i nie ma pojecia, ze ktokolwiek go szuka. do_not_play
+    obowiazuje bez zmian.
+  what_the_table_talked_about: >-
+    Pieniadze, upal, czyjas siostra, czyjs dlug. NIC o cmentarzu, wozach, glejcie ani
+    zadaniu do gildii - i narrator nie ma z czego takiej rozmowy wyprodukowac
+    (retcon_000058).
+portrayal:
+  established_at_event_id: event_turn_interlude_215
+  what_he_wants_from_a_conversation: >-
+    Zeby jej nie bylo. Chce wstac o wlasnych silach i wrocic do kubka, zanim ktorykolwiek
+    z osmiu za sciana wyjdzie sprawdzic, gdzie sie podzial.
+  what_he_refuses: >-
+    Bycia zaniesionym przez izbe. Wolalby siedziec na podworcu do wieczora, niz zeby jego
+    wlasny oddzial zobaczyl, jak go ktos prowadzi.
+  what_he_can_lose: >-
+    Twarz przed osmioma ludzmi, z ktorymi jutro stoi na zmianie. Dwadziescia krokow
+    i uchylone drzwi.
+  register: >-
+    Czlowiek, ktory od dwudziestu lat podnosi drag. Krotkie zdania, rzeczowniki fizyczne,
+    zadnej oglady. Zloszcza go najpierw wlasne nogi, dopiero potem obcy. Nie warczy na
+    cicho zadane pytanie, bo cicho zadane pytanie nie jest litoscia.
+current_condition:
+  source_event_id: event_turn_interlude_215
+  text: >-
+    DWA STACKI effect_numb w te sama noge, rzucone z pozycji Spideya (retcon_000131).
+    Prog 2 = SLOWED: mobility -10, coordination -14. NIE jest unieruchomiony - to progi
+    3 i 4. Utrzymuje sie po wyjsciu uwagi Lucana z wezla, bo numb nie ma pola
+    concentration ani klauzuli konca (w odroznieniu od ability_confusion). effect_numb
+    NIE MA POLA CZASU TRWANIA i narrator zadnego nie wymysla - ani zegara wygasania, ani
+    obietnicy, ze to trwa bez konca. Rozstrzygnie sie wtedy, kiedy bedzie mialo znaczenie.
+    Probowal wstac raz i noga nie weszla pod niego.
+    Siedzi na ziemi na podworcu Pod Obrecza, bokiem, w rozsypanym stosie drewna, mokry.
+    Nie jest ranny i nie jest w niebezpieczenstwie.
+  what_he_believes: >-
+    ZE TO PIWO. effect_numb#visibility mowi wprost mundane_target_usually_identifies_curse:
+    false - nie szuka przyczyny magicznej, nie ma czym i nie ma powodu. Ma cztery godziny
+    przy dzbanku i to jest wytlumaczenie, ktore sam sobie poda.
+    NIE JEST USTALONE, czy sie zawstydzi, rozzlosci czy rozesmieje. To rozstrzyga scena.
+  who_knows: >-
+    Nikt z izby. Nikt nie wyszedl; narrator nie postawil na to zegara ani odliczania
+    i nie orzeka, czy ktos przyjdzie. Marn WIDZI natomiast obcego w furtce - mlodego
+    czlowieka z ksiazka pod pacha, ktory zapytal cicho, czy wszystko dobrze. NIE ZNA
+    JEGO IMIENIA: "Marc" padl na komendzie i nikt go tu nie powtorzyl. Nie ustanowiono,
+    ze Lucan pokazal odznake ani ze Marn ja zauwazyl.
+  loosened_tongue_active:
+    source_event_id: event_turn_interlude_216
+    text: >-
+      curse_loosened_tongue dostarczone rozdzialem POWITANIE na rece podanej przy podnoszeniu
+      go z ziemi - dotyk przyjety dobrowolnie. Jedna procedura na ten kontakt (zasada z t_095).
+      Marn nie ma pojecia, ze cokolwiek przeszlo, i zapamieta MILA ROZMOWE, nie przesluchanie.
+    what_it_does: >-
+      Obnizenie hamowania. Mowi WIECEJ, nie MADRZEJ - nie zaczyna sam sypac akt i nie staje
+      sie zrodlem niczego, czego nie ma. Zeby uslyszec cos z watku, Lucan musi zapytac.
+    the_real_cost: >-
+      SKUTEK UBOCZNY Z t_127, OBOWIAZUJACY: nie zataja takze tego, co normalnie zatrzymalby
+      dla siebie, A PRZY BRAKU ODPOWIEDZI KONFABULUJE. Pytanie o rzecz, ktorej nie wie, nie
+      dostanie "nie wiem" - dostanie cos, co brzmi jak odpowiedz. Narrator MA to egzekwowac
+      i MA odnotowac w dzienniku, ktore zdanie bylo konfabulacja.
+  what_he_asked_for: >-
+    Zeby nie wolac tych z izby. To jego wlasny problem z twarza, a NIE hak, dzwignia ani
+    zobowiazanie dla gracza - narrator nie ma prawa tego tak rozgrywac.
+volunteered_at_event_218:
+  text: >-
+    SAM Z SIEBIE, na drugiej warstwie rozwiazanego jezyka, po tym jak Lucan rzucil haslo
+    "preparaty umrzykow": nie wie, co to preparat, ale slowo o trupach wywolalo u niego
+    skojarzenie z wlasna robota. WOZ. Podnosi dla niego drag.
+    ZAKRES TEGO, CO POWIEDZIAL - dokladnie tyle, ile wie czlowiek od draga:
+    woz jezdzi STALA TRASA; przy takim wozie nie ma sie czego czepiac, bo papier sie pokazuje,
+    drag idzie w gore i woz jedzie; zwykly woz stoi i sie go oglada, a ten NIE STOI;
+    robi to od dawna i nigdy nikt mu z tego powodu nic nie powiedzial.
+  what_he_did_not_say: >-
+    Kto podpisuje. Co konkretnie jest w srodku. Dokad to jedzie. Lucan o to jeszcze
+    NIE ZAPYTAL, wiec pozycja w what_is_not_known ponizej pozostaje otwarta.
+  confabulation_check: >-
+    ZADNE zdanie tej tury nie bylo konfabulacja - mowil wylacznie o czynnosciach, ktore
+    wykonuje wlasnymi rekami. OSTRZEZENIE NA PRZYSZLOSC: druga warstwa procedury podniosla
+    ryzyko z t_127. Pytanie o podpis, zawartosc albo cel trasy trafi w rzeczy, ktorych nie
+    wie - i wtedy zmysli cos, co zabrzmi jak fakt. Narrator MA to oznaczyc w summary.
+  what_it_confirms: >-
+    NIC NOWEGO O SWIECIE - trzecie niezalezne potwierdzenie tego samego mechanizmu, po
+    Seraphine (t_034, t_036: typ autoryzacji stalej trasy stoi ponad szeregowym konstablem)
+    i Dascie (t_207, t_209). Marn opisal go od strony draga, nie wiedzac, co opisuje:
+    stala trasa to w praktyce woz, ktorego sie NIE ZATRZYMUJE.
+  what_he_now_remembers_about_lucan: >-
+    NIEAKTUALNE OD event_turn_interlude_220 - patrz memory_trap_delivered_at_event_220.
+    Do t_219 pamietal twarz; zapadnia to kasuje.
+confabulation_at_event_219:
+  trigger: >-
+    Lucan zapytal, czy Marn moglby mu wystawic taki glejt, i dodal "wyglada pan na waznego".
+    Pytanie po raz PIERWSZY siegnelo poza jego wiedze, a komplement dal mu powod, zeby nie
+    przyznac sie do niewiedzy - piec minut po tym, jak zostal podniesiony z ziemi.
+  what_was_true: >-
+    Ze nic nie wystawia i nikt przy bramie niczego nie pisze. Papier przychodzi DO bramy,
+    nie Z bramy. To wie z wlasnych rak. Czwarte niezalezne potwierdzenie tezy Seraphine
+    z t_036 (typ autoryzacji stalej trasy stoi ponad szeregowym konstablem).
+  what_was_fabricated: >-
+    ZE "DA SIE ZALATWIC" I ZE WIE, DO KOGO SIE ODEZWAC. ZA TYM NIE STOI NIC.
+    Marn nie zna nikogo, kto wystawia glejty, nie ma kontaktu, kanalu ani drogi.
+    To jest skutek uboczny z t_127 w czystej postaci: przy braku odpowiedzi produkuje cos,
+    co brzmi jak odpowiedz. NIE JEST TO KLAMSTWO W ROZUMIENIU POSTACI - on w to wierzy.
+    ZADNE NAZWISKO NIE PADLO I NIE MA PASC. Przechwalka o dostepie, nie zmyslone dossier -
+    nazwisko z niczego byloby bytem bez pliku (retcon_000058) podanym graczowi jako trop.
+  narrator_obligation: >-
+    Przycisniecie tej oferty wyprodukuje KOLEJNE zmyslenie, nie nazwisko. Kazda przyszla
+    informacja z tego zrodla czytana przez ten filtr, dopoki procedura dziala.
+memory_trap_delivered_at_event_220:
+  text: >-
+    curse_memory_trap dostarczona na DRUGIM podaniu reki (podniesienie po trzecim upadku),
+    klasa opozniona. Kanal wolny wg retcon_000132 - pozegnanie nie bylo wymogiem, tylko
+    zapisem pierwszego przebiegu z t_129. Zasada z t_095 sprawdzona: drugi, osobny kontakt.
+  what_he_loses: RYSOPIS. Za godzine nie potrafi Lucana opisac.
+  what_he_keeps: >-
+    CALA TRESC. Ze byl mlody czlowiek z uczelni z ksiazka. Ze podniosl go dwa razy.
+    Ze pytal o preparaty umrzykow. Ze on sam z siebie opowiedzial o wozie i stalej trasie.
+    Ze sam zaoferowal zalatwienie papieru. Imienia Lucana nigdy nie uslyszal.
+    Narratorowi nie wolno tego ani poszerzyc, ani zwezic.
+current_condition_after_event_220:
+  numb_stacks: 3
+  threshold: partially_immobilized
+  cumulative: mobility -15, coordination -21
+  text: >-
+    Trzeci stack rzucony z kilku krokow za 0,1. Zjechal po scianie i siada drugi raz.
+    NIE DOJDZIE DO DOMU O WLASNYCH SILACH i NIE STANIE JUTRO NA ZMIANIE, jesli to nie zejdzie.
+    effect_numb nie ma pola czasu trwania - narrator nie stawia zegara wygasania ANI nie
+    obiecuje, ze to zostaje. Rozstrzygnie sie, kiedy bedzie mialo znaczenie.
+    NIE WROCIL DO IZBY: portrayal#what_he_refuses. Poprosil, zeby posadzic go na beczce
+    przy scianie i nie mowic w izbie, ze tu siedzi. To jego wlasny problem z twarza,
+    NIE hak ani dzwignia dla gracza.
+  what_he_fears: >-
+    WLASNE CIALO, nie magie. Trzecia awaria tej samej nogi w dziesiec minut nie miesci sie
+    juz w "wypilem". effect_numb#visibility mowi wprost, ze zwykly cel nie identyfikuje
+    klatwy - nie szuka jej i nie znajdzie. NIE USTANOWIONO, ze kojarzy cokolwiek z obcym
+    w furtce, i zaden plik tego nie mowi.
 what_is_not_known:
+  - >-
+    Kto podpisuje glejt. Padla odpowiedz w t_219, ale byla PUSTA - pozycja pozostaje
+    nierozstrzygnieta.
   - Czy wiedzial, co wozi woz, czy podnosil drag na okazany papier i nie patrzyl dalej.
   - Gdzie mieszka. Zlecenie map_gate_guard_household_without_contact jest u Seraphine i nie zostalo rozliczone.
   - Czy ktokolwiek juz z nim rozmawial.
