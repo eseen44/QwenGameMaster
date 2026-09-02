@@ -3,11 +3,11 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 122
+revision: 123
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  formation: carried_in_lucans_pocket
+  location_id: loc_lumaria_market
+  zone_id: zone_market_back_alleys
+  formation: laid_on_the_table_in_the_syndicate_back_room_upside_down_as_a_size_reference_for_a_ventral_plate
 integrity:
   current: 10
   maximum: 10
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 2820
-      hunting_recovery_elapsed_seconds: 2820
+      decay_elapsed_seconds: 3300
+      hunting_recovery_elapsed_seconds: 3300
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 traits:
   source: player_declaration_day3_evening_anchored_personalities
@@ -58,7 +58,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_197
+last_event_id: event_turn_interlude_198
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

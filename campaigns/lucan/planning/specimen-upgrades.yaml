@@ -24,8 +24,33 @@ builds:
   - id: fit_concha_surda_plate
     hours: 6
     first_of_series: true
+    side: grzbiet
     note: 'Kazda nastepna plyta 2-3 h, bo forma jest. Przecena retcon_000107 (bylo 16 / 6-8).'
     grants_flags: [armoured_concha_surda_plate, stone_camouflage_visual_and_arcane]
+  - id: fit_ventral_mineral_battery_plate
+    side: brzuch
+    source: player_declaration_2026_09_02_bracket
+    logged_event_id: event_turn_interlude_198
+    what: >-
+      Blaszka zlozona z malych soczewek mineralnych, zastepujaca pancerz BRZUSZNY okazu
+      i stanowiaca baterie mineralna. Concha surda idzie od gory, ta plyta od dolu - dwie
+      strony, zero kolizji. To domyka zgloszenie z t_192 punkt 5 (rzekomy konflikt o to samo
+      miejsce) oraz otwarte pytanie z t_192 punkt 4 (plik mial CEL i LICZBE, nie mial SRODKA).
+    materials_spec:
+      source_event_id: event_turn_interlude_198
+      not_from: bizuteria grobowa - odrzucona przez Lucana, proweniencja przeszkadza w funkcji
+      character: soczewki mineralne, nie kamienie ozdobne; gatunek i cena gatunku niewazne
+      criterion: znakomita przejrzystosc, najlepiej bez skazy - kazda skaza rozprasza
+      supply: odpad jubilerski; kamien jest tani, droga jest robocizna przebierania w miale
+      status: zamowione u npc_syndicate_weigher, ceny brak, terminu brak
+    hours: >-
+      NIE USTANOWIONE OSOBNO. Obowiazuje stawka z retcon_000024 dla trwalego ulepszenia:
+      okolo godziny przy stole, do dwoch przy wyzszej trudnosci, BEZ eskalacji i BEZ kosztu
+      energii. Narrator nie wymysla dla tego kroku wlasnej liczby.
+    relates_to: enlarge_reservoir_to_tank
+    note: >-
+      To jest SRODEK do juz zapisanego celu, a nie nowa pojemnosc. Liczba necrotic_reservoir
+      3 -> 12 stoi przy enlarge_reservoir_to_tank i NIE jest tu podnoszona ani dublowana.
   - id: teach_feeding_without_moving
     note: Zer sam przychodzi do okazu siedzacego pod plyta na murze.
     grants_flags: [feeds_without_moving]
