@@ -833,27 +833,58 @@ syndicate_warning_channel:
     NIE JEST PODSLUCHEM: near_blind_vibration_and_air_sensing_only, a
     ability_eavesdropping_through_threads ma current: false.
   phases:
-    source_event_id: event_turn_interlude_201
+    source_event_id: event_turn_interlude_202
+    supersedes: event_turn_interlude_201
     source: player_declaration
-    "1": Stan obecny. Obowiazuje od chwili przekazania - Toby startuje na pierwszym talerzyku.
+    note: >-
+      PRZEDEFINIOWANE SZESC MINUT PO PIERWSZEJ WERSJI, przy tym samym stole. Nie jest to
+      retcon - Lucan poprawil wlasna oferte na biezaco. Kluczowa roznica: talerzyk 3
+      przestal znaczyc "kordon" i znaczy "powolano grupe"; kordon zszedl do przedzialu
+      MIEDZY 3 a 4. Caly harmonogram przesunal sie o krok wczesniej.
+    "1": >-
+      TERAZ, stan sprzed wszystkiego. NIE JEST to sygnal "usun dobytek" - Lucan nazwal go
+      wprost "usun siebie z miasta".
     "2": >-
-      Wszystkie strony swiadome sytuacji: koniec przesluchan, powiadomieni rycerze w lsniacych
-      zbrojach, Akademia, Kosciol i tak dalej.
-    "3": Kordon dookola cmentarza.
-    "4": Rozpoczecie akcji - wejscie grupy badawczo-uderzeniowej na cmentarz.
-    lucans_estimate: >-
-      Od fazy 2 do wprowadzenia scislej kontroli okolicy cmentarza minie DZIEN, DWA.
-      TO JEST SZACUNEK LUCANA PODANY KONTRAHENTOWI, NIE ZEGAR. Nie ma wpisu w
-      state/clocks.yaml, nie wiaze sie z zadna data i nie zapowiada, ze cokolwiek nastapi
-      w tym oknie. Fazy sa wyzwalane RECZNIE przez Lucana, nie uplywem czasu.
+      Odbylo sie JEDNO I DRUGIE: przesluchanie Lucana oraz konferencja akademikow o prawnej
+      naturze nekromancji. Wszyscy wiedza, co sie dzieje, ale sa zbyt zajeci polityka, zeby
+      sie tym przejac.
+    "3": Koniec burzy politycznej i oficjalne utworzenie grupy, ktora ma sie zajac problemem.
+    "4": Wejscie.
+    lucans_estimates: >-
+      Faza 2 trwa NAJWYZEJ PARE DNI. Od fazy 3 do kordonu MAKSYMALNIE DZIEN, DWA.
+      TO SA SZACUNKI LUCANA PODANE KONTRAHENTOWI, NIE ZEGARY. Zadnego wpisu w
+      state/clocks.yaml z nich nie ma i fazy wyzwala RECZNIE Lucan, nie uplyw czasu.
+    anchored_to_existing_clocks: >-
+      Faza 2 wisi na dwoch zegarach, ktore juz istnialy i ktorych ta tura NIE RUSZA:
+      clock_guild_leadership_hearing 3/15 oraz clock_father_arranges_academy_showing 3/15
+      (effect: ok. 16 dni, npc_neris_aldhen kontra npc_ivar_kolm). Do tego
+      current_scope#entry_rule - pierwsze z dwoch przesluchan rozpoczyna Akt 3. Uwaga Lucana,
+      ze "dziwnym trafem obie w podobnym czasie", jest zgodna z plikami: obie na tym samym
+      oczku. Zbiega sie to z jego zapowiedzia z t_105b (wojna domowa w dwa tygodnie).
+    naming_caveat: >-
+      "Konferencja akademikow o prawnej naturze nekromancji" to SFORMULOWANIE LUCANA podane
+      paserowi, nie tytul wydarzenia. W plikach jest otwarta dysputa Akademia-Kosciol
+      w formie seminarium. Nie ustanawiac tematu dysputy z tego zdania (retcon_000120).
   which_saucer_is_the_product:
-    source_event_id: event_turn_interlude_201
-    text: >-
-      Pryncypal policzyl to na glos i potwierdzil konstrukcje gracza, nie poprawil jej.
-      Faza 3 i 4 sa dla niego bezuzyteczne jako ostrzezenia - przy kordonie nie ma juz czego
-      wywozic. Doba, o ktora prosil w t_113, mieszka wylacznie w FAZIE 2, bo po niej ma
-      wedlug szacunku Lucana dzien albo dwa. Faza 2 jest produktem; 3 i 4 sa potwierdzeniem,
-      ze slusznie sie wyniosl.
+    source_event_ids: [event_turn_interlude_201, event_turn_interlude_202]
+    first_reading_by_the_principal: >-
+      t_201: fazy 3 i 4 sa jako ostrzezenia bezuzyteczne, bo przy kordonie nie ma juz czego
+      wywozic. Doba, o ktora prosil w t_113, mieszkala wedlug niego w FAZIE 2.
+    lucans_correction: >-
+      t_202: pryncypal chce wiedziec o PIERWSZYM, bo pierwszy talerzyk nie znaczy "usun
+      dobytek", tylko "usun siebie z miasta". Pryncypal to przyjmuje - i nie jest to dla
+      niego nowa mysl, tylko pierwszy raz powiedziana przy nim na glos: w t_109 sam
+      stwierdzil, ze jesli Kosciol przejdzie z papieru na rece, celem bedzie Lucan
+      (fact_weigher_has_a_stake_in_lucan_surviving).
+    what_he_can_and_cannot_move: >-
+      Polowe ewakuacji ma zrobiona projektowo od t_109 - zapas NIE lezy w miescie, stoi poza
+      Lumaria i wchodzi na zamowienie. Wywiezc nie da sie dwoch rzeczy: pokoju za straganami
+      oraz tego, ze nikt go nie zna. Czlowiek, ktory wyjezdza i wraca, jest zapamietywany
+      dwa razy, a cala jego metoda to nie zostac zapamietanym ani raz (agenda#stay_unnamed).
+    open_question: >-
+      NIEODPOWIEDZIANE. Pryncypal nie zapytal, CZYM jest rzecz pod cmentarzem - zapytal,
+      JAK DALEKO. Pytanie logistyczne, wiec nie lamie jego wlasnej zasady "powodu nie kupuje".
+      Lucan nie odpowiedzial i narrator odpowiedzi nie zmysla.
   what_is_not_revealed: >-
     Wszystkie cztery fazy opisuja REAKCJE INSTYTUCJI, nie przyczyne. Lucan nie powiedzial,
     co jest pod cmentarzem, po co mialby tam wejsc oddzial ani czego szuka - ta sama
