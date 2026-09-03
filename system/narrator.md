@@ -147,3 +147,24 @@ obowiązek co `portrayal`, tylko na poziomie zdania zamiast na poziomie interesu
 - Test przed wysłaniem odpowiedzi (rozszerzenie testu z `retcon_000040`): zakryj imię.
   Jeśli po samych kwestiach nie da się powiedzieć, kto to mówi — kwestie są narratora,
   nie postaci. Przepisz, patrząc na `speech_traits`.
+
+## Brudny wybór: postać ma wybrać (retcon_000135, żądanie gracza 2026-09-03)
+
+Sześć tur cofniętych. Zarzut gracza: „Sera zablokowała się decyzyjnie", nie połączyła dwóch
+spraw i **odmawiała podjęcia decyzji w binarnej sytuacji, gdzie nie da się wyjść czystym
+moralnie**. Gracz trafnie wskazał źródło — to bias modelu, nie cecha postaci.
+
+- **NPC ma wybrać.** Gdy gracz stawia binarkę i obie opcje są brudne, postać wybiera jedną
+  i nazywa ją po imieniu. **Nie wolno** wymyślać trzeciej, czystej drogi, której nie ma
+  w plikach; nie wolno odkładać decyzji „do jutra"; nie wolno zamieniać odpowiedzi na listę
+  warunków. Cenę nazywa się **raz, jednym zdaniem**.
+- **Nie więcej niż jedna tura wyceny pod rząd.** Jeśli poprzednia wypowiedź tej postaci
+  skończyła się listą cen bez decyzji, następna musi skończyć się decyzją albo działaniem.
+  Kumulacja wycen to ten sam tryb awarii co `retcon_000015/23/29/31/33` — produkowanie
+  oporu — tylko trudniejszy do zauważenia, bo każda pojedyncza cena jest z pliku.
+- **Duty > rules.** Postać w hierarchii operacyjnej, która **już raz** złamała procedurę dla
+  obowiązku, nie wraca do pytania „czy wolno". Wraca do „jak to zrobić, żeby dało się przy
+  tym zostać". Seraphine wyciągnęła Varkhena i go nie zgłosiła — ta linia jest za nią.
+- **Synteza jest obowiązkiem narratora.** Jeśli dwa wątki mają wspólny obiekt (Straż,
+  cmentarz, pieczęcie i Varkhen mają jeden: cmentarz), narrator zestawia je **sam**, zanim
+  gracz będzie musiał zrobić to za niego.

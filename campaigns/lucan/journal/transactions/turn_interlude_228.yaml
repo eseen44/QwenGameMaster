@@ -2,7 +2,7 @@ schema_version: 1
 id: turn_interlude_228
 object_type: turn_transaction
 status: committed
-created_at: '2026-09-03T01:27:08+02:00'
+created_at: '2026-09-03T08:47:27+02:00'
 scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
 event_id: event_turn_interlude_228
 roll_id: null
@@ -10,23 +10,21 @@ request:
   schema_version: 1
   turn_id: turn_interlude_228
   declared_action: 'Lucan (1) prostuje "prawnie nijakie" - prawnie jest praworzadnym
-    obywatelem, a boi sie A-ranka albo lorda, ktory wymorduje 50+ osob, zeby ukryc
-    dowody, nie prawa. (2) UJAWNIA DOBROWOLNIE, ze sprawdzil straznika, ktorego ona
-    mu jeszcze nie wydala: czlowiek jest caly, nie wie, ze z Lucanem rozmawial, i
-    - wedlug slow Lucana - nie wie doslownie nic. (3) Probowal wyciagac informacje
-    od straznikow ogolnie i jest w szoku, jacy sa tepi: wiekszosc nie rozumie, ze
-    glejty bez podpisu sa problemem, uwazaja to za balagan. (4) Nikomu wlos z glowy
-    nie spadl "poza jednym alkusem, ktory potknal sie o wlasne nogi", i nikt go nie
-    rozpozna. (5) Kesz nic nie powie, a skoro Orena juz nie ma, proba aresztowania
-    Kesza to zart. (6) ODDAJE JEJ WYNIK: widzial dzis na komendzie kolejne pismo do
-    niej i pieczec byla TA SAMA co na dokumencie in blanco. (7) ZADA DECYZJI: ukladamy
-    sie z nimi czy ona daje nazwiska ludzi, ktorzy zaczna mowic - nazwiska, bo mowa
-    o nalocie dywanowym, nie operacji chirurgicznej. (8) Pyta wprost: chce ich pomocy
-    z cmentarzem czy chce ich rozjechac na stale.'
+    obywatelem; boi sie A-ranka albo lorda, ktory wymorduje 50+ osob, zeby ukryc dowody,
+    nie paragrafu. (2) UJAWNIA DOBROWOLNIE, ze sam sprawdzil straznika od bramy: czlowiek
+    caly, nie wie, ze rozmawial z Lucanem, nie rozpozna go i wedlug slow Lucana nie
+    wie doslownie nic. (3) Straznicy sa tepi - nie rozumieja, ze glejt bez podpisu
+    to problem, biora to za balagan. (4) Nikomu wlos z glowy nie spadl poza jednym
+    pijakiem, ktory potknal sie o wlasne nogi. (5) Kesz nic nie powie, a skoro Orena
+    nie ma, aresztowanie go to zart. (6) ODDAJE WYNIK: widzial dzis na komendzie kolejne
+    pismo do niej i pieczec byla TA SAMA co na glejcie in blanco. (7) ZADA DECYZJI:
+    ukladamy sie ze Straza czy ona daje nazwiska ludzi, ktorzy zaczna mowic - nazwiska,
+    bo mowa o nalocie dywanowym. (8) Pyta wprost: chce ich pomocy z cmentarzem czy
+    chce ich rozjechac na stale. Varkhen obecny w rogu pokoju (retcon_000134).'
   actor_id: pc_lucan
   scope: execution
-  stakes: Czy Seraphine wydaje nazwiska z lancucha autoryzacji Strazy, ktore ma (podpisy
-    i obsada, t_188), i czy uklad z Straza w ogole istnieje jako opcja.
+  stakes: Czy Seraphine podejmie brudna decyzje w binarce bez czystego wyjscia i czy
+    polaczy Straz, cmentarz, pieczecie i Varkhena w jedna sprawe.
   time_class: brief
   time_seconds: 400
   condition_ids: []
@@ -36,10 +34,11 @@ request:
   - no_rolls_interlude
   - guild_upper_offices
   - npc_seraphine_vale
+  - npc_varkhen_mind
   - social_stakes
-  - planning_declaration
-  - watch_confrontation_decision
+  - dirty_binary_decision
   - seal_match_delivered
+  - duty_over_rules
   crisis_exploitable: false
 preview:
   turn_id: turn_interlude_228
@@ -47,20 +46,18 @@ preview:
   scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
   tension_level: 0
   roll_policy_mode: disabled
-  declaration: 'Lucan (1) prostuje "prawnie nijakie" - prawnie jest praworzadnym obywatelem,
-    a boi sie A-ranka albo lorda, ktory wymorduje 50+ osob, zeby ukryc dowody, nie
-    prawa. (2) UJAWNIA DOBROWOLNIE, ze sprawdzil straznika, ktorego ona mu jeszcze
-    nie wydala: czlowiek jest caly, nie wie, ze z Lucanem rozmawial, i - wedlug slow
-    Lucana - nie wie doslownie nic. (3) Probowal wyciagac informacje od straznikow
-    ogolnie i jest w szoku, jacy sa tepi: wiekszosc nie rozumie, ze glejty bez podpisu
-    sa problemem, uwazaja to za balagan. (4) Nikomu wlos z glowy nie spadl "poza jednym
-    alkusem, ktory potknal sie o wlasne nogi", i nikt go nie rozpozna. (5) Kesz nic
-    nie powie, a skoro Orena juz nie ma, proba aresztowania Kesza to zart. (6) ODDAJE
-    JEJ WYNIK: widzial dzis na komendzie kolejne pismo do niej i pieczec byla TA SAMA
-    co na dokumencie in blanco. (7) ZADA DECYZJI: ukladamy sie z nimi czy ona daje
-    nazwiska ludzi, ktorzy zaczna mowic - nazwiska, bo mowa o nalocie dywanowym, nie
-    operacji chirurgicznej. (8) Pyta wprost: chce ich pomocy z cmentarzem czy chce
-    ich rozjechac na stale.'
+  declaration: 'Lucan (1) prostuje "prawnie nijakie" - prawnie jest praworzadnym obywatelem;
+    boi sie A-ranka albo lorda, ktory wymorduje 50+ osob, zeby ukryc dowody, nie paragrafu.
+    (2) UJAWNIA DOBROWOLNIE, ze sam sprawdzil straznika od bramy: czlowiek caly, nie
+    wie, ze rozmawial z Lucanem, nie rozpozna go i wedlug slow Lucana nie wie doslownie
+    nic. (3) Straznicy sa tepi - nie rozumieja, ze glejt bez podpisu to problem, biora
+    to za balagan. (4) Nikomu wlos z glowy nie spadl poza jednym pijakiem, ktory potknal
+    sie o wlasne nogi. (5) Kesz nic nie powie, a skoro Orena nie ma, aresztowanie
+    go to zart. (6) ODDAJE WYNIK: widzial dzis na komendzie kolejne pismo do niej
+    i pieczec byla TA SAMA co na glejcie in blanco. (7) ZADA DECYZJI: ukladamy sie
+    ze Straza czy ona daje nazwiska ludzi, ktorzy zaczna mowic - nazwiska, bo mowa
+    o nalocie dywanowym. (8) Pyta wprost: chce ich pomocy z cmentarzem czy chce ich
+    rozjechac na stale. Varkhen obecny w rogu pokoju (retcon_000134).'
   parenthetical_action: false
   assessment:
     verdict: automatic
@@ -84,254 +81,234 @@ time_operation: &id002
 outcome:
   schema_version: 1
   intent_achieved: true
-  arrangement: mixed
+  arrangement: improved
   perspective: pc_lucan
   apply_required_costs: true
   resolved_world_reaction_ids: []
   consequence_source_refs:
-  - event_turn_interlude_034_the_watch_is_an_unknown
-  - event_turn_interlude_044_varkhen_terms_and_survivors
-  - event_turn_interlude_126
-  - event_turn_interlude_188
-  - event_turn_interlude_210
-  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal
-  - player_declaration:turn_interlude_228
+  - retcon_000135
+  - retcon_000134
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal.she_is_a_co_conspirator_not_a_lawful_paragon
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal.priorities_in_order
+  - event_turn_interlude_120
+  - event_turn_interlude_190
+  - event_turn_interlude_122
+  - milestone_046_varkhen_oath_compact
+  - campaigns/lucan/entities/factions/lumaria-martial-orders.yaml
   operations:
   - *id002
   summary: 'Bez testu - interludium, roll_policy disabled. Szesc minut czterdziesci,
     zero energii.
 
-    NAJGESTSZA TURA TEJ SCENY. Lucan oddaje wynik, przyznaje sie do samowolki i zada
-    decyzji.
+    TURA ROZEGRANA PONOWNIE PO COFNIECIU (retcon_000135). Seraphine DECYDUJE, robi
+    synteze
 
-    Dostaje odpowiedz na jedno z dwoch pytan i CENE za drugie - nie dostaje listy.
+    sama i nie stawia listy warunkow. Jedna cena, jednym zdaniem.
 
 
-    1. PIECZEC - TO JEST WLASCIWY PREZENT TEJ TURY I ONA BIERZE GO PIERWSZY.
+    1. PIECZEC - BIERZE JA PIERWSZA I OD RAZU WIE, DO CZEGO SLUZY.
 
-    t_036: zapowiedziala "weryfikacje przez porownanie PIECZECI I KLASY PODPISU z
-    tygodniem
+    t_036 zapowiedziala porownanie PIECZECI I KLASY PODPISU. t_210: Lucan porownal,
+    pieczec
 
-    formalnych zadan". t_210: Lucan porownal i pieczec na zadaniu do gildii jest TA
-    SAMA co
+    na zadaniu do gildii jest TA SAMA co na item_watch_transport_permit. Polowa zadania
 
-    na item_watch_transport_permit. POLOWA JEJ WLASNEGO ZADANIA WROCILA WYKONANA -
-    i wrocila
+    wrocila wykonana i wrocila SPOZA jej akt, wiec nie zostawia sladu na papierze
+    gildii.
 
-    spoza jej akt, czyli bez sladu na papierze gildii, co akurat jest zaleta.
+    Klasa podpisu nadal nieodczytana. Ustanawia zgodnosc URZEDU, nie reki (retcon_000058).
 
-    DRUGA POLOWA ZOSTAJE OTWARTA: klasa podpisu NIEODCZYTANA. Narrator tego nie domyka.
 
-    CO TO USTANAWIA (granica ostra, retcon_000058): zgodnosc URZEDU, nie reki. Nie
-    ma
+    2. SYNTEZA, KTORA JEST OBOWIAZKIEM NARRATORA I ZOSTALA WYKONANA (retcon_000135
+    punkt d).
 
-    nazwiska, nie ma szczebla, nie ma dowodu, ze podpisuje ta sama osoba.
+    Straz, cmentarz, pieczecie i Varkhen to JEDNA sprawa i ona sklada ja na glos:
 
+    linia zwlok prowadzona przez Straz (fact_seraphine_knows_the_watch_runs_the_corpse_line,
 
-    2. "PRAWNIE NIJAKIE" - LUCAN MA RACJE I ONA TO PRZYZNAJE, BO TO JEST JEJ WLASNE
-    ZDANIE.
+    t_120) KARMI cmentarz; pod cmentarzem sa trzy pieczecie - pierwsza zlamana, druga
 
-    seraphine-vale.yaml#portrayal.lucans_own_reading_to_respect stoi po jego stronie:
+    naruszona, trzecia slabnaca (milestone_046); jedynym bieglym od tych pieczeci
+    jest
 
-    cial nie ma, dowodow nie ma, reszta jest prawnie nijaka, on ma plecy. Rozroznienie,
+    nieumarly stojacy w rogu tego pokoju. Sciganie Strazy i ukrywanie Varkhena to
+    nie sa
 
-    ktore Lucan robi - boje sie A-ranka albo lorda, nie paragrafu - jest zgodne z
-    cala
+    dwie sprawy Lucana - to sa dwa konce jednej rzeczy, ktora moze rozerwac miasto.
 
-    doktryna tej kampanii (retcon_000015: prawdziwe ograniczenia sa instytucjonalne
+    TO NIE JEST NOWY FAKT SWIATA. Wszystkie trzy elementy leza w plikach od Aktu 2;
+    brakowalo
 
-    i informacyjne, nie prawne). Narrator NIE prostuje tego i nie robi z prawa zagrozenia,
+    wylacznie zestawienia i to jest wina narratora, nie gracza.
 
-    ktorym nie jest.
 
+    3. DUTY > RULES - I ONA NIE ROZWAZA TEGO, TYLKO TO STWIERDZA (retcon_000135 punkt
+    c).
 
-    3. SAMOWOLKA PRZY STRAZNIKU - UJAWNIONA DOBROWOLNIE I TO ZMIENIA JEJ CHARAKTER.
+    Ta linia jest ZA NIA, nie przed nia. Wyciagnela Varkhena z osuwiska, umiescila
+    go
 
-    t_221 rozstrzygnal (deklaracja gracza), ze rozmowa z npc_ossek_marn NIE liczy
-    sie jako
+    w piwnicy gildii i nie zglosila tego przez tygodnie. Wedlug Kosciola powinna byla
+    zabic
 
-    kontakt i NIE uruchamia obligation_conditional_risk_disclosure_to_seraphine. Lucan
-    mowi
+    Lucana w chwili, gdy zrozumiala, co on kontroluje - nie zrobila tego. Klamstwo
 
-    jej o tym mimo to. Obowiazek byl bezprzedmiotowy, wiec nic sie formalnie nie domyka
-    -
+    i zatajenie sa dla niej narzedziami, nie przeszkodami (portrayal). Pytanie "czy
+    wolno"
 
-    ale przestaje istniec ryzyko, ze ona odkryje to sama.
+    jest u niej martwe od dwoch tygodni; zostaje "jak to zrobic, zeby dalo sie przy
+    tym zostac".
 
-    KONTEKST, KTORY TO ZAOSTRZA I JEST W PLIKU: rano (t_188 punkt 4) powiedziala mu
-    WPROST,
 
-    ze pod niczyje drzwi nie poszla - i powiedziala to po to, zeby Lucan nie odkryl
-    tego sam.
+    4. DECYZJA W BRUDNEJ BINARCE - PODJETA, NAZWANA PO IMIENIU, BEZ TRZECIEJ CZYSTEJ
+    DROGI.
 
-    Osiem godzin pozniej Lucan mowi jej, ze poszedl sam. NARRATOR NIE ROBI Z TEGO
-    ZDRADY
-
-    ANI SCENY (do_not_play, retcon_000055). Ona odnotowuje to jako fakt o tym, jak
-    ta
-
-    wspolpraca dziala, i nie moralizuje.
-
-
-    4. "NIE WIE DOSLOWNIE NIC" - ZABIJA DZWIGNIE, KTORA SAMA BUDOWALA, I ONA TO LICZY.
-
-    t_189: gospodarstwo straznika mialo sluzyc temu, zeby straznik PRZYSZEDL SAM i
-    zglosil,
-
-    ze zle sie czuje z tym, do czego zmuszal go przelozony. Czlowiek, ktory nic nie
-    wie,
-
-    nie ma czego zglosic. Mapowanie gospodarstwa traci wiekszosc wartosci.
-
-    UWAGA NARRATORA DLA PRZYSZLYCH TUR (retcon_000120): "nic nie wie" jest KWESTIA
-    LUCANA,
-
-    nie prawda o swiecie. Marn dal czwarte niezalezne potwierdzenie mechanizmu stalej
-    trasy
-
-    (t_218/219) i opisal go od dolu. Seraphine dostaje WERSJE LUCANA i tak ma byc
-    zapisana
-
-    w jej knowledge - jako to, co uslyszala. Narrator NIE kaze jej tego wykryc i NIE
-    prostuje.
-
-    Tak samo "poza jednym alkusem, ktory potknal sie o wlasne nogi" - to jest opis
-    Marna
-
-    po trzech stackach numb, zapadni pamieci i confusion. Idzie do cover_stories,
-    nie do
-
-    zadnego pliku opisujacego, jak jest naprawde.
-
-
-    5. "TEPI STRAZNICY" - POTWIERDZENIE, KTORE ONA PRZYJMUJE, BO PASUJE DO WLASNEGO
-    ODCZYTU.
-
-    Dast w t_207 poskarzyl sie, ze oddzialy bramne przepuszczaja na papiery, ktorych
-    on
-
-    nigdy nie oglada, i uznal to za NIECHLUJSTWO. Lucan mowi to samo z drugiej strony:
-
-    szeregowi czytaja blankiet jako balagan, nie jako mechanizm. To jest kolejne
-
-    potwierdzenie tego, co ona nazwala w t_035/036 - glejt jest BLANKIETEM, urzad
-    wystawia
-
-    wladze bez atrybucji, i wlasnie dlatego dziala.
-
-
-    6. UKLAD ZE STRAZA NIE ISTNIEJE JAKO OPCJA - I POWOD JEST TWARDY, NIE MORALNY.
-
-    Jedyna rzecz, o ktora Straz kiedykolwiek prosila, to CIALA, AKTA I DOWODY z operacji
-
-    cmentarnej (t_034, t_206, t_209, dzisiejsze spotkanie). "Ulozyc sie" znaczy wiec
-    oddac
-
-    material, czyli oddac cala sprawe instytucji, ktora prowadzi linie zwlok. Ona
-    odmowila
-
-    tego dzis w poludnie i nie zmienia zdania osiem godzin pozniej.
-
-    ODPOWIEDZ NA PYTANIE GRACZA "pomoc czy rozjechac": wybor ma jedna opcje i ona
-    to mowi
-
-    wprost. To nie jest deklaracja wojny - to jest stwierdzenie, ze druga szalka jest
-    pusta.
-
-
-    7. NAZWISKA - MA JE, I TO JEST WLASNIE PROBLEM.
-
-    t_188 punkt 4: "Podpisy i obsada ma". Nie jest to wiec odmowa z braku - odmowa
-
-    z braku bylaby tania. Nazywa DWIE ceny, obie wlasne i obie z plikow:
-
-    (a) DOKTRYNA z t_126: "co wiedziala tylko gildia - WSKAZUJE NA NIA". Lista podpisow
-
-    i obsad, ktora istnieje wylacznie w jej robocie, uzyta przeciw Strazy, jest jej
-
-    podpisem pod kazdym nazwiskiem z tej listy. To jest dokladnie ten sam mechanizm,
-
-    ktorym ona nie udziela autoryzacji syndykatowi - forma nie istnieje, a proba jej
-
-    stworzenia produkuje dokument bedacy cala sprawa.
-
-    (b) JEJ WLASNY WARUNEK Z t_044, ktory "nalot dywanowy" lamie z definicji:
-
-    fact_seraphine_accepts_controlled_interrogation_pressure - zgodzila sie na kontrolowany
-
-    teatr i ograniczony wplyw Lucana na zatrzymanych POD WARUNKIEM swojej obecnosci,
-    braku
-
-    falszowania protokolu ORAZ UPRZEDZENIA PRZED TRWALA ZMIANA CZYJEGOS STANU. Przy
-    nalocie
-
-    dywanowym nie da sie jej uprzedzic o kazdym z osobna - warunek nie jest naruszony
-
-    przez zly zamiar, tylko przez SKALE. To jest zawezenie, nie weto.
-
-    NARRATOR NIE ROZSTRZYGA, czy Lucan warunek przyjmie - to decyzja gracza.
-
-
-    8. FOTEL, NIE CZLOWIEK - JEJ WLASNE ZDANIE Z t_034 WRACA JAKO POPRAWKA, NIE JAKO
-    MADROSC.
-
-    "Prosba jednego czlowieka umarlaby na biurku po dwoch dniach - wiec za zadaniem
-    stoi
-
-    FOTEL, NIE CZLOWIEK". Stad jej jedyna merytoryczna poprawka do planu: ludzi da
-    sie
-
-    zlamac, fotela nie. Rozjechanie obsady nie usuwa stanowiska, ktore te obsade wystawia,
-
-    a blankietow nie da sie odwolac, jesli nie da sie ich zliczyc (t_035/036).
-
-    TO NIE JEST ODCZYT MADRZEJSZY OD GRACZA (retcon_000040) - to jest cytat z niej
-    samej
-
-    sprzed dwoch tygodni, podany dlatego, ze Lucan wlasnie zaproponowal cos, co go
+    WYBIERA UKLAD. Kupuje Straz zatajeniem handlu zwlokami. Nazywa to korupcja, a
     nie
 
-    uwzglednia.
+    "porozumieniem", i nie owija tego w procedure.
+
+    UZASADNIENIE JEST OPERACYJNE I MIESCI SIE W JEJ PRIORYTETACH: rozjechanie skladu
+    Strazy
+
+    w tygodniu, w ktorym pod miastem pekaja pieczecie, oznacza rozbrojenie jedynego
+    zbrojnego
+
+    ciala miasta dokladnie w chwili, gdy bedzie potrzebne do ewakuacji, kordonu i
+    porzadku.
+
+    Trupi handlarze z odznakami sa jej dzis potrzebni zywi i na stanowiskach.
+
+    DRUGA GALAZ NIE ZOSTAJE ODRZUCONA - zostaje ODLOZONA na po pieczeciach, i ona
+    mowi to
+
+    wprost, bez udawania, ze o niej zapomni.
+
+    CENA NAZWANA RAZ I TYLKO RAZ: od chwili, gdy przyjdzie do nich z tym, przestaje
+    byc
+
+    kontrolerka prowadzaca postepowanie i jest strona ukladu korupcyjnego. Tego sie
+    nie cofa.
+
+    NARRATOR NIE DOKLADA DRUGIEJ ANI TRZECIEJ CENY (retcon_000135 punkt a i b).
 
 
-    9. CZEGO NARRATOR TU NIE ZROBIL. Nie podal ani jednego nazwiska, szczebla, urzedu
-    ani
+    5. CO JA DO TEGO UPRAWNIA, CZYLI DLACZEGO UKLAD W OGOLE ISTNIEJE.
 
-    zawartosci listy (retcon_000058). Nie ustanowil, ze ktos w Strazy zauwazyl Lucana,
+    W poprzednim przebiegu narrator kazal jej powiedziec, ze ukladu nie ma, bo jedyne,
+    czego
 
-    szuka go albo zglosil cokolwiek - gracz zadeklarowal, ze nikt go nie rozpozna,
+    Straz chce, to material. To bylo NIEPELNE. Straz chce drugiej rzeczy o wiele bardziej
+    -
 
-    i to laduje (retcon_000033). Nie zrobil ze stanu Marna zagrozenia ani sledztwa.
-    Nie
+    zeby handel zwlokami pozostal niewidoczny. Instytucja, ktora prowadzi taki interes,
 
-    stworzyl zegara, terminu, swiadka ani odwetu. Nie kazal jej sie oburzyc ani grozic
+    MA CO STRACIC. A framing dostala od Lucana juz w t_190 przy brulionie balwierza:
 
-    (do_not_play, retcon_000041). Nie zamknal opcji "nazwiska" - zawezil ja warunkiem,
+    to nie jest material na sledztwo, tylko material do handlu i szantazu. Jej problem
 
-    ktory ona postawila pol miesiaca temu.
+    "wniosek bez srodka" jest problemem TYLKO wtedy, gdy celem jest dowod. Dzwignia
+    nie
+
+    potrzebuje papieru.
 
 
-    10. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+    6. I ZARAZ POTEM ROBI DRUGI RUCH, TEN WLASCIWY, BO UKLAD JEST TYLKO OSLONA FLANKI.
 
-    Obecni: Lucan, npc_seraphine_vale. Spidey i Tkacz przy Lucanie, zuk w kieszeni.
+    Zaklada, ze pieczecie sa sprawa, a nie Straz, i podaje droge do kierownictwa gildii:
 
-    Integralnosc 19/19, energia bez wydatku - czytac z pliku. Zegary bez ruchu poza
-    uplywem
+    sprawa cmentarna JEST juz widoczna instytucjonalnie (operacja gildii, oficjalny
+    raport,
 
-    czasu. Godzine czytac ze state/time.yaml po commicie. Pozycja trzecia z siedmiu
-    nie padla.
+    eksperci, smierc Orena na powierzchni przy niej i przy nich), wiec zgloszenie
+    "pieczecie
+
+    ida" nie wymaga cytowania pokoju powroznika. W tej ramie Varkhen przestaje byc
+    zarzutem
+
+    wobec niej i staje sie jedynym bieglym.
+
+    I SIEGA PO NARZEDZIE, KTORE SAMA ZAOFEROWALA W t_122: gildia kontraktuje zakony
+    mieczowe
+
+    rutynowo, ona wie, do kogo isc, a faction_lumaria_martial_orders ma we wlasnych
+    interests
+
+    wpisane "prevent_uncontrolled_undead_or_armed chaos" i niezalezny lancuch dowodzenia.
+
+    CENA Z t_122 SIE ODWRACA: kontrakt jest papierem (karta, komandor z nazwiska,
+    zakres,
+
+    data) i nazwisko Lucana wchodzi do akt JAKO POWOD ZAMOWIENIA. W ramie przesluchania
+    to
+
+    byl koszt. W ramie pekajacych pieczeci czlowiek, ktorego nazwisko stoi jako powod
+
+    wezwania zbrojnego zakonu, jest tym, KTORY ZGLOSIL, a nie podsadnym.
+
+    Warunek jej z t_122 stoi bez zmian: ZAMAWIA GILDIA ALBO NIKT.
+
+
+    7. CZEGO BRAKUJE I KTO JEDYNY MOZE TO DAC - TERMIN.
+
+    state/clocks.yaml NIE MA zegara pieczeci i narrator zadnego nie wymysla ani nie
+    podaje
+
+    daty (retcon_000055). Konsekwencja w fikcji jest identyczna: alarm bez terminu
+    instytucja
+
+    obsluguje jak projekt, nie jak alarm. Tempa trzeciej pieczeci nie poda nikt oprocz
+
+    Varkhena, a on - zgodnie z karta i speech_traits, bo nie udaje, ze wie, kiedy
+    nie wie -
+
+    mowi, ze zza sciany nie bedzie zgadywal i musi przy niej stanac.
+
+    SKUTEK: wyprowadzenie go na cmentarz przestaje byc sztuczka na uniknięcie zwloki
+
+    i staje sie czynnoscia operacyjna, ktora i tak trzeba wykonac.
+
+
+    8. CZEGO NARRATOR TU NIE ZROBIL. Nie podal ani jednego nazwiska z lancucha autoryzacji,
+
+    ani komandora, ani zakonu, ani terminu (retcon_000058). Nie ustanowil, ze Straz
+    sie
+
+    zgodzi - nikt do nich jeszcze nie poszedl, a uklad jest DECYZJA Seraphine, nie
+    faktem
+
+    dokonanym. Nie stworzyl zegara pieczeci. Nie zamknal galezi drugiej. Nie wymyslil
+
+    emerytowanego A-ranka ani zadnej trzeciej, czystej drogi. Nie kazal jej sie oburzyc,
+
+    moralizowac ani grozic (do_not_play, retcon_000041). Nie rozstrzygnal, jak zakon
+
+    zareaguje na nieumarlego KONTROLOWANEGO zamiast niekontrolowanego - to zostaje
+    otwarte
+
+    i jest tym samym pytaniem, ktore ma wersja wydarzen wobec Boros/Mara.
+
+
+    9. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju, obecny od poczatku
+
+    sceny - retcon_000134). Spidey i Tkacz przy Lucanie, zuk w kieszeni. Varkhen 9,2/65,
+
+    critically_damaged. Lucan 19/19, energia bez wydatku - czytac z pliku.
 
     '
-  new_decision: 'Seraphine mowi, ze ukladu ze Straza nie ma, bo jedyne, czego chca,
-    to material, wiec wybor ma jedna opcje. Nazwiska MA, ale stawia dwie ceny - lista
-    pochodzaca wylacznie z gildii wskazuje na nia, a nalot dywanowy lamie jej wlasny
-    warunek z t_044 (uprzedzenie przed trwala zmiana czyjegos stanu). Doklada poprawke:
-    fotel, nie czlowiek. Czeka, co Lucan zrobi z warunkiem, i nadal czeka na trzecia
-    pozycje z siedmiu.'
+  new_decision: 'Seraphine podjela decyzje: kupuje Straz zatajeniem handlu zwlokami,
+    nazywa to korupcja i odklada czystke na po pieczeciach. Uklad jest oslona flanki,
+    a sprawa to pieczecie - idzie do kierownictwa gildii i zamawia zakon mieczowy
+    na papierze gildii, z nazwiskiem Lucana jako powodem zamowienia. Brakuje TERMINU,
+    ktorego nie poda nikt oprocz Varkhena, a on musi w tym celu stanac przy trzeciej
+    pieczeci. Decyzja gracza: czy i jak wyprowadzic go na cmentarz, i co powiedziec
+    Borosowi oraz Marze o wersji wydarzen.'
 prepared_writes:
 - path: context/scene.yaml
   before_hash: 27f9e728e93e30d650b9fa996dbd21c9db0f8b25942f5264f7775b199c89bc6f
-  after_hash: 108a3c7c7038319b5e0c3d5bda02bdb487ff03db645787c46b79b225f6f62cf9
+  after_hash: 7107271c9c96aa18af8bf5ab04675ef6aebceb2fc67c1e3332600a1acdbb5cea
   document:
     schema_version: 1
     campaign_id: campaign_lucan
@@ -349,12 +326,13 @@ prepared_writes:
     pressures: []
     immediate_facts: []
     immediate_questions:
-    - 'Seraphine mowi, ze ukladu ze Straza nie ma, bo jedyne, czego chca, to material,
-      wiec wybor ma jedna opcje. Nazwiska MA, ale stawia dwie ceny - lista pochodzaca
-      wylacznie z gildii wskazuje na nia, a nalot dywanowy lamie jej wlasny warunek
-      z t_044 (uprzedzenie przed trwala zmiana czyjegos stanu). Doklada poprawke:
-      fotel, nie czlowiek. Czeka, co Lucan zrobi z warunkiem, i nadal czeka na trzecia
-      pozycje z siedmiu.'
+    - 'Seraphine podjela decyzje: kupuje Straz zatajeniem handlu zwlokami, nazywa
+      to korupcja i odklada czystke na po pieczeciach. Uklad jest oslona flanki, a
+      sprawa to pieczecie - idzie do kierownictwa gildii i zamawia zakon mieczowy
+      na papierze gildii, z nazwiskiem Lucana jako powodem zamowienia. Brakuje TERMINU,
+      ktorego nie poda nikt oprocz Varkhena, a on musi w tym celu stanac przy trzeciej
+      pieczeci. Decyzja gracza: czy i jak wyprowadzic go na cmentarz, i co powiedziec
+      Borosowi oraz Marze o wersji wydarzen.'
     pending_world_reactions: []
     last_event_id: event_turn_interlude_228
     previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_afternoon_outside_pod_obrecza.yaml
@@ -1903,5 +1881,5 @@ prepared_writes:
     elapsed_since_last_event: 400
     last_event_id: event_turn_interlude_228
     elapsed_seconds_total: 390040
-prepared_at: '2026-09-03T01:29:10+02:00'
-committed_at: '2026-09-03T01:29:11+02:00'
+prepared_at: '2026-09-03T08:48:57+02:00'
+committed_at: '2026-09-03T08:48:59+02:00'
