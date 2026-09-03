@@ -168,3 +168,20 @@ moralnie**. Gracz trafnie wskazał źródło — to bias modelu, nie cecha posta
 - **Synteza jest obowiązkiem narratora.** Jeśli dwa wątki mają wspólny obiekt (Straż,
   cmentarz, pieczęcie i Varkhen mają jeden: cmentarz), narrator zestawia je **sam**, zanim
   gracz będzie musiał zrobić to za niego.
+
+## Uzasadnienie narratora nie jest wiedzą postaci (retcon_000136, 2026-09-03)
+
+Najcichszy z przecieków i najłatwiejszy do przeoczenia, bo wygląda na dobrze udokumentowany.
+
+`outcome.summary` **cytuje pliki jako rozumowanie narratora** — i słusznie, narrator ma
+prawo wiedzieć wszystko. Awaria polega na tym, że proza potem **recytuje to rozumowanie
+jako kwestię postaci**. Tak Seraphine wyliczyła kwoty ze sprzedaży łupu i zacytowała dwie
+rozmowy, przy których jej nie było.
+
+**Test przed wysłaniem każdej kwestii NPC:** dla każdego FAKTU, który postać wypowiada,
+wskaż pozycję w **jej** `knowledge.confirmed` albo zdarzenie, w którym była obecna.
+Jeśli jedynym źródłem jest twój własny `outcome.summary` z tej tury — postać tego nie mówi.
+
+Ta sama rodzina co `retcon_000058` (nie buduj ekspozycji z list, których nie ma) i
+`retcon_000121` (karta jest tak świeża, jak ostatni dopisek), tylko od trzeciej strony:
+nie brak wiedzy i nie stara wiedza, lecz **cudza wiedza podana jako własna**.

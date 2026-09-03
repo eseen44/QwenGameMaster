@@ -2,22 +2,25 @@ schema_version: 1
 id: turn_interlude_229
 object_type: turn_transaction
 status: committed
-created_at: '2026-09-03T09:11:14+02:00'
+created_at: '2026-09-03T09:18:14+02:00'
 scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
 event_id: event_turn_interlude_229
 roll_id: null
 request:
   schema_version: 1
   turn_id: turn_interlude_229
-  declared_action: 'Lucan (1) zamyka kwestie swiadkow: Boros i Mara powiedza to, co
-    im kaze - to funkcja kosztu monetarnego, nie prawdy. (2) Zglasza, ze nie czuje
-    w tej rozmowie, jak mocna maja pozycje: kazdy nie-urzednik czytajacy raporty z
-    cmentarza powinien natychmiast zapomniec o regulaminach i wprowadzic stan wojenny.
-    Varkhen obecny w rogu pokoju.'
+  declared_action: 'Lucan (1) zamyka kwestie swiadkow, MOWIAC JEJ TO WPROST PO RAZ
+    PIERWSZY: Boros i Mara powiedza to, co im kaze - to funkcja kosztu monetarnego,
+    nie prawdy. Seraphine nie wiedziala tego wczesniej (audyt karty: zero trafien
+    na kwoty, na t_113 i na t_115 - retcon_000136). (2) Zglasza, ze nie czuje, jak
+    mocna maja pozycje: kazdy nie-urzednik czytajacy raporty z cmentarza powinien
+    natychmiast zapomniec o regulaminach i wprowadzic stan wojenny. Varkhen obecny
+    w rogu pokoju.'
   actor_id: pc_lucan
   scope: execution
-  stakes: Czy Seraphine przestanie filtrowac material i zacznie dzialac na jego rzeczywista
-    skale - i co konkretnie robi w tej turze, a nie planuje.
+  stakes: Co Seraphine zrobi z informacja, ze dwoje czlonkow gildii jest oplaconych,
+    i czy przestanie filtrowac material o cmentarzu - uzywajac WYLACZNIE tego, co
+    ma na karcie.
   time_class: brief
   time_seconds: 300
   condition_ids: []
@@ -30,7 +33,7 @@ request:
   - npc_varkhen_mind
   - social_stakes
   - scale_of_the_dossier
-  - action_not_planning
+  - knowledge_discipline
   crisis_exploitable: false
 preview:
   turn_id: turn_interlude_229
@@ -38,11 +41,12 @@ preview:
   scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
   tension_level: 0
   roll_policy_mode: disabled
-  declaration: 'Lucan (1) zamyka kwestie swiadkow: Boros i Mara powiedza to, co im
-    kaze - to funkcja kosztu monetarnego, nie prawdy. (2) Zglasza, ze nie czuje w
-    tej rozmowie, jak mocna maja pozycje: kazdy nie-urzednik czytajacy raporty z cmentarza
-    powinien natychmiast zapomniec o regulaminach i wprowadzic stan wojenny. Varkhen
-    obecny w rogu pokoju.'
+  declaration: 'Lucan (1) zamyka kwestie swiadkow, MOWIAC JEJ TO WPROST PO RAZ PIERWSZY:
+    Boros i Mara powiedza to, co im kaze - to funkcja kosztu monetarnego, nie prawdy.
+    Seraphine nie wiedziala tego wczesniej (audyt karty: zero trafien na kwoty, na
+    t_113 i na t_115 - retcon_000136). (2) Zglasza, ze nie czuje, jak mocna maja pozycje:
+    kazdy nie-urzednik czytajacy raporty z cmentarza powinien natychmiast zapomniec
+    o regulaminach i wprowadzic stan wojenny. Varkhen obecny w rogu pokoju.'
   parenthetical_action: false
   assessment:
     verdict: automatic
@@ -71,105 +75,173 @@ outcome:
   apply_required_costs: true
   resolved_world_reaction_ids: []
   consequence_source_refs:
+  - retcon_000136
   - retcon_000135
-  - retcon_000033
+  - retcon_000120
   - milestone_037b_guild_cemetery_report_and_support
-  - milestone_043a_logistics_collector_overload
   - milestone_044b_oren_termination_and_energy_sample
   - milestone_046_varkhen_oath_compact
-  - event_turn_interlude_115
-  - event_turn_interlude_113
   - event_turn_interlude_122
   - retcon_000041
   operations:
   - *id002
-  summary: "Bez testu - interludium, roll_policy disabled. Piec minut, zero energii.\n\
-    DWIE REKLAMACJE GRACZA, OBIE TRAFNE, OBIE PRZYJETE BEZ TARGU. Tura konczy sie\n\
-    CZYNNOSCIA, nie planem (retcon_000135 punkt b).\n\n1. SWIADKOWIE - ZAMKNIETE,\
-    \ DEKLARACJA GRACZA LADUJE W CALOSCI (retcon_000033).\nBoros i Mara powiedza to,\
-    \ co Lucan im kaze, i jest to funkcja kosztu, nie prawdy.\nMA POKRYCIE W PLIKACH,\
-    \ wiec narrator nie ma czym tego podwazyc i nie probuje:\n(a) inventory.yaml:\
-    \ udzialy Borosa i Mary ida OSOBNO, ze strony syndykatu, PELNA STAWKA,\n18-20\
-    \ tys. srebra kazde. To nie jest napiwek - to jest wiecej, niz C-rank widzi przez\
-    \ lata.\n(b) t_115: Lucan opowiedzial Borosowi cala rzecz z pokoju powroznika\
-    \ i Boros NIE MORALIZOWAL -\nzapytal o obsade ostrego konca. Sam tez zostal poza\
-    \ pokojem swiadomie, zeby jego twarz nie\ntrafila do zapisu kupca, i NAZWAL TO\
-    \ OPLATA, nie nieobecnoscia.\n(c) t_113: Mara slyszala cala rozmowe w pokoju syndykatu\
-    \ i oswiadczyla, ze o Kosciol NIE\nZAPYTA, bo woli nie musiec pozniej odpowiadac,\
-    \ czy wiedziala. Czlowiek, ktory sam wybiera\nniewiedze, przyjmuje podana wersje\
-    \ bez tarcia. Na polecenie Lucana pisze juz urzednikowi\nmagistratu to, co ma\
-    \ napisac (t_102).\nNARRATOR SKRESLA WIEC WLASNA PRZESZKODE Z POPRZEDNIEGO PRZEBIEGU.\
-    \ Zostaje jedno i jest\nto fakt, nie opor: to sa dwie osoby wiecej, ktore trzymaja\
-    \ wersje, a nie zero.\n\n2. REKLAMACJA O SKALI JEST TRAFNA I WINA JEST NARRATORA\
-    \ - ODNOTOWANE JAKO TA SAMA\nRODZINA AWARII CO retcon_000135. Grano instytucje\
-    \ jako tarcie proceduralne, a material\nw aktach jest czym innym. CO NAPRAWDE\
-    \ STOI W RAPORTACH, WSZYSTKO Z PLIKOW, ZERO NOWYCH BYTOW:\n- milestone_037b, raport\
-    \ przedoperacyjny zlozony przez Lucana i przyjety przez Seraphine:\n  rozlegle\
-    \ tunele i pustki pod cmentarzem, DWA odrebne nieumarle stworzenia, brak ciala\n\
-    \  mlodego straznika, mozliwy handel zwlokami, wplyw na pracownika kancelarii\
-    \ oraz RYZYKO\n  INKWIZYCJI. To zostalo napisane PRZED operacja i sie potwierdzilo.\n\
-    - milestone_043a: przeciazenie kolektora logistycznego i przesyl energii z SERCA\
-    \ cmentarza.\n  Skutek na zywym czlowieku jest mierzalny i trwaly - rezerwa Lucana\
-    \ podniesiona z 12 na 15\n  na stale (pc-lucan.yaml#permanent_expansion, expansion_source_event_id).\n\
-    - milestone_044b: Oren, 31 lat wiezi z sercem, operator nekromantycznej logistyki,\
-    \ ginie\n  NA POWIERZCHNI w obecnosci Seraphine, ekspertow i grupy; pobrana probka\
-    \ energii.\n  Smierc i cialo nie sa sekretem (oren.yaml#portrayal.death_context).\n\
-    - milestone_046: czterystuletni straznik grobowca zeznaje o TRZECH PIECZECIACH\
-    \ - pierwsza\n  zlamana, druga naruszona, trzecia slabnaca - i o kaplanie, ktory\
-    \ znal wlasciwe wejscie\n  i przyszedl tam Z ORENEM.\nRAZEM: czynny silnik nekromantyczny\
-    \ pod miastem, pasozytnicza wiez utrzymywana przez\ntrzy dekady, rozpadajace sie\
-    \ zabezpieczenia i duchowny z dostepem. To nie jest sprawa\nadministracyjna i\
-    \ ona to przyznaje.\n\n3. DLACZEGO WIEC NIC SIE NIE DZIEJE - ODPOWIEDZ JEST O\
-    \ NIEJ, NIE O INSTYTUCJI.\nMaterial nie jest slaby. Material NIGDY NIE ZOSTAL\
-    \ PODANY JAKO ALARM. Zostal podany jako\nraport z ZAMKNIETEJ operacji, ktora sie\
-    \ powiodla - bo ona sama tak go ustawila i ma z tego\ndwie korzysci: sprawa jest\
-    \ jej, a nagroda za Akt 2 wisi w rejestrze jako \"oczekuje\nprzegladu\" zamiast\
-    \ \"zamkniete\" (act-03-defence#reward_is_hostage). Do tego uwage\nkierownictwa\
-    \ zjada od tygodni zadanie sluzb miejskich o wydanie materialu.\nKTO FILTROWAL\
-    \ PRZEPLYW: ona. Priorytet pierwszy z jej karty - utrzymac wlasna pozycje -\n\
-    kazal jej trzymac to w rekach zamiast wypuscic. TO JEST DOKLADNIE TA SAMA AWARIA,\
-    \ KTORA\nLucan wytknal jej przy Strazy, i ona nazywa ja drugi raz w ciagu kwadransa.\n\
-    \n4. POZYCJA - NAZWANA WPROST, BO GRACZ MA PRAWO JA CZUC (retcon_000041).\nGildia\
-    \ nie ma nad Lucanem dzwigni zatrudnienia. Przesluchanie nie rozstrzyga, czy Lucan\n\
-    przezyje instytucje - rozstrzyga, CZY INSTYTUCJA GO ZATRZYMA. Do tego doklada\
-    \ sie rzecz\nnowa: w ramie pieczeci Lucan nie jest podsadnym ani nawet swiadkiem.\
-    \ Jest jedyna osoba,\nktora zlozyla raport, ktory sie sprawdzil, i jedynym czlowiekiem\
-    \ z dostepem do bieglego.\nKierownictwo, ktore go w tym tygodniu ukarze, robi\
-    \ to na dwa tygodnie przed tym, jak\nbedzie go potrzebowac. ONA TO MOWI, bo jest\
-    \ zawodowa i to widzi.\n\n5. CZYNNOSC, KTORA WYKONUJE W TEJ TURZE - NIE PLAN,\
-    \ TYLKO RUCH.\nWyjmuje czysta karte kontraktowa gildii i zaczyna ja wypelniac\
-    \ przy Lucanie. Cztery pola\nz t_122: karta, komandor z nazwiska, zakres, data.\
-    \ TRZY WYPELNIA OD RAZU - forma, adresat\ni zamawiajacy, bo warunek \"zamawia\
-    \ gildia albo nikt\" jest jej wlasny i wlasnie go realizuje.\nDWA POLA ZOSTAJA\
-    \ PUSTE I SA TYMI SAMYMI DWOMA, KTORYCH NIE MA NIKT W TYM POKOJU:\nZAKRES i DATA.\
-    \ Oba wymagaja odpowiedzi na pytanie, ile zostalo trzeciej pieczeci.\nNARRATOR\
-    \ NIE PODAJE ANI NAZWISKA KOMANDORA, ANI ZAKONU, ANI TERMINU (retcon_000058) -\n\
-    pola sa opisane, nie wypelnione tresciа, ktorej zaden plik nie ma.\nPAPIER LEZY\
-    \ NA BLACIE NIEDOKONCZONY. To jest stan rzeczy na koniec tury.\n\n6. VARKHEN -\
-    \ JEDNO ZDANIE, BO JEST JEDYNY, KTORY MOZE TE POLA WYPELNIC.\nZgodnie z karta\
-    \ i speech_traits: nie zgaduje i nie udaje, ze wie. Powtarza, ze musi stanac\n\
-    przy trzeciej pieczeci, i dodaje jedna rzecz praktyczna z wlasnego doswiadczenia\n\
-    straznika: idzie tam nie po to, zeby popatrzec, tylko zeby zmierzyc, a mierzenie\
-    \ zajmuje\nczas. NARRATOR NIE PODAJE ILE - nie ma tego w zadnym pliku.\n\n7. CZEGO\
-    \ NARRATOR TU NIE ZROBIL. Nie stworzyl zegara pieczeci (retcon_000055) - ma\n\
-    powstac z pomiaru w fikcji. Nie podal nazwiska komandora, zakonu, terminu ani\
-    \ zakresu.\nNie wprowadzil nikogo z kierownictwa do sceny i nie ustanowil ich\
-    \ reakcji. Nie odwrocil\ndecyzji z t_228 - uklad ze Straza stoi. Nie kazal Borosowi\
-    \ ani Marze niczego powiedziec\n- nie ma ich w scenie. Nie zrobil z reklamacji\
-    \ gracza sceny emocjonalnej: Seraphine\nprzyznaje wlasny blad rzeczowo, bo tak\
-    \ przyznaje wszystko. Zegary bez ruchu poza uplywem\nczasu.\n\n8. STAN. Czwarty\
-    \ dzien interludium, gabinet Seraphine, gorne pietro gildii.\nObecni: Lucan, npc_seraphine_vale,\
-    \ npc_varkhen_mind (rog pokoju). Spidey i Tkacz przy\nLucanie, zuk w kieszeni.\
-    \ Na blacie: niedokonczona karta kontraktowa gildii, dwa pola puste.\nVarkhen\
-    \ 9,2/65. Lucan 19/19, energia bez wydatku - czytac z pliku.\n"
+  summary: 'Bez testu - interludium, roll_policy disabled. Piec minut, zero energii.
+
+    TURA ROZEGRANA PONOWNIE PO retcon_000136. Kazde zdanie Seraphine ma teraz wskazane
+
+    zrodlo w JEJ knowledge albo w scenie, w ktorej byla obecna.
+
+
+    1. DYSCYPLINA WIEDZY - CO ZOSTALO WYCIETE W STOSUNKU DO POPRZEDNIEGO PRZEBIEGU.
+
+    Nie mowi: o kwotach 18-20 tys. dla Borosa i Mary, o 52 000 za lup, o reakcji Borosa
+
+    w pokoju powroznika (t_115), o deklaracji Mary w sprawie Kosciola (t_113), o trwalym
+
+    powiekszeniu rezerwy Lucana z 12 na 15. AUDYT: seraphine-vale.yaml nie ma zadnego
+
+    z tych faktow. Nie miala prawa ich znac i nie zna.
+
+    CO ZOSTAJE, BO MA TO NA KARCIE: raport przedoperacyjny Lucana z pelna trescia
+
+    (fact_seraphine_received_preoperation_cemetery_report), smierc Orena na powierzchni
+    przy
+
+    niej i przy ekspertach z pobrana probka (byla obecna, milestone_044b), trzy pieczecie
+
+    z zeznania Varkhena (fact_seraphine_knows_three_seals), kaplan znajacy wejscie
+    i wizyta
+
+    z Orenem (fact_seraphine_knows_priest_visited_varkhen_with_oren), nagroda wisząca
+    jako
+
+    "oczekuje przegladu" bo sama tego dopilnowala (act-03-defence#reward_is_hostage),
+    oraz
+
+    droga do zakonow mieczowych (t_122, jej wlasna oferta).
+
+
+    2. INFORMACJA O BOROSIE I MARZE JEST NOWA I PRZYCHODZI OD LUCANA W TEJ TURZE.
+
+    Gracz mowi jej wprost, ze dwoje czlonkow gildii rangi C powie to, co im kaze,
+    bo jest to
+
+    funkcja kosztu. To NIE jest potwierdzenie czegos, co ona podejrzewala - to jest
+    fakt,
+
+    ktorego nie miala. Zgodnie z retcon_000120 wchodzi do jej knowledge JAKO TO, CO
+    USLYSZALA
+
+    OD LUCANA, a nie jako prawda o swiecie; kwot nie podano i ona o nie nie pyta w
+    tej turze.
+
+    JAK REAGUJE - zgodnie z karta, nie z odruchem moralnym (do_not_play: zadnego oburzenia
+
+    na oportunizm Lucana, to dla niej oczywiste i policzone). Przyjmuje to jako dana
+
+    operacyjna i wyciaga z niej jeden wniosek, ktory dotyczy JEJ: dwoje ludzi, za
+    ktorych
+
+    gildia formalnie odpowiada, jest kupionych przez czlowieka, za ktorego ona reczy.
+
+    Nie robi z tego sceny i nie grozi (retcon_000041). Odnotowuje.
+
+
+    3. REKLAMACJA O SKALI - TRAFNA, PRZYJETA, I ODPOWIEDZ JEST O NIEJ, NIE O INSTYTUCJI.
+
+    Material w aktach nie jest slaby. Raport przedoperacyjny wymienial: rozlegle tunele
+
+    i pustki, DWA odrebne nieumarle stworzenia, brak ciala mlodego straznika, mozliwy
+    handel
+
+    zwlokami, wplyw na pracownika kancelarii, RYZYKO INKWIZYCJI - i potwierdzil sie
+    co do
+
+    punktu. Do tego smierc Orena przy ekspertach z probka i zeznanie o trzech pieczeciach.
+
+    DLACZEGO NIKT NIE ZAREAGOWAL: bo to nigdy nie zostalo PODANE JAKO ALARM. Zostalo
+    podane
+
+    jako raport z zamknietej, udanej operacji - i ustawila to tak ONA, majac z tego
+    dwie
+
+    korzysci: sprawa zostaje jej, a nagroda wisi w rejestrze jako "oczekuje przegladu"
+
+    zamiast "zamkniete". Uwage kierownictwa zjada od tygodni zadanie sluzb o wydanie
+    materialu.
+
+    ONA TO PRZYZNAJE JAKO WLASNY BLAD, drugi raz w ciagu kwadransa, i nazywa go tak
+    samo:
+
+    filtrowala przeplyw, bo priorytet pierwszy kazal jej trzymac sprawe w rekach.
+
+
+    4. POZYCJA NAZWANA WPROST (retcon_000041, bo gracz ma prawo ja czuc).
+
+    Gildia nie ma nad Lucanem dzwigni zatrudnienia; przesluchanie rozstrzyga, czy
+    instytucja
+
+    go ZATRZYMA. W ramie pieczeci Lucan nie jest podsadnym - jest jedynym czlowiekiem,
+
+    ktorego raport sie sprawdzil, i jedynym z dostepem do bieglego.
+
+
+    5. CZYNNOSC, NIE PLAN (retcon_000135 punkt b). Wyjmuje czysta karte kontraktowa
+    gildii
+
+    i wypelnia ja przy Lucanie: forma, adresat i zamawiajacy - gildia, jej reka, jej
+
+    nazwiskiem, bo "zamawia gildia albo nikt" to jej wlasny warunek z t_122.
+
+    DWA POLA ZOSTAJA PUSTE: ZAKRES i DATA. Oba wymagaja pomiaru trzeciej pieczeci.
+
+    NARRATOR NIE PODAJE nazwiska komandora, zakonu ani terminu (retcon_000058) - pola
+    sa
+
+    opisane, nie wypelnione trescia, ktorej zaden plik nie ma. Karta lezy niedokonczona.
+
+
+    6. VARKHEN - jedno zdanie, zgodne ze speech_traits (nie udaje, ze wie, kiedy nie
+    wie):
+
+    stad nie poda i nie bedzie zgadywal, musi stanac przy trzeciej pieczeci, a idzie
+    tam
+
+    mierzyc, nie patrzec, i mierzenie trwa. NARRATOR NIE PODAJE ILE.
+
+
+    7. CZEGO NARRATOR TU NIE ZROBIL. Nie stworzyl zegara pieczeci (retcon_000055).
+    Nie podal
+
+    nazwiska komandora, zakonu, terminu ani zakresu. Nie wprowadzil nikogo z kierownictwa
+
+    i nie ustanowil ich reakcji. Nie odwrocil decyzji z t_228 - uklad ze Straza stoi.
+
+    NIE POZWOLIL SERAPHINE UZYC ANI JEDNEGO FAKTU SPOZA JEJ KARTY (retcon_000136).
+
+    Zegary bez ruchu poza uplywem czasu.
+
+
+    8. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju). Spidey i Tkacz
+    przy
+
+    Lucanie, zuk w kieszeni. Na blacie: niedokonczona karta kontraktowa, dwa pola
+    puste.
+
+    Varkhen 9,2/65. Lucan 19/19, energia bez wydatku - czytac z pliku.
+
+    '
   new_decision: 'Karta kontraktowa lezy na blacie z dwoma pustymi polami - zakres
     i data - i oba wymagaja pomiaru trzeciej pieczeci. Seraphine przyznaje, ze to
-    ona filtrowala przeplyw i ze material nigdy nie zostal podany jako alarm. Boros
-    i Mara zamknieci. Zostaje jedno: kiedy i jak Varkhen trafia pod trzecia pieczec.'
+    ona filtrowala przeplyw i ze material nigdy nie zostal podany jako alarm. Kwestie
+    Borosa i Mary przyjela od Lucana bez moralizowania i bez pytania o kwoty. Zostaje
+    jedno: kiedy i jak Varkhen trafia pod trzecia pieczec.'
 prepared_writes:
 - path: context/scene.yaml
   before_hash: 7107271c9c96aa18af8bf5ab04675ef6aebceb2fc67c1e3332600a1acdbb5cea
-  after_hash: 7e2d043005ec487b89f2cdfb9185c307f0005197031645b8a4bb0eb97098651a
+  after_hash: 86928e9cab6ea523334060fbcf5b15f9adfd2c587e868758811a00cced1119d8
   document:
     schema_version: 1
     campaign_id: campaign_lucan
@@ -189,8 +261,9 @@ prepared_writes:
     immediate_questions:
     - 'Karta kontraktowa lezy na blacie z dwoma pustymi polami - zakres i data - i
       oba wymagaja pomiaru trzeciej pieczeci. Seraphine przyznaje, ze to ona filtrowala
-      przeplyw i ze material nigdy nie zostal podany jako alarm. Boros i Mara zamknieci.
-      Zostaje jedno: kiedy i jak Varkhen trafia pod trzecia pieczec.'
+      przeplyw i ze material nigdy nie zostal podany jako alarm. Kwestie Borosa i
+      Mary przyjela od Lucana bez moralizowania i bez pytania o kwoty. Zostaje jedno:
+      kiedy i jak Varkhen trafia pod trzecia pieczec.'
     pending_world_reactions: []
     last_event_id: event_turn_interlude_229
     previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_afternoon_outside_pod_obrecza.yaml
@@ -1739,5 +1812,5 @@ prepared_writes:
     elapsed_since_last_event: 300
     last_event_id: event_turn_interlude_229
     elapsed_seconds_total: 390340
-prepared_at: '2026-09-03T09:13:25+02:00'
-committed_at: '2026-09-03T09:13:26+02:00'
+prepared_at: '2026-09-03T09:19:51+02:00'
+committed_at: '2026-09-03T09:19:52+02:00'
