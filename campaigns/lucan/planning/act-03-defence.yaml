@@ -899,3 +899,112 @@ syndicate_warning_channel:
     varkhen_existence, seals_and_lower_gate (pryncypal), spidey_existence, lucan_necromancy.
     Dla pryncypala to nie jest nowa kategoria, tylko harmonogram do
     fact_weigher_knows_a_bigger_cemetery_problem_exists (t_110).
+
+oral_only_disclosure_channel:
+  objective_ref: objective_prepare_guild_hearing_and_watch
+  source_event_id: event_turn_interlude_233
+  status: PRZYJETY_PRZEZ_SERAPHINE_WARUNKOWO_NA_KOLEJNOSCI
+  the_players_argument: |
+    Varkhena nie da sie ani stracic, ani wpisac. Stracic - bo jest jedynym bieglym od
+    pieczeci, czyli od jedynej rzeczy mogacej rozerwac miasto. Wpisac - bo publiczny
+    zapis o kontrolowanym nieumarlym w piwnicy gildii czyni gildie zapalnikiem.
+    Zostaje kategoria trzecia: rzecz przekazywana WYLACZNIE USTNIE wyzszemu dowodztwu,
+    o ktorej potem obie strony zgodnie nie pamietaja. Rama, w ktorej to przechodzi bez
+    wyrzutow: stan wyzszej gotowosci i grozba buntu magow zwiazanego wprost z nieumarlymi.
+  why_it_holds_in_canon:
+    clock: 'clock_inquisition_attention.trigger wymienia guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public.
+      Papier i jawnosc sa triggerem; rozmowa nie jest. Kanal ustny jest wiec dokladnie
+      tym kanalem, ktory nie rusza tego zegara.'
+    her_agenda: 'find_viable_way_to_protect_lucan_and_city_without_formal_escalation -
+      droga pozaproceduralna nie jest dla niej nowa propozycja, tylko jej wlasna linia.'
+    duty_over_rules: 'retcon_000135 punkt c. Wyciagnela Varkhena i nie zglosila tego przez
+      tygodnie; pytanie "czy wolno" jest u niej martwe. Zostaje "jak to zrobic, zeby dalo
+      sie przy tym zostac".'
+    the_mage_riot_is_hers_from_lucan: 'fact_seraphine_knows_no_academy_faction_is_safe
+      (t_065) i fact_seraphine_knows_public_necromancy_charge_is_a_fuse (t_064) - oba
+      dostala od Lucana dwa tygodnie temu. Narrator nie dorabia nowego zagrozenia.'
+  where_it_does_not_hold_yet:
+    the_frame_does_not_exist: |
+      STANU WYZSZEJ GOTOWOSCI NIE MA. Decyzja z t_232 o ogloszeniu kryzysu jest decyzja,
+      nie czynem; clocks.yaml nie ma zegara pieczeci, a clock_inquisition_attention stoi
+      na 0 jako dormant_event_trigger_only. Do tego t_229: material cmentarny nigdy nie
+      zostal podany kierownictwu JAKO ALARM i ustawila to tak ona sama. Bez ogloszenia
+      kanal ustny nie brzmi wiec jak "biegly, ktorego nie mozna stracic", a jak
+      "nieumarly, ktorego trzymalas trzy tygodnie" - czyli wprost jak jej problem z t_227.
+    the_sequence_she_set: |
+      POMIAR TRZECIEJ PIECZECI -> CYTOWALNY MATERIAL -> OGLOSZENIE -> RAMA -> KANAL USTNY.
+      Ogniwo drugie to jej zdanie z t_227: ktos musi znac WNIOSEK, nie ZRODLO, a wiedza
+      od Varkhena wymaga drugiego, cytowalnego pochodzenia, zanim wejdzie na papier.
+      Zeznanie nieumarlego z piwnicy cytowalne nie jest. Skutek: nocne wyjscie pod trzecia
+      pieczec przestaje byc jedna z prac interludium i staje sie warunkiem wstepnym.
+    paper_hold: 'Do czasu pomiaru nic o Varkhenie i o pieczeciach nie idzie na papier.
+      Karta kontraktowa na zbrojny zakon wraca do szuflady niewypelniona (ZAKRES i DATA),
+      bo zamowienie na papierze gildii JEST papierem.'
+  price_named_once: 'Kanal bez zapisu znaczy takze brak zapisu, ktory JA oslania. Jesli
+    kiedys wyjdzie, beda dwie osoby twierdzace rozne rzeczy o rozmowie, ktorej wedle obu
+    nie bylo. Drugiej ceny nie doklada sie (retcon_000135 punkt a).'
+  what_the_narrator_must_not_do:
+  - 'Nie inscenizowac nikogo z kierownictwa gildii ani nie ustanawiac ich reakcji.'
+  - 'Nie nadawac Seraphine wladzy przestawiania terminu przesluchania.'
+  - 'Nie tworzyc zegara pieczeci ani daty (retcon_000055).'
+
+heraldry_check_route:
+  objective_ref: objective_interlude_investigations
+  step_ref: investigate_stag_signet_and_tannery_owners
+  source_event_id: event_turn_interlude_233
+  what_landed: |
+    Lucan podal Seraphine teze: przedmiot zabrany z ukrytego skarbca garbarni laczy
+    garbarnie z Kolmem. Podal ja jako hipoteze i sam nazwal ja "do sprawdzenia", wiec
+    tak zostala zapisana (retcon_000120). Kierunek jest ZATWIERDZONY PRZEZ GRACZA
+    od 2026-08-27 - ivar-kolm.yaml#the_act_01_thread.
+  what_did_not_land: |
+    GEST. item_three_arrow_deer_signet ma location container_interlude_loot_pile
+    (loc_city_wall_hideout), a inventory#if_it_surfaces.do_not_fire_automatically mowi
+    wprost, ze sygnet lezy w stosie lupu w baszcie. Przy Lucanie go nie ma, wiec nie mogl
+    go polozyc na blacie. Padl sam opis herbu - jelen przebity trzema strzalami.
+    Tam samo lezy item_tannery_owner_cache (zone_wall_void), czyli druga polowa dowodow.
+  the_route_she_chose: |
+    NIE przez rejestr gildii i NIE przez trzecia osobe. Podstawa: jej doktryna z t_126
+    ("nie liczy sie, czy informacja jest tajna, tylko ILE OSOB MOGLO JA MIEC") oraz
+    inventory#if_it_surfaces.the_shield - trop wskazuje na PARE "gildia albo Lucan", wiec
+    zapytanie heraldyczne przez gildie obciaza takze ja. Sprawdzi herb w papierach
+    garbarnika, ktore dostala w milestone_022 i ktore ma u siebie.
+  unresolved: 'Czy herb w tych papierach w ogole jest. Narrator tego nie domyka i nie
+    zapowiada wyniku (retcon_000058). Nazwy rodu nie wolno wyprodukowac bez researchu
+    heraldycznego - ivar-kolm.yaml#do_not_invent.'
+  the_gap_this_opens_in_the_boundary_text: |
+    OBOWIAZKOWE ZESTAWIENIE (retcon_000135 punkt d), wprost z
+    ivar-kolm.yaml#co_to_zmienia_w_dyspucie: "kazda linia, ktora Lucan wspolpisze i ktora
+    wypycha hybrydy do szarej strefy, pracuje takze dla Kolma. Warunek nadrzedny z t_168
+    tego NIE dotyka - hodowla okazow nie jest nekromancja na ludziach."
+    Brzmienie proponowane w t_233 tnie po CZLOWIEKU i po SKALI. Hodowla okazow pod
+    garbarnia nie jest nekromancja na ludziach, wiec jesli teza o Kolmie jest prawdziwa,
+    ten sam tekst, ktory ma dac obu stronom sukces, wyprowadza sprawe spod garbarni
+    z zakresu scigania - mechanizmem, ktory Lucan sam wylozyl Seraphine w t_231
+    (hybrydy w szarej strefie, przestaje sie rozpatrywac skargi).
+    NIE ROZSTRZYGAC, w ktora strone to pchnie Kolma - #open_problems mowi wprost:
+    RACHUNEK KOLMA NIEROZSTRZYGNIETY.
+  priest_warning: |
+    Uprzedzenie o zamiarze wciagniecia KAPLANA Z CMENTARZA do brzmienia padlo PRZED
+    kontaktem, czyli spelnia warunek z t_122 (fact_seraphine_knows_lucans_seven_levers)
+    i NIE jest zlamaniem niczego - retcon_000124 nie ma tu zastosowania.
+    Ona ma do tego wlasny material: fact_seraphine_knows_priest_visited_varkhen_with_oren
+    oraz swoje pytanie z t_029, czy to ten sam interes co kaplan od wejscia.
+    NARRATOR NIE UTOZSAMIA tego kaplana z meet_local_priest (state: accepted_kesz_arranges,
+    t_113) - zaden plik ich nie skleja.
+
+two_dates_order_reading:
+  source_event_id: event_turn_interlude_233
+  status: ODCZYT_Z_ZEGAROW_NIE_USTALENIE_FABULARNE
+  text: |
+    Lucan obawial sie, ze przesluchanie wypada zaraz PRZED dysputa. Odczyt jest odwrotny,
+    ale roznica jest w godzinach: clock_father_arranges_academy_showing elapsed_seconds
+    44860, clock_guild_leadership_hearing elapsed_seconds 40060, oba progress 3/15,
+    seconds_per_step 86400. Rozstep 4800 s = 1 h 20 min na korzysc dysputy; do progu
+    ok. 11,5 dnia w obu przypadkach. t_232 mowilo "ruchome wzgledem siebie o dzien" -
+    to bylo zaokraglenie, faktyczny rozstep jest mniejszy.
+    WAZNIEJSZA ASYMETRIA: dysputa JEST WYZNACZONA (clock.effect: "JUZ WYZNACZONEJ otwartej
+    dysputy"), a przesluchanie ma lucan_knows_the_date: horizon_only i knowledge_note
+    "jeszcze nie ogloszone oficjalnie". Kolejnosc nie jest wiec ustalona, a jedynym
+    ruchomym terminem jest termin GILDII. Seraphine nie obiecala go przestawic i narrator
+    nie nadaje jej takiej wladzy.
