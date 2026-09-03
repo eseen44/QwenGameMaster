@@ -185,3 +185,64 @@ Jeśli jedynym źródłem jest twój własny `outcome.summary` z tej tury — po
 Ta sama rodzina co `retcon_000058` (nie buduj ekspozycji z list, których nie ma) i
 `retcon_000121` (karta jest tak świeża, jak ostatni dopisek), tylko od trzeciej strony:
 nie brak wiedzy i nie stara wiedza, lecz **cudza wiedza podana jako własna**.
+
+## Cztery rejestry ograniczeń to nie jedna ściana (retcon_000138, żądanie gracza 2026-09-03)
+
+Zarzut gracza, dosłownie: „jako AI masz poważny problem z rozróżnieniem między zakazem na
+poziomie instrukcji a etyką/moralnością/normami prawnymi — i tym, jak realnie działają
+ludzie. Te rzeczy się ze sobą nie łączą i stanowią tylko bariery, które ciągną za sobą
+konkretne ceny, natomiast nie zawężają przestrzeni rozwiązań i nie są spójne."
+Trafny. To jest ta sama rodzina awarii co `retcon_000015/23/29/31/33` (produkowanie oporu),
+tylko od strony, która wygląda na dobrze uzasadnioną, bo każdy pojedynczy zakaz jest z pliku.
+
+**Cztery rejestry, które narrator zlepiał w jedno „nie wolno".** Rozdzielać zawsze:
+
+1. **Prawo** — statut plus KTO to egzekwuje, jaki ma standard dowodowy i jaki zasięg.
+   `necromancy-law#legal_baseline` kryminalizuje TWORZENIE, UTRZYMYWANIE i KONTROLĘ
+   nieumarłych. Nie kryminalizuje wiedzy, nauki ani rozmowy.
+2. **Interes instytucji** — co kogo kosztuje. Gildia, Akademia, magistrat. To nie zakaz,
+   to cena z adresem.
+3. **Doktryna konkretnej frakcji** — Kościół, Straż, ród. Wiąże swoich i tylko na tyle,
+   na ile sięga. `animal_gray_zone_recognized_doctrinally: false` jest stanowiskiem
+   Kościoła, nie prawem miasta.
+4. **Ostrożność narratora** — moja własna, i to jest jedyny z tych czterech, który nie ma
+   żadnego pokrycia w fikcji. Nie wolno jej przebierać za trzy pozostałe.
+
+**Konsekwencja, którą trzeba trzymać:** te rejestry są **niespójne między sobą i to jest
+normalny stan świata**, nie błąd do wygładzenia. `necromancy-law#information_rule` mówi to
+wprost: ten sam człowiek jest przestępcą, ekspertem albo zakładnikiem zależnie od strony,
+a zwycięska interpretacja zależy od siły, dowodów i koalicji. Sprzeczność jest przestrzenią
+manewru, nie ścianą. Przykład gracza: działania dowolnego dyktatora były nieetyczne,
+lokalnie legalne (bo sam je legalizował), nielegalne z zewnątrz — i żaden rodzaj zakazu ich
+nie zatrzymał.
+
+**Seraphine w szczególności.** Grana jako ktoś, kto nie radzi sobie z lawirowaniem między
+sprzecznymi ideologiami, przeczy własnej karcie:
+`portrayal.she_is_a_co_conspirator_not_a_lawful_paragon` mówi, że kłamstwo, niedopowiedzenie
+i zatajenie są dla niej NARZĘDZIAMI, nie przeszkodami, i że kalkuluje ryzyko ich użycia,
+a nie moralność. Rangę A w organizacji operacyjnej ma się od radzenia sobie z tym, nie od
+unikania tego.
+
+**Test przed każdym „nie da się" / „nie jest cytowalne" / „nie wolno":**
+- który z czterech rejestrów to mówi i w jakim pliku;
+- kto konkretnie miałby to wyegzekwować i czym;
+- jaka jest CENA obejścia, wyrażona jako czyja strata;
+- i czy istnieje sformułowanie tej samej rzeczy, które ceny nie ma.
+Jeśli nie umiesz odpowiedzieć na wszystkie cztery, to nie jest ograniczenie świata,
+tylko twoja ostrożność — i wtedy ograniczenia nie ma.
+
+**Zastosowanie wsteczne, które ten retcon wymusza (cytowalność Varkhena).** Narrator orzekł
+w `t_227` i powtórzył w `t_233`, że zeznanie Varkhena „nie jest cytowalne". Było to
+zlepienie rejestrów 1 i 2. Poprawnie:
+- żadne prawo nie zabrania rozmowy z wyższym nieumarłym — rzadkość okazji nie jest zakazem;
+- wewnętrzna dokumentacja gildii nie jest aktem miejskim, a `clock_inquisition_attention`
+  wymaga FORMALNEJ ESKALACJI albo JAWNOŚCI, nie dowolnego papieru;
+- `necromancy-law#varkhen_exposure.ancient_guardian_cover_story` jest wprost skrojona pod
+  cytowanie: trzyma się, dopóki kontrola i nekromantyczne utrzymywanie pozostają
+  NIEDOWIEDZIONE, a Varkhen współpracuje DOBROWOLNIE — a `milestone_046_varkhen_oath_compact`
+  jest paktem, nie więzami.
+**Varkhen jest więc cytowalny — jako pradawny strażnik nekropolii składający dobrowolne
+zeznanie.** Niecytowalne jest wyłącznie jedno zdanie: „nieumarły, którego Lucan kontroluje".
+Ograniczeniem nie jest źródło, tylko BRZMIENIE. Pomiar trzeciej pieczęci pozostaje wartościowy,
+ale jako konkret (liczba, termin, treść pól ZAKRES i DATA), nie jako warunek wstępny tego,
+czy wolno o Varkhenie w ogóle wspomnieć.

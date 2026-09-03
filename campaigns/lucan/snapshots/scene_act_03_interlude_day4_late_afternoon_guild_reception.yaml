@@ -1,0 +1,121 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_late_afternoon_guild_reception
+object_type: scene_snapshot
+closed_at: '2026-09-03T12:56:05+02:00'
+summary: 'Koniec rozmowy w gabinecie Seraphine, czwarty dzien interludium, 16:52-17:54.
+  Padly trzy z siedmiu dzwigni (prawnik jako rejestrator, dysputa jako forum do wysadzenia,
+  odczyt Kolma), zadanie z t_122 zamkniete. Seraphine wybrala uklad ze Straza i postanowila
+  ogloszyc kryzys nekromantyczny wiedzac, ze placi Kolmowi rektoratem. Przyjela kanal
+  ustny dla Varkhena wobec kierownictwa. W t_234 COFNELA WLASNA REGULE Z t_227 po
+  reklamacji Lucana: Varkhen JEST cytowalny jako pradawny straznik nekropolii skladajacy
+  dobrowolne zeznanie w wewnetrznej dokumentacji gildii - niecytowalne jest tylko
+  zdanie o kontroli Lucana. Pomiar trzeciej pieczeci przestal byc warunkiem ogloszenia
+  i jest teraz potrzebny do pol ZAKRES i DATA na karcie kontraktowej na zbrojny zakon.
+  Watek Aktu 1 przeramowany na odpowiedzialnosc POLITYCZNA - nielegalna hodowla okazow,
+  ewakuacja garbarni, ekipa A-rank, zamrozony majatek, o wlos uratowany inspektor;
+  teczka jest formalnie otwarta i nikt jej nie prowadzi, a dokumenty ma Seraphine.
+  Sygnet z jeleniem zdjety z palca i zostawiony na jej biurku do porownania z papierami
+  garbarnika - rodu nikt nie odczytal. Varkhen w plaszczu narzuconym na zbroje. Wyjscie
+  pod trzecia pieczec zadeklarowane na te noc.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-19T16:52:00+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  participants_note: 'Seraphine i Varkhen DOPISANI 2026-09-03. Pole gubilo ich od
+    t_224 mimo retcon_000134 (Varkhen stoi w rogu gabinetu od poczatku sceny), a cztery
+    kolejne tury opisywaly gabinet na gornym pietrze. To ta sama pulapka, przed ktora
+    ostrzega playbook: puste albo niepelne participants NIE dowodza, ze Lucan jest
+    sam.'
+  pressures: []
+  immediate_facts:
+  - 'Na biurku Seraphine leza dwie rzeczy: niedokonczona karta kontraktowa na zbrojny
+    zakon (ZAKRES i DATA puste, wrocila do szuflady w t_233) oraz item_three_arrow_deer_signet
+    - stary sygnet z jeleniem przebitym trzema strzalami, zdjety z palca Lucana (retcon_000137).
+    Sygnet NIE zostal oddany; rodu z herbu nikt nie umie nazwac.'
+  immediate_questions:
+  - 'Kanal ustny do wyzszego dowodztwa przyjety, ale rama stanu gotowosci JESZCZE
+    NIE ISTNIEJE - nic nie zostalo ogloszone, wiec dzis to brzmi jak zwloka z t_227,
+    nie jak wyjatek wojenny. Seraphine ustawila kolejnosc: pomiar trzeciej pieczeci
+    -> cytowalny material -> ogloszenie -> rama -> dopiero potem Varkhen ustnie; do
+    tego czasu nic o pieczeciach i o nim na papier, a karta kontraktowa wraca do szuflady
+    niewypelniona. Teza o Kolmie zapisana JAKO TEZA - sygnet lezy w baszcie, herbu
+    nikt nie odczytal, ona sprawdzi go w papierach garbarnika, ktore ma u siebie.
+    Uprzedzenie o kaplanie z cmentarza spelnia jej warunek z t_122. Zostaje jedno
+    i to samo co wczoraj: nocne wyjscie z Varkhenem pod trzecia pieczec.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_234
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_afternoon_outside_pod_obrecza.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Kanal ustny do wyzszego dowodztwa przyjety, ale rama stanu gotowosci JESZCZE
+    NIE ISTNIEJE - nic nie zostalo ogloszone, wiec dzis to brzmi jak zwloka z t_227,
+    nie jak wyjatek wojenny. Seraphine ustawila kolejnosc: pomiar trzeciej pieczeci
+    -> cytowalny material -> ogloszenie -> rama -> dopiero potem Varkhen ustnie; do
+    tego czasu nic o pieczeciach i o nim na papier, a karta kontraktowa wraca do szuflady
+    niewypelniona. Teza o Kolmie zapisana JAKO TEZA - sygnet lezy w baszcie, herbu
+    nikt nie odczytal, ona sprawdzi go w papierach garbarnika, ktore ma u siebie.
+    Uprzedzenie o kaplanie z cmentarza spelnia jej warunek z t_122. Zostaje jedno
+    i to samo co wczoraj: nocne wyjscie z Varkhenem pod trzecia pieczec.'
+  last_refreshed_event_id: event_turn_interlude_234
+  context_bytes: 50956
+  context_budget_bytes: 40960
+  context_warnings:
+  - over_budget:50956>40960
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 16628
+  - ref: campaigns/lucan/state/obligations.yaml
+    bytes: 5704
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5503
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4201
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877
