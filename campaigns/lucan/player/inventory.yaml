@@ -495,7 +495,21 @@ items:
     source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
   - id: item_three_arrow_deer_signet
     name: Stary szlachecki sygnet (jeleń przebity trzema strzałami)
-    location: container_interlude_loot_pile
+    location: container_personal_pockets_and_belt
+    worn: on_lucans_finger
+    current_placement: 'NA BIURKU SERAPHINE, gabinet na gornym pietrze gildii, od
+      event_turn_interlude_233. Zdjety z palca i polozony przy niedokonczonej karcie
+      kontraktowej. NIE ODDANY - wlasnosc i decyzja o zabraniu go z powrotem naleza do
+      Lucana.'
+    location_correction:
+      by: retcon_000137
+      text: |
+        BYLO container_interlude_loot_pile (stos lupu w baszcie przy murze). Gracz
+        nadpisal 2026-09-03: sygnet byl noszony NA PALCU. Stos lupu z
+        event_turn_interlude_004 byl przegladem Aktu 2, nie deklaracja, ze przedmiot
+        zostal tam na stale, a zaden zapis nie zabranial Lucanowi go nosic.
+        item_tannery_owner_cache TA KOREKTA NIE OBEJMUJE - druga polowa dowodow nadal
+        lezy w zone_wall_void baszty.
     type: valuable_nonmagical_signet
     identification: partial
     appraisal_status: pending
@@ -536,9 +550,22 @@ items:
           dopiero teraz - to ona dostala od niego dokumenty z garbarni
           (fact_seraphine_received_tannery_evidence). Jest to irytacja o TIMING, nie
           podejrzenie o kradziez, i tyle wolno z tego zrobic.
-      do_not_fire_automatically: 'To ekspozycja, nie zegar. Sygnet lezy w stosie lupu w
-        baszcie i nie wyplynie sam - wyplynie przy wycenie, sprzedazy, zastawie albo
-        przy researchu heraldycznym u kogos, kto zapamietuje.'
+      do_not_fire_automatically:
+        superseded_by: retcon_000137
+        old_text: 'To ekspozycja, nie zegar. Sygnet lezy w stosie lupu w baszcie i nie
+          wyplynie sam - wyplynie przy wycenie, sprzedazy, zastawie albo przy researchu
+          heraldycznym u kogos, kto zapamietuje.'
+        current_text: |
+          JUZ WYPLYNAL - w event_turn_interlude_233, wobec npc_seraphine_vale, i to jest
+          najlagodniejsza z mozliwych wersji tego zdarzenia. Wyplynal wobec osoby, ktora
+          jest wewnatrz ambiwalencji od milestone_022 (fact_seraphine_received_tannery_
+          evidence), wiec the_shield "gildia albo Lucan" stoi nienaruszony, a jedyny koszt
+          to nadal irytacja o timing (jedyny_realny_koszt). ZADNA NOWA EKSPOZYCJA NIE
+          POWSTAJE (retcon_000058) i nie powstaje zaden zegar (retcon_000055).
+          NADAL NIEODPALONE i nadal bez zegara: wycena, sprzedaz, zastaw oraz research
+          heraldyczny u kogos, kto zapamietuje. Trasa wybrana w t_233 celowo omija
+          ostatnie z tych czterech - Seraphine porownuje herb z papierami garbarnika,
+          ktore ma u siebie, a nie przez rejestr gildii.
     research_stake: 'Rzut na heraldyke nie jest juz kosmetyka: nazwisko z tego herbu
       otwiera watek dwoch wlascicieli i - wedlug kierunku zatwierdzonego przez gracza -
       prowadzi do npc_ivar_kolm albo jego pracowni.'

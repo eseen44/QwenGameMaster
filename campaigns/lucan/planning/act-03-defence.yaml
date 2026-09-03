@@ -957,12 +957,24 @@ heraldry_check_route:
     garbarnie z Kolmem. Podal ja jako hipoteze i sam nazwal ja "do sprawdzenia", wiec
     tak zostala zapisana (retcon_000120). Kierunek jest ZATWIERDZONY PRZEZ GRACZA
     od 2026-08-27 - ivar-kolm.yaml#the_act_01_thread.
-  what_did_not_land: |
-    GEST. item_three_arrow_deer_signet ma location container_interlude_loot_pile
-    (loc_city_wall_hideout), a inventory#if_it_surfaces.do_not_fire_automatically mowi
-    wprost, ze sygnet lezy w stosie lupu w baszcie. Przy Lucanie go nie ma, wiec nie mogl
-    go polozyc na blacie. Padl sam opis herbu - jelen przebity trzema strzalami.
-    Tam samo lezy item_tannery_owner_cache (zone_wall_void), czyli druga polowa dowodow.
+  what_did_not_land:
+    superseded_by: retcon_000137
+    old_text: |
+      GEST. item_three_arrow_deer_signet ma location container_interlude_loot_pile
+      (loc_city_wall_hideout), a inventory#if_it_surfaces.do_not_fire_automatically mowi
+      wprost, ze sygnet lezy w stosie lupu w baszcie. Przy Lucanie go nie ma, wiec nie
+      mogl go polozyc na blacie. Padl sam opis herbu - jelen przebity trzema strzalami.
+  what_landed_after_retcon_000137: |
+    GEST ZOSTAL WYKONANY. Gracz nadpisal lokalizacje 2026-09-03: sygnet byl noszony na
+    palcu, zostal zdjety i lezy na biurku Seraphine przy niedokonczonej karcie
+    kontraktowej. NIE ZOSTAL ODDANY - decyzja o zabraniu go z powrotem nalezy do Lucana.
+    CO SIE NIE ZMIENIA: heraldry_recognition nadal attempted_and_failed, wiec nikt w tym
+    pokoju nie umie nazwac rodu, a ivar-kolm.yaml#do_not_invent nadal zabrania
+    wyprodukowania nazwy bez researchu. Trasa sprawdzenia zostaje ta sama - papiery
+    garbarnika u niej, nie rejestr gildii - tylko porownuje sie OBIEKT, nie opis.
+    item_tannery_owner_cache TA KOREKTA NIE OBEJMUJE: rejestr rachunkowy, tabliczka
+    KOMORA III, umowy dostaw i pieczec poprzednika nadal leza w zone_wall_void baszty,
+    trzy kwadranse marszu (t_086). To jest druga polowa dowodow i nadal jest poza miastem.
   the_route_she_chose: |
     NIE przez rejestr gildii i NIE przez trzecia osobe. Podstawa: jej doktryna z t_126
     ("nie liczy sie, czy informacja jest tajna, tylko ILE OSOB MOGLO JA MIEC") oraz
