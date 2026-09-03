@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 226
+revision: 227
 position:
   location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_main_hall
-  formation: followed_lucan_round_the_side_lane_to_the_yard_gate_standing_order_never_revoked
+  zone_id: zone_guild_upper_offices
+  formation: with_lucan_in_seraphines_office_standing_order_never_revoked_corrected_2026_09_03_in_t_235_the_field_still_named_the_yard_gate_from_the_side_lane_turns
 integrity:
   current: 13
   maximum: 13
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 72640
-      hunting_recovery_elapsed_seconds: 72640
+      decay_elapsed_seconds: 73060
+      hunting_recovery_elapsed_seconds: 73060
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -55,7 +55,7 @@ status_flags:
 - death_anchored
 - at_guild_upper_offices_with_lucan
 - decay_suppressed_permanent_event_turn_interlude_177
-last_event_id: event_turn_interlude_234
+last_event_id: event_turn_interlude_235
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559

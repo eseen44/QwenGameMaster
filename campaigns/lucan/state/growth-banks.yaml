@@ -39,9 +39,33 @@ surplus_economy:
     LUCAN JEST OBIEKTEM W SIECI JAK POZOSTALE WEZLY - odbiera rozdzielana nadwyzke bez
     osobnego rozkazu i bez czekania na wlasny sufit. To zamyka dzwignie, ktora t_178
     zostawil otwarta jako "rozkaz niewydany": deklaracja gracza JEST tym rozkazem.
+    DOPRECYZOWANE retconem 000141 - nie jest wezlem ROWNORZEDNYM, jest wezlem
+    PIERWSZYM. Patrz distribution_priority.
   varkhen_excepted: >-
     Varkhen zostaje poza rozdzialem - cztery lacza podtrzymujace to racjonowana struga
     ustawiona przez Lucana (retcon_000113). Nie liczyc mu tego jako zmarnowanej okazji.
+distribution_priority:
+  source: retcon_000141
+  declared_by: player_declaration_2026_09_03
+  rule: >-
+    "Lucan ma prio nad wszystkim innym - to jego siec, nieumarli z kolei najpierw
+    rozwijaja anchory a dopiero pozniej plebs." Kolejnosc jest TWARDA, nie proporcjonalna:
+    nizszy szczebel dostaje dopiero to, czego wyzszy nie przyjmuje.
+  order:
+  - {rank: 1, who: pc_lucan, takes: 'rezerwa do sufitu 15, potem wlasny growth_bank (sufit 7,5 na dobe)'}
+  - {rank: 2, who: 'okazy ZAKOTWICZONE - companion_spidey, spy_beetle_01, spy_hawk_moth_01, webber_anchored', takes: 'zbiornik, potem growth_bank do polowy wlasnej pojemnosci na dobe', ref: campaigns/lucan/planning/anchored-companions.yaml#anchored}
+  - {rank: 3, who: 'pozostale okazy (zuki 02-08, wije, cma, osa, pajaki piwniczne, webber_home/tannery/dump)', takes: reszta}
+  outside_the_ladder: >-
+    Varkhen - racjonowana struga 1,0 na wejsciu / 0,8 na wyjsciu, ustawiona decyzja
+    Lucana (retcon_000113). Nie podlega drabinie i nie liczy sie jako zmarnowana okazja.
+  engine_note: >-
+    Szczebel 1 jest od retcon_000141 naliczany PRZEZ SILNIK, w
+    state/instances/pc-lucan.yaml#resources.lucan_necrotic_energy.regeneration
+    (0,75 na godzine = 0,25 wlasnej regeneracji + 0,50 dowozu z sieci). Szczeble 2 i 3
+    pozostaja rejestrem RECZNYM w tym pliku - runtime nie symuluje foragingu wezlow.
+    Przy naliczaniu banks pamietac, ze dopoki rezerwa Lucana nie stoi przy 15,
+    szczeble 2 i 3 nie dostaja nic.
+
 network_balance:
   generated_per_day: 16.5   # 14.5 + 3.0 od t_180 (trzy pajaki piwniczne wypuszczone) - 1.0 od t_183 (spider_04 zawrocony na posterunek)
   lucan_own_regeneration_per_day: 6.0
@@ -79,4 +103,4 @@ banks:
   - {id: spy_cellar_spider_04, rate_per_day: 0.0, growth_cap_per_day: 1.5, basis: 'ZAWROCONY t_183 na posterunek czujnika przeszukania w pokoju dyzurnym Lucana - posterunek z zadaniem i dostepnym zerem wychodzi na 0,0 na dobe (retcon_000105), wiec stawka spada 1,0 -> 0,0, a generowana nadwyzka sieci 17,5 -> 16,5. Powod: w pokoju leza od t_183 takze papiery z baszty. Do t_183 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_06, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w piwnicy i pustkach scian - zer normalny, z daleka od ludzi, +1,0. Cela i tak stala pusta, odkad Lucan spi na gorze (retcon_000038), wiec ten posterunek kosztowal najmniej. KOREKTA t_178: dawne zdanie w instancji "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia po formule 8 x 1.5^n, skasowanej przez retcon_000024 - trwaly krok kosztuje CZAS PRZY STOLE, nie jednostki z banku.', bank: 0.0, maturity: fresh}
   - {id: companion_spidey, rate_per_day: 1.0, growth_cap_per_day: 6.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj. Stopnia z sadem nie trzeba mu przyznawac: zademonstrowal go w t_133, sam wybierajac stanowisko.', bank: 0.0, maturity: seasoned_by_history}
-  - {id: pc_lucan, rate_per_day: 4.5, growth_cap_per_day: 7.5, basis: 'retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Wlasna czesc nalicza sie dopiero PRZY SUFICIE rezerwy. O 05:35 dnia 4 Lucan ma 14,10/15, a bilans rezerwy to +6,0 regeneracji -3,5 oddawane zukowi +2,0 z rozdzialu sieci = +4,5 na dobe, wiec sufit 15 wypada ok. 10:30. Do tego czasu nadwyzka idzie w napelnienie rezerwy, po tym w rozwoj.'}
+  - {id: pc_lucan, rate_per_day: 14.5, growth_cap_per_day: 7.5, basis: 'PRZELICZONE retconem 000141 - dawne 4,5 na dobe bralo do rozdzialu tylko przelew ponad sufity rozwoju cudzych wezlow (2,5, po stratach ~2,0), a od 03.09.2026 Lucan jest wezlem PIERWSZYM: dopoki rezerwa nie stoi przy 15, idzie w nia 12,0 na dobe dowiezione plus 6,0 wlasnej regeneracji minus 3,5 dla zuka 01 = 14,5 na dobe. Poprzedni zapis: retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Wlasna czesc rozwojowa nalicza sie dopiero PRZY SUFICIE rezerwy. NIEAKTUALNY RACHUNEK Z t_183, ZOSTAWIONY JAKO SLAD: o 05:35 dnia 4 Lucan mial 14,10/15 przy bilansie +4,5 na dobe, wiec sufit wypadal ok. 10:30. STAN NA 18:01 DNIA 4, PO retcon_000141: rezerwa 15,0/15. Wydatki dnia czwartego (rezerwa spadla do 3,97) wrocily, bo przy +14,5 na dobe pelna pula z niecalych czterech jednostek odbudowuje sie w niespelna dwie godziny; zapis 3,97 byl artefaktem tego, ze silnik naliczal wylacznie 0,25 na godzine i nie widzial dowozu z sieci. Od tej pory szczebel 1 drabiny liczy runtime, nie ten plik.'}

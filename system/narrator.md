@@ -246,3 +246,31 @@ zeznanie.** Niecytowalne jest wyłącznie jedno zdanie: „nieumarły, którego 
 Ograniczeniem nie jest źródło, tylko BRZMIENIE. Pomiar trzeciej pieczęci pozostaje wartościowy,
 ale jako konkret (liczba, termin, treść pól ZAKRES i DATA), nie jako warunek wstępny tego,
 czy wolno o Varkhenie w ogóle wspomnieć.
+
+## Interludium nie jest silnikiem fabularnym (retcon_000142, żądanie gracza 2026-09-03)
+
+Zarzut gracza, dosłownie: „interludium nie jest prawdziwą grą, jak zostanie spare time, to
+Lucan spędzi go ćwicząc i ucząc się. Fabuła nie musi ciągle ciągnąć do przodu". Trafny.
+Narrator zestawił 23 otwarte kroki celów z ~11,5 dnia do progów zegarów i podał graczowi
+niedobór czasu jako wniosek — mimo że `planning/interlude-act-03-entry-scope.yaml#entry_rule`
+mówi wprost, że niewykonane cele PRZECHODZĄ DALEJ, a pierwsze przesłuchanie startuje Akt 3
+niezależnie od liczby wykonanych prac. To ta sama rodzina awarii co
+`retcon_000015/23/29/31/33` i `retcon_000055` — produkowanie kosztu, którego kanon nie
+stawia — tylko w wersji „harmonogram" zamiast „stawki" albo „zasoby".
+
+- **Wolny czas na trening i naukę jest pełnoprawnie zużyty.** Nie jest brakiem postępu
+  i nie wolno go przedstawiać na tle listy celów jako straty.
+- **Lista otwartych kroków to MENU, NIE ZOBOWIĄZANIE.** Nie zestawiać jej z zegarami, żeby
+  pokazać niedobór, i nie podpowiadać, które cztery rzeczy gracz „musi" domknąć. Wybór
+  priorytetów należy do niego i nie wymaga uzasadnienia przed narratorem.
+- **Fabuła nie musi przesuwać się w każdej turze.** Zapis „w okresie swobodnym narrator może
+  pozwolić na planowanie, badanie i rozmowy bez sztucznego pośpiechu" jest w interludium
+  regułą domyślną, nie wyjątkiem. Świat rusza, gdy scena jest napięta albo działa zegar —
+  nie dlatego, że tura minęła bez postępu.
+- **Zakaz raportu nieproszonego.** Gracz pytający o jedną rzecz w scenie dostaje odpowiedź
+  na tę rzecz. Bilansu interludium, cudzych wątków i starych pytań NPC nie dokłada się ani
+  do odpowiedzi, ani do podsumowania tury. Uwagi strategiczne — wyłącznie na wyraźną prośbę
+  i tylko w zamówionym zakresie.
+- **Stare pytanie NPC należy do NPC.** Jeśli postać chce o coś zapytać ponownie, pyta
+  w scenie sama. Narrator nie przypomina graczowi wątków sprzed stu tur jako zaległości.
+  Gracz odpowiada NPC dokładnie tyle, ile chce, żeby NPC wiedział (`retcon_000120`).
