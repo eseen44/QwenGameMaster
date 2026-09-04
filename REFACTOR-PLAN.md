@@ -791,9 +791,11 @@ Wykonane: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 - czyli caly szkielet.
 | karta Seraphiny w turze | 60 675 B | 19 404 B (skrot) |
 | martwe odwolania | 0 raportowanych (bialе listy) | 0 realnych, sprawdzone |
 | proza czytana jako klucze null | 91 w 23 plikach | 0 |
-| testy | 55 | 177 |
+| testy | 55 | 205 |
 
-**Otwarte, wymagajace decyzji gracza, nie skryptu:**
+**Otwarte punkty - WSZYSTKIE CZTERY ZAMKNIETE 2026-09-04.** Ponizsza lista zostaje jako zapis tego, co bylo otwarte; rozliczenie kazdego punktu jest pod nia.
+
+**Bylo otwarte, wymagalo decyzji gracza, nie skryptu:**
 1. Dwie karty relacji nieaktualne o 197 i 181 tur (walidator to zglasza). Gracz wybral
    odtworzenie z dziennika z cytowaniem tur - to praca merytoryczna, nie mechaniczna.
 2. spy_wasp_01 na 0/3 przy stawce +1,0/dobe; reczny rejestr growth-banks rozni sie od silnika
@@ -802,3 +804,72 @@ Wykonane: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 - czyli caly szkielet.
    podtrzymana).
 4. Dlug korpusu retconow: 130 timestampow w czasie kampanii, 84 wskazania supersedes
    w nicosc, 20 kotwic na retconach. Raportowane, nieblokujace, zapadka od retcon_000142.
+
+
+### Rozliczenie punktow otwartych, 2026-09-04
+
+**1. Karty relacji - ZAMKNIETE.** Log odtworzony z dziennika: `seraphine--lucan` 10 -> 47
+wpisow, `varkhen--lucan` 0 -> 7, kazdy z cytowaniem konkretnej tury i dowodem z jej tresci.
+Z 50 propozycji adwersarialna weryfikacja obalila 6 (wnioski z ogolnego przebiegu zamiast
+z czynu, ruchy WIEDZY udajace ruchy relacji, odwrocony kierunek), a w 7 skorygowala sile.
+Osie skalibrowane DECYZJA GRACZA (sufit 85, przeliczyc proporcjonalnie) przez
+`tools/calibrate_relationship_axes.py`; cztery reguly kalibracji i uzasadnienie kazdej
+sa w naglowku tego skryptu oraz w `axes_calibration_note` obu kart. Wynik: Seraphine
+85/94/60/47, Varkhen 61/45/25/23. Odwracalne: `raw_delta` na kazdym stlumionym wpisie
+i `axes_raw_reconstruction` z wynikiem surowym. **Wspolczynnik 60% nie jest regula gry** -
+zywe tury wycenia sie w pelnej sile, bo narrator widzi w nich takze odmowy.
+
+**2. Rejestr wzrostu - ZAMKNIETE, ale inaczej niz zapowiadalem, bo TA DIAGNOZA BYLA BLEDNA.**
+Zdanie "reczny rejestr rozni sie od silnika na 21 z 25 pul" opisywalo porownanie dwoch
+ROZNYCH WIELKOSCI: `rate_per_day` w rejestrze to nadwyzka, ktora wezel generuje PONAD wlasne
+utrzymanie (dlatego obok stoja `growth_cap_per_day` do banku i `overflow_per_day` do sieci),
+a reguly `decay`/`hunting_recovery` w instancji opisuja ZBIORNIK, ktory przy obfitym zerze
+stoi na maksimum. Zuk z pelnym zbiornikiem i 0,5 nadwyzki nie byl zadna niespojnoscia.
+Tak samo "5 wezlow bez wpisu w rejestrze": wszystkie piec jest zniszczonych albo martwych,
+wiec ich brak w rejestrze NADWYZKI jest poprawny.
+`spy_wasp_01` na 0/3 byl natomiast bledem realnym i zostal naprawiony osobno
+(`retcon_000146`) - bramka zeru stala na fladze, ktorej osa nie nosila.
+REALNA niespojnosc, ktora wyszla przy tej analizie, to LICZBA NADWYZKI: plik podawal naraz
+14,5 (nota), 16,5 i 17,5 (basis jednego wezla), a suma stawek dawala 20,0. `retcon_000149`
+ustala **16,5 na dobe**, bo 20,0 - 3,5 = 16,5, gdzie 3,5 to zuk 01 ladowany z WLASNEJ rezerwy
+Lucana (`retcon_000141`) - energia policzona po jego stronie, wiec wliczanie jej do nadwyzki
+generowanej przez siec liczy ja dwa razy. `tools/reconcile_growth.py` przepisany z raportu
+na BLOKUJACA kontrole piecu rzeczy sprawdzalnych, wpieta w preflight, z osmioma testami
+pokazujacymi kazda kontrole odrzucajaca i przepuszczajaca.
+
+**3. Sprzecznosc retcon_000009 / retcon_000010 - ZAMKNIETA przez `retcon_000148`.** Konflikt
+byl wezszy, niz go opisywalem: 010 ma jawny punkt (b), ktory utrzymuje 009 w mocy z podanym
+powodem (jego zrodlem jest gracz, nie narrator). Nierozstrzygniety byl ZAKRES - 009 konczy
+sie klauzula "reszta tury 040 pozostaje w mocy" i utrzymuje PIEC rzeczy, a 010 wylicza DWIE
+i osobno zdejmuje cztery fakty oraz przywraca pytanie Seraphiny o poranek jako bez odpowiedzi.
+Ustalone: wyliczenie z 010 jest wyczerpujace, klauzula z 009 niewazna. Zadnego faktu nie
+usunieto; flaga dla gracza mowi, ze przywrocenie pozostalych czterech rzeczy jest jego
+decyzja i wystarczy slowo.
+
+**4. Dlug korpusu - ROZLICZONY przez `retcon_000150`, 7 klas -> 4.** Rozdzielone defekty
+danych od brakow w mierze. Naprawione defekty: osiem retconow 133-140 bez `approved_by`
+(proweniencja nie byla zgubiona - lezala w polu `reason`, wiec wartosc WYPROWADZONO z wlasnej
+tresci wpisu; narzedzie odmawia wypelnienia bez jawnego sladu gracza), cztery retcony 15-18
+z `supersedes` jako napisem. Naprawione braki w mierze: wzor numeru tury wymagal podkreslnika
+PO numerze, a id maja postac `event_turn_interlude_104`, wiec z 235 tur linter widzial 69;
+kotwice do PODKLUCZY sekcji magazynu porownywano tylko z nazwami sekcji z indeksu; `state_refs`
+na katalog albo wzorzec szly jako martwe pliki. Siedem wskazan na tury 039-041 przestalo byc
+liczone jako martwe - retcon cofajacy ture MUSI ja nazwac, a gdyby to wskazanie sie
+rozwiazywalo, znaczyloby, ze cofniecie nie zadzialalo.
+**Martwe wskazania: 86 na starcie audytu -> 2**, oba z metryka: `unassigned_servants_risk`
+zostala uchylona i przemianowana w t_103 na `unassigned_servants_housekeeping` (zapisuje to
+sam plik nastepcy), a `syndicate_offer_the_permit` nie istniala NIGDY - `git grep` po calej
+historii repo znajduje ten klucz wylacznie w `retcons.jsonl`, takze w wersji sprzed rozbicia
+magazynu, wiec rozbicie jest tu bez winy.
+Zostaje jako swiadomy dlug: 130 timestampow w czasie kampanii (nieodtwarzalne - nie da sie
+zgadnac realnej godziny sprzed dwoch tygodni), 6 powtorzonych timestampow, 20 kotwic na
+retconach (konwencja: 17 z 21 parafrazuje klauzule, wiec kontrola "czy te slowa sa w celu"
+dalaby 17 falszywych alarmow) i 2 opisane wyzej martwe wskazania.
+
+**Nowe zapadki z tego przejscia:** `timestamp_w_przyszlosci` i `timestamp_nierosnacy` sa
+BLOKUJACE dla nowych retconow - `retcon_000147` mial 16:40 przy zegarze 16:00, wpisany z reki
+i zmyslony, przez co nastepny wpis z realnym odczytem wygladal na cofniety.
+
+**Wniosek metodyczny, wart wiecej niz ktorykolwiek pojedynczy fix:** trzy z czterech "dlugow",
+ktore raportowalem w tym etapie, byly bledami MIARY, nie danych. Przed zgloszeniem dlugu
+sprawdz, czy miara mierzy to, co obiecuje jej nazwa.
