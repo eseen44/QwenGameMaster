@@ -822,21 +822,32 @@ def apply_operation(
         return
 
     if op == "change_relationship":
+        # npc_id jest skrotem uzywanym w praktyce ("nastawienie tego NPC do Lucana").
+        # Do 2026-09-04 handler czytal wylacznie subject_id/target_id, wiec tura 083
+        # zapisala npc_id: npc_hesk_dorn, a do pliku wpadl rekord NIKT WOBEC NIKOGO
+        # ze score 25 i reason null - nazwisko zniknelo bez sladu i bez bledu.
+        subject_id = operation.get("subject_id") or operation.get("npc_id")
+        target_id = operation.get("target_id") or ("pc_lucan" if operation.get("npc_id") else None)
+        if not subject_id or not target_id:
+            raise RuntimeError(
+                "change_relationship wymaga subject_id i target_id albo skrotu npc_id; "
+                f"otrzymano {sorted(k for k in operation if k != 'op')}"
+            )
         reputations_path = campaign_root / "state" / "reputations.yaml"
         reputations = load_mutable(campaign_root, changed, reputations_path)
         attitudes = reputations.setdefault("attitudes", [])
         relation = next(
             (
                 item for item in attitudes
-                if item.get("subject_id") == operation.get("subject_id")
-                and item.get("target_id") == operation.get("target_id")
+                if item.get("subject_id") == subject_id
+                and item.get("target_id") == target_id
             ),
             None,
         )
         if relation is None:
             relation = {
-                "subject_id": operation.get("subject_id"),
-                "target_id": operation.get("target_id"),
+                "subject_id": subject_id,
+                "target_id": target_id,
                 "score": 0,
                 "history": [],
             }
@@ -1565,14 +1576,31 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             entity = load_yaml(entity_path)
             entity_ref = project_ref(entity_path)
             participant_refs.append(entity_ref)
-            participants.append(
-                {
-                    "id": participant_id,
-                    "name": entity.get("name"),
-                    "role": entity.get("role"),
-                    "entity_ref": entity_ref,
-                }
-            )
+            digest = {
+                "id": participant_id,
+                "name": entity.get("name"),
+                "role": entity.get("role"),
+                "entity_ref": entity_ref,
+            }
+            # Karta relacji i swiezosc obu kart. Do 2026-09-04 brief nie wypisywal ani
+            # relationship_ref, ani stanu swiezosci, wiec najgestszy zapis "co ta postac
+            # o Lucanie mysli" (relationships/*.yaml, osie i axis_change_log) nie trafial
+            # do narratora ani razu - karta seraphine--lucan.yaml stala 197 tur w tyle.
+            relationship_ref = entity.get("relationship_ref")
+            if isinstance(relationship_ref, str):
+                digest["relationship_ref"] = relationship_ref
+                relationship_path = campaign_root.parent.parent / relationship_ref
+                if relationship_path.exists():
+                    relationship = load_yaml(relationship_path)
+                    digest["relationship_last_event_id"] = relationship.get("last_event_id")
+                else:
+                    digest["relationship_missing"] = True
+            lifecycle = entity.get("lifecycle")
+            if isinstance(lifecycle, dict):
+                digest["card_last_confirmed_event_id"] = lifecycle.get("last_confirmed_event_id")
+            else:
+                digest["card_has_no_lifecycle"] = True
+            participants.append(digest)
             continue
         participants.append({"id": participant_id, "missing_card": True})
 

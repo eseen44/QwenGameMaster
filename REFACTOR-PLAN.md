@@ -502,3 +502,46 @@ Trzy „nieredukowalne" tryby, które plan wskazuje (brudny wybór, cechy mowy, 
 ---
 
 **Plan naprawia realną, mierzalną i pilną przyczynę — utratę i niewidzialność treści oraz kłamiące przyrządy — ale nie tę, dla której użytkownik mówi „to źle działa": w 140 ostatnich turach światu nie pogorszyło się ani razu, kod ma na to funkcję z docstringiem „Prevent narrator-created resistance", rejestr relacji stoi na turze 38, a brief nie mówi narratorowi, czego chce postać przed nim — i żaden z 14 etapów tego nie dotyka.**
+
+## Ustalenia z wykonania etapu 1 i 2 (2026-09-04)
+
+**Kolejnosc wymuszona empirycznie: etap 3 (proza-jako-klucze) MUSI poprzedzic kazda migracje
+YAML.** Przy dopisywaniu bloku `lifecycle` do `entities/npcs/varkhen.yaml` przez round-trip
+ruamela cztery wartosci `claim` - nieujete w cudzyslowy, z przecinkami i dwukropkami w tresci -
+zostaly przy zapisie przeparsowane na zagniezdzone mapy z wartoscia `null`. Czyli round-trip
+NIE JEST bezpieczny na tych plikach i sam produkuje dokladnie te awarie, ktora etap 3 naprawia.
+Plik cofnieto przez `git checkout`, blok dopisano edycja tekstowa.
+Wniosek dla wszystkich skryptow migracyjnych: dopoki etap 3 nie przejdzie, pliki kampanii
+zmieniac WYLACZNIE tekstowo, a po kazdym zapisie sprawdzac `yaml.safe_load` oraz liczbe
+wpisow w `knowledge.confirmed`. `state/reputations.yaml` przeszedl round-trip bez szkody,
+bo nie ma w nim prozy z przecinkami - to nie jest kontrprzyklad, to zbieg okolicznosci.
+
+**Korekta znaleziska o utraconym dzienniku.** Audyt twierdzil, ze usunieto 12 wpisow i ze
+liczba osiagalnych tur wzrosnie z 235 do 247. Sprawdzone niezaleznie: zaden identyfikator nie
+przepadl, dziennik ma wszystkie 235. Z szesciu commitow usuwajacych linie piec bylo
+przepisaniem tej samej tresci (94ae520 przepisal 86 wpisow bez zmiany bajtu po normalizacji
+kolejnosci kluczy). Tylko w gicie zostala PIERWOTNA PROZA jedenastu wersji wpisow i dwunastu
+plikow transakcji - i to jest zarchiwizowane.
+
+**Zapora dziennika przeszla na zielono przy dwoch oczywistych naruszeniach**, zanim zostala
+przebudowana: usuniety wpis dodany w ostatnim commicie i podmieniona tresc wpisu
+niezmienionego w danym commicie. Przyczyna: porownywanie wylacznie par (commit^, commit).
+To ta sama awaria co `walidator-satysfakcjonowalny-przez-konstrukcje`, popelniona przy pisaniu
+narzedzia, ktore ma jej zapobiegac. Kazda nowa bramka w etapach 4-12 wymaga testu, ktory
+pokazuje ja ZAPALONA NA CZERWONO - nie wystarczy test, ze przechodzi na czystym repo.
+
+**Etap 2 czesciowo wykonany** (naprawa czytnikow relacji, nie recall):
+- `change_relationship` przyjmuje skrot `npc_id` i ODMAWIA zapisu bez tozsamosci. Rekord
+  "nikt wobec nikogo" z tury 083 naprawiony na npc_hesk_dorn -> pc_lucan.
+- `brief` wypisuje `relationship_ref`, `relationship_last_event_id` i
+  `card_last_confirmed_event_id` dla kazdego uczestnika sceny - do tej pory najgestszy zapis
+  "co ta postac o Lucanie mysli" nie trafial do narratora ani razu.
+- `validate_project` sprawdza swiezosc kart WYLACZNIE dla postaci stojacych w scenie (prog
+  20 tur), zeby walidator nie swiecil na czerwono bez przerwy i zeby stan sam sie czyscil.
+- Karta Varkhena dostala brakujacy blok `lifecycle`.
+
+**Otwarte po tym etapie, do zrobienia jako pierwsze przy nastepnym wejsciu:** dwie karty
+relacji sa realnie nieaktualne (Seraphine 197 tur, Varkhen 181) i walidator to teraz zglasza.
+Uzupelnienie ich jest praca merytoryczna, nie mechaniczna: osie i `axis_change_log` trzeba
+odtworzyc z dziennika, cytujac konkretne zdarzenia, i NIE WOLNO ich wymyslic. Material jest
+w kartach NPC (aktualnych) oraz w turach 224-235.

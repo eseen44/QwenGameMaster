@@ -508,6 +508,97 @@ def validate_runtime(errors: list[str]) -> None:
                 errors.append(f"RUNTIME: invalid transaction status in {path.relative_to(ROOT)}")
 
 
+def turn_number(event_id: object) -> int | None:
+    """Numer tury z identyfikatora zdarzenia, np. event_turn_interlude_233 -> 233."""
+    if not isinstance(event_id, str):
+        return None
+    digits = ""
+    for chunk in event_id.replace("-", "_").split("_"):
+        if chunk.isdigit():
+            digits = chunk
+    return int(digits) if digits else None
+
+
+def validate_scene_card_freshness(errors: list[str]) -> None:
+    """Karty postaci STOJACYCH W SCENIE musza byc mniej niz 20 tur w tyle.
+
+    To jest udokumentowany tryb awarii retcon_000121: wpis w knowledge.confirmed jest
+    ZDARZENIEM, nie stanem biezacym, wiec karta konczaca sie dawno przed biezaca tura zostaje
+    przeczytana jako aktualna. Regula stala w narrator.md i powtorzyla sie mimo tego.
+    Kontrola dotyczy WYLACZNIE uczestnikow biezacej sceny - te karty beda czytane w tej turze,
+    a stan sam sie czysci po dopisaniu faktu. Reszta kart jest raportowana jako uwaga przez
+    brief, nie jako blad, zeby walidator nie swiecil na czerwono bez przerwy.
+    """
+    PROG = 20
+    try:
+        scene = yaml.safe_load((ROOT / "campaigns/lucan/context/scene.yaml").read_text(encoding="utf-8-sig"))
+        npc_index = yaml.safe_load((ROOT / "campaigns/lucan/entities/npcs/index.yaml").read_text(encoding="utf-8-sig"))
+    except (OSError, UnicodeDecodeError, yaml.YAMLError) as exc:
+        errors.append(f"FRESHNESS: {exc}")
+        return
+    if not isinstance(scene, dict) or not isinstance(npc_index, dict):
+        return
+    current = turn_number(scene.get("last_event_id"))
+    if current is None:
+        return
+
+    by_id: dict[str, str] = {}
+    for item in npc_index.get("entities") or npc_index.get("entries") or []:
+        if isinstance(item, dict) and item.get("id") and item.get("ref"):
+            by_id[item["id"]] = item["ref"]
+
+    for participant in scene.get("participants") or []:
+        npc_id = participant if isinstance(participant, str) else participant.get("id")
+        ref = by_id.get(npc_id)
+        if not ref:
+            continue
+        card_path = ROOT / ref
+        if not card_path.exists():
+            errors.append(f"FRESHNESS: {npc_id} wskazuje na brakujaca karte {ref}")
+            continue
+        try:
+            card = yaml.safe_load(card_path.read_text(encoding="utf-8-sig"))
+        except (UnicodeDecodeError, yaml.YAMLError) as exc:
+            errors.append(f"FRESHNESS: {ref}: {exc}")
+            continue
+        if not isinstance(card, dict):
+            continue
+
+        lifecycle = card.get("lifecycle")
+        if not isinstance(lifecycle, dict):
+            errors.append(
+                f"FRESHNESS: {npc_id} stoi w scenie, a jego karta nie ma bloku lifecycle - "
+                f"nie da sie stwierdzic, czy jest aktualna ({ref})"
+            )
+        else:
+            seen = turn_number(lifecycle.get("last_confirmed_event_id"))
+            if seen is not None and current - seen > PROG:
+                errors.append(
+                    f"FRESHNESS: {npc_id} stoi w scenie, a jego karta konczy sie na turze {seen} "
+                    f"przy biezacej {current} ({current - seen} tur w tyle, prog {PROG}) - "
+                    f"traktowac jako niekompletna albo dopisac fakty ({ref})"
+                )
+
+        relationship_ref = card.get("relationship_ref")
+        if isinstance(relationship_ref, str):
+            relationship_path = ROOT / relationship_ref
+            if not relationship_path.exists():
+                errors.append(f"FRESHNESS: {npc_id} wskazuje na brakujaca karte relacji {relationship_ref}")
+                continue
+            try:
+                relationship = yaml.safe_load(relationship_path.read_text(encoding="utf-8-sig"))
+            except (UnicodeDecodeError, yaml.YAMLError) as exc:
+                errors.append(f"FRESHNESS: {relationship_ref}: {exc}")
+                continue
+            seen = turn_number((relationship or {}).get("last_event_id"))
+            if seen is not None and current - seen > PROG:
+                errors.append(
+                    f"FRESHNESS: relacja {npc_id} z Lucanem stoi na turze {seen} przy biezacej "
+                    f"{current} ({current - seen} tur w tyle) - osie i axis_change_log sa "
+                    f"nieaktualne ({relationship_ref})"
+                )
+
+
 def validate_journal_guard(errors: list[str]) -> None:
     """Kanon dziennika nie moze ginac przy cofaniu tury.
 
@@ -581,6 +672,7 @@ def main() -> int:
     validate_migration(errors)
     validate_mechanics(errors)
     validate_runtime(errors)
+    validate_scene_card_freshness(errors)
     validate_journal_guard(errors)
 
     if errors:

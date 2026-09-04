@@ -8,10 +8,11 @@ reputations:
   source_event_id: milestone_022_owner_exposed_and_detained
 relationship_index_ref: campaigns/lucan/relationships/index.yaml
 attitudes:
-- subject_id: null
-  target_id: null
+- subject_id: npc_hesk_dorn
+  target_id: pc_lucan
   score: 25
   history:
   - delta: 25
-    reason: null
+    reason: Zakup skrzyni u pasera - odtworzone z transakcji tury 083; operacja nie przekazywala pola reason.
     event_id: event_turn_interlude_083
+  repaired_by: 'retcon_000143 - handler change_relationship czytal wylacznie subject_id/target_id, a tura 083 zapisala npc_id: npc_hesk_dorn, wiec nazwisko zostalo cicho odrzucone. Tozsamosc odtworzona z journal/transactions/turn_interlude_083.yaml:89-91.'
