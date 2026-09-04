@@ -1237,9 +1237,28 @@ def context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
     return list(dict.fromkeys(refs))
 
 
-def ref_path(ref: str) -> Path:
+def ref_path(ref: str, campaign_root: Path | None = None) -> Path:
+    """Rozwiazuje ref do sciezki, probujac obu konwencji uzywanych w repo.
+
+    context/active.yaml MIESZA dwie konwencje: czesc refow jest wzgledem korzenia repo
+    ("system/tests.md", "campaigns/lucan/state/secrets.yaml"), a czesc wzgledem kampanii
+    ("planning/act-03-defence.yaml"). Do 2026-09-04 rozwiazywany byl tylko pierwszy
+    wariant, wiec plik deklarowany jako OBOWIAZKOWY w kazdej turze planowania - 78 517 B,
+    czyli 1,92 budzetu - byl dla licznika kontekstu NIEWIDZIALNY i zglaszal sie jako brak.
+    Zwracamy pierwszy wariant, ktory istnieje; gdy zaden, zwracamy wersje od korzenia repo,
+    zeby komunikat o braku wskazywal sensowna sciezke.
+    """
     path = Path(ref)
-    return path if path.is_absolute() else ROOT / path
+    if path.is_absolute():
+        return path
+    kandydaci = [ROOT / path]
+    for root in (campaign_root, ROOT / "campaigns" / "lucan"):
+        if root is not None:
+            kandydaci.append(root / path)
+    for kandydat in kandydaci:
+        if kandydat.exists():
+            return kandydat
+    return kandydaci[0]
 
 
 def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> dict[str, Any]:
@@ -1277,6 +1296,38 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     result["last_refreshed_event_id"] = scene.get("last_event_id")
     result["context_bytes"] = total
     result["context_budget_bytes"] = CONTEXT_BUDGET_BYTES
+    # UCZCIWA KSIEGOWOSC (etap 6). context_bytes liczy always_load + active_refs i tyle -
+    # a tura widzi wiecej: AGENTS.md (wymieniony przez brief jako regula), karty NPC
+    # stojacych w scenie (zmierzone 68 KB) i wybrany zbior load_when_*. Licznik pokazywal
+    # 54 451 B przy realnej turze planowania wazacej ponad 160 000 B, czyli mierzyl
+    # mniejsza czesc tury. context_bytes zostaje BEZ ZMIANY SEMANTYKI, bo na nim stoi
+    # dzialajaca bramka walidatora; prawda dochodzi obok, jako rozbicie.
+    cards = participant_card_refs(campaign_root, scene)
+    card_sizes = {ref: ref_size(ref) or 0 for ref in cards}
+    agents_size = ref_size("AGENTS.md") or 0
+    sets = conditional_sets(active)
+    result["conditional_sets"] = {
+        tag: {"refs": entries, "bytes": sum(e.get("bytes", 0) for e in entries)}
+        for tag, entries in sets.items()
+    }
+    result["context_breakdown"] = {
+        "rules_always": agents_size + sum(
+            ref_size(ref) or 0 for ref in active.get("always_load", [])),
+        "state_active": sum(sizes.get(ref, 0) for ref in refs),
+        "participant_cards": sum(card_sizes.values()),
+        "conditional_heaviest": max(
+            ((tag, sum(e.get("bytes", 0) for e in entries)) for tag, entries in sets.items()),
+            key=lambda item: item[1], default=("", 0))[1],
+    }
+    breakdown = result["context_breakdown"]
+    result["context_total_bytes"] = (
+        breakdown["rules_always"] + breakdown["state_active"] + breakdown["participant_cards"])
+    if result["context_total_bytes"] > CONTEXT_BUDGET_BYTES:
+        # Informacyjnie, NIE jako bramka: gdyby to blokowalo, walidator swiecilby na
+        # czerwono bez przerwy i zostalby zignorowany. Bramka zostaje na context_bytes,
+        # ktore da sie realnie zmniejszyc odchudzeniem active_refs i always_load.
+        warnings.append(
+            f"total_informational:{result['context_total_bytes']}>{CONTEXT_BUDGET_BYTES}")
     result["context_warnings"] = warnings
     # Naming the heaviest refs turns "over budget" into an actionable list.
     result["heaviest_refs"] = [
@@ -1288,6 +1339,101 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     if strict and warnings:
         raise RuntimeError("; ".join(warnings))
     return result
+
+
+def ref_size(ref: str) -> int | None:
+    path = ref_path(ref)
+    return path.stat().st_size if path.exists() else None
+
+
+def conditional_sets(active: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    """Zbiory load_when_* z rozmiarami. Etap 6.
+
+    Do 2026-09-04 te szesc kluczy bylo martwym pasazerem: refresh_context przepisywalo je
+    przez copy.deepcopy i ZADNA linia kodu ich nie czytala, wiec warunkowe wczytywanie
+    istnialo wylacznie jako dobra wola narratora - i SKILL-gramy.md zapisuje juz awarie
+    tego mechanizmu. Teraz sa rozwiazywane, wazone i wypisywane, a `context plan --tag`
+    zwraca dokladna liste plikow na dana ture.
+    """
+    out: dict[str, list[dict[str, Any]]] = {}
+    for key, refs in active.items():
+        if not key.startswith("load_when_") or not isinstance(refs, list):
+            continue
+        entries = []
+        for ref in refs:
+            if not isinstance(ref, str):
+                continue
+            size = ref_size(ref)
+            entry: dict[str, Any] = {"ref": ref}
+            if size is None:
+                entry["missing"] = True
+            else:
+                entry["bytes"] = size
+            entries.append(entry)
+        out[key[len("load_when_"):]] = entries
+    return out
+
+
+def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
+    """Dokladna lista plikow na ture o podanych tagach sytuacji. Etap 6.
+
+    To jest wykonawcza czesc load_when_*: narrator pyta o liste, dostaje liste i sume
+    bajtow, zamiast pamietac, ktory klucz dotyczy tej tury.
+    """
+    active = load_yaml(campaign_root / "context" / "active.yaml")
+    scene = scene_document(campaign_root)
+    sets = conditional_sets(active)
+    unknown = [tag for tag in tags if tag not in sets]
+
+    base = ["AGENTS.md"] + list(active.get("always_load", [])) + context_refs(campaign_root, scene)
+    participants = participant_card_refs(campaign_root, scene)
+    chosen: list[str] = []
+    for tag in tags:
+        for entry in sets.get(tag, []):
+            if entry.get("ref") not in chosen:
+                chosen.append(entry["ref"])
+
+    def weigh(refs: list[str]) -> tuple[list[dict[str, Any]], int]:
+        rows, total = [], 0
+        for ref in dict.fromkeys(refs):
+            size = ref_size(ref)
+            rows.append({"ref": ref, "bytes": size} if size is not None else {"ref": ref, "missing": True})
+            total += size or 0
+        return rows, total
+
+    base_rows, base_total = weigh(base)
+    card_rows, card_total = weigh(participants)
+    cond_rows, cond_total = weigh(chosen)
+    grand = base_total + card_total + cond_total
+    return {
+        "tags": tags,
+        "unknown_tags": unknown,
+        "available_tags": sorted(sets),
+        "base": base_rows,
+        "participant_cards": card_rows,
+        "conditional": cond_rows,
+        "bytes": {
+            "base": base_total,
+            "participant_cards": card_total,
+            "conditional": cond_total,
+            "total": grand,
+            "budget": CONTEXT_BUDGET_BYTES,
+            "over_budget_by": max(0, grand - CONTEXT_BUDGET_BYTES),
+        },
+    }
+
+
+def participant_card_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
+    """Karty NPC stojacych w scenie. Licznik kontekstu ich nie widzial, a to 68 KB."""
+    refs: list[str] = []
+    for participant in scene.get("participants", []):
+        pid = participant.get("id") if isinstance(participant, dict) else participant
+        if not isinstance(pid, str):
+            continue
+        path = find_named_entity_path(campaign_root, pid)
+        if path is not None and path.exists():
+            refs.append(project_ref(path))
+    return refs
 
 
 def recall(campaign_root: Path, query: str, limit: int) -> dict[str, Any]:
@@ -1957,6 +2103,13 @@ def build_parser() -> argparse.ArgumentParser:
     add_campaign_root(refresh)
     add_verbose(refresh)
 
+    plan = context_commands.add_parser(
+        "plan", help="Dokladna lista plikow na ture o podanych tagach sytuacji (etap 6)")
+    plan.add_argument("--tag", action="append", default=[],
+                      help="tag sytuacji, np. testing, choosing_a_plan, time_matters")
+    add_campaign_root(plan)
+    add_verbose(plan)
+
     recall_command = commands.add_parser("recall")
     recall_command.add_argument("query")
     recall_command.add_argument("--limit", type=int, default=10)
@@ -2011,11 +2164,14 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "brief":
             result = session_brief(campaign_root, args.full)
         elif args.command == "context":
-            result = refresh_context(
-                campaign_root, write=not args.dry_run, strict=args.strict
-            )
-            if not verbose:
-                result = context_summary(result)
+            if args.context_command == "plan":
+                result = context_plan(campaign_root, args.tag)
+            else:
+                result = refresh_context(
+                    campaign_root, write=not args.dry_run, strict=args.strict
+                )
+                if not verbose:
+                    result = context_summary(result)
         elif args.command == "recall":
             result = recall(campaign_root, args.query, args.limit)
         elif args.command == "scene":

@@ -1,0 +1,118 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_evening_departure_for_the_third_seal
+object_type: scene_snapshot
+closed_at: '2026-09-04T13:15:40+02:00'
+summary: 'Koniec rozmowy w gabinecie Seraphine, czwarty dzien interludium, 17:54-18:01.
+  Lucan zapytal o magow bojowych w gildii i dostal odpowiedz, ze gildia najmuje ekipy,
+  a nie trzyma kadry - za to Seraphine zaoferowala wlasne rzemioslo: odczyt tego,
+  co zarejestrowala w t_038, gdy rzucil wzmocnionego znika cztery kroki od niej. Cene
+  nazwala sama, raz: antymagiczka pokazujaca nekromancie, co widzi, oddaje mu sposob
+  ukrycia sie przed soba. Ruska odlozyl jako nie swoj problem; ona nie wycenila tego
+  drugi raz, podala natomiast fakt operacyjny - pioro jest wygaszone jej reka, wiec
+  Rusk pisze dalej, a to, co napisze, i pisma urzednika magistratu maja jeden przedmiot:
+  obsade operacji w garbarni z nazwiskiem Lucana. W sprawie urzednika ma NEGATYW:
+  sprawdzila i nie znalazla niczego, kanal magistratu jest calkowicie niezalezny od
+  niej, nazwiska nie ma, bo odmowila jego przyjecia w t_122 - i zapytala raz, czy
+  chce, zeby je teraz miala. Varkhen wstal na pytanie idziemy i odpowiedzial ze slownika
+  przysiegi. NIKT NIE WYSZEDL: wlasny plan Lucana z t_230 mowi NOCA, a jest 18:01.
+  Otwarte i nieodebrane: nazwisko urzednika oraz lekcja z drugiej strony pieczeci.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_evening_departure_for_the_third_seal
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-19T17:54:40+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  participants_note: 'npc_seraphine_vale DOPISANA 2026-09-03 w t_235. scene close
+    po t_234 otworzyl te scene bez niej, mimo ze pc-lucan.yaml#position trzyma Lucana
+    w zone_guild_upper_offices, czyli w JEJ gabinecie, a gracz mowil do niej wprost
+    ("bez twojego udzialu"). To ta sama pulapka, przed ktora ostrzega playbook i participants_note
+    w snapshocie poprzedniej sceny: niepelne participants NIE dowodza, ze Lucan jest
+    sam. Rozmowa trwa - nikt jeszcze nie wyszedl z gabinetu.'
+  pressures: []
+  immediate_facts:
+  - 'Na biurku Seraphine nadal leza dwie rzeczy: niedokonczona karta kontraktowa na
+    zbrojny zakon (ZAKRES i DATA puste, w szufladzie od t_233) oraz item_three_arrow_deer_signet,
+    zdjety z palca Lucana i zostawiony do porownania z papierami garbarnika (retcon_000137).
+    Rodu z herbu nikt nie odczytal.'
+  - 'Otwarte i niepodjete od t_235: pytanie Seraphine, czy Lucan chce jej teraz podac
+    nazwisko urzednika magistratu (odmowila przyjecia go w t_122), oraz jej oferta
+    pokazania, co dokladnie zarejestrowala w t_038 jako antymagiczna kontrolerka.'
+  immediate_questions:
+  - 'Lucan stoi przy drzwiach gabinetu, Varkhen wstal. Do zmierzchu jest jeszcze kilka
+    godzin, a wlasny plan Lucana brzmial: noca. Wychodzicie teraz, za dnia, i bierzecie
+    na siebie to, ze dwumetrowy dragal w plaszczu przejdzie przez sale gildii i pol
+    miasta przy swiadkach - czy Lucan czeka na ciemnosc, a jesli tak, to gdzie i czym
+    te godziny zapelnia (pytanie Seraphine o nazwisko urzednika stoi otwarte, jej
+    oferta pokazania odczytu z t_038 tez)?'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_235
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_late_afternoon_guild_reception.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Lucan stoi przy drzwiach gabinetu, Varkhen wstal. Do zmierzchu jest jeszcze kilka
+    godzin, a wlasny plan Lucana brzmial: noca. Wychodzicie teraz, za dnia, i bierzecie
+    na siebie to, ze dwumetrowy dragal w plaszczu przejdzie przez sale gildii i pol
+    miasta przy swiadkach - czy Lucan czeka na ciemnosc, a jesli tak, to gdzie i czym
+    te godziny zapelnia (pytanie Seraphine o nazwisko urzednika stoi otwarte, jej
+    oferta pokazania odczytu z t_038 tez)?'
+  last_refreshed_event_id: event_turn_interlude_235
+  context_bytes: 54451
+  context_budget_bytes: 40960
+  context_warnings:
+  - over_budget:54451>40960
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 18796
+  - ref: campaigns/lucan/state/obligations.yaml
+    bytes: 5704
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5503
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4303
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877
