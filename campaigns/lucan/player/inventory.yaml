@@ -48,8 +48,18 @@ containers:
       dwie odbitki akademickie, tom biblioteczny z sygnatura). location: guild_duty_room.
       Czujnik przeszukania wrocil w tej samej turze.
   - id: container_guild_cellar_cell
-    location_ref: loc_lumaria_adventurers_guild
-    zone_id: zone_guild_cellar
+    location_ref: loc_lumaria_guild_basement
+    zone_id: zone_temporary_holding
+    zone_correction:
+      by: audyt_odwolan_2026_09_04
+      text: >-
+        BYLO location_ref: loc_lumaria_adventurers_guild i zone_id: zone_guild_cellar.
+        Strefa o tej nazwie NIE ISTNIEJE w zadnym pliku lokacji - piwnica jest osobna
+        lokacja (loc_lumaria_guild_basement), a cela po Varkhenie to
+        zone_temporary_holding, opisana tam wprost jako "KWATERA LUCANA od
+        turn_interlude_072". Poprawiony wylacznie wskaznik; zawartosc kontenera
+        i jego historia bez zmian. Wylapane, gdy audit_refs.py przestal przepuszczac
+        wlasne biale listy.
     security: lucans_own_cell_empty_since_he_sleeps_upstairs
     note: >-
       Cela po Varkhenie w piwnicy gildii - formalnie Lucana, ale nie sypia tam do konca

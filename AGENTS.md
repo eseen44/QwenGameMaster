@@ -119,3 +119,19 @@ merytorycznej, a walidator swiecacy na czerwono bez przerwy jest ignorowany.
 - Jeżeli `campaigns/lucan/migration/migration.yaml` ma status zaczynający się od `blocked`, kampania nie jest gotowa do wznowienia.
 - Podczas zwykłej tury nigdy nie wczytuj `migration/sources/` ani `migration/noncanonical/`.
 - Pojedynczy zatwierdzony pakiet migracyjny nie jest kanonem. Aktywacja następuje dopiero atomowo po zatwierdzeniu wszystkich bieżących rewizji.
+## Gdzie szukac reguly
+
+Retcon jest zrodlem kanonu nr 1, a 107 z 144 wpisow zawiera klauzule normatywna - czyli
+dziennik retconow jest de facto drugim, wiekszym plikiem regul. 51 z tych klauzul nie mialo
+odpowiednika w zadnym pliku regul.
+
+- `system/retcon-rules-index.md` - GENEROWANY indeks regul z korpusu, po jednej linii.
+  Jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Przebudowa:
+  `python tools/build_rules_index.py`. Nie edytuj go recznie.
+- Pelna tresc reguly: linia w `campaigns/lucan/journal/retcons.jsonl` albo
+  `gm recall <fraza>` - od 2026-09-04 recall stawia retcony na pierwszym miejscu wynikow
+  i miesza je z dziennikiem, zamiast zwracac wylacznie najstarsze tury.
+- Nowy retcon musi przejsc `python tools/retcon_lint.py --new-only`. Wpisy do
+  retcon_000142 sa dlugiem historycznym - raportowanym, nigdy blokujacym. Podniesienie
+  baseline w tym skrypcie jest cofnieciem zapadki; rob to wylacznie po splaceniu dlugu.
+

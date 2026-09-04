@@ -97,6 +97,8 @@ CHECKS = [
     ("zapora dziennika", [sys.executable, "tools/journal_guard.py", "--quiet"], 180, True),
     ("proza jako klucze null", prose_keys_check, 180, True),
     ("sieroce odwolania", [sys.executable, "tools/audit_refs.py"], 180, False),
+    ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
+    ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
 ]
 
 FULL_CHECKS = [
@@ -120,6 +122,13 @@ def main() -> int:
         # najwiecej czasu (przechodzi cala historie gita).
         staged = staged_files()
         checks = [("proza jako klucze null", lambda: prose_keys_check(staged), 60, True)]
+        if any("retcons.jsonl" in path.as_posix() for path in staged):
+            # Nowy retcon musi przejsc linter, a indeks regul musi byc przebudowany -
+            # inaczej regula znow zyje wylacznie w dzienniku, ktorego nikt nie czyta.
+            checks += [
+                ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
+                ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
+            ]
         if journal_touched(staged):
             checks.insert(0, ("zapora dziennika",
                               [sys.executable, "tools/journal_guard.py", "--quiet"], 180, True))
