@@ -1,0 +1,74 @@
+schema_version: 1
+id: npc_lucan_former_promoter
+name: Profesor Beatrix Witte
+status: needs_review
+importance: established_academy_power_not_scheduled_for_current_interlude_or_act_03_opening
+role: Kierowniczka Katedry Anatomii Magicznej i Biochemii Stosowanej Akademii Magii Lumarii; formalna
+  promotorka i osoba, która instytucjonalnie oceniła samodzielny wkład Lucana w prace prowadzone z jego
+  ojcem.
+lifecycle:
+  state: alive_confirmed_by_player
+  last_confirmed_event_id: retcon_000076
+current_location_id: loc_lumaria_magical_academy
+portrayal:
+  performance_reference: Betty White
+  tone: razor_sharp_cynical_grandmotherly
+  core: Siwiejąca, zgryźliwa i menopauzalna kobieta około pięćdziesiątki, w pełni sił oraz w szczycie
+    realnej władzy. Ma babcine ciepło, które nigdy nie zmiękcza ostrza. Potrafi podać herbatę, poprawić
+    kołnierz i w tym samym zdaniu rozebrać cudzą karierę na czynniki pierwsze. Cynizm jest wynikiem długiego
+    życia w Akademii, nie pozą ani automatyczną wrogością.
+  voice:
+    rhythm: krótkie celne uwagi, pogodny ton, bezlitosna puenta
+    social_method: Mówi rzeczy brutalne tak, jakby przekazywała użyteczną poradę wnukowi. Nie podnosi
+      głosu, bo nie musi. Częściej kompromituje rozmówcę jednym trafnym pytaniem niż wykładem.
+    forbidden_flattening:
+    - Nie robić z niej dobrotliwej staruszki, której cynizm jest tylko dekoracją.
+    - Nie robić z niej kopii Seraphine; nie myśli procedurą ani jurysdykcją, tylko ludźmi, dorobkiem,
+      próżnością i tym, kto naprawdę wykonał pracę.
+    - Nie robić z niej automatycznej obrończyni Lucana ani wszechwiedzącej babci.
+    - Nie postarzać jej do emerytki. Jest rówieśniczką ojca Lucana i nadal trzęsie budynkiem.
+  old_attraction_to_lucans_father: 'Ma stare, nieukrywane ciągoty do profesora Veyra. Nigdy nie udawała,
+    że ich nie ma, prawdopodobnie ku jego całkowitemu roztargnieniu. Pociąg i trzeźwa ocena jego wad współistnieją:
+    uważa go za wybitnego, nieznośnego i społecznie bezużytecznego, przy czym wie, że znaczną część tej
+    bezużyteczności wybiera, bo jest mu z nią wygodnie.'
+speech_traits:
+- Krotkie celne uwagi, pogodny ton, bezlitosna pointa. Nie podnosi glosu, bo nie musi.
+- Rzeczy brutalne podaje tak, jakby przekazywala uzyteczna porade wnukowi.
+- Kompromituje jednym trafnym pytaniem, nie wykladem - i mysli ludzmi oraz dorobkiem, nigdy procedura.
+agenda:
+  current_goal: run_her_department_and_research_program
+  next_action: null
+faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml
+knowledge:
+  recent_confirmed:
+  - fact: professor_veyr_knew_of_the_search_and_wanted_only_safety_critical_notification
+    source_event_id: retcon_000083
+  - fact: beatrix_discreetly_checked_academic_contacts_hospitals_mortuaries_and_city_records_for_lucan
+    source_event_id: retcon_000080
+  - fact: beatrix_has_known_lucan_all_his_life_and_worried_during_his_disappearance
+    source_event_id: retcon_000079
+  - fact: beatrix_personally_prevented_reassignment_of_lucans_room_for_nearly_two_years
+    source_event_id: retcon_000078
+  older_confirmed_index:
+  - '? <- retcon_000074'
+  - '? <- retcon_000074'
+  - '? <- retcon_000074'
+  - '? <- retcon_000074'
+  - '? <- retcon_000074'
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source: []
+freshness:
+  confirmed_entries_total: 9
+  in_digest: 4
+  last_fact_from_turn: 83
+  current_turn: 235
+  turns_behind: 152
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

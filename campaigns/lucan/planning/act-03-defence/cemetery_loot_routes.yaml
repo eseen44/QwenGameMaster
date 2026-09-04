@@ -1,0 +1,36 @@
+schema_version: 1
+id: act_03_defence_rationale__cemetery_loot_routes
+section: cemetery_loot_routes
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+cemetery_loot_routes:
+  state_ref: state/resources.yaml#receivable_cemetery_loot_sale
+  source_event_id: event_turn_interlude_101
+  two_categories: |
+    Boros przeliczyl i posortowal 60 kg. DWIE TRZECIE SA ANONIMOWE - kruszec luzem, moneta,
+    wylamane oprawy, drut, blacha trumienna; nie ma na tym niczego, co cokolwiek mowi.
+    JEDNA TRZECIA JEST DOKUMENTEM - pierscienie zaloby z nazwiskiem i data rytymi po
+    wewnetrznej stronie, medaliony mortualne ze znakami rodow, kilka sztuk z robota
+    konsekracyjna. Duplikaty takich zapisow leza po stronie parafii i rodu. Wartosc rytej
+    trzeciej jest wielokrotnie wyzsza WLASNIE dlatego, ze jest robota - i dokladnie dlatego
+    nie da sie jej sprzedac nikomu, kto nie wywiezie jej z miasta.
+  route_a_boros_melt: |
+    Zlotnik z piecem w zapleczu targu, uzywany przez Borosa wczesniej. Bierze anonimowe dwie
+    trzecie NA WAGE i przetapia tej samej nocy. Bez rejestru, bez wjazdu, bez trasy, bez
+    nowego czlowieka, ktory zapamietuje nazwiska. CENA: okolo jednej trzeciej wartosci
+    obrobkowej, ryta trzecia zostaje w worku na nieokreslony czas, i ZADEN prawnik z tego
+    nie wychodzi.
+  route_b_mara_circuit: |
+    Operacja, ktora wchlonie calosc (ryta trzecia wlacznie) i wyprowadzi ja z Lumarii
+    kanalami nietykajacymi zapory. Placi realna liczbe. CENA POTROJNA, wylozona przez Mare
+    bez owijania: (a) beda WIEDZIELI, co przyszlo i skad, bo inaczej tego nie kupuja;
+    (b) prowadza zapis, bo zapis jest ich ubezpieczeniem, nie zaniedbaniem; (c) wejscie idzie
+    przez ICH prawnika - tego samego, o ktorego Lucan prosil.
+  decision_taken: 'CALY LUP DO SYNDYKATU (event_turn_interlude_102) - droga B, ryta trzecia wlacznie. Przetop odrzucony jako trzy tygodnie nocy przy piecu, jedna trzecia ceny i worek identyfikowalnej roboty lezacy dalej pod czyjas podloga. Uzasadnienie gracza: zorganizowana przestepczosc jest bezpieczniejsza od przypadkowej slamazarnosci.'
+  boros_custody_pressure: |
+    Boros trzyma grobowy towar pod podloga jako czlonek gildii rangi C w tygodniu, w ktorym
+    magistrat porzadkuje akta. Nie odmawia i nie podnosi ceny - prosi o TERMIN, nie o
+    zapewnienie. Relikwiarz pozostaje wylaczony ze sprzedazy i jest u Lucana.

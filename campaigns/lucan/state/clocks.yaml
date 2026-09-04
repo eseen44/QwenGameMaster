@@ -1,7 +1,7 @@
 schema_version: 1
 campaign_id: campaign_lucan
 status: accepted_by_user_pending_package_activation
-rationale_store: planning/act-03-defence.yaml#clocks_rationale
+rationale_store: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml
 clocks:
 - id: clock_inquisition_attention
   label: Zainteresowanie Inkwizycji
@@ -27,7 +27,7 @@ clocks:
     Wezwanie ma postać seminarium, a Gildia nie ma nad nim jurysdykcji.
   world_test_required: false
   reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
-  rationale_ref: planning/act-03-defence.yaml#clocks_rationale.father_arranges_academy_showing
+  rationale_ref: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml#father_arranges_academy_showing
 - id: clock_guild_leadership_hearing
   label: Przesłuchanie przed kierownictwem gildii
   status: active_time_driven
@@ -46,4 +46,4 @@ clocks:
     inaczej rozliczy nagrodę za Akt 2. Nagroda jest kijem i marchewką, ale nie musi
     być rozstrzygana podczas jednego konkretnego przesłuchania.
   world_test_required: false
-  rationale_ref: planning/act-03-defence.yaml#clocks_rationale.guild_leadership_hearing
+  rationale_ref: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml#guild_leadership_hearing

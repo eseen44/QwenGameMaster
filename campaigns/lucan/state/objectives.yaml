@@ -26,7 +26,7 @@ player_declared:
     commitment: Przygotować linię na przesłuchanie Gildii i sposób poradzenia sobie ze Strażą.
     deadline_clock_ref: clock_guild_leadership_hearing
     key_constraint: Nagroda za Akt 2 pozostaje wstrzymana do końca śledztwa Gildii.
-    rationale_ref: planning/act-03-defence.yaml#institutional_defence
+    rationale_ref: campaigns/lucan/planning/act-03-defence/institutional_defence.yaml
     steps:
       - {id: prepare_one_canonical_account, state: pending}
       - {id: check_in_with_watch, state: pending}
@@ -41,7 +41,7 @@ player_declared:
     commitment: Przygotować dysputę Akademia–Kościół, linię wobec Kolma i potrzebne wsparcie instytucjonalne.
     deadline_clock_ref: clock_father_arranges_academy_showing
     key_constraint: Nie odmawiać udziału; zawężać tezę i formalizować granicę z prawnikiem oraz kapłanem.
-    rationale_ref: planning/act-03-defence.yaml#the_boundary_lucan_designed
+    rationale_ref: campaigns/lucan/planning/act-03-defence/the_boundary_lucan_designed.yaml
     steps:
       - {id: settle_spidey_and_webber_classification, state: pending}
       - {id: meet_local_priest, state: accepted_kesz_arranges, source_event_id: event_turn_interlude_113}

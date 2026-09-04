@@ -1,0 +1,168 @@
+schema_version: 1
+id: npc_lucan_father
+name: Ojciec Lucana (imię nieustalone)
+status: active
+importance: appeared_in_play_active_social_scene
+role: Akademik; piąty lub szósty syn głównej linii rodu Veyr, bez szans na dziedzictwo.
+lifecycle:
+  state: alive_confirmed
+  last_confirmed_event_id: event_turn_interlude_017_misnotice_past_porter
+current_location_id: loc_lumaria_magical_academy
+current_zone_id: zone_academy_laboratory_wing
+portrayal:
+  forms_of_address:
+    established: 2026-08-27 na reklamacje gracza (t_163 prose)
+    rule: 'DO LUCANA MOWI NA TY. To jego ojciec. Narrator uzyl w t_163 formy "pan" - blad
+
+      wykonania, nie kanonu. Ojciec nie tytuluje syna, nie mowi "panie", nie mowi
+
+      "niech pan". Zwraca sie bezposrednio, najczesciej BEZ zadnego zwrotu grzecznosciowego
+
+      (bo i tak jest w polowie wlasnej mysli), sporadycznie po imieniu.
+
+      Do OBCYCH forma grzecznosciowa jest w porzadku - z Neris przez wieksza czesc
+
+      wieczoru rozmawia jak z doktorantka, ktora dostaje polecenia.
+
+      '
+  tone: warm_verbally_caring_selectively_absent_and_deliberately_apolitical
+  threat_scope: catastrophic_research_without_malice_not_intellectual_or_moral_incapacity
+  profile_confirmed_by_user: true
+  profile_source_event_id: event_turn_interlude_016_walk_to_academy
+  traits:
+  - Profil autystyczny i ekscentryczny sposób funkcjonowania nie odbierają mu rozumu, rozeznania ani zdolności
+    świadomego wyboru.
+  - Ciepły i werbalnie troskliwy; mówi rzeczy, które brzmią na opiekuńcze, i naprawdę tak myśli.
+  - Gubi wątek w trakcie rozmowy i de facto jest nieobecny, nawet będąc obok.
+  - Jest rozkojarzony, wpada w okresy letargu i potrafi zapomnieć o urodzinach albo praktycznych obowiązkach.
+    Są to awarie uwagi i wykonania, nie brak uczuć.
+  - Egocentryczny nie z pogardy, a z pochłonięcia własnymi badaniami.
+  - Regularny pracoholizm, mało ruchu; stałe laboratorium, w którym spędza 99% życia.
+  - O istnieniu żony często zapomina.
+  - Nie śledzi polityki i odmawia regularnego uczestnictwa, ale potrafi zrozumieć układ, kiedy uzna go
+    za istotny. Jego polityczna "bezużyteczność" jest w znacznej części wygodną, świadomie utrzymywaną
+    pozycją, dzięki której może robić to, co chce.
+  - Ma konkretną hierarchię priorytetów. Osobista wolność - własna i cudza - znajduje się w niej bardzo
+    wysoko, wyżej niż obowiązki rodowe, reputacja i polityczna użyteczność.
+  - Lubi swojego syna. Nie jest to abstrakcyjne poczucie obowiązku ani wyłącznie uznanie dla jego funkcji
+    w laboratorium.
+  - KOSZMAR ALUMNOW tej uczelni - nie ze zlosliwosci, a z braku jakiejkolwiek kalibracji spolecznej. Bedzie
+    ryl w odpowiedzi tak dlugo, az cos z niej zostanie, i nie zauwazy, ze kogos przy tym niszczy. To ta
+    sama cecha, ktora w domu wyglada jak nieobecnosc (event_turn_interlude_031_the_dormant_sinecure).
+  behavior: Badania zwykle pochłaniają większość jego uwagi, ale nie jest idiotą ani bezwolnym obserwatorem.
+    Rozumiał, że narzucone zaręczyny są polityczną maskaradą, nie widział powodu, by zmuszać do niej syna,
+    i nie zamierzał przedkładać rodowych bzdur nad wolę Lucana. Nie próbował go zawracać po odejściu.
+    Wiedział, że Beatrix dyskretnie sprawdza ślady, i nie uczestniczył w próbie "odzyskania" syna. Oczekiwał
+    wyłącznie informacji, gdyby znalazła dowód śmierci, uwięzienia albo bezpośredniego zagrożenia.
+  priority_model:
+    source_ref: retcon_000082
+    high:
+    - personal_freedom
+    - freedom_of_inquiry
+    - problems_he_considers_real
+    - lucans_autonomy
+    low:
+    - birthdays
+    - routine_obligations
+    - family_reputation
+    - political_theatre
+    - social_performance
+    interpretation: Niski priorytet może zostać całkowicie zapomniany; wysoki może przebić rozkojarzenie.
+      Nie zakładać jednak, że sama etykieta "rodzina" automatycznie uruchamia uwagę - ważna jest konkretna
+      osoba, jej wolność albo realny problem.
+speech_traits:
+- Do Lucana na TY, najczesciej bez zadnego zwrotu - jest w polowie wlasnej mysli. Do obcych forma grzecznosciowa
+  jest w porzadku.
+- Gubi watek w trakcie i konczy o czym innym; odpowiada na te czesc pytania, ktora jest problemem badawczym,
+  reszte pomija bez zlosliwosci.
+- Ryje w cudzej odpowiedzi, az cos z niej zostanie, i nie zauwaza, ze kogos przy tym niszczy.
+agenda:
+  current_goal: Doprowadzić do pokazania pracy syna ludziom, którzy by ją zrozumieli - i znaleźć odbitkę
+    z nazwiskiem osoby walczącej o szeroką definicję ożywionych konstruktów.
+  next_action: Grzebie w stosach za odbitką; potem zacznie ustalać termin i mówić o tym kolegom (clock_father_arranges_academy_showing,
+    trzy dni).
+  motive_note: Działa z entuzjazmu i z poczucia krzywdy - usłyszał, że komuś chcą zabrać projekt. NIE
+    działa, żeby ochronić syna, bo nie zarejestrował, że syn jest w tarapatach.
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/lucan-father.yaml
+knowledge:
+  recent_confirmed:
+  - fact: 'Wlaczyl sie DOKLADNIE RAZ, na slowach "w nauce sie nie klamie" - jedynej czesci wykladu o poziomach,
+      ktora lezy w jego jurysdykcji. Zgodzil sie z entuzjazmem i dolozyl poprawke metodologiczna: prawie
+      nikt w nauce nie klamie, ludzie po prostu NIE MIERZA tego, co by im zaprzeczylo. Nie zorientowal
+      sie, ze opisal wlasnie mechanizm, ktory jego syn minute wczesniej zaproponowal jako metode. Poziomow,
+      umowy spolecznej, Kolma ani cmentarza nie skomentowal.'
+    source_event_id: event_turn_interlude_167
+  - fact: 'Slyszal przy sobie slowa "gildia", "nekromanci" i "cmentarz" - i nie zareagowal na zadne. Odpowiedzial
+      WYLACZNIE na wzmianke o wloknach ze smoczego serca, bo tylko ta czesc dotyczyla materialu. NOWY
+      KANON (gracz, t_166): profesor Veyr ma zwyczaj rzucac wloknem ze smoczego serca w dowolny problem,
+      co czyni jego rozwiazania swietnymi i nieosiagalnymi cenowo - to jest powod, dla ktorego Lucan przedstawia
+      mu problemy jako masowe. EKSPOZYCJA: zdania o cmentarzu padly przy czlowieku, ktory zamierza rozmawiac
+      z kolegami (agenda.next_action). Nie laczy tego z synem, bo nie szuka przestepstwa. Ryzyko niskie
+      i realne jednoczesnie - nie odpalac automatycznie.'
+    source_event_id: event_turn_interlude_166
+  - fact: 'Wie, ze modyfikacje dotycza konkretnego okazu - zawisaka - i ze Lucan na razie odmawia go pokazac,
+      bo trzy poprzednie cmy zjadly nietoperze albo ptaki. Nie uslyszal w tym porazki, tylko dane: skoro
+      cma ma narzad do slyszenia nietoperza, a mimo to zostaje zjedzona, wada nie siedzi w narzadzie,
+      tylko w tym, ze narzad nie jest do niczego podpiety - roznica miedzy czuciem a zachowaniem. Nie
+      wie o rozkazach ani o tym, ze cmy poszly w pole bez zadnego. CHCE ZOBACZYC OKAZ i traktuje odmowe
+      jako opoznienie w dostawie, nie jako granice - wroci do tego.'
+    source_event_id: event_turn_interlude_164
+  - fact: 'WYDAL TRZECIA SUBSTANCJE UKRYWAJACA - porost slepy. W t_151 jej nie wymienil, bo wyliczal wtedy
+      wlasne SKARGI, a porost nie jest jego szkodnikiem. Padla dopiero, gdy Lucan opisal wymaganie zamiast
+      nazwy. Wszedl w temat glebiej, niz trzeba, bo to nowy problem badawczy (attitude_to_pc.likely_hook),
+      i powtorzyl ograniczenie z kanonu: porost daje kryjowke W BEZRUCHU i nie znosi nocnego trybu okazu
+      ani tego, ze za dnia rzuca sie w oczy. Przyjal tez bez sporu, ze Lucan bierze na siebie dziekana
+      i dwoch ekspertow.'
+    source_event_id: event_turn_interlude_163
+  older_confirmed_index:
+  - '? <- event_turn_interlude_162'
+  - '? <- event_turn_interlude_162'
+  - '? <- event_turn_interlude_161'
+  - '? <- event_turn_interlude_160'
+  - '? <- event_turn_interlude_159'
+  - '? <- event_turn_interlude_158'
+  - '? <- event_turn_interlude_155'
+  - '? <- event_turn_interlude_152'
+  - '? <- event_turn_interlude_151'
+  - '? <- event_turn_interlude_149'
+  - '? <- event_turn_interlude_149'
+  - '? <- event_turn_interlude_148'
+  - '? <- event_turn_interlude_148'
+  - '? <- event_turn_interlude_147'
+  - '? <- retcon_000083'
+  - '? <- event_turn_interlude_020_decoy_construct_plan'
+  - '? <- event_turn_interlude_019_vitae_disclosure_to_father'
+  - '? <- event_turn_interlude_018_father_construct_pitch'
+  - '? <- event_turn_interlude_018_father_construct_pitch'
+  - '? <- event_turn_interlude_018_father_construct_pitch'
+  - '? <- event_turn_interlude_017_misnotice_past_porter'
+  - '? <- event_turn_interlude_017_misnotice_past_porter'
+  - '? <- event_turn_interlude_144b'
+  suspicions: []
+  false_beliefs:
+  - 'NADPISANE, NIE ZDEMASKOWANE (event_turn_interlude_152). Przez t_147-t_151 uwazal Neris Aldhen za
+    doktorantke swojego syna. W t_152 Lucan przedstawil ja SAM, z nazwiskiem, jako autorke tekstu o konstruktach
+    z ciala - czyli jako PROBLEM, nie funkcje. Problem bije funkcje (funkcja jest jedynym radarem spolecznym
+    tego czlowieka), wiec etykieta doktorantki przestala byc zaladowana. Ojciec NIE uznal, ze syn go oklamal,
+    i nie zarejestrowal sprzecznosci instytucjonalnej (samodzielna referentka nie jest niczyja doktorantka),
+    bo nie orientuje sie ani w czasie, ani w polityce Akademii. SKUTEK: ojciec nie jest zrodlem rozjazdu
+    w tej sprawie; rozjazd moze wyprodukowac wylacznie ktos trzeci, kto uslyszal oba zdania.'
+  - Nie orientuje się, ile czasu minęło od przerwania edukacji Lucana.
+  - Nie wie nic o nekromancji Lucana, o sieci pająków ani o Varkhenie. Przyjął przykrywkę "konstrukt z
+    padłego pająka" bez badania jej, bo nie szuka przestępstwa; słowo nekromancja ani raz nie przyszło
+    mu do głowy.
+  - Nie wie o okresie bezdomności syna.
+  forbidden_without_source: []
+freshness:
+  confirmed_entries_total: 27
+  in_digest: 4
+  last_fact_from_turn: 167
+  current_turn: 235
+  turns_behind: 68
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

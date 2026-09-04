@@ -99,6 +99,7 @@ CHECKS = [
     ("sieroce odwolania", [sys.executable, "tools/audit_refs.py"], 180, False),
     ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
     ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
+    ("skroty kart NPC aktualne", [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True),
 ]
 
 FULL_CHECKS = [
@@ -129,6 +130,10 @@ def main() -> int:
                 ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
                 ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
             ]
+        if any("/entities/npcs/" in path.as_posix() for path in staged):
+            # Zmiana karty NPC bez przebudowy skrotu znaczy, ze brief podaje stary stan.
+            checks.append(("skroty kart NPC aktualne",
+                           [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True))
         if journal_touched(staged):
             checks.insert(0, ("zapora dziennika",
                               [sys.executable, "tools/journal_guard.py", "--quiet"], 180, True))

@@ -1,0 +1,70 @@
+schema_version: 1
+id: act_03_defence_rationale__oral_only_disclosure_channel
+section: oral_only_disclosure_channel
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+oral_only_disclosure_channel:
+  objective_ref: objective_prepare_guild_hearing_and_watch
+  source_event_id: event_turn_interlude_233
+  status: PRZYJETY_PRZEZ_SERAPHINE_WARUNKOWO_NA_KOLEJNOSCI
+  the_players_argument: |
+    Varkhena nie da sie ani stracic, ani wpisac. Stracic - bo jest jedynym bieglym od
+    pieczeci, czyli od jedynej rzeczy mogacej rozerwac miasto. Wpisac - bo publiczny
+    zapis o kontrolowanym nieumarlym w piwnicy gildii czyni gildie zapalnikiem.
+    Zostaje kategoria trzecia: rzecz przekazywana WYLACZNIE USTNIE wyzszemu dowodztwu,
+    o ktorej potem obie strony zgodnie nie pamietaja. Rama, w ktorej to przechodzi bez
+    wyrzutow: stan wyzszej gotowosci i grozba buntu magow zwiazanego wprost z nieumarlymi.
+  why_it_holds_in_canon:
+    clock: 'clock_inquisition_attention.trigger wymienia guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public.
+      Papier i jawnosc sa triggerem; rozmowa nie jest. Kanal ustny jest wiec dokladnie
+      tym kanalem, ktory nie rusza tego zegara.'
+    her_agenda: 'find_viable_way_to_protect_lucan_and_city_without_formal_escalation -
+      droga pozaproceduralna nie jest dla niej nowa propozycja, tylko jej wlasna linia.'
+    duty_over_rules: 'retcon_000135 punkt c. Wyciagnela Varkhena i nie zglosila tego przez
+      tygodnie; pytanie "czy wolno" jest u niej martwe. Zostaje "jak to zrobic, zeby dalo
+      sie przy tym zostac".'
+    the_mage_riot_is_hers_from_lucan: 'fact_seraphine_knows_no_academy_faction_is_safe
+      (t_065) i fact_seraphine_knows_public_necromancy_charge_is_a_fuse (t_064) - oba
+      dostala od Lucana dwa tygodnie temu. Narrator nie dorabia nowego zagrozenia.'
+  where_it_does_not_hold_yet:
+    the_frame_does_not_exist: |
+      STANU WYZSZEJ GOTOWOSCI NIE MA. Decyzja z t_232 o ogloszeniu kryzysu jest decyzja,
+      nie czynem; clocks.yaml nie ma zegara pieczeci, a clock_inquisition_attention stoi
+      na 0 jako dormant_event_trigger_only. Do tego t_229: material cmentarny nigdy nie
+      zostal podany kierownictwu JAKO ALARM i ustawila to tak ona sama. Bez ogloszenia
+      kanal ustny nie brzmi wiec jak "biegly, ktorego nie mozna stracic", a jak
+      "nieumarly, ktorego trzymalas trzy tygodnie" - czyli wprost jak jej problem z t_227.
+    the_sequence_she_set:
+      revised_by: retcon_000138
+      revision_note: |
+        ZREWIDOWANE W t_234. Pomiar PRZESTAL byc warunkiem koniecznym - Varkhen jest
+        cytowalny jako pradawny straznik nekropolii skladajacy dobrowolne zeznanie
+        (necromancy-law#varkhen_exposure.ancient_guardian_cover_story), a wewnetrzna
+        dokumentacja gildii nie jest ani formalna eskalacja, ani jawnoscia, czyli nie
+        rusza clock_inquisition_attention. Pomiar zostaje potrzebny do pol ZAKRES i DATA
+        na karcie kontraktowej, nie do prawa mowienia o Varkhenie.
+      original_text: |
+        POMIAR TRZECIEJ PIECZECI -> CYTOWALNY MATERIAL -> OGLOSZENIE -> RAMA -> KANAL USTNY.
+        Ogniwo drugie to jej zdanie z t_227: ktos musi znac WNIOSEK, nie ZRODLO, a wiedza
+        od Varkhena wymaga drugiego, cytowalnego pochodzenia, zanim wejdzie na papier.
+        Zeznanie nieumarlego z piwnicy cytowalne nie jest. Skutek: nocne wyjscie pod trzecia
+        pieczec przestaje byc jedna z prac interludium i staje sie warunkiem wstepnym.
+    paper_hold:
+      revised_by: retcon_000138
+      current_text: 'Zawezone w t_234. Na papier nie idzie ZDANIE o kontroli Lucana nad
+        Varkhenem - samo zeznanie pradawnego straznika idzie. Karta kontraktowa nadal lezy
+        niewypelniona, ale z innego powodu: ZAKRES i DATA wymagaja pomiaru, bo zbrojnego
+        zakonu nie zamawia sie na "cos jest pod cmentarzem".'
+      original_text: 'Do czasu pomiaru nic o Varkhenie i o pieczeciach nie idzie na papier.
+        Karta kontraktowa na zbrojny zakon wraca do szuflady niewypelniona (ZAKRES i DATA),
+        bo zamowienie na papierze gildii JEST papierem.'
+  price_named_once: 'Kanal bez zapisu znaczy takze brak zapisu, ktory JA oslania. Jesli
+    kiedys wyjdzie, beda dwie osoby twierdzace rozne rzeczy o rozmowie, ktorej wedle obu
+    nie bylo. Drugiej ceny nie doklada sie (retcon_000135 punkt a).'
+  what_the_narrator_must_not_do:
+  - 'Nie inscenizowac nikogo z kierownictwa gildii ani nie ustanawiac ich reakcji.'
+  - 'Nie nadawac Seraphine wladzy przestawiania terminu przesluchania.'
+  - 'Nie tworzyc zegara pieczeci ani daty (retcon_000055).'

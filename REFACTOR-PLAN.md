@@ -670,3 +670,44 @@ ZAPALONA/ZGASZONA:
 nie mowi tego, co narrator twierdzi. Szesc tur cofnietych 03.09 mialo po 7-16 poprawnie
 rozwiazujacych sie refow. Bramka lapie ref WYMYSLONY - reszta zostaje przy narratorze
 i przy graczu.
+
+## Etapy 7 i 8 wykonane (2026-09-04)
+
+**Etap 7 - podzial narrator.md.** Rdzen 18 796 -> 7 231 B, appendiks 16 617 B z tekstem
+DOSLOWNYM, zero utraconych slow. Appendiks nie jest w always_load i jest osiagalny przez
+`context plan --tag narrator_failure_modes`. Osiem kalibracji zdestylowanych do imperatywu
+z odsylaczem; kazdy retcon tytulujacy sekcje appendiksu MUSI miec slad w rdzeniu (test).
+
+**Etap 8a - rozbicie magazynu uzasadnien.** act-03-defence.yaml 78 517 -> 4 329 B indeksu
+plus 22 pliki sekcji. Kopiowanie SUROWYMI LINIAMI, nie przez biblioteke YAML - formatowanie
+oryginalu zachowane, bo ten plik czytaja ludzie. 12 odwolan w 7 plikach przepisane, w tym
+te w prozie kart NPC. Tura planowania 211 587 -> 125 748 B (516% -> 307% budzetu).
+
+**Etap 8b - skroty kart NPC.** Karta Seraphiny 60 675 -> 19 404 B. Skrot trzyma czesc
+"jak grac" 1:1 (portrayal, speech_traits, agenda, zakazy), cztery najnowsze fakty w calosci
+i INDEKS wszystkich 85 pozostalych - test pilnuje, ze zaden fakt nie wypada z widoku.
+Karty uczestnikow sceny: 68 465 -> 25 988 B. Regula wymuszona przez test: SKROT, KTORY NIE
+ZMNIEJSZA, NIE POWSTAJE (karta Borosa dawala skrot 3 747 B przy karcie 3 471 B) - z dziesieciu
+skrotow zostalo szesc, 66% mniej.
+
+**BILANS KONTEKSTU PO ETAPACH 6-8:**
+  bramka context_bytes        52 940 -> 41 289 B (129% -> 100% budzetu)
+  prawda, pelne karty        130 565 -> 118 914 B (319% -> 290%)
+  prawda, skroty kart                -> 76 437 B (186%)
+  tura planowania            211 587 -> 125 748 B (516% -> 307%)
+
+**TA SAMA POMYLKA CO W ETAPIE 3, POPELNIONA PONOWNIE I ZLAPANA PRZEZ WLASNA GWARANCJE.**
+Kontrola "nic nie ginie" liczyla slowa na TEKSCIE, a yaml.safe_dump koduje czesc napisow
+jako skalary cudzyslowowe z sekwencjami \n - token "PIATA" stawal sie "nPIATA" i miara
+zglaszala utrate slowa, ktore nie zginelo. Miara musi patrzec na SPARSOWANA TRESC.
+To trzeci raz, kiedy zla miara zatrzymala dobra migracje; wniosek do etapow 10-11: miare
+sprawdzaj na znanym przypadku ZANIM zaufasz jej werdyktowi.
+
+**DWA TESTY Z ETAPU 6 PADLY PO ETAPIE 8 I TO BYLO POPRAWNE.** Sprawdzaly, ze magazyn wazy
+ponad 70 KB - czyli ROZMIAR PROBLEMU, nie regule. Przepisane na niezmiennik (ref sie
+rozwiazuje; tag doklada niepusty zbior), a prog wielkosci pilnuje test etapu 8.
+
+**Otwarte:** etap 10 (pola, ktore silnik ma zaczac czytac) i etap 11 (rozdzielenie summary).
+Skroty kart pokazaly dodatkowo, ze pojedynczy wpis knowledge.confirmed u Seraphiny wazy
+2-3 KB - eseje w polu `claim` to ta sama choroba co spuchniete `summary`, czyli material
+na etap 11.

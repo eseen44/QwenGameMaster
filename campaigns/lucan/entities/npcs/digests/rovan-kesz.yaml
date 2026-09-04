@@ -1,0 +1,103 @@
+schema_version: 1
+id: npc_rovan_kesz
+name: Rovan Kesz
+status: active
+review_status: created_in_play
+importance: full_agent
+role: criminal_circuit_lawyer
+lifecycle:
+  state: alive
+  last_confirmed_event_id: event_turn_interlude_205
+current_location_id: loc_lumaria_market
+portrayal:
+  temperament:
+  - precise
+  - unsentimental
+  - states_his_position_before_he_has_to
+  appearance: Po pięćdziesiątce, ubrany jak urzędnik ze średniej półki, teczka, atrament na palcu wskazującym.
+  group_role: Prawnik obiegu przestępczego - ten z pakietu drogi Mary. Zna urzędników magistratu, nie
+    Akademię.
+speech_traits:
+- Podaje wlasna pozycje, zanim ktos go o nia zapyta - nie z uprzejmosci, tylko zeby nie musiec sie z niej
+  potem tlumaczyc.
+- 'Wycenia, nie bramkuje: mowi to kosztuje tyle, nigdy nie da sie.'
+- Precyzyjny i bez sentymentu; zero ozdobnikow, zero moralizowania nad tym, co wycenia.
+agenda:
+- arrange_the_meeting_with_the_priest
+- protect_the_room_first
+- assess_whether_lucan_is_a_liability
+- take_lucan_as_client_only_if_the_room_allows
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
+knowledge:
+  recent_confirmed:
+  - fact_id: fact_kesz_lost_half_his_ignorance_before_the_priest_meeting
+    source_event_id: event_turn_interlude_203
+    claim: 'Byl w pokoju, gdy Lucan podal pryncypalowi SKALE: najlepszy przypadek to trupy wychodzace
+      z ziemi jak za pierwszym razem, najgorszy to zawalenie miasta w pustki pod nim. PRECYZJA, KTOREJ
+      NIE WOLNO ZGUBIC: padly KONSEKWENCJE, nie przyczyna. Kesz nadal NIE WIE, CO jest pod cmentarzem,
+      i moze to dalej uczciwie powiedziec - nie moze juz powiedziec, ze nie wie, ze to jest powazne. To
+      zmniejsza o polowe zalete, ktora sam nazwal w t_194 (fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest:
+      niesie rame, nie znajac tresci, bo czlowieka, ktory nie wie, nie da sie zmusic do rozwiniecia).
+      Nazwal to sam, bez pretensji - wszedl w to dobrowolnie. forbidden_without_source nienaruszone: varkhen_existence,
+      lucan_necromancy, spidey_existence.'
+  - fact_id: fact_kesz_stands_inside_the_phase_two_trigger
+    source_event_id: event_turn_interlude_202
+    claim: Zauwazyl i powiedzial na glos, ze nowa faza druga odpala sie, kiedy odbeda sie przesluchanie
+      i dysputa - a on od t_199 STOI NA TYM PRZESLUCHANIU jako gwarant proceduralny. Nie jest wiec tylko
+      linia niosaca pokojowi kalendarz; jego obecnosc wspoltworzy moment przejscia na drugi talerzyk.
+      Powiedzial to sucho, bez pretensji i NIE ZAZADAL za to niczego (states_his_position_before_he_has_to).
+  - fact_id: fact_kesz_finally_has_the_calendar_he_asked_for
+    source_event_id: event_turn_interlude_201
+    claim: 'DOSTAL ETAPY DO DATY, KTORA MIAL OD t_105b. fact_kesz_knows_about_the_two_week_deadline mowi,
+      ze przyjal zapowiedz wojny domowej jako date w kalendarzu i chcial wiedziec, po ktorej stronie ma
+      stac jego pokoj - ale mial sama date, bez etapow. Teraz zna cztery fazy protokolu Tobiego: stan
+      obecny, wszystkie strony swiadome, kordon, wejscie oddzialu na cmentarz. NIE ZAPYTAL, co jest pod
+      cmentarzem - konsekwentnie z t_194, gdzie sam uznal wlasna niewiedze za zalete, bo nie da sie go
+      zmusic do rozwiniecia czegos, czego nie wie. forbidden_without_source nienaruszone.'
+  - fact_id: fact_kesz_got_his_seraphine_answer_and_it_costs_him
+    source_event_id: event_turn_interlude_200
+    claim: 'ZAMKNIETE po drugim pytaniu. Seraphine NIE wie i ma sie dowiedziec dopiero po tym, jak zezna
+      przed Straza to, co musi - powod Lucana jest sekwencyjny, nie osobisty: nie chce, zeby powiedziala
+      za duzo i za szybko. Kesz przyjmuje bez sporu, bo jest juz w srodku, ale nazywa, co stracil: w t_194
+      mowil, ze wolalby nie dowiedziec sie tego RAZEM z nia, a ta odpowiedz znaczy dokladnie tyle, ze
+      dowie sie razem z nia albo po niej. NIE PYTAC O TO TRZECI RAZ - pytanie jest odpowiedziane (retcon_000121).'
+  older_confirmed_index:
+  - fact_kesz_saw_the_spider_obey_after_he_was_already_lucans_lawyer <- event_turn_interlude_200
+  - fact_kesz_became_lucans_lawyer_with_the_rooms_blessing <- event_turn_interlude_199
+  - fact_kesz_heard_lucan_name_his_cemetery_exposure_out_loud <- event_turn_interlude_199
+  - fact_kesz_asked_about_seraphine_a_second_time <- event_turn_interlude_199
+  - fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest <- event_turn_interlude_194
+  - fact_kesz_holds_the_blackmail_cover_story <- event_turn_interlude_194
+  - fact_kesz_accepted_the_procedural_guarantor_role <- event_turn_interlude_194
+  - fact_kesz_is_the_authorised_line_to_the_principal <- event_turn_interlude_194
+  - fact_kesz_asked_whether_seraphine_knows_he_will_be_there <- event_turn_interlude_194
+  - fact_kesz_has_lucans_answer_all_three_hats_at_once <- event_turn_interlude_193
+  - fact_kesz_named_his_own_exposure_at_the_priest_meeting <- event_turn_interlude_193
+  - fact_kesz_sent_word_to_the_priest <- event_turn_interlude_193
+  - fact_kesz_priced_representation_before_guild_and_watch <- event_turn_interlude_193
+  - fact_kesz_holds_lucans_acceptance_of_the_priest_meeting <- event_turn_interlude_113
+  - fact_kesz_knows_lucan_declared_war_on_the_church <- event_turn_interlude_110
+  - fact_kesz_knows_lucan_entered_on_teln_vouching <- event_turn_interlude_104
+  - fact_kesz_knows_lucan_broke_the_body_line_and_holds_the_leverage <- event_turn_interlude_105b
+  - fact_kesz_understood_the_category_without_asking <- event_turn_interlude_105b
+  - fact_kesz_knows_about_the_two_week_deadline <- event_turn_interlude_105b
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source:
+  - lucan_necromancy
+  - spidey_existence
+  - varkhen_existence
+  - veyr_house_structure
+freshness:
+  confirmed_entries_total: 23
+  in_digest: 4
+  last_fact_from_turn: 203
+  current_turn: 235
+  turns_behind: 32
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

@@ -29,10 +29,17 @@ class RefPathTest(unittest.TestCase):
         self.assertTrue(gm_runtime.ref_path("system/narrator.md").is_file())
 
     def test_ref_wzgledem_kampanii_tez_sie_rozwiazuje(self):
-        """active.yaml miesza dwie konwencje; plik obowiazkowy przy planowaniu byl niewidzialny."""
+        """active.yaml miesza dwie konwencje; plik obowiazkowy przy planowaniu byl niewidzialny.
+
+        UWAGA: pierwotnie ten test sprawdzal takze, ze plik wazy ponad 70 KB - czyli
+        sprawdzal ROZMIAR PROBLEMU, nie regule. Etap 8 rozbil magazyn na sekcje i indeks
+        ma dzis 4,3 KB, wiec asercja rozmiaru stala sie falszem. Zostaje niezmiennik:
+        ref w konwencji kampanii MUSI sie rozwiazywac.
+        """
         path = gm_runtime.ref_path("planning/act-03-defence.yaml")
         self.assertTrue(path.is_file(), f"nie rozwiazano refu wzgledem kampanii: {path}")
-        self.assertGreater(path.stat().st_size, 70_000)
+        sekcja = gm_runtime.ref_path("planning/act-03-defence/institutional_defence.yaml")
+        self.assertTrue(sekcja.is_file(), "sekcja magazynu nie rozwiazuje sie w tej konwencji")
 
     def test_nieistniejacy_ref_wskazuje_sensowna_sciezke(self):
         path = gm_runtime.ref_path("nie/ma/mnie.yaml")
@@ -69,11 +76,18 @@ class ContextPlanTest(unittest.TestCase):
         plan = gm_runtime.context_plan(CAMPAIGN, [])
         self.assertIn("AGENTS.md", [row["ref"] for row in plan["base"]])
 
-    def test_tag_planowania_doklada_najciezszy_plik(self):
+    def test_tag_planowania_doklada_swoj_zbior(self):
+        """Niezmiennik: tag doklada NIEPUSTY zbior i podnosi sume.
+
+        Pierwotnie test wymagal, zeby zbior planowania wazyl ponad 70 KB - to bylo
+        sprawdzanie rozmiaru problemu. Etap 8 zbil go do 6,8 KB i to jest sukces,
+        nie regresja. Prog wielkosci pilnuje teraz test_stage8_granulation.
+        """
+        bez = gm_runtime.context_plan(CAMPAIGN, [])
         plan = gm_runtime.context_plan(CAMPAIGN, ["choosing_a_plan"])
-        self.assertGreater(plan["bytes"]["conditional"], 70_000)
-        self.assertGreater(plan["bytes"]["total"], 4 * plan["bytes"]["budget"],
-                           "tura planowania miesci sie w czterech budzetach - podejrzane")
+        self.assertGreater(plan["bytes"]["conditional"], 0)
+        self.assertGreater(plan["bytes"]["total"], bez["bytes"]["total"])
+        self.assertEqual(plan["unknown_tags"], [])
 
     def test_nieznany_tag_jest_zglaszany_a_nie_ignorowany(self):
         plan = gm_runtime.context_plan(CAMPAIGN, ["nie_ma_takiego"])

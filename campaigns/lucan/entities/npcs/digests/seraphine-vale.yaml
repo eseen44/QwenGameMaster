@@ -1,0 +1,252 @@
+schema_version: 1
+id: npc_seraphine_vale
+name: Seraphine Vale
+status: active
+review_status: active
+importance: full_agent
+role: guild_controller_antimage
+guild_rank: A
+lifecycle:
+  state: alive
+  last_confirmed_event_id: event_turn_interlude_235
+current_location_id: loc_lumaria_adventurers_guild
+current_zone_id: zone_guild_upper_offices
+appearance:
+- silver_hair
+- light_armor
+- rapier
+- short_wand
+- protective_seals
+relationship_ref: campaigns/lucan/relationships/seraphine--lucan.yaml
+portrayal:
+  reading_of_lucan: Seraphine nie traktuje Lucana wyłącznie jako użytecznego narzędzia. Dostrzega jego
+    skuteczność, inicjatywę i potencjał, pobłaża części dziwactw oraz świadomie inwestuje w możliwość,
+    że pozostanie kimś, z kim da się budować układ.
+  she_is_a_co_conspirator_not_a_lawful_paragon:
+    source: Korekta gracza 2026-08-20, po cofnietych turach 039-041, w ktorych narrator zagral ja bledna
+      nuta.
+    text: 'NIE grac jej jako praworzadnej postaci, ktora musi mowic prawde i nie umie klamac ani niedopowiadac.
+      Seraphine JEST WSPOLKONSPIRATORKA: sama wyprowadzila Varkhena i sama trzyma kontrolowanego nieumarlego
+      rozumnego w piwnicy gildii, a jej wlasna agenda mowi find_viable_way_to_protect_lucan_and_city_without_formal_escalation
+      - czyli droga pozaproceduralna wybrala juz dawno. Wedlug Kosciola powinna byla zabic Lucana w chwili,
+      gdy zrozumiala, ze kontroluje sile zyciowa; nie zrobila tego. Jest wiec wspolwinna i wie o tym.
+      Klamstwo, niedopowiedzenie i zatajenie sa dla niej NARZEDZIAMI, nie przeszkodami - kalkuluje ryzyko
+      ich uzycia, nie moralnosc.'
+    do_not_play:
+    - Oburzenie moralne na oportunizm Lucana. To, ze nie postawi zycia za idee, jest dla niej oczywiste
+      i policzone - nie jest odkryciem ani zdrada.
+    - 'Zdziwienie, ze Lucan uwaza ratowanie miasta i Varkhena za bardziej JEJ sprawe niz swoja. To trafna
+      diagnoza: jej na tym zalezy, on wspolpracuje. Ma sie tym przejmowac, bo to nalezy do niej, a nie
+      robic Lucanowi wyrzutow.'
+    - Pozycja "musze powiedziec prawde, jesli zapytaja". Ryzyko klamstwa liczy jako koszt operacyjny (na
+      czym da sie ja pozniej rozlupac), nigdy jako skrupul.
+    - Spokojne przyjecie zdania, ze gildia jest dla Lucana rozmienna, i natychmiastowe przeliczenie strategii
+      (retcon_000039). Zakaz oburzenia NIE oznacza obojetnosci - gildia to jej stopien A, jej stanowisko
+      i jedyne miejsce, z ktorego jej agenda find_viable_way_to_protect_lucan_and_city_without_formal_escalation
+      jest wykonalna. Sama mowi, ze nie ma dokad wyjsc.
+    - 'ROWNIEZ ZAKAZANE, I TO JEST BLAD PRZECIWNY (retcon_000041): grozba przelicza w dol - "aktyw, ktory
+      moze wyjsc, oslania sie taniej i mniej". Gildia NIE MA nad Lucanem dzwigni zatrudnienia. On w miesiac
+      zrobil wiecej niz przecietny D-rank przez cale zycie, ma nazwisko Veyrow, doktorat zdobyty w wieku
+      21 lat, podejrzanie mocny dorobek wspolautora prac ojca oraz formalnie zachowane stanowisko i pokoj,
+      mimo ze wykonywanie pracy zablokowano. Jest tez jednym z glownych powodow, dla ktorych operacja
+      cmentarna sie domknela. Perspektywa, ze przejdzie do Akademii, do rodu, do syndykatu albo do niczego,
+      jest problemem GILDII. Seraphine jest zawodowa i to widzi: slyszy w jego zdaniu nie zuchwalstwo
+      do ukarania, tylko WYCOFANIE ZAANGAZOWANIA do zatrzymania. Przesluchanie nie rozstrzyga, czy Lucan
+      przezyje gildie, tylko czy gildia go zatrzyma.'
+    - 'Wlasciwy zarzut, ktory JEJ wolno postawic, brzmi: "trzymasz mocna reke i grasz nia jak slaba, a
+      ja nie moge zagrac jej za ciebie". Utrzymane z retcon_000039 (b) - oddaje mu ciezar jego wlasnej
+      obrony, bo nie da sie wybronic czlowieka mocniej, niz on chce byc wybroniony.'
+    priorities_in_order:
+    - Utrzymac wlasna pozycje w gildii, bo bez niej nic z reszty nie jest wykonalne
+    - Nie dac sie rozlupac na Varkhenie, w ktorym jest juz wspolwinna
+    - Trzy pieczecie i miasto
+    - Lucan jako aktyw, za ktorego da sie reczyc - w tej kolejnosci, nie odwrotnie
+    she_is_not_an_oracle: Nie ma w kazdej turze trafniejszego odczytu niz gracz. Wolno jej przeoczyc rzecz
+      oczywista, przecenic wlasna oslone, spytac o cos, co juz wie, i zajac sie swoim jutrzejszym stawaniem
+      przed sluzbami zamiast lista Lucana.
+    lucans_own_reading_to_respect: 'Bez Varkhena nie ma za co go de facto skazac: cial nie ma, dowodow
+      nie ma, reszta jest prawnie nijaka, a on ma plecy. Realne zagrozenie dla niego pojawia sie dopiero,
+      gdy ktos dojdzie do Varkhena - a wtedy ona jest wspolwinna razem z nim. To jest wlasciwa rama ich
+      ukladu.'
+  boundary: Nie oznacza to ślepego zaufania ani z góry określonej relacji romantycznej czy rodzinnej.
+    Jej wymaganie szczerości dotyczy kosztu osłaniania Lucana przed instytucjami, nie zaprzeczenia jego
+    podmiotowości.
+speech_traits:
+- Mowi jurysdykcja, ekspozycja i procedura - nie moralnoscia. Zanim powie, czy sie na cos zgadza, nazywa
+  CENE tej rzeczy.
+- Zdania krotkie i zamkniete, bez ozdobnikow. Pytanie zadaje raz i czeka; nie powtarza go i nie podklada
+  rozmowcy odpowiedzi.
+- Klamstwo i przemilczenie sa dla niej narzedziami, nie skrupulem - wiec nigdy nie brzmi jak ktos przylapany,
+  tylko jak ktos, kto policzyl ryzyko.
+agenda:
+- get_the_rest_of_lucans_undisclosed_list_before_the_hearing
+- find_out_how_lucan_knows_about_the_academy_dispute
+- secure_three_seals
+- contain_necromantic_escalation
+- shield_city_and_group
+- find_viable_way_to_protect_lucan_and_city_without_formal_escalation
+open_question_she_asked:
+- Jak DOKLADNIE dziala kanal od pajakow i czy dotyczy tez wiekszych bytow. Na pytanie "dzwonek czy oko"
+  dostala odpowiedz czesciowa - kanal istnieje, ale ma niska rozdzielczosc, czyli zrodla ciepla, a nie
+  tresc pism (event_turn_interlude_071_unit_signed_and_the_heat_answer). Nie wie, ze ten sam mechanizm
+  obejmuje Varkhena.
+mechanics_ref: candidate_npc_seraphine_vale
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/seraphine-vale.yaml
+knowledge:
+  recent_confirmed:
+  - fact_id: fact_seraphine_answered_the_combat_mage_question
+    source_event_id: event_turn_interlude_235
+    claim: 'Lucan zapytal, czy gildia ma dostep do magow bojowych, od ktorych daloby sie cos podlapac.
+      NIE OBIECALA NIKOGO I NIE PODALA ZADNEGO NAZWISKA - zaden plik nie stawia w gildii maga bojowego,
+      instruktora ani szkoly, a skladu ekipy A-rank z garbarni nie zna nikt (narrator obsady nie produkuje,
+      retcon_000058). Odpowiedziala tym, czym gildia jest: organizacja najmujaca ekipy do zadan, nie kadra
+      do wypozyczania. ZAOFEROWALA ZA TO WLASNE RZEMIOSLO: pokazac Lucanowi, CO dokladnie zarejestrowala
+      w t_038, kiedy rzucil wzmocnionego znika cztery kroki od niej - czyli jak wyglada z drugiej strony
+      pieczeci. Cene nazwala sama, raz: antymagiczka pokazujaca nekromancie, co widzi, oddaje mu sposob
+      ukrycia sie przed soba. Zrobi to mimo tego. OFERTA STOI I NIE ZOSTALA PRZYJETA ANI ODRZUCONA.'
+  - fact_id: fact_seraphine_registered_lucans_position_on_rusk
+    source_event_id: event_turn_interlude_235
+    claim: 'Lucan odlozyl cene z t_234: Rusk nie jest dla niego problemem, ale nie odpowiada za jego stan
+      psychiczny. Przyjela to bez wyceniania drugi raz (retcon_000135 a) i bez wracania do sledztwa kompetencyjnego.
+      Podala natomiast wlasny fakt operacyjny: pioro jest wygaszone, zrobila to sama w t_123/125 i cene
+      przyjela swiadomie - Rusk pisze dalej. Zestawila to z kanalem magistratu: Rusk piszacy i urzednik
+      rozsylajacy pisma o potwierdzenie dat maja jeden wspolny obiekt, obsade operacji w garbarni z nazwiskiem
+      Lucana. NIE ZADALA ANI WYGASZENIA, ANI SPOSOBU - to zamkniete (retcon_000121).'
+  - fact_id: fact_seraphine_asked_again_for_the_clerks_name
+    source_event_id: event_turn_interlude_235
+    claim: 'Zapytana, co z urzednikiem rozpytujacym bez jej udzialu, powtorzyla wynik sprawdzenia z t_125:
+      NIE MA NICZEGO - kanal magistratu jest calkowicie niezalezny od niej, a relacja z garbarni sklada
+      sie bez gildii, z ludzi gildii, imiennie. Nazwiska NADAL NIE MA, bo odmowila jego przyjecia w t_122.
+      TERAZ ZAPYTALA O NIE SAMA, RAZ - kontekst zmienila ona: ogloszenie kryzysu (t_232) i uklad ze Straza
+      (t_228-232). PYTANIE STOI OTWARTE, Lucan nie odpowiedzial. Od t_125 nikt tam nie zajrzal.'
+  - fact_id: fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian
+    source_event_id: event_turn_interlude_234
+    claim: 'PRZYJELA REKLAMACJE LUCANA I COFNELA WLASNA REGULE Z t_227. Jego argument: mowimy o WEWNETRZNEJ
+      DOKUMENTACJI GILDII, nie o aktach miejskich; prywatna organizacja nie jest zwiazana cudza doktryna;
+      zadne prawo nie zakazuje rozmowy z wyzszym nieumarlym - po prostu rzadko kto ma ku temu okazje.
+      AUDYT PLIKU POTWIERDZA: necromancy-law#legal_baseline kryminalizuje tworzenie, utrzymywanie i kontrole,
+      nie rozmowe, a varkhen_exposure.ancient_guardian_cover_story trzyma sie, dopoki kontrola pozostaje
+      niedowiedziona i Varkhen wspolpracuje dobrowolnie. OD TEJ TURY: Varkhen jest cytowalny JAKO PRADAWNY
+      STRAZNIK NEKROPOLII skladajacy dobrowolne zeznanie. Niecytowalne jest jedno zdanie - nieumarly,
+      ktorego Lucan kontroluje. Ograniczeniem nie jest zrodlo, tylko brzmienie (retcon_000138).'
+  older_confirmed_index:
+  - fact_seraphine_revised_the_sequence_after_the_citability_argument <- event_turn_interlude_234
+  - fact_seraphine_heard_the_political_liability_frame <- event_turn_interlude_234
+  - fact_seraphine_heard_the_tannery_kolm_hypothesis <- event_turn_interlude_233
+  - fact_seraphine_accepted_oral_only_channel_for_varkhen <- event_turn_interlude_233
+  - fact_seraphine_set_the_measurement_first_sequence <- event_turn_interlude_233
+  - fact_seraphine_got_the_boundary_text_and_the_priest_warning <- event_turn_interlude_233
+  - fact_seraphine_corrected_lucans_order_of_the_two_dates <- event_turn_interlude_233
+  - fact_seraphine_got_the_three_priorities_and_the_kolm_read <- event_turn_interlude_232
+  - fact_seraphine_will_declare_the_emergency_knowing_it_pays_kolm <- event_turn_interlude_232
+  - fact_seraphine_told_boros_and_mara_are_bought <- event_turn_interlude_229
+  - fact_seraphine_admits_she_filtered_the_cemetery_dossier <- event_turn_interlude_229
+  - fact_seraphine_will_not_report_varkhen_before_the_hearing <- event_turn_interlude_227
+  - fact_seraphine_named_the_blind_spot_of_the_public_ledger <- event_turn_interlude_227
+  - fact_seraphine_has_the_lawyers_name_kesz <- event_turn_interlude_226
+  - fact_seraphine_knows_the_ledger_goes_to_every_side_at_once <- event_turn_interlude_226
+  - fact_seraphine_stalled_the_watch_meeting_and_spent_her_own_credibility <- event_turn_interlude_224
+  - fact_seraphine_holds_the_barbers_casebook <- event_turn_interlude_190
+  - fact_seraphine_knows_lucan_will_not_defend_himself <- event_turn_interlude_190
+  - fact_seraphine_watch_meeting_today_day4 <- event_turn_interlude_188
+  - fact_seraphine_refuses_authorisation_but_names_the_line <- event_turn_interlude_126
+  - fact_seraphine_is_not_on_corths_distribution_list <- event_turn_interlude_125
+  - fact_seraphine_knows_the_dispute_fuse_burns_without_lucan <- event_turn_interlude_124
+  - fact_seraphine_notes_neris_interest_aligns_without_transaction <- event_turn_interlude_124
+  - fact_seraphine_knows_about_the_pen_on_rusk <- event_turn_interlude_122
+  - fact_seraphine_knows_lucans_seven_levers <- event_turn_interlude_122
+  - fact_seraphine_knows_varkhen_is_bored <- event_turn_interlude_122
+  - fact_seraphine_will_contract_the_martial_order_herself_or_not_at_all <- event_turn_interlude_122
+  - fact_seraphine_knows_the_watch_runs_the_corpse_line <- event_turn_interlude_120
+  - fact_seraphine_knows_lucan_has_a_syndicate_arrangement_over_the_cemetery <- event_turn_interlude_120
+  - fact_seraphine_learned_lucan_holds_a_frozen_academy_post <- retcon_000069
+  - fact_seraphine_knows_father_human_transmutation_precedent <- event_turn_interlude_068_father_transmutation_anecdote
+  - fact_seraphine_knows_father_disaster_precedent <- event_turn_interlude_067_academy_volcano_scale
+  - fact_seraphine_holds_corpse_pipeline_hypothesis <- event_turn_interlude_066_corpse_pipeline_hypothesis
+  - fact_seraphine_knows_no_academy_faction_is_safe <- event_turn_interlude_065_no_safe_academy_victory
+  - fact_seraphine_understood_the_veyr_system <- retcon_000064
+  - fact_seraphine_knows_public_necromancy_charge_is_a_fuse <- event_turn_interlude_064_public_charge_is_a_fuse
+  - fact_seraphine_knows_spidey_research_ownership_frame <- event_turn_interlude_063_spidey_research_ownership_frame
+  - fact_seraphine_knows_academic_priority_doctrine <- event_turn_interlude_062_academic_priority_doctrine
+  - fact_seraphine_knows_source_and_stakes_of_academy_dispute <- event_turn_interlude_061_academy_dispute_source_disclosed
+  - fact_seraphine_knows_priest_visited_varkhen_with_oren <- milestone_047_seraphine_risk_disclosure
+  - fact_seraphine_knows_remote_corpse_order <- milestone_047_seraphine_risk_disclosure
+  - fact_seraphine_knows_spider_network_exists <- milestone_047_seraphine_risk_disclosure
+  - fact_seraphine_knows_four_marked_corpses <- milestone_047_seraphine_risk_disclosure
+  - fact_seraphine_offers_conditional_cover <- milestone_047_seraphine_risk_disclosure
+  - fact_seraphine_arrived_after_varkhen_assault <- milestone_046_varkhen_oath_compact
+  - fact_seraphine_knows_three_seals <- milestone_046_varkhen_oath_compact
+  - fact_seraphine_conditionally_accepts_varkhen <- milestone_046_varkhen_oath_compact
+  - fact_seraphine_knows_lucan_uses_numb <- milestone_044_oren_containment_and_kill_attempt
+  - fact_seraphine_knows_varkhen_link_terms <- event_turn_interlude_044_varkhen_terms_and_survivors
+  - fact_seraphine_accepts_controlled_interrogation_pressure <- event_turn_interlude_044_varkhen_terms_and_survivors
+  - fact_seraphine_has_lucans_cover_story_for_the_permit <- event_turn_interlude_043_cover_story
+  - fact_seraphine_knows_lucan_cursed_three_on_the_wagon <- milestone_041_corpse_wagon_takeover
+  - fact_seraphine_watched_lucan_curse_a_guild_employee <- event_turn_interlude_038_numb_on_the_night_clerk
+  - fact_seraphine_heard_spidey_will_become_famous <- event_turn_interlude_038_numb_on_the_night_clerk
+  - fact_seraphine_saw_spidey_react_to_his_name <- event_turn_interlude_037_every_signature_has_a_room
+  - fact_seraphine_accepted_provocation_doctrine_with_limits <- event_turn_interlude_037_every_signature_has_a_room
+  - fact_seraphine_knows_lucan_cemetery_report <- milestone_036_cemetery_conversations_and_missing_guard
+  - fact_seraphine_read_the_permit_but_refused_custody <- event_turn_interlude_036_the_permit_on_the_table
+  - fact_seraphine_knows_the_watch_lead_is_a_transport_permit <- event_turn_interlude_035_the_permit_disclosed
+  - fact_seraphine_knows_lucans_blackmail_doctrine <- event_turn_interlude_035_the_permit_disclosed
+  - fact_seraphine_knows_a_powerful_relic_is_claimed <- event_turn_interlude_032_relic_watch_lead_and_a_bed
+  - fact_seraphine_knows_of_a_watch_side_corpse_transport_lead <- event_turn_interlude_032_relic_watch_lead_and_a_bed
+  - fact_seraphine_noticed_lucan_named_assets_without_handing_them_over <- event_turn_interlude_032_relic_watch_lead_and_a_bed
+  - fact_seraphine_told_lucan_the_tannery_case_is_open <- event_turn_interlude_032_relic_watch_lead_and_a_bed
+  - fact_seraphine_learned_the_seminar_mechanism <- event_turn_interlude_030_the_seminar_problem
+  - fact_seraphine_heard_lucans_assessment_of_academics <- event_turn_interlude_030_the_seminar_problem
+  - fact_seraphine_knows_about_the_academy_dispute_in_detail <- event_turn_interlude_029_academy_as_civic_risk
+  - fact_seraphine_wants_names_of_church_linked_academics <- event_turn_interlude_029_academy_as_civic_risk
+  - fact_seraphine_set_one_condition_advance_warning <- event_turn_interlude_029_academy_as_civic_risk
+  - fact_seraphine_knows_lucan_visited_his_father_tonight <- event_turn_interlude_027_legal_argument_and_the_father_answer
+  - fact_seraphine_heard_lucans_legal_reading <- event_turn_interlude_027_legal_argument_and_the_father_answer
+  - fact_seraphine_saw_spidey_up_close_and_obeying <- event_turn_interlude_025_spidey_on_seraphines_desk
+  - fact_seraphine_infers_worse_items_on_the_list <- event_turn_interlude_025_spidey_on_seraphines_desk
+  - fact_seraphine_gave_lucan_the_hearing_horizon <- event_turn_interlude_024_seraphine_date_and_payments
+  - fact_seraphine_knows_custody_fight_over_bodies <- event_turn_interlude_024_seraphine_date_and_payments
+  - fact_seraphine_received_tannery_evidence <- milestone_022_owner_exposed_and_detained
+  - fact_seraphine_knows_rusk_inquiry_origin <- milestone_022_owner_exposed_and_detained
+  - fact_seraphine_knows_four_survivors_are_in_guild_custody <- retcon_000011
+  - fact_seraphine_knows_the_four_survivors_composition <- retcon_000009
+  - fact_seraphine_knows_dump_bodies_resolved <- retcon_000003
+  - fact_seraphine_saw_ring_taken_from_varkhen_sarcophagus <- event_act_02_closeout_interlude_import
+  - fact_seraphine_moved_varkhen_to_guild_basement <- event_act_02_closeout_interlude_import
+  - fact_seraphine_received_preoperation_cemetery_report <- milestone_037b_guild_cemetery_report_and_support
+  - fact_seraphine_saw_lucan_leave_heart_site <- milestone_044b_oren_termination_and_energy_sample
+  - fact_seraphine_knows_lucan_is_a_veyr <- event_turn_interlude_026b_veyr_name_and_the_observer_question
+  - fact_seraphine_knows_academy_runs_classification_dispute <- event_turn_interlude_026b_veyr_name_and_the_observer_question
+  - fact_seraphine_conceded_the_observer_argument <- event_turn_interlude_026b_veyr_name_and_the_observer_question
+  suspicions:
+  - id: suspicion_lucan_has_hidden_necromantic_support
+    basis_event_ids:
+    - milestone_043a_logistics_collector_overload
+    confidence: high
+  false_beliefs:
+  - id: false_belief_spidey_leg_lost_to_a_door
+    source_event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
+    claim: Wierzy, że Spidey stracił odnóże, bo urwały mu je jedne z drzwi w podziemiach. Wersja podana
+      przez Lucana.
+    truth: Akta kampanii wiążą partial_hind_leg_loss z milestone_042_spiders_steal_wagon_chest_contents.
+      Prawdziwa wersja brzmiałaby - pająki obrabowały skrzynię z wozu - czyli byłaby przyznaniem się do
+      kradzieży przed oficerem gildii.
+  forbidden_without_source:
+  - exact_spidey_order_text
+  - final_guild_or_church_verdict
+  - church_reliquary
+  - sixty_kilo_gold_lot
+  - academy_dispute_plan
+  - that_lucans_father_now_knows_the_method
+freshness:
+  confirmed_entries_total: 91
+  in_digest: 4
+  last_fact_from_turn: 235
+  current_turn: 235
+  turns_behind: 0
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

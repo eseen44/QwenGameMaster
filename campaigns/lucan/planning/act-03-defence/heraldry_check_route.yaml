@@ -1,0 +1,64 @@
+schema_version: 1
+id: act_03_defence_rationale__heraldry_check_route
+section: heraldry_check_route
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+heraldry_check_route:
+  objective_ref: objective_interlude_investigations
+  step_ref: investigate_stag_signet_and_tannery_owners
+  source_event_id: event_turn_interlude_233
+  what_landed: |
+    Lucan podal Seraphine teze: przedmiot zabrany z ukrytego skarbca garbarni laczy
+    garbarnie z Kolmem. Podal ja jako hipoteze i sam nazwal ja "do sprawdzenia", wiec
+    tak zostala zapisana (retcon_000120). Kierunek jest ZATWIERDZONY PRZEZ GRACZA
+    od 2026-08-27 - ivar-kolm.yaml#the_act_01_thread.
+  what_did_not_land:
+    superseded_by: retcon_000137
+    old_text: |
+      GEST. item_three_arrow_deer_signet ma location container_interlude_loot_pile
+      (loc_city_wall_hideout), a inventory#if_it_surfaces.do_not_fire_automatically mowi
+      wprost, ze sygnet lezy w stosie lupu w baszcie. Przy Lucanie go nie ma, wiec nie
+      mogl go polozyc na blacie. Padl sam opis herbu - jelen przebity trzema strzalami.
+  what_landed_after_retcon_000137: |
+    GEST ZOSTAL WYKONANY. Gracz nadpisal lokalizacje 2026-09-03: sygnet byl noszony na
+    palcu, zostal zdjety i lezy na biurku Seraphine przy niedokonczonej karcie
+    kontraktowej. NIE ZOSTAL ODDANY - decyzja o zabraniu go z powrotem nalezy do Lucana.
+    CO SIE NIE ZMIENIA: heraldry_recognition nadal attempted_and_failed, wiec nikt w tym
+    pokoju nie umie nazwac rodu, a ivar-kolm.yaml#do_not_invent nadal zabrania
+    wyprodukowania nazwy bez researchu. Trasa sprawdzenia zostaje ta sama - papiery
+    garbarnika u niej, nie rejestr gildii - tylko porownuje sie OBIEKT, nie opis.
+    item_tannery_owner_cache TA KOREKTA NIE OBEJMUJE: rejestr rachunkowy, tabliczka
+    KOMORA III, umowy dostaw i pieczec poprzednika nadal leza w zone_wall_void baszty,
+    trzy kwadranse marszu (t_086). To jest druga polowa dowodow i nadal jest poza miastem.
+  the_route_she_chose: |
+    NIE przez rejestr gildii i NIE przez trzecia osobe. Podstawa: jej doktryna z t_126
+    ("nie liczy sie, czy informacja jest tajna, tylko ILE OSOB MOGLO JA MIEC") oraz
+    inventory#if_it_surfaces.the_shield - trop wskazuje na PARE "gildia albo Lucan", wiec
+    zapytanie heraldyczne przez gildie obciaza takze ja. Sprawdzi herb w papierach
+    garbarnika, ktore dostala w milestone_022 i ktore ma u siebie.
+  unresolved: 'Czy herb w tych papierach w ogole jest. Narrator tego nie domyka i nie
+    zapowiada wyniku (retcon_000058). Nazwy rodu nie wolno wyprodukowac bez researchu
+    heraldycznego - ivar-kolm.yaml#do_not_invent.'
+  the_gap_this_opens_in_the_boundary_text: |
+    OBOWIAZKOWE ZESTAWIENIE (retcon_000135 punkt d), wprost z
+    ivar-kolm.yaml#co_to_zmienia_w_dyspucie: "kazda linia, ktora Lucan wspolpisze i ktora
+    wypycha hybrydy do szarej strefy, pracuje takze dla Kolma. Warunek nadrzedny z t_168
+    tego NIE dotyka - hodowla okazow nie jest nekromancja na ludziach."
+    Brzmienie proponowane w t_233 tnie po CZLOWIEKU i po SKALI. Hodowla okazow pod
+    garbarnia nie jest nekromancja na ludziach, wiec jesli teza o Kolmie jest prawdziwa,
+    ten sam tekst, ktory ma dac obu stronom sukces, wyprowadza sprawe spod garbarni
+    z zakresu scigania - mechanizmem, ktory Lucan sam wylozyl Seraphine w t_231
+    (hybrydy w szarej strefie, przestaje sie rozpatrywac skargi).
+    NIE ROZSTRZYGAC, w ktora strone to pchnie Kolma - #open_problems mowi wprost:
+    RACHUNEK KOLMA NIEROZSTRZYGNIETY.
+  priest_warning: |
+    Uprzedzenie o zamiarze wciagniecia KAPLANA Z CMENTARZA do brzmienia padlo PRZED
+    kontaktem, czyli spelnia warunek z t_122 (fact_seraphine_knows_lucans_seven_levers)
+    i NIE jest zlamaniem niczego - retcon_000124 nie ma tu zastosowania.
+    Ona ma do tego wlasny material: fact_seraphine_knows_priest_visited_varkhen_with_oren
+    oraz swoje pytanie z t_029, czy to ten sam interes co kaplan od wejscia.
+    NARRATOR NIE UTOZSAMIA tego kaplana z meet_local_priest (state: accepted_kesz_arranges,
+    t_113) - zaden plik ich nie skleja.

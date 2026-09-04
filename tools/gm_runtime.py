@@ -1304,6 +1304,10 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     # dzialajaca bramka walidatora; prawda dochodzi obok, jako rozbicie.
     cards = participant_card_refs(campaign_root, scene)
     card_sizes = {ref: ref_size(ref) or 0 for ref in cards}
+    digest_sizes = {}
+    for ref in cards:
+        digest = npc_digest_ref(ref_path(ref))
+        digest_sizes[ref] = (ref_size(digest) or 0) if digest else card_sizes[ref]
     agents_size = ref_size("AGENTS.md") or 0
     sets = conditional_sets(active)
     result["conditional_sets"] = {
@@ -1315,6 +1319,9 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
             ref_size(ref) or 0 for ref in active.get("always_load", [])),
         "state_active": sum(sizes.get(ref, 0) for ref in refs),
         "participant_cards": sum(card_sizes.values()),
+        # Skroty kart (etap 8): to samo, co narrator faktycznie potrzebuje przeczytac,
+        # gdy nie siega po szczegol starszego faktu. Roznica jest miara etapu 8.
+        "participant_digests": sum(digest_sizes.values()),
         "conditional_heaviest": max(
             ((tag, sum(e.get("bytes", 0) for e in entries)) for tag, entries in sets.items()),
             key=lambda item: item[1], default=("", 0))[1],
@@ -1421,6 +1428,12 @@ def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
             "over_budget_by": max(0, grand - CONTEXT_BUDGET_BYTES),
         },
     }
+
+
+def npc_digest_ref(card_path: Path) -> str | None:
+    """Ref do skrotu karty, jesli istnieje (tools/build_npc_digests.py)."""
+    candidate = card_path.parent / "digests" / card_path.name
+    return project_ref(candidate) if candidate.exists() else None
 
 
 def participant_card_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
@@ -1918,6 +1931,14 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             # relationship_ref, ani stanu swiezosci, wiec najgestszy zapis "co ta postac
             # o Lucanie mysli" (relationships/*.yaml, osie i axis_change_log) nie trafial
             # do narratora ani razu - karta seraphine--lucan.yaml stala 197 tur w tyle.
+            digest_ref = npc_digest_ref(entity_path)
+            if digest_ref:
+                # SKROT KARTY (etap 8). Pelna karta Seraphiny wazy 60 675 B, skrot 19 404 B.
+                # Skrot NIE JEST kanonem - trzyma czesc "jak grac" 1:1, najnowsze fakty
+                # w calosci i indeks starszych. Szczegol starszego faktu dociagnij z karty.
+                digest["digest_ref"] = digest_ref
+                digest["digest_bytes"] = ref_size(digest_ref)
+                digest["full_card_bytes"] = ref_size(entity_ref)
             relationship_ref = entity.get("relationship_ref")
             if isinstance(relationship_ref, str):
                 digest["relationship_ref"] = relationship_ref

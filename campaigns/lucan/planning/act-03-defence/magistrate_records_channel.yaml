@@ -1,0 +1,48 @@
+schema_version: 1
+id: act_03_defence_rationale__magistrate_records_channel
+section: magistrate_records_channel
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+magistrate_records_channel:
+  objective_ref: objective_interlude_investigations
+  step_ref: investigate_rusk_and_magistracy_channel
+  source_event_id: event_turn_interlude_101
+  text: |
+    Lucan zdecydowal, ze Corth nie jest sprawa Borosa i Mary, i wykonal to czysto - nie padlo
+    ani nazwisko Cortha, ani odpis kanalow Ruska. Corth zdecydowal inaczej dwa dni wczesniej:
+    rozeslal do nazwisk z obsady garbarni pisma o potwierdzenie dat i skladu grupy. Mara ma
+    jedno takie pismo, nie zna nazwiska urzednika, uwaza je za nudne i ZAMIERZA ODPOWIEDZIEC,
+    bo nieodpowiedzenie urzednikowi akt jest sposobem na stanie sie interesujacym. Zapytala
+    Lucana lagodnie, czy jest wersja tych dat, ktora by mu bardziej pasowala.
+  consequence: |
+    Decyzja o zatrzymaniu Cortha dla siebie ma termin waznosci liczony w DNIACH, nie
+    tygodniach. Lucan ma proponowana wspolprace swiadka, o ktora nie prosil: przyjecie daje
+    spojnosc zeznan i wymaga wtajemniczenia Mary, odrzucenie zostawia ja przy prawdzie,
+    ktorej Lucan nie zna w jej wersji. Zasada nadrzedna: JEDNA wersja opowiesci na wszystkie
+    fora - rozjazd zabija szybciej niz tresc.
+
+  decision_taken: |
+    PRAWDA, BEZ UZGADNIANIA (event_turn_interlude_102). Lucan kazal Marze napisac dokladne
+    daty i nie pytac go o wersje, bo nikt nic na niego nie ma, oraz dolozyl fakt, ktorego
+    Mara nie miala: Halven Rusk byl w garbarni, to jego odciagano od szczuroogra
+    (milestone_021_rusk_rescued). Mechanizm, ktory Mara nazwala: urzednik akt nie porownuje
+    zeznania z rzeczywistoscia, bo nie ma do niej dostepu - porownuje zeznania ZE SOBA, wiec
+    uzgodniona wersja jest ryzykiem rosnacym z liczba osob na obsadzie, a prawda nie ma tego
+    problemu w ogole.
+  rusk_as_witness: |
+    KORZYSC: dopisanie Ruska zmienia kategorie wpisu z "czterech czlonkow gildii w cudzej
+    garbarni" na "wypadek inspektora zagrozen podziemnych z asysta gildii" - kategoria z
+    wlasnym formularzem i precedensem. Rubryka, ktora sie zgadza, nie generuje pytania.
+    CENA: Rusk jest swiadkiem niezyczliwym - suspicion_lucan_sabotaged_escape (srednia
+    pewnosc), agenda avoid_being_used_as_lucan_cover. Wpisanie go kladzie go celowo na tej
+    samej stronie co Lucana.
+    GRANICA KLATWY - NIE PRZESADZAC: effect_rusk_cursed_pen_usypianie uruchamia sie, gdy Rusk
+    PISZE TYM PIOREM. Wezwany moze zeznac ustnie i ktos to spisze. Klatwa odjela Ruskowi
+    zdolnosc dosypywania papieru z WLASNEJ INICJATYWY (jego jedyna dzwignia: wolumen raportow
+    i sprzeciwow), a wroga wersja potrzebuje wlasnie inicjatywy. Druga strona medalu: urzednik
+    miejski, ktory nie oddaje zeznania na pismie, generuje u Cortha OTWARTA RUBRYKE przy
+    nazwisku Lucana na trzynascie dni, a urzednik, ktory przestaje produkowac raporty, w koncu
+    zostaje zastapiony - a nastepca zaczyna od zera, bez zmeczenia Corthem i bez piora.

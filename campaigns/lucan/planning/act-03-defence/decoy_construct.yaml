@@ -1,0 +1,102 @@
+schema_version: 1
+id: act_03_defence_rationale__decoy_construct
+section: decoy_construct
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+decoy_construct:
+  species_maturation_canon:
+    source_event_id: event_turn_interlude_070_varkhen_walks_up_and_the_alarm_spider
+    source: 'Kanon podany przez gracza 2026-08-24.'
+    text: 'Pajaki Lucana MADRZEJA i robia sie bardziej temperamentne, im dluzej zyja.
+      Swiezo utworzony okaz nie tylko WYGLADA bardziej mechanicznie - realnie jest
+      blizszy konstruktowi, bo nie zdazyl sie wyrobic. To wzmacnia caly plan wabika:
+      roznica miedzy Spideyem a wabikiem nie jest tylko kosmetyczna. Skutek uboczny -
+      papier o autorstwie nie moze wymieniac Spideya, wiec nie da sie go wystawic,
+      zanim wabik powstanie. Obejscie Seraphine: zarejestrowac sama JEDNOSTKE badawcza
+      (datowana dzis), a okaz przypisac do niej pozniej.'
+  objective_ref: objective_prepare_companions_and_specimens
+  constraints:
+    - id: time_budget
+      supersedes: energy_budget
+      retcon_ref: [retcon_000017, retcon_000021]
+      retcon_ref_2: retcon_000024
+      text: 'OKAZ POKAZOWY - okolo 4 GODZIN pracy recznej za sztuke, czyli kilka modyfikacji
+        po ok. godzinie każda (retcon_000021 + retcon_000024). Osiem godzin to budzet dla
+        pracy klasy Spideya, czyli okazu dopracowanego i bojowego. Jednostki pokazowe maja
+        byc przeszyte i LEKKO opancerzone: wolniejsze, sztywniejsze i ciezsze od Spideya.
+        Twarde zobowiazanie wynosi jeden okaz; zapas dodatkowych jest nieprecyzyjny i ma
+        uwzgledniac mozliwosc zniszczenia okazu przez demonstracje albo sekcje. Energii nie
+        kosztuje to wcale. Nie przedstawiac liczby jako wyboru kosztem prawnika lub innych
+        przygotowan (retcon_000022, retcon_000063).'
+    - id: doctrine_refined
+      source_event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question
+      text: 'Lucan podniósł trafny kontrargument i Seraphine go przyznała: z zewnątrz NIE DA
+        SIĘ odróżnić wyuczonej sztuczki od świeżego posłuszeństwa. Wniosek praktyczny -
+        argument "konstrukt" jest argumentem PRAWNYM i PUBLICZNYM, trzyma się przed
+        magistratem, urzędnikiem i publicznością, a NIE trzyma się przed nikim, kto potrafi
+        czytać więź. Tellem nie jest sam gest, a NOWOŚĆ i terminowość reakcji: sztuczka
+        powtarza się identycznie, posłuszeństwo dostosowuje się do prośby. Kto poprosi o INNY
+        gest i dostanie inny gest, ma dowód. Operacyjnie - na dyspucie okaz może wykonywać
+        tylko repertuar powtarzalny i nie wolno pozwolić nikomu z widowni zamówić gestu.'
+    - id: visibility_trap
+      source_event_id: event_turn_interlude_029_academy_as_civic_risk
+      text: 'PUŁAPKA WIDOCZNOŚCI - najważniejsza korekta planu. Z zewnątrz nekromanta
+        dołączający do strony SZEROKIEJ definicji jest najlepszym prezentem dla strony
+        WĄSKIEJ; argument npc_ivar_kolm pisze się sam: patrzcie, kto przyszedł ich poprzeć.
+        Widoczny Lucan nie wzmacnia npc_neris_aldhen, jest jej kontrprzykładem i żywym
+        dowodem, że szeroka definicja produkuje dokładnie takich ludzi. WNIOSEK - wartość
+        Lucana dla tej frakcji jest realna, ale musi być NIEWIDZIALNA: źródło, nie sojusznik;
+        karmi argument, nie występuje w nim. To jest nie do pogodzenia z planem ojca, który
+        chce wystawić okazy pod nazwiskiem syna. UWAGA - Seraphine wycofała tę radę w
+        event_turn_interlude_031, gdy dowiedziała się o doktoracie, publikacjach oraz
+        formalnie zachowanym stanowisku i pokoju Lucana: może być widoczny jako badacz,
+        choć nie ma własnej katedry. Pułapka dotyczy więc wystąpienia bez wiarygodnej
+        ramy badawczej.'
+    - id: seraphine_obedience_rule
+      demoted_to: npc_opinion
+      retcon_ref: retcon_000023
+      source_event_id: event_turn_interlude_025_spidey_on_seraphines_desk
+      text: 'NIE JEST OGRANICZENIEM PLANU (retcon_000023). Seraphine uwaza, ze okaz nie
+        powinien przy nikim reagowac na polecenie, bo demonstracja posluszenstwa jest roznica
+        miedzy "posiada dziwactwo" i "kontroluje nieumarlych". Kanon sam to podwazyl w
+        event_turn_interlude_026b: z zewnatrz nie da sie odroznic wyuczonej sztuczki od
+        swiezego posluszenstwa, ani mozgu pacynki od dzialania pupeteera - i Seraphine to
+        Lucanowi przyznala. Zostaje jako mozliwy argument oponenta na dyspucie, nie jako
+        zakaz nalozony na plan. Zakaz zamawiania gestu przez widownie SKASOWANY.'
+    - id: structural_flaw
+      status: removed_unsourced
+      retcon_ref: retcon_000023
+      text: 'USUNIETE. Byl to jedyny wpis w tej sekcji bez source_event_id - narratorska
+        konstrukcja podana jako wada wylozona przez ojca. Stopien biologicznosci wabika NIE
+        jest czynnikiem obrony; to wylacznie decyzja estetyczna gracza.'
+  material_timetable:
+    source_event_id: event_turn_interlude_021_timetable_and_offprint
+    academy_collections: 'Dostępne od zaraz, ale okazy są UTRWALONE (spirytus, suszenie). Do
+      przeszczepu bezużyteczne - utrwalona tkanka nie przewodzi. Wartościowe jako referencja i
+      jako części "mechaniczne" do obudowy wabika.'
+    fresh_supply: Duże żywe pajęczaki przychodzą w 6.-7. dniu interludium. Posłużą jako
+      dawcy dla Spideya i materiał na jednostki pokazowe. Drugi tydzień interludium jest
+      przeznaczony na pracę nad nimi.
+    webber_night_haul: Już zdobyte, czeka w baszcie. Pająki piwniczne, osy, chrząszcze,
+      stonogi - za małe na odnóże dla Spideya, wystarczające jako ciała małych okazów serii.
+  schedule_and_alignment:
+    source_event_id: event_turn_interlude_022_notice_board_identification
+    text: 'ZBIEŻNOŚĆ OSIĄGNIĘTA. Wcześniejszy caveat o niesterowalnym terminie postępowania
+      jest nieaktualny - termin ustalono jawnie na 15 dni (clock_guild_leadership_hearing), a
+      dysputa wypada za 16. Trzy rzeczy siadają w jednym tygodniu: materiał (7 dni), gotowe
+      okazy i pokaz (15), przesłuchanie (15), dysputa (16). To jest dokładnie układ, o który
+      gracz prosił - akademicy będą mieli własny interes w tym, żeby Lucan nie siedział w
+      areszcie w dniu swojej dysputy. Cena: pokaz przestał być prywatny, a po drugiej stronie
+      stoi wyznaczony oponent (npc_ivar_kolm), którego zadaniem jest wykazać, że taki okaz to
+      nieumarły.'
+  cost_already_incurred:
+    text: 'Lucan zobowiązał się wobec ojca do dostarczenia PRZYNAJMNIEJ JEDNEGO okazu na
+      dyskusję. Dodatkowe jednostki na demonstracje i sekcje są planem roboczym bez ustalonej
+      liczby, nie odrębnym zobowiązaniem. Ojciec zaczął organizować pokaz we własnym tempie,
+      więc sprawa przestała być prywatna. CZĘŚCIOWO ODZYSKANE
+      (event_turn_interlude_021) - Lucan przestawił clock_father_arranges_academy_showing z
+      trzech dni na osiem, potem na piętnaście, używając własnego argumentu ojca: jeden okaz
+      to anekdota, seria to materiał, a serii nie zrobi się w trzy dni.'

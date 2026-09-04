@@ -1,0 +1,141 @@
+schema_version: 1
+id: act_03_defence_rationale__the_boundary_lucan_designed
+section: the_boundary_lucan_designed
+part_of: campaigns/lucan/planning/act-03-defence.yaml
+split_note: >-
+  Wyodrebnione 2026-09-04 z planning/act-03-defence.yaml (etap 8). Tresc
+  przeniesiona 1:1, surowymi liniami, bez ponownej serializacji - formatowanie
+  i lamanie linii oryginalu zachowane.
+the_boundary_lucan_designed:
+  objective_ref: objective_prepare_academy_church_dispute
+  source_event_id: event_turn_interlude_160
+  status: 'PROJEKT GRACZA, podany Neris Aldhen na glos w laboratorium profesora Veyra.
+    Nie jest jeszcze prawem ani nawet tekstem - jest specyfikacja zdania, ktore ma stanac
+    w publikacji wspolautorowanej przez profesora Veyra i w wystapieniu Neris na otwartej
+    dyspucie za ok. 16 dni.'
+  the_shift: 'NAJWIEKSZA ZMIANA RAMY W AKCIE 3. Do t_159 wlacznie Lucan BRONIL SIE przed
+    granica, ktora ktos inny narysuje. Od t_160 JA RYSUJE. Przestaje byc przedmiotem
+    klasyfikacji i staje sie jej autorem - przy cudzych nazwiskach na stopce.'
+  specification:
+    hard_prohibitions:
+      - 'Ozywianie ludzi - zakaz ostry, bez szarej strefy.'
+      - 'Kontrola nad WIEKSZYMI nieumarlymi - zakaz ostry.'
+      - 'Kontrola TLUMU - nigdy, bez wyjatkow i bez klauzuli zgody.'
+    permitted_exception: 'JEDEN okaz w klatce laboratoryjnej, pod warunkiem ze okaz
+      PODPISAL ZA ZYCIA odpowiednie dokumenty. Instrument zgody antemortem - nienazwany,
+      brak wiedzy, czy w Lumarii w ogole istnieje.'
+    church_facing_clause: 'Do tekstu wchodzi cos, co strona koscielna moze odczytac po
+      swojej stronie jako OCHRONE DUSZY. Nie musi byc naukowe. Ma byc cytowalne przez nich
+      jako wygrana.'
+    penalty_design: 'Wnioski pracy sie nie zmieniaja - zmieniaja sie IMPLIKACJE PRAWNE
+      naruszenia tabu. Dobrane tak, zeby zlamanie zakazu zagrazalo takze innym grupom
+      interesow w miescie (rody, gildie, magistrat, kupcy), nie tylko Kosciolowi.'
+    audience_split: 'Uzasadnienie taktyczne podane wprost: profesor Veyr nie doczyta pracy
+      do konca; fanatycy religijni tak. Dokument jest wiec pisany dla dwoch czytelnikow,
+      ktorzy dostaja z tych samych akapitow dwie rozne rzeczy.'
+  why_it_holds:
+    academy: 'necromancy-law#construct_boundary.institutional_interest - Akademia boi sie,
+      ze szeroka definicja zabije golemy, homunkulusy, protezy, biokonstrukty i chowance.
+      Ten projekt tnie po CZLOWIEKU i po SKALI, nie po materiale ani po energii, wiec
+      zdejmuje z nich zagrozenie w calosci.'
+    church: 'church_position.tendency klasyfikuje przez profanacje i skazenie duchowe;
+      animal_gray_zone_recognized_doctrinally: false. Klauzula zgody daje Kosciolowi
+      przedmiot ochrony nazwany JEGO jezykiem - pierwsza rzecz w tym sporze, ktora moze
+      przeczytac jako wygrana, zamiast jako odebranie legitymacji.'
+    secular: 'secular_authority_position.tendency patrzy na public_danger. "Nigdy tlum"
+      jest napisane wprost pod nia.'
+    neris: 'Jej stanowisko (szeroka definicja ozywionego konstruktu) zostaje szerokie.
+      Twardnieje wylacznie daleka sciana, ktorej jej tekst i tak nie bronil.'
+    liberalisation_control: 'Odwrocenie mechanizmu z necromancy-law#de_facto_liberalisation_
+      mechanism. Tam prawo umiera, bo przestaje sie rozpatrywac skargi, i srodek zaradczy
+      przechodzi z papieru na ludzi. Tutaj: skoro zlamanie tabu zagraza czterem grupom
+      naraz, kazda z nich ma wlasny powod skarge wniesc - wiec sciezka formalna NIE zanika.
+      Kosciol dostaje doktryne i traci monopol na jej pilnowanie. To jest realizacja
+      #legalisation_horizon: zatrzymac sie przed pelna legalizacja, bo pelna legalizacja
+      wypycha spor poza fora, gdzie oslona Seraphine nie dziala.'
+  varkhen_consequence:
+    visibility: 'WIDZI TO WYLACZNIE LUCAN. Ani ojciec, ani Neris nie wiedza o istnieniu
+      Varkhena - nie wkladac tej uwagi w usta zadnego NPC.'
+    the_knife: 'Zakaz kontroli nad wiekszymi nieumarlymi jest wymierzony wprost w to, co
+      Lucan trzyma w piwnicy gildii.'
+    the_shield: 'Ratuje go dokladnie ta klauzula, ktora wpisano dla Kosciola - ZGODA.
+      necromancy-law#varkhen_exposure.ancient_guardian_cover_story: przykrywka trzyma sie,
+      dopoki Varkhen wspolpracuje DOBROWOLNIE, a milestone_046_varkhen_oath_compact jest
+      paktem, nie wiezami. Klauzula podnosi przykrywke z poziomu dowodowego ("czego nie
+      udowodnia") na poziom ustawowy ("co jest legalne").'
+    the_price: 'Symetryczna. Od chwili wejscia tego zdania w zycie udowodniona KONTROLA
+      Varkhena nie jest juz szara strefa - jest zlamaniem przepisu, ktory Lucan sam
+      napisal, i to przepisu z sankcja skalibrowana na cztery frakcje naraz.'
+  revision_t168:
+    source_event_id: event_turn_interlude_168
+    supersedes_within_this_section: specification.hard_prohibitions
+    text: |
+      ZAPIS ZMIENIL KSZTALT - Z WYLICZENIA NA WARUNEK NADRZEDNY. Obowiazuje ta wersja.
+      Od gory stoi warunek zakazujacy TRYWIALIZOWANIA NEKROMANCJI NA LUDZIACH oraz
+      BEZCZESZCZENIA ZWLOK. WYZSI NIEUMARLI NIE SA WYSZCZEGOLNIENI. "Nigdy tlum"
+      zostaje - gracz go nie uchylil. Jeden okaz w klatce za zgoda antemortem zostaje.
+      DLACZEGO TO DZIALA: to nie jest przemilczenie, tylko WEZSZY ZAKRES. Tekst, ktory
+      czegos nie wymienia, ma zakres; dziure ma dopiero tekst, ktory cos wymienia i
+      zaraz wyjmuje z tego wyjatek. Zarzut Neris o cytowalnosc (t_167) upada.
+      CO TO ZAMYKA: (a) dziure sprzatajacych z t_166 - tekst nie siega tam, gdzie nie
+      wymienia; (b) Kosciol dostaje kryterium wypowiedziane JEGO wlasnym jezykiem
+      (necromancy-law#church_position: profanacja, martwa tkanka), wiec czyta to jako
+      wygrana; (c) Varkhen znika z przepisu - poprzedni ksztalt celowal wprost w
+      kontrole nad wiekszymi nieumarlymi, nowy go nie wymienia. To nie jest legalizacja,
+      to brak przedmiotu - ta sama figura, na ktorej stoi cala obrona Lucana.
+      CENA NIEZDJETA: warunek obejmuje CIALO LUDZKIE i PROFANACJE, a robota na
+      cmentarzu jest robota na ludzkich zwlokach. Slowa "trywializowanie" i
+      "bezczeszczenie" sa nieostre, a nieostrosc jest oslona TEGO, KTO TRZYMA FORUM.
+      STATUS: brzmienie ODLOZONE do przyjscia prawnika (t_102) i kaplana (t_113).
+      Dokument pozostaje wersja robocza.
+  doctrine_of_levels:
+    source_event_id: event_turn_interlude_167
+    text: |
+      Prawo obowiazuje na poziomie, dla ktorego jest pisane - jak prawo zwykle wobec
+      wojennego. Ten tekst dotyczy spokoju w badaniach, Kosciola i tego miasta; nie
+      dotyczy tych, ktorzy decyduja na poziomie panstwa, i nie dotyczy kogos, kto
+      ratuje swiat. CEL POZYTYWNY, pierwszy raz nazwany w Akcie 3: UMOWA SPOLECZNA,
+      w ktorej wszyscy sa TROCHE niezadowoleni. To zmienia kryterium oceny dysputy -
+      waska wygrana Neris (t_139) przestaje byc kompromisem z koniecznosci i staje sie
+      postacia docelowa.
+      DRUGA POLOWA: w nauce sie nie klamie, w polityce na tej samej zasadzie nigdy nie
+      mowi sie calej prawdy; niespojnosc jest WARUNKIEM stabilnosci ukladu, bo na
+      roznych poziomach reguly dzialaja inaczej. Pokrycie w kanonie:
+      necromancy-law#information_rule (ten sam czlowiek jest przestepca, ekspertem albo
+      zakladnikiem zaleznie od strony; zwycieska interpretacja zalezy od sily i
+      koalicji). Przyklad roboczy podany Neris: katedra Kolma to BIOMUTANTY, wiec jego
+      wlasna linia torpeduje jego wlasna prace - i to jest brakujaca polowa zagadki
+      z t_137b, ktorej cena (rektorat) byla znana od t_140.
+
+  open_problems:
+    - 'BRAK KLAUZULI DLA SPRZATAJACYCH - znaleziona przez Neris w t_166, po tym jak Lucan
+      ujawnil jej operacyjny cel calej sprawy. Ostry zakaz kontroli nad WIEKSZYMI
+      nieumarlymi i bezwarunkowe "nigdy tlum" kryminalizuja dokladnie te robote na
+      cmentarzu, ktora jest powodem istnienia tego tekstu: naprawa po amatorskich
+      nekromantach wysysajacych ducha pradawnej nekropolii wymaga pracy przy wiekszych
+      nieumarlych i przy ich liczbie. Autor zakazu bylby jego pierwszym naruszycielem.
+      Kazda klauzula ratunkowa jest przy tym FURTKA, ktorej ktos uzyje - a wyjatek
+      "dla uprawnionych" oddaje rozstrzyganie temu, kto rozdaje uprawnienia. Nierozwiazane.'
+    - 'ARBITRALNA LICZBA - ROZWIAZANA w t_161. Limit "jeden" przeszedl jako wymog narzucony
+      z gory, czyli rzecz CYTOWANA, nie mierzona. Zarzut ojca upadl.'
+    - 'INSTRUMENT ZGODY - ROZWIAZANY PROCEDURALNIE w t_161. Napisza go sciagnieci prawnik
+      i kaplan; dokument jest wersja robocza. Nazwa instrumentu nadal nieznana.'
+    - 'ARBITRALNA LICZBA (historycznie). Ojciec zaatakowal limit "jeden" od razu i ma racje warsztatowo:
+      liczba bez pomiaru zaklada wniosek w przeslance (ten sam gatunek pretensji co
+      "tendencyjna nazwa", t_158). To najmiekszy punkt tekstu, ktory wrog przeczyta na glos.
+      Kolm nie musi go obalac - wystarczy, ze zapyta, kto mierzyl.'
+    - 'INSTRUMENT ZGODY NIENAZWANY. Neris nie umie tego napisac - zero slownika prawniczego
+      (portrayal.voice.diction), uczy sie go dopiero od Lucana. Nie wiadomo, czy dokument
+      zgody antemortem w Lumarii w ogole istnieje, ani jak sie nazywa.'
+    - 'RACHUNEK KOLMA NIEROZSTRZYGNIETY. t_140: Kolm potrzebuje przegranej GLOSNEJ, zeby
+      dostac rektorat. Ten projekt nie daje mu przegranej, daje mu USTAWE. Nie rozstrzygac
+      z gory, w ktora strone to go pchnie.'
+  signature_question:
+    status: 'ODDANA NERIS, NIEROZSTRZYGNIETA.'
+    lucans_position: 'Podpisze sie z radoscia, jesli chodzi o rozproszenie uwagi z niej na
+      niego. Nie zalezy mu - wykonywanie jego pracy, granty i wyjazdy sa zamrozone, dopoki
+      odmawia ozenku z bogata i wplywowa kobieta; formalnie jest dzis bardziej najemnikiem
+      Gildii niz czynnym akademikiem. Spojne z #academy_post.player_correction.'
+    disclosure_cost: 'Ujawnil przy tym Neris przyczyne zamrozenia kariery oraz przynaleznosc
+      do Gildii. #academy_post.costs przewidywalo, ze ktos siegnie po akta i to znajdzie -
+      Lucan podal to sam, dobrowolnie, oszczedzajac jej szukania.'

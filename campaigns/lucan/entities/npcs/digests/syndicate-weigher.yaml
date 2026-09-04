@@ -1,0 +1,127 @@
+schema_version: 1
+id: npc_syndicate_weigher
+name: Wagowy
+status: active
+review_status: created_in_play
+importance: full_agent
+role: syndicate_principal_the_actual_owner
+lifecycle:
+  state: alive
+  last_confirmed_event_id: event_turn_interlude_205
+current_location_id: loc_lumaria_market
+portrayal:
+  appearance: Rzemieślnik, nie zbir. Siedzi przy wadze uchylnej z probierzem i kamieniem probierczym,
+    ręce ma robocze.
+  method: 'Nikt go nie przedstawia i sam się nie przedstawia - to jest wybór, nie zaniedbanie. Liczbę
+    zostawia sobie. UWAGA: milczenie z t_104/107 było funkcją NIEROZPOZNANIA, nie charakteru - od t_109,
+    odkąd Lucan trafił w pryncypała, mówi sam i krótko: rozbił inwentarz na trzy tempa (t_109), przeliczył
+    na głos wojnę z Kościołem (t_110), wycenił kanał ostrzegawczy jednym zdaniem (t_113), odpowiedział
+    na powitanie przy własnym stole (t_195). Nie oddawaj już rozmowy Ilvie, jeśli Lucan mówi wprost do
+    niego.'
+  tell: Sortuje grobowy towar odruchowo i bezbłędnie, w tym odkłada na bok robotę konsekracyjną bez pytania
+    - robił to już wcześniej.
+speech_traits:
+- Mowi sam, krotko i tylko wtedy, gdy rozmowca trafil w niego, a nie w jego front. Nie przedstawia sie
+  i nikogo nie tytuluje.
+- Rozbija rzecz na tempa i etapy, zamiast ja oceniac - mysli inwentarzem, nie opinia.
+- Liczbe zostawia sobie na koniec i podaje ja bez ozdobnikow, jednym zdaniem.
+agenda:
+- set_the_number_himself
+- stay_unnamed
+- judge_lucan_by_what_he_declines_not_by_what_he_offers
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/syndicate-weigher.yaml
+knowledge:
+  recent_confirmed:
+  - fact_id: fact_weigher_finally_named_prices_and_took_no_coin
+    source_event_id: event_turn_interlude_205
+    claim: 'PIERWSZE LICZBY OD POCZATKU ZNAJOMOSCI - podal je dopiero, gdy mial specyfikacje (agenda#set_the_number_himself).
+      SZKIELKA, pierwsza partia probek: 15 SREBRA - trzy worki odpadu jubilerskiego i trzy dniowki przebierania;
+      kamien gratis, placi sie za oczy i czas, dokladnie jak zapowiedzial w t_198. NAMIARY DO WIEDZMY:
+      10 SREBRA - nie za wiedze, tylko za poslanie i za to, ze ktos po drodze musi zapytac czlowieka,
+      ktory nie lubi pytan. RAZEM 25. METAL bez ceny, bo nie ma nazwy materialu. NIE WZIAL GOTOWKI: sciaga
+      to z drugiej raty, bo nie wyciaga reki po 25 srebra od czlowieka, ktoremu sam winien jest 40 000.
+      ZADNE SREBRO NIE ZMIENILO WLASCICIELA - carried_silver 150 i syndicate_payout_outstanding_silver
+      40000 nietkniete, potracenie nastapi przy wyplacie. TERMINOW DOSTAWY NIE PODAL.'
+  - fact_id: fact_weigher_got_a_reason_he_did_not_ask_for
+    source_event_id: event_turn_interlude_205
+    claim: 'Lucan sam, NIEPYTANY, dorzucil do zamowienia na wiedzme: nic jej nie zrobi, szuka uslugodawcy.
+      Pryncypal nie zmienil swojej zasady z t_196 (powodu nie kupuje i nie pyta o niego), ale odnotowal,
+      ze akurat to zdanie ma wartosc UZYTKOWA - nie dla niego, tylko dla czlowieka na koncu lancucha,
+      bo ludzie robiacy rzeczy tego rodzaju sa ostrozni co do tego, kto o nich pyta. Zdanie idzie dalej
+      razem z zamowieniem. NARRATOR NIE ROZSTRZYGA, czy jest prawdziwe, i nie zapowiada, ze zostanie sprawdzone.'
+  - fact_id: fact_weigher_got_the_scale_walked_back_to_ordinary_subsidence
+    source_event_id: event_turn_interlude_204
+    claim: 'Lucan NIE odwolal niczego z t_203 - podal zwyczajne wytlumaczenie tego samego zjawiska: grunt
+      nad duza nekropolia potrafi sie zarywac, zwlaszcza kiedy ktos stamtad wykopuje zasoby, wiec na razie
+      mowa o zwyklym zagrozeniu zawalem. Pryncypal wraca przez to z ''moje przedsiewziecie moze nie miec
+      gruntu'' do ''teren jest ryzykowny'' - teza inwestycyjna przestaje byc uniewazniona i wraca do bycia
+      ryzykowna. NIEWIEDZY STRACONEJ W t_203 NIE ODZYSKUJE i tego nie udaje. UWAGA: ''ktos stamtad wykopuje
+      zasoby'' obejmuje JEGO - trzy dni temu kupil szescdziesiat kilo wykopanych stamtad rzeczy (t_111)
+      i posortowal je wlasnymi rekami. Lucan powiedzial to uprzejmie, bez akcentu; pryncypal uslyszal,
+      bo to jego wlasny towar.'
+  - fact_id: fact_weigher_heard_you_do_not_know_half_of_it
+    source_event_id: event_turn_interlude_204
+    claim: 'Lucan jednoczesnie zmniejszyl mechanizm i powiekszyl tajemnice: ''nadal nie wie pan nawet
+      polowy''. Pryncypal ZAUWAZYL napiecie miedzy tymi dwoma zdaniami i nazwal je raz, bez triumfu, NIE
+      ZADAJAC rozwiniecia. NARRATOR NIE ROZWIJA TEJ DRUGIEJ POLOWY ANI O SLOWO i nie daje do niej zadnej
+      wskazowki; zaden NPC nie zgaduje. forbidden_without_source nienaruszone: varkhen_existence, seals_and_lower_gate,
+      lucan_necromancy, spidey_existence.'
+  older_confirmed_index:
+  - fact_weigher_weighs_lucan_by_the_fact_he_has_not_left <- event_turn_interlude_204
+  - fact_weigher_was_told_the_scale_and_stopped_being_the_man_who_does_not_know <- event_turn_interlude_203
+  - fact_weigher_lost_the_not_knowing_he_had_bought <- event_turn_interlude_203
+  - fact_weigher_had_his_investment_thesis_undercut <- event_turn_interlude_203
+  - fact_weigher_has_the_revised_four_phases <- event_turn_interlude_202
+  - fact_weigher_accepted_that_the_last_saucer_is_the_deadline_to_be_gone <- event_turn_interlude_202
+  - fact_weigher_asked_how_far_not_what_it_is <- event_turn_interlude_202
+  - fact_weigher_has_the_four_phase_schedule <- event_turn_interlude_201
+  - fact_weigher_still_does_not_know_what_is_under_the_cemetery <- event_turn_interlude_201
+  - fact_weigher_received_toby_as_the_alarm_channel <- event_turn_interlude_200
+  - fact_weigher_saw_a_spider_obey_a_command_and_did_not_ask <- event_turn_interlude_200
+  - fact_weigher_had_his_name_refused_by_lucan <- event_turn_interlude_200
+  - fact_weigher_authorised_kesz_to_stand_visibly_for_lucan <- event_turn_interlude_199
+  - fact_weigher_set_one_condition_room_visible_principal_unnamed <- event_turn_interlude_199
+  - fact_weigher_does_not_buy_the_spectacle <- event_turn_interlude_199
+  - fact_weigher_accepted_the_lawyer_line_as_partial_warning_channel <- event_turn_interlude_199
+  - fact_weigher_saw_the_beetle_and_got_the_optical_spec <- event_turn_interlude_198
+  - fact_weigher_heard_the_cemetery_trace_reason <- event_turn_interlude_198
+  - fact_weigher_was_asked_for_a_hard_brittle_magic_conducting_metal <- event_turn_interlude_198
+  - fact_weigher_got_the_first_non_gold_offer_from_lucan <- event_turn_interlude_198
+  - fact_weigher_narrowed_the_witch_order_to_a_name_and_a_place <- event_turn_interlude_198
+  - fact_weigher_got_the_full_stone_specification <- event_turn_interlude_197
+  - fact_weigher_heard_that_grave_provenance_spoils_the_function <- event_turn_interlude_197
+  - fact_weigher_took_lucan_off_the_table_into_the_back_room <- event_turn_interlude_197
+  - fact_weigher_took_two_new_orders_stone_and_curse_information <- event_turn_interlude_196
+  - fact_weigher_heard_lucans_hobbyist_scholar_cover <- event_turn_interlude_196
+  - fact_weigher_was_asked_for_a_person_of_unimpeachable_reputation <- event_turn_interlude_196
+  - fact_weigher_drew_the_line_at_the_market_table <- event_turn_interlude_196
+  - fact_weigher_saw_his_own_lawyer_arrive_beside_lucan <- event_turn_interlude_195
+  - fact_weigher_was_greeted_and_nothing_more <- event_turn_interlude_195
+  - fact_weigher_priced_the_warning_channel_without_pressing <- event_turn_interlude_113
+  - fact_weigher_knows_lucan_declared_war_on_the_church <- event_turn_interlude_110
+  - fact_weigher_knows_a_bigger_cemetery_problem_exists <- event_turn_interlude_110
+  - fact_weigher_agreed_to_stock_ahead_of_the_ruling <- event_turn_interlude_109
+  - fact_weigher_has_a_stake_in_lucan_surviving <- event_turn_interlude_109
+  - fact_weigher_heard_the_entire_conversation <- event_turn_interlude_107
+  - fact_weigher_was_addressed_directly_and_correctly <- event_turn_interlude_107
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source:
+  - lucan_necromancy
+  - spidey_existence
+  - varkhen_existence
+  - seals_and_lower_gate
+  - veyr_house_structure
+freshness:
+  confirmed_entries_total: 41
+  in_digest: 4
+  last_fact_from_turn: 205
+  current_turn: 235
+  turns_behind: 30
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'
