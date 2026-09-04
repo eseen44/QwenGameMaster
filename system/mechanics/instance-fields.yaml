@@ -1,0 +1,841 @@
+schema_version: 1
+id: contract_instance_fields
+object_type: field_contract
+generated_by: tools/build_field_contract.py
+purpose: 'Kazdy klucz i kazda flaga wystepujaca w state/instances/*.yaml ma tu status: engine_reads albo
+  documentation_only. Pole poza kontraktem jest ZGLASZANE, wiec nie da sie dopisac do stanu czegos, co
+  udaje mechanike, i tego nie zauwazyc. To odpowiedz na najgrozniejsza klase bledu z audytu 2026-09-04:
+  dziesiec pol czytalo sie jak mechanika i mialo zero odczytow w kodzie, a flaga decay_suppressed byla
+  dekoracja przy jednoczesnej regule decay bez requires.'
+how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem przebuduj kontrakt. Nowe
+  pole opisowe: przebuduj kontrakt i sprawdz, ze dostalo documentation_only - jesli spodziewasz sie engine_reads,
+  a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
+warnings_looks_mechanical_but_is_not: []
+counts:
+  fields: 134
+  engine_reads: 82
+  documentation_only: 52
+  flags: 93
+  flags_engine_reads: 6
+  flags_looks_mechanical_but_is_not: 0
+fields:
+- field: conditions
+  status: engine_reads
+  note: 11 odwolan literalnych w tools/
+  in_instances: 30
+- field: conditions.id
+  status: engine_reads
+  note: 117 odwolan literalnych w tools/
+  in_instances: 3
+- field: conditions.magnitude
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 3
+- field: conditions.mechanics_ref
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 2
+- field: conditions.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: conditions.source_event_id
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 3
+- field: conditions.stacks
+  status: engine_reads
+  note: 5 odwolan literalnych w tools/
+  in_instances: 3
+- field: definition_ref
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 30
+- field: end_of_life
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: end_of_life.cause
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: end_of_life.event_ref
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: end_of_life.lost
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: end_of_life.reclaimed_by_lucan_units
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.cost_model
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.model_ref
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.next_step_cost_hours
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.permanent_growth_steps
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: growth.steps.cost_hours_by_rule
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.donor_material
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.energy_cost
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.event_id
+  status: engine_reads
+  note: 9 odwolan literalnych w tools/
+  in_instances: 1
+- field: growth.steps.gained
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.hours_actually_spent
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.id
+  status: engine_reads
+  note: 117 odwolan literalnych w tools/
+  in_instances: 1
+- field: growth.steps.intent
+  status: engine_reads
+  note: 5 odwolan literalnych w tools/
+  in_instances: 1
+- field: growth.steps.not_gained
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: growth.steps.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: growth.steps.waiver
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: id
+  status: engine_reads
+  note: 117 odwolan literalnych w tools/
+  in_instances: 30
+- field: integrity
+  status: engine_reads
+  note: 5 odwolan literalnych w tools/
+  in_instances: 30
+- field: integrity.current
+  status: engine_reads
+  note: 18 odwolan literalnych w tools/
+  in_instances: 30
+- field: integrity.maximum
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 30
+- field: intended_post
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: intended_post.blocker
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: intended_post.status
+  status: engine_reads
+  note: 57 odwolan literalnych w tools/
+  in_instances: 1
+- field: intended_post.target
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 1
+- field: last_event_id
+  status: engine_reads
+  note: 17 odwolan literalnych w tools/
+  in_instances: 30
+- field: lifecycle
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 3
+- field: lifecycle.cause
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 3
+- field: lifecycle.destroyed_event_id
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 3
+- field: lifecycle.state
+  status: engine_reads
+  note: 19 odwolan literalnych w tools/
+  in_instances: 3
+- field: object_type
+  status: engine_reads
+  note: 17 odwolan literalnych w tools/
+  in_instances: 30
+- field: orders
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: orders.execution_started
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: orders.historical_parenthesis_exception
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: orders.id
+  status: engine_reads
+  note: 117 odwolan literalnych w tools/
+  in_instances: 1
+- field: orders.instruction
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: orders.precedent_for_future_parenthetical_messages
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: orders.source_event_id
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: orders.status
+  status: engine_reads
+  note: 57 odwolan literalnych w tools/
+  in_instances: 1
+- field: orders.time_advanced_when_issued
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: position
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 30
+- field: position.detail
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
+- field: position.formation
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 26
+- field: position.location_id
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 30
+- field: position.zone_id
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 30
+- field: resources
+  status: engine_reads
+  note: 10 odwolan literalnych w tools/
+  in_instances: 30
+- field: resources.ancient_necrotic_reservoir
+  status: engine_reads
+  note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.capacity
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.current
+  status: engine_reads
+  note: 18 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.runtime
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy
+  status: engine_reads
+  note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.campaign_calibration
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.capacity
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.comfortable_capacity
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.current
+  status: engine_reads
+  note: 18 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.decision_status
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.expansion_note
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.expansion_source_event_id
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.permanent_expansion
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.regeneration
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.regeneration.interval_seconds
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.regeneration.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.regeneration.requires
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.regeneration.units
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.runtime
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.runtime.regeneration_elapsed_seconds
+  status: engine_reads
+  note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
+  in_instances: 1
+- field: resources.necrotic_reservoir
+  status: engine_reads
+  note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
+  in_instances: 28
+- field: resources.necrotic_reservoir.capacity
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 28
+- field: resources.necrotic_reservoir.current
+  status: engine_reads
+  note: 18 odwolan literalnych w tools/
+  in_instances: 28
+- field: resources.necrotic_reservoir.decay
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.decay.interval_seconds
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.decay.suppressed_by
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.decay.units
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.flight_surcharge
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.flight_surcharge.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.necrotic_reservoir.flight_surcharge.units_per_long_flight
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.growth_bank
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.growth_bank.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.necrotic_reservoir.growth_bank.units_earmarked
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.growth_bank_ref
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 3
+- field: resources.necrotic_reservoir.hunting_recovery
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.hunting_recovery.interval_seconds
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.hunting_recovery.requires
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.hunting_recovery.units
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.hunting_recovery_override
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.necrotic_reservoir.hunting_recovery_override.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.necrotic_reservoir.hunting_recovery_override.requires
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.necrotic_reservoir.runtime
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 27
+- field: resources.necrotic_reservoir.runtime.decay_elapsed_seconds
+  status: engine_reads
+  note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
+  in_instances: 27
+- field: resources.necrotic_reservoir.runtime.hunting_recovery_elapsed_seconds
+  status: engine_reads
+  note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
+  in_instances: 27
+- field: resources.paralytic_toxin_reservoir
+  status: engine_reads
+  note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.capacity
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.current
+  status: engine_reads
+  note: 18 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.regeneration
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.regeneration.interval_seconds
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.regeneration.requires
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.regeneration.units
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.runtime
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.runtime.regeneration_elapsed_seconds
+  status: engine_reads
+  note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
+  in_instances: 1
+- field: retired_conditions
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: retired_conditions.id
+  status: engine_reads
+  note: 117 odwolan literalnych w tools/
+  in_instances: 1
+- field: retired_conditions.reason
+  status: engine_reads
+  note: 10 odwolan literalnych w tools/
+  in_instances: 1
+- field: retired_conditions.retired_by
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: revision
+  status: engine_reads
+  note: 15 odwolan literalnych w tools/
+  in_instances: 30
+- field: schema_version
+  status: engine_reads
+  note: 8 odwolan literalnych w tools/
+  in_instances: 30
+- field: source_refs
+  status: engine_reads
+  note: 8 odwolan literalnych w tools/
+  in_instances: 30
+- field: status
+  status: engine_reads
+  note: 57 odwolan literalnych w tools/
+  in_instances: 30
+- field: status_flags
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 30
+- field: traits
+  status: engine_reads
+  note: 3 odwolan literalnych w tools/
+  in_instances: 4
+- field: traits.contrast_with_the_moth
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: traits.decided_on
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 4
+- field: traits.development_direction
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 4
+- field: traits.gender
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 4
+- field: traits.hard_limits
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: traits.list
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 4
+- field: traits.note
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 4
+- field: traits.source
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 4
+- field: traits.subordination
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: traits.tells
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: traits.the_core
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: traits.what_offends_him
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+status_flags:
+- flag: armoured_survives_handling_and_pockets
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: assigned_to_webber_anchored_pending_transit
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: assigned_to_webber_dump_pending_transit
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: assigned_to_webber_tannery_pending_transit
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: at_dump
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: at_guild_upper_offices_with_lucan
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: at_tannery
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: audible_clicking_on_stone
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: autonomous_hunting
+  status: engine_reads_via_requires
+  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
+    DZIALA (przez dane, nie przez kod)'
+- flag: buzz_draws_attention_and_violence
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: can_hover_in_place
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: cannot_feed_itself_from_its_own_web_requires_hand_feeding
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: carried_concealed_with_lucan
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: carries_more_than_a_wasp
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: cleared_to_forage_small_prey_only_away_from_large_event_turn_interlude_177
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: compound_eye_motion_detection
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: confidentiality_accepted
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: conscious
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: conspicuous_in_daylight
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: control_mechanics_mutually_unknown
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: courier_capable_over_distance
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: critically_damaged
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: crushed
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: dead
+  status: engine_reads
+  note: wystepuje w kodzie tools/
+- flag: death_anchored
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: decay_suppressed
+  status: engine_reads
+  note: wystepuje w kodzie tools/
+- flag: decay_suppressed_no_three_day_leash_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: dense_visible_silkworm_web
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: destroyed_by_a_broom
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: discarded
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: distributed_network_upkeep_active
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: drawn_to_light
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: excluded_prey_children_and_cats
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fast_flight
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fast_over_short_distance
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fed_on_silkworm_life_force_not_foraging
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fed_or_energized_state
+  status: engine_reads_via_requires
+  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
+    DZIALA (przez dane, nie przez kod)'
+- flag: feeds_on_rot_and_detritus_no_hunting_required
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: flight_capable
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: formal_control_link_unenforced
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fragile_wings_first_to_break
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: fresh_obedient_and_dull
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: full_free_will_default
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: functional_implanted_gland
+  status: engine_reads_via_requires
+  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
+    DZIALA (przez dane, nie przez kod)'
+- flag: guild_basement_custody
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: hand_charged_by_lucan_3_5_per_day
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: hand_fed_growth_program
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: hears_ultrasonic_band_not_words
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: heavy_thorax_room_for_modifications
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: held_back_pending_hardening
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: intact_wings_capable_of_flight
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: intentionality_unknown
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: living
+  status: engine_reads_via_requires
+  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
+    DZIALA (przez dane, nie przez kod)'
+- flag: load_carrying_for_body_scale
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: mobile_but_injured
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: moth_tympanal_hearing_organ
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: near_blind_vibration_and_air_sensing_only
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: necromantic_conduction_agent_applied
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: newly_animated
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: no_longer_visually_unremarkable_the_web_is_a_spectacle
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: no_standing_order_beyond_default_hunting
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: no_useful_vision
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: nocturnal
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: nocturnal_and_only_nocturnal
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: not_anchored_by_choice
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: paired_with_webber_home
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: permanently_expanded_reservoir
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: poor_climber_on_smooth_surfaces
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: post_overload_stable
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: posted_at_tannery_meadow
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: provokes_immediate_extermination_response_if_seen
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: released_into_city_sewer
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: responsible_actor_unknown
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: running_on_life_energy_not_sleep
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: scattered_no_standing_order_left_to_mature
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: silent_flight
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: silhouette_ignored_by_everyone
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: silk_is_continuous_strong_and_NOT_STICKY_catches_nothing
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: slow
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: sparse_web_capable
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: starves_at_a_static_indoor_post
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: static_post_capable
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: sugar_feeder_must_leave_a_closed_post
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: tactile_full_body_sensing
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: transportable_as_an_inert_object
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: undead
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: unmistakably_biological_in_motion
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: unmodified_by_choice
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: voluntary_compact_active
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: wall_void_and_drain_infiltration
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: wings_end_on_first_hard_impact
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: within_normal_capacity
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi

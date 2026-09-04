@@ -100,6 +100,7 @@ CHECKS = [
     ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
     ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
     ("skroty kart NPC aktualne", [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True),
+    ("kontrakt pol instancji", [sys.executable, "tools/build_field_contract.py", "--check"], 60, True),
 ]
 
 FULL_CHECKS = [
@@ -134,6 +135,10 @@ def main() -> int:
             # Zmiana karty NPC bez przebudowy skrotu znaczy, ze brief podaje stary stan.
             checks.append(("skroty kart NPC aktualne",
                            [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True))
+        if any("/state/instances/" in path.as_posix() for path in staged):
+            # Nowe pole w instancji bez wpisu w kontrakcie moze udawac mechanike.
+            checks.append(("kontrakt pol instancji",
+                           [sys.executable, "tools/build_field_contract.py", "--check"], 60, True))
         if journal_touched(staged):
             checks.insert(0, ("zapora dziennika",
                               [sys.executable, "tools/journal_guard.py", "--quiet"], 180, True))

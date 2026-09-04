@@ -135,3 +135,27 @@ odpowiednika w zadnym pliku regul.
   retcon_000142 sa dlugiem historycznym - raportowanym, nigdy blokujacym. Podniesienie
   baseline w tym skrypcie jest cofnieciem zapadki; rob to wylacznie po splaceniu dlugu.
 
+## Pola stanu: co silnik czyta, a co jest tylko notka
+
+`system/mechanics/instance-fields.yaml` (GENEROWANY) daje kazdemu kluczowi i kazdej fladze
+w `state/instances/*.yaml` jeden z trzech statusow:
+
+- `engine_reads` - silnik to czyta; kontrola weryfikuje, ze pole faktycznie wystepuje
+  w kodzie, wiec status nie moze sklamac,
+- `engine_reads_via_requires` - flaga wymieniona w `requires:` reguly strumienia; dziala
+  przez dane, nie przez kod,
+- `documentation_only` - **silnik tego NIE czyta i nie wolno zakladac, ze cokolwiek robi**.
+
+Zmierzony stan: 134 pola (82 czytane, 52 opisowe) i 93 flagi, z ktorych silnik czyta szesc.
+Do 2026-09-04 flaga `decay_suppressed` byla dekoracja, a dwa okazy nosily WARIANTY jej
+nazwy - silnik sprawdza dokladna nazwe, wiec nie tlumily niczego i traciły po jednostce
+na dobe bez podstawy (retcon_000145).
+
+Zasady:
+- Nowe pole mechaniczne: **najpierw odczyt w `tools/`, potem przebudowa kontraktu.**
+- Nowe pole opisowe: przebuduj kontrakt i sprawdz status. Spodziewasz sie `engine_reads`,
+  a wychodzi `documentation_only`? Znaczy, ze pole NIE DZIALA.
+- Nota o nazwie podobnej do flagi mechanicznej dostaje sufiks
+  `_DOKUMENTACJA_NIE_MECHANIKA`, inaczej kontrola zglosi ja jako pulapke.
+- Przebudowa: `python tools/build_field_contract.py`
+

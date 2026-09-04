@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **73** z 144 retconow.
+Regul z klauzula normatywna: **74** z 145 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -77,7 +77,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000128` — CZEGO TA KOREKTA NIE USTANAWIA: narrator NIE robi z zostawionej skrzynki zagrozenia, dowodu, zegara ani terminu (retcon_000055, retcon_000058).
 - `retcon_000129` — CZEGO NIE USTANAWIA: narrator nie robi z porzuconego rekwizytu dowodu, tropu ani zegara (retcon_000055, retcon_000058) i nie ustanawia, ze ktokolwiek na komendzie zwrocil na niego uwage.
 
-## energia i ekonomia slug (7)
+## energia i ekonomia slug (8)
 
 - `retcon_000014` — Pojedynczy sieciarz może nie podołać każdemu zwierzęciu, lecz gatunek 'kot' nie jest zakazem ani fizyczną granicą; sieciarze mogą działać z zasadzki lub zespołowo.
 - `retcon_000019` — Uwaga na przyszlosc: migration/packages/02-lucan/package.yaml nadal zawiera stary opis z progiem 12 - to zrodlo migracyjne, uchylone przez retcon_000004 i ten, i NIE wolno go czytac w...
@@ -86,6 +86,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000102` — Okaz poszarpany w szczekoczulkach jest pelnowartosciowym dawca, bo ucho prostoskrzydlego siedzi w PRZEDNIEJ NODZE, nigdy w skrzydle.
 - `retcon_000107` — Regula 8 x 1.5^n nie obowiazuje i nie wolno jej cytowac - zostala skasowana w calosci przez retcon_000024, a permanent_growth_steps jest zapisem historii, nie mnoznikiem ceny.
 - `retcon_000113` — Wniosek z retcon_000111 zostaje w mocy co do MECHANIKI (integralnosc odbudowuje sie tak samo szybko jak rezerwa, a ile Varkhen dostaje, jest ustawieniem Lucana), ale kierunek jest...
+- `retcon_000145` — To wymaga decyzji mechanicznych gracza, nie poprawki wskaznika.
 
 ## nawias i sprawczosc gracza (3)
 

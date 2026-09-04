@@ -711,3 +711,38 @@ rozwiazuje; tag doklada niepusty zbior), a prog wielkosci pilnuje test etapu 8.
 Skroty kart pokazaly dodatkowo, ze pojedynczy wpis knowledge.confirmed u Seraphiny wazy
 2-3 KB - eseje w polu `claim` to ta sama choroba co spuchniete `summary`, czyli material
 na etap 11.
+
+## Etap 10 wykonany (2026-09-04)
+
+**Flaga `decay_suppressed` przestala byc dekoracja.** Silnik jej nie czytal, a
+companion_spidey mial ja w status_flags ORAZ regule decay bez zadnego `requires` - autor
+napisal "ubytek wylaczony", odczytal to z pliku i uwierzyl. To najgrozniejsza klasa bledu
+z audytu, bo klamie W STRONE BEZPIECZENSTWA.
+
+**Po wpieciu flagi kontrola wylapala gorszy przypadek.** Dwa okazy nosily WARIANTY nazwy -
+`decay_suppressed_no_three_day_leash` (spy_hawk_moth_01) i
+`decay_suppressed_permanent_event_turn_interlude_177` (webber_anchored) - a silnik sprawdza
+dokladna nazwe. Traciły po jednostce na dobe bez podstawy: Zawisak 2/3, Tkacz 5,75/6, przy
+kanonie mowiacym wprost "porcja tlumiaca zdjela ubytek na stale". Naprawione, rezerwy
+przywrocone do pelna, tresc wariantow zostala jako nota z sufiksem
+`_DOKUMENTACJA_NIE_MECHANIKA` (retcon_000145).
+
+**KONTRAKT POL, ktory nie moze sklamac.** `system/mechanics/instance-fields.yaml`
+(generowany) daje kazdemu kluczowi i fladze jeden z trzech statusow, a kontrola weryfikuje
+kazdy: `engine_reads` musi wystepowac w kodzie, `engine_reads_via_requires` w `requires:`
+reguly, `documentation_only` znaczy wprost "silnik tego NIE czyta".
+Zmierzone i jawnie zapisane: **134 pola** (82 czytane, 52 opisowe), **93 flagi, z ktorych
+silnik czyta szesc**. Pole poza kontraktem jest zglaszane.
+
+Detektor pulapek zlapal moja wlasna poprawke: sufiks `_DOKUMENTACJA_NIE_MECHANIKA` zaczyna
+sie od nazwy dzialajacej flagi, wiec sam wpadal w detektor - dodany jawny wyjatek dla tej
+konwencji.
+
+**OTWARTE, NIE ROZSTRZYGANE BEZ GRACZA:** spy_wasp_01 stoi na 0/3 przy stawce +1,0 na dobe
+w growth-banks, a reczny rejestr rozni sie od silnika na 21 z 25 pul. To wymaga decyzji
+mechanicznych, nie poprawki wskaznika - i jest jedyna rzecza z etapu 10, ktorej nie da sie
+domknac skryptem.
+
+**Zostal etap 11** (rozdzielenie summary). Skroty kart pokazaly, ze pojedynczy wpis
+knowledge.confirmed u Seraphiny wazy 2-3 KB - eseje w polu `claim` to ta sama choroba co
+spuchniete `summary`.

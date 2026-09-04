@@ -573,6 +573,19 @@ def process_instance_time(instance: dict[str, Any], seconds: int) -> None:
                 continue
             if not instance_requirements_met(instance, rule.get("requires", [])):
                 continue
+            # FLAGA decay_suppressed FAKTYCZNIE TLUMI UBYTEK (etap 10).
+            # Do 2026-09-04 byla dekoracja: companion_spidey mial ja w status_flags ORAZ
+            # regule decay bez zadnego `requires`, wiec silnik ubywal mu rezerwy tak samo
+            # jak wszystkim. To najgrozniejsza klasa bledu z audytu, bo klamie W STRONE
+            # BEZPIECZENSTWA - autor napisal "ubytek wylaczony", odczytal to z pliku
+            # i uwierzyl. Zmierzone skutki tej rozbieznosci: spy_wasp_01 0/3,
+            # spy_cellar_spider_01 0/3, spy_hawk_moth_01 2/3 przy kanonie mowiacym
+            # o najszybciej rosnacym wezle sieci.
+            if field == "decay" and (
+                "decay_suppressed" in set(instance.get("status_flags") or [])
+                or pool.get("decay_suppressed") is True
+            ):
+                continue
             interval = rule.get("interval_seconds")
             units = rule.get("units")
             if not isinstance(interval, int) or interval <= 0 or not isinstance(units, (int, float)):
