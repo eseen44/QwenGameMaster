@@ -29,8 +29,14 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HIST = ("/journal/transactions/", "/snapshots/", "/migration/", "/journal/imports/")
 REF_SKIP_PREFIX = ("http", "source_", "candidate_")
-OK_EVENT_PREFIX = ("milestone_", "source_", "retcon_", "player_", "narrator_",
-                   "candidate_", "import_", "event_act_", "turn_", "event_turn_")
+# Prefiksy, ktorych NIE DA SIE sprawdzic wobec dziennika, bo nie sa identyfikatorami
+# zdarzen: znaczniki pochodzenia, deklaracje gracza, kandydaci mechaniki.
+#
+# UWAGA 2026-09-04: z tej listy USUNIETO "event_turn_", "milestone_", "event_act_" i "turn_".
+# Przepuszczaly bezwarunkowo dokladnie te klasy, ktore trzeba sprawdzac, wiec narzedzie
+# drukowalo "Wskazania na nieistniejace zdarzenia 0" przy zywych odwolaniach do id, ktorych
+# nie ma w zadnym dzienniku. Narzedzie mierzylo glownie samo siebie.
+OK_EVENT_PREFIX = ("source_", "retcon_", "player_", "narrator_", "candidate_", "import_")
 EVENT_KEYS = {
     "source_event_id", "revised_event_id", "declaration_event_id", "event_id",
     "disposition_event_id", "profile_source_event_id", "last_event_id",
@@ -126,6 +132,17 @@ def main():
     for f in glob.glob("campaigns/*/journal/transactions/*.yaml"):
         b = os.path.basename(f)[:-5]
         event_ids |= {b, "event_" + b}
+    # Kamienie milowe sa prawdziwymi identyfikatorami zdarzen i zyja w pakiecie migracji -
+    # trzeba je ZNAC, zeby moc je sprawdzac, skoro przestaly byc przepuszczane prefiksem.
+    for f in glob.glob("campaigns/*/migration/packages/*/milestones.yaml"):
+        d = docs.get(norm(f)) or {}
+        for m in (d.get("milestones") or []):
+            if isinstance(m, dict) and isinstance(m.get("id"), str):
+                event_ids.add(m["id"])
+    # Uchylone wersje wpisow leza od 2026-09-04 w journal/superseded/ - odwolanie do nich
+    # jest poprawne, a nie sieroce.
+    for f in glob.glob("campaigns/*/journal/superseded/events/*.json"):
+        event_ids.add(os.path.basename(f).split("__")[0])
 
     bad_refs, bad_events = [], []
     for f, d in docs.items():

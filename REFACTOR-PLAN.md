@@ -578,3 +578,52 @@ pliku.
 
 **Etap 3 odblokowuje migracje YAML z etapow 7-11** - round-trip nadal jednak wymaga ostroznosci,
 bo bezpieczny jest tylko na plikach, ktore przeszly ten etap.
+
+## Etapy 1 (reszta), 2, 3-slad i zapora czasu wykonane (2026-09-04)
+
+**audit_refs przestal mierzyc samo siebie.** Z listy `OK_EVENT_PREFIX` usuniete
+`event_turn_`, `milestone_`, `event_act_`, `turn_` - przepuszczaly bezwarunkowo dokladnie te
+klasy, ktore trzeba sprawdzac. Zamiast tego narzedzie ZNA teraz prawdziwe id: dociaga
+kamienie milowe z `migration/packages/*/milestones.yaml` i wpisy z `journal/superseded/`.
+Wynik: **0 -> 16 martwych odwolan**, po naprawie czterech pewnych literowek **11**.
+
+Poprawione (dokladna nazwa, blad w numerze albo brak prefiksu):
+`milestone_039_young_guard_recovered` -> `milestone_039_recovered_undead_young_guard`;
+`milestone_055_varkhen_takeover` -> `milestone_045_varkhen_takeover` (2 miejsca);
+`milestone_wall_hideout_found` -> `milestone_025_wall_hideout_found`;
+`event_turn_interlude_075_sorting_the_night_haul` -> `event_turn_interlude_075`.
+
+**OTWARTE, WYMAGA DECYZJI GRACZA - 11 odwolan, ktorych NIE WOLNO zgadnac:**
+1. Cztery odwolania do `event_turn_interlude_040_*` (dwa rozne warianty nazwy) w
+   `entities/npcs/seraphine-vale.yaml`, `entities/npcs/lucan-father.yaml`,
+   `entities/factions/lumaria-magical-academy.yaml` i
+   `worlds/solmara/lore/necromancy-law.yaml`. Tury 039-041 zostaly COFNIETE
+   (retcon_000010) i nie istnieja w dzienniku, a zywy kanon nadal podaje je jako zrodlo
+   faktow - w tym faktow na karcie Seraphiny. Do rozstrzygniecia: czy te fakty maja
+   wskazywac na retcon, ktory je ratyfikowal, czy sa do wycofania.
+2. Siedem odwolan do kamieni milowych, ktore nie maja odpowiednika w pliku kamieni:
+   `milestone_040_shipping_manager_captured`, `milestone_022_cemetery_operation_begins` (2x),
+   `milestone_dump_victims`, `milestone_tannery_contract`, `milestone_020_rat_mound_cleared`,
+   `milestone_032_wall_hideout_discovered`. Zadne nie ma bliskiego dopasowania, wiec to nie
+   literowki - albo nazwy zmienily sie przy migracji, albo tych kamieni nigdy nie spisano.
+
+**recall dosiega kanonu.** Bylo: skan `events.jsonl` PRZED `retcons.jsonl` z przerwaniem na
+`--limit`, czyli wylacznie NAJSTARSZE tury i ZERO retconow - narzedzie oddawalo fakty juz
+uchylone jako jedyna odpowiedz, a biezaca scena byla nieosiagalna. Jest: wszystkie trafienia
+zbierane, retcony pierwsze (kanon nr 1), w kazdym zrodle NAJNOWSZE pierwsze, okno tekstu
+WOKOL frazy, podzial limitu miedzy zrodla (sam priorytet retconow odtwarzal awarie od
+drugiej strony), oraz `total_matches` i `matches_per_source`, zeby bylo widac, ile pominieto.
+Pomiar: `recall pech --limit 5` dawalo 5/5 z dziennika i 0 retconow; teraz 14 trafien,
+3 retcony + 3 tury, najnowsze pierwsze.
+
+**Slad uzasadnienia przezywa commit.** `event_from_transaction` przepisuje teraz
+`consequence_source_refs` i `resolved_world_reaction_ids` do wpisu dziennika. Bylo: 65 z 237
+transakcji mialo to pole, a 0 z 235 wpisow dziennika - jedyne maszynowo sprawdzalne
+uzasadnienie konsekwencji ginelo dokladnie wtedy, gdy stawalo sie historia.
+
+**Zapora na podwojenie czasu (retcon_000118) przestala byc akapitem.** `validate_outcome`
+odrzuca `advance_time` w `outcome.operations`. Zakaz stal w AGENTS.md i w playbooku, a pomiar
+pokazal 28 tur z podwojnym `advance_time`, z czego retcon ratyfikowal 5.
+
+Testy: 77 przechodzi, w tym 9 nowych na te trzy naprawy - kazdy sprawdza kontrole
+ZAPALONA, nie tylko przechodzaca.

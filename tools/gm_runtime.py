@@ -948,6 +948,12 @@ def event_from_transaction(transaction: dict[str, Any]) -> dict[str, Any]:
         "changes": outcome.get("operations", []),
         "roll_ids": [transaction["roll_id"]] if transaction.get("roll_id") else [],
         "superseded_by": None,
+        # SLAD UZASADNIENIA PRZEZYWA COMMIT. Do 2026-09-04 to pole bylo wypelnione w 65 z 237
+        # transakcji i w 0 z 235 wpisow dziennika - jedyne maszynowo sprawdzalne uzasadnienie
+        # konsekwencji bylo wyrzucane dokladnie w momencie, w ktorym staje sie historia.
+        # Bez tego nie da sie zaudytowac ani jednej tury po fakcie.
+        "consequence_source_refs": list(outcome.get("consequence_source_refs") or []),
+        "resolved_world_reaction_ids": list(outcome.get("resolved_world_reaction_ids") or []),
     }
 
 
@@ -962,6 +968,17 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.summary is required")
     if not isinstance(outcome.get("operations", []), list):
         raise RuntimeError("outcome.operations must be a list")
+    # ZAPORA NA PODWOJENIE CZASU (retcon_000118). commit dokleja transaction.time_operation
+    # bezwarunkowo, wiec advance_time dopisany recznie do outcome.operations liczy sie DRUGI
+    # RAZ. Zakaz stal w prozie AGENTS.md i w SKILL-gramy.md, a pomiar pokazuje 28 tur
+    # z podwojnym advance_time, z czego retcon ratyfikowal tylko 5. Od teraz to warunek.
+    for operation in outcome.get("operations", []):
+        if isinstance(operation, dict) and operation.get("op") == "advance_time":
+            raise RuntimeError(
+                "outcome.operations nie moze zawierac advance_time - commit dokleja czas sam "
+                "z request.time_seconds, a reczny wpis PODWAJA ture (retcon_000118). "
+                "Usun ten wpis; czas bierze sie wylacznie z request.time_seconds."
+            )
     source_refs = outcome.get("consequence_source_refs", [])
     if not isinstance(source_refs, list) or not all(
         isinstance(ref, str) and ref.strip() for ref in source_refs
@@ -1169,28 +1186,92 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
 
 
 def recall(campaign_root: Path, query: str, limit: int) -> dict[str, Any]:
+    """Punktowe siegniecie w kanon historyczny.
+
+    PRZEBUDOWANE 2026-09-04. Poprzednia wersja skanowala events.jsonl PRZED retcons.jsonl
+    i przerywala na pierwszych `limit` trafieniach, wiec:
+      - zwracala wylacznie NAJSTARSZE tury (dla frazy "Seraphine" 86,8% kampanii bylo
+        nieosiagalne, biezaca scena tez),
+      - nigdy nie dosiegala retconow, mimo ze zatwierdzony retcon jest kanonem NR 1
+        (system/canon-policy.md), czyli oddawala fakty JUZ UCHYLONE jako jedyna odpowiedz,
+      - pokazywala pierwsze 600 znakow linii, czesto BEZ szukanej frazy (2 z 5 trafien).
+    Teraz: zbiera wszystkie trafienia, sortuje retcony przed dziennikiem, a w kazdym zrodle
+    NAJNOWSZE przed najstarszymi, i wycina okno TEKSTU WOKOL FRAZY.
+    """
     needle = query.casefold()
-    matches: list[dict[str, Any]] = []
-    roots = [campaign_root / "journal" / "events.jsonl", campaign_root / "journal" / "retcons.jsonl"]
-    roots.extend(sorted((campaign_root / "journal" / "sessions").glob("*.md")))
-    for path in roots:
+    if not needle:
+        raise RuntimeError("recall wymaga niepustej frazy")
+
+    def window(line: str, position: int, width: int = 560) -> str:
+        start = max(0, position - width // 3)
+        end = min(len(line), start + width)
+        fragment = line[start:end].strip()
+        return ("..." if start > 0 else "") + fragment + ("..." if end < len(line) else "")
+
+    sources: list[tuple[int, Path]] = [
+        (0, campaign_root / "journal" / "retcons.jsonl"),
+        (1, campaign_root / "journal" / "events.jsonl"),
+        (2, campaign_root / "journal" / "superseded" / "MANIFEST.json"),
+    ]
+    sources += [(3, path) for path in sorted((campaign_root / "journal" / "sessions").glob("*.md"))]
+
+    found: list[dict[str, Any]] = []
+    per_source: dict[str, int] = {}
+    for rank, path in sources:
         if not path.exists():
             continue
-        for number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
-            if needle in line.casefold():
-                try:
-                    source_ref = path.relative_to(ROOT).as_posix()
-                except ValueError:
-                    source_ref = str(path.resolve())
-                matches.append(
-                    {
-                        "ref": f"{source_ref}#line:{number}",
-                        "text": line.strip()[:600],
-                    }
-                )
-                if len(matches) >= limit:
-                    return {"query": query, "matches": matches, "truncated": True}
-    return {"query": query, "matches": matches, "truncated": False}
+        try:
+            source_ref = path.relative_to(ROOT).as_posix()
+        except ValueError:
+            source_ref = str(path.resolve())
+        lines = path.read_text(encoding="utf-8-sig").splitlines()
+        for number, line in enumerate(lines, 1):
+            position = line.casefold().find(needle)
+            if position < 0:
+                continue
+            per_source[source_ref] = per_source.get(source_ref, 0) + 1
+            found.append({
+                "ref": f"{source_ref}#line:{number}",
+                "kind": {0: "retcon", 1: "event", 2: "superseded", 3: "session"}[rank],
+                "text": window(line.strip(), position),
+                "_rank": rank,
+                "_line": number,
+            })
+
+    # Retcony pierwsze (kanon nr 1), potem dziennik od NAJNOWSZYCH.
+    found.sort(key=lambda item: (item["_rank"], -item["_line"]))
+
+    # PODZIAL LIMITU, zeby zadne zrodlo nie wypchnelo drugiego. Sam priorytet retconow
+    # odtwarzalby pierwotna awarie od drugiej strony: przy --limit 5 wszystkie piec
+    # trafien bylo z retconow i biezaca scena znow byla nieosiagalna.
+    quota = {"retcon": max(1, limit // 2)}
+    shown: list[dict[str, Any]] = []
+    taken: dict[str, int] = {}
+    for item in found:
+        cap = quota.get(item["kind"])
+        if cap is not None and taken.get(item["kind"], 0) >= cap:
+            continue
+        shown.append(item)
+        taken[item["kind"]] = taken.get(item["kind"], 0) + 1
+        if len(shown) >= limit:
+            break
+    if len(shown) < limit:                      # dopelnij tym, co odrzucila kwota
+        for item in found:
+            if item not in shown:
+                shown.append(item)
+                if len(shown) >= limit:
+                    break
+    shown = shown[:limit]
+    for item in shown:
+        item.pop("_rank", None)
+        item.pop("_line", None)
+    return {
+        "query": query,
+        "matches": shown,
+        "truncated": len(found) > limit,
+        "total_matches": len(found),
+        "matches_per_source": per_source,
+    }
 
 
 def close_scene(
