@@ -965,6 +965,11 @@ def event_from_transaction(transaction: dict[str, Any]) -> dict[str, Any]:
         # transakcji i w 0 z 235 wpisow dziennika - jedyne maszynowo sprawdzalne uzasadnienie
         # konsekwencji bylo wyrzucane dokladnie w momencie, w ktorym staje sie historia.
         # Bez tego nie da sie zaudytowac ani jednej tury po fakcie.
+        # PROZA PISANA (etap 11). Gdy outcome poda `prose`, wpis dostaje krotka narracje
+        # obok pelnego protokolu w `audit` - i to ona jest czytana przy otwarciu sesji.
+        "prose": (outcome.get("prose") or "").strip() or None,
+        "prose_source": "authored" if (outcome.get("prose") or "").strip() else "auto_extracted",
+        "audit": outcome["summary"],
         "consequence_source_refs": list(outcome.get("consequence_source_refs") or []),
         "resolved_world_reaction_ids": list(outcome.get("resolved_world_reaction_ids") or []),
     }
@@ -1460,6 +1465,49 @@ def participant_card_refs(campaign_root: Path, scene: dict[str, Any]) -> list[st
         if path is not None and path.exists():
             refs.append(project_ref(path))
     return refs
+
+
+def recent_prose(campaign_root: Path, limit: int) -> dict[str, Any]:
+    """Tanie otwarcie sesji: proza ostatnich tur, bez protokolu audytowego. Etap 11.
+
+    Do 2026-09-04 otwarcie sesji znaczylo przeczytanie czterech ostatnich pol `summary`,
+    czyli 33 235 znakow, z ktorych ponad polowa byla protokolem: cytatami plikow,
+    uzasadnieniami narratora i lista "czego narrator NIE zrobil". To bylo zle w dwie strony -
+    kosztowalo budzet i podsuwalo rejestr ksiegowy jako wzorzec jezyka, czego skutki repo
+    zdiagnozowalo dwa razy (retcon_000040, retcon_000136).
+    """
+    path = campaign_root / "journal" / "events.jsonl"
+    if not path.exists():
+        return {"turns": [], "chars": 0}
+    events = []
+    for line in path.read_text(encoding="utf-8-sig").splitlines():
+        line = line.strip()
+        if line:
+            try:
+                events.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    out = []
+    for event in events[-max(1, limit):]:
+        prose = event.get("prose") or event.get("prose_auto") or ""
+        out.append({
+            "id": event.get("id"),
+            "scene_id": event.get("scene_id"),
+            "prose": prose,
+            "prose_source": ("authored" if event.get("prose")
+                             else event.get("prose_source", "auto_extracted")),
+            "audit_chars": len(event.get("audit") or event.get("summary") or ""),
+            "superseded_by": event.get("superseded_by"),
+            "supersession_scope": event.get("supersession_scope"),
+        })
+    return {
+        "turns": out,
+        "chars": sum(len(row["prose"]) for row in out),
+        "audit_chars_skipped": sum(row["audit_chars"] for row in out),
+        "note": ("Proza, nie protokol. Pelny slad tury: pole `audit` we wpisie albo "
+                 "journal/transactions/<turn_id>.yaml. Wpis oznaczony superseded_by jest "
+                 "uchylony - sprawdz supersession_scope (aspect = poprawione jedno zdanie)."),
+    }
 
 
 def recall(campaign_root: Path, query: str, limit: int) -> dict[str, Any]:
@@ -2144,6 +2192,12 @@ def build_parser() -> argparse.ArgumentParser:
     add_campaign_root(plan)
     add_verbose(plan)
 
+    recent = commands.add_parser(
+        "recent", help="Proza ostatnich tur bez protokolu audytowego (tanie otwarcie sesji)")
+    recent.add_argument("--limit", type=int, default=4)
+    add_campaign_root(recent)
+    add_verbose(recent)
+
     recall_command = commands.add_parser("recall")
     recall_command.add_argument("query")
     recall_command.add_argument("--limit", type=int, default=10)
@@ -2206,6 +2260,8 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 if not verbose:
                     result = context_summary(result)
+        elif args.command == "recent":
+            result = recent_prose(campaign_root, args.limit)
         elif args.command == "recall":
             result = recall(campaign_root, args.query, args.limit)
         elif args.command == "scene":

@@ -75,7 +75,14 @@ def working_events() -> dict[str, str]:
 #
 # summary NIGDY tu nie trafi - to jedyny zapis prozy kampanii i cel istnienia tej zapory.
 # Tak samo changes, time_advanced_seconds, actors, scene_id, intent_achieved, arrangement.
-BOOKKEEPING_KEYS = {"superseded_by", "superseded_aspects", "supersession_scope"}
+BOOKKEEPING_KEYS = {
+    "superseded_by", "superseded_aspects", "supersession_scope",
+    # POLA POCHODNE (etap 11). `audit` jest DOKLADNA kopia `summary`, a `prose_auto`
+    # deterministycznym wyciagiem z niego - zadne z nich nie wnosi nowej tresci, wiec ich
+    # dopisanie nie jest przepisaniem historii. Zeby to nie stalo sie furtka, ponizej stoi
+    # osobny niezmiennik: audit MUSI byc rowny summary.
+    "audit", "prose_auto", "prose_source",
+}
 
 
 def canonical(line: str) -> str:
@@ -154,6 +161,22 @@ def collect_problems() -> tuple[list[str], list[str], int]:
                 )
 
     notes.append(f"wersji wpisow przejrzanych w historii: {sum(len(v) for v in ever.values())}")
+
+    # NIEZMIENNIK POL POCHODNYCH: audit jest kopia summary, nie jego zamiennikiem.
+    # Bez tego wylaczenie audit spod porownania bylo by furtka - dalo by sie podmienic
+    # protokol tury bez sladu.
+    for event_id, raw in sorted(head_events.items()):
+        try:
+            document = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        audit = document.get("audit")
+        summary = document.get("summary")
+        if audit is not None and isinstance(summary, str) and audit != summary:
+            problems.append(
+                f"POLE POCHODNE ROZJECHANE: {event_id} ma audit rozny od summary - "
+                f"audit jest KOPIA, nie zamiennikiem (uruchom tools/split_event_summary.py)"
+            )
 
     # 2b: pliki transakcji usuniete albo nadpisane.
     #

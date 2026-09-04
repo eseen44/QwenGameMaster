@@ -90,12 +90,20 @@ Wczytaj (dokładnie te, nie więcej):
   `locations-and-maps.md` przy zmianie lokacji, `social-intrigue.md` przy stawkach
   społecznych, `worlds/solmara/lore/legal-order.yaml` + `necromancy-law.yaml` +
   `state/secrets.yaml` gdy wchodzi legalność nekromancji
-- **`load_when_choosing_a_plan` → `planning/act-03-defence.yaml` — OBOWIĄZKOWO** w każdej
-  turze, w której gracz planuje, wybiera linię obrony, rozmawia z instytucją albo pyta „co
-  dalej". `state/objectives.yaml` trzyma tylko strukturę, terminy i jednolinijkowe
-  `key_constraint`; **pełne uzasadnienia są w magazynie i bez niego doradzisz sprzecznie z
-  tym, co już ustalone** (pułapka widoczności, dwie sprzeczne obrony, wada wabika). Każdy cel
-  ma `rationale_ref` wskazujący sekcję. W turach ruchu, walki i zwykłej rozmowy — nie trzeba.
+- **Przy planowaniu — magazyn uzasadnień, ale TYLKO właściwa sekcja.** `planning/act-03-defence.yaml`
+  jest od 04.09.2026 **indeksem** (4,3 KB); uzasadnienia leżą w `planning/act-03-defence/<sekcja>.yaml`,
+  po jednym pliku na wątek. Wcześniej ten plik ważył 78,5 KB i był deklarowany jako obowiązkowy
+  w całości — czyli 1,92 budżetu kontekstu na turę, w której zwykle potrzebne są jedna lub dwie
+  sekcje z dwudziestu dwóch. Każdy cel ma `rationale_ref` wskazujący konkretną sekcję; `state/objectives.yaml`
+  trzyma tylko strukturę, terminy i jednolinijkowe `key_constraint`, więc **bez uzasadnienia
+  doradzisz sprzecznie z tym, co już ustalone** (pułapka widoczności, dwie sprzeczne obrony,
+  wada wabika). Listę plików na daną turę zwraca:
+  `gm.ps1 context plan --tag choosing_a_plan` — i to samo dotyczy pozostałych tagów, bo
+  `load_when_*` jest od 04.09.2026 czytane przez kod, nie przez dobrą wolę narratora.
+- **Karty NPC w scenie: czytaj skrót, nie pełną kartę.** `entities/npcs/digests/<npc>.yaml`
+  trzyma część „jak grać" jeden do jednego, cztery najnowsze fakty w całości i indeks
+  wszystkich starszych. Karta Seraphiny to 60,7 KB, jej skrót 19,4 KB. Szczegół starszego
+  faktu dociągnij z pełnej karty — skrót **nie jest kanonem** i sam to o sobie mówi.
 
 Nie wczytuj całego dziennika. Nigdy nie wczytuj `migration/sources/` ani
 `migration/noncanonical/` w zwykłej turze.
@@ -103,10 +111,20 @@ Nie wczytuj całego dziennika. Nigdy nie wczytuj `migration/sources/` ani
 ## Krok 3 — proza ostatnich tur
 
 ```powershell
-Get-Content .\campaigns\lucan\journal\events.jsonl -Tail 4
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 recent --limit 4
 ```
 
-Pola `summary` to jedyne miejsce z narracją — z nich buduj streszczenie. Gdy gracz odwołuje
+Zwraca **prozę** ostatnich tur bez protokołu audytowego. Zmierzone 2026-09-04: cztery
+ostatnie pola `summary` to 33 235 znaków, z czego ponad połowa to cytaty plików, uzasadnienia
+narratora i listy „czego narrator NIE zrobił". `recent` daje te same cztery tury w ~2 500
+znakach. Czytanie pełnych `summary` było złe w dwie strony: kosztowało 81% budżetu kontekstu
+i podsuwało rejestr księgowy jako wzorzec języka, czego skutki repo zdiagnozowało dwa razy
+(`retcon_000040` — wszystkie NPC brzmią jednakowo; `retcon_000136` — uzasadnienie narratora
+recytowane jako kwestia postaci).
+
+Pełny ślad tury, gdy naprawdę potrzebny: pole `audit` we wpisie albo
+`journal/transactions/<turn_id>.yaml`. Wpis z `superseded_by` jest uchylony — sprawdź
+`supersession_scope`, bo `aspect` znaczy „poprawione jedno zdanie", nie „cała tura nieważna". Gdy gracz odwołuje
 się do dawniejszej przeszłości, użyj `gm.ps1 recall <fraza> --limit 5`, nie czytaj całości.
 Sprawdź `journal/retcons.jsonl`, jeśli coś się nie zgadza — zatwierdzony retcon bije stan.
 
@@ -114,8 +132,10 @@ Sprawdź `journal/retcons.jsonl`, jeśli coś się nie zgadza — zatwierdzony r
 
 Wypisz **zwięźle** (to ma być orientacja, nie wykład), w tej kolejności:
 
-1. **Poprzednio** — 3–5 zdań prozą z ostatnich `summary`, w tonie Mindy (czarny humor,
-   zwięzłość), nie jako lista zdarzeń.
+1. **Poprzednio** — 3–5 zdań prozą z wyjścia `recent`, w tonie Mindy (czarny humor,
+   zwięzłość), nie jako lista zdarzeń. Nie sięgaj po `audit` ani po pełne `summary`, jeśli
+   nie musisz: to protokół, nie narracja, i właśnie z czytania go bierze się to, że wszystkie
+   NPC brzmią jednakowo (`retcon_000040`).
 2. **Tu i teraz** — lokacja, kto obecny, czas, stan Lucana (energia/integralność/warunki),
    napięcie.
 3. **Otwarte sprawy** — aktywne cele i zegary, po jednej linii, bez ID.

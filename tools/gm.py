@@ -9,7 +9,7 @@ import gm_runtime
 
 
 if __name__ == "__main__":
-    runtime_commands = {"turn", "context", "recall", "scene", "migration", "brief"}
+    runtime_commands = {"turn", "context", "recall", "recent", "scene", "migration", "brief"}
     if len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
         print(
             "GameMaster CLI\n\n"

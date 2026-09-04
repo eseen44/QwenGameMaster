@@ -746,3 +746,59 @@ domknac skryptem.
 **Zostal etap 11** (rozdzielenie summary). Skroty kart pokazaly, ze pojedynczy wpis
 knowledge.confirmed u Seraphiny wazy 2-3 KB - eseje w polu `claim` to ta sama choroba co
 spuchniete `summary`.
+
+## Etap 11 wykonany (2026-09-04) - ostatni z listy
+
+**Pole `summary` rozdzielone.** Kazdy z 235 wpisow ma teraz `audit` (DOKLADNA kopia
+dotychczasowego summary - gwarancja, ze nic nie zginelo) oraz `prose_auto` - deterministyczny
+wyciag: GLOWA wpisu (teza tury) plus sekcja STAN z konca, przyciete do 1100 znakow.
+`summary` NIETKNIETE.
+
+**Otwarcie sesji: 33 235 -> 2 473 znakow (93% mniej).** Nowa komenda `gm.ps1 recent --limit 4`
+zwraca proze bez protokolu, pokazuje `superseded_by` i `supersession_scope` (bo `aspect`
+znaczy "poprawione jedno zdanie", nie "cala tura niewazna") oraz mowi, gdzie lezy pelny slad.
+
+**CZEGO NIE ZROBILEM I DLACZEGO.** Nie przepisalem 235 pol summary na autorska proze.
+To jedyny zapis prozy calej kampanii (788 344 znakow) i zadna maszyna nie napisze jej za
+nikogo; probowac znaczyloby zgubic zdanie. Wyciag jest oznaczony `auto_extracted` i tym samym
+nie udaje autorskiej narracji. Nowa tura moze podac `outcome.prose` - wtedy wpis dostaje
+`prose_source: authored`.
+
+**FURTKA, KTORA MUSIALEM ZAMKNAC SAM.** Pola pochodne (`audit`, `prose_auto`, `prose_source`)
+wyszly spod porownania tresci w zaporze dziennika - inaczej ich dopisanie wygladaloby jak
+przepisanie historii. To bylo by furtka: dalo by sie podmienic protokol tury bez sladu.
+Zapora ma wiec osobny niezmiennik - `audit` MUSI byc rowny `summary`, a test sprawdza,
+ze ta kontrola w niej jest.
+
+**Playbook zaktualizowany w trzech miejscach, ktore mowily nieprawde po etapach 8 i 11:**
+Krok 3 (czytal cztery pelne summary), Krok 2 (kazal wczytywac caly 78 KB magazyn i pelne
+karty NPC), Krok 4 (odsylal do summary jako zrodla prozy).
+
+---
+
+# STAN PO WSZYSTKICH ETAPACH (2026-09-04)
+
+Wykonane: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 - czyli caly szkielet.
+
+| miara | przed | po |
+|---|---|---|
+| bramka context_bytes | 52 940 B (129%) | 41 289 B (100%) |
+| prawda o zwyklej turze | 130 565 B (319%) | 76 437 B (186%, skroty kart) |
+| tura planowania | 211 587 B (516%) | 125 748 B (307%) |
+| otwarcie sesji | 33 235 znakow | 2 473 znakow |
+| system/narrator.md | 18 796 B | 7 231 B |
+| act-03-defence.yaml | 78 517 B | 4 329 B + 22 sekcje |
+| karta Seraphiny w turze | 60 675 B | 19 404 B (skrot) |
+| martwe odwolania | 0 raportowanych (bialе listy) | 0 realnych, sprawdzone |
+| proza czytana jako klucze null | 91 w 23 plikach | 0 |
+| testy | 55 | 177 |
+
+**Otwarte, wymagajace decyzji gracza, nie skryptu:**
+1. Dwie karty relacji nieaktualne o 197 i 181 tur (walidator to zglasza). Gracz wybral
+   odtworzenie z dziennika z cytowaniem tur - to praca merytoryczna, nie mechaniczna.
+2. spy_wasp_01 na 0/3 przy stawce +1,0/dobe; reczny rejestr growth-banks rozni sie od silnika
+   na 21 z 25 pul.
+3. Sprzecznosc retcon_000009 / retcon_000010 (tura 040 uniewazniona i jednoczesnie
+   podtrzymana).
+4. Dlug korpusu retconow: 130 timestampow w czasie kampanii, 84 wskazania supersedes
+   w nicosc, 20 kotwic na retconach. Raportowane, nieblokujace, zapadka od retcon_000142.

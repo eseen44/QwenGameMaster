@@ -25,6 +25,11 @@ jednak pozostać przenośne i nie może zależeć od zachowania jednego dostawcy
 - Zamykaj rozmowę razem ze sceną (`scene close`) i zaczynaj nową od `brief`. Nie ciągnij jednej rozmowy przez kilka scen.
 - Wyjście komend `turn` i `context` jest **domyślnie skrócone** i zawiera wyłącznie decyzje. `--verbose` drukuje pełny dokument i służy do diagnozowania, nie do gry. Pełna transakcja zawsze leży w `journal/transactions/<turn_id>.yaml`.
 - Nie kopiuj wyjścia narzędzi do narracji ani do kolejnych wiadomości.
+- **Prozę ostatnich tur czytaj przez `gm.ps1 recent --limit 4`, nie przez pełne `summary`.**
+  Od 2026-09-04 wpis dziennika ma osobno prozę (`prose` albo `prose_auto`) i pełny protokół
+  (`audit`). Cztery ostatnie `summary` to 33 235 znaków; `recent` daje te same tury w ~2 500.
+  Nowa tura powinna podawać w `outcome.prose` krótką narrację — wtedy wpis dostaje prozę
+  pisaną, a nie wyciąganą maszynowo.
 
 Uzasadnienie i pomiary: `DECISIONS.md`.
 
