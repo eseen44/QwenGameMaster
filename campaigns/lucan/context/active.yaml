@@ -5,6 +5,8 @@ scene_ref: campaigns/lucan/context/scene.yaml
 always_load:
 - system/narrator.md
 - system/player-agency.md
+load_when_narrator_failure_modes:
+- system/narrator-appendix.md
 load_when_testing:
 - system/tests.md
 - system/character-score.md
@@ -35,13 +37,14 @@ active_refs:
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms: []
 last_refreshed_event_id: event_turn_interlude_235
-context_bytes: 52940
+context_bytes: 41375
 context_budget_bytes: 40960
 context_warnings:
-- over_budget:52940>40960
+- over_budget:41375>40960
+- total_informational:119000>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 18796
+  bytes: 7231
 - ref: campaigns/lucan/state/obligations.yaml
   bytes: 5704
 - ref: campaigns/lucan/state/objectives.yaml
@@ -50,3 +53,55 @@ heaviest_refs:
   bytes: 4303
 - ref: campaigns/lucan/state/sustained-links.yaml
   bytes: 3877
+conditional_sets:
+  narrator_failure_modes:
+    refs:
+    - ref: system/narrator-appendix.md
+      bytes: 16617
+    bytes: 16617
+  testing:
+    refs:
+    - ref: system/tests.md
+      bytes: 7665
+    - ref: system/character-score.md
+      bytes: 1647
+    - ref: system/capabilities.md
+      bytes: 2887
+    bytes: 12199
+  time_matters:
+    refs:
+    - ref: system/pacing.md
+      bytes: 4871
+    bytes: 4871
+  location_changes:
+    refs:
+    - ref: system/locations-and-maps.md
+      bytes: 2330
+    bytes: 2330
+  choosing_a_plan:
+    refs:
+    - ref: planning/interlude-act-03-entry-scope.yaml
+      bytes: 2505
+    - ref: planning/act-03-defence.yaml
+      bytes: 78517
+    bytes: 81022
+  social_stakes_matter:
+    refs:
+    - ref: system/social-intrigue.md
+      bytes: 4690
+    bytes: 4690
+  necromancy_legality_matters:
+    refs:
+    - ref: worlds/solmara/lore/legal-order.yaml
+      bytes: 4191
+    - ref: worlds/solmara/lore/necromancy-law.yaml
+      bytes: 5907
+    - ref: campaigns/lucan/state/secrets.yaml
+      bytes: 9919
+    bytes: 20017
+context_breakdown:
+  rules_always: 19195
+  state_active: 31340
+  participant_cards: 68465
+  conditional_heaviest: 81022
+context_total_bytes: 119000
