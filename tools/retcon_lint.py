@@ -103,8 +103,13 @@ def load(path: Path) -> list[dict]:
     return out
 
 
-def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, str]]]:
-    """Zwraca {nazwa_kontroli: [(id_wpisu, opis_naruszenia)]}."""
+def check(retcons: list[dict], events: set[str],
+          now: dt.datetime | None = None) -> dict[str, list[tuple[str, str]]]:
+    """Zwraca {nazwa_kontroli: [(id_wpisu, opis_naruszenia)]}.
+
+    `now` wstrzykiwalne, zeby test kontroli "timestamp w przyszlosci" byl deterministyczny.
+    """
+    now = now or dt.datetime.now(dt.timezone.utc)
     problems: dict[str, list[tuple[str, str]]] = collections.defaultdict(list)
     ids = {r.get("id") for r in retcons}
     seen_timestamps: dict[str, str] = {}
@@ -147,9 +152,15 @@ def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, st
                 # "campaigns/lucan/#provenance:..." - bo katalog campaigns/lucan istnieje.
                 powod = "to katalog, nie plik" if (ROOT / base).is_dir() else "nie istnieje"
                 problems["supersedes_wskazuje_w_nicosc"].append((rid, f"{base} - {powod}"))
-            if base.startswith("retcon_") and "#" in entry:
+            if base.startswith("retcon_") and base in ids and "#" in entry:
+                # Kotwica na retconie jest ETYKIETA KLAUZULI, nie sciezka. Sprawdzone na
+                # korpusie: 17 z 21 kotwic parafrazuje klauzule wlasnymi slowami, wiec
+                # kontrola "czy te slowa sa w tekscie celu" dalaby 17 falszywych alarmow na
+                # legalnej konwencji. Sprawdzalne jest to, ze CEL ISTNIEJE - i to sprawdza
+                # kontrola supersedes_wskazuje_w_nicosc wyzej, wiec tu zostaje sama uwaga.
                 problems["kotwica_na_retconie"].append(
-                    (rid, f"{entry} - retcony nie maja podkluczy, wiec ta kotwica nie rozwiazuje sie nigdy"))
+                    (rid, f"{entry} - etykieta klauzuli, nie sciezka: cel istnieje, ale zadne "
+                          f"narzedzie jej nie rozwiaze, czytelnik musi ja znalezc sam"))
 
         for ref in retcon.get("state_refs_updated") or []:
             if isinstance(ref, str) and "/" in ref.split("#")[0] and resolve(ref.split("#")[0]) is None:
@@ -171,7 +182,14 @@ def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, st
                 if parsed.year == 2026 and parsed.month < 9:
                     problems["timestamp_w_czasie_kampanii"].append((rid, stamp))
                 elif previous_stamp and parsed < previous_stamp:
-                    problems["timestamp_nierosnacy"].append((rid, f"{stamp} < poprzedni"))
+                    problems["timestamp_nierosnacy"].append(
+                        (rid, f"{stamp} < poprzedni ({previous_stamp.isoformat()})"))
+                # Czas, ktory jeszcze nie nadszedl, jest zawsze wpisany z reki i zawsze
+                # zmyslony. Tak powstal retcon_000147 (16:40 przy zegarze 16:00) i przez
+                # niego nastepny wpis z REALNYM odczytem wygladal na cofniety.
+                if parsed.tzinfo and parsed > now:
+                    problems["timestamp_w_przyszlosci"].append(
+                        (rid, f"{stamp} > teraz ({now.isoformat(timespec='seconds')})"))
                 if parsed.tzinfo:
                     previous_stamp = parsed if not previous_stamp or parsed > previous_stamp else previous_stamp
 
@@ -196,6 +214,9 @@ BLOCKING = {
     "pola_wymagane", "tresc_korekty", "supersedes_lista",
     "supersedes_wskazuje_w_nicosc", "state_refs_wskazuje_w_nicosc",
     "timestamp_nieparsowalny", "timestamp_powtorzony", "timestamp_w_czasie_kampanii",
+    # Od 2026-09-04 blokujace dla NOWYCH wpisow. Dlug historyczny (130 wpisow w czasie
+    # kampanii) i tak przechodzi przez baseline, a nowy wpis nie ma powodu klamac o czasie.
+    "timestamp_nierosnacy", "timestamp_w_przyszlosci",
 }
 
 

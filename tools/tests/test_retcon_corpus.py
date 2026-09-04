@@ -8,6 +8,7 @@ pierwszym zdaniu retcon_000033 dawal zrzut stanu, a regula stala trzy zdania dal
 
 from __future__ import annotations
 
+import datetime as dt
 import sys
 import unittest
 from pathlib import Path
@@ -20,8 +21,12 @@ import retcon_lint as lint
 
 
 class LintTest(unittest.TestCase):
-    def sprawdz(self, retcons: list[dict], events: set[str] | None = None):
-        return lint.check(retcons, events or set())
+    # Zegar wstrzykiwany, zeby kontrola "timestamp w przyszlosci" nie zalezala od tego,
+    # o ktorej ktos uruchamia testy - fixture stawia znaczniki na 2026-09-04.
+    TERAZ = dt.datetime(2026, 9, 4, 23, 0, tzinfo=dt.timezone(dt.timedelta(hours=2)))
+
+    def sprawdz(self, retcons: list[dict], events: set[str] | None = None, now=None):
+        return lint.check(retcons, events or set(), now=now or self.TERAZ)
 
     def wpis(self, numer: int, **nadpisz) -> dict:
         base = {
@@ -72,6 +77,32 @@ class LintTest(unittest.TestCase):
         stamp = "2026-09-04T12:00:00+02:00"
         problems = self.sprawdz([self.wpis(200, timestamp=stamp), self.wpis(201, timestamp=stamp)])
         self.assertIn("timestamp_powtorzony", problems)
+
+    def test_timestamp_w_przyszlosci_jest_naruszeniem(self):
+        """Tak powstal retcon_000147: 16:40 przy zegarze 16:00. Czas, ktory nie nadszedl,
+        jest zawsze wpisany z reki i zawsze zmyslony."""
+        problems = self.sprawdz([self.wpis(200, timestamp="2026-09-05T10:00:00+02:00")])
+        self.assertIn("timestamp_w_przyszlosci", problems)
+        self.assertIn("timestamp_w_przyszlosci", lint.BLOCKING)
+
+    def test_timestamp_nierosnacy_jest_naruszeniem_blokujacym(self):
+        """Skutek tamtego zmyslenia: nastepny wpis z PRAWDZIWYM odczytem wygladal
+        na cofniety, a kontrola tylko szeptala."""
+        problems = self.sprawdz([
+            self.wpis(200, timestamp="2026-09-04T16:40:00+02:00"),
+            self.wpis(201, timestamp="2026-09-04T16:00:48+02:00"),
+        ])
+        self.assertIn("timestamp_nierosnacy", problems)
+        self.assertEqual(problems["timestamp_nierosnacy"][0][0], "retcon_000201")
+        self.assertIn("timestamp_nierosnacy", lint.BLOCKING)
+
+    def test_poprawna_kolejnosc_czasu_przechodzi(self):
+        """Zapadka musi PRZEPUSCIC poprawna kolejnosc - inaczej blokuje wszystko."""
+        problems = self.sprawdz([
+            self.wpis(200, timestamp="2026-09-04T15:58:00+02:00"),
+            self.wpis(201, timestamp="2026-09-04T16:00:48+02:00"),
+        ])
+        self.assertEqual(problems, {})
 
     def test_zapadka_dlug_nie_blokuje_a_nowy_wpis_blokuje(self):
         self.assertLess(lint.number("retcon_000100"), lint.BASELINE)

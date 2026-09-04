@@ -29,6 +29,7 @@ load_when_location_changes:
 - system/locations-and-maps.md
 load_when_choosing_a_plan:
 - planning/interlude-act-03-entry-scope.yaml
+- planning/obligations-rationale.yaml
 - planning/act-03-defence.yaml
 load_when_social_stakes_matter:
 - system/social-intrigue.md
@@ -49,28 +50,56 @@ active_refs:
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms: []
 last_refreshed_event_id: event_turn_interlude_235
-context_bytes: 41289
+context_bytes: 38500
 context_budget_bytes: 40960
 context_warnings:
-- over_budget:41289>40960
-- total_informational:118914>40960
+- total_informational:118509>40960
 heaviest_refs:
 - ref: system/narrator.md
   bytes: 7231
-- ref: campaigns/lucan/state/obligations.yaml
-  bytes: 5630
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
   bytes: 4303
 - ref: campaigns/lucan/state/sustained-links.yaml
   bytes: 3877
+- ref: campaigns/lucan/state/instances/pc-lucan.yaml
+  bytes: 3303
 conditional_sets:
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
       bytes: 16617
     bytes: 16617
+  curse_used:
+    refs:
+    - ref: system/curses.md
+      bytes: 15010
+    bytes: 15010
+  magic_matters:
+    refs:
+    - ref: system/magic.md
+      bytes: 4700
+    - ref: system/metamagic.md
+      bytes: 4529
+    bytes: 9229
+  companion_growth_matters:
+    refs:
+    - ref: system/companion-growth.md
+      bytes: 10258
+    - ref: campaigns/lucan/state/growth-banks.yaml
+      bytes: 12024
+    bytes: 22282
+  writing_npc_knowledge:
+    refs:
+    - ref: system/canon-policy.md
+      bytes: 1974
+    bytes: 1974
+  debugging_runtime:
+    refs:
+    - ref: system/runtime.md
+      bytes: 3247
+    bytes: 3247
   testing:
     refs:
     - ref: system/tests.md
@@ -94,9 +123,11 @@ conditional_sets:
     refs:
     - ref: planning/interlude-act-03-entry-scope.yaml
       bytes: 2505
+    - ref: planning/obligations-rationale.yaml
+      bytes: 3771
     - ref: planning/act-03-defence.yaml
       bytes: 4329
-    bytes: 6834
+    bytes: 10605
   social_stakes_matter:
     refs:
     - ref: system/social-intrigue.md
@@ -107,14 +138,14 @@ conditional_sets:
     - ref: worlds/solmara/lore/legal-order.yaml
       bytes: 4191
     - ref: worlds/solmara/lore/necromancy-law.yaml
-      bytes: 5907
+      bytes: 6080
     - ref: campaigns/lucan/state/secrets.yaml
       bytes: 9919
-    bytes: 20017
+    bytes: 20190
 context_breakdown:
-  rules_always: 19195
-  state_active: 31254
+  rules_always: 21579
+  state_active: 28465
   participant_cards: 68465
-  participant_digests: 25988
-  conditional_heaviest: 20017
-context_total_bytes: 118914
+  participant_digests: 27194
+  conditional_heaviest: 22282
+context_total_bytes: 118509

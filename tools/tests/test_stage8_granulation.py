@@ -85,8 +85,14 @@ class DefenceStoreTest(unittest.TestCase):
         self.assertEqual(winne, [], f"stare kotwice zostaly: {winne[:5]}")
 
     def test_planowanie_miesci_sie_w_rozsadnym_koszcie(self):
+        """Prog pilnuje, zeby nie wrocil caly magazyn (78 517 B), a nie zeby zbior nie rosl.
+
+        Podniesiony z 10 000 na 20 000 B, gdy uzasadnienia zobowiazan zostaly WYNIESIONE
+        z state/obligations.yaml (wczytywanego w KAZDEJ turze) do tego zbioru warunkowego:
+        -2 834 B z kazdej tury za +3 771 B tylko przy planowaniu. To jest zysk, nie regresja.
+        """
         plan = gm_runtime.context_plan(ROOT / "campaigns" / "lucan", ["choosing_a_plan"])
-        self.assertLess(plan["bytes"]["conditional"], 10_000,
+        self.assertLess(plan["bytes"]["conditional"], 20_000,
                         "zbior planowania znowu wazy tyle, ile caly magazyn")
 
 

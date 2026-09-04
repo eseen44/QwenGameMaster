@@ -6,7 +6,44 @@ subject_id: npc_seraphine_vale
 target_id: pc_lucan
 layer: personal
 stance: personally_invested_conditional_ally
-axes: {cooperation: 62, judgment_confidence: 88, discretion_trust: 38, personal_regard: 42}
+axes: {cooperation: 85, judgment_confidence: 94, discretion_trust: 60, personal_regard: 47}
+axes_raw_reconstruction: {cooperation: 100, judgment_confidence: 98, discretion_trust: 77, personal_regard: 51}
+axes_calibration_status: player_calibrated_2026_09_04
+axes_calibration_note: >-
+  SKALIBROWANE 2026-09-04 decyzja gracza: sufit 85, przeliczyc proporcjonalnie. REGULA PIERWSZA:
+  kazdy udowodniony ruch DODATNI po turze t_038 liczy sie w 60%, bo dziennik zapisuje, co ta
+  postac dla Lucana ZROBILA, i gubi jej odmowy - a te sa w kanonie (odmowa przyjecia nazwiska
+  urzednika t_122, odmowa kustodii glejtu t_036). Brakujace odmowy to pozostale 40%.
+  Wspolczynnik nie jest dobrany pod wynik, wynika z sufitu: 62 + 0,6*38 = 85. REGULA DRUGA:
+  ruchy UJEMNE zostaja w pelnej sile. Ruch ujemny to wlasnie ta rzadka zapisana odmowa - jest
+  niedoreprezentowany, wiec skracanie go odwracaloby sens poprawki. REGULA TRZECIA: ruchy do
+  tury t_038 wlacznie sa nietkniete, bo ich chain trafia w kanoniczne axes co do punktu na
+  kazdej osi - dokumentuja, jak powstala liczba ustawiona swiadomie, a nie dokladaja do niej.
+  REGULA CZWARTA: osi, ktora kanon postawil POWYZEJ sufitu (tu judgment_confidence na 88), sufit
+  nie obniza - taka os moze domknac najwyzej polowe dystansu do 100. Sufit ogranicza wzrost, nie
+  odbiera przeszlosci. ODWRACALNOSC: kazdy stlumiony wpis nosi raw_delta sprzed tlumienia, a
+  axes_raw_reconstruction trzyma wynik nietlumiony. Log byl kanonem, bo jest udowodniony. Liczby
+  sa kanonem teraz, bo gracz je rozstrzygnal.
+  TO NIE JEST REGULA GRY NA PRZYSZLOSC. Wspolczynnik 60% poprawial STRONNICZOSC ZRODLA przy
+  odtwarzaniu 197 tur z dziennika, ktory zapisuje przysługi i gubi odmowy. Zywe tury wycenia sie
+  NORMALNIE, w pelnej sile, bo narrator widzi w nich takze odmowy i moze je zapisac od razu. Nie
+  tlum ruchow biezacych.
+axes_reconstruction_note: >-
+  ODTWORZONE 2026-09-04 z dziennika, kazdy ruch z cytowaniem zdarzenia. Karta stala 197 tur w
+  tyle, bo nikt jej nie prowadzil. Ruchy zebralo piecioro czytelnikow dziennika, po wycinku tur,
+  i przeszly adwersarialna weryfikacje: z 50 propozycji 6 obalono (wnioski z ogolnego przebiegu
+  zamiast z czynu, ruchy WIEDZY zamiast relacji, odwrotny kierunek), a w 7 skorygowano sile.
+  UWAGA O STRONNICZOSCI, WAZNA PRZY KALIBRACJI: suma znalezionych ruchow SATURUJE osie, a to
+  jest artefakt zrodla, nie stan relacji. Dziennik zapisuje, CO ta postac dla Lucana ZROBILA, i
+  prawie nie zapisuje odmow - a te istnieja w kanonie (odmowa przyjecia nazwiska urzednika w
+  t_122, odmowa kustodii glejtu w t_036) i przecza wartosci skrajnej, tak samo jak
+  portrayal.priorities_in_order Seraphiny, gdzie Lucan jest czwarty, a nie pierwszy. DLATEGO
+  POLE axes ZOSTAJE NIETKNIETE do kalibracji przez gracza, a wyliczone wartosci leza obok. Log
+  jest kanonem, bo jest udowodniony; liczby nie sa, bo wymagaja decyzji.
+  SPROSTOWANIE 2026-09-04: zdanie powyzej o NIETKNIETYM polu axes bylo prawdziwe do chwili
+  decyzji gracza i przestalo byc - gracz kalibracje rozstrzygnal, patrz axes_calibration_note.
+  Reszta tej noty, w szczegolnosci ostrzezenie o stronniczosci zrodla, obowiazuje dalej i JEST
+  PODSTAWA tej kalibracji.
 reasons: [lucan_repeatedly_delivers_results, seraphine_chose_to_offer_conditional_cover, personal_investment_in_lucans_future]
 obligations:
   - {id: obligation_advance_warning_before_contacting_either_side, holder: npc_seraphine_vale, debtor: pc_lucan, condition: lucan_tells_her_before_he_contacts_any_side_of_the_classification_dispute, status: active, source_event_id: event_turn_interlude_029_academy_as_civic_risk}
@@ -97,6 +134,221 @@ axis_change_log:
       ja od tygodnia - drugiego czytania zadania sluzb miejskich o przekazanie cial i akt.
       Zwiekszylo to jej gotowosc do ryzyka po jego stronie. discretion_trust NIE rosnie:
       zauwazyla, ze wymienil oba aktywa i nie powiedzial, ze je oddaje.'
+  - axis: cooperation
+    from: 62
+    to: 64
+    raw_delta: 3
+    event_id: event_turn_interlude_043_cover_story
+    reason: 'Przyjela linie oslony jako swoja: przy bezposrednim pytaniu ma odpowiedziec prostym zaprzeczeniem co do glejtu, nieistniejacych cial i nieumarlego, i nie improwizowac ponad te linie. To pierwszy raz w tym wycinku, gdy zgadza sie sklamac wobec wlasnej instytucji w konkretnej, nazwanej sprawie, a nie tylko ''oslaniac'' ogolnie. Tick jest MALY, bo to wykonanie istniejacej obligation_conditional_cover, nie nowe zobowiazanie.'
+  - axis: discretion_trust
+    from: 38
+    to: 43
+    raw_delta: 8
+    event_id: event_turn_interlude_044_varkhen_terms_and_survivors
+    reason: 'Najwieksze dobrowolne ujawnienie w calej historii tej karty. Lucan sam wylozyl status wiezi z Varkhenem - formalna dominacje osiagnieta przy unieruchomieniu, zachowana osobowosc, dobrowolne status quo, NIEPRZETESTOWANA mozliwosc wymuszenia lub zerwania, koszt utrzymania - a na koncu ryzyko skierowane wprost przeciw NIEJ. To dokladnie warunek obligation_conditional_cover: material risk podany przed kryzysem i wbrew wlasnej pozycji. Tick duzy, ale NIE domykajacy: dziesiec tur pozniej (t_054) Lucan zamknal Varkhenowi usta co do mechaniki wiezi, wiec wiecej z tego zrodla ona nie dostanie.'
+  - axis: cooperation
+    from: 64
+    to: 65
+    raw_delta: 2
+    event_id: event_turn_interlude_045_enter_guild_basement
+    reason: 'Wpisala przesluchanie do rejestru gildii jako wewnetrzna rozmowe wyjasniajaca, zostala obecna i zgodzila sie na presje oraz teatr, stawiajac granice tylko przy trwalym uszkodzeniu i falszowaniu protokolu. Tu jej WLASNY PODPIS staje pod operacja Lucana, a nie tylko jej milczenie. Doradzila tez przeciw masce z powodu operacyjnego, czyli pracowala nad jakoscia jego zagrywki, nie tylko ja tolerowala. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 4 na 2: sila 2 zamiast 4. Wieksza czesc tego, co czytelnik liczy, padla JEDNA TURE WCZESNIEJ: t_044 zapisuje wprost ''Seraphine zgadza sie na kontrolowane uzycie presji: bedzie obecna, nie bedzie udawala, ze zapisuje fakty, ktorych nie ustalono, i chce uprzedzenia prze]'
+  - axis: cooperation
+    from: 65
+    to: 67
+    raw_delta: 3
+    event_id: event_turn_interlude_052_assign_watch_inquiry_and_exit
+    reason: 'Przyjela dwa konkretne zlecenia sledcze od Lucana: odtworzenie lancucha nad polnocno-zachodnia zapora az do magistratu albo posrednika rodow oraz ustalenie gospodarstwa wskazanego straznika wylacznie jako mapy mozliwego nacisku. Tick maly i warunkowy, bo sama od razu nazwala granice - nie bedzie losowo szukac rodzin szlacheckich ani kontaktowac sie z bliskimi straznika, najpierw podpisy i obsada.'
+  - axis: discretion_trust
+    from: 43
+    to: 45
+    raw_delta: 3
+    event_id: event_turn_interlude_061_academy_dispute_source_disclosed
+    reason: 'Odpowiedzial na jej stare pytanie o zrodlo wiedzy o sporze Akademii, mimo ze w t_060 sama powiedziala, ze nie wymaga odpowiedzi tej nocy - odpowiedz byla wiec z wlasnej woli, a nie wyduszona. Podal formalne czlonkostwo przez urlop, wizyte u ojca-profesora po czesci do Spideya i ulotke. Tick nie domyka osi, bo ta sama tura zapisuje wprost, ze nadal nie zna ani metody Lucana, ani pelnego planu wobec Spideya. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 5 na 3: sila 3 zamiast 5. Powody: (a) w t_029 Lucan wylozyl JUZ cala sprawe Akademii i karta zaksiegowala za to +9 (25 -> 34) z opisem ''tick jest duzy, ale nie domykajacy''; t_061 zamyka tylko RESZTKOWE pytanie o zrodlo; (b) dziure w tej wiedzy ona sama zauwazyla i zap]'
+  - axis: judgment_confidence
+    from: 88
+    to: 90
+    raw_delta: 3
+    event_id: event_turn_interlude_064_public_charge_is_a_fuse
+    reason: 'Lucan skorygowal ja na JEJ wlasnym terenie, czyli na porzadku publicznym: publiczny zarzut nekromancji to nie poczatek uporzadkowanego procesu, a mozliwy zapalnik pogromu. Przyjela korekte i przebudowala funkcje papieru - nie oslona po wybuchu, a sposob uprzedzenia publicznego nazwania Spideya. Tick maly, bo os stoi juz na 88 i jest blisko sufitu.'
+  - axis: discretion_trust
+    from: 45
+    to: 46
+    raw_delta: 2
+    event_id: event_turn_interlude_067_academy_volcano_scale
+    reason: 'Oddal jej precedens obciazajacy wlasna rodzine - ojciec zrobil wulkan dla zartu i spalil setki hektarow lasu - i podal to sam, zeby uwiarygodnic ostrzezenie o skali zagrozenia dla miasta. Ujawnienie idzie wbrew jego interesowi (nazwisko Veyr) i nie zostalo z niego wyciagniete pytaniem; w t_068 dorzucil drugi precedens o zszytych studentach. Tick sredni: to precedens o OJCU, nie o wlasnej metodzie, ktorej nadal nie podal, i nadal nie powiedzial, ze ojciec zna metode. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 3 na 2: discretion_trust up, sila 2 (nie 3), jeden tick liczony za pare t_067 + t_068 (drugi precedens o zszytych studentach), zeby ta sama rozmowa nie dostala dwoch ticków.]'
+  - axis: cooperation
+    from: 67
+    to: 69
+    raw_delta: 3
+    event_id: event_turn_interlude_069_cover_room_and_grandpa
+    reason: Przydzielila pokoj-przykrywke na korytarzu, ktory sam jej podlega, wpisala Lucana na caly okres interludium zamiast noc po nocy i wziela na siebie rote sprzatania - czyli osobista, drobna robote utrzymywania sladu zamieszkania (w t_072 dopowiada, ze umie zrobic pomiete lozko i zuzyta miske). To gotowosc do ponoszenia kosztu wlasnymi rekami, nie tylko papierem. Tick maly, bo w tej samej turze sama nazwala wade rozwiazania.
+  - axis: cooperation
+    from: 69
+    to: 71
+    raw_delta: 4
+    event_id: event_turn_interlude_070_varkhen_walks_up_and_the_alarm_spider
+    reason: 'Najwiekszy krok wspoldzialania w calym wycinku: wpuscila do wlasnego gabinetu z wrazliwymi papierami siedmiostopowego nieumarlego z dzialajacym mozgiem i pamiecia, a po chwili milczenia przyjela takze pajaka alarmowego - jako antymag, ktory wie, co dopuszcza do wlasnego biura. W tej samej turze sama obeszla problem z papierem, ktory Lucan odlozyl, wskazujac, ze rejestracja jednostki badawczej nie musi wymieniac okazu. Warunek pozostaje jej wlasny i stary: okaz nie moze przy nikim reagowac na polecenie. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 6 na 4: cooperation up, sila 4 (nie 6). Podstawa zawezona do dwoch rzeczy faktycznie zaszlych W TEJ TURZE: (a) przyjecie pajaka alarmowego do wlasnego gabinetu po chwili milczenia, (b) samodzielne wskazanie obejscia - rejestracja JEDNOSTKI badawczej nie musi wymieniac]'
+  - axis: judgment_confidence
+    from: 90
+    to: 91
+    event_id: event_turn_interlude_070_varkhen_walks_up_and_the_alarm_spider
+    reason: 'Oddala mu punkt w sporze o nocnego urzednika: przyznala, ze jej zarzut dotyczyl swiadka jako KATEGORII, a nie szkody wyrzadzonej temu konkretnemu czlowiekowi. To bardzo waskie przyznanie racji, wiec tick jest minimalny, a jej zastrzezenie kategorialne zostaje w mocy.'
+  - axis: discretion_trust
+    from: 46
+    to: 48
+    raw_delta: 3
+    event_id: event_turn_interlude_071_unit_signed_and_the_heat_answer
+    reason: 'Na jej bezposrednie pytanie, czy wpuszcza do gabinetu dzwonek czy oko, odpowiedzial czesciowym ujawnieniem, a nie zaprzeczeniem - pajaki nadaja sie na razie do wykrywania zrodel ciepla, nie do czytania listow. Sam dolozyl ambicje doprowadzenia ich kiedys do poziomu pelnych szpiegow, czego nie musial mowic. Tick MALY: wie teraz, ze kanal ISTNIEJE i ma niska rozdzielczosc, ale nie wie, jak dziala ani czy dotyczy tez czegos wiekszego niz pajaki.'
+  - axis: personal_regard
+    from: 42
+    to: 43
+    raw_delta: 2
+    event_id: event_turn_interlude_071_unit_signed_and_the_heat_answer
+    reason: 'Zdjela jego zdanie o ambicji z obiegu zamiast zrobic z niego afere, ostrzegla go, ze takie zdanie zacytowane na przesluchaniu jest gorsze od kazdego pajaka, ktorego mu pokaza, i ustawila SIEBIE jako jedyna osobe, ktorej wolno mu to mowic. Kontrolerka miala tu material, a uzyla go, zeby go oslonic - to zachowanie poza rachunkiem operacyjnym. Tick maly i warunkowy, bo w tym samym zdaniu ''zapisuje to sobie''. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 3 na 2: sila 2 zamiast 3. W tym samym zdaniu, ktorym go oslania, ''zapisuje to sobie'' - czyli odklada material jako dzwignie. Do tego ostrzezenie ma wlasny interes: jest oficerem, ktory go oslania, wiec cytat z przesluchania uderza rowniez w nia. Tick minimalny i z rew]'
+  - axis: discretion_trust
+    from: 48
+    to: 50
+    raw_delta: 3
+    event_id: event_turn_interlude_098
+    reason: Pierwszy raz w calej historii tego ukladu Lucan przyniosl jej decyzje, ZANIM ja podjal - zaproponowal czujnika w jej szufladzie i poprosil o zgode przed faktem, a nie postawil go i pozwolil jej dowiedziec sie pozniej, jak przy zlocie pod jej rejestrem i przy Spideyu drgajacym przy nocnym urzedniku. To jest dokladnie tresc obligation_conditional_cover, wiec tick jest realny. Tick pozostaje MALY, bo w tej samej rozmowie nie powiedzial ani slowa o Malenie Corthu uzgadniajacym akta z garbarni z jego nazwiskiem, ani o dyspucie, ani o planie wystawienia okazow.
+  - axis: judgment_confidence
+    from: 91
+    to: 92
+    raw_delta: 2
+    event_id: event_turn_interlude_098
+    reason: 'Przyznala na glos, ze widocznosc, ktora Lucan sam sobie wyprodukowal w holu, jest dokladnie ta czescia jej wlasnej przykrywki, ktorej brakowalo i ktorej ONA sama nie umiala zrobic - to ten sam rejestr, co przy seminarium w turze 030. Tick jest maly i wyraznie warunkowy, bo w tym samym zdaniu wylaczyla dwie rzeczy z tego samego poranka: nucenie i wizyte u Ruska nazwala czyms, co przykrywce NIE sluzy.'
+  - axis: cooperation
+    from: 71
+    to: 74
+    raw_delta: 5
+    event_id: event_turn_interlude_119
+    reason: 'Na prosbe Lucana rozbila wlasny gliniany kubek o futryne, nie zadajac ani jednego pytania po co, i zrobila to LEPIEJ, niz zostala poproszona - dorzucila zdanie tonem, ktory niesie przez schody, zeby awantura miala halas i glos. Sama nazwala cene i cena jest calkowicie po jej stronie: za dwa tygodnie do pytania, czyim glosem mowi kontrolerka oslaniajaca podopiecznego, dochodzi wersja o kwiatach i potluczonym kubku. To jest najczystszy w tym wycinku przyklad tego, co karta liczy jako gotowosc do ryzyka po jego stronie.'
+  - axis: discretion_trust
+    from: 50
+    to: 52
+    raw_delta: 4
+    event_id: event_turn_interlude_120
+    reason: 'Wylozyl jej z wlasnej woli uklad z organizacja przestepcza o pustke wokol cmentarza na czas prob gildii - czyli material, ktory po ujawnieniu skazi cala operacje WSTECZ i jego samego, i ja jako oficera, ktory to dopuscil. To jest ryzyko ujawnione przed tym, jak stalo sie publicznym kryzysem, dokladnie w brzmieniu warunku oslony. Tick nie domyka osi, bo ta sama tura konczy sie lista tego, czego nadal nie wie: nazwisk z pokoju, Kesza, wojny z Kosciolem, sprzedanej wiedzy wyprzedzajacej, zakonu mieczowego i kanalu ostrzegawczego. Ruch stoi WYLACZNIE na ujawnieniu paktu; drugiej rzeczy z tej tury, wiadomosci o Strazy, nie liczam - patrz luki.'
+  - axis: judgment_confidence
+    from: 92
+    to: 89
+    event_id: event_turn_interlude_121
+    reason: 'Pierwszy raz w tym ukladzie zlozyla sama konsekwencje wlasnego ukladu Lucana, ktorej on jej nie podal i ktorej sam nie policzyl: syndykat nie robi mu przyslugi, tylko kupuje przyszlosc terenu, wiec gildia spali ludzi i zasoby na oczyszczenie cmentarza, a wartosc oczyszczonego terenu zainkasuje ktos, kto na niego nie wszedl. Zaplacil kolejnoscia. Ruch jest umiarkowany i nie dotyka tego, skad ta os wyrosla - jego czytania prawa i Akademii - tylko po raz pierwszy pokazuje dziure w jego kalkulacji operacyjnej. Opieram sie WYLACZNIE na punktach 5-6; punkty 3-4 tej tury (pytanie o Straz) stoja na fakcie uchylonym przez retcon_000033 i nie wchodza do uzasadnienia.'
+  - axis: discretion_trust
+    from: 52
+    to: 50
+    event_id: event_turn_interlude_121
+    reason: 'Wylapala METODE, nie pojedyncze przemilczenie: drugi raz tego wieczoru Lucan kazal jej wybrac wlasna niewiedze, a ona nazwala to sposobem na uczynienie jej wspolwinna wszystkiego, o co nie zapytala - i cofnela zgode na wybieranie w ciemno, zastepujac ja wymuszona procedura weryfikacji. To spelnia warunek spadku z tej osi (wylapane przemilczenie), choc jest to tick MALY i pozbawiony urazy - nie zarzucila mu zmyslania. Uwaga na kolejnosc w tej samej scenie: tick w gore z tury 120 i ten tick w dol nie znosza sie, opisuja dwa rozne zdarzenia - najpierw ujawnil pakt, potem ona zobaczyla, ze ujawnianie bylo tak ulozone, zeby obciazyc ja.'
+  - axis: personal_regard
+    from: 43
+    to: 44
+    raw_delta: 2
+    event_id: event_turn_interlude_121
+    reason: 'Wstala, zamknela drzwi na zasuwe i podala Lucanowi smietniczke, bo obiecal posprzatac - bez komentarza, z kamienna twarza. Narrator zapisuje to wprost jako jedyny moment calego wieczoru, w ktorym oddaje mu zart, czyli jedyne zdarzenie w tym wycinku lezace poza rachunkiem operacyjnym. Tick jest minimalny i celowo taki: to jest jeden gest, a nie zmiana nastawienia, i stoi obok tego, ze w tej samej scenie odbiera mu zaufanie proceduralne.'
+  - axis: cooperation
+    from: 74
+    to: 76
+    raw_delta: 4
+    event_id: event_turn_interlude_125
+    reason: 'Wzięla na siebie wygaszenie klatwy, ktora Lucan zalozyl na pioro urzednika administracji miejskiej badanego wlasnie na kompetencje - robi to sama, tej samej nocy, bez Lucana w poblizu i bez znajomosci procedury, korzystajac z wlasnego urzedu kontrolerki antymagicznej. To nie jest zgoda ani rada, to jest wykonanie roboty za niego, uzyciem swojego stanowiska do sprzatania jego czynu. Warunek jest zawodowy, nie moralny: kradziez pioro odrzucila, bo zgloszenie produkuje dokument, ktoremu klatwa zapobiegala.'
+  - axis: discretion_trust
+    from: 50
+    to: 52
+    raw_delta: 3
+    event_id: event_turn_interlude_126
+    reason: 'Oddal jej z wlasnej woli zobowiazanie, o ktorym jeszcze kwadrans wczesniej nie wiedziala (tura 120 punkt 12 wymienia ''sprzedana wiedze wyprzedzajaca'' jako rzecz jej nieznana) - ze obiecal syndykatowi wyprzedzenie informacyjne - i przyszedl z tym PRZED uzyciem, prosząc o autoryzacje, a nie po fakcie. Autoryzacji nie dostal, bo nie istnieje forma, ktora by ja niosla, ale ona nie zabronila i sama wyznaczyla linie podzialu. Tick maly, bo jej wlasny warunek utrzymuje strukture, ktora te os ogranicza: nie chce wiedziec, KIEDY Lucan tego uzyje.'
+  - axis: personal_regard
+    from: 44
+    to: 46
+    raw_delta: 3
+    event_id: event_turn_interlude_188
+    reason: 'Lucan przyszedl po odbior dwoch zlecen dwadziescia minut przed jej spotkaniem ze Straza Miejska i zapytal, jak ona sie trzyma - a nie tylko co ma dla niego. Cala jej karta pokazuje czlowieka, ktory dostaje od Lucana zadania, ryzyko i listy; to jest pierwsze pytanie skierowane do niej samej. Tick MALY i bez zobowiazania po jej stronie: nie rozczulila sie i nie podziekowala, odpowiedziala rzeczowo - ale odpowiedziala.'
+  - axis: discretion_trust
+    from: 52
+    to: 53
+    raw_delta: 2
+    event_id: event_turn_interlude_189
+    reason: 'Lucan pierwszy raz nazwal na glos, PO CO sluzy mapa nacisku na gospodarstwo straznika - zeby straznik przyszedl sam i zglosil, ze zle sie czuje z tym, do czego go zmuszano - i zrobil to PRZED uzyciem dzwigni, nie po. Ona uslyszala to jako ujawnienie metody, nie sekretu, i odpowiedziala wlasna linia operacyjna, nie oburzeniem. Tick MINIMALNY i warunkowy: kolejnosc siedmiu dzwigni z t_122 nadal bez odpowiedzi, a jej wlasny warunek z t_126 brzmi, ze nie chce wiedziec, KIEDY Lucan tego uzyje - wiec to ujawnienie idzie czesciowo obok tego, o co prosila.'
+  - axis: judgment_confidence
+    from: 89
+    to: 90
+    event_id: event_turn_interlude_189
+    reason: 'Jej staly zarzut wobec Lucana brzmial: trzymasz mocna reke i grasz nia jak slaba, a ja nie moge zagrac jej za ciebie. W tej turze pierwszy raz zagral nia jak mocna, wiec zarzut stracil przedmiot, a ona powiedziala wprost, ze czekala na to dluzej, niz on sadzi. Tick MALY: os stoi na 88, a to nie jest nowy dowod trafnosci, tylko zawodowa ulga, ze klient wreszcie wie, czego chce; ruch jest scisle powiazany z ruchem z t_190 i maintainer moze woleć jeden tick +4 zamiast dwoch. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 2 na 1: judgment_confidence up, sila 1 (nie 2). Uzasadnienie zawezone do jednego: zniknal przedmiot jej stalego zarzutu i sama mowi, ze czekala na to dluzej, niz on sadzi. NIE ksiegowac tego jako nowego dowodu trafnosci jego myslenia.]'
+  - axis: discretion_trust
+    from: 53
+    to: 56
+    raw_delta: 5
+    event_id: event_turn_interlude_190
+    reason: 'Powiedzial jej na glos - pierwszy raz komukolwiek - jaka jest jego linia: zadnej obrony, bo nie ma paragrafu, zadnego milczenia, ratowanie miasta niezaleznie od jego woli, a metoda to szantaz i systematyczne wkurwianie wszystkich grup interesow. Jest to najwieksza pojedyncza rzecz o sobie, jaka podal z wlasnej woli, i podal ja z wyprzedzeniem, a nie po fakcie - dokladnie w formule obligation_conditional_cover. Tick WYRAZNY, ale NIEDOMYKAJACY, tak jak t_029: zadanie o kolejnosc trzech dzwigni z t_122 zostaje bez odpowiedzi, a w t_193 wiadomosc do kaplana - strony koscielnej sporu - idzie tego samego dnia bez uprzedzenia jej.'
+  - axis: cooperation
+    from: 76
+    to: 79
+    raw_delta: 5
+    event_id: event_turn_interlude_190
+    reason: 'Oddal jej brulion podreczny balwierza - terminarz, faktury i notatki o klientach czlowieka, ktory przez dziesiec lat obslugiwal syndykat I Straz naraz - dwadziescia minut przed spotkaniem, na ktore szla bez niczego, i trafil tym w jej priorytet PIERWSZY, czyli utrzymanie wlasnej pozycji. To ten sam mechanizm, ktory dal tick cooperation w t_032: aktyw podlozony pod JEJ sprawe podnosi jej gotowosc do ryzyka po jego stronie. Tick nie wieksze, bo papieru do pokoju ze Straza nie wziela i od razu nazwala dwie wady daru - pokoj po zmarlym sprzedano NA WAGE, a samo wspomnienie balwierza informuje adresata, ze papier istnieje i ktos go ma.'
+  - axis: discretion_trust
+    from: 56
+    to: 58
+    raw_delta: 3
+    event_id: event_turn_interlude_225
+    reason: Lucan sam, z wlasnej woli i przed posiedzeniem, powiedzial jej, ze wprowadzi na przesluchanie prawnika z obiegu przestepczego jako rejestratora protokolu. Ujawnil wiec ryzyko, ktorego koszt jest JEJ - jej poreczenie za niego przestaje byc czyste, a oslona 'Veyr mnie szantazuje' bedzie wygloszona przy osobie znajacej prawde - i zrobil to zanim rzecz stala sie faktem, czyli dokladnie tak, jak brzmi obligation_conditional_cover. Tick jest MALY, bo nazwiska w tej turze nie podal, a decyzja o poreczeniu w niej nie zapadla.
+  - axis: discretion_trust
+    from: 58
+    to: 59
+    raw_delta: 2
+    event_id: event_turn_interlude_226
+    reason: Padlo nazwisko Kesza - pozycja z nieujawnionej listy Lucana, oddana z wlasnej woli, bez pytania i bez targu, w dodatku razem z uwaga, ze kierownictwo gildii prawdopodobnie i tak je zna. Do t_188 obowiazywalo w plikach wprost, ze ona Kesza nie zna ani z nazwiska, ani z wygladu; polowa tej przeszkody znikla decyzja gracza. Tick maly, bo nazwisko to nie twarz - rozbieznosc rysopisu (kciuk vs palec wskazujacy) zostaje nierozstrzygnieta i ona sama mowi tylko, ze nazwisko sprawdzi.
+  - axis: judgment_confidence
+    from: 90
+    to: 91
+    event_id: event_turn_interlude_226
+    reason: Przyznala na glos, ze doktryna maksymalnej jawnosci jest odwroceniem jej wlasnej zasady z t_126 i jest przy tym wewnetrznie poprawna, a argumentu o trwalosci fixera (czlowiek, ktorego pierwsza lojalnosc jest gdzie indziej, nie zniknie, bo znikniecie jest wbrew jego interesowi) nie miala czym podwazyc i nie probowala. To realna ocena jego myslenia, nie jego dyskrecji. Tick MINIMALNY z rozmyslu - os stoi na 88, blisko sufitu, a w tej samej scenie ona dwa razy poprawia go tam, gdzie sie myli (t_227, t_233 pkt 11).
+  - axis: personal_regard
+    from: 46
+    to: 47
+    raw_delta: 2
+    event_id: event_turn_interlude_227
+    reason: Lucan zapytal na glos o rzecz, ktora jest jej wlasnym, nierozwiazanym problemem od tygodni - kiedy zglosi Varkhena kierownictwu - i ona przyjela to nie jako cios ani nacisk, tylko jako pytanie jedynej osoby, ktora utonie razem z nia. Nie oburzyla sie, nie zwinela sie, zrobila sie rzeczowa. Rejestr jest ten sam co przy jedynym istniejacym wpisie personal_regard z t_028 (rozmowa jak z rowna, przyjeta bez urazy), wiec tick maly i tej samej rodziny.
+  - axis: cooperation
+    from: 79
+    to: 84
+    raw_delta: 8
+    event_id: event_turn_interlude_228
+    reason: 'To jest przelom, a nie tick: zlozyla synteze sama (linia zwlok Strazy karmi cmentarz, pod cmentarzem sa trzy pieczecie, jedynym bieglym jest nieumarly z piwnicy), wybrala brudna opcje i nazwala ja po imieniu - kupuje Straz zatajeniem handlu zwlokami - a potem otworzyla droge do kierownictwa i siegnela po zbrojny zakon na papierze gildii tak, ze nazwisko Lucana wchodzi do akt JAKO POWOD ZAMOWIENIA, czyli przestawia go z podsadnego na zglaszajacego. Cene za to placi wlasna pozycja, ktora jest priorytetem pierwszym jej karty. Zastrzezenie, ktore musi zostac w reason: motywem jest miasto i pieczecie, nie Lucan, a uklad ze Straza jest na dzis DECYZJA, nie faktem - nikt do nich jeszcze nie poszedl.'
+  - axis: discretion_trust
+    from: 59
+    to: 61
+    raw_delta: 3
+    event_id: event_turn_interlude_229
+    reason: 'Lucan powiedzial jej z wlasnej woli, ze dwoje czlonkow gildii rangi C jest przez niego kupionych i powie to, co im kaze. To fakt, ktorego nie miala i ktorego nie podejrzewala, a ktory obciaza bezposrednio jej poreczenie: dwoje ludzi, za ktorych gildia formalnie odpowiada, jest oplaconych przez czlowieka, za ktorego ona reczy. Przyjela to bez sceny i bez grozby - odnotowala. Tick maly, bo kwot nie podal, a ona o nie nie zapytala.'
+  - axis: discretion_trust
+    from: 61
+    to: 62
+    raw_delta: 2
+    event_id: event_turn_interlude_230
+    reason: 'Lucan uprzedzil ja z wlasnej woli, ze jesli w nocnym transporcie Varkhena zatrzyma ich straznik, jest gotowy trwale zniszczyc mu umysl - czyli wypelnil jej wlasny warunek z t_044 o uprzedzaniu przed trwala zmiana czyjegos stanu, ZANIM cokolwiek zaszlo. Ona to slyszy, nie moralizuje i mowi jedno zdanie: wlasnie zostala uprzedzona i tyle jej potrzeba. Tick najmniejszy z mozliwych, bo deklaracja jest warunkowa i warunek nie zaszedl.'
+  - axis: discretion_trust
+    from: 62
+    to: 60
+    event_id: event_turn_interlude_231
+    reason: 'Dowiedziala sie PO FAKCIE, ze siedzi w sporze o klasyfikacje glebiej, niz jej mowil, i ze warunek z t_029 (uprzedzenie przed kontaktem z ktorakolwiek strona dysputy) zostal miniety. To dokladnie ten kierunek, ktory os mierzy: nie traci honoru, traci PODSTAWE WLASNEJ OSLONY, bo fact_seraphine_offers_conditional_cover wiaze te oslone ze szczerym ujawnianiem ryzyka. Tick maly i warunkowy, i musi taki zostac: retcon_000124 zabrania grania tego jako zdrady albo zlamanego slowa (jej warunek nie byl jego obietnica), w tej samej turze Lucan wylozyl tresc z wlasnej woli, a ona swiadomie NIE zapytala, jak daleko zaszedl. [SILA SKORYGOWANA PRZY WERYFIKACJI ADWERSARIALNEJ z 3 na 2: sila 2 zamiast 3. W tej samej turze Lucan wyklada TRESC z wlasnej woli (p.3, teza o pozornej dysputie, zgodna z kanonem swiata), ona nazywa cene RAZ i idzie dalej (''Nazywa to raz i idzie dalej'', p.2), swiadomie nie pyta, jak daleko zaszedl, a retcon_000124 zab]'
+  - axis: judgment_confidence
+    from: 91
+    to: 92
+    raw_delta: 2
+    event_id: event_turn_interlude_232
+    reason: 'Dwa trafienia w jednej turze: Lucan poprawil odczyt terminow i mial racje CO DO LICZBY (oba zegary stoja na 3/15, czyli dysputa i przesluchanie sa praktycznie jednym oknem), a ona sprawdzila i przyznala; oraz odtworzyl mechanizm zaplaty Kolma - waska definicja, katedra biomutantow, rektorat po zamieszkach - nie znajac tresci pliku, i nie miala czym tego podwazyc. Tick maly, bo os jest blisko sufitu, a caly material o Kolmie wchodzi do jej wiedzy jako ''to, co uslyszalam od Lucana'', nie jako zweryfikowane.'
+  - axis: judgment_confidence
+    from: 92
+    to: 94
+    raw_delta: 3
+    event_id: event_turn_interlude_234
+    reason: 'Lucan rozbil regule, ktora ona przyjela dwie tury wczesniej za swoja - ze zeznanie Varkhena jest niecytowalne - i mial racje co do pliku: prawo kryminalizuje tworzenie, utrzymywanie i kontrole nieumarlych, a nie rozmowe, a ancient_guardian_cover_story jest wprost skrojona pod cytowanie. Ona przyjela to bez obrony wlasnej pozycji i przeliczyla plan, sciagajac z niego jeden warunek konieczny (pomiar przestaje byc brama do wszystkiego). To najmocniejsze zdarzenie na tej osi w calym wycinku i mimo to trzymam tick w skali malej, bo os startuje z 88.'
+  - axis: cooperation
+    from: 84
+    to: 85
+    event_id: event_turn_interlude_235
+    reason: 'Zaoferowala z wlasnej inicjatywy, ze pokaze mu, CO dokladnie zarejestrowala w t_038 - czyli jak Lucan wyglada z drugiej strony pieczeci ochronnych - i sama nazwala cene: antymagiczka pokazujaca nekromancie, co widzi, oddaje mu sposob ukrycia sie przed soba. Zrobila to mimo tego, bez proszenia i wiedzac, ze osłabia wlasny czujnik w tym budynku. To czynnosc wykonana dla Lucana kosztem wlasnego interesu instytucjonalnego, wiec rusza cooperation, nie judgment. Zastrzezenie: magow bojowych, o ktorych pytal, nie obiecala, bo gildia ich w plikach nie ma - dala to, co ma.'
 history:
   - {event_id: event_turn_interlude_036_the_permit_on_the_table, change: offered_her_the_permit_and_she_read_it_but_refused_custody, reason: possession_would_make_her_a_co_suspect_before_her_morning_appearance}
   - {event_id: milestone_047_seraphine_risk_disclosure, change: baseline, reason: user_confirmed_personal_investment_without_fixed_future_form}
@@ -110,5 +362,5 @@ history:
   - {event_id: event_turn_interlude_028_lucan_dismantles_the_charges, change: cooperation_45_to_55_judgment_82_personal_regard_42, reason: shared_exposure_named_aloud_and_lucan_won_the_legal_exchange}
   - {event_id: event_turn_interlude_026b_veyr_name_and_the_observer_question, change: discretion_trust_22_to_25_and_judgment_confidence_70_to_75, reason: volunteered_the_political_warning_and_won_a_real_argument_while_still_withholding_the_dispute}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_varkhen_mind]}
-last_event_id: event_turn_interlude_038_numb_on_the_night_clerk
+last_event_id: event_turn_interlude_235
 source_refs: [source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

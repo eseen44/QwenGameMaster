@@ -1,0 +1,45 @@
+schema_version: 1
+id: obligations_rationale
+object_type: rationale_store
+part_of: campaigns/lucan/state/obligations.yaml
+split_note: Wyniesione 2026-09-04 z state/obligations.yaml, ktory jest w active_refs i wchodzi do KAZDEJ
+  tury. Tresc przeniesiona 1:1, bez skracania. W zobowiazaniu zostaly id, status, commitment, key_constraint
+  i source_event_id - to, czego tura potrzebuje; tu leza uzasadnienia, sekwencje i zastrzezenia. Wczytuj
+  przy planowaniu albo gdy rozmowa dotyka konkretnego zobowiazania.
+obligations:
+  obligation_warn_seraphine_before_contacting_dispute_sides:
+    player_position: 'Deklaracja gracza 2026-09-02: Lucan sie na to nie zgadzal, jest w tej relacji rozgrywajacym
+      i swiadomie uzywa jej wlasnej doktryny wiedzy z t_188 - sama odmowila przyjmowania pozostalych piecu
+      dzwigni przed spotkaniem ze Straza, wiec dzis nie wie.'
+  obligation_return_borrowed_academy_volume:
+    order_status: 'ZLOZONE U npc_ilmar_sedd (retcon_000126): odpis na trzy rece bez marginaliow + oprawa
+      imitujaca biblioteczna, oficjalne pieczecie celowo niezgodne. 95 srebra, 9 dni OD WYDANIA TOMU.
+      Wzor nieprzekazany, zaliczki brak. Kiedy tom idzie do Sedda, a kiedy do Neris (krok 3) - nierozstrzygniete,
+      decyzja gracza.'
+    sequence: 'USTALONA W t_174: (1) targ jutro rano - znalezc kogos, kto przepisze i oprawi, oraz ustalic
+      NA KIEDY; (2) introligatornia; (3) Neris dostaje oryginal do przeczytania; (4) rozmowa o tym, czy
+      i jak balwierz wchodzi do jej tekstu; (5) oprawiona kopia idzie do biblioteki przez bibliotekarza,
+      ktorego umawia Neris. Zaden z tych krokow nie ma terminu narzuconego przez swiat - tempo wyznaczyl
+      sam Lucan.'
+    declared_plan: 'Lucan zapowiedzial Neris (t_172), ze sprobuje zmajstrowac OPRAWIONA KOPIE tresci licencjonowanej,
+      ktora biblioteka przyjmie zamiast oryginalu - dzieki czemu marginalia zostaja u niego. To ZAMIAR,
+      nie rzecz zrobiona: brak introligatora, materialu i czasu przy stole. Zadanie interludium.'
+    disclosed_to_neris: Marginalia, ich charakter i ich ciezar dla dysputy - ujawnione przez Lucana z
+      wlasnej inicjatywy w t_172. Pochodzenie tomu (kradziez, martwy balwierz) NIE.
+  obligation_conditional_risk_disclosure_to_seraphine:
+    what_the_risk_actually_is: 'NIE jest to ryzyko dla Lucana - to warunek układu. Seraphine jest JEDYNĄ
+      osobą w Gildii, która wie o nekromancji (secrets.yaml#institutional_knowledge.guild: compartmentalized_to_seraphine)
+      i deklaruje osłonę przed Gildią oraz możliwą Inkwizycją pod warunkiem szczerego ujawnienia ryzyka
+      (fact_seraphine_offers_conditional_cover). Warunek znaczy: nie daj się jej zaskoczyć na sali. Jeśli
+      ktoś wyłoży przy niej konkret, o którym nie wiedziała, to ONA jest tą, która ręczyła w ciemno -
+      i nie może z tego wyjść tak, jak Lucan może wyjść z Gildii.'
+    not_triggered_by:
+    - 'event_turn_interlude_184 (rozstrzygnięte w t_185, argument gracza): Mara ORAZ Boros widzieli w
+      sarkofagu, że Lucan coś robił z nieumarłym i że przewodził energię z nekromantycznej maszyny. Z
+      tych dwóch zeznań każdy wyciągnie, że operuje energią śmierci/życia. secrets.yaml ma npc_mara_teln
+      w suspected_by dla secret_lucan_practices_necromancy już od milestone_045. Wyjaśnienie mechanizmu
+      NIE dostarczyło Seraphine żadnej nowej informacji o Lucanie.'
+    note_open_but_no_deadline: 'To, co realnie powstało w t_184, jest innej natury: Mara nosi teraz WERSJĘ
+      wybraną przez Lucana (secrets.yaml#cover_stories.cover_lucan_never_tried_on_the_living). Ryzyko
+      brzmi nie "świadek wie za dużo", tylko "świadek powtarza historię, którą da się obalić". Żaden plik
+      nie stawia temu terminu.'

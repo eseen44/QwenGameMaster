@@ -6,7 +6,44 @@ subject_id: npc_varkhen_mind
 target_id: pc_lucan
 layer: personal
 stance: honorable_cautious_contractual_ally
-axes: {cooperation: 50, judgment_confidence: 45, discretion_trust: 25, personal_regard: 25}
+axes: {cooperation: 61, judgment_confidence: 45, discretion_trust: 25, personal_regard: 23}
+axes_raw_reconstruction: {cooperation: 69, judgment_confidence: 45, discretion_trust: 25, personal_regard: 23}
+axes_calibration_status: player_calibrated_2026_09_04
+axes_calibration_note: >-
+  SKALIBROWANE 2026-09-04 decyzja gracza: sufit 85, przeliczyc proporcjonalnie. REGULA PIERWSZA:
+  kazdy udowodniony ruch DODATNI po turze t_054 liczy sie w 60%, bo dziennik zapisuje, co ta
+  postac dla Lucana ZROBILA, i gubi jej odmowy - a te sa w kanonie (odmowa przyjecia nazwiska
+  urzednika t_122, odmowa kustodii glejtu t_036). Brakujace odmowy to pozostale 40%.
+  Wspolczynnik nie jest dobrany pod wynik, wynika z sufitu: 62 + 0,6*38 = 85. REGULA DRUGA:
+  ruchy UJEMNE zostaja w pelnej sile. Ruch ujemny to wlasnie ta rzadka zapisana odmowa - jest
+  niedoreprezentowany, wiec skracanie go odwracaloby sens poprawki. REGULA TRZECIA: ruchy do
+  tury t_054 wlacznie sa nietkniete, bo ich chain trafia w kanoniczne axes co do punktu na
+  kazdej osi - dokumentuja, jak powstala liczba ustawiona swiadomie, a nie dokladaja do niej.
+  REGULA CZWARTA: osi, ktora kanon postawil POWYZEJ sufitu (tu judgment_confidence na 88), sufit
+  nie obniza - taka os moze domknac najwyzej polowe dystansu do 100. Sufit ogranicza wzrost, nie
+  odbiera przeszlosci. ODWRACALNOSC: kazdy stlumiony wpis nosi raw_delta sprzed tlumienia, a
+  axes_raw_reconstruction trzyma wynik nietlumiony. Log byl kanonem, bo jest udowodniony. Liczby
+  sa kanonem teraz, bo gracz je rozstrzygnal.
+  TO NIE JEST REGULA GRY NA PRZYSZLOSC. Wspolczynnik 60% poprawial STRONNICZOSC ZRODLA przy
+  odtwarzaniu 197 tur z dziennika, ktory zapisuje przysługi i gubi odmowy. Zywe tury wycenia sie
+  NORMALNIE, w pelnej sile, bo narrator widzi w nich takze odmowy i moze je zapisac od razu. Nie
+  tlum ruchow biezacych.
+axes_reconstruction_note: >-
+  ODTWORZONE 2026-09-04 z dziennika, kazdy ruch z cytowaniem zdarzenia. Karta stala 181 tur w
+  tyle, bo nikt jej nie prowadzil. Ruchy zebralo piecioro czytelnikow dziennika, po wycinku tur,
+  i przeszly adwersarialna weryfikacje: z 50 propozycji 6 obalono (wnioski z ogolnego przebiegu
+  zamiast z czynu, ruchy WIEDZY zamiast relacji, odwrotny kierunek), a w 7 skorygowano sile.
+  UWAGA O STRONNICZOSCI, WAZNA PRZY KALIBRACJI: suma znalezionych ruchow SATURUJE osie, a to
+  jest artefakt zrodla, nie stan relacji. Dziennik zapisuje, CO ta postac dla Lucana ZROBILA, i
+  prawie nie zapisuje odmow - a te istnieja w kanonie (odmowa przyjecia nazwiska urzednika w
+  t_122, odmowa kustodii glejtu w t_036) i przecza wartosci skrajnej, tak samo jak
+  portrayal.priorities_in_order Seraphiny, gdzie Lucan jest czwarty, a nie pierwszy. DLATEGO
+  POLE axes ZOSTAJE NIETKNIETE do kalibracji przez gracza, a wyliczone wartosci leza obok. Log
+  jest kanonem, bo jest udowodniony; liczby nie sa, bo wymagaja decyzji.
+  SPROSTOWANIE 2026-09-04: zdanie powyzej o NIETKNIETYM polu axes bylo prawdziwe do chwili
+  decyzji gracza i przestalo byc - gracz kalibracje rozstrzygnal, patrz axes_calibration_note.
+  Reszta tej noty, w szczegolnosci ostrzezenie o stronniczosci zrodla, obowiazuje dalej i JEST
+  PODSTAWA tej kalibracji.
 reasons: [lucan_spared_varkhens_life_and_will, lucan_offered_help_with_oath, voluntary_three_seal_compact]
 obligations:
   - {id: obligation_three_seals_compact, holder: npc_varkhen_mind, debtor: pc_lucan, condition: help_restore_and_secure_three_seals, status: active}
@@ -14,10 +51,52 @@ obligations:
 shared_secrets: [formal_control_link, varkhen_cover_story, four_marked_corpses]
 leverage: {held_by_subject: [knowledge_of_three_seals_and_priest_oren_link], held_by_target: [formal_control_link_not_yet_tested]}
 constraints: [oath_and_honor, damaged_body, unknown_control_link_mechanics]
+axis_change_log:
+  - axis: cooperation
+    from: 50
+    to: 52
+    raw_delta: 3
+    event_id: event_turn_interlude_056_offer_varkhen_as_office_armor
+    reason: Przyjal role nieruchomej zbroi w gabinecie obcej urzedniczki bez urazonego honoru, pod warunkiem, ze to pozycja straznika, a nie publiczne upokorzenie. To pierwsze w tym wycinku uzycie go jako narzedzia w cudzym budynku i zgodzil sie dobrowolnie. Tick maly, bo warunek honorowy zostaje aktywny i jego zlamanie moze te zgode odwrocic.
+  - axis: cooperation
+    from: 52
+    to: 53
+    raw_delta: 2
+    event_id: event_turn_interlude_058_varkhen_office_guard_protocol
+    reason: 'Przyjal protokol straznika biura: nieruchomo, obserwowac i sluchac, sygnalizowac przez wiez, i NIE reagowac jawnie bez dalszej decyzji Lucana - takze przy zagrozeniu dla siebie samego. To podporzadkowanie wlasnej reakcji obronnej decyzji Lucana, czyli realny koszt dla postaci z przysiega i honorem. Tick maly, bo to protokol na przyszlosc, jeszcze nieprzetestowany zadnym zagrozeniem.'
+  - axis: cooperation
+    from: 53
+    to: 54
+    raw_delta: 2
+    event_id: event_turn_interlude_059_varkhen_borrowed_sense_protocol
+    reason: 'Przyjal tajny protokol: nie bedzie informowal Seraphine o probach korzystania Lucana z jego wzroku. To rozszerzenie jego dyskrecji z samej mechaniki wiezi (obligation_varkhen_discretion, t_054) na aktywne uzywanie jego ciala, i to wobec osoby, w ktorej gabinecie ma stac nieruchomo. Tick maly, bo miesci sie w duchu ukladu, ktory wczesniej przyjal, i nie jest nowym poswieceniem.'
+  - axis: cooperation
+    from: 54
+    to: 56
+    raw_delta: 4
+    event_id: event_turn_interlude_070_varkhen_walks_up_and_the_alarm_spider
+    reason: 'Wykonal rozkaz fizycznie kosztowny: przy 8/65 integralnosci wszedl tylnymi schodami o wlasnych silach, przystajac i rozkladajac ciezar, zeby kamien nie zabrzmial, i zaplacil 1 punkt rezerwy (18 -> 17), czyli okolo pieciu dni rozproszonego zasilania. Przyjal to bez sprzeciwu, mimo ze jego wlasny wariant transportowy ze skrzynia z t_053 zostal odrzucony. To jedyny ruch w tym wycinku, w ktorym jego wspolpraca jest zaplacona ZASOBEM, nie deklaracja.'
+  - axis: personal_regard
+    from: 25
+    to: 23
+    event_id: event_turn_interlude_122r
+    reason: 'Jedyne kanoniczne zdarzenie relacyjne z Varkhenem w calym wycinku. Stojac w gornych biurach uslyszal, jak Lucan tlumaczy Seraphine klatwe na piorze Ruska, i wtracil sie raz, krotko, wlasnym rejestrem: nazwal to rzecza zrobiona czlowiekowi za plecami i nazwal to bez ogrodek. Rusza personal_regard, a nie cooperation ani judgment_confidence, bo zarzut jest honorowy, a nie kompetencyjny - constraints jego karty to oath_and_honor - i bo nie doradzil, nie zagrozil i nie wycofal niczego z paktu. Tick minimalny i warunkowy: to jedno zdanie sprzeciwu, nie zmiana postawy.'
+  - axis: cooperation
+    from: 56
+    to: 58
+    raw_delta: 3
+    event_id: event_turn_interlude_230
+    reason: 'Zapytany wreszcie bezposrednio - przez Seraphine, nie przez Lucana - powiedzial, czego chce (domknac trzy pieczecie i dolna brame, przysiega jest niedokonczona), a z WLASNEJ INICJATYWY dolozyl zdanie, ktorego nikt od niego nie wymagal: uklad przyjal dobrowolnie, bo byl uczciwy, i mierzy ludzi czynami. Powiedzial to w obecnosci kontrolerki gildii rangi A, czyli w miejscu, w ktorym to zdanie realnie podtrzymuje cover story Lucana (ancient_guardian_cover_story trzyma sie, dopoki wspolpraca jest DOBROWOLNA). Tick maly i warunkowy: ''co potem'' zostawil puste i narrator ma zakaz dopisywania mu tesknoty, planu ani zadania wobec Lucana.'
+  - axis: cooperation
+    from: 58
+    to: 61
+    raw_delta: 5
+    event_id: event_turn_interlude_234
+    reason: 'Zapytany o cytowalnosc siebie samego zadeklarowal, ze ZLOZY ZEZNANIE - jako pradawny straznik nekropolii, dobrowolnie, do wewnetrznej dokumentacji gildii - i uzasadnil to jednym zdaniem: tak brzmi uklad, ktory przyjal dobrowolnie. To najwyrazniejszy ruch na jego karcie w tym wycinku, bo z prywatnego paktu przechodzi na zgode na wlasna instytucjonalna ekspozycje, i to on jest tym, kto ta zgode wypowiada. W tej samej scenie potwierdzil czynem plan transportu (plaszcz na zbroi od t_234, wstal i wyszedl przy drzwiach w t_235). Zastrzezenie: ''co potem'' nadal puste, a granica jest brzmienie, nie zrodlo - niecytowalne pozostaje jedno zdanie, ''nieumarly, ktorego Lucan kontroluje''.'
 history:
   - {event_id: milestone_046_varkhen_oath_compact, change: baseline, reason: user_confirmed_no_resentment_and_honorable_reciprocity}
   - {event_id: event_act_02_closeout_interlude_import, change: ring_transfer_and_private_conversation, reason: Varkhen_accepted_Lucans_right_to_keep_the_ring_and_the_compact_remains_voluntary}
   - {event_id: event_turn_interlude_054_varkhen_discretion_condition, change: discretion_added_to_compact, reason: Lucan_conditions_future_repair_on_nonvoluntary_disclosure_not_becoming_a_risk_to_him}
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_seraphine_vale]}
-last_event_id: event_turn_interlude_054_varkhen_discretion_condition
+last_event_id: event_turn_interlude_235
 source_refs: [source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
