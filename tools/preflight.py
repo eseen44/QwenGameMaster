@@ -101,6 +101,9 @@ CHECKS = [
     ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
     ("skroty kart NPC aktualne", [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True),
     ("kontrakt pol instancji", [sys.executable, "tools/build_field_contract.py", "--check"], 60, True),
+    # NIEBLOKUJACA: uzgodnienie silnika z rejestrem wzrostu wymaga decyzji mechanicznych,
+    # nie poprawki skryptem. Raport ma byc widoczny, nie ma zatrzymywac pracy.
+    ("uzgodnienie wzrostu (raport)", [sys.executable, "tools/reconcile_growth.py", "--only-divergent"], 60, False),
 ]
 
 FULL_CHECKS = [

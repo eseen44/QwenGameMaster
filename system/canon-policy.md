@@ -11,6 +11,12 @@
 
 ## Priorytet
 
+**Wiążącą wersją tej listy jest `AGENTS.md#priorytet-źródeł`** — tam stoi też reguła
+rozstrzygania sprzeczności MIĘDZY retconami (wygrywa wyższy numer, nie późniejszy timestamp),
+której ta kopia nie ma. Kopia poniżej zostaje dla kontekstu taksonomii wyżej; przy rozjeździe
+obowiązuje AGENTS.md. Duplikacja reguł jest w tym repo zdiagnozowaną chorobą — nie rozwijaj
+tej listy tutaj, tylko tam.
+
 1. Retcon zatwierdzony w `retcons.jsonl`.
 2. Aktualny stan kampanii i właściwego bytu.
 3. Reguły systemu i kanon świata.
