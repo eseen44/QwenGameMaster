@@ -95,6 +95,25 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 
 W razie konfliktu nie zgaduj. Zatrzymaj czas sceny, wskaż sprzeczność i zaproponuj korektę kanonu.
 
+## Kontrole przed commitem
+
+Zapadka z 2026-09-04. Kontrole istnialy juz wczesniej, tylko nikt ich nie uruchamial
+w momencie, w ktorym maja znaczenie - nie bylo ani hooka, ani CI.
+
+```bash
+python tools/preflight.py          # szybki zestaw: zapora dziennika, proza, sieroce odwolania
+python tools/preflight.py --full   # plus walidacja projektu i testy
+python tools/install_hooks.py      # hook pre-commit (blokujacy, ~1,5 s gdy commit nie rusza dziennika)
+```
+
+Hook blokuje commit przy dwoch rzeczach: gdy zniknal wpis dziennika albo plik transakcji,
+i gdy wrocila proza czytana jako klucze YAML o wartosci null. Pominiecie raz:
+`git commit --no-verify` - swiadomie, nie z przyzwyczajenia. Odinstalowanie:
+`python tools/install_hooks.py --remove`.
+
+Sieroce odwolania i dlugi kart relacji sa RAPORTOWANE, nie blokujace: wymagaja decyzji
+merytorycznej, a walidator swiecacy na czerwono bez przerwy jest ignorowany.
+
 ## Blokada migracji
 
 - Jeżeli `campaigns/lucan/migration/migration.yaml` ma status zaczynający się od `blocked`, kampania nie jest gotowa do wznowienia.

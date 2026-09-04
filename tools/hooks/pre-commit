@@ -1,0 +1,41 @@
+#!/bin/sh
+# Zapadka etapu 12: blokuje commit, ktory traci kanon albo psuje widocznosc prozy.
+#
+# Instalacja:    python tools/install_hooks.py
+# Odinstalowanie: python tools/install_hooks.py --remove
+# Pominiecie raz: git commit --no-verify   (swiadomie, nie z przyzwyczajenia)
+#
+# Uruchamiane sa WYLACZNIE dwie kontrole blokujace i szybkie:
+#   - zapora dziennika       - czy cofniecie tury nie zjadlo wpisu albo transakcji
+#   - proza jako klucze null - czy niecytowana wartosc z przecinkiem nie zniknela z odczytu
+# Sieroce odwolania, walidacja projektu i testy NIE sa w hooku - sa za dlugie i czesc z nich
+# to dlugi wymagajace decyzji merytorycznej, nie poprawki przed commitem.
+# Pelny zestaw:  python tools/preflight.py --full
+
+set -e
+
+PY=""
+for candidate in /c/ProgramData/anaconda3/python.exe "$HOME/anaconda3/python.exe" python3 python; do
+    if command -v "$candidate" >/dev/null 2>&1; then
+        PY="$candidate"
+        break
+    fi
+done
+
+if [ -z "$PY" ]; then
+    echo "pre-commit: nie znaleziono Pythona - kontrole POMINIETE." >&2
+    echo "  Ustaw sciezke w tools/hooks/pre-commit albo uruchom: python tools/preflight.py" >&2
+    exit 0
+fi
+
+echo "pre-commit: zapora dziennika i kontrola prozy..."
+if ! "$PY" tools/preflight.py --staged --quiet; then
+    echo "" >&2
+    echo "COMMIT ZATRZYMANY. Uruchom, zeby zobaczyc szczegoly:" >&2
+    echo "  python tools/preflight.py" >&2
+    echo "" >&2
+    echo "Najczestsze naprawy:" >&2
+    echo "  python tools/recover_superseded.py   # uchylona wersja wpisu bez archiwum" >&2
+    echo "  python tools/fix_prose_keys.py       # proza czytana jako klucze null" >&2
+    exit 1
+fi
