@@ -1,0 +1,166 @@
+schema_version: 1
+id: turn_interlude_176
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-31T15:58:52+02:00'
+scene_id: scene_act_03_interlude_day3_night_to_the_wall_tower
+event_id: event_turn_interlude_176
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_176
+  declared_action: 'Lucan przeglada urobek konikow polnych, a potem siada do stolu na cztery godziny. Trzy godziny idzie na Tkacza: ucho cmy, ucho konika polnego i drugi gruczol przedni obok starego. Czwarta godzina na Spideya - ucho z konika polnego.'
+  actor_id: pc_lucan
+  scope: execution
+  time_class: extended
+  time_seconds: 14400
+  stakes: Czy Tkacz dostaje oba pasma naraz i drugi gruczol, i czy Spidey zaczyna dostarczac tresc rozmowy zamiast samego rytmu.
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - bench_work
+  - interlude
+  - companion_upgrade
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_176
+  status: preview
+  scene_id: scene_act_03_interlude_day3_night_to_the_wall_tower
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan przeglada urobek konikow polnych, a potem siada do stolu na cztery godziny. Trzy godziny idzie na Tkacza: ucho cmy, ucho konika polnego i drugi gruczol przedni obok starego. Czwarta godzina na Spideya - ucho z konika polnego.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 14400
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 14400
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs: []
+  operations:
+  - op: set
+    instance_id: pc_lucan
+    path: position.formation
+    value: at_the_workbench_in_the_wall_tower_after_four_hours_of_handwork_three_on_the_weaver_moth_ear_orthopteran_ear_and_a_second_anterior_gland_and_one_on_spidey_who_now_carries_both_bands_the_haul_still_covers_a_dozen_more_transplants_zawisak_untouched_on_the_cloth_and_the_signed_suppressant_portion_still_unopened
+  - op: set
+    instance_id: webber_anchored
+    path: position.formation
+    value: on_the_bench_after_three_hours_of_work_carrying_both_hearing_bands_bat_ultrasound_and_human_speech_plus_a_second_anterior_silk_gland_the_only_specimen_in_the_network_with_both_bands
+  - op: set
+    instance_id: companion_spidey
+    path: position.formation
+    value: concealed_with_lucan_after_one_hour_of_work_orthopteran_ear_added_beside_the_moth_ear_first_and_only_node_that_delivers_the_content_of_a_conversation_not_just_its_rhythm
+  - *id002
+  summary: 'Bez testu - praca przy stole, cztery godziny, zero energii. Tura ODTWORZONA po audycie
+
+    31.08.2026 (poprzednie rozegranie nie trafilo do plikow). Deklaracja gracza laduje
+
+    w calosci; material i godziny sa realne i policzone (system/companion-growth.md).
+
+
+    1. URABOKU JEST TYLE, ZE TRZEBA GO ROZGARNIAC (retcon_000102). Trzej sieciarze przyniesli
+
+    z lak konie polne i szarancze, czesc polamana w szczekoczulkach - bez znaczenia, bo ucho
+
+    prostoskrzydlego siedzi w PRZEDNIEJ NODZE, nigdy w skrzydle. Poszarpany okaz jest
+
+    pelnowartosciowym dawca. Material starcza na kilkanascie przeszczepow, nie na dwa.
+
+
+    2. TRZY GODZINY NA TKACZA. Ucho cmy, ucho konika, drugi gruczol przedni obok starego -
+
+    wszystko przyjmuje sie czysto, bo to robota, ktora Lucan robil juz raz, tylko teraz na
+
+    kims, kto siedzi nieruchomo i nie probuje pomagac (traits: ulegla, podporzadkowana,
+
+    wycofana - wylacznie wobec niego). Powstaje pierwszy okaz w sieci z OBOMA PASMAMI naraz:
+
+    ultradzwiek nietoperzy i szczurow oraz pasmo ludzkiego glosu. Nikt inny tego nie ma.
+
+
+    3. I TU DZIALA JUZ NOWA REGULA KANALU (retcon_000106). Do 31.08 obowiazywalby zapis, ze
+
+    zakotwiczony sieciarz ma ten sam ubogi kanal co reszta serii - ten zapis zostal uchylony
+
+    jako sprzeczny z retcon_000049. Kotwica nadaje KLASE KANALU: Tkacz niesie pozyczony zmysl
+
+    na dystans, nie sam minimal_status, i jest BLISKO Spideya, choc Spidey zostaje wyzej
+
+    (low_bandwidth_visual_snapshot). Tkacz przestaje wiec byc posterunkiem do sluchania
+
+    z bliska i staje sie antena - a stoi w baszcie, wiec pytanie, gdzie ma stac, jest otwarte.
+
+
+    4. GODZINA NA SPIDEYA I TO JEST WLASCIWA ROBOTA TEJ NOCY. Jego kanal niosl pozyczony zmysl
+
+    przy skupieniu od poczatku, wiec ucho cmy dawalo mu obecnosc mowy, liczbe glosow, rytm
+
+    i nacisk - bez tresci. Ucho konika dodaje pasmo ludzkiego glosu. Spidey jest pierwszym
+
+    i jedynym wezlem w calej sieci, ktory dostarcza TRESC ROZMOWY - i akurat ten wezel Lucan
+
+    nosi w kieszeni i sadza tam, gdzie chce. Trzynascie dni przed dwoma przesluchaniami.
+
+
+    5. CZEGO TO NADAL NIE ROZWIAZUJE. Sluchanie na zywo zjada cala uwage Lucana na czas rozmowy,
+
+    a uwaga idzie po jednym wezle (event_turn_interlude_086). Problem podsluchu przestal byc
+
+    problemem CZUJNIKA i stal sie problemem ZAPISU - voice_recording z development_path,
+
+    osobna nieoplacona funkcja, ktorej nikt jeszcze nie zaczal.
+
+
+    6. WNIOSEK Z SORTOWANIA KONIKOW - NIE NOWY FAKT, TYLKO ODCZYT ZMIERZONEGO. Prostoskrzydly
+
+    ma to ucho, bo slucha WLASNEGO spiewu. Czyli ozywiony konik polny slyszy ludzki glos od
+
+    pierwszej chwili, bez przeszczepu i bez godziny przy stole - jeden gest. Cena stoi po
+
+    drugiej stronie i tez jest znana: to zwierze lakowe. W izbie rzuca sie w oczy, skacze
+
+    zamiast chodzic po scianie, a cale jego zycie polega na halasowaniu.
+
+
+    7. CO ZOSTALO NIETKNIETE. Zawisak lezal na plotnie metr od blatu przez cztery godziny
+
+    i nie dostal nic - nadal held_back_pending_hardening. Podpisana imieniem Tkacza trzecia
+
+    i ostatnia porcja tlumiaca rozklad nadal nieotwarta. Osa nadal na blacie z jedna jednostka
+
+    z trzech i nadal bez wylotu.
+
+
+    8. STAN. Poczatek czwartego dnia interludium, 00:33, baszta. Energia 11,85/15 (cztery
+
+    cykle regeneracji po 0,25 w trakcie pracy, przy zerowym wydatku),
+
+    integralnosc 19/19. Zegary bez ruchu. Rano dwie wlasne rzeczy na ten sam poranek:
+
+    targ po introligatora i pierwszy trening z Mara.
+
+    '
+  new_decision: Konczysz noc, czy jeszcze cos kladziesz na stol - osa ma jedna dobe, Zawisak czeka na utwardzenie, a porcja tlumiaca dla Tkacza nadal lezy nieotwarta.
+prepared_writes:
+prepared_at: '2026-08-31T15:59:44+02:00'
+committed_at: '2026-08-31T15:59:44+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

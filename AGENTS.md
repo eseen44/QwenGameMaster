@@ -70,6 +70,13 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 - Po zmianie sceny odśwież `context/scene.yaml` i `context/active.yaml`.
 - Zwykły commit odświeża kontekst automatycznie; ręczne `context refresh` jest potrzebne po zmianach administracyjnych.
 - Błędu historycznego nie kasuj: dodaj retcon i popraw aktualny stan.
+- **Cofnięcie tury nie usuwa ani nie nadpisuje kanonu.** Nie kasuj linii z
+  `journal/events.jsonl`, nie usuwaj i nie nadpisuj plików `journal/transactions/*.yaml`.
+  Ponownie rozegrana tura dostaje nowy wpis; uchylona wersja idzie do
+  `journal/superseded/` przez `python tools/recover_superseded.py`.
+  Sprawdza to `python tools/journal_guard.py` (wpięte w `validate_project.py`), więc reguła
+  jest warunkiem, nie prośbą. Do 2026-09-04 nie było jej czym sprawdzić i pierwotna proza
+  jedenastu tur przetrwała wyłącznie jako obiekty gita.
 
 ## Lokacje i mapy
 

@@ -1,0 +1,194 @@
+schema_version: 1
+id: turn_interlude_169
+object_type: turn_transaction
+status: committed
+created_at: '2026-08-27T13:50:41+02:00'
+scene_id: scene_act_03_interlude_day3_late_evening_leaving_the_academy
+event_id: event_turn_interlude_169
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_169
+  declared_action: 'Lucan wychodzi z laboratorium - ale nie z Akademii. Idzie do dziekana, zeby
+
+    uswiadomic mu "nasza sytuacje": nie prosic o nic, tylko postawic go wobec faktu,
+
+    ze jest w tej sprawie po tej samej stronie, czy chce, czy nie.
+
+    '
+  actor_id: pc_lucan
+  scope: execution
+  stakes: 'Zmyslona w t_161 rama ("dziekan grzecznie prosil o zdystansowanie sie od sprawy
+
+    cmentarnej") albo przestaje byc ekspozycja, albo staje sie prawda. Ojciec ma w
+
+    agendzie mowienie kolegom o pokazie, wiec kolejnosc dotarcia ma znaczenie.
+
+    Dziekan administruje wymuszonym urlopem dziekanskim Lucana ORAZ procedura
+
+    dyscyplinarna Akademii, czyli forma wezwania na seminarium wychodzi z jego biura.
+
+    '
+  time_class: brief
+  condition_ids: []
+  modifiers: []
+preview:
+  turn_id: turn_interlude_169
+  status: preview
+  scene_id: scene_act_03_interlude_day3_late_evening_leaving_the_academy
+  declaration: 'Lucan wychodzi z laboratorium - ale nie z Akademii. Idzie do dziekana, zeby
+
+    uswiadomic mu "nasza sytuacje": nie prosic o nic, tylko postawic go wobec faktu,
+
+    ze jest w tej sprawie po tej samej stronie, czy chce, czy nie.
+
+    '
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Obvious fictional result; no mechanical roll.
+  roll_allowed: false
+  time_seconds: 600
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 600
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  summary: 'Bez testu - przejscie przez kompleks i wejscie do gabinetu, dziesiec minut, zero
+
+    energii. Zagrywka gracza laduje w calosci (retcon_000033).
+
+
+    1. LUCAN JEST PIERWSZY - O WLOS, I TO BYLA CALA STAWKA TURY. Ojciec ma w agendzie
+
+    mowienie kolegom o pokazie (lucan-father#agenda.next_action), ale siedzi w
+
+    laboratorium, gdzie spedza 99% zycia. Dziekan o zadnym pokazie nie slyszal. Gracz
+
+    wygral kolejnosc dotarcia, nie wiedzac, jak waska byla.
+
+
+    2. ZMYSLONA RAMA Z t_161 JEST DLA TEGO CZLOWIEKA PREZENTEM, NIE ZAGROZENIEM.
+
+    Ojciec wierzy, ze dziekan grzecznie prosil Lucana o zdystansowanie sie od sprawy
+
+    cmentarnej; dziekan nigdy tego nie powiedzial i slyszy o tym pierwszy raz. Ale
+
+    jest to czlowiek, ktorego rzemioslem jest ODDAWANIE JURYSDYKCJI - dostaje wiec
+
+    gotowa historie, w ktorej JUZ zachowal sie prawidlowo, i nic go ona nie kosztuje.
+
+    Jesli Lucan mu ja podlozy, klamstwo przestaje byc ekspozycja i staje sie prawda.
+
+    Decyzja nalezy do gracza; narrator tego za niego nie robi.
+
+
+    3. NOWA KARTA NPC - npc_academy_dean, Kalem Drost. Trzy rzeczy ustalone PRZED
+
+    pierwsza kwestia (retcon_000040): (a) chce, zeby sprawa nie byla jego, wiec
+
+    pierwszy ruch to PRZEKIEROWANIE, nie odmowa; (b) odmowi pisma i odmowi nazwania
+
+    statusu Lucana, bo oba zdania da sie zacytowac za czternascie dni; (c) moze
+
+    stracic posade pierwszy w budynku, bo otwarta dysputa jest etapem obsadzania
+
+    rektoratu, a to jest zaplata Kolma. Mowi strona bierna i rzeczownikiem
+
+    proceduralnym, unika pierwszej osoby przy decyzjach. Imie wprowadzone przez
+
+    narratora, gracz moze nadpisac bez retconu.
+
+
+    4. TO JEGO PODPIS POLOZYL LUCANA NA WYMUSZONYM URLOPIE dwa lata temu - na zyczenie
+
+    GLOWNEJ linii rodu Veyr (retcon_000053), nie z wlasnej inicjatywy. Nieplatna
+
+    synekura lezala w jego ksiegach dwa lata i nikt nigdy nie zapytal. Wejscie Lucana
+
+    do gabinetu jest tym papierem wracajacym. Lucan to wie; dziekan wie, ze Lucan wie.
+
+    Zaden z nich tego jeszcze nie powiedzial na glos.
+
+
+    5. NOWY KANON GRACZA O OJCU - lucan-father#not_a_party. OJCIEC NIE JEST STRONA;
+
+    wlasciwym opisem jest POGODA. Nie da sie nim administrowac, przekupic ani pozyskac
+
+    - da sie przewidziec i da sie pod niego ubrac; zaden NPC instytucjonalny nie ma
+
+    nad nim dzwigni. Rzuca SIODMY poziom BEZ INKANTACJI, osmy gdy go cos zaciekawi.
+
+    Gdy Lucan byl maly, PODPALIL KILOMETRY LASU testujac hipotezy o powstawaniu
+
+    wulkanow - praktycznie, nie na papierze. Kalibracja threat_scope: nie
+
+    "zaniedbanie zamiast czynnej krzywdy", a KATASTROFA BEZ ZLEJ WOLI. Wyjasnia to,
+
+    dlaczego synekury nikt nie audytowal i dlaczego polityka Akademii omija to
+
+    laboratorium zamiast przez nie przechodzic.
+
+
+    6. SYGNATURA - KOREKTA RAMY, BEZ RETCONU. Lucan sygnatury podrecznika NIE MA i
+
+    nigdy nie bylo to odmowa; dziennik notowal tylko "nieudzielona", co jest prawda w
+
+    obu wariantach. Deklaruje, ze ja zdobedzie. Uwaga na przyszlosc: zdobycie
+
+    sygnatury i bezpieczenstwo egzemplarza to DWIE ROZNE sprawy - tom stoi w rejestrze
+
+    ubytkow biblioteki Akademii, wiec podanie sygnatury Neris nie zdejmuje ryzyka,
+
+    tylko je precyzuje.
+
+
+    7. WORLD MOVE - dziekan nie ma wlasnego ruchu wobec Lucana; reaguje. Jego biuro
+
+    jest jednak miejscem, z ktorego wychodzi FORMA WEZWANIA na seminarium
+
+    (clock_father_arranges_academy_showing, 2/15) oraz obsada disputy Aldhen kontra
+
+    Kolm. Czlowiek, ktory chce nie miec z tym nic wspolnego, trzyma cala papierowa
+
+    strone sprawy.
+
+    '
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  operations:
+  - op: set
+    instance_id: pc_lucan
+    path: position.zone_id
+    value: zone_academy_dean_office
+  - op: set
+    instance_id: pc_lucan
+    path: position.formation
+    value: in_the_deans_office_late_on_the_third_evening_having_left_his_fathers_laboratory_without_leaving_the_academy_and_arrived_before_the_professor_told_any_colleague_about_the_showing_facing_the_administrator_whose_signature_put_him_on_forced_leave_two_years_ago_at_the_request_of_the_main_veyr_line_and_who_has_not_yet_worked_out_that_he_is_the_most_exposed_official_in_the_faculty
+  - *id002
+  new_decision: 'Dziekan probuje odeslac sprawe, zanim jeszcze uslyszy, o co chodzi. Lucan ma
+
+    wybrac, czym mu odpowie: podlozyc gotowa rame z t_161 (dziekan JUZ prosil, Lucan
+
+    JUZ sie zdystansowal - klamstwo staje sie prawda i obaj maja historie), postawic
+
+    mu przed oczami jego wlasna ekspozycje wobec rektoratu Kolma, czy zaczac od
+
+    papieru, ktory dziekan podpisal dwa lata temu.
+
+    '
+prepared_writes:
+prepared_at: '2026-08-27T13:55:51+02:00'
+committed_at: '2026-08-27T13:55:53+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (27 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

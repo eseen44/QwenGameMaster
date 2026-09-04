@@ -1,0 +1,200 @@
+schema_version: 1
+id: turn_interlude_232
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-03T02:12:50+02:00'
+scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+event_id: event_turn_interlude_232
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_232
+  declared_action: 'Lucan przerywa watek Strazy i przestawia rame: chodzi nie o kolejnosc wejscia do Strazy, tylko o to, ze MIASTO LEZY NA OGROMNEJ NEKROMANTYCZNEJ BOMBIE i nie ma czasu na dyskusje o Strazy. Dodaje: nikt jej nie bedzie pytal o Varkhena, kiedy miasto moze wyleciec w powietrze. Varkhen obecny w rogu pokoju.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czy rama "stan wyjatkowy pod cmentarzem" zastepuje rame "sprawa Lucana i Strazy", i czy to otwiera droge do kierownictwa gildii bez cytowania pokoju powroznika.
+  time_class: brief
+  time_seconds: 240
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - no_rolls_interlude
+  - guild_upper_offices
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  - social_stakes
+  - reframing_to_emergency
+  - three_seals
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_232
+  status: preview
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan przerywa watek Strazy i przestawia rame: chodzi nie o kolejnosc wejscia do Strazy, tylko o to, ze MIASTO LEZY NA OGROMNEJ NEKROMANTYCZNEJ BOMBIE i nie ma czasu na dyskusje o Strazy. Dodaje: nikt jej nie bedzie pytal o Varkhena, kiedy miasto moze wyleciec w powietrze. Varkhen obecny w rogu pokoju.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 240
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 240
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal.priorities_in_order
+  - campaigns/lucan/entities/npcs/varkhen.yaml#portrayal
+  - campaigns/lucan/entities/npcs/varkhen.yaml#speech_traits
+  - milestone_046_varkhen_oath_compact
+  - milestone_044b_oren_termination_and_energy_sample
+  - campaigns/lucan/state/clocks.yaml
+  - player_declaration:turn_interlude_232
+  operations:
+  - *id002
+  summary: 'Bez testu - interludium, roll_policy disabled. Cztery minuty, zero energii.
+
+    PRZESTAWIENIE RAMY LADUJE I ZMIENIA DECYZJE PODJETA DWIE TURY TEMU. To jest najmocniejszy
+
+    ruch Lucana w tej scenie i narrator nie stawia mu oporu.
+
+
+    1. DLACZEGO RAMA JEST POPRAWNA - Z PLIKOW, NIE Z UPRZEJMOSCI.
+
+    fact_seraphine_knows_three_seals (milestone_046): Varkhen ujawnil jej PIERWSZA ZLAMANA,
+
+    DRUGA NARUSZONA, TRZECIA SLABNACA. To nie jest teza Lucana - to jest zeznanie, ktore ona
+
+    ma od niego od Aktu 2. Priorytet TRZECI na jej karcie brzmi doslownie "Trzy pieczecie
+
+    i miasto". Lucan nie odkrywa jej niczego; wypomina jej wlasna liste priorytetow, po
+
+    ktorej ona sie dzis porusza od dolu, nie od gory.
+
+    ONA TO PRZYJMUJE OD RAZU I BEZ TARGU. Nie broni poprzedniej kolejnosci.
+
+
+    2. CO TA RAMA ROZWIAZUJE, CZEGO NIE ROZWIAZYWALA POPRZEDNIA - I TO JEST REALNY ZYSK.
+
+    (a) DROGA DO KIEROWNICTWA PRZESTAJE WYMAGAC POKOJU POWROZNIKA. Sprawa cmentarna jest
+
+    JUZ instytucjonalnie widoczna: operacja gildii z oficjalnym raportem, eksperci na miejscu,
+
+    smierc Orena na powierzchni w obecnosci Seraphine, ekspertow i grupy - a ta smierc i cialo
+
+    nie sa sekretem (npc oren.yaml#portrayal.death_context). Zgloszenie "pieczecie pod
+
+    cmentarzem ida" wisi na tym, co gildia sama widziala, a nie na zrodle, ktorego nie da sie
+
+    wystawic. Jej problem "wniosek bez srodka" dotyczyl STRAZY, nie pieczeci.
+
+    (b) VARKHEN PRZESTAJE BYC SKANDALEM, A ZACZYNA BYC BIEGLYM. W ramie proceduralnej rozumny
+
+    nieumarly w piwnicy jest zarzutem wobec niej. W ramie stanu wyjatkowego jest jedynym
+
+    zyjacym - w cudzyslowie - swiadkiem tego, jak te pieczecie dzialaja. Zdanie Lucana "nikt
+
+    cie nie bedzie pytal o Varkhena, kiedy miasto moze jebnac" jest w tej ramie prawdziwe
+
+    i ona to przyznaje, dodajac tylko, ze przestana pytac DOPOKI trwa alarm.
+
+    (c) STRAZ SPADA NA WLASCIWE MIEJSCE: przestaje byc sprawa i staje sie przeszkoda
+
+    logistyczna przy sprawie wiekszej. To nie znosi ani galezi pierwszej, ani drugiej -
+
+    przesuwa je nizej.
+
+
+    3. JEDYNA RZECZ, KTOREJ BRAKUJE, I JEST TO BRAK REALNY, NIE WYMYSLONY (retcon_000055).
+
+    Zaden plik tej kampanii nie ma zegara pieczeci. state/clocks.yaml zna trzy zegary -
+
+    inquisition_attention (0/uncalibrated), father_arranges_academy_showing (3/15),
+
+    guild_leadership_hearing (3/15) - i ANI JEDNEGO na trzecia pieczec. NARRATOR ZADNEGO
+
+    NIE WYMYSLA I ZADNEJ DATY NIE PODAJE.
+
+    Konsekwencja w fikcji jest dokladnie taka sama jak w plikach i ona ja nazywa jednym
+
+    zdaniem: alarm bez terminu instytucja obsluguje jak projekt, nie jak alarm. Zeby to
+
+    zadzialalo, ktos musi umiec powiedziec KIEDY.
+
+    TO NIE JEST NOWA CENA ANI KOLEJNA PRZESZKODA - to jest wskazanie, kto ma odpowiedz.
+
+
+    4. I DLATEGO WSZYSTKO SCHODZI SIE NA VARKHENIE, A JEGO WLASNY POMYSL WRACA JAKO
+
+    KONIECZNOSC, NIE JAKO SZTUCZKA. Jedyna osoba, ktora moze podac tempo trzeciej pieczeci,
+
+    stoi w rogu pokoju. Odpowiada zgodnie z karta: prostymi liniami, slownikiem przysiegi
+
+    i obowiazku, I NIE UDAJE, ZE WIE, KIEDY NIE WIE (speech_traits, portrayal.cognition).
+
+    CO MOWI: pierwsza jest zlamana, druga puscila przy nim, trzecia cienieje - to wie
+
+    z wlasnego czucia i z tego, po co go tam postawiono. CZEGO NIE POWIE: liczby zza sciany.
+
+    Zeby podac tempo, musi STANAC PRZY NIEJ - inaczej zgadywalby, a zgadywanie w tej sprawie
+
+    uwaza za gorsze niz milczenie.
+
+    NARRATOR NIE WKLADA MU W USTA ZADNEJ LICZBY, DATY ANI TERMINU. Podaje warunek pomiaru.
+
+    SKUTEK: pomysl z t_229 (wprowadzic go z powrotem na cmentarz) przestaje byc inscenizacja
+
+    dla uniknięcia zwloki, a staje sie CZYNNOSCIA OPERACYJNA, ktora i tak trzeba wykonac.
+
+    Wersja dla kierownictwa robi sie przy okazji prawdziwsza - a to akurat rozwiazuje polowe
+
+    zastrzezenia, ktore Varkhen zglosil w t_230 (nie przyjmie pochwaly za czyn, ktorego nie
+
+    wykonal). Narrator NIE domyka tego za gracza - odnotowuje, ze przestrzen na to powstala.
+
+
+    5. CZEGO NARRATOR TU NIE ZROBIL. Nie stworzyl zegara pieczeci (retcon_000055) - ma
+
+    powstac z pomiaru w fikcji albo z decyzji gracza, nie z potrzeby dramaturgicznej. Nie
+
+    podal ani jednej liczby, daty ani "zostalo wam X dni". Nie ustanowil, ze cokolwiek pod
+
+    cmentarzem wlasnie sie pogorszylo. Nie wyprodukowal reakcji kierownictwa - nikt tam nie
+
+    poszedl. Nie kazal Seraphine odwolac decyzji z t_230; galaz pierwsza zostaje, tylko
+
+    spada w kolejnosci. Nie zmusil Varkhena do liczby. Zegary bez ruchu poza uplywem czasu.
+
+
+    6. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju). Spidey i Tkacz przy
+
+    Lucanie, zuk w kieszeni. Varkhen 9,2/65, critically_damaged. Lucan 19/19, energia bez
+
+    wydatku - czytac z pliku.
+
+    '
+  new_decision: 'Seraphine przyjmuje rame stanu wyjatkowego, przesuwa Straz nizej i mowi, ze do kierownictwa idzie sie z pieczeciami, a nie z Straza - bo sprawa cmentarna jest juz instytucjonalnie widoczna i nie wymaga cytowania pokoju powroznika. Brakuje jednego: TERMINU. Varkhen mowi, ze tempa trzeciej pieczeci nie poda zza sciany i nie bedzie zgadywal - musi przy niej stanac. Decyzja gracza: czy i jak wyprowadzic go na cmentarz.'
+prepared_writes:
+prepared_at: '2026-09-03T02:14:12+02:00'
+committed_at: '2026-09-03T02:14:13+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

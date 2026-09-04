@@ -1,0 +1,193 @@
+schema_version: 1
+id: turn_interlude_229
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-03T01:32:58+02:00'
+scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+event_id: event_turn_interlude_229
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_229
+  declared_action: 'Lucan rzuca pomysl, polzartem, ale na serio: a gdyby wprowadzic Varkhena Z POWROTEM na cmentarz i "odkryc" go wtornie? Lucan zglosilby, ze znalazl przebudzonego staroznego straznika grobowca, ze ten mogl go zabic i oszczedzil, i tak dalej - czyli wyprodukowac swieze, datowane na dzis pierwsze zetkniecie zamiast tlumaczyc zwloke.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czy da sie wyprodukowac nowe, cytowalne pochodzenie dla istnienia i wiedzy Varkhena - i co taka inscenizacja robi z osobami, ktore widzialy oryginal.
+  time_class: brief
+  time_seconds: 240
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - no_rolls_interlude
+  - guild_upper_offices
+  - npc_seraphine_vale
+  - social_stakes
+  - planning_declaration
+  - varkhen_restaging_proposal
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_229
+  status: preview
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan rzuca pomysl, polzartem, ale na serio: a gdyby wprowadzic Varkhena Z POWROTEM na cmentarz i "odkryc" go wtornie? Lucan zglosilby, ze znalazl przebudzonego staroznego straznika grobowca, ze ten mogl go zabic i oszczedzil, i tak dalej - czyli wyprodukowac swieze, datowane na dzis pierwsze zetkniecie zamiast tlumaczyc zwloke.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 240
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 240
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: mixed
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - campaigns/lucan/state/instances/varkhen.yaml#integrity
+  - campaigns/lucan/entities/npcs/boros-keld.yaml#fact_boros_witnessed_varkhen_assault
+  - campaigns/lucan/entities/npcs/mara-teln.yaml#fact_mara_witnessed_varkhen_assault
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal.priorities_in_order
+  - event_turn_interlude_227
+  - player_declaration:turn_interlude_229
+  operations:
+  - *id002
+  summary: 'Bez testu - interludium, roll_policy disabled. Cztery minuty, zero energii.
+
+    POMYSL RZUCONY POLZARTEM DOSTAJE POWAZNA ODPOWIEDZ, BO ROZWIAZUJE DOKLADNIE TEN PROBLEM,
+
+    KTORY ONA DWIE MINUTY TEMU NAZWALA I DO KTOREGO PRZYZNALA, ZE NIE MA PLANU.
+
+
+    1. CO POMYSL FAKTYCZNIE ZALATWIA - I NARRATOR TEGO NIE UMNIEJSZA (retcon_000033).
+
+    (a) ZWLOKA ZNIKA. t_227: jej problemem nie jest istnienie nieumarlego, tylko odpowiedz
+
+    na pytanie "dlaczego nie od razu". Odkrycie datowane na dzis nie ma zwloki z definicji.
+
+    (b) PRANIE ZRODLA ZALATWIONE TYM SAMYM RUCHEM. t_227: wiedza Varkhena wymaga DRUGIEGO,
+
+    CYTOWALNEGO POCHODZENIA, zanim dotknie papieru. Odkryty i przesluchany pod nadzorem
+
+    gildii straznik grobowca JEST takim pochodzeniem - trzy pieczecie, kaplan znajacy
+
+    wlasciwe wejscie, wizyta z Orenem, wszystko dostaje zrodlo, ktore da sie wskazac palcem.
+
+    DWA PROBLEMY, JEDNO KLAMSTWO. Ona to mowi na glos, bo tak liczy.
+
+    (c) BONUS ZGODNY Z JEJ PRIORYTETEM TRZECIM (trzy pieczecie i miasto): oficjalnie odkryty
+
+    straznik grobowca jest legalnie umiejscowiony przy pieczeciach, ktore ma naprawiac.
+
+
+    2. TWARDA PRZESZKODA NUMER JEDEN - JEGO CIALO. TO JEST PLIK, NIE OPOR NARRATORA.
+
+    state/instances/varkhen.yaml: integrity 9,2 z 65. conditions: bodily_integrity_compromised
+
+    (85), severely_depleted (75), critically_damaged. To nie wyglada jak straznik, ktory MOGL
+
+    zabic i oszczedzil. To wyglada jak cos, co ktos rozebral na czesci i wygral.
+
+    Wersja "mogl mnie zabic, a mnie oszczedzil" jest zaprzeczana przez pierwsze spojrzenie
+
+    na przedmiot tej wersji. TO JEST PYTANIE, KTORE ONA ZADAJE, i jest jedno.
+
+    NARRATOR NIE ROZSTRZYGA, czy da sie to obejsc - to robota gracza, nie fakt swiata.
+
+    Odbudowa idzie (distributed_webber_upkeep, cztery sieciarze), ale ZADEN PLIK NIE PODAJE
+
+    TEMPA i narrator zadnego nie wymysla ani nie stawia terminu (retcon_000055).
+
+
+    3. TWARDA PRZESZKODA NUMER DWA - DWOJE SWIADKOW ORYGINALU, OBOJE Z GILDII.
+
+    fact_boros_witnessed_varkhen_assault: Boros OSOBISCIE rozbijal sarkofag i cialo starego
+
+    nieumarlego wedlug planu Lucana. fact_mara_witnessed_varkhen_assault: Mara to widziala.
+
+    Oboje sa czlonkami gildii rangi C, oboje zeznawali juz w sprawie garbarni, a Mara
+
+    odpowiada wlasnie na pismo urzednika magistratu o daty i sklad grupy (t_101/102).
+
+    Nowa wersja wymaga, zeby dwie osoby trzymaly stara. NARRATOR NIE ROZSTRZYGA, czy beda
+
+    chcialy - nie stawia im tu kwestii i nie decyduje za nie (player-agency, retcon_000040).
+
+    ODNOTOWANE JAKO ISTOTNE: Mara sama powiedziala w t_113, ze woli nie wiedziec rzeczy,
+
+    z ktorych potem musialaby sie tlumaczyc. To jest jej WLASNA linia, nie prognoza narratora.
+
+
+    4. CENA, KTORA SERAPHINE NAZYWA - INSCENIZACJA GO NIE UKRYWA, TYLKO UPUBLICZNIA.
+
+    Do dzis Varkhen jest jej prywatnym problemem w piwnicy. Odkryty oficjalnie na cmentarzu
+
+    staje sie SPRAWA - a rozumny nieumarly znaleziony przy pieczeciach jest z definicji
+
+    sprawa Kosciola, nie tylko gildii. To trafia w jej priorytet drugi (nie dac sie rozlupac
+
+    na Varkhenie). Nie jest to weto: ona sama przed chwila powiedziala, ze zglosic trzeba
+
+    i ze nie ma pomyslu jak. To jest zamiana problemu "ukrywam" na problem "kontroluje
+
+    ujawnienie" - i ona nazywa to wprost jako zamiane, nie jako rozwiazanie.
+
+
+    5. CZEGO ONA NIE ROBI. Nie smieje sie z pomyslu i nie odrzuca go z marszu - czlowiek,
+
+    ktory dwie minuty temu przyznal brak planu, nie szatkuje pierwszego podanego planu
+
+    (portrayal, do_not_play). Nie moralizuje nad falszowaniem okolicznosci; klamstwo jest
+
+    dla niej narzedziem, ktorego ryzyko sie liczy, nie skrupulem. Nie robi tez z tego
+
+    triumfu - widzi dwie przeszkody i mowi o nich zanim powie cokolwiek innego.
+
+
+    6. CZEGO NARRATOR TU NIE ZROBIL. Nie ustanowil, ze istnieje jakikolwiek ZAPIS
+
+    instytucjonalny o Varkhenie - i nie ustanowil tez, ze go nie ma; zaden plik tego nie
+
+    rozstrzyga, a ona jest osoba, ktora konsekwentnie unika produkowania dokumentu bedacego
+
+    cala sprawa (t_126). PYTANIE O PAPIER ZOSTAJE OTWARTE i jest dobrym pytaniem dla gracza.
+
+    Nie wymyslil reguly zakazujacej przeniesienia Varkhena. Nie stworzyl zegara, terminu,
+
+    swiadka ani sledztwa. Nie zadeklarowal za Varkhena, czy on sie na to zgodzi - jego karta
+
+    mowi honor, przysiega, obowiazek, wzajemnosc i ocenianie ludzi po czynach; udzial
+
+    w inscenizacji jest pytaniem DO NIEGO i nikt go jeszcze nie zadal.
+
+
+    7. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale. Spidey i Tkacz przy Lucanie, zuk w kieszeni.
+
+    Varkhen w piwnicy gildii, integralnosc 9,2/65. Integralnosc Lucana 19/19, energia bez
+
+    wydatku - czytac z pliku. Zegary bez ruchu poza uplywem czasu.
+
+    '
+  new_decision: 'Seraphine bierze pomysl na powaznie i mowi, co zalatwia - zwloke i pranie zrodla jednym ruchem. Stawia dwie przeszkody: Boros i Mara widzieli oryginal (Boros rozbijal sarkofag wlasnymi rekami), a Varkhen ma integralnosc 9,2 z 65 i wyglada jak cos rozebranego na czesci, nie jak ktos, kto mogl zabic i oszczedzil. Pyta o to drugie: czym Lucan wytlumaczy jego stan. Trzecia pozycja z siedmiu nadal nie padla.'
+prepared_writes:
+prepared_at: '2026-09-03T01:34:16+02:00'
+committed_at: '2026-09-03T01:34:17+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

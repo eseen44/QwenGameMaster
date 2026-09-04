@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -507,6 +508,36 @@ def validate_runtime(errors: list[str]) -> None:
                 errors.append(f"RUNTIME: invalid transaction status in {path.relative_to(ROOT)}")
 
 
+def validate_journal_guard(errors: list[str]) -> None:
+    """Kanon dziennika nie moze ginac przy cofaniu tury.
+
+    Regula "bledu historycznego nie kasuj" stala w AGENTS.md od poczatku i nic jej nie
+    sprawdzalo, wiec szesc cofnietych tur zostalo usunietych albo nadpisanych, a pierwotna
+    proza przetrwala wylacznie jako obiekty gita. tools/journal_guard.py to sprawdza;
+    tutaj jest tylko wpiety, zeby chodzil bez proszenia.
+    """
+    guard = ROOT / "tools" / "journal_guard.py"
+    if not guard.exists():
+        errors.append("JOURNAL: brak tools/journal_guard.py")
+        return
+    try:
+        result = subprocess.run(
+            [sys.executable, str(guard), "--quiet"],
+            cwd=ROOT, capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=180,
+        )
+    except subprocess.TimeoutExpired:
+        errors.append("JOURNAL: journal_guard.py nie skonczyl w 180 s")
+        return
+    if result.returncode:
+        for line in (result.stdout or "").splitlines():
+            line = line.strip()
+            if line.startswith("-"):
+                errors.append(f"JOURNAL: {line.lstrip('- ').strip()}")
+        if not any(e.startswith("JOURNAL:") for e in errors):
+            errors.append(f"JOURNAL: journal_guard.py zwrocil {result.returncode}")
+
+
 def main() -> int:
     errors: list[str] = []
     for relative in REQUIRED_PATHS:
@@ -514,10 +545,15 @@ def main() -> int:
             errors.append(f"Missing required path: {relative}")
 
     counts = {"yaml": 0, "json": 0, "jsonl": 0, "svg": 0, "utf8": 0}
+    # Katalogi ignorowane przez gita nie sa projektem i nie wolno ich walidowac.
+    # .claude/worktrees/ trzyma nieaktualne kopie calego repo - do 2026-09-04 walidator
+    # przechodzil je razem z reszta i zglaszal 1814 dodatkowych plikow YAML oraz dwa bledy
+    # skladni z kopii sprzed poprawki. Narzedzie mierzylo wiec stan, ktorego nikt nie edytuje.
+    SKIP_DIRS = {".git", ".claude", "__pycache__", ".pytest_cache", ".venv", "node_modules"}
     candidates = sorted(
         path
         for path in ROOT.rglob("*")
-        if path.is_file() and ".git" not in path.parts
+        if path.is_file() and not (SKIP_DIRS & set(path.parts))
     )
     for path in candidates:
         if path.suffix.lower() not in {".md", ".txt", ".yaml", ".jsonl", ".json", ".svg", ".ps1", ".py"}:
@@ -545,6 +581,7 @@ def main() -> int:
     validate_migration(errors)
     validate_mechanics(errors)
     validate_runtime(errors)
+    validate_journal_guard(errors)
 
     if errors:
         print("GameMaster validation FAILED")

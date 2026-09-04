@@ -1,0 +1,200 @@
+schema_version: 1
+id: turn_interlude_231
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-03T02:03:52+02:00'
+scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+event_id: event_turn_interlude_231
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_231
+  declared_action: 'Lucan pyta wprost, czemu nie moga powiedziec o tym GORZE GILDII. Dorzuca ocene osobista: Seraphine jest dobrym materialem na dowodce albo do walki z kims takim jak on, ale nie do czystki wsrod Strazy - nie ma na to zoladka. I zarzut: ma wrazenie, ze ona caly czas nie moze sie zdecydowac, czy ratuja miasto, czy przestrzegaja regulacji. Varkhen obecny w rogu pokoju.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czy sprawa Strazy da sie w ogole wniesc do kierownictwa gildii, i czy Seraphine przyjmuje zarzut o brak zoladka i o niezdecydowanie.
+  time_class: brief
+  time_seconds: 240
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - no_rolls_interlude
+  - guild_upper_offices
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  - social_stakes
+  - challenge_to_her_nerve
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_231
+  status: preview
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan pyta wprost, czemu nie moga powiedziec o tym GORZE GILDII. Dorzuca ocene osobista: Seraphine jest dobrym materialem na dowodce albo do walki z kims takim jak on, ale nie do czystki wsrod Strazy - nie ma na to zoladka. I zarzut: ma wrazenie, ze ona caly czas nie moze sie zdecydowac, czy ratuja miasto, czy przestrzegaja regulacji. Varkhen obecny w rogu pokoju.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 240
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 240
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - event_turn_interlude_188
+  - event_turn_interlude_189
+  - campaigns/lucan/entities/npcs/seraphine-vale.yaml#portrayal.she_is_a_co_conspirator_not_a_lawful_paragon
+  - campaigns/lucan/entities/npcs/varkhen.yaml#portrayal
+  - retcon_000039
+  - retcon_000041
+  - player_declaration:turn_interlude_231
+  operations:
+  - *id002
+  summary: 'Bez testu - interludium, roll_policy disabled. Cztery minuty, zero energii.
+
+    PYTANIE O KIEROWNICTWO DOSTAJE ODPOWIEDZ Z WARUNKIEM, KTORY LUCAN JUZ MA W REKU.
+
+    Zarzut o zoladek: polowa przyjeta, polowa odbita dowodami.
+
+
+    1. DLACZEGO SPRAWA STRAZY NIE IDZIE DZIS DO KIEROWNICTWA - I NIE JEST TO SKRUPUL.
+
+    t_188 punkt 3: lancuch autoryzacji idzie w gore Strazy, ona wie, ze ma racje, i NIE DA
+
+    SIE TEGO NAPISAC, bo jedyna rzecz domykajaca dowod przyszla z pokoju powroznika.
+
+    Papier idzie na blankiecie gildii i POD JEJ NAZWISKIEM. Wniesienie tego do kierownictwa
+
+    znaczy odpowiedziec na pytanie "skad wiesz", a odpowiedz brzmi: od syndykatu, przez
+
+    czlowieka, ktorego nie wystawie.
+
+    I DRUGA POLOWA, ROWNIE TWARDA: instytucja, ktora dostaje niepoparte oskarzenie przeciw
+
+    innej instytucji, robi rzecz bezpieczna. W najlepszym razie nic. W gorszym - sprawdza
+
+    u oskarzonego. Wtedy Straz wie w ciagu doby, ze gildia ma teorie i nie ma dowodu.
+
+    TO NIE JEST ODMOWA. To jest warunek.
+
+
+    2. WARUNEK JEST JUZ NA STOLE I POLOZYL GO TAM LUCAN - DWA RAZY, W TEJ SAMEJ ROZMOWIE.
+
+    Zeby to weszlo do kierownictwa, wniosek musi przyjsc z CYTOWALNYM pochodzeniem.
+
+    (a) POLOWA ISTNIEJE: zgodnosc pieczeci na zadaniu do gildii i na glejcie stalej trasy
+
+    (t_210, oddane jej dzis w t_228). Klasa podpisu nadal nieodczytana - to jest druga polowa
+
+    i ona ja nazywa jako brakujaca.
+
+    (b) DRUGA DROGA TO JEGO WLASNY POMYSL Z t_229: straznik grobowca odkryty i przesluchany
+
+    pod nadzorem gildii jest zrodlem, ktore da sie wskazac palcem - a Varkhen wie o kaplanie,
+
+    o wlasciwym wejsciu i o wizycie z Orenem.
+
+    SERAPHINE LACZY TO SAMA I MOWI TO NA GLOS: dwie rzeczy, ktore Lucan przyniosl dzis
+
+    osobno, skladaja sie na jedyna droge do kierownictwa. To nie jest nowy fakt swiata -
+
+    to jest zestawienie dwoch jego wlasnych ruchow.
+
+
+    3. ZARZUT O ZOLADEK - POLOWA PRZYJETA WPROST, BEZ URAZY (do_not_play: zadnego oburzenia).
+
+    Przyznaje: czystek nie robi i robic nie bedzie. Powod nazywa operacyjnie, nie moralnie -
+
+    jest osoba, ktora po wszystkim ZOSTAJE W TYM BUDYNKU. Kto sprzata sklad instytucji,
+
+    nie moze potem w tej instytucji pracowac. To jest podzial rol, nie brak nerwow.
+
+    NARRATOR NIE POZWALA JEJ BLEFOWAC SILA, KTOREJ NIE MA (retcon_000041), ale tez nie kaze
+
+    jej sie kulic - ranga A, kontrolerka i antymag, ktora bez rzutu wytracila Lucanowi bron.
+
+    Zdolnosc ma. Roli nie chce i mowi dlaczego.
+
+
+    4. ZARZUT O NIEZDECYDOWANIE - ODBITY DOWODAMI, NIE GODNOSCIA (t_189, ten sam wzorzec).
+
+    Wyprowadzila Varkhena z osuwiska. Trzyma rozumnego nieumarlego w tym budynku. Wedlug
+
+    Kosciola powinna byla zabic Lucana w chwili, gdy zrozumiala, co on kontroluje, i tego nie
+
+    zrobila. Dzis odmowila sluzbom miejskim wydania cial, akt i dowodow i przewlekla
+
+    spotkanie. To nie jest zapis czlowieka, ktory przestrzega regulacji.
+
+    ROZROZNIENIE, KTORE STAWIA I KTORE JEST CALA JEJ ODPOWIEDZIA: ona nie przestrzega
+
+    regulacji - ona ich UZYWA. Regulacja jest dla niej narzedziem tak samo jak klamstwo
+
+    (portrayal: klamstwo i zatajenie to narzedzia, nie przeszkody). Czlowiek, ktory to myli
+
+    z posluszenstwem, nie zrozumial, co ona robi od dwoch tygodni.
+
+    ROBI SIE PRZY TYM ZIMNA, nie obrazona - dokladnie jak w t_137/t_189.
+
+
+    5. VARKHEN DORZUCA JEDNO ZDANIE I JEST TO ZDANIE O CZYNACH, BO INNYCH NIE MA.
+
+    portrayal.cognition: ocenia ludzi przede wszystkim po czynach i dotrzymanych ukladach.
+
+    Ma jedna rzecz, ktorej Lucan nie ma - byl przedmiotem jej decyzji. Mowi krotko, ze
+
+    czlowiek, ktory wyniosl go z osuwiska zamiast zostawic pod kamieniem, cos przy tym
+
+    ryzykowal, i ze to jest czyn, a nie regulamin. NIE BRONI JEJ Z UPRZEJMOSCI - podaje
+
+    obserwacje. NARRATOR NIE ROBI Z NIEGO CHORU ANI ARBITRA: jedno zdanie, potem milczy.
+
+
+    6. CZEGO NARRATOR TU NIE ZROBIL. Nie wyprodukowal reakcji kierownictwa - nikt tam
+
+    jeszcze nie poszedl (retcon_000058). Nie ustanowil, ze Straz cokolwiek podejrzewa. Nie
+
+    stworzyl zegara, terminu ani sledztwa (retcon_000055). Nie kazal Seraphine wycofac
+
+    decyzji z t_230 - galaz pierwsza stoi. Nie zamknal galezi drugiej. Nie dodal nowej ceny
+
+    ani listy warunkow - jedna odpowiedz, jeden warunek, jedno przyznanie sie.
+
+    Nie rozstrzygnal kolejnosci: czy inscenizacja z Varkhenem idzie PRZED jej wyjsciem do
+
+    Strazy, czy po. To jest decyzja gracza.
+
+
+    7. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju). Spidey i Tkacz przy
+
+    Lucanie, zuk w kieszeni. Varkhen 9,2/65. Lucan 19/19, energia bez wydatku - czytac
+
+    z pliku. Zegary bez ruchu poza uplywem czasu.
+
+    '
+  new_decision: 'Seraphine mowi, ze do kierownictwa da sie z tym pojsc dopiero z cytowalnym zrodlem, i wskazuje, ze Lucan przyniosl dzis dwie polowy takiego zrodla - zgodnosc pieczeci (brakuje klasy podpisu) oraz pomysl z odkryciem Varkhena na cmentarzu. Pyta o kolejnosc: czy inscenizacja idzie PRZED jej wyjsciem do Strazy, zeby weszla tam z gildia za placami, czy ona idzie sama najpierw. Trzecia pozycja z siedmiu nadal nie padla.'
+prepared_writes:
+prepared_at: '2026-09-03T02:05:13+02:00'
+committed_at: '2026-09-03T02:05:15+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

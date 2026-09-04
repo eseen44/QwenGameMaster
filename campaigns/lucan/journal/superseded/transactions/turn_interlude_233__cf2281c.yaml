@@ -1,0 +1,189 @@
+schema_version: 1
+id: turn_interlude_233
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-03T02:18:53+02:00'
+scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+event_id: event_turn_interlude_233
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_233
+  declared_action: 'Lucan prostuje, ze nie mowi o Strazy, tylko o NIEUMARLYM. Proponuje: pokazac Varkhena jakiemus EMERYTOWANEMU A-RANKOWI, ktory wprowadzi tu stan wojenny. Straz to plotki i nawet nie jest realnym problemem. I stawia sprawe wprost: jesli Seraphine nie chce sama pokazywac swiatu nieumarlego, to ma znalezc kogos, kto to zrobi. Varkhen obecny w rogu pokoju.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czy istnieje ktos, kto moze ujawnic Varkhena zamiast Seraphine i przy okazji postawic miasto na nogi - i za jaka cene.
+  time_class: brief
+  time_seconds: 240
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - no_rolls_interlude
+  - guild_upper_offices
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  - social_stakes
+  - delegating_the_reveal
+  - martial_orders
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_233
+  status: preview
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan prostuje, ze nie mowi o Strazy, tylko o NIEUMARLYM. Proponuje: pokazac Varkhena jakiemus EMERYTOWANEMU A-RANKOWI, ktory wprowadzi tu stan wojenny. Straz to plotki i nawet nie jest realnym problemem. I stawia sprawe wprost: jesli Seraphine nie chce sama pokazywac swiatu nieumarlego, to ma znalezc kogos, kto to zrobi. Varkhen obecny w rogu pokoju.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 240
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 240
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - campaigns/lucan/entities/factions/lumaria-martial-orders.yaml
+  - event_turn_interlude_122
+  - campaigns/lucan/planning/lucan-leads.yaml#lead_three_routes_to_a_martial_order
+  - campaigns/lucan/entities/npcs/varkhen.yaml#portrayal
+  - player_declaration:turn_interlude_233
+  operations:
+  - *id002
+  summary: 'Bez testu - interludium, roll_policy disabled. Cztery minuty, zero energii.
+
+    LUCAN OPISUJE ROLE, KTORA JUZ ISTNIEJE W PLIKACH POD INNA NAZWA - I KTORA SERAPHINE
+
+    ZAOFEROWALA MU DWA TYGODNIE TEMU RAZEM Z CENA. W nowej ramie ta cena sie ODWRACA.
+
+
+    1. "STRAZ TO PLOTKI" - PRZYJETE BEZ SPRZECIWU. Ona sama poswiecila na nia ostatnia
+
+    godzine i przyznaje, ze to byla godzina na przeszkodzie logistycznej, nie na sprawie.
+
+    Nie broni poprzedniej kolejnosci drugi raz.
+
+
+    2. EMERYTOWANY A-RANK - CZEGO NIE MA, POWIEDZIANE WPROST I BEZ ZASLANIANIA SIE.
+
+    Zaden plik tej kampanii nie zna emerytowanego A-ranka. Jedyny A-rank w aktach to ona sama
+
+    (seraphine-vale.yaml#guild_rank: A). NARRATOR NIE WYMYSLA TAKIEJ POSTACI NA ZAWOLANIE
+
+    (retcon_000058) i NIE ZAMYKA TEZ TEJ DROGI - jesli gracz chce takiego czlowieka znalezc,
+
+    to jest robota do wykonania w fikcji, a nie rzecz, ktora narrator wyklucza.
+
+    ONA MOWI PO PROSTU: takiego czlowieka nie ma na jej liscie. Nie ma go pod reka i nie
+
+    wyprodukuje go do jutra.
+
+    NIE ORZEKA TEZ, ze jednostka nie moze postawic miasta na nogi - nie zna mechanizmu
+
+    i nie udaje, ze zna (portrayal#she_is_not_an_oracle).
+
+
+    3. ALE ROLA, KTORA LUCAN OPISAL, MA W TYM MIESCIE NAZWE I NIE JEST TO CZLOWIEK.
+
+    faction_lumaria_martial_orders: trained_armed_force, discipline, protection_contracts,
+
+    INDEPENDENT_CHAIN_OF_COMMAND, a wsrod interests stoi doslownie
+
+    "prevent_uncontrolled_undead_or_armed chaos". To jest jedyna sila w Lumarii, ktorej
+
+    wlasnym, zapisanym interesem jest reagowanie na niekontrolowanego nieumarlego, i ktora
+
+    ma wlasny lancuch dowodzenia niezalezny od Strazy, magistratu i gildii.
+
+    ZADEN NOWY BYT NIE ZOSTAL STWORZONY. To jest istniejaca frakcja z istniejacym interesem.
+
+
+    4. ONA JUZ RAZ PODALA MU TE DROGE I JUZ RAZ NAZWALA JEJ CENE - t_122.
+
+    fact_seraphine_will_contract_the_martial_order_herself_or_not_at_all: gildia kontraktuje
+
+    zakony RUTYNOWO, ona WIE, DO KOGO ISC. Cena, ktora wtedy nazwala: kontrakt jest PAPIEREM
+
+    - karta, komandor z nazwiska, zakres, data - wiec operacja cmentarna zostaje
+
+    udokumentowana dokladnie w tygodniach przesluchania, A NAZWISKO LUCANA WCHODZI DO AKT
+
+    JAKO POWOD ZAMOWIENIA. Warunek wlasny, ktory podtrzymuje: ZAMAWIA GILDIA ALBO NIKT -
+
+    zlecenie przyniesione cudza reka jest dla zakonu zatrute.
+
+    TO SIE NIE ZMIENIA i narrator tego nie zmiekcza.
+
+
+    5. I TU JEST WLASCIWY ZYSK TEJ TURY, WYNIKAJACY Z RAMY, KTORA GRACZ POSTAWIL W t_232:
+
+    TA CENA SIE ODWRACA. W ramie "sprawa Lucana i przesluchanie" nazwisko Lucana wchodzace
+
+    do akt jako powod zamowienia zakonu bylo KOSZTEM. W ramie stanu wyjatkowego pod cmentarzem
+
+    jest ODWROTNIE: czlowiek, ktorego nazwisko stoi w karcie kontraktu jako powod, dla ktorego
+
+    wezwano zbrojny zakon do pekajacych pieczeci, nie jest podsadnym. Jest tym, kto zglosil.
+
+    SERAPHINE MOWI TO SAMA i to jest jedyna rzecz w tej scenie, ktora poprawia pozycje
+
+    Lucana przed posiedzeniem, zamiast ja obciazac.
+
+    DODATKOWO ROZWIAZUJE PROBLEM, KTORY LUCAN POSTAWIL: to nie ONA pokazuje swiatu
+
+    nieumarlego. Pokazuje go zakon, ktory przyjdzie po niego z wlasnego interesu - a ona
+
+    jest tylko urzednikiem, ktory podpisal zamowienie.
+
+
+    6. CZEGO NARRATOR TU NIE ZROBIL. Nie stworzyl emerytowanego A-ranka (retcon_000058) ani
+
+    nie zamknal drogi do takiej postaci. Nie podal nazwiska komandora, zakonu ani terminu -
+
+    zaden plik ich nie ma. Nie ustanowil, jak zakon zareaguje na Varkhena; interes frakcji
+
+    mowi "prevent uncontrolled undead", a KONTROLOWANY nieumarly pod nadzorem gildii to nie
+
+    to samo i narrator tego z gory nie rozstrzyga. Nie stworzyl zegara ani terminu
+
+    (retcon_000055). Nie zdecydowal za Lucana, czy zamowienie ma pojsc.
+
+    ODNOTOWANE JAKO OTWARTE RYZYKO, NIE JAKO PRZESZKODA: zakon wezwany do niekontrolowanego
+
+    nieumarlego zastanie w piwnicy gildii nieumarlego kontrolowanego. To jest to samo
+
+    pytanie, ktore Varkhen postawil w t_230 o wersje wydarzen - i nadal nie ma odpowiedzi.
+
+
+    7. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju). Spidey i Tkacz przy
+
+    Lucanie, zuk w kieszeni. Varkhen 9,2/65. Lucan 19/19, energia bez wydatku - czytac
+
+    z pliku. Zegary bez ruchu poza uplywem czasu.
+
+    '
+  new_decision: 'Seraphine mowi, ze emerytowanego A-ranka nie ma na jej liscie, ale rola, ktora Lucan opisal, nazywa sie w Lumarii ZAKON MIECZOWY - jedyna sila, ktorej wlasnym interesem jest niekontrolowany nieumarly, z wlasnym lancuchem dowodzenia. Droge podala mu juz w t_122 razem z cena; w ramie pieczeci ta cena sie odwraca i nazwisko Lucana w karcie kontraktu robi z niego zglaszajacego, nie podsadnego. Warunek jej stoi: zamawia gildia albo nikt. Pyta, czy ma po nich posylac.'
+prepared_writes:
+prepared_at: '2026-09-03T02:20:02+02:00'
+committed_at: '2026-09-03T02:20:03+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'

@@ -1,0 +1,219 @@
+schema_version: 1
+id: turn_interlude_230
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-03T01:55:27+02:00'
+scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+event_id: event_turn_interlude_230
+roll_id:
+request:
+  schema_version: 1
+  turn_id: turn_interlude_230
+  declared_action: 'Lucan przestaje owijac. Stawia sprawe tak: ALBO Seraphine uzyska wspolprace Strazy w zamian za ZATAJENIE sprawy handlu zwlokami, ALBO traktuja Straz jako zorganizowana grupe przestepcza. Jesli druga opcja - to zgodnie z jej wlasnym warunkiem z t_044 daje jej ostrzezenie z wyprzedzeniem TERAZ, i tresc ostrzezenia brzmi: nie zmieni stanu jednego oficera; Straz Miejska w obecnym skladzie przestanie istniec. Dorzuca zarzut, ze Seraphine udaje, ze nie rozumie, na czym polega nie-ladne rozwiazanie. VARKHEN JEST OBECNY W POKOJU PRZEZ CALA SCENE (retcon_000134) i nie byl dotad o nic pytany.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czy Seraphine przyjmuje, ze uklad ze Straza istnieje, bo dzwignia nie potrzebuje papieru - i co mowi Varkhen, o ktorym mowiono przy nim przez piec tur.
+  time_class: brief
+  time_seconds: 240
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - no_rolls_interlude
+  - guild_upper_offices
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  - social_stakes
+  - ultimatum_to_the_watch
+  - t044_advance_warning_given
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_230
+  status: preview
+  scene_id: scene_act_03_interlude_day4_late_afternoon_guild_reception
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'Lucan przestaje owijac. Stawia sprawe tak: ALBO Seraphine uzyska wspolprace Strazy w zamian za ZATAJENIE sprawy handlu zwlokami, ALBO traktuja Straz jako zorganizowana grupe przestepcza. Jesli druga opcja - to zgodnie z jej wlasnym warunkiem z t_044 daje jej ostrzezenie z wyprzedzeniem TERAZ, i tresc ostrzezenia brzmi: nie zmieni stanu jednego oficera; Straz Miejska w obecnym skladzie przestanie istniec. Dorzuca zarzut, ze Seraphine udaje, ze nie rozumie, na czym polega nie-ladne rozwiazanie. VARKHEN JEST OBECNY W POKOJU PRZEZ CALA SCENE (retcon_000134) i nie byl dotad o nic pytany.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope:
+      suggested_difficulty:
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method, time and certain costs.
+  roll_allowed: false
+  time_seconds: 240
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll:
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 240
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - retcon_000134
+  - event_turn_interlude_044_varkhen_terms_and_survivors
+  - event_turn_interlude_190
+  - event_turn_interlude_120
+  - campaigns/lucan/entities/npcs/varkhen.yaml#speech_traits
+  - campaigns/lucan/entities/npcs/varkhen.yaml#portrayal
+  - player_declaration:turn_interlude_230
+  operations:
+  - *id002
+  summary: 'Bez testu - interludium, roll_policy disabled. Cztery minuty, zero energii.
+
+    ZARZUT GRACZA JEST TRAFNY I NARRATOR GO PRZYJMUJE. Ta tura ma ROZSTRZYGAC, nie wyceniac.
+
+
+    0. SAMOKRYTYKA NARRATORA, ZAPISANA, BO INACZEJ WROCI. Przez tury 225-229 kazda odpowiedz
+
+    Seraphine miala te sama strukture: przyznanie racji, po czym lista cen. Kazda cena byla
+
+    z pliku i zadna nie byla wymyslona - ale KUMULACJA piecu tur wyceniania bez ani jednej
+
+    decyzji jest funkcjonalnie tym samym, co produkowanie oporu, przed ktorym ostrzegaja
+
+    retcon_000015/23/29/31/33. Gracz nazwal to wprost. Od tej tury: postac ma DECYDOWAC,
+
+    a cene wolno nazwac raz, jednym zdaniem, nie lista.
+
+
+    1. LUCAN MA RACJE CO DO MERITUM I ONA PRZEGRYWA WLASNY ARGUMENT SPRZED PIECIU MINUT.
+
+    W t_228 powiedziala: "ukladu nie ma, bo jedyne, czego chca, to material". To bylo
+
+    NIEPELNE i sama dostarczyla kontrprzyklad dwa tygodnie wczesniej. Straz chce DRUGIEJ
+
+    rzeczy, o wiele bardziej: zeby handel zwlokami pozostal niewidoczny
+
+    (fact_seraphine_knows_the_watch_runs_the_corpse_line, t_120). Instytucja, ktora prowadzi
+
+    taki interes, MA CO STRACIC - a to znaczy, ze uklad istnieje.
+
+    I TO JEST DOKLADNIE FRAMING, KTORY ONA JUZ RAZ PRZYJELA, TYLKO NIE ZASTOSOWALA DO
+
+    WIELKIEJ SPRAWY: t_190, brulion balwierza - "to nie jest material na sledztwo, bo
+
+    sledztwa nikt nie ma czasu prowadzic; to jest material do HANDLU I SZANTAZU". Przyjela
+
+    to o brulionie i nie przelozyla na wlasny wniosek o lancuchu autoryzacji.
+
+    JEJ CALY PROBLEM Z t_188 - "wniosek bez srodka", pewnosc, ktorej nie da sie napisac -
+
+    JEST PROBLEMEM TYLKO WTEDY, GDY CELEM JEST DOWOD. Szantaz nie potrzebuje papieru.
+
+    Niecytowalnosc zrodla, ktora blokowala sledztwo, jest dla dzwigni OBOJETNA.
+
+    ONA TO PRZYZNAJE. Nie jest to olsnienie narratora podane jej do ust - to jest jej wlasne
+
+    zdanie, przylozone do wlasnej sprawy, po tym jak Lucan kazal jej to zrobic.
+
+
+    2. OSTRZEZENIE Z t_044 ZOSTAJE ZLOZONE I JEST WAZNE FORMALNIE.
+
+    fact_seraphine_accepts_controlled_interrogation_pressure: trzy warunki, trzeci brzmi
+
+    "uprzedzenie PRZED trwala zmiana czyjegos stanu". W t_228 narrator wskazal, ze nalot
+
+    dywanowy lamie ten warunek SKALA. Lucan odpowiada na to doslownie i poprawnie: uprzedza
+
+    z wyprzedzeniem, a tresc uprzedzenia to nie jeden oficer, tylko caly obecny sklad.
+
+    WARUNEK JEST SPELNIONY CO DO LITERY i narrator nie ma podstaw twierdzic inaczej.
+
+    ZAPISANE JAKO ZLOZONE OSTRZEZENIE, nie jako wykonana akcja - nic sie jeszcze nie stalo.
+
+
+    3. CO SERAPHINE ROZSTRZYGA - JEDNA DECYZJA, NIE LISTA.
+
+    BIERZE GALAZ PIERWSZA I ROBI TO SAMA: sprobuje wymusic wspolprace, majac za dzwignie
+
+    to, czego dotad probowala uzyc jako dowodu. Powod jest jej wlasny i operacyjny:
+
+    galaz druga jest nieodwracalna, a galaz pierwsza jej nie zamyka. Kolejnosc, nie wybor.
+
+    CENA NAZWANA RAZ, JEDNYM ZDANIEM (i tylko tyle): jesli przyjdzie z tym do nich, przestaje
+
+    byc kontrolerka prowadzaca postepowanie, a staje sie strona ukladu - i tego sie nie cofa.
+
+    NARRATOR NIE DOKLADA DRUGIEJ ANI TRZECIEJ CENY.
+
+    NIE ODMAWIA TEZ GALEZI DRUGIEJ. Nie deklaruje w niej udzialu i nie deklaruje sprzeciwu;
+
+    mowi, ze rozmawiamy o niej wtedy, kiedy pierwsza padnie, i to jest uczciwe, a nie unik.
+
+
+    4. VARKHEN ODZYWA SIE PIERWSZY RAZ OD PIECIU TUR - I TO JEST WORLD MOVE TEJ TURY.
+
+    retcon_000134: stal w rogu przez cale tury 224-229 i nikt go o nic nie zapytal, mimo ze
+
+    dwie z nich dotyczyly bezposrednio jego. Slyszal wszystko, lacznie z "dziadunio tam nie
+
+    bedzie figurowal" i z planem wtornego odkrycia go na cmentarzu.
+
+    MOWI ZGODNIE Z KARTA, NIE ZGODNIE Z WYGODA NARRATORA. speech_traits: proste bezposrednie
+
+    linie, slownik przysiegi, dlugu i czynu, ocenia ludzi po tym, co zrobili; nie udaje, ze
+
+    rozumie, kiedy nie rozumie. portrayal.principles: honor, przysiega, obowiazek, wzajemnosc.
+
+    CO WNOSI, I JEST TO JEGO WLASNA SPRAWA, NIE PRZESZKODA WYMYSLONA PRZEZ NARRATORA:
+
+    wersja "moglem cie zabic i oszczedzilem" jest twierdzeniem O JEGO CZYNIE. On tego czynu
+
+    nie wykonal - przegral. Czlowiek, ktorego cala tozsamosc stoi na ocenianiu ludzi po
+
+    czynach, nie przyjmuje pochwaly za litosc, ktorej nie okazal. NIE ODMAWIA UDZIALU
+
+    W INSCENIZACJI - odmawia TEJ JEDNEJ linii i mowi, co jest prawda: przegral walke
+
+    i przyjal uklad. NARRATOR NIE ROZSTRZYGA, czy da sie z tego zlozyc inna wersje.
+
+    DRUGA RZECZ, KTORA MOWI I KTORA JEST DLA NIEGO WAZNIEJSZA: wrocic pod pieczecie chce.
+
+    To jest jego wlasna agenda (restore_and_secure_three_seals, keep_the_lower_gate_closed),
+
+    wiec pomysl Lucana idzie w ta sama strone co jego przysiega. NIE JEST TO SPRZECIW.
+
+
+    5. CZEGO NARRATOR TU NIE ZROBIL. Nie wyprodukowal ani jednego nazwiska z lancucha
+
+    autoryzacji (retcon_000058). Nie ustanowil, ze Straz sie zgodzi ani ze odmowi - nikt do
+
+    nich jeszcze nie poszedl. Nie stworzyl zegara, terminu ani odwetu (retcon_000055). Nie
+
+    kazal Seraphine oburzyc sie na plan likwidacji obsady Strazy ani nim grozic
+
+    (do_not_play, retcon_000041). Nie rozstrzygnal, czy Boros i Mara utrzymaja stara wersje.
+
+    Nie zadeklarowal za Varkhena udzialu w inscenizacji ani odmowy - podal jedno zastrzezenie
+
+    i jedna chec. Nie ruszyl zegarow poza uplywem czasu.
+
+
+    6. STAN. Czwarty dzien interludium, gabinet Seraphine, gorne pietro gildii.
+
+    Obecni: Lucan, npc_seraphine_vale, npc_varkhen_mind (rog pokoju, obecny od poczatku
+
+    sceny - retcon_000134). Spidey i Tkacz przy Lucanie, zuk w kieszeni.
+
+    Varkhen: integralnosc 9,2/65, critically_damaged. Lucan 19/19, energia bez wydatku -
+
+    czytac z pliku. Godzine czytac ze state/time.yaml po commicie.
+
+    '
+  new_decision: 'Seraphine bierze galaz pierwsza - probuje wymusic wspolprace Strazy, uzywajac swojego niecytowalnego wniosku jako dzwigni zamiast jako dowodu - i mowi, ze o galezi drugiej rozmawiaja, kiedy pierwsza padnie. Varkhen odzywa sie z rogu pokoju pierwszy raz: odmawia jednej linii z proponowanej wersji, bo nie przyjmie pochwaly za czyn, ktorego nie wykonal, ale pod pieczecie wrocic chce. Trzecia pozycja z siedmiu nadal nie padla.'
+prepared_writes:
+prepared_at: '2026-09-03T01:57:25+02:00'
+committed_at: '2026-09-03T01:57:27+02:00'
+prepared_writes_note: 'ODCIETE PRZY ARCHIWIZACJI (29 wpisow). Byly to pelne snapshoty dokumentow stanu o zmierzonej redundancji ~90%. Pelna wersja pliku: patrz pole full_version w MANIFEST.json - obiekt gita nadal istnieje i nic nie zostalo utracone.'
