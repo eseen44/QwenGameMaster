@@ -100,6 +100,15 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 
 W razie konfliktu nie zgaduj. Zatrzymaj czas sceny, wskaż sprzeczność i zaproponuj korektę kanonu.
 
+**Gdy sprzeczne są dwa retcony, wygrywa TEN Z WYŻSZYM NUMEREM — nie ten z późniejszym
+timestampem.** Powód jest pomiarowy: 130 z 145 wpisów ma timestamp w czasie KAMPANII
+(sierpień 2026), a nie w czasie realnym, bo narrator wpisywał godzinę ze świata gry. Timestamp
+nie porządkuje więc korpusu i reguła „wygrywa późniejszy" oparta na nim jest niewykonalna —
+mimo że `retcon_000106` wprost się na nią powołuje. Numery są natomiast ściśle rosnące,
+bez luk i bez duplikatów (1..145), więc porządkują autorstwo pewnie.
+Sprawdza to `python tools/retcon_lint.py`; nowy wpis musi mieć timestamp w czasie realnym
+i numer o jeden wyższy od poprzedniego.
+
 ## Kontrole przed commitem
 
 Zapadka z 2026-09-04. Kontrole istnialy juz wczesniej, tylko nikt ich nie uruchamial

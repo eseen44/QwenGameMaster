@@ -49,6 +49,46 @@ def number(retcon_id: str) -> int:
     return int(match.group(1)) if match else -1
 
 
+CAMPAIGN = ROOT / "campaigns" / "lucan"
+
+
+def resolve(base: str) -> Path | None:
+    """Sciezka refa w OBU konwencjach uzywanych w repo, albo None.
+
+    Repo miesza dwie: wzgledem korzenia ("campaigns/lucan/state/x.yaml") i wzgledem kampanii
+    ("planning/act-03-defence.yaml"). Sprawdzanie tylko pierwszej dawalo 74 FALSZYWE alarmy
+    na 86 zgloszonych - czyli linter raportowal dlug, ktorego nie ma. Ta sama pomylka, ktora
+    w gm_runtime.ref_path czynila plik obowiazkowy przy planowaniu "niewidzialnym".
+    """
+    for kandydat in (ROOT / base, CAMPAIGN / base):
+        if kandydat.is_file():
+            return kandydat
+    return None
+
+
+def split_store_sections(base: str) -> set[str]:
+    """Klucze sekcji rozbitego magazynu, czytane z jego INDEKSU.
+
+    Etap 8 rozbil planning/act-03-defence.yaml na indeks plus 22 pliki sekcji. Historyczne
+    retcony wskazuja na stare kotwice postaci `act-03-defence.yaml#decoy_construct.constraints`
+    i te wskazania nadal sa POPRAWNE co do intencji - zmienil sie uklad plikow, nie kanon.
+    Dziennik retconow jest append-only, wiec NIE przepisujemy historii; to resolver uczy sie
+    rozumiec stary adres przez indeks. Sekcja, ktorej w indeksie nie ma, zostaje zgloszona -
+    i tak wychodza cztery realnie martwe wskazania sprzed rozbicia.
+    """
+    path = resolve(base)
+    if path is None:
+        return set()
+    try:
+        import yaml
+        document = yaml.safe_load(path.read_text(encoding="utf-8-sig")) or {}
+    except Exception:
+        return set()
+    if document.get("object_type") != "rationale_store_index":
+        return set()
+    return {row.get("key") for row in document.get("sections") or [] if isinstance(row, dict)}
+
+
 def load(path: Path) -> list[dict]:
     if not path.exists():
         return []
@@ -94,7 +134,14 @@ def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, st
             elif base.startswith("event_") and base not in events:
                 if not any(e.startswith(base) for e in events):
                     problems["supersedes_wskazuje_w_nicosc"].append((rid, f"{base} nie istnieje w dzienniku"))
-            elif "/" in base and not (ROOT / base).is_file():
+            elif "/" in base and resolve(base) is not None and "#" in entry:
+                sekcje = split_store_sections(base)
+                if sekcje:
+                    kotwica = entry.split("#", 1)[1].split(".")[0].split("[")[0]
+                    if kotwica not in sekcje:
+                        problems["supersedes_wskazuje_w_nicosc"].append(
+                            (rid, f"{entry} - sekcja '{kotwica}' nie istnieje w indeksie magazynu"))
+            elif "/" in base and resolve(base) is None:
                 # is_file(), nie exists(): katalog przechodzil jako poprawny ref i moj
                 # wlasny retcon_000144 przemknal przez te bramke z pseudo-sciezka
                 # "campaigns/lucan/#provenance:..." - bo katalog campaigns/lucan istnieje.
@@ -105,7 +152,7 @@ def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, st
                     (rid, f"{entry} - retcony nie maja podkluczy, wiec ta kotwica nie rozwiazuje sie nigdy"))
 
         for ref in retcon.get("state_refs_updated") or []:
-            if isinstance(ref, str) and "/" in ref.split("#")[0] and not (ROOT / ref.split("#")[0]).is_file():
+            if isinstance(ref, str) and "/" in ref.split("#")[0] and resolve(ref.split("#")[0]) is None:
                 problems["state_refs_wskazuje_w_nicosc"].append((rid, f"{ref} nie istnieje"))
 
         stamp = retcon.get("timestamp")
@@ -128,10 +175,24 @@ def check(retcons: list[dict], events: set[str]) -> dict[str, list[tuple[str, st
                 if parsed.tzinfo:
                     previous_stamp = parsed if not previous_stamp or parsed > previous_stamp else previous_stamp
 
+    # NUMER JAKO ZEGAR KORPUSU. Timestamp nie porzadkuje korpusu - 130 z 145 wpisow ma czas
+    # KAMPANII, nie realny - wiec regula rozstrzygania sprzecznosci stoi na NUMERZE
+    # (AGENTS.md#priorytet-zrodel). Zeby to bylo pewne, numery musza byc scisle rosnace
+    # w kolejnosci pliku, bez luk i bez duplikatow.
+    numery = [number(r.get("id", "")) for r in retcons]
+    for poprzedni, nastepny in zip(numery, numery[1:]):
+        if nastepny <= poprzedni:
+            problems["numer_nie_rosnie"].append(
+                (f"retcon_{nastepny:06}", f"numer nie jest wyzszy od poprzedniego ({poprzedni})"))
+        elif nastepny != poprzedni + 1:
+            problems["luka_w_numeracji"].append(
+                (f"retcon_{nastepny:06}", f"luka po retcon_{poprzedni:06} - zegar korpusu "
+                                         f"przestaje byc ciagly"))
     return problems
 
 
 BLOCKING = {
+    "numer_nie_rosnie", "luka_w_numeracji",
     "pola_wymagane", "tresc_korekty", "supersedes_lista",
     "supersedes_wskazuje_w_nicosc", "state_refs_wskazuje_w_nicosc",
     "timestamp_nieparsowalny", "timestamp_powtorzony", "timestamp_w_czasie_kampanii",
