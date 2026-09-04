@@ -986,6 +986,109 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.consequence_source_refs must be a list of non-empty strings")
 
 
+def validate_turn_identity(transaction: dict[str, Any]) -> None:
+    """Kazda trwala tura ma actor_id, a test mechaniczny ma pelna trojke.
+
+    AGENTS.md punkt 7 wymaga tego od dawna i nic tego nie sprawdzalo: "Kazda trwala tura ma
+    actor_id, takze automatyczna i bez testu. Samo actor_id nie uruchamia silnika zdolnosci;
+    test mechaniczny wymaga dodatkowo capability_id, target_id i intent_id".
+    Tura bez actor_id konczy sie wpisem dziennika z pusta lista actors, czyli zdarzeniem
+    bez sprawcy - i takich wpisow nie da sie pozniej przypisac do nikogo.
+
+    UWAGA: 37 najstarszych tur (001-038) nie ma actor_id, bo powstaly przed ta konwencja.
+    Bramka dziala WYLACZNIE przy commicie nowej tury, wiec historii nie unieważnia
+    i nie wymaga migracji wstecz.
+    """
+    request = transaction.get("request") or {}
+    if not (request.get("actor_id") or request.get("subject_id")):
+        raise RuntimeError(
+            "request.actor_id jest wymagane dla kazdej trwalej tury (AGENTS.md pkt 7) - "
+            "bez niego wpis dziennika nie ma sprawcy"
+        )
+    triple = ("capability_id", "target_id", "intent_id")
+    present = [key for key in triple if request.get(key)]
+    if present and len(present) != len(triple):
+        missing = [key for key in triple if not request.get(key)]
+        raise RuntimeError(
+            "test mechaniczny wymaga pelnej trojki capability_id + target_id + intent_id "
+            f"(AGENTS.md pkt 7); brakuje: {', '.join(missing)}"
+        )
+
+
+def validate_source_refs_resolve(campaign_root: Path, outcome: dict[str, Any]) -> None:
+    """Kazdy ref w consequence_source_refs musi wskazywac na cos, co ISTNIEJE.
+
+    Do 2026-09-04 pole bylo sprawdzane wylacznie na "lista niepustych napisow", wiec
+    wystarczylo napisac cokolwiek, zeby przejsc bramke z retcon_000058 (nie buduj ekspozycji
+    z list, ktorych nie ma). Ta kontrola nie wylapie refu, ktory istnieje, ale nie mowi tego,
+    co narrator twierdzi - to zostaje przy narratorze. Wylapie ref WYMYSLONY.
+    """
+    refs = outcome.get("consequence_source_refs") or []
+    if not refs:
+        return
+    root = campaign_root.parent.parent
+
+    retcon_ids: set[str] = set()
+    retcons_path = campaign_root / "journal" / "retcons.jsonl"
+    if retcons_path.exists():
+        for line in retcons_path.read_text(encoding="utf-8-sig").splitlines():
+            line = line.strip()
+            if line:
+                try:
+                    retcon_ids.add(json.loads(line)["id"])
+                except (json.JSONDecodeError, KeyError):
+                    continue
+
+    event_ids: set[str] = set()
+    events_path = campaign_root / "journal" / "events.jsonl"
+    if events_path.exists():
+        for line in events_path.read_text(encoding="utf-8-sig").splitlines():
+            line = line.strip()
+            if line:
+                try:
+                    event_ids.add(json.loads(line)["id"])
+                except (json.JSONDecodeError, KeyError):
+                    continue
+
+    # Deklaracja gracza i znaczniki pochodzenia nie maja pliku i nie da sie ich sprawdzic.
+    PASS_PREFIX = ("player_declaration", "player_", "narrator_", "source_", "milestone_",
+                   "candidate_", "http")
+    unresolved: list[str] = []
+    for ref in refs:
+        text = ref.strip()
+        base = text.split("#")[0].strip()
+        if not base or text.startswith(PASS_PREFIX):
+            continue
+        if base in retcon_ids or base in event_ids:
+            continue
+        # JEDNOZNACZNY PREFIKS. Repo uzywa dwoch konwencji naraz - id bywa nagie
+        # (event_turn_interlude_105) i z sufiksem opisowym
+        # (event_turn_interlude_051_guard_and_contact_questions) - wiec ref pisany z pamieci
+        # regularnie mija sie o sufiks. Prefiks pasujacy do DOKLADNIE JEDNEGO zdarzenia jest
+        # jednoznaczny i rozwiazuje sie poprawnie; pasujacy do kilku jest odrzucany.
+        # To nie biala lista: nieistniejaca tura nadal nie ma dopasowania.
+        if base.startswith("event_"):
+            matches = [event_id for event_id in event_ids if event_id.startswith(base)]
+            if len(matches) == 1:
+                continue
+            if len(matches) > 1:
+                unresolved.append(f"{text} (niejednoznaczny - pasuje do {len(matches)} zdarzen)")
+                continue
+        if "/" in base or base.endswith((".yaml", ".md", ".jsonl")):
+            candidates = [root / base, campaign_root / base, campaign_root.parent / base]
+            if any(candidate.exists() for candidate in candidates):
+                continue
+        unresolved.append(text)
+    if unresolved:
+        raise RuntimeError(
+            "consequence_source_refs wskazuje na cos, czego nie ma: "
+            + "; ".join(unresolved)
+            + ". Uzasadnienie konsekwencji musi opierac sie na istniejacym pliku, zdarzeniu "
+              "albo retconie (retcon_000058) - albo na jawnej deklaracji gracza "
+              "(player_declaration:...)."
+        )
+
+
 def validate_interlude_outcome(transaction: dict[str, Any], outcome: dict[str, Any]) -> None:
     """Prevent narrator-created resistance during tension-zero preparation."""
     preview = transaction.get("preview", {})
@@ -1031,6 +1134,8 @@ def commit_turn(
         raise RuntimeError(f"turn {turn_id} cannot be committed from {transaction.get('status')}")
     validate_outcome(outcome)
     validate_interlude_outcome(transaction, outcome)
+    validate_source_refs_resolve(campaign_root, outcome)
+    validate_turn_identity(transaction)
     due = transaction.get("preview", {}).get("world_reactions_due_before", [])
     resolved_ids = set(outcome.get("resolved_world_reaction_ids", []))
     if due and not resolved_ids.intersection(item.get("id") for item in due if isinstance(item, dict)):

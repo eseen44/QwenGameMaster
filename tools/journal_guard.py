@@ -70,8 +70,20 @@ def working_events() -> dict[str, str]:
     return parse_events(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
+# Pola KSIEGOWE: znaczniki o statusie wpisu, nie jego tresc. Ich dopisanie albo zmiana NIE
+# jest przepisaniem historii i nie wymaga archiwizacji starej wersji.
+#
+# summary NIGDY tu nie trafi - to jedyny zapis prozy kampanii i cel istnienia tej zapory.
+# Tak samo changes, time_advanced_seconds, actors, scene_id, intent_achieved, arrangement.
+BOOKKEEPING_KEYS = {"superseded_by", "superseded_aspects", "supersession_scope"}
+
+
 def canonical(line: str) -> str:
-    return json.dumps(json.loads(line), sort_keys=True, ensure_ascii=False)
+    """Tresc wpisu bez pol ksiegowych - to po niej poznajemy, czy historia zostala zmieniona."""
+    document = json.loads(line)
+    if isinstance(document, dict):
+        document = {k: v for k, v in document.items() if k not in BOOKKEEPING_KEYS}
+    return json.dumps(document, sort_keys=True, ensure_ascii=False)
 
 
 def sha(text: str) -> str:
@@ -197,9 +209,16 @@ def collect_problems() -> tuple[list[str], list[str], int]:
         if not path.exists():
             problems.append(f"ARCHIWUM NIEKOMPLETNE: brak pliku {entry['file']}")
             continue
-        raw = path.read_text(encoding="utf-8").strip()
-        if sha(canonical(raw)) != entry["content_sha256"]:
-            problems.append(f"ARCHIWUM NARUSZONE: {entry['file']} nie zgadza sie z suma kontrolna")
+        body = path.read_text(encoding="utf-8")
+        # Integralnosc pliku sprawdzamy po SUROWEJ tresci (file_sha256), a dopasowanie do
+        # wersji z historii po tresci bez pol ksiegowych (content_sha256). Zmieszanie tych
+        # dwoch rzeczy dalo falszywy alarm na trzech plikach, gdy pola ksiegowe wyszly
+        # spod canonical().
+        expected_file = entry.get("file_sha256")
+        if expected_file and sha(body) != expected_file:
+            problems.append(f"ARCHIWUM NARUSZONE: {entry['file']} nie zgadza sie z suma kontrolna pliku")
+        elif not expected_file and sha(canonical(body.strip())) != entry["content_sha256"]:
+            problems.append(f"ARCHIWUM NARUSZONE: {entry['file']} nie zgadza sie z suma kontrolna tresci")
     for entry in manifest.get("transactions", []):
         if not (SUPERSEDED / entry["file"]).exists():
             problems.append(f"ARCHIWUM NIEKOMPLETNE: brak pliku {entry['file']}")

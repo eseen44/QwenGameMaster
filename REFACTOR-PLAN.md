@@ -627,3 +627,46 @@ pokazal 28 tur z podwojnym `advance_time`, z czego retcon ratyfikowal 5.
 
 Testy: 77 przechodzi, w tym 9 nowych na te trzy naprawy - kazdy sprawdza kontrole
 ZAPALONA, nie tylko przechodzaca.
+
+## Etapy 2, 3 i 4 domkniete (2026-09-04)
+
+**Dziennik dowiedzial sie, ze jest uchylony.** `superseded_by` bylo wypelnione w 5 z 235
+wpisow, mimo ze retcony wskazuja 57 zdarzen. `tools/backfill_superseded.py` przenosi te dane
+z `retcons.jsonl#supersedes` - nic nie wymysla. Dopisane trzy pola ksiegowe:
+`superseded_by` (id retconu albo lista), `superseded_aspects` (DOKLADNE wpisy z `supersedes`)
+oraz `supersession_scope`. Ten ostatni jest istotny: **39 z 57 zdarzen jest uchylonych
+WYLACZNIE W ASPEKCIE** (kazde wskazanie ma zakotwiczenie typu `#summary.1`), czyli poprawione
+jest jedno zdanie, nie cala tura. Plaskie "uchylony" kazaloby czytelnikowi wyrzucic cala ture
+i byloby przeklamaniem w druga strone.
+
+**Zapora dziennika uscislona, nie obeszla.** Dopisanie znacznika uchylenia jest zmiana
+KSIEGOWA, nie przepisaniem historii, wiec `canonical()` pomija teraz trzy pola z
+`BOOKKEEPING_KEYS`. `summary` nigdy tam nie trafi - to cel istnienia tej zapory. Skutkiem
+ubocznym bylo odkrycie, ze trzy wczesniej zarchiwizowane pliki (122-124) nie byly wcale
+uchylonymi wersjami prozy, tylko rozniLy sie samym znacznikiem; usuniete po dowiedzeniu,
+ze tresc jest identyczna z biezacym wpisem. Archiwum: 11 -> 8 wpisow.
+Manifest ma teraz osobno `content_sha256` (dopasowanie do historii, bez pol ksiegowych)
+i `file_sha256` (integralnosc pliku) - zmieszanie tych dwoch rzeczy dalo falszywy alarm.
+
+**Trzy twarde bramki przy commicie tury** (`gm_runtime`), kazda z parą testow
+ZAPALONA/ZGASZONA:
+1. `advance_time` w `outcome.operations` - ODRZUCONE (retcon_000118, 28 tur z podwojnym
+   naliczeniem w historii, ratyfikowanych 5).
+2. `request.actor_id` WYMAGANE (AGENTS.md pkt 7, dotad niesprawdzane), a test mechaniczny
+   wymaga pelnej trojki `capability_id` + `target_id` + `intent_id`. 37 najstarszych tur
+   (001-038) nie ma actor_id - bramka dziala tylko przy commicie NOWEJ tury, wiec historii
+   nie uniewaznia. Fikstury testowe naruszaly te regule i zostaly poprawione, nie regula.
+3. `consequence_source_refs` musi ROZWIAZYWAC SIE. Dotad sprawdzane bylo wylacznie
+   "lista niepustych napisow", czyli wystarczylo napisac cokolwiek, zeby przejsc bramke
+   z retcon_000058. Teraz ref musi byc istniejacym plikiem (z opcjonalna kotwica), znanym
+   retconem, znanym zdarzeniem albo jawna deklaracja gracza.
+   **Sprawdzone na wszystkich 233 turach historycznych: przechodza wszystkie.** Wymagalo to
+   dopuszczenia JEDNOZNACZNEGO PREFIKSU id - repo uzywa dwoch konwencji naraz
+   (`event_turn_interlude_105` obok `event_turn_interlude_051_guard_and_contact_questions`),
+   wiec ref pisany z pamieci mija sie o sufiks. Prefiks pasujacy do kilku zdarzen jest
+   odrzucany jako niejednoznaczny, a nieistniejaca tura nadal nie ma dopasowania.
+
+**Czego ta bramka NIE zrobi, i trzeba to wiedziec:** nie wylapie refu, ktory istnieje, ale
+nie mowi tego, co narrator twierdzi. Szesc tur cofnietych 03.09 mialo po 7-16 poprawnie
+rozwiazujacych sie refow. Bramka lapie ref WYMYSLONY - reszta zostaje przy narratorze
+i przy graczu.

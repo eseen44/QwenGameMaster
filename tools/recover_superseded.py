@@ -56,9 +56,10 @@ def event_map(rev: str) -> dict[str, str]:
     return out
 
 
-def canonical(line: str) -> str:
-    """Normalizacja, ktora odsiewa samo przeformatowanie od zmiany tresci."""
-    return json.dumps(json.loads(line), sort_keys=True, ensure_ascii=False)
+from journal_guard import canonical  # noqa: E402  jedna definicja "tresci wpisu"
+# canonical() pomija pola ksiegowe (superseded_by, superseded_aspects, supersession_scope),
+# bo ich dopisanie nie jest przepisaniem historii. Obie strony - archiwizator i zapora -
+# MUSZA liczyc to samo, inaczej manifest rozjezdza sie z kontrola integralnosci.
 
 
 def touching_commits(path: str) -> list[str]:
@@ -228,6 +229,39 @@ def main() -> int:
 
     (SUPERSEDED / "MANIFEST.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
+
+    # SPRZATANIE SIEROT. Po uscisleniu, czym jest "tresc wpisu" (pola ksiegowe wyszly spod
+    # canonical), czesc wczesniej zarchiwizowanych plikow przestaje byc uchylona wersja -
+    # bo rozni sie od biezacego wpisu WYLACZNIE znacznikiem uchylenia. Usuwamy je, ale
+    # dopiero po dowiedzeniu, ze ich tresc jest identyczna z tym, co stoi w dzienniku.
+    current = {}
+    events_path = ROOT / EVENTS
+    if events_path.exists():
+        for line in events_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line:
+                try:
+                    current[json.loads(line)["id"]] = line
+                except (json.JSONDecodeError, KeyError):
+                    continue
+    keep = {entry["file"] for entry in manifest["events"]}
+    pruned = []
+    for path in sorted((SUPERSEDED / "events").glob("*.json")):
+        rel = f"events/{path.name}"
+        if rel in keep:
+            continue
+        body = path.read_text(encoding="utf-8").strip()
+        try:
+            event_id = json.loads(body)["id"]
+        except (json.JSONDecodeError, KeyError):
+            continue
+        if event_id in current and canonical(body) == canonical(current[event_id]):
+            path.unlink()
+            pruned.append(rel)
+        else:
+            print(f"  UWAGA: {rel} nie jest w manifescie, ale ma UNIKALNA tresc - zostawiony")
+    if pruned:
+        print(f"usuniete sieroty archiwum (tresc identyczna z biezacym wpisem): {len(pruned)}")
 
     total = sum(v["chars"] for v in events) + sum(v["chars"] for v in transactions)
     print(f"\nzapisane do {SUPERSEDED.relative_to(ROOT)}: "

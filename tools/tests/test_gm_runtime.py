@@ -373,6 +373,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
         write_yaml(spidey_path, spidey)
         request = {
             "turn_id": "turn_rest",
+            "actor_id": "spidey",
             "declared_action": "Lucan odpoczywa przez sześć godzin.",
             "fiction_verdict": "automatic",
             "time_seconds": 21600,
@@ -392,6 +393,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_repeated_fractional_resource_costs_remain_stable(self) -> None:
         request = {
             "turn_id": "turn_fractional_cost",
+            "actor_id": "spidey",
             "declared_action": "Spidey wydaje trzy drobne porcje energii.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -425,6 +427,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_stale_revision_rejects_whole_commit(self) -> None:
         request = {
             "turn_id": "turn_stale",
+            "actor_id": "spidey",
             "declared_action": "Spidey przesuwa się.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -452,6 +455,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_recover_finishes_after_event_append_failure(self) -> None:
         request = {
             "turn_id": "turn_recover",
+            "actor_id": "spidey",
             "declared_action": "Mija chwila.",
             "fiction_verdict": "automatic",
             "time_seconds": 1,
@@ -504,6 +508,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_automatic_fiction_turn_does_not_roll(self) -> None:
         request = {
             "turn_id": "turn_obvious",
+            "actor_id": "spidey",
             "declared_action": "Lucan podnosi przedmiot leżący u jego stóp.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -529,6 +534,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_due_world_reaction_must_be_resolved(self) -> None:
         first = {
             "turn_id": "turn_clock",
+            "actor_id": "spidey",
             "declared_action": "Mija dziesięć minut.",
             "fiction_verdict": "automatic",
             "time_seconds": 600,
@@ -548,6 +554,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
         )
         second = {
             "turn_id": "turn_after_clock",
+            "actor_id": "spidey",
             "declared_action": "Lucan czeka.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -581,6 +588,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_typical_local_turn_runtime_is_below_one_second(self) -> None:
         request = {
             "turn_id": "turn_fast",
+            "actor_id": "spidey",
             "declared_action": "Lucan wykonuje oczywistą krótką czynność.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -608,6 +616,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
         write_yaml(self.campaign / "state" / "resources.yaml", resources)
         request = {
             "turn_id": "turn_operations",
+            "actor_id": "spidey",
             "declared_action": "Rozliczenie wielu trwałych zmian.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -683,6 +692,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_context_over_budget_warns_instead_of_failing_the_commit(self) -> None:
         request = {
             "turn_id": "turn_budget",
+            "actor_id": "spidey",
             "declared_action": "Lucan czeka bez presji.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
@@ -729,6 +739,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
 
         request = {
             "turn_id": "turn_datetime_roundtrip",
+            "actor_id": "spidey",
             "declared_action": "Mija chwila.",
             "fiction_verdict": "automatic",
             "time_seconds": 60,
@@ -749,6 +760,7 @@ class GameMasterRuntimeTests(unittest.TestCase):
     def test_committed_turn_retry_repairs_a_stale_context(self) -> None:
         request = {
             "turn_id": "turn_stale",
+            "actor_id": "spidey",
             "declared_action": "Lucan porządkuje sprzęt.",
             "fiction_verdict": "automatic",
             "time_seconds": 0,
