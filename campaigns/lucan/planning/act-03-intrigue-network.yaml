@@ -51,11 +51,11 @@ decision_design:
 stance_model:
   scale: -100_to_100
   bands:
-    - {range: -100..-60, state: active_enemy, behavior: wydaje zasoby, aby zaszkodzić lub usunąć Lucana}
-    - {range: -59..-20, state: opponent, behavior: blokuje, ujawnia albo podważa Lucana, gdy koszt jest rozsądny}
+    - {range: -100..-60, state: active_enemy, behavior: 'wydaje zasoby, aby zaszkodzić lub usunąć Lucana'}
+    - {range: -59..-20, state: opponent, behavior: 'blokuje, ujawnia albo podważa Lucana, gdy koszt jest rozsądny'}
     - {range: -19..19, state: transactional_or_unsettled, behavior: reaguje na bieżące interesy i dowody}
     - {range: 20..59, state: collaborator, behavior: podejmuje ryzyko w zamian za wzajemność lub wspólny cel}
-    - {range: 60..100, state: committed_ally_or_patron, behavior: ponosi istotny koszt, ale nadal ma własne granice}
+    - {range: 60..100, state: committed_ally_or_patron, behavior: 'ponosi istotny koszt, ale nadal ma własne granice'}
   note: Progi opisują zachowanie, nie automatyczną sympatię ani posłuszeństwo.
 turn_and_scene_effects:
   record_when_material: [relationship_change, new_debt, favor_spent, secret_shared, leverage_gained_or_lost, faction_attention_change, declared_position]

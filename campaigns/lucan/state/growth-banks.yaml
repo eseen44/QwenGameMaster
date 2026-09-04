@@ -82,23 +82,23 @@ backlog_basis: >-
 banks:
   - {id: spy_beetle_01, rate_per_day: 3.5, growth_cap_per_day: 1.5, overflow_per_day: 1.0, basis: 'od t_179 LUCAN LADUJE GO SAM z wlasnej rezerwy, 3,5 na dobe - kieszen, wiec bez przeskoku i bez straty. 1,0 pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika 3), 1,0 wraca w siec. Sufit podnosi enlarge_reservoir_to_tank (3 -> 12, ok. godziny przy stole) - wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
   - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, growth_cap_per_day: 1.5, overflow_per_day: 1.5, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
-  - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
-  - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: kanaly, zer obfity, bez rozkazu, bank: 2.5, maturity: fresh}
-  - {id: spy_moth_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: gorna laka, bez rozkazu, bank: 1.25, maturity: fresh}
-  - {id: spy_beetle_02, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, ulice i smietniki, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_03, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_04, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_05, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_06, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_07, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
-  - {id: spy_beetle_08, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: padlinozerca, bez rozkazu, bank: 0.6, maturity: fresh}
+  - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
+  - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
+  - {id: spy_moth_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'gorna laka, bez rozkazu', bank: 1.25, maturity: fresh}
+  - {id: spy_beetle_02, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, ulice i smietniki, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_03, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_04, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_05, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_06, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_07, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_08, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
   - {id: spy_wasp_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_177 wylot i zer - male obiekty, z dala od duzych; przedtem -1,0 na posterunku bez zeru', bank: 0.0, maturity: fresh}
   - {id: webber_anchored, name: Tkacz, rate_per_day: 1.0, growth_cap_per_day: 3.0, basis: 'od t_177 poluje luzem przy Lucanie w gildii; porcja tlumiaca zdjela ubytek na stale', bank: 0.0, maturity: fresh}
   - {id: webber_home, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans - posterunek z zadaniem, bank: 0.0, maturity: fresh}
   - {id: webber_tannery, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans, bank: 0.0, maturity: fresh}
-  - {id: webber_dump, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans, degraded_by_distance, bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_02, rate_per_day: 0.0, basis: skladzik baszty, sparowany z webber_home, bank: 0.0, maturity: fresh}
-  - {id: spy_cellar_spider_05, rate_per_day: 0.0, basis: wejscie baszty, czeka na rotacje, bank: 0.0, maturity: fresh}
+  - {id: webber_dump, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: 'rozkaz order_collect_meadow_orthopterans, degraded_by_distance', bank: 0.0, maturity: fresh}
+  - {id: spy_cellar_spider_02, rate_per_day: 0.0, basis: 'skladzik baszty, sparowany z webber_home', bank: 0.0, maturity: fresh}
+  - {id: spy_cellar_spider_05, rate_per_day: 0.0, basis: 'wejscie baszty, czeka na rotacje', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_03, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_181 poluje swobodnie, ale ZOSTAJE W ZASIEGU GABINETU SERAPHINE - pustki sciany i szuflada biurka (retcon_000117: zwyczajny zer, z daleka od ludzi, a zer pajaka piwnicznego jest dostepny w budynku). Jego funkcja to KANAL ALARMOWY SERAPHINE uzgodniony w t_070 (retcon_000116), nie pulapka na nia - dziala dalej. Stawka +1,0, bo poza rozkazem domyslnym nie ma zadania.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_04, rate_per_day: 0.0, growth_cap_per_day: 1.5, basis: 'ZAWROCONY t_183 na posterunek czujnika przeszukania w pokoju dyzurnym Lucana - posterunek z zadaniem i dostepnym zerem wychodzi na 0,0 na dobe (retcon_000105), wiec stawka spada 1,0 -> 0,0, a generowana nadwyzka sieci 17,5 -> 16,5. Powod: w pokoju leza od t_183 takze papiery z baszty. Do t_183 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_06, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w piwnicy i pustkach scian - zer normalny, z daleka od ludzi, +1,0. Cela i tak stala pusta, odkad Lucan spi na gorze (retcon_000038), wiec ten posterunek kosztowal najmniej. KOREKTA t_178: dawne zdanie w instancji "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia po formule 8 x 1.5^n, skasowanej przez retcon_000024 - trwaly krok kosztuje CZAS PRZY STOLE, nie jednostki z banku.', bank: 0.0, maturity: fresh}

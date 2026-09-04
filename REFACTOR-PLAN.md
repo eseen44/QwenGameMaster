@@ -545,3 +545,36 @@ relacji sa realnie nieaktualne (Seraphine 197 tur, Varkhen 181) i walidator to t
 Uzupelnienie ich jest praca merytoryczna, nie mechaniczna: osie i `axis_change_log` trzeba
 odtworzyc z dziennika, cytujac konkretne zdarzenia, i NIE WOLNO ich wymyslic. Material jest
 w kartach NPC (aktualnych) oraz w turach 224-235.
+
+## Etap 3 wykonany (2026-09-04)
+
+**91 fragmentow prozy w 23 plikach odzyskanych, 0 zostalo.** Naprawa byla PRZECYTOWANIEM,
+nie przepisaniem: skrypt `tools/fix_prose_keys.py` pracuje na tekscie, wtapia kazdy fragment
+w najblizsza poprzedzajaca pare i zostawia legalne klucze stojace PO prozie nietkniete.
+
+Gwarancja policzona po fakcie na wszystkich 23 plikach wobec HEAD: **zadne slowo nie ubylo**
+(porownanie wielozbioru wyrazow \w+), kazdy plik parsuje sie, ksztalt wszystkich list
+identyczny. Odzyskane m.in.: negacja `NIE material zuzywany przy ozywieniu (retcon_000015)`
+w `state/resources.yaml`, ktora po sparsowaniu znikala i zostawiala przedmiot bez
+zastrzezenia; pola `basis` dziesieciu wezlow w `state/growth-banks.yaml`; 42 wpisy
+`knowledge.confirmed` na karcie Seraphiny.
+
+**Trzy razy pomylilem sie po drodze i wszystkie trzy pomylki byly tej samej rodziny co
+awaria, ktora naprawialem:**
+1. Skaner szukal map plaskich linia po linii, a one lamia sie na kilka linii - rozpoznal
+   zero wzorcow.
+2. Pierwszy algorytm scalal wszystko do konca mapy i wchlanial legalne klucze
+   (`assessed_use`) razem z trescia.
+3. Kontrola "nie ubylo slow" dzielila tekst po spacjach, wiec slowo, ktore po scaleniu
+   dostalo przy sobie przecinek, wygladalo na utracone - i skrypt odmawial naprawy
+   wszystkich 23 plikow. Miara musiala isc na `\w+`.
+Wniosek do etapow 4-12: kontrola, ktora nie zostala zobaczona ZAPALONA i ZGASZONA na
+znanym przypadku, nie jest kontrola.
+
+**Zapadka.** `tools/tests/test_fix_prose_keys.py` ma 8 testow, w tym jeden, ktory skanuje
+CALA kampanie i pada, gdy niecytowana proza z przecinkiem wroci. Plus jeden dokumentujacy
+znane ograniczenie: apostrof w niecytowanej wartosci powoduje ODMOWE naprawy, nie zepsucie
+pliku.
+
+**Etap 3 odblokowuje migracje YAML z etapow 7-11** - round-trip nadal jednak wymaga ostroznosci,
+bo bezpieczny jest tylko na plikach, ktore przeszly ten etap.

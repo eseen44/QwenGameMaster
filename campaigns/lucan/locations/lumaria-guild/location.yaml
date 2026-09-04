@@ -10,10 +10,10 @@ connections:
   - {id: connection_guild_basement_stairs, zone_id: zone_guild_main_hall, leads_to: loc_lumaria_guild_basement, travel_time: needs_review}
   - {id: connection_guild_street, zone_id: zone_guild_main_hall, leads_to: loc_lumaria, travel_time: needs_review}
 zones:
-  - {id: zone_guild_main_hall, note: Główna sala z okienkiem recepcji; w nocy okienko zabite deską, dyżuruje nocny urzędnik.}
-  - {id: zone_guild_upper_offices, note: Pokoje na górze, w tym pokój Seraphine. Po nocach pusto poza nią; rozmowa tam jest prywatna, bez świadków i bez wpisu.}
+  - {id: zone_guild_main_hall, note: 'Główna sala z okienkiem recepcji; w nocy okienko zabite deską, dyżuruje nocny urzędnik.'}
+  - {id: zone_guild_upper_offices, note: 'Pokoje na górze, w tym pokój Seraphine. Po nocach pusto poza nią; rozmowa tam jest prywatna, bez świadków i bez wpisu.'}
   - {id: zone_guild_council_room, note: 'Sala narad na tym samym górnym piętrze co pokoje biurowe. Dodana w event_turn_interlude_180 - istniała w fikcji od event_turn_interlude_090 (przydział spy_cellar_spider_03) i w planning/lucan-leads.yaml#lead_council_room_beetle_deferred, ale nie miała zone_id. Poza posiedzeniami stoi pusta i żaden plik nie stawia tu zamka ani warty; Lucan ma na tym piętrze własny pokój dyżurny i wchodzi jako członek. TU odbędzie się przesłuchanie przed kierownictwem gildii (clock_guild_leadership_hearing). Podsłuch tej sali NIE jest z nikim uzgodniony - patrz lucan-leads.'}
-  - {id: zone_guild_rooftop, note: Dach - nieformalnie niestrzeżony, posterunek webber_anchored.}
+  - {id: zone_guild_rooftop, note: 'Dach - nieformalnie niestrzeżony, posterunek webber_anchored.'}
   - {id: zone_guild_surrounding_lanes, note: 'Zaułki, mury i rynsztoki wokół budynku gildii. Dodana w event_turn_interlude_180 na wzór loc_city_wall_hideout#zone_surrounding_streets_and_refuse - tam też trzymane są okazy wypuszczone bez rozkazu. Dla pająka piwnicznego to żer normalny (+1,0 na dobę), ale i miotła oraz but: silhouette_ignored_by_everyone chroni go w budynku, nie na ulicy.'}
 notes:
   - Dach budynku (zone_guild_rooftop) nie jest formalnie strzeżony ani często
