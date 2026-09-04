@@ -101,11 +101,11 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
 W razie konfliktu nie zgaduj. Zatrzymaj czas sceny, wskaż sprzeczność i zaproponuj korektę kanonu.
 
 **Gdy sprzeczne są dwa retcony, wygrywa TEN Z WYŻSZYM NUMEREM — nie ten z późniejszym
-timestampem.** Powód jest pomiarowy: 130 z 145 wpisów ma timestamp w czasie KAMPANII
+timestampem.** Powód jest pomiarowy: 130 z 150 wpisów ma timestamp w czasie KAMPANII
 (sierpień 2026), a nie w czasie realnym, bo narrator wpisywał godzinę ze świata gry. Timestamp
 nie porządkuje więc korpusu i reguła „wygrywa późniejszy" oparta na nim jest niewykonalna —
 mimo że `retcon_000106` wprost się na nią powołuje. Numery są natomiast ściśle rosnące,
-bez luk i bez duplikatów (1..145), więc porządkują autorstwo pewnie.
+bez luk i bez duplikatów (1..150), więc porządkują autorstwo pewnie.
 Sprawdza to `python tools/retcon_lint.py`; nowy wpis musi mieć timestamp w czasie realnym
 i numer o jeden wyższy od poprzedniego.
 
@@ -127,6 +127,18 @@ i gdy wrocila proza czytana jako klucze YAML o wartosci null. Pominiecie raz:
 
 Sieroce odwolania i dlugi kart relacji sa RAPORTOWANE, nie blokujace: wymagaja decyzji
 merytorycznej, a walidator swiecacy na czerwono bez przerwy jest ignorowany.
+
+Od 2026-09-04 blokuje takze `tools/reconcile_growth.py --check`: deklarowana nadwyzka sieci
+(`growth-banks.yaml#surplus_economy.daily_network_surplus_units`, dzis **16,5 na dobe**) musi
+rownac sie sumie stawek wezlow AKTYWNYCH z pominieciem tych z `funded_by: lucan_reserve`
+(retcon_000149), kazda aktywna instancja ze zbiornikiem musi miec wpis w rejestrze, martwa
+nie moze go miec, `growth_cap_per_day` musi byc polowa pojemnosci zbiornika, a zaden aktywny
+zbiornik nie moze ubywac netto. Poprzednia wersja tej kontroli byla RAPORTEM i pokazywala
+19 rozjazdow, ktore nie istnialy: porownywala nadwyzke generowana przez wezel ze zmiana jego
+ZBIORNIKA, czyli dwie rozne wielkosci. Raportu tej jakosci nie wolno uczynic bramka.
+
+Nowy retcon nie moze miec timestampu w przyszlosci ani wczesniejszego niz poprzedni wpis -
+oba naruszenia sa blokujace (`retcon_000147` mial 16:40 przy zegarze 16:00, wpisane z reki).
 
 ## Blokada migracji
 

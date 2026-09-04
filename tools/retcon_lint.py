@@ -86,7 +86,32 @@ def split_store_sections(base: str) -> set[str]:
         return set()
     if document.get("object_type") != "rationale_store_index":
         return set()
-    return {row.get("key") for row in document.get("sections") or [] if isinstance(row, dict)}
+    keys = {row.get("key") for row in document.get("sections") or [] if isinstance(row, dict)}
+    # Kotwice historyczne siegaja TAKZE do podkluczy wewnatrz sekcji, np.
+    # act-03-defence.yaml#academy_post, ktore po rozbiciu leza w institutional_defence.yaml.
+    # Do 2026-09-04 linter porownywal tylko nazwy sekcji z indeksu i zglaszal takie kotwice
+    # jako martwe - trzy z czterech "martwych sekcji" byly wlasnie tym. Tresc byla na miejscu.
+    for row in document.get("sections") or []:
+        if not isinstance(row, dict) or not row.get("ref"):
+            continue
+        plik = resolve(row["ref"])
+        if plik is None:
+            continue
+        try:
+            import yaml
+            sekcja = yaml.safe_load(plik.read_text(encoding="utf-8-sig")) or {}
+        except Exception:
+            continue
+        if not isinstance(sekcja, dict):
+            continue
+        # Plik sekcji trzyma tresc pod kluczem o nazwie sekcji, a stare kotwice siegaja
+        # do jego PODKLUCZY (act-03-defence.yaml#academy_post lezy dzis w
+        # institutional_defence.yaml pod institutional_defence.academy_post).
+        keys |= {k for k in sekcja if isinstance(k, str)}
+        wnetrze = sekcja.get(row["key"])
+        if isinstance(wnetrze, dict):
+            keys |= {k for k in wnetrze if isinstance(k, str)}
+    return keys
 
 
 def load(path: Path) -> list[dict]:
@@ -138,7 +163,31 @@ def check(retcons: list[dict], events: set[str],
                 problems["supersedes_wskazuje_w_nicosc"].append((rid, f"{base} nie istnieje w korpusie"))
             elif base.startswith("event_") and base not in events:
                 if not any(e.startswith(base) for e in events):
-                    problems["supersedes_wskazuje_w_nicosc"].append((rid, f"{base} nie istnieje w dzienniku"))
+                    zakres = re.match(r"^(event_turn_\w*?)(\d+)\.\.(\d+)$", base)
+                    numery = {int(m.group(1)) for e in events
+                              if (m := re.search(r"_(\d{3})(?:_|$)", e))}
+                    if zakres:
+                        # ZAKRES, NIE ID: "event_turn_interlude_104..112" nazywa dziewiec tur
+                        # naraz i tak wystepuje w retcon_000042. Sprawdzalne jest to, czy
+                        # tury z tego przedzialu sa w dzienniku.
+                        brak = [n for n in range(int(zakres.group(2)), int(zakres.group(3)) + 1)
+                                if n not in numery]
+                        if brak:
+                            problems["supersedes_wskazuje_w_nicosc"].append(
+                                (rid, f"{base} - brak tur {brak} w dzienniku"))
+                    elif (tura := re.search(r"_(\d{3})(?:_|$)", base)) and int(tura.group(1)) not in numery:
+                        # TURY NIE MA W DZIENNIKU W CALOSCI - to podpis ROLLBACKU. Retcon
+                        # cofajacy ture MUSI ja nazwac; gdyby to wskazanie sie rozwiazywalo,
+                        # znaczyloby, ze cofniecie nie zadzialalo. Siedem takich wskazan to
+                        # tury 039-041 z retcon_000008 i retcon_000010, ktorych tresc nigdy
+                        # nie weszla do gita (rollback byl w tym samym commicie co sesja),
+                        # wiec nie da sie ich ani odzyskac, ani zarchiwizowac.
+                        problems["supersedes_na_cofnietej_turze"].append(
+                            (rid, f"{base} - tury {tura.group(1)} nie ma w dzienniku w ogole, "
+                                  f"co jest podpisem cofniecia, a nie zepsutego wskazania"))
+                    else:
+                        problems["supersedes_wskazuje_w_nicosc"].append(
+                            (rid, f"{base} nie istnieje w dzienniku"))
             elif "/" in base and resolve(base) is not None and "#" in entry:
                 sekcje = split_store_sections(base)
                 if sekcje:
@@ -163,7 +212,21 @@ def check(retcons: list[dict], events: set[str],
                           f"narzedzie jej nie rozwiaze, czytelnik musi ja znalezc sam"))
 
         for ref in retcon.get("state_refs_updated") or []:
-            if isinstance(ref, str) and "/" in ref.split("#")[0] and resolve(ref.split("#")[0]) is None:
+            if not isinstance(ref, str) or "/" not in ref.split("#")[0]:
+                continue
+            base = ref.split("#")[0]
+            # ZAKRES, NIE PLIK: "campaigns/lucan/state/*" i ".../instances/" znacza
+            # "kilka plikow pod tym katalogiem" i tak wystepuja w retconach 33, 105 i 108.
+            # Do 2026-09-04 linter znal tylko pojedyncze pliki i zglaszal te trzy jako
+            # martwe wskazania - byl to brak w mierze, nie w danych. Ta sama klasa pomylki,
+            # co katalog przechodzacy za plik przed poprawka na is_file().
+            if base.endswith(("/", "/*", "/**")):
+                katalog = ROOT / base.rstrip("*").rstrip("/")
+                if not katalog.is_dir() and not (CAMPAIGN / base.rstrip("*").rstrip("/")).is_dir():
+                    problems["state_refs_wskazuje_w_nicosc"].append(
+                        (rid, f"{ref} - katalog zakresu nie istnieje"))
+                continue
+            if resolve(base) is None:
                 problems["state_refs_wskazuje_w_nicosc"].append((rid, f"{ref} nie istnieje"))
 
         stamp = retcon.get("timestamp")

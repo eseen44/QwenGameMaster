@@ -103,7 +103,10 @@ CHECKS = [
     ("kontrakt pol instancji", [sys.executable, "tools/build_field_contract.py", "--check"], 60, True),
     # NIEBLOKUJACA: uzgodnienie silnika z rejestrem wzrostu wymaga decyzji mechanicznych,
     # nie poprawki skryptem. Raport ma byc widoczny, nie ma zatrzymywac pracy.
-    ("uzgodnienie wzrostu (raport)", [sys.executable, "tools/reconcile_growth.py", "--only-divergent"], 60, False),
+    # Bylo raportem (--only-divergent), bo stara wersja porownywala nadwyzke z pojemnoscia
+    # zbiornika i pokazywala 19 nieistniejacych rozjazdow - raportu tej jakosci nie wolno
+    # bylo uczynic bramka. Po przepisaniu kontrola twierdzi rzeczy sprawdzalne i BLOKUJE.
+    ("rejestr wzrostu", [sys.executable, "tools/reconcile_growth.py", "--check"], 60, True),
 ]
 
 FULL_CHECKS = [

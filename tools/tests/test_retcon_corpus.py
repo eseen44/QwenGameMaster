@@ -104,6 +104,46 @@ class LintTest(unittest.TestCase):
         ])
         self.assertEqual(problems, {})
 
+    def test_zakres_tur_jest_rozwijany_a_nie_czytany_jako_id(self):
+        """Wzor numeru tury wymagal podkreslnika PO numerze, a id maja postac
+        'event_turn_interlude_104' - z 235 tur linter widzial 69 i zglaszal 18 istniejacych
+        tur jako nieistniejace."""
+        events = {f"event_turn_interlude_{n}" for n in range(100, 125)}
+        problems = self.sprawdz([self.wpis(200, supersedes=["event_turn_interlude_104..112"])],
+                                events)
+        self.assertEqual(problems, {}, f"zakres istniejacych tur zglaszany jako martwy: {problems}")
+
+    def test_zakres_z_brakujaca_tura_nadal_jest_naruszeniem(self):
+        events = {f"event_turn_interlude_{n}" for n in range(100, 110)}
+        problems = self.sprawdz([self.wpis(200, supersedes=["event_turn_interlude_104..112"])],
+                                events)
+        self.assertIn("supersedes_wskazuje_w_nicosc", problems)
+        self.assertIn("110", problems["supersedes_wskazuje_w_nicosc"][0][1])
+
+    def test_tura_nieobecna_w_calosci_to_cofniecie_a_nie_martwe_wskazanie(self):
+        """retcon_000008 i retcon_000010 nazywaja tury 039-041, ktore SAME cofnely.
+        Gdyby to wskazanie sie rozwiazywalo, znaczyloby, ze cofniecie nie zadzialalo."""
+        events = {"event_turn_interlude_038_numb", "event_turn_interlude_042_cos"}
+        problems = self.sprawdz([self.wpis(200, supersedes=["event_turn_interlude_040_zdanie"])],
+                                events)
+        self.assertIn("supersedes_na_cofnietej_turze", problems)
+        self.assertNotIn("supersedes_wskazuje_w_nicosc", problems)
+        self.assertNotIn("supersedes_na_cofnietej_turze", lint.BLOCKING)
+
+    def test_zakres_state_refs_na_katalog_przechodzi_a_na_nieistniejacy_nie(self):
+        ok = self.sprawdz([self.wpis(200, state_refs_updated=["campaigns/lucan/state/*"])])
+        self.assertEqual(ok, {}, f"katalog zakresu zglaszany jako martwy plik: {ok}")
+        zle = self.sprawdz([self.wpis(201, state_refs_updated=["campaigns/lucan/nie-ma-tego/*"])])
+        self.assertIn("state_refs_wskazuje_w_nicosc", zle)
+
+    def test_kotwica_do_podklucza_magazynu_sie_rozwiazuje(self):
+        """act-03-defence.yaml#academy_post lezy po rozbiciu w institutional_defence.yaml
+        pod institutional_defence.academy_post - tresc byla na miejscu, miara nie siegala."""
+        sekcje = lint.split_store_sections("campaigns/lucan/planning/act-03-defence.yaml")
+        self.assertIn("institutional_defence", sekcje, "brak sekcji z indeksu")
+        self.assertIn("academy_post", sekcje, "kotwica do podklucza nadal nierozwiazywalna")
+        self.assertIn("legal_doctrine_stress_test", sekcje)
+
     def test_zapadka_dlug_nie_blokuje_a_nowy_wpis_blokuje(self):
         self.assertLess(lint.number("retcon_000100"), lint.BASELINE)
         self.assertGreater(lint.number("retcon_000200"), lint.BASELINE)
@@ -118,6 +158,26 @@ class LintTest(unittest.TestCase):
         self.assertEqual(nowe, [], f"nowe wpisy naruszaja kontrole blokujace: {nowe}")
         self.assertGreater(sum(len(r) for r in problems.values()), 0,
                            "linter nie widzi zadnego dlugu - podejrzane, korpus go ma")
+
+    def test_martwe_wskazania_zostaly_rozliczone_do_dwoch(self):
+        """Z 86 na starcie audytu zostaja DWA i oba maja metryke (retcon_000150):
+        unassigned_servants_risk - sekcja uchylona i przemianowana w t_103;
+        syndicate_offer_the_permit - nie istniala nigdy w calej historii repo.
+        Prog jest gorny: jesli wzrosnie, doszlo nowe martwe wskazanie i trzeba je opisac."""
+        retcons = lint.load(lint.RETCONS)
+        events = {e.get("id") for e in lint.load(lint.EVENTS) if e.get("id")}
+        martwe = lint.check(retcons, events).get("supersedes_wskazuje_w_nicosc", [])
+        self.assertLessEqual(len(martwe), 2, f"nowe martwe wskazania: {martwe}")
+
+    def test_korpus_nie_ma_juz_brakow_pol_ani_supersedes_jako_napisu(self):
+        """retcon_000150: osiem brakow approved_by wypelnione z wlasnej tresci wpisow,
+        cztery supersedes-napisy opakowane w listy."""
+        retcons = lint.load(lint.RETCONS)
+        events = {e.get("id") for e in lint.load(lint.EVENTS) if e.get("id")}
+        problems = lint.check(retcons, events)
+        self.assertEqual(problems.get("pola_wymagane", []), [])
+        self.assertEqual(problems.get("supersedes_lista", []), [])
+        self.assertEqual(problems.get("state_refs_wskazuje_w_nicosc", []), [])
 
 
 class IndexTest(unittest.TestCase):

@@ -4,7 +4,7 @@ object_type: growth_ledger
 status: active
 rule_ref: system/companion-growth.md
 source_refs: [retcon_000103, retcon_000105, retcon_000109, retcon_000110, retcon_000114, retcon_000115]
-as_of_event_id: event_turn_interlude_183
+as_of_event_id: event_turn_interlude_235
 note: >-
   Rejestr growth_bank trzymany OSOBNO od instancji. Obejmuje TAKZE pc_lucan (retcon_000112), bo runtime przepisuje pliki
   state/instances/*.yaml przy kazdym commicie tury i nieznane klucze moglyby zostac zgubione.
@@ -28,6 +28,19 @@ surplus_economy:
   daily_network_surplus: >-
     Parenascie jednostek na dobe. Suma stawek z tego pliku daje 14,5 na dobe generowane
     przez siec (bez wlasnej regeneracji Lucana, ktora wynosi osobno 6,0 na dobe).
+    SPROSTOWANIE 2026-09-04, LICZBA WYZEJ JEST NIEAKTUALNA: suma stawek w tym pliku wynosi dzis
+    20,0 na dobe, a nadwyzka GENEROWANA PRZEZ SIEC to 16,5 - roznica 3,5 to stawka
+    spy_beetle_01, ktorego od t_179 Lucan laduje z WLASNEJ rezerwy (retcon_000141), wiec
+    wliczanie jej do sumy sieci liczy te sama energie dwa razy. Wpis zuka nosi od teraz pole
+    funded_by: lucan_reserve, zeby to bylo widac bez czytania basis. 16,5 zgadza sie z basis
+    spy_cellar_spider_04 ('generowana nadwyzka sieci 17,5 -> 16,5' na t_183). Dawne 14,5 to po
+    retcon_000141 stawka LUCANA, nie sieci - nota powstala przed tym retconem. Liczba jest teraz
+    TAKZE POLEM (daily_network_surplus_units) i pilnuje jej kontrola tools/reconcile_growth.py
+    --check, wiec nie rozjedzie sie po cichu.
+  daily_network_surplus_units: 16.5
+  daily_network_surplus_units_basis: >-
+    Suma rate_per_day wezlow AKTYWNYCH z pominieciem wpisow z funded_by: lucan_reserve. Stan na
+    event_turn_interlude_235. Pilnowane przez tools/reconcile_growth.py --check.
   growth_intake_cap: >-
     Wezel wchlania w ROZWOJ najwyzej POLOWE WLASNEJ POJEMNOSCI ZBIORNIKA na dobe.
     Zbiornik 3 daje wiec sufit 1,5 na dobe, zbiornik 6 sufit 3,0, zbiornik 12 sufit 6,0,
@@ -83,7 +96,7 @@ backlog_basis: >-
   Okno tur 178-179 to 35 minut, czyli mniej niz 0,1 jednostki na najszybszym wezle - ponizej
   precyzji tego pliku, doliczane przy nastepnym istotnym tyknieciu.
 banks:
-  - {id: spy_beetle_01, rate_per_day: 3.5, growth_cap_per_day: 1.5, overflow_per_day: 1.0, basis: 'od t_179 LUCAN LADUJE GO SAM z wlasnej rezerwy, 3,5 na dobe - kieszen, wiec bez przeskoku i bez straty. 1,0 pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika 3), 1,0 wraca w siec. Sufit podnosi enlarge_reservoir_to_tank (3 -> 12, ok. godziny przy stole) - wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
+  - {id: spy_beetle_01, funded_by: lucan_reserve, rate_per_day: 3.5, growth_cap_per_day: 1.5, overflow_per_day: 1.0, basis: 'od t_179 LUCAN LADUJE GO SAM z wlasnej rezerwy, 3,5 na dobe - kieszen, wiec bez przeskoku i bez straty. 1,0 pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika 3), 1,0 wraca w siec. Sufit podnosi enlarge_reservoir_to_tank (3 -> 12, ok. godziny przy stole) - wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
   - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, growth_cap_per_day: 1.5, overflow_per_day: 1.5, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
   - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
   - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}

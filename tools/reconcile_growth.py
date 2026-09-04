@@ -1,22 +1,37 @@
-"""Uzgodnienie silnika z rejestrem wzrostu. Etap 10, czesc druga.
+"""Kontrola rejestru wzrostu. Etap 10, czesc druga - PRZEPISANA 2026-09-04.
 
-PROBLEM. state/growth-banks.yaml jest "miejscem prawdy dla nadwyzki i dojrzalosci" (tak mowi
-jego wlasny naglowek) i prowadzony jest RECZNIE, z polem `as_of_event_id`. Rownolegle silnik
-liczy pule z regul `regeneration` / `decay` / `hunting_recovery` w instancjach oraz z laczy
-w sustained-links.yaml. To dwie ksiegi tego samego, ktore moga sie rozjechac - i rozjechaly.
+CZEGO TA WERSJA NIE ROBI I DLACZEGO POPRZEDNIA BYLA BLEDNA. Pierwsza wersja porownywala
+`rate_per_day` z rejestru ze stawka dobowa liczona z regul `regeneration` / `decay` /
+`hunting_recovery` w instancji i raportowala 19 "rozjazdow". To bylo porownanie dwoch
+ROZNYCH WIELKOSCI:
+  - `rate_per_day` w rejestrze to NADWYZKA, ktora wezel generuje ponad wlasne utrzymanie -
+    dlatego obok stoja `growth_cap_per_day` (do banku) i `overflow_per_day` (do sieci),
+    a naglowek pliku mowi o "nadwyzce generowanej przez siec";
+  - reguly w instancji opisuja ZBIORNIK wezla, ktory przy obfitym zerze stoi na maksimum.
+Zuk, ktory ma pelny zbiornik i 0,5 nadwyzki na dobe, nie jest wiec zadna niespojnoscia.
+Te same 19 wierszy raportowalem jako dlug - byl to blad zalozenia raportu, nie danych.
+Tak samo "5 wezlow bez wpisu w rejestrze": wszystkie piec jest ZNISZCZONYCH albo martwych
+(trzy cmy zjedzone, pajak wyssany przez Lucana, wijoprzasz zmiazdzony), wiec ich brak
+w rejestrze wzrostu jest poprawny.
 
-CZEGO TEN SKRYPT NIE ROBI. Nie uzgadnia ich za nikogo. Uzgodnienie wymaga decyzji
-mechanicznych: czy dana sluga faktycznie zeruje, czy stoi na posterunku, czy jest karmiona
-z reki. Skrypt POKAZUJE roznice per pula, z uzasadnieniem z rejestru, zeby te decyzje daly
-sie podjac na liczbach zamiast z pamieci.
+CO JEST SPRAWDZALNE I CO TA WERSJA SPRAWDZA:
+  1. deklarowana_nadwyzka - `surplus_economy.daily_network_surplus_units` musi rownac sie
+     sumie `rate_per_day` wezlow AKTYWNYCH z pominieciem tych z `funded_by: lucan_reserve`.
+     Tak wylapano realna niespojnosc: nota mowila 14,5, suma pliku dawala 20,0, a nadwyzka
+     sieci wynosi 16,5 - roznica 3,5 to zuk 01 ladowany z rezerwy LUCANA (retcon_000141),
+     czyli ta sama energia liczona dwa razy.
+  2. wezel_aktywny_bez_wpisu - kazda AKTYWNA instancja ze zbiornikiem musi miec wpis.
+  3. wezel_martwy_z_wpisem - zniszczony wezel nie moze zostac w rejestrze nadwyzki.
+  4. sufit_rozwoju - `growth_cap_per_day` musi rownac sie POLOWIE pojemnosci zbiornika,
+     bo tak brzmi `growth_intake_cap` w tym samym pliku.
+  5. zbiornik_ubywa - zaden aktywny wezel nie moze tracic rezerwy netto. To klasa, ktora
+     dala dwa realne retcony: retcon_000145 (flaga tlumiaca dzialala tylko przy DOKLADNEJ
+     nazwie, wiec dwa okazy tracily bez podstawy) i retcon_000146 (spy_wasp_01 miala bramke
+     zeru na flage, ktorej nie nosila - od t_177 tylko ubywala, do 0/3, przy kanonie
+     deklarujacym +1,0 na dobe).
 
-Dwa realne bledy wylapane ta miara i naprawione osobno:
-  - retcon_000145: flaga tlumiaca ubytek dzialala tylko przy DOKLADNEJ nazwie, wiec dwa okazy
-    traciły rezerwe bez podstawy;
-  - retcon_000146: spy_wasp_01 miala bramke zeru na flage `autonomous_hunting`, ktorej nie
-    nosila - od tury 177 tylko ubywala, do 0/3, przy kanonie deklarujacym +1,0 na dobe.
-
-Uruchomienie:  python tools/reconcile_growth.py [--only-divergent]
+Uruchomienie:  python tools/reconcile_growth.py [--check]
+   --check konczy sie kodem 1 przy naruszeniu; bez niej tylko raportuje.
 """
 
 from __future__ import annotations
@@ -33,33 +48,46 @@ INSTANCES = STATE / "instances"
 DAY = 86400
 POOL = "necrotic_reservoir"
 
+# Wpisy rejestru, ktore nie sa wezlami sieci - Lucan jest czlowiekiem i nie ma zbiornika
+# w tym sensie, a jego stawka jest po stronie ODBIORCY, nie generowania.
+NIE_WEZLY = {"pc_lucan"}
+
 
 def load(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8-sig")) or {}
 
 
+def instance_files() -> dict[str, dict]:
+    """id instancji -> dokument. Nazwa pliku uzywa myslnikow, id podkreslen."""
+    out: dict[str, dict] = {}
+    for path in sorted(INSTANCES.glob("*.yaml")):
+        if path.name == "index.yaml":
+            continue
+        document = load(path)
+        if document.get("id"):
+            out[document["id"]] = document
+    return out
+
+
 def link_flow() -> dict[str, float]:
-    """Netto na dobe z laczy podtrzymujacych - rejestr je liczy, a miara na samych
-    regulach instancji ich nie widzi. Bez tego polowa "rozjazdow" jest artefaktem."""
+    """Netto na dobe z laczy podtrzymujacych - silnik je stosuje osobno
+    (gm_runtime.process_sustained_links), wiec miara na samych regulach ich nie widzi."""
     flows: dict[str, float] = {}
-    document = load(STATE / "sustained-links.yaml")
-    for link in document.get("links") or []:
+    for link in load(STATE / "sustained-links.yaml").get("links") or []:
         if not isinstance(link, dict) or not link.get("active"):
             continue
         interval = link.get("interval_seconds") or DAY
-        source = link.get("source_instance_id")
-        target = link.get("target_instance_id")
         out = (link.get("source_units_per_interval") or 0) * DAY / max(1, interval)
         inflow = (link.get("target_units_per_interval") or 0) * DAY / max(1, interval)
-        if source:
-            flows[source] = flows.get(source, 0.0) - out
-        if target:
-            flows[target] = flows.get(target, 0.0) + inflow
+        if link.get("source_instance_id"):
+            flows[link["source_instance_id"]] = flows.get(link["source_instance_id"], 0.0) - out
+        if link.get("target_instance_id"):
+            flows[link["target_instance_id"]] = flows.get(link["target_instance_id"], 0.0) + inflow
     return flows
 
 
 def engine_rate(instance: dict) -> tuple[float, list[str]]:
-    """Stawka dobowa z regul strumieni, z uwzglednieniem bramek i tlumienia."""
+    """Dobowa zmiana ZBIORNIKA z regul strumieni, z bramkami i tlumieniem."""
     flags = set(instance.get("status_flags") or []) | set(instance.get("traits") or [])
     pool = (instance.get("resources") or {}).get(POOL)
     if not isinstance(pool, dict):
@@ -72,8 +100,7 @@ def engine_rate(instance: dict) -> tuple[float, list[str]]:
         if field == "decay" and ("decay_suppressed" in flags or pool.get("decay_suppressed")):
             notes.append("ubytek stlumiony")
             continue
-        requires = rule.get("requires") or []
-        brak = [item for item in requires if item not in flags]
+        brak = [item for item in (rule.get("requires") or []) if item not in flags]
         if brak:
             notes.append(f"{field} zablokowany brakiem flag: {', '.join(brak)}")
             continue
@@ -81,61 +108,117 @@ def engine_rate(instance: dict) -> tuple[float, list[str]]:
     return total, notes
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--only-divergent", action="store_true")
-    args = parser.parse_args()
+def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
+          flows: dict[str, float] | None = None) -> tuple[dict[str, list[str]], dict[str, float]]:
+    """Argumenty wstrzykiwalne, zeby kazda z pieciu kontrol dala sie ZOBACZYC, jak odrzuca.
 
-    bank = load(STATE / "growth-banks.yaml")
-    declared = {row["id"]: row for row in bank.get("banks") or [] if isinstance(row, dict)}
-    flows = link_flow()
+    Bramka, ktorej nikt nie widzial dzialajacej, nie jest bramka - to zdanie z tego repo
+    kosztowalo mnie w tym audycie cztery wpadki, w tym dwie wlasne zapadki przepuszczajace
+    oczywiste naruszenia.
+    """
+    bank = load(STATE / "growth-banks.yaml") if bank is None else bank
+    entries = {row["id"]: row for row in bank.get("banks") or [] if isinstance(row, dict)}
+    instances = instance_files() if instances is None else instances
+    flows = link_flow() if flows is None else flows
+    problems: dict[str, list[str]] = {}
 
-    rows, divergent, missing = [], 0, []
-    for path in sorted(INSTANCES.glob("*.yaml")):
-        if path.name == "index.yaml":
+    def zglos(nazwa: str, opis: str) -> None:
+        problems.setdefault(nazwa, []).append(opis)
+
+    # 1. Deklarowana nadwyzka sieci kontra suma wpisow.
+    economy = bank.get("surplus_economy") or {}
+    deklarowana = economy.get("daily_network_surplus_units")
+    policzona = 0.0
+    for iid, row in entries.items():
+        if iid in NIE_WEZLY or row.get("funded_by") == "lucan_reserve":
             continue
-        instance = load(path)
-        iid = instance.get("id")
-        if not iid:
+        if (instances.get(iid) or {}).get("status") not in (None, "active"):
+            continue
+        policzona += row.get("rate_per_day") or 0
+    if deklarowana is None:
+        zglos("deklarowana_nadwyzka",
+              "brak pola surplus_economy.daily_network_surplus_units - liczba zostaje "
+              "tylko w prozie, a proza sie nie waliduje")
+    elif abs(deklarowana - policzona) > 0.001:
+        zglos("deklarowana_nadwyzka",
+              f"plik deklaruje {deklarowana} na dobe, a suma stawek wezlow aktywnych "
+              f"(bez funded_by: lucan_reserve) daje {policzona}")
+
+    # 2 i 3. Zbior wezlow w rejestrze kontra zbior instancji ze zbiornikiem.
+    for iid, instance in instances.items():
+        if not isinstance((instance.get("resources") or {}).get(POOL), dict):
+            continue
+        aktywny = instance.get("status") == "active"
+        if aktywny and iid not in entries:
+            zglos("wezel_aktywny_bez_wpisu",
+                  f"{iid} ma zbiornik i jest aktywny, a nie ma wpisu w rejestrze nadwyzki")
+        if not aktywny and iid in entries:
+            zglos("wezel_martwy_z_wpisem",
+                  f"{iid} ma status '{instance.get('status')}', a wciaz stoi w rejestrze "
+                  f"ze stawka {entries[iid].get('rate_per_day')}")
+
+    # 4. Sufit rozwoju to POLOWA pojemnosci zbiornika - tak mowi growth_intake_cap.
+    for iid, row in entries.items():
+        cap = row.get("growth_cap_per_day")
+        pool = ((instances.get(iid) or {}).get("resources") or {}).get(POOL)
+        if cap is None or not isinstance(pool, dict) or pool.get("capacity") is None:
+            continue
+        polowa = pool["capacity"] / 2
+        if abs(cap - polowa) > 0.001:
+            zglos("sufit_rozwoju",
+                  f"{iid}: growth_cap_per_day {cap}, a polowa pojemnosci zbiornika "
+                  f"({pool['capacity']}) to {polowa}")
+
+    # 5. Zbiornik aktywnego wezla nie moze ubywac netto.
+    for iid, instance in instances.items():
+        if instance.get("status") != "active":
             continue
         pool = (instance.get("resources") or {}).get(POOL)
         if not isinstance(pool, dict):
             continue
-        streams, notes = engine_rate(instance)
-        total_engine = streams + flows.get(iid, 0.0)
-        entry = declared.get(iid)
-        if entry is None:
-            missing.append(iid)
-        rate = entry.get("rate_per_day") if entry else None
-        delta = None if rate is None else round(total_engine - rate, 2)
-        if delta is not None and abs(delta) >= 0.01:
-            divergent += 1
-        rows.append({
-            "id": iid, "declared": rate, "streams": round(streams, 2),
-            "links": round(flows.get(iid, 0.0), 2), "engine": round(total_engine, 2),
-            "delta": delta, "state": f"{pool.get('current')}/{pool.get('capacity')}",
-            "notes": notes, "basis": (entry or {}).get("basis", ""),
-        })
+        netto, notes = engine_rate(instance)
+        netto += flows.get(iid, 0.0)
+        if netto < -0.001:
+            zglos("zbiornik_ubywa",
+                  f"{iid}: netto {netto:+.2f} na dobe przy stanie "
+                  f"{pool.get('current')}/{pool.get('capacity')}"
+                  + (f" ({'; '.join(notes)})" if notes else ""))
 
-    print(f"{'wezel':<26}{'rejestr':>8}{'strumienie':>11}{'lacza':>7}{'silnik':>8}"
-          f"{'roznica':>9}{'stan':>9}")
-    for row in rows:
-        if args.only_divergent and (row["delta"] is None or abs(row["delta"]) < 0.01):
-            continue
-        rate = "-" if row["declared"] is None else f"{row['declared']:.1f}"
-        delta = "brak wpisu" if row["delta"] is None else f"{row['delta']:+.2f}"
-        print(f"{row['id']:<26}{rate:>8}{row['streams']:>11.2f}{row['links']:>7.2f}"
-              f"{row['engine']:>8.2f}{delta:>9}{row['state']:>9}")
-        for note in row["notes"]:
-            print(f"    uwaga: {note}")
+    liczby = {
+        "wezlow_w_rejestrze": len(entries),
+        "instancji_ze_zbiornikiem": sum(
+            1 for i in instances.values()
+            if isinstance((i.get("resources") or {}).get(POOL), dict)),
+        "nadwyzka_deklarowana": deklarowana if deklarowana is not None else float("nan"),
+        "nadwyzka_policzona": policzona,
+    }
+    return problems, liczby
 
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true",
+                        help="kod 1 przy naruszeniu (tryb bramki)")
+    args = parser.parse_args()
+
+    problems, liczby = check()
+    bank = load(STATE / "growth-banks.yaml")
+
+    for nazwa, wartosc in liczby.items():
+        print(f"{nazwa:<28} {wartosc}")
+    print(f"{'rejestr as_of':<28} {bank.get('as_of_event_id')}")
     print()
-    print(f"pul: {len(rows)} | rozjazdow: {divergent} | bez wpisu w rejestrze: {len(missing)}")
-    if missing:
-        print(f"  {', '.join(missing)}")
-    print(f"rejestr as_of: {bank.get('as_of_event_id')}")
-    print("Uzgodnienie wymaga decyzji mechanicznych - ten raport ich nie podejmuje.")
-    return 0
+
+    if not problems:
+        print("[OK] rejestr wzrostu: nadwyzka sie zgadza, zbiory wezlow zgodne, "
+              "zaden aktywny zbiornik nie ubywa")
+        return 0
+
+    print(f"[BLAD] {sum(len(v) for v in problems.values())} naruszen w {len(problems)} kontrolach:")
+    for nazwa, opisy in sorted(problems.items()):
+        for opis in opisy:
+            print(f"  - {nazwa}: {opis}")
+    return 1 if args.check else 0
 
 
 if __name__ == "__main__":

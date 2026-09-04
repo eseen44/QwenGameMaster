@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **76** z 148 retconow.
+Regul z klauzula normatywna: **77** z 150 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -90,11 +90,12 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000145` — To wymaga decyzji mechanicznych gracza, nie poprawki wskaznika.
 - `retcon_000146` — Flaga opisowa zostaje - to ona niesie WARUNEK kanonu (maly zer, z dala od duzych obiektow) i nie wolno jej zgubic.
 
-## nawias i sprawczosc gracza (3)
+## nawias i sprawczosc gracza (4)
 
 - `retcon_000030` — Domyslna regula retcon_000005 obowiazuje i wraca automatycznie po kazdym jednorazowym uchyleniu - narrator nie zostawia Spideya nigdzie bez wyraznej deklaracji gracza.
 - `retcon_000060` — (d) Widoczny ruch fizyczny nie staje sie niewidoczny przez zapisanie go w nawiasie i wymaga normalnej deklaracji poza nawiasem.
 - `retcon_000092` — Ojciec nie nalezy do lancucha rozkazodawczego, nie moze wydawac Klarze rozkazow, a starsi oficerowie moga go wysluchac bez obowiazku spelnienia jego zyczen.
+- `retcon_000150` — retcon_000033#syndicate_offer_the_permit - ta sekcja NIE ISTNIALA NIGDY: git grep po calej historii repozytorium znajduje ten klucz WYLACZNIE w retcons.jsonl, nigdy w magazynie, takze w...
 
 ## mowa i prowadzenie postaci (4)
 
