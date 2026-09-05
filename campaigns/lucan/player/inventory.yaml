@@ -505,8 +505,17 @@ items:
     source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
   - id: item_three_arrow_deer_signet
     name: Stary szlachecki sygnet (jeleń przebity trzema strzałami)
-    location: container_personal_pockets_and_belt
-    worn: on_lucans_finger
+    location: seraphines_office_desk
+    worn: false
+    location_previous: container_personal_pockets_and_belt (noszony na palcu, retcon_000137)
+    location_corrected_2026_09_05: >-
+      POPRAWIONE. Pole location mowilo container_personal_pockets_and_belt, worn on_lucans_finger,
+      a dziennik i stan sceny mowia co innego: audyt t_235 - 'Na biurku nadal sygnet z jeleniem',
+      a state/instances/pc-lucan.yaml#position.formation - 'the signet stays on the desk'. Sygnet
+      lezy na biurku Seraphine od t_233/t_234 i Lucan go stamtad nie zabral. MA TO ZNACZENIE
+      PRAKTYCZNE: to jest narzedzie potrzebne do falszowania dokumentow
+      (patrz lead_kesz_tannery_takeover_via_asserted_claim), a lezy w tej chwili na biurku
+      kontrolerki antymagicznej gildii.
     current_placement: 'NA BIURKU SERAPHINE, gabinet na gornym pietrze gildii, od
       event_turn_interlude_233. Zdjety z palca i polozony przy niedokonczonej karcie
       kontraktowej. NIE ODDANY - wlasnosc i decyzja o zabraniu go z powrotem naleza do

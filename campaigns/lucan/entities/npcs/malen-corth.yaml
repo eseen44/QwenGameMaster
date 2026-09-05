@@ -1,7 +1,15 @@
 schema_version: 1
 id: npc_malen_corth
 name: Malen Corth
-status: needs_review
+status: reviewed_2026_09_05
+review_note_2026_09_05: >-
+  PRZEJRZANE Z GRACZEM 2026-09-05. Karta zostaje bez zmian w portrecie i cechach mowy - jest
+  najlepiej napisana z piatki. Zmiana dotyczy STANU: zeznanie Mary doszlo (patrz nowy fakt).
+  KOREKTA LICZBY: 'trzynascie dni przed przesluchaniem' w relevance_to_lucan bylo prawda na
+  t_102; clock_guild_leadership_hearing stoi dzis na 3/15 po dobie na krok, wiec zostalo okolo
+  DWANASCIE dni. Lucan zna tylko HORYZONT tej daty od Seraphine, nie sztywny termin
+  (clocks.yaml#lucan_knows_the_date: horizon_only) - nie pozwalac mu planowac na konkretny
+  dzien.
 review_status: introduced_in_play_event_turn_interlude_097
 importance: specialist
 role: magistrate_records_clerk_reconciling_the_tannery_file
@@ -24,6 +32,7 @@ knowledge:
   confirmed:
     - {fact_id: fact_corth_has_the_tannery_roster, source_event_id: event_turn_interlude_097, claim: "Ma pelna obsade operacji w garbarni z nazwiskami, w tym Lucana, i uzgadnia ja z zeznaniami."}
     - {fact_id: fact_corth_sent_statement_requests_to_roster_names, source_event_id: event_turn_interlude_101, claim: "Rozeslal do nazwisk z obsady pisma o potwierdzenie dat i skladu grupy; jedno dostala npc_mara_teln. Rusk dostaje takie od tygodni. W drodze jest do niego zeznanie Mary z prawdziwymi datami i z npc_halven_rusk wpisanym jako obecny (event_turn_interlude_102)."}
+    - {fact_id: fact_corth_received_maras_statement, source_event_id: retcon_000153, claim: "ZEZNANIE MARY DOSZLO. Ustalone 2026-09-05: pismo bylo w drodze na t_102, a od tamtej chwili minely 33 godziny swiata, wiec lezy na jego biurku. Zawiera PRAWDZIWE daty i wpisuje npc_halven_rusk jako obecnego - czyli nie zgadza sie z rubrykami, ktore Corth uzgadnia. Zgodnie z wlasna karta Corth nie oskarza i nie ma teorii sprawy: dopisuje pytanie tam, gdzie sie nie zgadza, i idzie dalej. NIKT PO STRONIE LUCANA O TYM NIE WIE - ani Lucan, ani Seraphine, ani Mara nie zostali o tym poinformowani i nie maja skad."}
   suspicions: []
   false_beliefs: []
   forbidden_without_source: [spidey_identity, lucan_secret_drain, varkhen_takeover, lucan_necromancy]

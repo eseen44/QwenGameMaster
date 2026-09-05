@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **79** z 152 retconow.
+Regul z klauzula normatywna: **81** z 154 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -36,7 +36,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000151` — Rozwoj MIERZONY BANKIEM wymaga materialu, czyli wyssania zywego.
 - `retcon_000152` — Narrator dostaje JAWNA LICENCJE od gracza, zeby uczynic to wyjscie teraz niewykonalnym - przeszkoda ma byc nazwana w fikcji i zrodlowana tym retconem, a nie wymyslona po cichu; zakaz...
 
-## ekspozycja i wiedza NPC (25)
+## ekspozycja i wiedza NPC (27)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -63,6 +63,8 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000142` — (1) Wolny czas jest PELNOPRAWNIE zuzyty, gdy Lucan cwiczy, czyta i uczy sie - to nie jest czas zmarnowany na tle listy celow i nie wolno go tak przedstawiac.
 - `retcon_000143` — Handler przyjmuje od teraz skrot npc_id (subject = ten NPC, target = pc_lucan) i ODMAWIA zapisu, gdy tozsamosci nie da sie ustalic - pusty rekord nie powstanie ponownie.
 - `retcon_000148` — Z tury 040 obowiazuja WYLACZNIE dwie rzeczy, obie dlatego, ze ich zrodlem jest gracz: (a) sklad czworki ocalalych - jeden nekromanta junior (fixture_corpse_shipment_handler) plus trzech...
+- `retcon_000153` — Minely 33 godziny swiata, wiec doszlo - ustalenie gracza.
+- `retcon_000154` — Narrator nie rzuca za nia na spostrzegawczosc i nie pyta, czy zauwazyla.
 
 ## czas i tempo (13)
 
