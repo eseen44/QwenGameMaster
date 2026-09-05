@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **77** z 150 retconow.
+Regul z klauzula normatywna: **79** z 152 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -19,7 +19,7 @@ regul - a procedura wznowienia sesji nie kaze wczytywac dziennika. Regula, ktore
 nikt nie czyta, nie dziala. Indeks jest generowany, zeby nie mogl sie rozjechac ze
 zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 
-## opor i stawki (12)
+## opor i stawki (14)
 
 - `retcon_000022` — Narrator w zwyklym planowaniu: (1) nie wymysla waskich garde, (2) nie liczy graczowi kosztu alternatywnego ani nie stawia go przed wyborem 'to albo to', (3) nie zamienia deklaracji...
 - `retcon_000033` — KALIBRACJA GRACZA, OBOWIAZUJACA OD TERAZ: brak rzutow w interludium NIE oznacza, ze rzutow nie ma - oznacza, ze interludium jest etapem BUDOWY SWIATA prowadzonym przez gracza.
@@ -33,6 +33,8 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000132` — Zaden czar nie wymusza zadnej metamagii.
 - `retcon_000135` — REGULA OBOWIAZUJACA OD TERAZ, dopisana takze do system/narrator.md#brudny-wybor: (a) NPC MA WYBRAC.
 - `retcon_000141` — Varkhen zostaje POZA drabina, racjonowany decyzja Lucana (retcon_000113), i nie liczy sie jako zmarnowana okazja.
+- `retcon_000151` — Rozwoj MIERZONY BANKIEM wymaga materialu, czyli wyssania zywego.
+- `retcon_000152` — Narrator dostaje JAWNA LICENCJE od gracza, zeby uczynic to wyjscie teraz niewykonalnym - przeszkoda ma byc nazwana w fikcji i zrodlowana tym retconem, a nie wymyslona po cichu; zakaz...
 
 ## ekspozycja i wiedza NPC (25)
 

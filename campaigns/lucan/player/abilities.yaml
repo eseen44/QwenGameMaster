@@ -1,6 +1,10 @@
 schema_version: 1
 owner_id: pc_lucan
-status: needs_review
+status: reviewed_2026_09_05
+review_note: >-
+  Przejrzane z graczem 2026-09-05. Trzy opanowane procedury z ksiazki 'Uprzejmosci'
+  podniesione do `known:` z historia uzyc sprawdzona w dzienniku po operacjach consume.
+  Osiem procedur nadal czeka na pierwszy przebieg i zostaje w theoretical_repertoire.
 scale: 0-100_logarithmic_campaign_scale
 known:
   - id: ability_bone_chill
@@ -181,6 +185,52 @@ known:
     demonstrated_effects: [temporary_physical_force_increase, temporary_speed_increase]
     limits: [one_action, cannot_stack, no_durability_bonus, not_a_permanent_attribute_increase, repeated_use_accumulates_bodily_strain]
     source_refs: [source_user_decisions_current#correction:first-cemetery-massacre-full-sequence, source_user_decisions_current#calibration:self-repair-and-vital-overdrive-are-first-level-spells]
+  - id: ability_curse_memory_trap
+    capability_ref: null
+    name: Zapadnia pamięci
+    mastery: 28
+    procedure_ref: theoretical_repertoire#curse_memory_trap
+    source_item: item_courtesies_curse_book
+    tier: 2
+    curse_class: mental
+    casting_profile: {measured_cost_units: 1, subtle: true, delayed_effect_possible: true}
+    uses: [target_cannot_describe_lucan_an_hour_later, leaves_the_conversation_and_conclusions_intact]
+    limits: [does_not_remove_the_conversation_itself, does_not_remove_the_targets_conclusions, one_procedure_per_contact, no_rat_version_for_practice]
+    usage_log:
+      - {event_id: event_turn_interlude_129, role: first_successful_run, target: npc_academy_porter, delivery: pozegnanie_klasa_opozniona, units: 2, note: 'Dwa osobne kontakty w jednej turze, rzut z kara minus 10 za pierwszy w zyciu przebieg - naturalna 54, wynik 44 przy progu 20.'}
+      - {event_id: event_turn_interlude_208, units: 1, note: 'KOSZT NALICZONY TERAZ, BO TERAZ ZOSTAL RZUCONY (audyt tury).'}
+      - {event_id: event_turn_interlude_220, units: 1, delivery: dotyk, note: 'Obok 0,1 za trzeci stack numb - lacznie 1,1 w tej turze.'}
+    note: 'Najcenniejsza procedura w jego sytuacji: wspomnienie twarzy sie nie konsoliduje, wiec godzine pozniej cel nie potrafi Lucana opisac. NIE zabiera samej rozmowy ani wnioskow celu, tylko rysopis.'
+  - id: ability_curse_loosened_tongue
+    capability_ref: null
+    name: Rozwiązanie języka
+    mastery: 27
+    procedure_ref: theoretical_repertoire#curse_loosened_tongue
+    source_item: item_courtesies_curse_book
+    tier: 2
+    curse_class: mental
+    casting_profile: {measured_cost_units: 1, cost_doubles_without_social_wrapper: 2, subtle: true}
+    uses: [lowered_inhibition, target_remembers_a_pleasant_conversation_not_an_interrogation]
+    limits: [does_not_withhold_what_the_target_would_normally_keep_back, confabulates_when_the_target_has_no_answer, one_procedure_per_contact, no_rat_version_for_practice]
+    usage_log:
+      - {event_id: event_turn_interlude_096, role: first_successful_run, target: npc_halven_rusk, delivery: powitanie, units: 1}
+      - {event_id: event_turn_interlude_127, units: 1, note: 'Zmierzony skutek uboczny: rozwiazany jezyk nie zataja TAKZE tego, co cel normalnie zatrzymalby dla siebie, a przy braku odpowiedzi konfabuluje.'}
+      - {event_id: event_turn_interlude_218, units: 2, note: 'KOSZT: 2 JEDNOSTKI - PODWOJNIE, BO BEZ OPAKOWANIA (audyt tury). Rozdzial towarzyski obniza koszt o okolo jeden poziom; dostarczenie bez niego place sie podwojnie.'}
+    note: 'Obnizenie hamowania. Badany pamieta mila rozmowe, nie przesluchanie.'
+  - id: ability_curse_induced_sleep
+    capability_ref: null
+    name: Usypianie
+    mastery: 26
+    procedure_ref: theoretical_repertoire#curse_induced_sleep
+    source_item: item_courtesies_curse_book
+    tier: 1-2
+    curse_class: mental
+    casting_profile: {measured_cost_units: 3, works_without_casters_presence: true}
+    uses: [rising_sleep_pressure_turning_into_real_sleep, target_blames_the_wine]
+    limits: [most_expensive_procedure_in_the_set, one_procedure_per_contact, no_rat_version_for_practice]
+    usage_log:
+      - {event_id: event_turn_interlude_097, role: first_successful_run, target: npc_halven_rusk, delivery: podarunek_przez_pioro, units: 3, note: 'Pierwsza procedura dzialajaca BEZ OBECNOSCI Lucana - przebieg poszedl rozdzialem PODARUNEK.'}
+    note: 'Narastajace cisnienie senne przechodzace w sen prawdziwy; cel obwinia wino.'
 cover_account_given_to_others:
   source_event_id: event_turn_interlude_184
   corrected_by: retcon_000120
@@ -252,9 +302,9 @@ theoretical_repertoire:
   - {id: curse_histamine_blistering, tier: 1-2, class: biological, note: Babel i palenie pod ubraniem - czysty bol bez dowodu poza wysypka.}
   - {id: curse_unscratchable_itch, tier: 1, class: biological, note: 'Kilka dni bez snu, tortura bez sladu.'}
   - {id: curse_hormone_dump, tier: 2, class: biological, note: Panika bez powodu - podane przed przesluchaniem robi z kompetentnego czlowieka niewiarygodnego. Calkowicie niewidzialne.}
-  - {id: curse_induced_sleep, tier: '1-2', class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_097, first_target: npc_halven_rusk_via_pen, measured_cost_units: 3, note: 'Narastajace cisnienie senne przechodzace w sen prawdziwy; cel obwinia wino. Przebieg 097 poszedl rozdzialem PODARUNEK - najdrozsza procedura w zbiorze, dziala bez obecnosci Lucana.'}
-  - {id: curse_memory_trap, tier: 2, class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_129, first_target: npc_academy_porter, measured_cost_units: 1, delivery: pozegnanie_klasa_opozniona, note: 'Wspomnienie twarzy sie nie konsoliduje - godzine pozniej cel nie potrafi Lucana opisac. NIE zabiera samej rozmowy ani wnioskow celu, tylko rysopis. Najcenniejsza procedura w jego sytuacji.'}
-  - {id: curse_loosened_tongue, tier: 2, class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_096, first_target: npc_halven_rusk, measured_cost_units: 1, second_use: event_turn_interlude_127, note: 'Obnizenie hamowania; badany pamieta mila rozmowe, nie przesluchanie. Dostarczane rozdzialem POWITANIE. Skutek uboczny zmierzony w 127: rozwiazany jezyk nie zataja TAKZE tego, co cel normalnie zatrzymalby dla siebie, i przy braku odpowiedzi konfabuluje.'}
+  - {id: curse_induced_sleep, tier: '1-2', class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_097, first_target: npc_halven_rusk_via_pen, measured_cost_units: 3, note: 'Narastajace cisnienie senne przechodzace w sen prawdziwy; cel obwinia wino. Przebieg 097 poszedl rozdzialem PODARUNEK - najdrozsza procedura w zbiorze, dziala bez obecnosci Lucana. PRZENIESIONA 2026-09-05 do `known:` jako ability_curse_induced_sleep (decyzja gracza) - ta pozycja zostaje jako ZRODLO TEORII i zapis pierwszego przebiegu; mechanika, koszt i historia uzyc sa tam.'}
+  - {id: curse_memory_trap, tier: 2, class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_129, first_target: npc_academy_porter, measured_cost_units: 1, delivery: pozegnanie_klasa_opozniona, note: 'Wspomnienie twarzy sie nie konsoliduje - godzine pozniej cel nie potrafi Lucana opisac. NIE zabiera samej rozmowy ani wnioskow celu, tylko rysopis. Najcenniejsza procedura w jego sytuacji. PRZENIESIONA 2026-09-05 do `known:` jako ability_curse_memory_trap (decyzja gracza) - ta pozycja zostaje jako ZRODLO TEORII i zapis pierwszego przebiegu; mechanika, koszt i historia uzyc sa tam.'}
+  - {id: curse_loosened_tongue, tier: 2, class: mental, mastery: mastered_repeatable, first_successful_run: event_turn_interlude_096, first_target: npc_halven_rusk, measured_cost_units: 1, second_use: event_turn_interlude_127, note: 'Obnizenie hamowania; badany pamieta mila rozmowe, nie przesluchanie. Dostarczane rozdzialem POWITANIE. Skutek uboczny zmierzony w 127: rozwiazany jezyk nie zataja TAKZE tego, co cel normalnie zatrzymalby dla siebie, i przy braku odpowiedzi konfabuluje. PRZENIESIONA 2026-09-05 do `known:` jako ability_curse_loosened_tongue (decyzja gracza) - ta pozycja zostaje jako ZRODLO TEORII i zapis pierwszego przebiegu; mechanika, koszt i historia uzyc sa tam.'}
   - {id: curse_sustained_dread, tier: 1-2, class: mental, note: Trzyma lek albo zal swiezym przez dni i degraduje osad.}
   practice_gate:
     physical_and_biological: 'Do wycwiczenia na kregowcu. Szczury sa darmowe i objete stalym
@@ -264,4 +314,4 @@ theoretical_repertoire:
       czlowieku i bedzie jednoczesnie pierwszym uzyciem. Procedura, ktora zadziala w polowie,
       zostawia czlowieka pamietajacego Lucana POLOWICZNIE - gorzej, niz gdyby nie rzucil.'
 suggested_not_confirmed: []
-last_updated_event_id: event_turn_interlude_092
+last_updated_event_id: event_turn_interlude_235
