@@ -613,25 +613,31 @@ leads:
     ref: campaigns/lucan/player/inventory.yaml#item_library_marked_volume
     status: open
 
-  - id: lead_kesz_tannery_takeover_via_asserted_claim
+  - id: lead_tannery_acquisition_via_bailiff_auction
     logged_event_id: player_declaration_2026_09_05
-    topic: Zglosic sie do npc_rovan_kesz z proba przejecia garbarni na podstawie roszczenia
-      wobec poprzedniego wlasciciela
-    note: 'ZADEKLAROWANE PRZEZ GRACZA 2026-09-05. Plan: przyjsc do Kesza z dlugiem albo
-      roszczeniem wobec poprzedniego wlasciciela garbarni - NIE DO KONCA PRAWDZIWYM, ale
-      wniesionym - i na tej podstawie probowac przejac zaklad. Wartosc planu NIE lezy
-      w samym przejeciu: rozmowa o roszczeniu jest pretekstem, ktory POZWALA POKAZAC KESZOWI
-      DOKUMENTY I PIECZEC (item_tannery_owner_cache - papiery, klucze i srebrna pieczec
-      wlasciciela, zone_wall_void baszty) bez tlumaczenia sie, skad Lucan je ma. Otwiera to
-      takze droge do sfalszowania dokumentow na poczet przejecia. NAJWAZNIEJSZE I ZAMIERZONE:
-      Kesz moze PRZYPADKIEM powiazac to z Kolmem - a to jest ta sama linia, ktora Lucan chce
-      pociagnac na dyspucie (retcon_000153). Kesz jest prawnikiem obiegu przestepczego,
-      wiec zna, kto czym byl dla kogo; jego wlasna agenda mowi, ze ocenia, czy Lucan jest
-      obciazeniem, i bierze go za klienta TYLKO jesli pokoj na to pozwoli - propozycja
-      z falszywym roszczeniem jest wiec sama w sobie testem tej oceny.
-      CZEGO NARRATOR NIE ROZSTRZYGA SAM: czy Kesz to kupi, co wie o poprzednim wlascicielu
-      i czy powiazanie z Kolmem w ogole mu przyjdzie do glowy. Wszystkie trzy sa otwarte,
-      tak samo jak cztery pytania z ivar-kolm.yaml#the_act_01_thread.'
+    topic: Przejac garbarnie z AUKCJI KOMORNICZEJ, z npc_rovan_kesz jako prawnikiem prowadzacym
+    note: 'ZADEKLAROWANE PRZEZ GRACZA 2026-09-05, doprecyzowane tego samego dnia. Sciezka
+      podstawowa to AUKCJA KOMORNICZA, a nie samo wniesione roszczenie - roszczenie wobec
+      poprzedniego wlasciciela zostaje jako mozliwa dzwignia, nie jako glowny mechanizm.
+      TRZY POWODY, WSZYSTKIE PODANE PRZEZ GRACZA: (a) STALY MALY PRZYCHOD; (b) BAZA - wlasne
+      miejsce, ktorego Lucan dzis nie ma poza kwatera w murach; (c) SPOSOB NA REDUKCJE
+      NADMIAROWEGO ZLOTA, i to jest powod najmocniejszy mechanicznie. Syndykat placi 52 000
+      srebra w trzech ratach za lup cmentarny; pierwsza rata 12 000 zostala wyplacona
+      W ZLOTEJ MONECIE, zeby dalo sie ja wyniesc z pokoju, a 40 000 czeka do odebrania
+      (event_turn_interlude_111). Tragarz gildii rangi D z workiem zlota jest sam w sobie
+      ekspozycja; kupiony zaklad zamienia pieniadze trudne do wytlumaczenia w aktywo
+      z papierem i z przychodem.
+      ROLA KESZA: prawnik obiegu przestepczego, ktory takie rzeczy prowadzi. Rozmowa
+      o aukcji pozwala POKAZAC MU DOKUMENTY I PIECZEC (item_tannery_owner_cache, zone_wall_void
+      baszty) bez tlumaczenia sie, skad Lucan je ma. Jego wlasna agenda mowi, ze ocenia, czy
+      Lucan jest obciazeniem, i bierze klienta tylko jesli pokoj na to pozwoli - propozycja
+      jest wiec takze testem tej oceny.
+      SKUTEK UBOCZNY, KTORY JEST WLASCIWYM CELEM: Kesz moze PRZYPADKIEM powiazac garbarnie
+      z Kolmem, a to ta sama linia, ktora Lucan chce pociagnac na dyspucie (retcon_000153).
+      CZEGO NARRATOR NIE ROZSTRZYGA SAM: czy garbarnia w ogole idzie pod mlotek i na jakich
+      warunkach, co Kesz wie o poprzednim wlascicielu, czy powiazanie z Kolmem mu przyjdzie
+      do glowy oraz ile taki zaklad realnie przynosi. Cztery pytania z
+      ivar-kolm.yaml#the_act_01_thread pozostaja otwarte bez zmian.'
     ref: campaigns/lucan/entities/npcs/rovan-kesz.yaml
     status: declared_not_yet_attempted
 notes:
