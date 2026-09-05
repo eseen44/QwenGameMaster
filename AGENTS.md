@@ -137,6 +137,13 @@ zbiornik nie moze ubywac netto. Poprzednia wersja tej kontroli byla RAPORTEM i p
 19 rozjazdow, ktore nie istnialy: porownywala nadwyzke generowana przez wezel ze zmiana jego
 ZBIORNIKA, czyli dwie rozne wielkosci. Raportu tej jakosci nie wolno uczynic bramka.
 
+Od 2026-09-05 blokuje takze `tools/registry_check.py --check`: kazdy wpis w `index.yaml` musi
+wskazywac na istniejacy plik, miec to samo `id` i **ten sam `status`, co plik, na ktory wskazuje**.
+Zrodlem prawdy jest KARTA, nie rejestr - `--fix` przepisuje status z pliku do rejestru, nigdy
+odwrotnie. Przeglad 2026-09-05 znalazl 36 rozjazdow statusu (rejestr mowil `needs_review`
+o Seraphinie, ktorej karta od dawna mowi `active`) i jeden duplikat klucza `status` w jednym
+wpisie, ktorego YAML nie zglasza - bierze ostatnia wartosc, a pierwsza jest niewidzialna.
+
 Nowy retcon nie moze miec timestampu w przyszlosci ani wczesniejszego niz poprzedni wpis -
 oba naruszenia sa blokujace (`retcon_000147` mial 16:40 przy zegarze 16:00, wpisane z reki).
 

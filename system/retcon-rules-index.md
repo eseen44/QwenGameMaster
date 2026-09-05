@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **81** z 154 retconow.
+Regul z klauzula normatywna: **82** z 155 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -108,13 +108,14 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000094` — Ojciec Klary formalnie nie ma sie czego czepic: Lucan nie zawarl osobistego zobowiazania wobec Brandtow i mial prawo odmowic narzuconego przez Veyrow malzenstwa.
 - `retcon_000098` — Spotkanie nie jest zaplanowane na interludium ani poczatek Aktu 3 i wymaga naturalnego kanalu Akademii.
 
-## prawo i instytucje (5)
+## prawo i instytucje (6)
 
 - `retcon_000020` — Narrator nie traktuje tej kwoty jako problemu balansu; balans reguluje gracz.
 - `retcon_000069` — (b) Stanowisko obejmowalo okazjonalne, obowiazkowe prowadzenie zajec ze studentami.
 - `retcon_000082` — Ojciec Lucana jest rozkojarzony, wpada w okresy letargu i zapomina o urodzinach oraz zwyklych obowiazkach.
 - `retcon_000133` — Narrator nie moze uzyc pecha jako mechanizmu rozstrzygajacego wymiane, ucieczke, poscig ani zadnej sytuacji, w ktorej cos od wyniku zalezy.
 - `retcon_000140` — Doprecyzowanie gracza nie dodaje wiec nowego bytu (retcon_000058) - nadaje ksztalt zdarzeniu, ktore w plikach istnieje bez opisu.
+- `retcon_000155` — Dlatego naprawa przepisala statusy Z PLIKOW DO REJESTROW, nigdy odwrotnie - 36 wpisow zsynchronizowanych, zaden status w zadnej karcie nie zostal ruszony.
 
 ## pozostale (5)
 

@@ -1,26 +1,31 @@
 schema_version: 1
 campaign_id: campaign_lucan
-status: needs_review
+status: reviewed_2026_09_05
+review_note: >-
+  PRZEJRZANY 2026-09-05 razem z graczem. Sprawdzone maszynowo przez tools/registry_check.py:
+  kazdy wpis wskazuje na istniejacy plik, id sie zgadza, status jest ten sam co w pliku, a w
+  katalogu nie lezy zadna karta poza rejestrem. Kontrola jest od teraz BLOKUJACA w preflight,
+  wiec ten stan nie rozjedzie sie po cichu.
 entities:
-  - {id: npc_mara_teln, ref: campaigns/lucan/entities/npcs/mara-teln.yaml, status: needs_review}
-  - {id: npc_boros_keld, ref: campaigns/lucan/entities/npcs/boros-keld.yaml, status: needs_review}
-  - {id: npc_halven_rusk, ref: campaigns/lucan/entities/npcs/halven-rusk.yaml, status: needs_review}
-  - {id: npc_seraphine_vale, ref: campaigns/lucan/entities/npcs/seraphine-vale.yaml, status: needs_review}
-  - {id: npc_oren, ref: campaigns/lucan/entities/npcs/oren.yaml, status: needs_review}
-  - {id: npc_varkhen_mind, ref: campaigns/lucan/entities/npcs/varkhen.yaml, status: needs_review}
-  - {id: npc_darrik, ref: campaigns/lucan/entities/npcs/darrik.yaml, status: needs_review}
-  - {id: npc_teren, ref: campaigns/lucan/entities/npcs/teren.yaml, status: needs_review}
-  - {id: npc_marael, ref: campaigns/lucan/entities/npcs/marael.yaml, status: needs_review}
-  - {id: npc_odran, ref: campaigns/lucan/entities/npcs/odran.yaml, status: needs_review}
-  - {id: npc_halvek_wagonman, ref: campaigns/lucan/entities/npcs/halvek.yaml, status: needs_review}
-  - {id: npc_lucan_father, ref: campaigns/lucan/entities/npcs/lucan-father.yaml, status: needs_review}
-  - {id: npc_lucan_former_promoter, ref: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml, status: needs_review}
-  - {id: npc_lucan_mother, ref: campaigns/lucan/entities/npcs/lucan-mother.yaml, status: needs_review}
-  - {id: npc_lucan_former_fiancee, ref: campaigns/lucan/entities/npcs/lucan-former-fiancee.yaml, status: needs_review}
+  - {id: npc_mara_teln, ref: campaigns/lucan/entities/npcs/mara-teln.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_boros_keld, ref: campaigns/lucan/entities/npcs/boros-keld.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_halven_rusk, ref: campaigns/lucan/entities/npcs/halven-rusk.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_seraphine_vale, ref: campaigns/lucan/entities/npcs/seraphine-vale.yaml, status: active}
+  - {id: npc_oren, ref: campaigns/lucan/entities/npcs/oren.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_varkhen_mind, ref: campaigns/lucan/entities/npcs/varkhen.yaml, status: active}
+  - {id: npc_darrik, ref: campaigns/lucan/entities/npcs/darrik.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_teren, ref: campaigns/lucan/entities/npcs/teren.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_marael, ref: campaigns/lucan/entities/npcs/marael.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_odran, ref: campaigns/lucan/entities/npcs/odran.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_halvek_wagonman, ref: campaigns/lucan/entities/npcs/halvek.yaml, status: accepted_by_user_pending_package_activation}
+  - {id: npc_lucan_father, ref: campaigns/lucan/entities/npcs/lucan-father.yaml, status: active}
+  - {id: npc_lucan_former_promoter, ref: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml, status: reviewed_2026_09_05}
+  - {id: npc_lucan_mother, ref: campaigns/lucan/entities/npcs/lucan-mother.yaml, status: reviewed_2026_09_05}
+  - {id: npc_lucan_former_fiancee, ref: campaigns/lucan/entities/npcs/lucan-former-fiancee.yaml, status: reviewed_2026_09_05}
   - {id: npc_neris_aldhen, ref: campaigns/lucan/entities/npcs/neris-aldhen.yaml, status: active}
-  - {id: npc_ivar_kolm, ref: campaigns/lucan/entities/npcs/ivar-kolm.yaml, status: needs_review}
+  - {id: npc_ivar_kolm, ref: campaigns/lucan/entities/npcs/ivar-kolm.yaml, status: reviewed_2026_09_05}
   - {id: npc_hesk_dorn, ref: campaigns/lucan/entities/npcs/hesk-dorn.yaml, status: active}
-  - {id: npc_malen_corth, ref: campaigns/lucan/entities/npcs/malen-corth.yaml, status: needs_review}
+  - {id: npc_malen_corth, ref: campaigns/lucan/entities/npcs/malen-corth.yaml, status: reviewed_2026_09_05}
   - {id: npc_ilva_rennat, ref: campaigns/lucan/entities/npcs/ilva-rennat.yaml, status: active}
   - {id: npc_rovan_kesz, ref: campaigns/lucan/entities/npcs/rovan-kesz.yaml, status: active}
   - {id: npc_syndicate_weigher, ref: campaigns/lucan/entities/npcs/syndicate-weigher.yaml, status: active}
@@ -30,7 +35,7 @@ entities:
   - {id: npc_verek_dast, ref: campaigns/lucan/entities/npcs/verek-dast.yaml, status: active}
   - {id: npc_ossek_marn, ref: campaigns/lucan/entities/npcs/ossek-marn.yaml, status: active}
 fixtures:
-  - {id: fixture_cemetery_office_worker, ref: campaigns/lucan/entities/npcs/fixtures/cemetery-office-worker.yaml, status: needs_review}
+  - {id: fixture_cemetery_office_worker, ref: campaigns/lucan/entities/npcs/fixtures/cemetery-office-worker.yaml, status: accepted_by_user_pending_package_activation}
   - {id: fixture_syndicate_doormen, ref: campaigns/lucan/entities/npcs/fixtures/syndicate-doormen.yaml, status: active}
-  - {id: fixture_corpse_shipment_handler, ref: campaigns/lucan/entities/npcs/fixtures/corpse-shipment-handler.yaml, status: needs_review}
+  - {id: fixture_corpse_shipment_handler, ref: campaigns/lucan/entities/npcs/fixtures/corpse-shipment-handler.yaml, status: accepted_by_user_pending_package_activation}
   - {id: fixture_guild_receptionist, ref: campaigns/lucan/entities/npcs/fixtures/guild-receptionist.yaml, status: active}

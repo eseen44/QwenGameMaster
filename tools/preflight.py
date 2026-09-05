@@ -107,6 +107,9 @@ CHECKS = [
     # zbiornika i pokazywala 19 nieistniejacych rozjazdow - raportu tej jakosci nie wolno
     # bylo uczynic bramka. Po przepisaniu kontrola twierdzi rzeczy sprawdzalne i BLOKUJE.
     ("rejestr wzrostu", [sys.executable, "tools/reconcile_growth.py", "--check"], 60, True),
+    # Rejestry klamaly o statusie 23 z 34 wpisow (przeglad 2026-09-05) - rejestr,
+    # ktory klamie, jest gorszy niz jego brak, bo ktos go czyta zamiast otwierac karte.
+    ("rejestry", [sys.executable, "tools/registry_check.py", "--check"], 60, True),
 ]
 
 FULL_CHECKS = [
@@ -145,6 +148,12 @@ def main() -> int:
             # Nowe pole w instancji bez wpisu w kontrakcie moze udawac mechanike.
             checks.append(("kontrakt pol instancji",
                            [sys.executable, "tools/build_field_contract.py", "--check"], 60, True))
+        if any(path.name == "index.yaml" or "/entities/" in path.as_posix()
+               or "/relationships/" in path.as_posix() or "/companions/" in path.as_posix()
+               for path in staged):
+            # WLASNIE TU rozjazd powstaje: ktos poprawia karte i nie rusza rejestru, wiec
+            # rejestr dalej podaje stary status. Kontrola kosztuje ulamek sekundy.
+            checks.append(("rejestry", [sys.executable, "tools/registry_check.py", "--check"], 60, True))
         if journal_touched(staged):
             checks.insert(0, ("zapora dziennika",
                               [sys.executable, "tools/journal_guard.py", "--quiet"], 180, True))
