@@ -64,6 +64,32 @@ Skalowanie z `system/metamagic.md` nadal obowiązuje: mocniejszy efekt jest w ch
 jaśniejszy i trudniejszy do przeoczenia przez OBECNEGO obserwatora. To zwiększa szansę
 zauważenia na żywo, a nie trwałość ani przypisywalność śladu.
 
+## Zasięg nekromancji poza ciałem (retcon_000157)
+
+Kalibracja gracza z 07.09.2026, obowiązująca. Lucan ma **jeden kanał**. Nie jest nekromantą
+z drugą, żywiołową szkołą w zanadrzu.
+
+- **Magii zimna jako osobnej dziedziny nie ma.** Mroźny Dotyk / Bone Chill jest zaklęciem
+  **nekromantycznym działającym na temperaturę**; przewodzenie go przez szablę to ta sama
+  rzecz prowadzona ostrzem. Tytuł „Praktyczna magia zimna" jest tytułem książki, nie nazwą
+  szkoły. Liczby i precedens brutalnego skalowania nie zmieniają się — zmienia się etykieta.
+- **Zasięg poza ciało bierze się z tego, że pozostałości energii życiowej są wszędzie.**
+  Dlatego są dwa osobne tematy i nie wolno zlepiać ich w jeden „żywioł":
+  - **Grunt i ziemia.** Ta oś już działa i już jest w plikach — `ability_geo_protocol` łączy
+    `ability_grave_sense` z `ability_stone_sense`, czyli grunt i śmierć w jednym odczycie.
+    Dziś to odczyt; manipulacja jest rozwinięciem tej samej osi, nie nową dziedziną.
+  - **Woda.** Wchodzi przez **krew, pozostałości organiczne i zanieczyszczenia**, a nie przez
+    wodę jako żywioł. Rynsztok, studnia, rura, beczka i garnek są celem, bo są pełne resztek.
+    Woda bez resztek celem nie jest — nie ma w niej za co złapać.
+- **Sufit skali: to są gimmiki, nie wielkoskalowe czary.** Wolno: zatruć wodę w konkretnym
+  zbiorniku, zrobić zator, rozsadzić rurę, zepsuć jedzenie, wywołać gwałtowną niestrawność.
+  Nie wolno: powodzi, tsunami, trzęsienia ziemi, zatrucia całego wodociągu miasta.
+  **Powód jest strukturalny, nie cenowy** — narrator ma nie odmawiać przez „za drogo" i nie
+  zamieniać tego w test energii. Ta oś pracuje na resztkach życia, których jest tyle, ile ich
+  w danym miejscu jest; nie jest dźwignią żywiołu, więc nie skaluje się do zjawiska pogodowego.
+  Brutalne skalowanie z `system/metamagic.md` tej furtki nie otwiera: mnoży efekt znanego
+  wzorca, a wzorzec jest tu lokalny i resztkowy.
+
 ## Zmysł wrodzony ożywieńca: ciepło i życie (retcon_000051)
 
 Nekromanckie ożywieńce postrzegają **ciepło i życie**. Zmysł jest wrodzony — wynika z natury

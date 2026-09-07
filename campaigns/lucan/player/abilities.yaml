@@ -10,6 +10,11 @@ known:
   - id: ability_bone_chill
     capability_ref: capability_lucan_bone_chill
     name: Bone Chill
+    school_note: >-
+      NIE JEST MAGIA ZIMNA. Magii zimna jako osobnej szkoly u Lucana NIE MA (retcon_000157,
+      2026-09-07). To jest ZAKLECIE NEKROMANTYCZNE DZIALAJACE NA TEMPERATURE - jeden kanal,
+      ten sam co reszta. Liczby, koszty, limity i precedens brutalnego skalowania
+      (milestone_043a) bez zmian; zmienila sie wylacznie etykieta dziedziny.
     mastery: 28
     uses: [touch, short_cone, cold_conduction_through_weapon]
     casting_profile: {close_energy_cost: 1, close_relative_intensity: full, ranged_variant_ref: capability_lucan_bone_chill_ranged, ranged_energy_cost: 2, ranged_relative_intensity: reduced}
@@ -163,6 +168,9 @@ known:
   - id: ability_saber_cold_channel
     capability_ref: capability_lucan_saber_cold_channel
     name: Przewodzenie zimna przez szablę
+    school_note: >-
+      Dziedziczy po ability_bone_chill: to nadal nekromancja dzialajaca na temperature,
+      tylko prowadzona przez ostrze (retcon_000157). Nie ma tu drugiego kanalu ani zywiolu.
     mastery: 30
     development_type: natural_application_of_existing_cold_touch
     parent_ability: ability_bone_chill
