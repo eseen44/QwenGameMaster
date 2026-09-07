@@ -8,7 +8,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_235
+  last_confirmed_event_id: event_turn_interlude_237
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -118,6 +118,28 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/seraphine-vale.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_seraphine_described_her_own_detection_envelope
+    source_event_id: event_turn_interlude_237
+    claim: 'OFERTA Z t_235 PRZYJETA PRZEZ LUCANA ("a jak cos mi mozesz odpowiedziec, to chetnie") i WYDANA
+      W SLOWACH - bez demonstracji na zywo, bez ani jednej jednostki wydanej przez Lucana. UWAGA DLA NARRATORA:
+      pierwsze rozegranie tej tury (t_236) zostalo UCHYLONE przez retcon_000156, bo mowila jezykiem systemu
+      i podawala koszty zdolnosci Lucana, ktorych nie zna. Ten wpis jest wersja obowiazujaca. Powiedziala
+      cztery rzeczy, wszystkie o WLASNYM rzemiosle. (1) TAMTEJ NOCY PRZY OKIENKU zarejestrowala CZLOWIEKA,
+      KTORY COS ROBI - dzialanie w chwili, z czterech krokow, a nie nature, kategorie ani osobe. Opisala
+      to jak sluch: w tym budynku ktos cos robi przez caly wieczor i ona nie podnosi glowy, a tamto glowe
+      podnioslo. NIE POWIEDZIALA, ile go to kosztowalo ani ze mogl inaczej - NIE WIE TEGO i nie wolno
+      jej tego wkladac w usta (retcon_000156 regula B; jedyny fakt, jaki ma o jego technice, to fact_seraphine_knows_lucan_uses_numb).
+      (2) NASTEPNEGO DNIA NA TYCH DRZWIACH NIE MA NICZEGO - poszla obejrzec. Slad zyje tyle, co samo dzialanie,
+      potem zostaje najwyzej "cos tu bylo", nigdy CZYJE (magic-practice#curses_and_magical_traces, system/magic.md#slad).
+      Jej wniosek: pod sciane stawia sie ludzmi i papierem, nie kamieniem. (3) PIECZECIE, NIE SKANER -
+      stawia je z gory, obejmuja miejsce, dzialaja bez niej; przewaga jest tam, gdzie zdazyla sie ustawic,
+      gdzie indziej ma oczy i rapier (retcon_000154 punkt 3). (4) NIC NIE DZIEJE SIE SAMO - zgaszenie
+      cudzej roboty kosztuje ja dzialanie zamiast innego dzialania (punkt 4). GRANICA USTALONA Z GRACZEM
+      2026-09-07, OBOWIAZUJACA W CALEJ KAMPANII: nie istnieje stale wykrywanie NEKROMANTY jako osoby -
+      gdyby istnialo, nekromanci by wyginęli. Kontroler rejestruje ZDARZENIE W ZASIEGU I W CHWILI. Zgodne
+      z pc-lucan#retired_conditions (retcon_000019) i z concealment-materials#detection_model. CZEGO NIE
+      PODALA: zasiegu wlasnej rejestracji w metrach - zaden plik go nie ma. Ceny NIE powtorzyla; nazwala
+      ja raz, w t_235.'
   - fact_id: fact_seraphine_answered_the_combat_mage_question
     source_event_id: event_turn_interlude_235
     claim: 'Lucan zapytal, czy gildia ma dostep do magow bojowych, od ktorych daloby sie cos podlapac.
@@ -143,17 +165,8 @@ knowledge:
       sie bez gildii, z ludzi gildii, imiennie. Nazwiska NADAL NIE MA, bo odmowila jego przyjecia w t_122.
       TERAZ ZAPYTALA O NIE SAMA, RAZ - kontekst zmienila ona: ogloszenie kryzysu (t_232) i uklad ze Straza
       (t_228-232). PYTANIE STOI OTWARTE, Lucan nie odpowiedzial. Od t_125 nikt tam nie zajrzal.'
-  - fact_id: fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian
-    source_event_id: event_turn_interlude_234
-    claim: 'PRZYJELA REKLAMACJE LUCANA I COFNELA WLASNA REGULE Z t_227. Jego argument: mowimy o WEWNETRZNEJ
-      DOKUMENTACJI GILDII, nie o aktach miejskich; prywatna organizacja nie jest zwiazana cudza doktryna;
-      zadne prawo nie zakazuje rozmowy z wyzszym nieumarlym - po prostu rzadko kto ma ku temu okazje.
-      AUDYT PLIKU POTWIERDZA: necromancy-law#legal_baseline kryminalizuje tworzenie, utrzymywanie i kontrole,
-      nie rozmowe, a varkhen_exposure.ancient_guardian_cover_story trzyma sie, dopoki kontrola pozostaje
-      niedowiedziona i Varkhen wspolpracuje dobrowolnie. OD TEJ TURY: Varkhen jest cytowalny JAKO PRADAWNY
-      STRAZNIK NEKROPOLII skladajacy dobrowolne zeznanie. Niecytowalne jest jedno zdanie - nieumarly,
-      ktorego Lucan kontroluje. Ograniczeniem nie jest zrodlo, tylko brzmienie (retcon_000138).'
   older_confirmed_index:
+  - fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian <- event_turn_interlude_234
   - fact_seraphine_revised_the_sequence_after_the_citability_argument <- event_turn_interlude_234
   - fact_seraphine_heard_the_political_liability_frame <- event_turn_interlude_234
   - fact_seraphine_heard_the_tannery_kolm_hypothesis <- event_turn_interlude_233
@@ -262,10 +275,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 91
+  confirmed_entries_total: 92
   in_digest: 4
-  last_fact_from_turn: 235
-  current_turn: 235
+  last_fact_from_turn: 237
+  current_turn: 237
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz

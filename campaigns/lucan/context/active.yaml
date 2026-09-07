@@ -48,17 +48,23 @@ active_refs:
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
-search_terms: []
-last_refreshed_event_id: event_turn_interlude_235
-context_bytes: 38500
+search_terms:
+- 'Wieczor jest jeszcze wczesny, a Seraphine wlasnie oddala Lucanowi rysunek wlasnej
+  slepoty: slyszy dzialanie, nie czlowieka, i tylko tam, gdzie zdazyla sie ustawic.
+  Lucan ma kilka godzin do ciemnosci, kontrolerke rangi A, ktora odpowiada na pytania
+  o wlasne rzemioslo, i trzy rzeczy lezace obok siebie na wyciagniecie reki: jej pieczecie,
+  wlasna siec, ktorej ona do konca nie rozumie, i pytanie o nazwisko urzednika, ktore
+  ona zadala raz i na ktore czeka. Co Lucan robi z tym wieczorem?'
+last_refreshed_event_id: event_turn_interlude_237
+context_bytes: 40181
 context_budget_bytes: 40960
 context_warnings:
-- total_informational:121838>40960
+- total_informational:124528>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 7231
+  bytes: 8261
 - ref: campaigns/lucan/state/objectives.yaml
-  bytes: 5443
+  bytes: 5535
 - ref: campaigns/lucan/state/instances/spidey.yaml
   bytes: 4303
 - ref: campaigns/lucan/state/sustained-links.yaml
@@ -69,8 +75,8 @@ conditional_sets:
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
-      bytes: 16617
-    bytes: 16617
+      bytes: 16866
+    bytes: 16866
   curse_used:
     refs:
     - ref: system/curses.md
@@ -79,22 +85,22 @@ conditional_sets:
   magic_matters:
     refs:
     - ref: system/magic.md
-      bytes: 4700
+      bytes: 4784
     - ref: system/metamagic.md
       bytes: 4529
-    bytes: 9229
+    bytes: 9313
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
       bytes: 10258
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14084
-    bytes: 24342
+      bytes: 14206
+    bytes: 24464
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
-      bytes: 1974
-    bytes: 1974
+      bytes: 2019
+    bytes: 2019
   debugging_runtime:
     refs:
     - ref: system/runtime.md
@@ -122,12 +128,12 @@ conditional_sets:
   choosing_a_plan:
     refs:
     - ref: planning/interlude-act-03-entry-scope.yaml
-      bytes: 3782
+      bytes: 3829
     - ref: planning/obligations-rationale.yaml
-      bytes: 3771
+      bytes: 3816
     - ref: planning/act-03-defence.yaml
-      bytes: 4329
-    bytes: 11882
+      bytes: 4431
+    bytes: 12076
   social_stakes_matter:
     refs:
     - ref: system/social-intrigue.md
@@ -138,14 +144,14 @@ conditional_sets:
     - ref: worlds/solmara/lore/legal-order.yaml
       bytes: 4191
     - ref: worlds/solmara/lore/necromancy-law.yaml
-      bytes: 6080
+      bytes: 6158
     - ref: campaigns/lucan/state/secrets.yaml
       bytes: 9919
-    bytes: 20190
+    bytes: 20268
 context_breakdown:
-  rules_always: 22492
-  state_active: 28465
-  participant_cards: 70881
-  participant_digests: 29597
-  conditional_heaviest: 24342
-context_total_bytes: 121838
+  rules_always: 24278
+  state_active: 29116
+  participant_cards: 71134
+  participant_digests: 29919
+  conditional_heaviest: 24464
+context_total_bytes: 124528
