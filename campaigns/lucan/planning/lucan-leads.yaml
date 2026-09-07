@@ -26,6 +26,57 @@ leads:
       pytanie samo w sobie jest informacja. CZEGO NARRATOR NIE ROZSTRZYGA SAM: czy Kesz rozpozna
       herb, czy zechce powiedziec i czego zazada w zamian.
     status: open
+  - id: lead_filth_water_earth_disease_curse_line
+    logged_event_id: event_turn_interlude_239
+    topic: >-
+      Rozwinac posiadane wstepy do klatw w linie NIECZYSTOSCI - WODA - ZIEMIA - CHOROBY.
+      Cel operacyjny nazwany przez gracza: skuteczne psucie jedzenia i wywolywanie
+      gwaltownych niestrawnosci w stolowce magistratu, jako nieletalna alternatywa dla
+      zalania parteru szambem (pomysl z t_238, ktory Seraphine wycenila jako trafiajacy
+      w zly cel, bo Corth rozeslal pisma i sprawa nie lezy w jednym budynku).
+    declared_by: player_declaration_2026_09_07
+    status: open_direction_not_started
+    co_juz_lezy_w_plikach:
+      - 'item_courtesies_curse_book ("Uprzejmosci", noszona przy sobie). Rozdzial TOAST:
+         nosnikiem jest NACZYNIE, nie skora, klasa opozniona - kontakt i objaw rozjezdzaja
+         sie w czasie. Rozdzial PODARUNEK: przedmiot jako nosnik dzialajacy bez obecnosci
+         Lucana. To sa gotowe wektory dostarczenia przez jedzenie i napoj.'
+      - 'Te same "Uprzejmosci", payloads_biological_torture: UCZULENIE (tier 2, persistence,
+         zamienia kontakt z pospolita substancja w gwaltowna reakcje), WYRZUT HISTAMINY,
+         SWIAD. Ladunki chorobopodobne juz istnieja - brakuje procedury celowanej w przewod
+         pokarmowy, nie calej nowej dziedziny.'
+      - 'read_status ksiazki: teoria przyswojona, praktyka nie. learning_cost mowi wprost,
+         ze KAZDA procedura jest osobnym punktem cwiczen (progression_curses_and_misdirection).
+         Czyli koszt tej linii to SESJE CWICZEN w objective_develop_lucan#develop_active_abilities,
+         a nie nowy zasob.'
+      - 'item_beginner_curses_book ("Klatwy dla poczatkujacych") lezy w wall_hideout -
+         poziom 0-1, podrecznik. Jesli ma byc materialem wyjsciowym, trzeba go przyniesc
+         z baszty; droga cela-baszta to trzy kwadranse marszu (t_086).'
+      - 'Os precyzji Lucana: doktorat z anatomii, biologii i chemii
+         (player/character.yaml#facts_confirmed). Ksiazka daje WEKTOR, celowanie wnosi on sam
+         (item_courtesies_curse_book#contents.calibration) - wiec akurat uklad pokarmowy jest
+         miejscem, gdzie jego wiedza pracuje najmocniej.'
+      - 'worlds/solmara/lore/magic-practice.yaml#principles: liczba procedur dajacych jeden
+         efekt jest NIEOGRANICZONA, a intuicyjny eksperyment moze odkryc efekt przed teoria.
+         Nic w plikach nie zamyka tej linii z gory.'
+    czego_narrator_nie_rozstrzyga_sam:
+      - 'Czy kanal Lucana siega WODY i ZIEMI jako zywiolow. W plikach ma nekromancje (sila
+         zycia) oraz magie zimna z item_practical_cold_magic_book - to jest wszystko, co
+         kanon nazywa. Rozszerzenie na zywioly jest decyzja gracza albo korekta kanonu,
+         nie faktem do dopisania przez narratora i nie zakazem do wymyslenia.'
+      - 'Czy stolowka magistratu istnieje i jak jest zaopatrywana. Zaden plik nie opisuje
+         wnetrza magistratu - Seraphine sama powiedziala w t_238, ze nie ma powodu, zeby
+         wiedziec, co ten budynek ma pod podloga. Rozpoznanie jest osobna praca.'
+      - 'Czy choroba wywolana klatwa czyta sie jako choroba. Kanon mowi tylko o pojedynczych
+         ladunkach: ZAPASC ORTOSTATYCZNA "czyta sie jako choroba, nie jako atak", UCZULENIE
+         jest "zaprzeczalne doskonale, bo alergie istnieja". Uogolnienie tego na cala linie
+         wymaga rozegrania, nie zalozenia.'
+    ramy_prawne_juz_ustalone: >-
+      Klatwy NIE sa nekromancja i sa w Lumarii LEGALNA sztuka, uwazana za obrzydliwa
+      (magic-practice#curses_and_magical_traces). Najwyzej stanowia dowod uzycia mocy na
+      cywilu - kategoria duzo lzejsza niz praktyka nekromancji. Sladu po fakcie nie ma;
+      ryzykiem jest SWIADEK W CHWILI RZUCANIA, nie rezyduum.
+    ref: campaigns/lucan/player/inventory.yaml#item_courtesies_curse_book
   - id: lead_arachnid_donor_parts
     logged_after_event_id: event_turn_interlude_004_loot_pile_review
     topic: Znalezc czesci ciala duzych pajeczakow jako dawce do naprawy/regeneracji

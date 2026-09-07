@@ -1,0 +1,191 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_evening_waiting_for_dark
+object_type: scene_snapshot
+closed_at: '2026-09-07T15:09:39+02:00'
+summary: Lucan wyszedl z gildii po rozmowie w gabinecie Seraphine i przeszedl na zaplecze
+  targu do prawnika. Varkhen zostal w budynku gildii, czekajac na nocne wyjscie pod
+  trzecia pieczec. Sygnet z jeleniem wrocil z biurka Seraphine do kieszeni Lucana;
+  nazwisko urzednika magistratu (Malen Corth) zostalo jej podane. Scena konczy sie
+  przed drzwiami zaplecza syndykatu, przed spotkaniem.
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_evening_waiting_for_dark
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-19T18:01:40+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  - npc_seraphine_vale
+  - npc_varkhen_mind
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Lucan stoi na zapleczu targu przed drzwiami prawnika, z sygnetem w kieszeni i
+    dwoma sprawami do polozenia na jednym stole: herb, ktorego nikt nie umie nazwac,
+    i nazwisko urzednika magistratu, ktorego Kesz zna z zawodu. Do zmierzchu zostalo
+    niewiele, a na noc czeka Varkhen. Czy Lucan wchodzi?'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_239
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_evening_departure_for_the_third_seal.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_narrator_failure_modes:
+  - system/narrator-appendix.md
+  load_when_curse_used:
+  - system/curses.md
+  load_when_magic_matters:
+  - system/magic.md
+  - system/metamagic.md
+  load_when_companion_growth_matters:
+  - system/companion-growth.md
+  - campaigns/lucan/state/growth-banks.yaml
+  load_when_writing_npc_knowledge:
+  - system/canon-policy.md
+  load_when_debugging_runtime:
+  - system/runtime.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/obligations-rationale.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Lucan stoi na zapleczu targu przed drzwiami prawnika, z sygnetem w kieszeni i
+    dwoma sprawami do polozenia na jednym stole: herb, ktorego nikt nie umie nazwac,
+    i nazwisko urzednika magistratu, ktorego Kesz zna z zawodu. Do zmierzchu zostalo
+    niewiele, a na noc czeka Varkhen. Czy Lucan wchodzi?'
+  last_refreshed_event_id: event_turn_interlude_239
+  context_bytes: 39983
+  context_budget_bytes: 40960
+  context_warnings:
+  - total_informational:129968>40960
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8261
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5535
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4304
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877
+  - ref: campaigns/lucan/state/instances/pc-lucan.yaml
+    bytes: 3300
+  conditional_sets:
+    narrator_failure_modes:
+      refs:
+      - ref: system/narrator-appendix.md
+        bytes: 16866
+      bytes: 16866
+    curse_used:
+      refs:
+      - ref: system/curses.md
+        bytes: 15010
+      bytes: 15010
+    magic_matters:
+      refs:
+      - ref: system/magic.md
+        bytes: 4784
+      - ref: system/metamagic.md
+        bytes: 4529
+      bytes: 9313
+    companion_growth_matters:
+      refs:
+      - ref: system/companion-growth.md
+        bytes: 10258
+      - ref: campaigns/lucan/state/growth-banks.yaml
+        bytes: 14206
+      bytes: 24464
+    writing_npc_knowledge:
+      refs:
+      - ref: system/canon-policy.md
+        bytes: 2019
+      bytes: 2019
+    debugging_runtime:
+      refs:
+      - ref: system/runtime.md
+        bytes: 3247
+      bytes: 3247
+    testing:
+      refs:
+      - ref: system/tests.md
+        bytes: 7665
+      - ref: system/character-score.md
+        bytes: 1647
+      - ref: system/capabilities.md
+        bytes: 2887
+      bytes: 12199
+    time_matters:
+      refs:
+      - ref: system/pacing.md
+        bytes: 4871
+      bytes: 4871
+    location_changes:
+      refs:
+      - ref: system/locations-and-maps.md
+        bytes: 2330
+      bytes: 2330
+    choosing_a_plan:
+      refs:
+      - ref: planning/interlude-act-03-entry-scope.yaml
+        bytes: 3829
+      - ref: planning/obligations-rationale.yaml
+        bytes: 3816
+      - ref: planning/act-03-defence.yaml
+        bytes: 4431
+      bytes: 12076
+    social_stakes_matter:
+      refs:
+      - ref: system/social-intrigue.md
+        bytes: 4690
+      bytes: 4690
+    necromancy_legality_matters:
+      refs:
+      - ref: worlds/solmara/lore/legal-order.yaml
+        bytes: 4191
+      - ref: worlds/solmara/lore/necromancy-law.yaml
+        bytes: 6158
+      - ref: campaigns/lucan/state/secrets.yaml
+        bytes: 9919
+      bytes: 20268
+  context_breakdown:
+    rules_always: 24278
+    state_active: 28918
+    participant_cards: 76772
+    participant_digests: 32600
+    conditional_heaviest: 24464
+  context_total_bytes: 129968

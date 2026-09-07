@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 229
+revision: 230
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_upper_offices
-  formation: with_lucan_in_seraphines_office_standing_order_never_revoked_corrected_2026_09_03_in_t_235_the_field_still_named_the_yard_gate_from_the_side_lane_turns
+  location_id: loc_lumaria_market
+  zone_id: zone_market_back_alleys
+  formation: with_lucan_at_the_market_back_alleys_since_t_239_standing_order_never_revoked
 integrity:
   current: 13
   maximum: 13
@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 74020
+      hunting_recovery_elapsed_seconds: 75340
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -53,10 +53,10 @@ traits:
 status_flags:
 - autonomous_hunting
 - death_anchored
-- at_guild_upper_offices_with_lucan
+- at_market_back_alleys_with_lucan
 - decay_suppressed
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_238
+last_event_id: event_turn_interlude_239
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
