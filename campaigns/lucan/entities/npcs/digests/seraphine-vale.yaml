@@ -8,7 +8,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_237
+  last_confirmed_event_id: event_turn_interlude_238
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -118,6 +118,38 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/seraphine-vale.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_seraphine_has_the_clerks_name_malen_corth
+    source_event_id: event_turn_interlude_238
+    claim: 'MA NAZWISKO, O KTORE ZAPYTALA RAZ W t_235: MALEN CORTH, urzednik akt magistratu uzgadniajacy
+      akta garbarni. Lucan podal je bez targu i bez warunku. TO NIE JEST DOSTEP - fact_seraphine_is_not_on_corths_distribution_list
+      nadal stoi, wiec nazwisko mowi jej, GDZIE patrzec, a nie daje jej reki w tej szufladzie; magistrat
+      pozostaje instytucja niezalezna od gildii. CO Z TYM ZROBI - NIEROZSTRZYGNIETE, narrator nie zadeklarowal
+      za nia zadnego ruchu.'
+  - fact_id: fact_seraphine_priced_the_magistrate_flood_idea
+    source_event_id: event_turn_interlude_238
+    claim: 'WYCENILA POMYSL LUCANA NA MAGISTRAT, RACHUNKIEM I BEZ MORALIZOWANIA (portrayal: she_is_a_co_conspirator_not_a_lawful_paragon,
+      do_not_play: oburzenie moralne). Lucan zapytal, czy ma cos zrobic z Corthem, zastrzegl, ze nie zamierza
+      go zabijac ani krzywdzic, i podal wlasny pomysl: zalac caly parter magistratu eksplozja szamba.
+      PYTANIE I POMYSL, NIE WYKONANIE - nikt nigdzie nie poszedl. Jej odpowiedz ma jeden argument glowny
+      i jest ON Z PLIKU, nie z ostroznosci: fact_corth_sent_statement_requests_to_roster_names - Corth
+      ROZESLAL pisma do nazwisk z obsady i zbiera odpowiedzi, wiec sprawa nie lezy w jednym pomieszczeniu,
+      a jej kawalki sa u kazdego, kto dostal list. Zatopienie parteru niszczy EGZEMPLARZ, nie sprawe;
+      kupuje czas i balagan. CENA, NAZWANA RAZ: dzis Corth jest urzednikiem, ktory dopisuje pytanie tam,
+      gdzie sie nie zgadza (jego portrayal - nie sciga, nie ma teorii sprawy); po zdarzeniu w magistracie
+      ta sama sprawa przestaje byc rubryka i dostaje kogos, kto teorie ma, a plynie to przez Straz, na
+      ktorej przytrzymanie ona wydala wlasna wiarygodnosc (t_224) tuz przed ogloszeniem (t_232). NICZEGO
+      NIE ZABRONILA. NIE ROZSTRZYGNIETE: czy magistrat ma kanalizacje uzyteczna do tego pomyslu - zaden
+      plik nie opisuje jego wnetrza.'
+  - fact_id: fact_seraphine_released_the_signet_and_named_the_kesz_risk
+    source_event_id: event_turn_interlude_238
+    claim: 'PUSCILA SYGNET BEZ OPORU. Lucan podniosl item_three_arrow_deer_signet z jej biurka, gdzie
+      lezal od t_233, i zapowiedzial, ze pokaze go npc_rovan_keszowi - "prawnik powinien znac swoja klientele".
+      Nie zatrzymywala: obejrzala go, gdy lezal, i to jej wystarczy do porownania z papierami garbarnika,
+      ktore ma u siebie (zapowiedz z t_234). CZY COS W NICH ZNALAZLA - NIEROZSTRZYGNIETE, to jej otwarta
+      praca. POWIEDZIALA ZA TO JEDNO ZDANIE O RYZYKU, ktore lucan-leads#lead_signet_heraldry_research.kesz_as_a_route_2026_09_05
+      kaze narratorowi pokazac wprost: Kesz zapamieta, ze Lucan pytal, a sygnet jest jednoczesnie sladem
+      po poprzednim wlascicielu garbarni i rzecza zabrana ze skarbca obecnego - czyli samo pytanie jest
+      informacja.'
   - fact_id: fact_seraphine_described_her_own_detection_envelope
     source_event_id: event_turn_interlude_237
     claim: 'OFERTA Z t_235 PRZYJETA PRZEZ LUCANA ("a jak cos mi mozesz odpowiedziec, to chetnie") i WYDANA
@@ -140,32 +172,10 @@ knowledge:
       z pc-lucan#retired_conditions (retcon_000019) i z concealment-materials#detection_model. CZEGO NIE
       PODALA: zasiegu wlasnej rejestracji w metrach - zaden plik go nie ma. Ceny NIE powtorzyla; nazwala
       ja raz, w t_235.'
-  - fact_id: fact_seraphine_answered_the_combat_mage_question
-    source_event_id: event_turn_interlude_235
-    claim: 'Lucan zapytal, czy gildia ma dostep do magow bojowych, od ktorych daloby sie cos podlapac.
-      NIE OBIECALA NIKOGO I NIE PODALA ZADNEGO NAZWISKA - zaden plik nie stawia w gildii maga bojowego,
-      instruktora ani szkoly, a skladu ekipy A-rank z garbarni nie zna nikt (narrator obsady nie produkuje,
-      retcon_000058). Odpowiedziala tym, czym gildia jest: organizacja najmujaca ekipy do zadan, nie kadra
-      do wypozyczania. ZAOFEROWALA ZA TO WLASNE RZEMIOSLO: pokazac Lucanowi, CO dokladnie zarejestrowala
-      w t_038, kiedy rzucil wzmocnionego znika cztery kroki od niej - czyli jak wyglada z drugiej strony
-      pieczeci. Cene nazwala sama, raz: antymagiczka pokazujaca nekromancie, co widzi, oddaje mu sposob
-      ukrycia sie przed soba. Zrobi to mimo tego. OFERTA STOI I NIE ZOSTALA PRZYJETA ANI ODRZUCONA.'
-  - fact_id: fact_seraphine_registered_lucans_position_on_rusk
-    source_event_id: event_turn_interlude_235
-    claim: 'Lucan odlozyl cene z t_234: Rusk nie jest dla niego problemem, ale nie odpowiada za jego stan
-      psychiczny. Przyjela to bez wyceniania drugi raz (retcon_000135 a) i bez wracania do sledztwa kompetencyjnego.
-      Podala natomiast wlasny fakt operacyjny: pioro jest wygaszone, zrobila to sama w t_123/125 i cene
-      przyjela swiadomie - Rusk pisze dalej. Zestawila to z kanalem magistratu: Rusk piszacy i urzednik
-      rozsylajacy pisma o potwierdzenie dat maja jeden wspolny obiekt, obsade operacji w garbarni z nazwiskiem
-      Lucana. NIE ZADALA ANI WYGASZENIA, ANI SPOSOBU - to zamkniete (retcon_000121).'
-  - fact_id: fact_seraphine_asked_again_for_the_clerks_name
-    source_event_id: event_turn_interlude_235
-    claim: 'Zapytana, co z urzednikiem rozpytujacym bez jej udzialu, powtorzyla wynik sprawdzenia z t_125:
-      NIE MA NICZEGO - kanal magistratu jest calkowicie niezalezny od niej, a relacja z garbarni sklada
-      sie bez gildii, z ludzi gildii, imiennie. Nazwiska NADAL NIE MA, bo odmowila jego przyjecia w t_122.
-      TERAZ ZAPYTALA O NIE SAMA, RAZ - kontekst zmienila ona: ogloszenie kryzysu (t_232) i uklad ze Straza
-      (t_228-232). PYTANIE STOI OTWARTE, Lucan nie odpowiedzial. Od t_125 nikt tam nie zajrzal.'
   older_confirmed_index:
+  - fact_seraphine_answered_the_combat_mage_question <- event_turn_interlude_235
+  - fact_seraphine_registered_lucans_position_on_rusk <- event_turn_interlude_235
+  - fact_seraphine_asked_again_for_the_clerks_name <- event_turn_interlude_235
   - fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian <- event_turn_interlude_234
   - fact_seraphine_revised_the_sequence_after_the_citability_argument <- event_turn_interlude_234
   - fact_seraphine_heard_the_political_liability_frame <- event_turn_interlude_234
@@ -275,10 +285,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 92
+  confirmed_entries_total: 95
   in_digest: 4
-  last_fact_from_turn: 237
-  current_turn: 237
+  last_fact_from_turn: 238
+  current_turn: 238
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
