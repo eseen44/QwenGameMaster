@@ -14,6 +14,29 @@ Sługa nekromantyczny nie jest ograniczony skalą zwierzęcia, z którego powsta
 - Materiał dawcy i godziny muszą być realne i zadeklarowane; nie można dopisać retrospektywnego wzrostu z niepoliczonej dawnej pracy.
 - Wzrost nie daje automatycznie wszystkiego. Nowe możliwości otrzymują koszty, warunki dostarczenia i co najmniej dwie praktyczne słabości.
 
+## Sługa jako narząd (retcon_000158, propozycja gracza 07.09.2026)
+
+Lista wyżej zawsze zawierała słowo **zdolność** i nikt go nigdy nie użył. Zawiera je nadal:
+trwałe przeobrażenie może dać okazowi **moc, której Lucan sam nie ma**, i jest to droga
+równoległa do uczenia się jej przez niego. Precedens chodzi po scenie od Aktu 1 — Spidey ma
+wszczepiony gruczoł i własny zbiornik toksyny paralitycznej.
+
+- **Moc siedzi w słudze.** `player/abilities.yaml` Lucana się od tego nie zmienia.
+- **Cena jest ta, która już stoi**: około godziny pracy ręcznej, do dwóch przy wyższej
+  trudności, bez eskalacji; realny, zadeklarowany materiał dawcy; energia Lucana nie jest
+  w to zaangażowana. Nowa możliwość dostaje koszty, warunki dostarczenia i co najmniej dwie
+  praktyczne słabości. **To jest cała danina — narrator nie dokłada drugiej.**
+- **Zasila go własny zbiornik okazu** (`servant_load_uses_separate_energy_reservoirs`).
+  Rezerwa Lucana nie jest tu sufitem; sufitem jest zbiornik sługi i jego bilans dobowy.
+- **To jest najcichsza droga, jaką Lucan ma.** Wedle `retcon_000131` widoczność i ślad
+  powstają PRZY SŁUDZE. Gdy okaz działa własnym narządem z własnego zbiornika, przy Lucanie
+  nie powstaje nic — nawet ślad przesyłu siecią, bo przesyłu nie ma.
+- **Sufit skali z `retcon_000157` obowiązuje i nie rozpuszcza się przez liczbę.** Ograniczenie
+  jest na pojedynczym efekcie: zator, rozsadzona rura, zatruta beczka — tak; tsunami i powódź
+  nie, i nie staną się możliwe dlatego, że okazów jest sto. Równocześnie narrator **nie wymyśla
+  limitu liczby jednostek ani wąskiego gardła produkcji** — sto okazów robiących sto małych
+  rzeczy jest dokładnie tym, czym ta nekromancja ma być.
+
 ## Pętla aktualizacji
 
 1. Zapisz zainwestowane godziny pracy oraz zużyty materiał dawcy.
