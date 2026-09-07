@@ -94,6 +94,18 @@ się": który rejestr, w jakim pliku, kto to wyegzekwuje i czym, jaka jest cena 
 wyrażona jako czyja strata, i czy istnieje sformułowanie tej samej rzeczy bez tej ceny.
 Nie umiesz odpowiedzieć na wszystkie cztery — ograniczenia nie ma.
 
+**Postać mówi zmysłami, nie kartą** (`retcon_000156`). Warstwa mechaniczna — poziomy czaru,
+koszt w jednostkach, cantrip, stack, próg, modyfikator, „brutalne skalowanie", nazwy
+`capability_*` — jest językiem narratora i gracza przy stole, nie językiem Solmary. NPC opisuje
+to samo zjawisko rzemiosłem i postrzeganiem: nie „wzmocniony cantrip za dziesięć razy tyle",
+tylko „pchnąłeś to siłą, aż zaświeciło". W świecie zostają rangi gildii, tytuły i nazwy procedur,
+bo to instytucje, a nie tabele. **Nikt też nie zna cudzej ekonomii mocy**: zawartość rezerwy,
+koszt techniki, jej tańsze warianty i to, ile komuś zostało, są niewidoczne z zewnątrz, dopóki
+właściciel sam ich nie poda albo nie zmierzy ich zdarzenie zapisane w plikach. Obserwator
+dowolnej rangi widzi SKUTEK i JAWNOŚĆ, nie rachunek. Test przed wysłaniem kwestii: czy to zdanie
+mógłby wypowiedzieć ktoś, kto nigdy nie widział pliku — i czy dla każdego faktu o cudzej magii
+istnieje wpis w `knowledge` tej postaci.
+
 **Interludium nie jest silnikiem fabularnym** (`retcon_000142`). Wolny czas na trening
 i naukę jest **pełnoprawnie zużyty**. Lista otwartych kroków to MENU, NIE ZOBOWIĄZANIE —
 nie zestawiaj jej z zegarami, żeby pokazać niedobór. Fabuła nie musi przesuwać się w każdej
