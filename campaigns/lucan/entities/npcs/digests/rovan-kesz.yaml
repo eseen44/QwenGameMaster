@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_244
+  last_confirmed_event_id: event_turn_interlude_245
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,32 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_learned_the_description_has_a_living_man_behind_it
+    source_event_id: event_turn_interlude_245
+    claim: 'PRZELOM W JEGO WLASNEJ EKSPOZYCJI, URUCHOMIONY RUCHEM GRACZA. Lucan zaoferowal mu - jako zadatek
+      na wszystkie mozliwe koszty procesowe - informacje o miejscu przebywania jego problemu. Kesz ZROZUMIAL
+      BEZ PYTANIA, o kogo chodzi (jak w t_105b i t_200), i PRZYJAL. O RYSOPISIE wiedzial od t_105b, bo
+      Lucan sam mu go wtedy wymienil wsrod nitek trzymanych na wozach; NIE WIEDZIAL, ze za rysopisem stoi
+      ZYWY, dostepny czlowiek. To jest npc_halvek_wagonman, captured_alive, loc_guild_holding_cells, halvek#open_thread.
+      SAMEJ INFORMACJI JESZCZE NIE DOSTAL - Lucan zapytal, czy jej chce, i to Lucan ma ja wypowiedziec.
+      NAZWAL, CZYM ZAPLATA JEST: nie zadatkiem, tylko spisem z inwentarza - Lucan mial to przez caly czas,
+      kiedy Kesz wazyl, czy sie w to pakowac; drugi raz ten sam ruch co w t_105b, gdzie tez dostal prezent
+      bedacy jednoczesnie pomiarem. Kpiny nie odebral jako obrazy i nie moralizowal (speech_traits). ODWROCIL
+      OFERTE: miejsce go nie ratuje, bo do cel gildii - budynku Seraphine - prawnik nie wchodzi z teczka;
+      chce wiedziec, CZY TAMTEN JUZ POWIEDZIAL I KOMU. Rysopis w pamieci to plotka, rysopis obok twarzy
+      w protokole to akta - mechanika potwierdzona w tej kampanii przez halvek#prisoner_sourced_gate_guard_description,
+      gdzie rysopis lezal bezuzytecznie od t_048/052 do t_207, dopoki nazwisko nie przyszlo z innego zrodla.
+      CZY HALVEK MOWIL COKOLWIEK PO t_048 - NIEUSTALONE, narrator tego nie domknal. NADAL NIEDOPOWIEDZIANE:
+      Lucan powiedzial twoj problem, nie ty jestes czlowiekiem z rysopisu; nie padlo imie Orena, zeznanie
+      Halveka jako zrodlo, dopasowanie rysopisu ani rozbieznosc palec wskazujacy kontra lewy kciuk (retcon_000122).
+      oren_connection.lucan_said_it_out_loud BEZ ZMIAN. converging_target#consequence zaczyna sie realizowac:
+      przestaje byc uslugodawca, staje sie strona z wlasnym motywem.'
+  - fact_id: fact_kesz_got_paid_instead_of_answered_about_the_priest
+    source_event_id: event_turn_interlude_245
+    claim: 'Zapytal w t_244, co Lucan zamierza zrobic z kaplanem, i dostal zaplate zamiast odpowiedzi.
+      Odnotowal to RAZ, plasko, bez zlosci i BEZ POWTARZANIA PYTANIA (retcon_000121, retcon_000142). Pytanie
+      zostaje otwarte i nalezy do niego - jesli zechce, wroci z nim sam. Bez odpowiedzi nadal takze: nazwisko
+      urzednika akt, termin dostarczenia papierow i udzial pokoju.'
   - fact_id: fact_kesz_asked_what_lucan_intends_to_do_with_the_priest
     source_event_id: event_turn_interlude_244
     claim: 'PYTANIE OTWARTE, POSTAWIONE PRZED CZASEM I NIE O PIENIADZE. Lucan zapytal, co z kaplanem;
@@ -52,31 +78,9 @@ knowledge:
       kwadranse marszu, t_086) i ILE DOSTAJE POKOJ. Kesz dopisal przy nich w ksiedze nieumowione, jedna
       linijka, i nie wrocil do tematu - jego kalendarz od tego zalezy, ale nacisku nie stawia (retcon_000142).
       Nazwiska urzednika akt nie zazadal juz w ogole, zgodnie z tym, co sam powiedzial w t_243.'
-  - fact_id: fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first
-    source_event_id: event_turn_interlude_243
-    claim: 'STRATEGIA LUCANA PRZYJETA W CALOSCI. Miasto - zajecie majatku i oplata; gildia - zamkniecie
-      sprawy; zaden wspolny papier, wiec jedna sprawa nie zapala drugiej. PIECZEC ZAMKNIETA PO JEGO WOLI:
-      Lucan powiedzial zakladam, ze nie wiesz, i Kesz to przyjal - wie, ze pieczec istnieje, NIE wie gdzie
-      jest i nie chce wiedziec; nie zapisal i nie wraca. PIERWSZY KROK UMOWIONY I WYKONALNY BEZ NAZWISKA
-      URZEDNIKA: idzie od rana do miasta, bo Lucan jest wierzycielem ze ZLOZONYM pismem (inventory#two_open_debts)
-      i wierzyciel moze WNIESC O ZAJECIE majatku dluznika - urzednik akt jest potrzebny do ruszenia REJESTRU
-      WLASNOSCI, nie do wniosku, a rejestru Kesz nie tyka. Nazwiska nie zazadal trzeci raz (retcon_000121),
-      powiedzial tylko, gdzie droga sie bez niego konczy. POPRZEDNI WLASCICIEL: przyjal, ze nie ma praw
-      do terenu, bo obecny nabyl wszystko na nowo - czyli stary jest bezwartosciowy dla samego nabycia
-      i wartosciowy tylko jako osobny towar.'
-  - fact_id: fact_kesz_named_the_price_of_throwing_the_old_owner_to_the_guild
-    source_event_id: event_turn_interlude_243
-    claim: 'Lucan zaproponowal rzucenie gildii starego wlasciciela jako udokumentowanego sprawcy, zeby
-      domknela wlasne postepowanie. Kesz nazwal to najlepszym pomyslem wieczoru i NIE odradzil. DOLOZYL
-      JEDNA CENE, JEDNYM ZDANIEM, I JEST TO CYTAT Z PLIKU, NIE HAK (retcon_000058 - nie powstala zadna
-      lista, zaden swiadek, zaden zegar): inventory#item_tannery_owner_cache.why_it_matters_now mowi,
-      ze te papiery to DOKLADNIE ta kategoria prawna, o ktora toczy sie otwarta dysputa, a katedra npc_ivar_kolm
-      to biomutanty - Lucan trzyma gotowy precedens z Lumarii, ze ktos juz to robil pod warsztatem i miasto
-      tego nie zobaczylo. To samo pismo, ktore zamyka postepowanie gildii, uzbraja wiec druga strone dysputy
-      za okolo 16 dni. Decyzji NIE ZAZADAL teraz. NIEROZSTRZYGNIETE: czy stary wlasciciel zyje (tannery-owner#do_not_invent)
-      - a to decyduje, czy gildia dostaje sprawce, czy tylko akta. ZAPYTAL O TERMIN dostarczenia papierow,
-      bo leza trzy kwadranse marszu od miasta (t_086), a noc Lucana jest juz zajeta.'
   older_confirmed_index:
+  - fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first <- event_turn_interlude_243
+  - fact_kesz_named_the_price_of_throwing_the_old_owner_to_the_guild <- event_turn_interlude_243
   - fact_kesz_will_carry_the_honest_business_offer_to_the_principal <- event_turn_interlude_243
   - fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end <- event_turn_interlude_242
   - fact_kesz_knows_lucan_holds_the_owners_silver_seal <- event_turn_interlude_242
@@ -118,10 +122,10 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 37
+  confirmed_entries_total: 39
   in_digest: 4
-  last_fact_from_turn: 244
-  current_turn: 244
+  last_fact_from_turn: 245
+  current_turn: 245
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
