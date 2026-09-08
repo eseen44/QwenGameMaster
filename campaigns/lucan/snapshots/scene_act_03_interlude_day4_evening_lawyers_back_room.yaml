@@ -1,0 +1,189 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_evening_lawyers_back_room
+object_type: scene_snapshot
+closed_at: '2026-09-08T23:38:35+02:00'
+summary: Lucan wrocil z zaplecza targu do gildii po rozmowie z npc_rovan_keszem. Kesz
+  prowadzi teraz dla niego druga sprawe - przejecie garbarni - i od rana idzie do
+  miasta z wnioskiem wierzyciela o zajecie majatku. Dostal nazwisko Halveka i wie,
+  ze swiadek rozpozna go w jednym pokoju; wie tez, ze jeden taki pokoj sam obiecal.
+  W gildii czeka Varkhen w plaszczu, wyjscie pod trzecia pieczec zaplanowane na te
+  noc.
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_evening_lawyers_back_room
+  location_ref: campaigns/lucan/locations/lumaria-market/location.yaml
+  started_at: '2026-08-19T18:39:40+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  - npc_rovan_kesz
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - Lucan jest w gildii, na gorze czeka Varkhen w plaszczu, a noc pod trzecia pieczec
+    jest zaplanowana. Scena u prawnika zamknieta - nastepny ruch to wyjscie w noc
+    albo cokolwiek, co Lucan chce zrobic w gildii przedtem.
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_248
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_evening_waiting_for_dark.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_narrator_failure_modes:
+  - system/narrator-appendix.md
+  load_when_curse_used:
+  - system/curses.md
+  load_when_magic_matters:
+  - system/magic.md
+  - system/metamagic.md
+  load_when_companion_growth_matters:
+  - system/companion-growth.md
+  - campaigns/lucan/state/growth-banks.yaml
+  load_when_writing_npc_knowledge:
+  - system/canon-policy.md
+  load_when_debugging_runtime:
+  - system/runtime.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/obligations-rationale.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-market/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - Lucan jest w gildii, na gorze czeka Varkhen w plaszczu, a noc pod trzecia pieczec
+    jest zaplanowana. Scena u prawnika zamknieta - nastepny ruch to wyjscie w noc
+    albo cokolwiek, co Lucan chce zrobic w gildii przedtem.
+  last_refreshed_event_id: event_turn_interlude_248
+  context_bytes: 38681
+  context_budget_bytes: 40960
+  context_warnings:
+  - total_informational:93445>40960
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8376
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5443
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4166
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 3877
+  - ref: campaigns/lucan/state/instances/pc-lucan.yaml
+    bytes: 3222
+  conditional_sets:
+    narrator_failure_modes:
+      refs:
+      - ref: system/narrator-appendix.md
+        bytes: 16617
+      bytes: 16617
+    curse_used:
+      refs:
+      - ref: system/curses.md
+        bytes: 15010
+      bytes: 15010
+    magic_matters:
+      refs:
+      - ref: system/magic.md
+        bytes: 6834
+      - ref: system/metamagic.md
+        bytes: 4529
+      bytes: 11363
+    companion_growth_matters:
+      refs:
+      - ref: system/companion-growth.md
+        bytes: 12056
+      - ref: campaigns/lucan/state/growth-banks.yaml
+        bytes: 14084
+      bytes: 26140
+    writing_npc_knowledge:
+      refs:
+      - ref: system/canon-policy.md
+        bytes: 1974
+      bytes: 1974
+    debugging_runtime:
+      refs:
+      - ref: system/runtime.md
+        bytes: 3247
+      bytes: 3247
+    testing:
+      refs:
+      - ref: system/tests.md
+        bytes: 7665
+      - ref: system/character-score.md
+        bytes: 1647
+      - ref: system/capabilities.md
+        bytes: 2887
+      bytes: 12199
+    time_matters:
+      refs:
+      - ref: system/pacing.md
+        bytes: 4871
+      bytes: 4871
+    location_changes:
+      refs:
+      - ref: system/locations-and-maps.md
+        bytes: 2330
+      bytes: 2330
+    choosing_a_plan:
+      refs:
+      - ref: planning/interlude-act-03-entry-scope.yaml
+        bytes: 3782
+      - ref: planning/obligations-rationale.yaml
+        bytes: 3771
+      - ref: planning/act-03-defence.yaml
+        bytes: 4329
+      bytes: 11882
+    social_stakes_matter:
+      refs:
+      - ref: system/social-intrigue.md
+        bytes: 4690
+      bytes: 4690
+    necromancy_legality_matters:
+      refs:
+      - ref: worlds/solmara/lore/legal-order.yaml
+        bytes: 4191
+      - ref: worlds/solmara/lore/necromancy-law.yaml
+        bytes: 6080
+      - ref: campaigns/lucan/state/secrets.yaml
+        bytes: 11582
+      bytes: 21853
+  context_breakdown:
+    rules_always: 24199
+    state_active: 27501
+    participant_cards: 41745
+    participant_digests: 10531
+    conditional_heaviest: 26140
+  context_total_bytes: 93445

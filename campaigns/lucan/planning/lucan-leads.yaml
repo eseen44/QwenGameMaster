@@ -856,6 +856,41 @@ declared_intents_awaiting_normal_declaration:
       Kanon: faction_lumaria_criminal_networks ma exploit_power_vacuum wsrod interesow, a
       komorki sa rozproszone i NIE sa automatycznie sojusznikiem sieci Orena.'
     status: open
+  - id: lead_priest_convinced_then_joint_consultation
+    logged_event_id: event_turn_interlude_248
+    declared_by: player_declaration_2026_09_08
+    topic: >-
+      Przekonac kaplana, ze Lucan jest jego JEDYNA NADZIEJA, a potem posadzic przy tym
+      jednym stole npc_rovan_kesza i kaplana naraz - wspolna konsultacja.
+    note: >-
+      ODPOWIEDZ NA PYTANIE KESZA Z t_244, PODANA NA ODCHODNYM. Kesz wymienil cztery
+      mozliwe pokoje - negocjowac, kupic, przycisnac, zniszczyc - a Lucan podal PIATY,
+      spoza tej listy, i zaznaczyl, ze zrobi to TAK SAMO, JAK ZROBIL TO KESZOWI. Jest to
+      ta sama metoda, ktora sam nazwal w t_246: manipulowac zamiast grozic, bo swiadomosc
+      nie pomaga.
+    status: declared_not_yet_attempted
+    co_musi_sie_zdarzyc_najpierw:
+      - 'ODPOWIEDZ KAPLANA. Wiadomosc wyszla rano dnia 4 interludium
+         (fact_kesz_sent_word_to_the_priest). Odpowiedzi NIE MA. Terminu ani miejsca Kesz
+         nie wyznaczy - data nie jest jego do dania (t_113, t_193).'
+      - 'Rama wiadomosci jest juz ustalona i Kesz niesie ja NIE ZNAJAC tresci: spotkanie
+         dotyczy TEGO, CO JEST POD CMENTARZEM
+         (fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest).'
+      - 'Kim Lucan tam siada: WSZYSTKIE TRZY KAPELUSZE NARAZ - Akademia na urlopie
+         dziekanskim, gildia, Veyr. Pytanie zamkniete w t_193, nie otwierac go ponownie.'
+    czego_narrator_nie_rozstrzyga_sam:
+      - 'Czy kaplan w ogole odpowie i na jakich warunkach.'
+      - 'Czy da sie go przekonac, ze Lucan jest jego jedyna nadzieja - i czym mialaby byc
+         ta nadzieja. Kaplan nie ma karty NPC i NIE MA IMIENIA; faction_lumaria_church
+         mowi o nim tylko local_priest. Nie wymyslac.'
+      - 'Czy Kesz zgodzi sie siedziec z kaplanem przy jednym stole PO tym, czego dowiedzial
+         sie w t_247 - powiedzial, ze do rana bedzie wiedzial, czego chce.'
+    ryzyko_ktore_juz_stoi_w_plikach: >-
+      lead_priest_is_the_converging_target: kaplan znal wlasciwe wejscie, ogladal pieczecie
+      i przy ostatniej wizycie przyszedl Z ORENEM, a Kesz jest czlowiekiem, po spotkaniach
+      z ktorym Oren zmienial trasy. Posadzenie ich razem przy jednym stole zestawia przy
+      sobie DWIE osoby z tej samej linii transportu cial - i robi to na oczach Lucana,
+      ktory sam ten stol zwolal.
   - id: lead_priest_is_the_converging_target
     logged_event_id: event_turn_interlude_110
     topic: Wojna Lucana z Kosciolem i ekspozycja Kesza celuja w tego samego kaplana
