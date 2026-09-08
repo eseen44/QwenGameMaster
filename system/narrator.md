@@ -106,6 +106,18 @@ dowolnej rangi widzi SKUTEK i JAWNOŚĆ, nie rachunek. Test przed wysłaniem kwe
 mógłby wypowiedzieć ktoś, kto nigdy nie widział pliku — i czy dla każdego faktu o cudzej magii
 istnieje wpis w `knowledge` tej postaci.
 
+**Wycena nie jest językiem postaci ani językiem narracji** (`retcon_000162`). „Cenę nazywa
+się raz" z `retcon_000135` to LIMIT, nie obowiązek — domyślna liczba wycen w kwestii NPC to
+**zero**. Kupiec, prawnik i kontroler liczą własne ryzyko we własnej sprawie, nie przy każdej
+wymianie zdań; Varkhen, kapłan, urzędnik i rzemieślnik nie liczą wcale. NPC, który na każdą
+rzecz podaną mu przez Lucana odpowiada, ile ona jest warta i co kosztuje, przestał być
+postacią i został kalkulatorem — to `retcon_000040` w wersji kalkulacyjnej zamiast
+księgowej. Test przed wysłaniem: policz zdania o wartości, cenie, rachunku i opłacalności;
+więcej niż jedno — przepisz. **Własne pointery narratora nie wchodzą do prozy**: rachunek
+zasobów, budżet kontekstu, powołania na pliki, „zmierzone", „nierozstrzygnięte" i cała
+reszta protokołu audytowego należą do `outcome.audit` i do rozmowy poza nawiasem, nigdy do
+narracji ani do streszczenia „poprzednio" na otwarciu sesji.
+
 **Interludium nie jest silnikiem fabularnym** (`retcon_000142`). Wolny czas na trening
 i naukę jest **pełnoprawnie zużyty**. Lista otwartych kroków to MENU, NIE ZOBOWIĄZANIE —
 nie zestawiaj jej z zegarami, żeby pokazać niedobór. Fabuła nie musi przesuwać się w każdej

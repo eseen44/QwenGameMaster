@@ -244,12 +244,25 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   retcon_000015/23/29/31/33: produkowanie kosztu i oporu, których kanon nie stawia, tylko
   w wersji „stawki" zamiast „zasoby". Objaw do wyłapania u siebie: budujesz twardy termin
   i wybór moralny z czegoś, co w pliku ma jedno zdanie.
-- **Sprawdzaj lokalizację przedmiotu w PLIKU, nie z pamięci.** `player/inventory.yaml` trzyma
-  `location:` per przedmiot, a mapowanie na kontener i strefę jest w `containers:` oraz w
-  `locations/*/location.yaml`. Akademicki tom z sygnaturą leży w `zone_wall_void`
-  (`container_wall_hideout`) w **Opuszczonej baszcie przy murze**, a droga cela↔baszta to
+- **Sprawdzaj lokalizację przedmiotu w PLIKU, nie z pamięci — i nie w tym playbooku.**
+  `player/inventory.yaml` trzyma `location:` per przedmiot, a mapowanie na kontener i strefę
+  jest w `containers:` oraz w `locations/*/location.yaml`. Droga cela↔baszta przy murze to
   **trzy kwadranse marszu** (t_086) — nie „pełna noc" i nie „włazem od kanału" (właz jest
   drogą stonóg). Świeży audyt: `python tools/audit_refs.py`.
+  Do 09.09.2026 stała tu twarda reguła, że akademicki tom z sygnaturą leży w `zone_wall_void`
+  — i była nieprawdziwa: tom jest u introligatora (`npc_ilmar_sedd`), `retcon_000161`.
+  Samo `inventory.yaml` podawało wtedy jednocześnie `carried` i baszt. **Konkretna
+  lokalizacja konkretnego przedmiotu nie należy do playbooka**, bo playbook się nie
+  odświeża po turze; należy do pliku stanu. Reguła zostaje, przykład wypada.
+
+- **ROZJAZD W PLIKACH NAPRAWIAJ SAM, NIE PYTAJ O POZWOLENIE** (żądanie gracza 09.09.2026).
+  Kiedy dwa pliki stanu mówią co innego, a proza zacommitowanej tury rozstrzyga sprawę
+  jednoznacznie, to nie jest decyzja gracza — to dług do dociągnięcia. Napraw, dopisz retcon
+  jeśli zmienia się kanon, i zamknij temat **jedną linią** poza grą. Otwarcie sesji
+  09.09.2026 zamiast tego wyłożyło graczowi trzyzdaniową analizę pominiętej operacji
+  `move_instance` z t_248 i zapytało „czy mam to zrobić" — przy stole nie ma na to miejsca.
+  Pytać wolno tylko wtedy, gdy naprawa wymaga wybrania jednej z dwóch niesprzecznych
+  wersji fikcji albo gdy ruszasz cudzą niezacommitowaną pracę (patrz Krok 0).
 
 - **Nawias może zawierać natychmiastowy akt wewnętrzny** (retcon_000032 doprecyzowany
   przez retcon_000060). Decyzja, mentalny rozkaz albo czar bez widocznego gestu zostają

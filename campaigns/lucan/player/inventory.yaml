@@ -360,7 +360,7 @@ items:
     source_refs: [event_turn_interlude_083]
   - id: item_library_marked_volume
     name: Akademicki podrecznik przywracania ruchu i oddechu (sygnatura biblioteki Akademii)
-    location: carried
+    location: with_npc_ilmar_sedd_as_the_model_for_the_copy
     type: stolen_institutional_property
     identification: examined_event_turn_interlude_085
     subject: 'Przywracanie ruchu i oddechu cialu, ktore przestalo - utopieni, porazeni,
@@ -423,9 +423,13 @@ items:
       plan: 'Najpierw powiedziec Neris, ze ksiazke trzeba zwrocic, i opisac jej historie.
         W nocy przekartkowac tom, zeby niczego nie stracic, a potem go oddac. Te czynnosci
         sa dopiero planem, nie zostaly wykonane. Gracz nie spodziewa sie duzej wartosci tomu.'
-      where_it_is: 'container_wall_hideout = zone_wall_void w loc_city_wall_hideout
-        (Opuszczona baszta przy murze), obok stolu warsztatowego. NIE ma tam trasy kanalem;
-        wlaz istnieje jako droga dla stonog, nie jako droga Lucana.'
+      where_it_is: 'U INTROLIGATORA - npc_ilmar_sedd, zaplecze tylu rzedu ksiazkowego na
+        loc_lumaria_market (korekta kanonu gracza 2026-09-09, retcon_000161). Wzor zostal
+        wydany przy skladaniu zamowienia w dniu czwartym interludium, wiec dziewiec dni
+        Sedda (retcon_000126) liczy sie od tamtej chwili, nie od zwrotu. Tomu NIE MA ani
+        przy Lucanie, ani w baszcie: poprzednia wartosc tego pola (container_wall_hideout
+        = zone_wall_void w loc_city_wall_hideout) i poprzednie location: carried byly
+        rozjazdem, nie kanonem.'
       distance: 'Trzy kwadranse marszu cela gildii <-> baszta (event_turn_interlude_086,
         zmierzone w fikcji). To sprawa wieczoru, nie calej nocy.'
       route: 'USTALONA W event_turn_interlude_171: jawny zwrot przez bibliotekarza, spotkanie umawia
