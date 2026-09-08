@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_243
+  last_confirmed_event_id: event_turn_interlude_244
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,27 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_asked_what_lucan_intends_to_do_with_the_priest
+    source_event_id: event_turn_interlude_244
+    claim: 'PYTANIE OTWARTE, POSTAWIONE PRZED CZASEM I NIE O PIENIADZE. Lucan zapytal, co z kaplanem;
+      Kesz podal stan (wiadomosc poszla dzis, odpowiedzi nie ma, terminu nie wyznacza on - data nie jest
+      jego do dania) i zaraz potem swoja pozycje, jak zawsze zanim musial. Dwa jego wlasne fakty sie tu
+      spinaja: t_193 - skoro spotkanie organizuje ON, wprowadzenie tam Veyra po jawnej zapowiedzi wojny
+      z Kosciolem jest pozycja, ktora bedzie musial komus wytlumaczyc; t_203 - po podaniu mu SKALI nie
+      moze juz powiedziec, ze nie wie, ze sprawa jest powazna, czyli jego oslona z niewiedzy zmniejszyla
+      sie o polowe. PYTA WIEC: co Lucan zamierza z tym kaplanem zrobic, i chce to wiedziec PRZED pokojem,
+      nie w pokoju. NIE zazadal honorarium, weta ani warunku - to jest pytanie, nie brama. ODPOWIEDZI
+      NIE DOSTAL w tej turze. CZEGO NIE POWIEDZIAL, choc doszedl do krawedzi: ani slowa o Orenie, o zmienianych
+      trasach, o zeznaniu npc_halvek_wagonman ani o tym, ze kaplan przyszedl na cmentarz z Orenem. converging_target#consequence
+      zostaje - zaden z nich nie dopowiedzial tego do konca na glos, a dopowiedzenie jest ruchem GRACZA.
+      oren_connection bez zmian, confirmation_route przez Halveka nietknieta.'
+  - fact_id: fact_kesz_wrote_unagreed_next_to_the_papers_and_the_rooms_share
+    source_event_id: event_turn_interlude_244
+    claim: 'Lucan powiedzial, ze temat garbarni jest uzgodniony, i przeszedl do kaplana - ale dwa praktyczne
+      pytania Kesza z t_243 zostaly bez odpowiedzi: KIEDY dostanie papiery (zone_wall_void baszty, trzy
+      kwadranse marszu, t_086) i ILE DOSTAJE POKOJ. Kesz dopisal przy nich w ksiedze nieumowione, jedna
+      linijka, i nie wrocil do tematu - jego kalendarz od tego zalezy, ale nacisku nie stawia (retcon_000142).
+      Nazwiska urzednika akt nie zazadal juz w ogole, zgodnie z tym, co sam powiedzial w t_243.'
   - fact_id: fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first
     source_event_id: event_turn_interlude_243
     claim: 'STRATEGIA LUCANA PRZYJETA W CALOSCI. Miasto - zajecie majatku i oplata; gildia - zamkniecie
@@ -55,34 +76,9 @@ knowledge:
       za okolo 16 dni. Decyzji NIE ZAZADAL teraz. NIEROZSTRZYGNIETE: czy stary wlasciciel zyje (tannery-owner#do_not_invent)
       - a to decyduje, czy gildia dostaje sprawce, czy tylko akta. ZAPYTAL O TERMIN dostarczenia papierow,
       bo leza trzy kwadranse marszu od miasta (t_086), a noc Lucana jest juz zajeta.'
-  - fact_id: fact_kesz_will_carry_the_honest_business_offer_to_the_principal
-    source_event_id: event_turn_interlude_243
-    claim: 'DRUGA, SZERSZA OFERTA DO SYNDYKATU - dotyka obligation_define_syndicate_exchange_beyond_gold,
-      ktorego status to first_substantive_offer_made_not_yet_accepted (oferta z t_198: odpad jubilerski,
-      potencjalnie Akademia jako odbiorca, UMOWY NIE MA). Lucan kazal przedstawic garbarnie jako POCZATEK
-      SWOJEJ UCZCIWEJ PRZEDSIEBIORCZOSCI, ktora bedzie wymagala logistyki, pomocy prawnej i mniej prawnej
-      - czyli wszystkiego, na czym pokoj zarabia - z pieczatka gildii pod statusem prawnym jako wisienka.
-      Kesz WEZMIE to do pokoju i nie odradzil. POPRAWIL ADRES OFERTY, i jest to odczyt z pliku, nie madrosc
-      z urzedu (retcon_000040): syndicate-weigher#seraphines_reading_of_the_motive mowi, ze syndykat KUPUJE
-      PRZYSZLOSC TERENU - pryncypal sam powiedzial, ze pusta linia sciagnie kogos w ciagu tygodni i ze
-      ktokolwiek ja wezmie, bedzie potrzebowal cmentarza. Wiec pokoju nie trzeba przekonywac do gruntu;
-      pokoj grunt juz kupuje. Rada: Lucan ma SAM nazwac udzial pokoju, zanim pokoj nazwie go za niego.
-      standing.room_condition nienaruszone - pryncypal nadal nienazwany, slowa Don Kesz nie powtarza.
-      Pytanie czyja twarz kupuje zaklad NADAL OTWARTE - oferta go nie zalatwia.'
-  - fact_id: fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end
-    source_event_id: event_turn_interlude_242
-    claim: 'USLYSZAL WERSJE, NIE PRAWDE. Lucan powiedzial mu, ze papiery znalazl formalnie W SMIECIACH,
-      eksplorujac ruiny i laboratoria biomutantow pod posesja, i ze wlasciciel nie moze ich przyznac,
-      bo przyznalby, ze wiedzial o laboratoriach oznaczonych jako zagrozenie dla miasta - a za ich ukrywanie
-      grozi mu dluga odsiadka. ZAPISYWAC JAKO TO, CO USLYSZAL: prawda z plikow jest inna i sie NIE ZMIENIA
-      (papiery ze SKRYTKI i MIESZKANIA obecnego wlasciciela, otwartych jego wlasnymi kluczami - tannery-owner#the_vault,
-      #the_lodging; retcon_000120). Wersja lezy w state/secrets.yaml#cover_stories. SAM ARGUMENT Kesz
-      uznal za dobry i jest to odczyt z pliku, nie retoryka (tannery-owner#why_he_was_detained, #what_he_refuses).
-      POKAZAL JEGO DRUGI KONIEC, bez nazywania kogokolwiek po imieniu: papier, ktorego wlasciciel nie
-      moze przyznac, nie jest przez to papierem bez zainteresowanych, bo opisuje LABORATORIA, a to wynika
-      z kategorii dokumentu, nie z niczyjego spisu (zadna lista, zaden swiadek, zaden zegar - retcon_000058,
-      retcon_000055).'
   older_confirmed_index:
+  - fact_kesz_will_carry_the_honest_business_offer_to_the_principal <- event_turn_interlude_243
+  - fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end <- event_turn_interlude_242
   - fact_kesz_knows_lucan_holds_the_owners_silver_seal <- event_turn_interlude_242
   - fact_kesz_split_the_two_keys_guild_site_city_estate <- event_turn_interlude_242
   - fact_kesz_took_the_tannery_matter_as_a_paid_client <- event_turn_interlude_241
@@ -122,10 +118,10 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 35
+  confirmed_entries_total: 37
   in_digest: 4
-  last_fact_from_turn: 243
-  current_turn: 243
+  last_fact_from_turn: 244
+  current_turn: 244
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
