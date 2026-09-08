@@ -48,29 +48,33 @@ active_refs:
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
-search_terms: []
-last_refreshed_event_id: event_turn_interlude_239
-context_bytes: 38728
+search_terms:
+- 'Kesz czeka na dwie odpowiedzi: NAZWISKO urzednika akt, ktory rusza rejestrem garbarni
+  (Lucan je ma - Malen Corth), oraz CZYJA TWARZ kupuje zaklad, jesli nie Lucana. Osobno
+  wciaz nierozstrzygniete: czy Lucan sklada roszczenie wierzyciela, zeby dostac wglad
+  w majatek, wiedzac, ze wniosek stawia go w tych podziemiach na papierze.'
+last_refreshed_event_id: event_turn_interlude_240
+context_bytes: 38779
 context_budget_bytes: 40960
 context_warnings:
-- total_informational:51941>40960
+- total_informational:51798>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 8261
+  bytes: 8376
 - ref: campaigns/lucan/state/objectives.yaml
-  bytes: 5535
+  bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4277
+  bytes: 4166
 - ref: campaigns/lucan/state/sustained-links.yaml
   bytes: 3877
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3289
+  bytes: 3221
 conditional_sets:
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
-      bytes: 16866
-    bytes: 16866
+      bytes: 16617
+    bytes: 16617
   curse_used:
     refs:
     - ref: system/curses.md
@@ -79,22 +83,22 @@ conditional_sets:
   magic_matters:
     refs:
     - ref: system/magic.md
-      bytes: 4784
+      bytes: 6834
     - ref: system/metamagic.md
       bytes: 4529
-    bytes: 9313
+    bytes: 11363
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
-      bytes: 10258
+      bytes: 12056
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14206
-    bytes: 24464
+      bytes: 14084
+    bytes: 26140
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
-      bytes: 2019
-    bytes: 2019
+      bytes: 1974
+    bytes: 1974
   debugging_runtime:
     refs:
     - ref: system/runtime.md
@@ -122,12 +126,12 @@ conditional_sets:
   choosing_a_plan:
     refs:
     - ref: planning/interlude-act-03-entry-scope.yaml
-      bytes: 3829
+      bytes: 3782
     - ref: planning/obligations-rationale.yaml
-      bytes: 3816
+      bytes: 3771
     - ref: planning/act-03-defence.yaml
-      bytes: 4431
-    bytes: 12076
+      bytes: 4329
+    bytes: 11882
   social_stakes_matter:
     refs:
     - ref: system/social-intrigue.md
@@ -138,14 +142,14 @@ conditional_sets:
     - ref: worlds/solmara/lore/legal-order.yaml
       bytes: 4191
     - ref: worlds/solmara/lore/necromancy-law.yaml
-      bytes: 6158
+      bytes: 6080
     - ref: campaigns/lucan/state/secrets.yaml
       bytes: 9919
-    bytes: 20268
+    bytes: 20190
 context_breakdown:
-  rules_always: 24278
-  state_active: 27663
+  rules_always: 24199
+  state_active: 27599
   participant_cards: 0
   participant_digests: 0
-  conditional_heaviest: 24464
-context_total_bytes: 51941
+  conditional_heaviest: 26140
+context_total_bytes: 51798

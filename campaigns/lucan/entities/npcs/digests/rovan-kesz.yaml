@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_205
+  last_confirmed_event_id: event_turn_interlude_240
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,39 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_was_shown_the_unread_crest
+    source_event_id: event_turn_interlude_240
+    claim: 'Lucan polozyl przed nim item_three_arrow_deer_signet (jelen przebity trzema strzalami) i poprosil
+      o herb. NIE ZAPYTAL, SKAD JEST - konsekwentnie z fact_kesz_understood_the_category_without_asking
+      (t_105b) i z t_200. NIE ROZPOZNAL RODU i powiedzial to wprost: heroldem nie jest, zna urzednikow
+      magistratu, nie Akademie. ZAMIAST TEGO DAL DROGE PRAWNICZA: herb identyfikuje sie przez ODCISK PIECZECI
+      porownany z AKTAMI WLASNOSCI, nie przez czyjas pamiec. heraldry_recognition w inventory zostaje
+      attempted_and_failed, rod NIEUSTALONY, house-veyr-main-line#notes NIE zamkniete w zadna strone.
+      POWIEDZIAL TEZ SAM, ZE ZAPISUJE PYTANIE - bez grozby, powolujac sie na doktryne, ktora Lucan sam
+      wylozyl w t_226 (ewidencja prawnika idzie do wszystkich stron naraz). CZEGO NIE WIE: skad Lucan
+      ma sygnet. Wersji nie musial podawac i nie podal - the_shield stoi (retcon_000058).'
+  - fact_id: fact_kesz_knows_about_the_unpaid_tannery_wage
+    source_event_id: event_turn_interlude_240
+    claim: 'NOWA WIEDZA O AKCIE 1, dotad w jego karcie nieobecna. Lucan powiedzial mu, ze npc_tannery_owner
+      zatrudnil go przez gildie i obiecal pieniadze OSOBNO, poza premia, i nie zaplacil. Kesz wycenil
+      roszczenie dwukrotnie: jako PIENIADZE zero (sprawa garbarnika formalnie otwarta, czesc majatku zamrozona
+      przez miasto, prywatne wynagrodzenie stoi w kolejce za miastem), jako POZYCJE cos (zarejestrowany
+      wierzyciel ma prawo zajrzec do majatku - akty, inwentarz, uzgodnienia magistratu). Cene nazwal RAZ:
+      podpisany wniosek jest dowodem, ze Lucan byl w tych podziemiach i mial dostep. Decyzja NIE PODJETA.
+      CZEGO NIE USLYSZAL: ani slowa o mieszkaniu, skrytce, pieczeci, kluczach ani o tym, ze to Lucan wsadzil
+      garbarnika papierami.'
+  - fact_id: fact_kesz_priced_the_tannery_acquisition_and_asked_two_questions
+    source_event_id: event_turn_interlude_240
+    claim: 'Lucan zadeklarowal zamiar przejecia albo kupienia posesji (lead_tannery_acquisition_via_bailiff_auction).
+      Kesz NIE odmowil i ani razu nie powiedzial nie da sie (speech_traits: wycenia, nie bramkuje). Nazwal
+      dwie przeszkody, obie z adresem: (a) dopoki postepowanie jest formalnie otwarte, zaklad nie idzie
+      pod mlotek, a rejestrem rusza URZEDNIK AKT MAGISTRATU - zapytal o jego nazwisko i CZEKA NA ODPOWIEDZ;
+      (b) tragarz gildii rangi D kupujacy zaklad jest ekspozycja sam w sobie, wiec pieniadze potrzebuja
+      TWARZY - zaproponowal twarz pokoju i od razu podal cene, ze wtedy pokoj ma w tym udzial (protect_the_room_first).
+      NIEROZSTRZYGNIETE, bo nie padlo: co wie o poprzednim wlascicielu, czy garbarnia w ogole idzie pod
+      mlotek i na jakich warunkach, ile zaklad przynosi. POWIAZANIE Z npc_ivar_kolm MU NIE PRZYSZLO DO
+      GLOWY i narrator go nie podlozyl. NAPIECIE OTWARTE: standing.room_condition zada SYNDYKAT WIDOCZNY,
+      PRYNCYPAL NIENAZWANY, a wpis w rejestrze wlasnosci jest najtrwalsza forma widocznosci.'
   - fact_id: fact_kesz_lost_half_his_ignorance_before_the_priest_meeting
     source_event_id: event_turn_interlude_203
     claim: 'Byl w pokoju, gdy Lucan podal pryncypalowi SKALE: najlepszy przypadek to trupy wychodzace
@@ -41,28 +74,10 @@ knowledge:
       niesie rame, nie znajac tresci, bo czlowieka, ktory nie wie, nie da sie zmusic do rozwiniecia).
       Nazwal to sam, bez pretensji - wszedl w to dobrowolnie. forbidden_without_source nienaruszone: varkhen_existence,
       lucan_necromancy, spidey_existence.'
-  - fact_id: fact_kesz_stands_inside_the_phase_two_trigger
-    source_event_id: event_turn_interlude_202
-    claim: Zauwazyl i powiedzial na glos, ze nowa faza druga odpala sie, kiedy odbeda sie przesluchanie
-      i dysputa - a on od t_199 STOI NA TYM PRZESLUCHANIU jako gwarant proceduralny. Nie jest wiec tylko
-      linia niosaca pokojowi kalendarz; jego obecnosc wspoltworzy moment przejscia na drugi talerzyk.
-      Powiedzial to sucho, bez pretensji i NIE ZAZADAL za to niczego (states_his_position_before_he_has_to).
-  - fact_id: fact_kesz_finally_has_the_calendar_he_asked_for
-    source_event_id: event_turn_interlude_201
-    claim: 'DOSTAL ETAPY DO DATY, KTORA MIAL OD t_105b. fact_kesz_knows_about_the_two_week_deadline mowi,
-      ze przyjal zapowiedz wojny domowej jako date w kalendarzu i chcial wiedziec, po ktorej stronie ma
-      stac jego pokoj - ale mial sama date, bez etapow. Teraz zna cztery fazy protokolu Tobiego: stan
-      obecny, wszystkie strony swiadome, kordon, wejscie oddzialu na cmentarz. NIE ZAPYTAL, co jest pod
-      cmentarzem - konsekwentnie z t_194, gdzie sam uznal wlasna niewiedze za zalete, bo nie da sie go
-      zmusic do rozwiniecia czegos, czego nie wie. forbidden_without_source nienaruszone.'
-  - fact_id: fact_kesz_got_his_seraphine_answer_and_it_costs_him
-    source_event_id: event_turn_interlude_200
-    claim: 'ZAMKNIETE po drugim pytaniu. Seraphine NIE wie i ma sie dowiedziec dopiero po tym, jak zezna
-      przed Straza to, co musi - powod Lucana jest sekwencyjny, nie osobisty: nie chce, zeby powiedziala
-      za duzo i za szybko. Kesz przyjmuje bez sporu, bo jest juz w srodku, ale nazywa, co stracil: w t_194
-      mowil, ze wolalby nie dowiedziec sie tego RAZEM z nia, a ta odpowiedz znaczy dokladnie tyle, ze
-      dowie sie razem z nia albo po niej. NIE PYTAC O TO TRZECI RAZ - pytanie jest odpowiedziane (retcon_000121).'
   older_confirmed_index:
+  - fact_kesz_stands_inside_the_phase_two_trigger <- event_turn_interlude_202
+  - fact_kesz_finally_has_the_calendar_he_asked_for <- event_turn_interlude_201
+  - fact_kesz_got_his_seraphine_answer_and_it_costs_him <- event_turn_interlude_200
   - fact_kesz_saw_the_spider_obey_after_he_was_already_lucans_lawyer <- event_turn_interlude_200
   - fact_kesz_became_lucans_lawyer_with_the_rooms_blessing <- event_turn_interlude_199
   - fact_kesz_heard_lucan_name_his_cemetery_exposure_out_loud <- event_turn_interlude_199
@@ -90,11 +105,11 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 23
+  confirmed_entries_total: 26
   in_digest: 4
-  last_fact_from_turn: 203
-  current_turn: 239
-  turns_behind: 36
+  last_fact_from_turn: 240
+  current_turn: 240
+  turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
     recall/dziennik przed pierwsza kwestia tej postaci.

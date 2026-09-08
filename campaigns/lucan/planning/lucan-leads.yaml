@@ -25,6 +25,20 @@ leads:
       sladem po poprzednim wlascicielu garbarni i rzecza zabrana ze skarbca obecnego - czyli
       pytanie samo w sobie jest informacja. CZEGO NARRATOR NIE ROZSTRZYGA SAM: czy Kesz rozpozna
       herb, czy zechce powiedziec i czego zazada w zamian.
+    kesz_answered_2026_09_08:
+      event_id: event_turn_interlude_240
+      text: >-
+        DROGA WYKORZYSTANA, LEAD NADAL OTWARTY. Kesz NIE rozpoznal rodu i powiedzial to
+        wprost - heroldem nie jest. Dal za to droge prawnicza, ktorej nikt wczesniej nie
+        nazwal: herb identyfikuje sie przez ODCISK PIECZECI porownany z AKTAMI WLASNOSCI,
+        nie przez pamiec czlowieka. Lucan ma oba elementy - item_tannery_owner_cache
+        (akty wlasnosci, weksle, srebrna pieczec, dwa dalsze sygnety) lezy w zone_wall_void
+        Opuszczonej baszty przy murze, trzy kwadranse marszu (t_086). To DRUGA, niezalezna
+        droga do tego samego porownania: pierwsza to Seraphine z papierami garbarnika
+        u siebie (zapowiedz t_234, wynik NIEROZSTRZYGNIETY).
+        RYZYKO ZREALIZOWANE, dokladnie takie, jakie ten lead zapowiadal: Kesz zapamietal
+        pytanie i powiedzial to sam, powolujac sie na doktryne Lucana z t_226.
+        NADAL NIEUSTALONE: rod. heraldry_recognition zostaje attempted_and_failed.
     status: open
   - id: lead_filth_water_earth_disease_curse_line
     logged_event_id: event_turn_interlude_239
@@ -732,7 +746,28 @@ leads:
       do glowy oraz ile taki zaklad realnie przynosi. Cztery pytania z
       ivar-kolm.yaml#the_act_01_thread pozostaja otwarte bez zmian.'
     ref: campaigns/lucan/entities/npcs/rovan-kesz.yaml
-    status: declared_not_yet_attempted
+    opened_with_kesz_2026_09_08:
+      event_id: event_turn_interlude_240
+      text: >-
+        SPRAWA POLOZONA NA STOLE I WYCENIONA, NIC NIE KUPIONE. Kesz nie odmowil i ani
+        razu nie powiedzial "nie da sie". Nazwal dwie przeszkody, obie z adresem:
+        (a) dopoki postepowanie garbarnika jest FORMALNIE OTWARTE, zaklad nie idzie pod
+        mlotek; rejestr nalezy do MAGISTRATU, a rusza nim URZEDNIK AKT - Kesz zapytal
+        o jego NAZWISKO i czeka; (b) tragarz gildii rangi D kupujacy zaklad jest
+        ekspozycja sam w sobie, wiec pieniadze potrzebuja TWARZY - zaproponowal twarz
+        pokoju i od razu podal cene: wtedy pokoj ma w tym udzial.
+        DZWIGNIA ROSZCZENIA WYCENIONA OSOBNO: jako pieniadze zero, jako POZYCJA cos -
+        zarejestrowany wierzyciel ma prawo zajrzec do majatku. Cena: podpisany wniosek
+        stawia Lucana w tych podziemiach na papierze
+        (tannery-owner#the_claim_cuts_both_ways). NIE ZLOZONE.
+        CZTERY PYTANIA TEGO LEADA - STAN: czy idzie pod mlotek i na jakich warunkach -
+        nadal otwarte, zalezy od (a); co Kesz wie o poprzednim wlascicielu - NIE PYTANY
+        wprost; czy powiazanie z npc_ivar_kolm mu przyjdzie do glowy - NIE PRZYSZLO;
+        ile zaklad przynosi - nie padlo.
+        NAPIECIE DO ROZSTRZYGNIECIA: standing.room_condition zada SYNDYKAT WIDOCZNY,
+        PRYNCYPAL NIENAZWANY, a wpis w rejestrze wlasnosci jest najtrwalsza forma
+        widocznosci, jaka istnieje.
+    status: opened_with_kesz_two_questions_pending
 notes:
   - Rozwoj sieciarzy jako calosci (population growth, nowe zdolnosci) to osobny,
     szerszy temat niz pojedyncze leady wyzej - beda pod nim wisiec, dopoki gracz
