@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_242
+  last_confirmed_event_id: event_turn_interlude_243
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,44 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first
+    source_event_id: event_turn_interlude_243
+    claim: 'STRATEGIA LUCANA PRZYJETA W CALOSCI. Miasto - zajecie majatku i oplata; gildia - zamkniecie
+      sprawy; zaden wspolny papier, wiec jedna sprawa nie zapala drugiej. PIECZEC ZAMKNIETA PO JEGO WOLI:
+      Lucan powiedzial zakladam, ze nie wiesz, i Kesz to przyjal - wie, ze pieczec istnieje, NIE wie gdzie
+      jest i nie chce wiedziec; nie zapisal i nie wraca. PIERWSZY KROK UMOWIONY I WYKONALNY BEZ NAZWISKA
+      URZEDNIKA: idzie od rana do miasta, bo Lucan jest wierzycielem ze ZLOZONYM pismem (inventory#two_open_debts)
+      i wierzyciel moze WNIESC O ZAJECIE majatku dluznika - urzednik akt jest potrzebny do ruszenia REJESTRU
+      WLASNOSCI, nie do wniosku, a rejestru Kesz nie tyka. Nazwiska nie zazadal trzeci raz (retcon_000121),
+      powiedzial tylko, gdzie droga sie bez niego konczy. POPRZEDNI WLASCICIEL: przyjal, ze nie ma praw
+      do terenu, bo obecny nabyl wszystko na nowo - czyli stary jest bezwartosciowy dla samego nabycia
+      i wartosciowy tylko jako osobny towar.'
+  - fact_id: fact_kesz_named_the_price_of_throwing_the_old_owner_to_the_guild
+    source_event_id: event_turn_interlude_243
+    claim: 'Lucan zaproponowal rzucenie gildii starego wlasciciela jako udokumentowanego sprawcy, zeby
+      domknela wlasne postepowanie. Kesz nazwal to najlepszym pomyslem wieczoru i NIE odradzil. DOLOZYL
+      JEDNA CENE, JEDNYM ZDANIEM, I JEST TO CYTAT Z PLIKU, NIE HAK (retcon_000058 - nie powstala zadna
+      lista, zaden swiadek, zaden zegar): inventory#item_tannery_owner_cache.why_it_matters_now mowi,
+      ze te papiery to DOKLADNIE ta kategoria prawna, o ktora toczy sie otwarta dysputa, a katedra npc_ivar_kolm
+      to biomutanty - Lucan trzyma gotowy precedens z Lumarii, ze ktos juz to robil pod warsztatem i miasto
+      tego nie zobaczylo. To samo pismo, ktore zamyka postepowanie gildii, uzbraja wiec druga strone dysputy
+      za okolo 16 dni. Decyzji NIE ZAZADAL teraz. NIEROZSTRZYGNIETE: czy stary wlasciciel zyje (tannery-owner#do_not_invent)
+      - a to decyduje, czy gildia dostaje sprawce, czy tylko akta. ZAPYTAL O TERMIN dostarczenia papierow,
+      bo leza trzy kwadranse marszu od miasta (t_086), a noc Lucana jest juz zajeta.'
+  - fact_id: fact_kesz_will_carry_the_honest_business_offer_to_the_principal
+    source_event_id: event_turn_interlude_243
+    claim: 'DRUGA, SZERSZA OFERTA DO SYNDYKATU - dotyka obligation_define_syndicate_exchange_beyond_gold,
+      ktorego status to first_substantive_offer_made_not_yet_accepted (oferta z t_198: odpad jubilerski,
+      potencjalnie Akademia jako odbiorca, UMOWY NIE MA). Lucan kazal przedstawic garbarnie jako POCZATEK
+      SWOJEJ UCZCIWEJ PRZEDSIEBIORCZOSCI, ktora bedzie wymagala logistyki, pomocy prawnej i mniej prawnej
+      - czyli wszystkiego, na czym pokoj zarabia - z pieczatka gildii pod statusem prawnym jako wisienka.
+      Kesz WEZMIE to do pokoju i nie odradzil. POPRAWIL ADRES OFERTY, i jest to odczyt z pliku, nie madrosc
+      z urzedu (retcon_000040): syndicate-weigher#seraphines_reading_of_the_motive mowi, ze syndykat KUPUJE
+      PRZYSZLOSC TERENU - pryncypal sam powiedzial, ze pusta linia sciagnie kogos w ciagu tygodni i ze
+      ktokolwiek ja wezmie, bedzie potrzebowal cmentarza. Wiec pokoju nie trzeba przekonywac do gruntu;
+      pokoj grunt juz kupuje. Rada: Lucan ma SAM nazwac udzial pokoju, zanim pokoj nazwie go za niego.
+      standing.room_condition nienaruszone - pryncypal nadal nienazwany, slowa Don Kesz nie powtarza.
+      Pytanie czyja twarz kupuje zaklad NADAL OTWARTE - oferta go nie zalatwia.'
   - fact_id: fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end
     source_event_id: event_turn_interlude_242
     claim: 'USLYSZAL WERSJE, NIE PRAWDE. Lucan powiedzial mu, ze papiery znalazl formalnie W SMIECIACH,
@@ -44,41 +82,10 @@ knowledge:
       moze przyznac, nie jest przez to papierem bez zainteresowanych, bo opisuje LABORATORIA, a to wynika
       z kategorii dokumentu, nie z niczyjego spisu (zadna lista, zaden swiadek, zaden zegar - retcon_000058,
       retcon_000055).'
-  - fact_id: fact_kesz_knows_lucan_holds_the_owners_silver_seal
-    source_event_id: event_turn_interlude_242
-    claim: 'NAJDROZSZE UJAWNIENIE TEJ SCENY. Lucan powiedzial mu, ze ma srebrna pieczec zakladu, ktora
-      ZAGINELA po katastrofie ze szczuroogrem (milestone_020/021). Kesz nie odrzucil sprawy i nie moralizowal,
-      ale POSTAWIL GRANICE O SOBIE, zanim musial: nie chce byc czlowiekiem, ktory wie, gdzie ta pieczec
-      jest. Jest to jego wlasna ekspozycja zawodowa, NIE sciana swiata - a przypomnienie, ze nic powiedziane
-      przy nim nie jest objete tajemnica (standing.consequence), pochodzi od niego samego z t_104. WYCENIL
-      DWIE DROGI: z pieczecia Lucan nie kupuje garbarni, tylko staje sie jej dokumentacja, a dokument
-      z data z tamtego okresu wchodzi prosto w rozliczenie, ktore ktos wlasnie prowadzi (doslownie inventory#forgery_intent.dlaczego_to_teraz_ciekawsze_niz_bylo);
-      bez pieczeci kupuje wolno i nikt tego potem nie rozplecie. ZADNA PIECZEC NIE ZOSTALA UZYTA i zadna
-      nie opuscila zone_wall_void. CZEKA NA JEDNO SLOWO: ma o niej wiedziec czy nie.'
-  - fact_id: fact_kesz_split_the_two_keys_guild_site_city_estate
-    source_event_id: event_turn_interlude_242
-    claim: 'Lucan zadeklarowal, ze majatkiem zarzadza obecnie GILDIA. Kesz rozdzielil to na dwa klucze,
-      bo pliki mowia dwa razy co innego: GILDIA trzyma TEREN i klasyfikacje zagrozenia (ekipa A-rank zamknela
-      podziemia), a MAJATEK ZAMROZILO MIASTO (tannery-owner#earlier_detention_history, inventory#forgery_intent,
-      audyt t_234). Zeby kupic zaklad, potrzebne sa OBA. Czy majatek nadal jest zamrozony i czy brygadzista
-      nadal prowadzi zaklad - NIEUSTALONE i w tej turze nieustalone dalej (tannery-owner#current_situation).
-      PRZYJAL NATOMIAST BEZ SPORU I UZNAL ZA MOCNE: skarga na niezaplacone wynagrodzenie ZOSTALA ZLOZONA
-      PRZEZ GILDIE (kanon - inventory#item_tannery_owner_cache.two_open_debts), czyli pozycja wierzyciela,
-      ktora wycenil w t_240 jako mozliwa, JUZ ISTNIEJE, i to zlozona ZANIM byla potrzebna - wiec nikt
-      nie czyta jej jako zagrywki. PYTANIE Z t_241 ZAMKNIETE: dluznikiem jest wlasciciel OBECNY. CZEKA,
-      ktory klucz ruszaja pierwszy - gildie czy miasto.'
-  - fact_id: fact_kesz_took_the_tannery_matter_as_a_paid_client
-    source_event_id: event_turn_interlude_241
-    claim: 'GLOWNA ZMIANA: WZIAL DRUGA SPRAWE, PIERWSZA FINANSOWANA PRZEZ LUCANA. Lucan zlecil przejecie
-      garbarni jako sprawe troche kryminalna, troche prawna, i jawnie powiedzial, ze nie oczekuje pracy
-      darmo. Kesz przyjal i zdecydowal SAM (retcon_000124 - nie odsyla do pryncypala). KWOTY NIE USTALONO
-      i narrator jej nie wymyslil; powiedzial tylko, ze pieniadze sa najmniejsza czescia tego rachunku.
-      WARUNEK POSTAWIONY ZAMIAST CENY: POKOJ SIE DOWIE, ze prowadzi dla Lucana sprawe majatkowa - staly
-      klient nie dowiaduje sie takich rzeczy od kogos trzeciego. To protect_the_room_first i standing.room_condition,
-      NIE prosba o zgode: informuje, nie pyta, i nie uzaleznil od tego przyjecia sprawy. CZEGO TO NIE
-      ZALATWIA: pryncypal nadal NIENAZWANY, a pytanie czyja twarz kupuje zaklad zostaje otwarte - poinformowanie
-      pokoju to nie wpuszczenie pokoju do transakcji.'
   older_confirmed_index:
+  - fact_kesz_knows_lucan_holds_the_owners_silver_seal <- event_turn_interlude_242
+  - fact_kesz_split_the_two_keys_guild_site_city_estate <- event_turn_interlude_242
+  - fact_kesz_took_the_tannery_matter_as_a_paid_client <- event_turn_interlude_241
   - fact_kesz_told_lucan_where_stolen_paper_is_worth_nothing <- event_turn_interlude_241
   - fact_kesz_split_the_two_tannery_owners_and_is_waiting <- event_turn_interlude_241
   - fact_kesz_was_shown_the_unread_crest <- event_turn_interlude_240
@@ -115,10 +122,10 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 32
+  confirmed_entries_total: 35
   in_digest: 4
-  last_fact_from_turn: 242
-  current_turn: 242
+  last_fact_from_turn: 243
+  current_turn: 243
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
