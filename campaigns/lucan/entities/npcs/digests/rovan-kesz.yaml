@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_240
+  last_confirmed_event_id: event_turn_interlude_241
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,38 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_took_the_tannery_matter_as_a_paid_client
+    source_event_id: event_turn_interlude_241
+    claim: 'GLOWNA ZMIANA: WZIAL DRUGA SPRAWE, PIERWSZA FINANSOWANA PRZEZ LUCANA. Lucan zlecil przejecie
+      garbarni jako sprawe troche kryminalna, troche prawna, i jawnie powiedzial, ze nie oczekuje pracy
+      darmo. Kesz przyjal i zdecydowal SAM (retcon_000124 - nie odsyla do pryncypala). KWOTY NIE USTALONO
+      i narrator jej nie wymyslil; powiedzial tylko, ze pieniadze sa najmniejsza czescia tego rachunku.
+      WARUNEK POSTAWIONY ZAMIAST CENY: POKOJ SIE DOWIE, ze prowadzi dla Lucana sprawe majatkowa - staly
+      klient nie dowiaduje sie takich rzeczy od kogos trzeciego. To protect_the_room_first i standing.room_condition,
+      NIE prosba o zgode: informuje, nie pyta, i nie uzaleznil od tego przyjecia sprawy. CZEGO TO NIE
+      ZALATWIA: pryncypal nadal NIENAZWANY, a pytanie czyja twarz kupuje zaklad zostaje otwarte - poinformowanie
+      pokoju to nie wpuszczenie pokoju do transakcji.'
+  - fact_id: fact_kesz_told_lucan_where_stolen_paper_is_worth_nothing
+    source_event_id: event_turn_interlude_241
+    claim: 'Lucan potwierdzil, ze ma jakies dokumenty do herbu - nie powiedzial, skad, a Kesz NIE ZAPYTAL
+      (jak w t_105b, t_200, t_240). Kesz kazal je trzymac tam, gdzie leza, i nazwal regule: dokument,
+      o ktorego pochodzeniu nie da sie zlozyc zdania, jest wart ZERO na papierze i wszystko POZA papierem
+      - sluzy do USTALENIA nazwiska z odcisku, nigdy do zlozenia w postepowaniu. NIE WIE, ze chodzi o
+      item_tannery_owner_cache w zone_wall_void baszty przy murze, i nie wie o pieczeci ani o dwoch dalszych
+      sygnetach. Przyznal tez Lucanowi punkt o ewidencji: wpis o herbie, ktorego nie umie odczytac, jest
+      wpisem o niczym - do dnia, w ktorym herb odczyta ktos inny, bo wtedy wpis ma date.'
+  - fact_id: fact_kesz_split_the_two_tannery_owners_and_is_waiting
+    source_event_id: event_turn_interlude_241
+    claim: 'Lucan opisal sprawe jako dlug POPRZEDNIEGO wlasciciela, ktory zniknal i ma otwarty proces.
+      Kesz rozdzielil dwoch wlascicieli jako czynnosc zawodowa, nie jako opor, i CZEKA NA JEDNO SLOWO
+      POTWIERDZENIA, bo od tego zalezy cala droga. Stan z plikow bez zmian: dluznikiem jest npc_tannery_owner,
+      wlasciciel OBECNY (the_unpaid_job), on ma otwarte postepowanie i czesc majatku zamrozona, on wyszedl
+      z aresztu w t_032 i ma miejsce pobytu nieustalone; POPRZEDNI wlasciciel to ten, po ktorym zostal
+      sygnet, i jego los, rod oraz nazwisko sa NIEUSTALONE (tannery-owner#do_not_invent). ZAPROPONOWAL
+      PIERWSZY KROK, NIE WYKONAL GO: obejrzec, na jakim etapie stoja akta sprawy garbarni w magistracie
+      - to nie wymaga urzednika akt, bo czytanie stanu sprawy to nie ruszanie rejestru wlasnosci. Cene
+      podal plasko: ktos zauwazy, ze prawnik pyta o garbarnie. ODNOTOWAL BRAK NAZWISKA URZEDNIKA JEDEN
+      RAZ i nie pytal drugi (retcon_000121); postawil granice: bez nazwiska nie rusza rejestru.'
   - fact_id: fact_kesz_was_shown_the_unread_crest
     source_event_id: event_turn_interlude_240
     claim: 'Lucan polozyl przed nim item_three_arrow_deer_signet (jelen przebity trzema strzalami) i poprosil
@@ -44,39 +76,10 @@ knowledge:
       jawnej ewidencji, ktora Lucan wylozyl w t_226 - ale to bylo U SERAPHINE i Kesza tam nie bylo. Nie
       ma tego w jego knowledge i NIE GRAC tym. CZEGO NIE WIE: skad Lucan ma sygnet. Wersji nie musial
       podawac i nie podal - the_shield stoi (retcon_000058).'
-  - fact_id: fact_kesz_knows_about_the_unpaid_tannery_wage
-    source_event_id: event_turn_interlude_240
-    claim: 'NOWA WIEDZA O AKCIE 1, dotad w jego karcie nieobecna. Lucan powiedzial mu, ze npc_tannery_owner
-      zatrudnil go przez gildie i obiecal pieniadze OSOBNO, poza premia, i nie zaplacil. Kesz wycenil
-      roszczenie dwukrotnie: jako PIENIADZE zero (sprawa garbarnika formalnie otwarta, czesc majatku zamrozona
-      przez miasto, prywatne wynagrodzenie stoi w kolejce za miastem), jako POZYCJE cos (zarejestrowany
-      wierzyciel ma prawo zajrzec do majatku - akty, inwentarz, uzgodnienia magistratu). Cene nazwal RAZ:
-      podpisany wniosek jest dowodem, ze Lucan byl w tych podziemiach i mial dostep. Decyzja NIE PODJETA.
-      CZEGO NIE USLYSZAL: ani slowa o mieszkaniu, skrytce, pieczeci, kluczach ani o tym, ze to Lucan wsadzil
-      garbarnika papierami.'
-  - fact_id: fact_kesz_priced_the_tannery_acquisition_and_asked_two_questions
-    source_event_id: event_turn_interlude_240
-    claim: 'Lucan zadeklarowal zamiar przejecia albo kupienia posesji (lead_tannery_acquisition_via_bailiff_auction).
-      Kesz NIE odmowil i ani razu nie powiedzial nie da sie (speech_traits: wycenia, nie bramkuje). Nazwal
-      dwie przeszkody, obie z adresem: (a) dopoki postepowanie jest formalnie otwarte, zaklad nie idzie
-      pod mlotek, a rejestrem rusza URZEDNIK AKT MAGISTRATU - zapytal o jego nazwisko i CZEKA NA ODPOWIEDZ;
-      (b) tragarz gildii rangi D kupujacy zaklad jest ekspozycja sam w sobie, wiec pieniadze potrzebuja
-      TWARZY - zaproponowal twarz pokoju i od razu podal cene, ze wtedy pokoj ma w tym udzial (protect_the_room_first).
-      NIEROZSTRZYGNIETE, bo nie padlo: co wie o poprzednim wlascicielu, czy garbarnia w ogole idzie pod
-      mlotek i na jakich warunkach, ile zaklad przynosi. POWIAZANIE Z npc_ivar_kolm MU NIE PRZYSZLO DO
-      GLOWY i narrator go nie podlozyl. NAPIECIE OTWARTE: standing.room_condition zada SYNDYKAT WIDOCZNY,
-      PRYNCYPAL NIENAZWANY, a wpis w rejestrze wlasnosci jest najtrwalsza forma widocznosci.'
-  - fact_id: fact_kesz_lost_half_his_ignorance_before_the_priest_meeting
-    source_event_id: event_turn_interlude_203
-    claim: 'Byl w pokoju, gdy Lucan podal pryncypalowi SKALE: najlepszy przypadek to trupy wychodzace
-      z ziemi jak za pierwszym razem, najgorszy to zawalenie miasta w pustki pod nim. PRECYZJA, KTOREJ
-      NIE WOLNO ZGUBIC: padly KONSEKWENCJE, nie przyczyna. Kesz nadal NIE WIE, CO jest pod cmentarzem,
-      i moze to dalej uczciwie powiedziec - nie moze juz powiedziec, ze nie wie, ze to jest powazne. To
-      zmniejsza o polowe zalete, ktora sam nazwal w t_194 (fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest:
-      niesie rame, nie znajac tresci, bo czlowieka, ktory nie wie, nie da sie zmusic do rozwiniecia).
-      Nazwal to sam, bez pretensji - wszedl w to dobrowolnie. forbidden_without_source nienaruszone: varkhen_existence,
-      lucan_necromancy, spidey_existence.'
   older_confirmed_index:
+  - fact_kesz_knows_about_the_unpaid_tannery_wage <- event_turn_interlude_240
+  - fact_kesz_priced_the_tannery_acquisition_and_asked_two_questions <- event_turn_interlude_240
+  - fact_kesz_lost_half_his_ignorance_before_the_priest_meeting <- event_turn_interlude_203
   - fact_kesz_stands_inside_the_phase_two_trigger <- event_turn_interlude_202
   - fact_kesz_finally_has_the_calendar_he_asked_for <- event_turn_interlude_201
   - fact_kesz_got_his_seraphine_answer_and_it_costs_him <- event_turn_interlude_200
@@ -107,10 +110,10 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 26
+  confirmed_entries_total: 29
   in_digest: 4
-  last_fact_from_turn: 240
-  current_turn: 240
+  last_fact_from_turn: 241
+  current_turn: 241
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
