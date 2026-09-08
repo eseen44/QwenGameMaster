@@ -7,7 +7,7 @@ importance: full_agent
 role: criminal_circuit_lawyer
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_246
+  last_confirmed_event_id: event_turn_interlude_247
 current_location_id: loc_lumaria_market
 portrayal:
   temperament:
@@ -31,6 +31,39 @@ object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
   recent_confirmed:
+  - fact_id: fact_kesz_got_the_witnesses_name_and_the_state_of_his_testimony
+    source_event_id: event_turn_interlude_247
+    claim: 'ZAPLATA ODDANA W CALOSCI. Kesz dostal od Lucana: (a) NAZWISKO - Halvek (npc_halvek_wagonman);
+      (b) STAN ZEZNANIA - powiedzial npc_seraphine_vale, kogo widzial, ale NIEPRECYZYJNIE, bo rownoczesnie
+      targowal sie z Lucanem o przysługi dla chorej matki, na czas po tym, jak straz rozwiaze problem
+      jego zeznan; zeznanie jest wiec DO PODWAZENIA; (c) CZESC NIEBEZPIECZNA - Halvek ROZPOZNA Kesza,
+      jesli znajda sie w JEDNYM POKOJU. Nazwisko przyjal bez komentarza. Ponowionej oferty zniknięcia
+      (na promocji, poki siedzi w celi) NIE przyjal i nie zamknal - policzyl raz w t_246 i drugi raz nie
+      liczy (retcon_000135). Zeznanie do podwazenia uznal za jedyna dobra wiadomosc wieczoru.'
+  - fact_id: fact_kesz_realised_he_already_promised_the_room_with_the_witness_in_it
+    source_event_id: event_turn_interlude_247
+    claim: 'ZESTAWIENIE, KTORE ZROBIL SAM I NA GLOS - i ktore jest obowiazkiem narratora, nie gracza (retcon_000135).
+      Rozpoznanie wymaga jednego pokoju, a Kesz JUZ JEDEN TAKI POKOJ OBIECAL: standing.scope_of_representation
+      - gwarant procedury na PRZESLUCHANIU KIERONICTWA GILDII, w BUDYNKU GILDII, a npc_halvek_wagonman
+      siedzi w loc_guild_holding_cells, czyli w tym samym budynku. Zgodzil sie na to w t_194/t_199, kiedy
+      wiedzial tylko o RYSOPISIE i nie wiedzial, ze stoi za nim zywy czlowiek. Powiedzial to bez pretensji
+      - Lucan oddal mu te wiedze dobrowolnie i to jedyny powod, dla ktorego ja ma; pulapki w plikach nie
+      ma i Kesz jej nie zarzucil. NIE WYCOFAL SIE Z PRZESLUCHANIA, nie zerwal umowy, nie zazadal pieniedzy.
+      Powiedzial, ze do rana bedzie wiedzial, czego chce. NIEUSTALONE: czy Halvek bedzie w tych celach
+      w dniu przesluchania, czy ktokolwiek by ich zetknal i co Kesz ostatecznie zrobi.'
+  - fact_id: fact_kesz_knows_the_room_will_not_stand_between_him_and_the_watch
+    source_event_id: event_turn_interlude_247
+    claim: 'NAJZIMNIEJSZY WNIOSEK TEJ SCENY I JEST TO JEGO WLASNA WIEDZA, NIE MADROSC Z URZEDU (retcon_000040).
+      Lucan powiedzial, ze straz wykorzysta go jako kozla ofiarnego - ma to pokrycie w lucan-leads#lead_city_watch_covers_cemetery_corpse_trade
+      (straz zakrywa afere z handlem zwlokami, wiec potrzebuje kogos spoza siebie). Kesz dolozyl wlasne
+      zdanie z fact_kesz_priced_representation_before_guild_and_watch (t_193): pokoj powiedzial w t_100,
+      ze Z KLIENTEM W MUNDURZE SIE NIE KONKURUJE. Wniosek o sobie: jesli straz bedzie potrzebowala kozla,
+      POKOJ NIE STANIE MIEDZY NIA A NIM. Ochrona, na ktora liczyl, ma warunek, ktorego on nie ustala.
+      ZADEN ZEGAR ANI SLEDZTWO Z TEGO NIE POWSTALY (retcon_000055, retcon_000058) - to odczyt dwoch zdan
+      lezacych juz w plikach. converging_target#consequence: PIERWSZA POLOWA ZREALIZOWANA - przestal byc
+      uslugodawca i jest strona z wlasnym motywem, powiedzial to na glos. DRUGA POLOWA STOI: nie padlo
+      imie Orena, nie padlo ty jestes czlowiekiem z rysopisu, nie padlo zeznanie z t_048 jako zrodlo ani
+      rozbieznosc rysopisu (retcon_000122). oren_connection.lucan_said_it_out_loud BEZ ZMIAN.'
   - fact_id: fact_kesz_refused_the_witness_removal_on_arithmetic_not_conscience
     source_event_id: event_turn_interlude_246
     claim: 'LUCAN ZLOZYL NA GLOS OFERTE USUNIECIA SWIADKA - podal menu: personalia, miejsce pobytu, zniknięcie,
@@ -48,46 +81,10 @@ knowledge:
       - moze tylko zaniesc pytanie, i spodziewa sie, ze pytanie o trupa w budynku gildii kosztuje wiecej,
       niz Lucan dzis dla pokoju zarabia. To jego wlasne oczekiwanie, NIE decyzja pryncypala, ktorej narrator
       nie zadeklarowal. HALVEK NIETKNIETY: captured_alive, bez zmiany lokacji, nikt do niego nie poszedl.'
-  - fact_id: fact_kesz_audited_lucans_self_description
-    source_event_id: event_turn_interlude_246
-    claim: 'JEDYNA RZECZ, KTORA KESZ DODAL Z SIEBIE, I JEST TO JEGO agenda#assess_whether_lucan_is_a_liability
-      W DZIALANIU. Lucan powiedzial mu, ze jest chujowym szlachcicem, ale szlachcicem, nie rzeznikiem,
-      ze MANIPULUJE ZAMIAST GROZIC, bo to lepsze dla wszystkich na dluzsza mete, i ze urokiem tej metody
-      jest to, ze SWIADOMOSC NIE POMAGA - a w nastepnym zdaniu zaproponowal pochowanie czlowieka za zycia.
-      Kesz nazwal te niespojnosc jednym zdaniem: to nie jest opis metody, to opis nastroju. NIE jest to
-      moralizowanie ani madrosc z urzedu (retcon_000040), tylko audyt zdania, ktore padlo pol minuty wczesniej,
-      wykonany przez czlowieka, ktorego zawodem jest sprawdzanie, czy wersja klienta trzyma sie kupy.
-      WNIOSKU O LUCANIE NIE WYCIAGNAL NA GLOS i decyzji o prowadzeniu sprawy nie zmienil. Deklaracja metody
-      idzie do jego knowledge jako TO, CO USLYSZAL (retcon_000120) - nie do player/abilities.yaml ani
-      do zadnego pliku opisujacego, jak Lucan naprawde dziala. Zapowiedz kolejnych takich prezentow to
-      intencja, nie wykonanie.'
-  - fact_id: fact_kesz_learned_the_description_has_a_living_man_behind_it
-    source_event_id: event_turn_interlude_245
-    claim: 'PRZELOM W JEGO WLASNEJ EKSPOZYCJI, URUCHOMIONY RUCHEM GRACZA. Lucan zaoferowal mu - jako zadatek
-      na wszystkie mozliwe koszty procesowe - informacje o miejscu przebywania jego problemu. Kesz ZROZUMIAL
-      BEZ PYTANIA, o kogo chodzi (jak w t_105b i t_200), i PRZYJAL. O RYSOPISIE wiedzial od t_105b, bo
-      Lucan sam mu go wtedy wymienil wsrod nitek trzymanych na wozach; NIE WIEDZIAL, ze za rysopisem stoi
-      ZYWY, dostepny czlowiek. To jest npc_halvek_wagonman, captured_alive, loc_guild_holding_cells, halvek#open_thread.
-      SAMEJ INFORMACJI JESZCZE NIE DOSTAL - Lucan zapytal, czy jej chce, i to Lucan ma ja wypowiedziec.
-      NAZWAL, CZYM ZAPLATA JEST: nie zadatkiem, tylko spisem z inwentarza - Lucan mial to przez caly czas,
-      kiedy Kesz wazyl, czy sie w to pakowac; drugi raz ten sam ruch co w t_105b, gdzie tez dostal prezent
-      bedacy jednoczesnie pomiarem. Kpiny nie odebral jako obrazy i nie moralizowal (speech_traits). ODWROCIL
-      OFERTE: miejsce go nie ratuje, bo do cel gildii - budynku Seraphine - prawnik nie wchodzi z teczka;
-      chce wiedziec, CZY TAMTEN JUZ POWIEDZIAL I KOMU. Rysopis w pamieci to plotka, rysopis obok twarzy
-      w protokole to akta - mechanika potwierdzona w tej kampanii przez halvek#prisoner_sourced_gate_guard_description,
-      gdzie rysopis lezal bezuzytecznie od t_048/052 do t_207, dopoki nazwisko nie przyszlo z innego zrodla.
-      CZY HALVEK MOWIL COKOLWIEK PO t_048 - NIEUSTALONE, narrator tego nie domknal. NADAL NIEDOPOWIEDZIANE:
-      Lucan powiedzial twoj problem, nie ty jestes czlowiekiem z rysopisu; nie padlo imie Orena, zeznanie
-      Halveka jako zrodlo, dopasowanie rysopisu ani rozbieznosc palec wskazujacy kontra lewy kciuk (retcon_000122).
-      oren_connection.lucan_said_it_out_loud BEZ ZMIAN. converging_target#consequence zaczyna sie realizowac:
-      przestaje byc uslugodawca, staje sie strona z wlasnym motywem.'
-  - fact_id: fact_kesz_got_paid_instead_of_answered_about_the_priest
-    source_event_id: event_turn_interlude_245
-    claim: 'Zapytal w t_244, co Lucan zamierza zrobic z kaplanem, i dostal zaplate zamiast odpowiedzi.
-      Odnotowal to RAZ, plasko, bez zlosci i BEZ POWTARZANIA PYTANIA (retcon_000121, retcon_000142). Pytanie
-      zostaje otwarte i nalezy do niego - jesli zechce, wroci z nim sam. Bez odpowiedzi nadal takze: nazwisko
-      urzednika akt, termin dostarczenia papierow i udzial pokoju.'
   older_confirmed_index:
+  - fact_kesz_audited_lucans_self_description <- event_turn_interlude_246
+  - fact_kesz_learned_the_description_has_a_living_man_behind_it <- event_turn_interlude_245
+  - fact_kesz_got_paid_instead_of_answered_about_the_priest <- event_turn_interlude_245
   - fact_kesz_asked_what_lucan_intends_to_do_with_the_priest <- event_turn_interlude_244
   - fact_kesz_wrote_unagreed_next_to_the_papers_and_the_rooms_share <- event_turn_interlude_244
   - fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first <- event_turn_interlude_243
@@ -133,10 +130,10 @@ knowledge:
   - varkhen_existence
   - veyr_house_structure
 freshness:
-  confirmed_entries_total: 41
+  confirmed_entries_total: 44
   in_digest: 4
-  last_fact_from_turn: 246
-  current_turn: 246
+  last_fact_from_turn: 247
+  current_turn: 247
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz

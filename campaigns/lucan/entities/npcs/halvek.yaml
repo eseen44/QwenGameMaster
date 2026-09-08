@@ -21,6 +21,32 @@ open_thread:
   id: halvek_can_identify_orens_outside_contact
   source_event_ids: [event_turn_interlude_048, event_turn_interlude_105b]
   note: "Halvek potwierdzil, ze Oren zmienial trasy po spotkaniach z kims spoza zalogi, i nie podal wiecej. Rysopis npc_rovan_kesz pasuje. Halvek siedzi w celach gildii i moze zamienic dopasowanie w rozpoznanie. STAN OD event_turn_interlude_245: Lucan zaoferowal Keszowi informacje o tym swiadku jako zadatek, Kesz przyjal, ale SAMEJ INFORMACJI JESZCZE NIE DOSTAL - to nastepny ruch gracza. Kesz odwrocil pytanie: nie chce wiedziec GDZIE Halvek siedzi, tylko CZY JUZ POWIEDZIAL I KOMU. Czy Halvek mowil cokolwiek po t_048 - NIEUSTALONE, last_confirmed_event_id nadal milestone_041."
+testimony_state:
+  source_event_id: event_turn_interlude_247
+  declared_by: player_declaration_2026_09_08
+  what_he_said: >-
+    POWIEDZIAL npc_seraphine_vale, KOGO WIDZIAL - ale zeznanie NIE BYLO PRECYZYJNE i jest
+    DO PODWAZENIA. Powod podany przez gracza: w tej samej chwili targowal sie z Lucanem
+    o przysługi dla swojej CHOREJ MATKI, na czas po tym, jak straz "rozwiaze problem jego
+    zeznan". Czlowiek negocjujacy o matke i zeznajacy jednoczesnie nie sklada zeznania,
+    tylko wystawia rachunek.
+  consistency: >-
+    ZGODNE Z open_thread, ktore od poczatku mowilo: potwierdzil, ze Oren zmienial trasy po
+    spotkaniach z kims SPOZA ZALOGI, i NIE PODAL WIECEJ (t_048, urwane na "na razie nie
+    podaje wiecej"). Chora matka i targ o przysługi to NOWY DETAL, nie korekta.
+  the_dangerous_half: >-
+    ZEZNANIE JEST SLABE, ROZPOZNANIE NIE. Wedlug Lucana Halvek ROZPOZNA npc_rovan_kesza,
+    jesli znajda sie w JEDNYM POKOJU - co jest dokladnie tym, co mowi open_thread
+    i rovan-kesz#oren_connection.confirmation_route.
+  nieustalone:
+    - 'Co dokladnie Seraphine z tego zapisala i czy uznaje to za uzyteczne. Jej karty NIE
+       zmieniono - to wymaga sceny albo jawnej deklaracji, nie dopisku z drugiej reki.'
+    - 'Czy Halvek powiedzial cokolwiek wiecej po t_048 - last_confirmed_event_id nadal
+       milestone_041.'
+    - 'Matka: imie, choroba, miejsce pobytu - NIE WYMYSLONE i nie wolno ich wymyslac.'
+  who_knows_this_now: >-
+    npc_rovan_kesz od event_turn_interlude_247 - dostal to od Lucana razem z nazwiskiem
+    Halveka, jako zaplate za prowadzenie sprawy garbarni.
 agenda: [survive_capture]
 source_refs: [source_luka_b_fragment#line:7800-8290]
 speech_traits:
