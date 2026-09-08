@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **86** z 159 retconow.
+Regul z klauzula normatywna: **87** z 160 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -36,7 +36,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000151` — Rozwoj MIERZONY BANKIEM wymaga materialu, czyli wyssania zywego.
 - `retcon_000152` — Narrator dostaje JAWNA LICENCJE od gracza, zeby uczynic to wyjscie teraz niewykonalnym - przeszkoda ma byc nazwana w fikcji i zrodlowana tym retconem, a nie wymyslona po cichu; zakaz...
 
-## ekspozycja i wiedza NPC (30)
+## ekspozycja i wiedza NPC (31)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -68,6 +68,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000156` — DWIE REGULY, OBOWIAZUJACE OD TERAZ KAZDEJ POSTACI W KAZDEJ SCENIE.
 - `retcon_000158` — CENA JEST TA, KTORA JUZ STOI, I NARRATOR NIE DOKLADA DRUGIEJ.
 - `retcon_000159` — Jest to w pelni pokryte jego wlasna karta (speech_traits: states_his_position_before_he_has_to; portrayal.temperament: precise, unsentimental) i nie wymaga zadnego zapozyczenia.
+- `retcon_000160` — Narratorowi nie wolno umieszczac t_203 w innym dniu niz t_236-t_244 - caly ten ciag to dzien 4 interludium, 19.08.2026, sroda.
 
 ## czas i tempo (13)
 
