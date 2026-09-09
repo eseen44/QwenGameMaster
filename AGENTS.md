@@ -53,7 +53,27 @@ Zasada: **audyt zapisuje DECYZJE i ZRODLA, a nie samo-raport z reguly, ktora ma 
 checker.** Co ma w nim zostac: co narrator rozstrzygnal i z jakiego pliku, ktore fakty
 weszly do czyjej wiedzy, jakie pola stanu ruszyl i dlaczego, co zostalo NIEUSTALONE.
 Co z niego wypada: lista regul, ktorych nie zlamal, jesli te reguly sa sprawdzane
-automatycznie. Licznik przechylu drukuje `python tools/prose_check.py`.
+automatycznie.
+
+Rozbior 20 ostatnich tur pokazal, ze **21% audytu to dwie sekcje bedace czysta
+redundancja**: `STAN` (7 596 zn., w 19 z 20 tur) powtarza `state/instances/*.yaml`,
+`state/time.yaml` i `scene.yaml`, ktore brief i tak wypisuje - a godzine czyta sie
+Z PLIKU, nie z wlasnej deklaracji; `CZEGO NARRATOR NIE ZROBIL` (9 406 zn., w 18 z 20 tur)
+powtarza to, co sprawdza jedenascie bramek. Do tego `consequence_source_refs` i `operations`
+sa osobnymi, walidowanymi polami outcome, wiec proza, ktora je powtarza, jest trzecim
+zapisem tej samej rzeczy.
+
+Od 2026-09-09 `turn commit` i `tools/prose_check.py --new-only` **odrzucaja** nowa ture, gdy:
+
+- audyt jest dluzszy niz **3x proza** (to jest liczba, ktora byla za duza: 7,3x),
+- audyt przekracza **4 000 znakow** (30% pod dzisiejsza mediana 5 749),
+- audyt przekracza **2 000 znakow** przy braku prozy autorskiej,
+- audyt ma sekcje `STAN` albo `CZEGO NARRATOR (TU) NIE ZROBIL`.
+
+Wzorce sa naglowkowe, wiec nie lapia zdania "Kesz nie podal nazwiska". Progi obowiazuja
+wylacznie tury powyzej baseline w `prose_check.py`; historycznych audytow nie wolno
+przepisywac (dziennik jest append-only). Licznik przechylu drukuje
+`python tools/prose_check.py`.
 
 Uzasadnienie i pomiary: `DECISIONS.md`.
 

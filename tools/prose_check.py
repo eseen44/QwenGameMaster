@@ -45,6 +45,60 @@ BASELINE_TURN = 248
 
 LIMIT_WYCEN = 1          # retcon_000162: wiecej niz jedno zdanie o cenie - przepisz
 LIMIT_MOWY_ZALEZNEJ = 3  # tyle parafraz przy ZERO kwestiach wprost to juz nie skracanie
+
+# KONTRAKT AUDYTU. Zmierzone 2026-09-09 na 20 turach: audyt 115 819 zn. na 15 972 zn. prozy,
+# czyli 7,3x. Z tego 25 454 zn. (21%) to dwie sekcje bedace czysta redundancja - `STAN`
+# powtarza pliki stanu, a `CZEGO NARRATOR NIE ZROBIL` powtarza to, co sprawdza 11 bramek.
+# Mediana audytu 5 749 zn. przy medianie prozy 1 002 zn.
+LIMIT_STOSUNKU = 3.0          # audyt najwyzej trzy razy dluzszy od prozy
+LIMIT_AUDYTU = 4000           # sufit absolutny, 30% pod dzisiejsza mediana
+LIMIT_AUDYTU_BEZ_PROZY = 2000  # zamyka furtke "nie pisz prozy, pisz audyt"
+
+# Sekcje zakazane. Wzorce sa NAGLOWKOWE, wiec nie lapia zdania "Kesz nie podal nazwiska":
+# musi to byc poczatek linii, opcjonalnie po numerze sekcji.
+NAGLOWEK_STANU = re.compile(r"(?m)^\s*(?:\d+\.\s*)?STAN\b")
+NAGLOWEK_SAMORAPORTU = re.compile(r"(?m)^\s*(?:\d+\.\s*)?CZEGO\s+(?:NARRATOR|TU)\b")
+
+
+def zmierz_audyt(summary: str, prose: str) -> dict:
+    """Pomiar audytu wobec prozy. Czysta funkcja - te same liczby dla bramki i raportu."""
+    summary = (summary or "").strip()
+    prose = (prose or "").strip()
+    naruszenia: list[str] = []      # pelne, dla bledu commita
+    etykiety: list[str] = []        # zwiezle, dla raportu
+    if NAGLOWEK_STANU.search(summary):
+        etykiety.append("sekcja STAN")
+        naruszenia.append(
+            "sekcja `STAN` - zrzut stanu powtarza state/instances/*.yaml, state/time.yaml "
+            "i scene.yaml, ktore brief i tak wypisuje; godzine czyta sie Z PLIKU"
+        )
+    if NAGLOWEK_SAMORAPORTU.search(summary):
+        etykiety.append("sekcja CZEGO NARRATOR NIE ZROBIL")
+        naruszenia.append(
+            "sekcja `CZEGO NARRATOR (TU) NIE ZROBIL` - samo-raport z regul, ktore sprawdza "
+            "maszyna (11 bramek w preflight + kontrole w turn commit)"
+        )
+    if len(summary) > LIMIT_AUDYTU:
+        etykiety.append(f"{len(summary)} zn. > {LIMIT_AUDYTU}")
+        naruszenia.append(f"audyt {len(summary)} zn. przekracza sufit {LIMIT_AUDYTU} zn.")
+    if prose:
+        stosunek = len(summary) / len(prose)
+        if stosunek > LIMIT_STOSUNKU:
+            etykiety.append(f"{stosunek:.1f}x prozy")
+            naruszenia.append(
+                f"audyt {len(summary)} zn. na {len(prose)} zn. prozy = {stosunek:.1f}x "
+                f"(limit {LIMIT_STOSUNKU:.0f}x)"
+            )
+    else:
+        stosunek = None
+        if len(summary) > LIMIT_AUDYTU_BEZ_PROZY:
+            etykiety.append(f"{len(summary)} zn. bez prozy")
+            naruszenia.append(
+                f"audyt {len(summary)} zn. bez ani jednego znaku prozy autorskiej "
+                f"(limit bez prozy: {LIMIT_AUDYTU_BEZ_PROZY} zn.)"
+            )
+    return {"audyt_znaki": len(summary), "proza_znaki": len(prose),
+            "stosunek": stosunek, "naruszenia": naruszenia, "etykiety": etykiety}
 OKNO = 90                # promien w znakach, w ktorym szukamy znacznika pieniedzy
 
 SLOWNIK_WYCENY = re.compile(
@@ -192,6 +246,12 @@ def main() -> int:
                            f"zobaczyc co najmniej jedna jej kwestie")
         if pomiar["szablon_nie_tylko"] > 1:
             flagi.append(f"szablon 'nie X, tylko Y': {pomiar['szablon_nie_tylko']}")
+        audyt = zmierz_audyt(event.get("audit") or event.get("summary") or "",
+                             event.get("prose") or "")
+        if audyt["naruszenia"]:
+            flagi.append("audyt [" + ", ".join(audyt["etykiety"]) + "]")
+            if tura > BASELINE_TURN:
+                zle.append(f"{event.get('id')}: " + "; ".join(audyt["naruszenia"]))
         if flagi:
             raport.append(f"  {event.get('id')} ({pomiar['znaki']} zn.): " + "; ".join(flagi))
 

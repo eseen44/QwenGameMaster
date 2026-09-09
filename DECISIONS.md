@@ -9,6 +9,71 @@ i bez uzasadnienia ktoś rozsądny cofnąłby ją przy następnym przeglądzie.
 
 ---
 
+## 2026-09-09 (czwarta iteracja) — audyt dostaje próg: 7,3× → 3,1×
+
+Żądanie gracza: „zbij ten przechył audyt/proza, 7,3× to za dużo".
+
+**Rozbiór, zanim próg.** Numerowane sekcje pokrywają 96% audytu, więc dały się policzyć
+po nagłówkach na 20 ostatnich turach:
+
+| sekcja | znaków | w ilu turach |
+|---|---|---|
+| `STAN` | 7 596 | 19 / 20 |
+| `CZEGO NARRATOR (TU) NIE ZROBIŁ` | 9 406 | 18 / 20 |
+| **razem** | **25 454 = 21% audytu** | |
+
+Te dwie są **czystą redundancją**, nie oszczędnością na siłę. `STAN` powtarza
+`state/instances/*.yaml`, `state/time.yaml` i `scene.yaml`, które `brief` i tak wypisuje —
+a `AGENTS.md` już mówi, że godzinę czyta się z pliku, nie z własnej deklaracji, więc ten
+zrzut nie jest nawet autorytatywny. `CZEGO NARRATOR NIE ZROBIŁ` powtarza to, co sprawdza
+jedenaście bramek preflight plus kontrole w `turn commit`. Do tego
+`consequence_source_refs` i `operations` są **osobnymi, walidowanymi polami** outcome, więc
+proza, która je powtarza, jest trzecim zapisem tej samej rzeczy. Zdjęcie tych dwóch sekcji
+to 7,3× → 5,7× bez utraty ani jednego faktu.
+
+Reszta (osiem sekcji po ~700 znaków na turę) to faktyczne uzasadnienie i zostaje — ale
+sprężone progiem, bo mediana audytu 5 749 znaków przy medianie prozy 1 002 znaków znaczy,
+że praca tury idzie w dowodzenie, a narracja jest produktem ubocznym.
+
+**Progi, blokujące w `turn commit` i w `prose_check --new-only`:**
+
+- audyt ≤ **3× proza** (to jest liczba, która była za duża),
+- audyt ≤ **4 000 znaków** (30% pod dzisiejszą medianą),
+- audyt ≤ **2 000 znaków**, gdy nie ma prozy autorskiej — zamyka furtkę „nie pisz prozy,
+  pisz audyt", w której stosunek przestaje istnieć,
+- żadnej sekcji `STAN` ani `CZEGO NARRATOR (TU) NIE ZROBIŁ`.
+
+Wzorce są **nagłówkowe** (`^\s*(\d+\.\s*)?STAN\b`), więc nie łapią zdania „Kesz nie podał
+nazwiska" ani „Czego nie dostał: dostępu do akt" — test to pilnuje. Projekcja na tych samych
+20 turach: audyt 115 819 → 49 613 znaków, **przechył 7,3× → 3,1×, spadek 58%**.
+
+**Skutek uboczny: znika najstarsza czerwona lampka i to nie przez obniżenie progu.**
+`test_event_prose::RecentTest` wymagał, żeby pominięty protokół był ponad **pięć razy**
+większy od prozy. Zgłaszałem tę porażkę jako dług, którego naprawą jest krótsza proza —
+i to była zła diagnoza w drugą stronę. Ta piątka nie opisywała jakości `recent`: opisywała,
+że audyty były ogromne, a proza mała, czyli **pomiar rozdęcia podany jako cnota**. Przy
+suficie `audyt ≤ 3× proza` warunek `> 5×` jest strukturalnie nieosiągalny dla nowych tur.
+Test zachowuje swój właściwy niezmiennik (`recent` jest istotnie tańsze od protokołu), ale
+próg **wylicza się teraz z kontraktu**, więc jego zaostrzenie zaostrza też ten test. Drugi,
+nowy test pilnuje, żeby nikt nie wrócił do liczby wziętej z pomiaru rozdęcia.
+`preflight --full`: **13/13 kontrol, 296 testów, zero porażek** — pierwszy raz w tej serii.
+
+**Czego świadomie NIE zrobiono.**
+- **Nie przepisano ani jednego historycznego audytu.** Dziennik jest append-only
+  (`journal_guard` sprawdza, że `audit` jest kopią `summary` i że wpisy nie znikają), więc
+  progi obowiązują wyłącznie tury powyżej `BASELINE_TURN`. Test sprawdza jedno i drugie:
+  że stare, przekraczające sufit audyty **nadal tam są**, i że baseline pokrywa całą
+  dotychczasową historię.
+- Nie postawiono progu na `consequence_source_refs` ani na `operations` — to pola
+  strukturalne i mają rosnąć, gdy tura naprawdę rusza wiele stanu.
+- Nie zabroniono szczegółu technicznego w audycie. `retcon_000162` mówi, że audyt MA być
+  techniczny; to jest próg objętości i zakaz dwóch redundantnych sekcji, nie nakaz
+  ogólnikowości.
+- Nie dodano retconu: progi narzędziowe i reguła redakcyjna nie są korektą faktu
+  historycznego.
+
+---
+
 ## 2026-09-09 (trzecia iteracja) — rzut przechyla świat, a nie rozstrzyga sukcesu
 
 Decyzja gracza, po ocenie stanu po dwóch poprzednich iteracjach.

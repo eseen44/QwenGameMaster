@@ -2,6 +2,13 @@ schema_version: 1
 intent_achieved: true
 arrangement: complicated
 perspective: instance_actor
+# AUDYT: DECYZJE I ŹRÓDŁA, nie esej i nie samo-raport. Progi sprawdza `turn commit`:
+#   - najwyżej 3x długość `prose`, najwyżej 4 000 znaków (2 000 bez prozy autorskiej);
+#   - żadnej sekcji `STAN` (stan jest w plikach stanu, a brief go wypisuje);
+#   - żadnej sekcji `CZEGO NARRATOR NIE ZROBIŁ` (to sprawdza 11 bramek w preflight).
+# Co tu należy: co rozstrzygnięto i z jakiego pliku, które fakty weszły do czyjej wiedzy,
+# jakie pola stanu ruszono i dlaczego, co zostało NIEUSTALONE. Źródła konsekwencji mają
+# własne, walidowane pole `consequence_source_refs` - nie powtarzaj ich prozą.
 summary: Krótki faktyczny opis rezultatu.
 # PROZA TURY. Do 2026-09-09 tego pola nie było w szablonie i nikt go nie sprawdzał, a to
 # ona - nie `summary` - jest tym, co `gm recent` podaje przy otwarciu następnej sesji jako

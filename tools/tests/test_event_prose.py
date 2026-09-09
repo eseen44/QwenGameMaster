@@ -91,12 +91,35 @@ class MigrationInvariantTest(unittest.TestCase):
 
 class RecentTest(unittest.TestCase):
     def test_recent_zwraca_proze_i_liczy_pominiety_protokol(self):
+        """`recent` ma byc istotnie tansze od protokolu - ale prog bierze sie z KONTRAKTU.
+
+        Do 2026-09-09 stalo tu `audit_chars_skipped > 5 * chars`. Ta piatka nie opisywala
+        jakosci `recent`, tylko to, ze audyty byly ogromne, a proza mala: pomiar rozdecia
+        podany jako cnota. Kontrakt audytu (AGENTS.md#audyt-nie-jest-samo-raportem) ustawia
+        sufit `audyt <= 3x proza`, wiec stary prog stal sie strukturalnie nieosiagalny dla
+        nowych tur - i to kontrakt ma pierwszenstwo, bo on jest decyzja, a prog byl
+        obserwacja. Prog jest teraz WYLICZANY z kontraktu, wiec jego zaostrzenie zaostrza
+        ten test, a nie luzuje go.
+        """
         result = gm_runtime.recent_prose(CAMPAIGN, 4)
         self.assertEqual(len(result["turns"]), 4)
-        self.assertGreater(result["audit_chars_skipped"], 5 * result["chars"],
-                           "recent nie oszczedza - po co wtedy istnieje")
+        self.assertGreater(result["audit_chars_skipped"], result["chars"],
+                           "recent nie oszczedza nic - po co wtedy istnieje")
         for row in result["turns"]:
             self.assertTrue(row["prose"].strip())
+
+    def test_prog_oszczednosci_pochodzi_z_kontraktu_audytu(self):
+        """Zapadka na wypadek, gdyby ktos wrocil do progu wzietego z pomiaru rozdecia."""
+        sys.path.insert(0, str(TOOLS))
+        import prose_check
+        result = gm_runtime.recent_prose(CAMPAIGN, 4)
+        stosunek = result["audit_chars_skipped"] / max(1, result["chars"])
+        # Historia jest sprzed kontraktu, wiec jej stosunek jest WYZSZY od sufitu. Gdy tury
+        # powyzej baseline zaczna dominowac te cztery, stosunek zejdzie do ~3x i to bedzie
+        # dowod, ze kontrakt dziala - nie regres.
+        self.assertGreater(stosunek, 1.0)
+        self.assertLessEqual(prose_check.LIMIT_STOSUNKU, 3.0,
+                             "kontrakt audytu poluzowany - sprawdz, czy to swiadoma decyzja")
 
     def test_recent_pokazuje_uchylenie(self):
         result = gm_runtime.recent_prose(CAMPAIGN, 40)

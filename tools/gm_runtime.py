@@ -1146,6 +1146,36 @@ def validate_world_axis_applied(
         )
 
 
+def validate_audit_contract(outcome: dict[str, Any]) -> None:
+    """Audyt zapisuje decyzje i zrodla, nie esej i nie samo-raport.
+
+    Zmierzone 2026-09-09 na 20 turach: audyt 115 819 zn. na 15 972 zn. prozy, czyli 7,3x -
+    praca tury idzie w dowodzenie zgodnosci, a narracja jest produktem ubocznym. 21% audytu
+    to dwie sekcje bedace czysta redundancja: `STAN` powtarza pliki stanu, a `CZEGO NARRATOR
+    NIE ZROBIL` powtarza to, co sprawdza jedenascie bramek. Do tego
+    `consequence_source_refs` i `operations` sa osobnymi, walidowanymi polami, wiec proza,
+    ktora je powtarza, jest trzecim zapisem tej samej rzeczy.
+
+    Audyt MA byc techniczny (retcon_000162) - dlatego to jest prog, nie zakaz szczegolu.
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import prose_check
+    except Exception:              # kontrola nie moze wywrocic commita
+        return
+    pomiar = prose_check.zmierz_audyt(outcome.get("summary") or "", outcome.get("prose") or "")
+    if not pomiar["naruszenia"]:
+        return
+    raise RuntimeError(
+        "outcome.summary lamie kontrakt audytu:\n  - "
+        + "\n  - ".join(pomiar["naruszenia"])
+        + "\nAudyt zapisuje DECYZJE i ZRODLA: co rozstrzygnieto i z jakiego pliku, ktore "
+          "fakty weszly do czyjej wiedzy, co zostalo nieustalone. Zrzut stanu jest w plikach "
+          "stanu, a zgodnosc z regulami sprawdza preflight. Regula: "
+          "AGENTS.md#audyt-nie-jest-samo-raportem"
+    )
+
+
 def validate_prose_contract(outcome: dict[str, Any]) -> list[str]:
     """Kontrakt prozy: wycena metaforyczna BLOKUJE, brak dialogu jest ostrzezeniem.
 
@@ -1355,6 +1385,7 @@ def commit_turn(
     validate_source_refs_resolve(campaign_root, outcome)
     validate_turn_identity(transaction)
     validate_world_axis_applied(transaction, outcome)
+    validate_audit_contract(outcome)
     prose_warnings = validate_prose_contract(outcome)
     due = transaction.get("preview", {}).get("world_reactions_due_before", [])
     resolved_ids = set(outcome.get("resolved_world_reaction_ids", []))
