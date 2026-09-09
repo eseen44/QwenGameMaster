@@ -33,6 +33,28 @@ jednak pozostać przenośne i nie może zależeć od zachowania jednego dostawcy
   Nowa tura powinna podawać w `outcome.prose` krótką narrację — wtedy wpis dostaje prozę
   pisaną, a nie wyciąganą maszynowo.
 
+## Audyt nie jest samo-raportem
+
+`outcome.summary` (w dzienniku: `audit`) MA byc techniczny i szczegolowy - to jedyne
+maszynowo dostepne uzasadnienie konsekwencji tury. Ale zmierzone 2026-09-09 na ostatnich
+20 turach: proza 15 972 znakow, audyt 115 819 znakow, czyli **protokol jest 7,3x wiekszy od
+prozy**. Praca tury idzie w dowodzenie zgodnosci, a narracja jest produktem ubocznym.
+
+Powod jest historyczny: audyt byl miejscem, w ktorym narrator dowodzil, ze nie zlamal
+kilkudziesieciu nagromadzonych regul - stad sekcje "CZEGO NARRATOR TU NIE ZROBIL" w kazdej
+turze. **Od 2026-09-04 wiekszosc tych dowodow robi maszyna.** `preflight` ma trzynascie
+kontrol; blokuja: zapora dziennika, proza jako klucze null, indeks regul, korpus retconow,
+skroty kart, kontrakty glosu, kontrakt prozy, kontrakt pol instancji, rejestr wzrostu,
+rejestry. Do tego `turn commit` sam odrzuca podwojony czas (retcon_000118), wycenianie
+decyzji, rozmowe streszczona bez ani jednej kwestii wprost i niezastosowane przechylenie
+osi swiata.
+
+Zasada: **audyt zapisuje DECYZJE i ZRODLA, a nie samo-raport z reguly, ktora ma wlasny
+checker.** Co ma w nim zostac: co narrator rozstrzygnal i z jakiego pliku, ktore fakty
+weszly do czyjej wiedzy, jakie pola stanu ruszyl i dlaczego, co zostalo NIEUSTALONE.
+Co z niego wypada: lista regul, ktorych nie zlamal, jesli te reguly sa sprawdzane
+automatycznie. Licznik przechylu drukuje `python tools/prose_check.py`.
+
 Uzasadnienie i pomiary: `DECISIONS.md`.
 
 ## Kolejność wczytywania przed turą

@@ -9,6 +9,76 @@ i bez uzasadnienia ktoś rozsądny cofnąłby ją przy następnym przeglądzie.
 
 ---
 
+## 2026-09-09 (trzecia iteracja) — rzut przechyla świat, a nie rozstrzyga sukcesu
+
+Decyzja gracza, po ocenie stanu po dwóch poprzednich iteracjach.
+
+**Co pomiar pokazał o przechyle mechanika/proza.** Rejestr głosu jest naprawiony
+strukturalnie i zabramkowany, ale **proporcja wysiłku nie**: na 20 ostatnich turach proza to
+15 972 znaków, a `audit` 115 819 — **protokół jest 7,3× większy od prozy**. Do tego aktywny
+kontekst stoi na 40 100 / 40 960 B i jego najcięższe pozycje to stan mechaniczny
+(`objectives.yaml` 5,4 KB, `spidey.yaml` 4,2 KB, `sustained-links.yaml` 3,9 KB). Kontrakt
+prozy rządzi KSZTAŁTEM prozy, nie tym, ile z tury w nią idzie — i żaden z poprzednich
+commitów tego nie ruszył.
+
+Powód rozdęcia audytu jest historyczny i nazwany: audyt był miejscem, w którym narrator
+DOWODZIŁ, że nie złamał kilkudziesięciu nagromadzonych reguł (sekcje „CZEGO NARRATOR TU NIE
+ZROBIŁ" w każdej turze). Od 2026-09-04 większość tych dowodów robi maszyna: `preflight` ma
+trzynaście kontrol, jedenaście blokuje, a `turn commit` sam odrzuca podwojony czas,
+wycenianie decyzji, rozmowę streszczoną bez kwestii wprost i niezastosowane przechylenie osi.
+Nowa zasada w `AGENTS.md#audyt-nie-jest-samo-raportem`: **audyt zapisuje decyzje i źródła,
+nie samo-raport z reguły, która ma własny checker.** Bez bramki na długość — audyt ma być
+techniczny (`retcon_000162`) — ale z licznikiem w `prose_check`, bo przechył, którego nikt
+nie liczy, wraca.
+
+**Nowa semantyka rzutu (od Aktu 3).** `roll_policy.mode: world_axis`. Rzut przestaje
+odpowiadać na „czy się udało" — na to odpowiada fikcja, metoda i `capabilities.md`, dokładnie
+jak przez całe interludium. Rzut odpowiada na pytanie, **w którą stronę przechylił się
+świat**. `outcome.intent_achieved` i `roll.world_axis.delta` są **niezależne**, więc akcja
+może się udać i przy tym rozprząc świat.
+
+- **Pasma z marginesu** (`modified − difficulty`), nie z surowego d100: `difficulty` już
+  niesie opór sytuacji, więc 70 przy progu 40 i 70 przy progu 85 nie mogą znaczyć tego
+  samego. ≥+25 → +2, +5…+24 → +1, −4…+4 → 0 (`zawieszenie`), −5…−24 → −1, ≤−25 → −2.
+  Naturalne 100 → +3, naturalne 1 → −3, niezależnie od marginesu.
+- **Cztery dziedziny** w `state/world-axis.yaml`: prawo i papier, ulica i trakt, wiara
+  i klątwa, wiedza i wynik. Każda ma zapisane `order_means` i `entropy_means` — bez tego
+  „porządek" jest słowem, w które narrator wpisuje, co mu wygodnie. Suma jest liczbą na
+  nagłówek, rozstrzyga dziedzina.
+- **Delta liczy się w `build_roll`**, czyli jest zapisana w rzucie PRZED narracją
+  (`tests.md#niezmienność-rzutu`) — nie da się jej przeliczyć po zobaczeniu, co wyszło.
+- **`turn commit` odmawia**, gdy rzut policzył niezerowe przechylenie, a
+  `outcome.operations` nie ma `shift_world_axis` z tą deltą. Bez tej bramki „rozwój wydarzeń
+  zależny od rzutów" byłby zależny od pamięci narratora, a rzut policzony i niezastosowany
+  jest gorszy od braku rzutu: liczba leży w dzienniku i twierdzi, że coś zmieniła.
+- **Przejście progu** (co 3 punkty) kolejkuje reakcję świata tym samym mechanizmem, którym
+  robią to zegary. Reakcja **nie niesie gotowego efektu** — mówi, która dziedzina i w którą
+  stronę, a konsekwencję narrator bierze z pliku i wskazuje który (`retcon_000055`,
+  `retcon_000058`). Oś nie jest licencją na produkowanie zagrożeń, których kanon nie ma.
+- **`passes` przestaje być nagłówkiem rzutu** w skróconym wyjściu `resolve`: pierwsza liczba,
+  którą narrator widzi, to przechylenie świata. `passes_threshold` zostaje w pełnym rekordzie
+  w `rolls.jsonl` dla testów, w których próg naprawdę rozstrzyga wykonanie.
+
+**Czego świadomie NIE zrobiono.**
+- **Nie przełączono `roll_policy`.** `mode` zostaje `disabled`, a `world-axis.yaml` ma status
+  `defined_inactive_until_act_03`. `AGENTS.md` wymaga, żeby `campaign_phase` i `roll_policy`
+  zmieniać wyłącznie przy jawnie zatwierdzonym przejściu — a interludium trwa. Test pilnuje
+  obu tych faktów, żeby oś nie weszła do gry przez przypadek.
+- Nie ruszono `passes_threshold` w silniku ani w historycznych rzutach: tryb `threshold`
+  zostaje opisany jako zapis Aktów 1–2 i nadal działa.
+- Nie zrobiono osi globalnej jednoliczbowej. Jedna liczba na cały świat sprawia, że każdy
+  rzut jest wymienny — to ta sama płaskość co 0-1, tylko w innym miejscu. Dlatego cztery
+  dziedziny plus suma.
+- Nie postawiono bramki na długość audytu ani na proporcję prozy do protokołu. Wymuszona
+  proporcja produkuje watę, nie prozę; licznik pokazuje przechył, decyzja zostaje przy
+  narratorze i graczu.
+- Nie dodano retconu: to zmiana reguły systemu na jawne żądanie gracza, a nie korekta faktu
+  historycznego. `world-axis.yaml` wpisany do `FILE-LIFECYCLE.md` i osiągalny z triggera
+  `testing`, żeby nie powtórzyć `retcon_000114` (stan poza kontekstem, wartości wymyślone
+  od nowa).
+
+---
+
 ## 2026-09-09 (druga iteracja) — kontrakt głosu wypiera archiwum wiedzy, a „ruch świata" przestaje znaczyć „diagnoza"
 
 Pierwsza iteracja tego dnia dała głosowi własne źródło i zmierzyła problem. Została jednak

@@ -25,6 +25,9 @@ load_when_testing:
 - system/tests.md
 - system/character-score.md
 - system/capabilities.md
+# Stan osi swiata czytany dokladnie wtedy, gdy pada rzut. Bez tego narrator wymysli
+# wartosci od nowa - dokladnie tak zniknal growth-banks.yaml w turze 178 (retcon_000114).
+- campaigns/lucan/state/world-axis.yaml
 load_when_time_matters:
 - system/pacing.md
 load_when_location_changes:
@@ -52,13 +55,13 @@ active_refs:
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms: []
 last_refreshed_event_id: event_turn_interlude_248
-context_bytes: 40070
+context_bytes: 40100
 context_budget_bytes: 40960
 context_warnings:
-- total_informational:131285>40960
+- total_informational:131772>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 8955
+  bytes: 8985
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
@@ -71,13 +74,13 @@ conditional_sets:
   npc_speaks:
     refs:
     - ref: system/npc-voice.md
-      bytes: 4230
-    bytes: 4230
+      bytes: 6337
+    bytes: 6337
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
-      bytes: 16617
-    bytes: 16617
+      bytes: 18789
+    bytes: 18789
   curse_used:
     refs:
     - ref: system/curses.md
@@ -100,8 +103,8 @@ conditional_sets:
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
-      bytes: 1974
-    bytes: 1974
+      bytes: 2708
+    bytes: 2708
   debugging_runtime:
     refs:
     - ref: system/runtime.md
@@ -150,9 +153,9 @@ conditional_sets:
       bytes: 11582
     bytes: 21853
 context_breakdown:
-  rules_always: 26029
+  rules_always: 26695
   state_active: 28311
-  participant_cards: 76945
-  participant_digests: 34618
+  participant_cards: 76766
+  participant_digests: 29412
   conditional_heaviest: 26140
-context_total_bytes: 131285
+context_total_bytes: 131772

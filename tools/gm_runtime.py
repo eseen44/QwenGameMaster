@@ -57,6 +57,35 @@ _StringDatesLoader.yaml_implicit_resolvers = {
     for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
 }
 ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
+
+# OS SWIATA (decyzja gracza 2026-09-09). Pasma liczone z MARGINESU nad progiem, nie
+# z surowego d100: `difficulty` juz niesie opor sytuacji, wiec ten sam wynik przy progu 40
+# i przy progu 85 nie moze znaczyc tego samego. Naturalne 1 i 100 przebijaja margines.
+WORLD_AXIS_BANDS = (
+    (25, 2, "porzadek_wyrazny"),
+    (5, 1, "porzadek"),
+    (-4, 0, "zawieszenie"),
+    (-24, -1, "entropia"),
+    (-100, -2, "entropia_wyrazna"),
+)
+WORLD_AXIS_CRITICAL = {"critical_high": (3, "porzadek_krytyczny"),
+                       "critical_low": (-3, "entropia_krytyczna")}
+WORLD_AXIS_MODE = "world_axis"
+
+
+def world_axis_from_roll(roll: dict[str, Any]) -> dict[str, Any]:
+    """Delta osi swiata z rzutu. Czysta funkcja - liczy tylko z rzutu, nic nie zapisuje."""
+    krytyk = WORLD_AXIS_CRITICAL.get(roll.get("critical") or "")
+    margin = int(roll["modified_result"]) - int(roll["difficulty"])
+    if krytyk:
+        delta, band = krytyk
+    else:
+        delta, band = 0, "zawieszenie"
+        for progi, wartosc, nazwa in WORLD_AXIS_BANDS:
+            if margin >= progi:
+                delta, band = wartosc, nazwa
+                break
+    return {"margin": margin, "band": band, "delta": delta}
 TIME_SECONDS = {
     0: {"instant": 0, "brief": 300, "significant": 3600},
     1: {"instant": 0, "brief": 120, "significant": 600},
@@ -453,6 +482,8 @@ def append_jsonl_once(path: Path, record: dict[str, Any]) -> None:
 def build_roll(
     preview: dict[str, Any], request: dict[str, Any], roll_id: str, event_id: str
 ) -> dict[str, Any] | None:
+    # Tryb fazy czytamy z preview, bo tam juz jest odczytany raz (patrz preview_turn).
+    axis_mode = preview.get("roll_policy_mode") == WORLD_AXIS_MODE
     assessment = preview["assessment"]
     if not assessment.get("roll_allowed"):
         return None
@@ -479,7 +510,7 @@ def build_roll(
         modifiers.append({"source": "in_character_score", "value": character_modifier(score)})
     natural = secrets.randbelow(100) + 1
     modified = natural + sum(item["value"] for item in modifiers)
-    return {
+    roll: dict[str, Any] = {
         "id": roll_id,
         "timestamp": now_iso(),
         "scene_id": preview.get("scene_id"),
@@ -497,6 +528,12 @@ def build_roll(
         "interpretation": None,
         "event_id": event_id,
     }
+    if axis_mode:
+        # OS ZAPISANA W RZUCIE, czyli PRZED narracja. Narrator nie moze jej przeliczyc po
+        # tym, jak zobaczy, co mu wyszlo w fikcji (system/tests.md#niezmiennosc-rzutu).
+        roll["world_axis"] = world_axis_from_roll(roll)
+        roll["domain_hint"] = request.get("world_axis_domain")
+    return roll
 
 
 def transaction_path(campaign_root: Path, turn_id: str) -> Path:
@@ -814,6 +851,41 @@ def apply_operation(
         queue_clock_reaction(campaign_root, changed, clock, event_id)
         return
 
+    if op == "shift_world_axis":
+        # ROZWOJ SWIATA ZALEZNY OD RZUTU, zapisany tak samo jak zegar: delta do dziedziny,
+        # a przy przejsciu progu reakcja swiata do sceny. Efektu NIE wymyslamy tutaj -
+        # reakcja mowi tylko, ze dziedzina sie przesunela, a tresc konsekwencji narrator
+        # bierze z pliku (retcon_000058).
+        axis_path = campaign_root / "state" / "world-axis.yaml"
+        axis = load_mutable(campaign_root, changed, axis_path)
+        domain_id = operation.get("domain")
+        domain = next((item for item in axis.get("domains", [])
+                       if item.get("id") == domain_id), None)
+        if domain is None:
+            znane = sorted(item.get("id") for item in axis.get("domains", []))
+            raise RuntimeError(
+                f"shift_world_axis: nieznana dziedzina {domain_id!r}; znane: {znane}")
+        delta = operation.get("delta")
+        if not isinstance(delta, int) or delta == 0:
+            raise RuntimeError("shift_world_axis wymaga calkowitej, niezerowej delty")
+        if not str(operation.get("reason") or "").strip():
+            raise RuntimeError(
+                "shift_world_axis wymaga `reason` - jednego zdania fikcji, nie numeru pasma")
+        domain["value"] = int(domain.get("value", 0)) + delta
+        axis.setdefault("history", []).append({
+            "event_id": event_id,
+            "domain": domain_id,
+            "delta": delta,
+            "value_after": domain["value"],
+            "roll_id": operation.get("roll_id"),
+            "reason": operation["reason"],
+        })
+        axis.setdefault("totals", {})["world_total"] = sum(
+            int(item.get("value", 0)) for item in axis.get("domains", []))
+        axis["last_event_id"] = event_id
+        queue_world_axis_reaction(campaign_root, changed, domain, event_id)
+        return
+
     if op == "transfer_item":
         resources_path = campaign_root / "state" / "resources.yaml"
         resources = load_mutable(campaign_root, changed, resources_path)
@@ -871,6 +943,48 @@ def apply_operation(
         )
         return
     raise RuntimeError(f"unsupported operation: {op}")
+
+
+def queue_world_axis_reaction(
+    campaign_root: Path,
+    changed: dict[Path, dict[str, Any]],
+    domain: dict[str, Any],
+    event_id: str,
+) -> None:
+    """Reakcja swiata przy KAZDYM przekroczonym progu dziedziny, w obie strony.
+
+    Poziom liczymy obcieciem do zera, wiec +3 to poziom +1, a -3 to poziom -1 i skala jest
+    symetryczna. Reakcja NIE niesie gotowego efektu: mowi, ktora dziedzina i w ktora strone,
+    a konsekwencje narrator bierze z pliku - inaczej ta os zaczela by produkowac zagrozenia,
+    ktorych kanon nie ma (retcon_000055, retcon_000058).
+    """
+    step = int(domain.get("step") or 3)
+    value = int(domain.get("value", 0))
+    level = int(value / step)
+    previous = int(domain.get("last_reaction_level", 0))
+    if level == previous:
+        return
+    domain["last_reaction_level"] = level
+    kierunek = "porzadek" if level > previous else "entropia"
+    scene_path = campaign_root / "context" / "scene.yaml"
+    scene = load_mutable(campaign_root, changed, scene_path)
+    reaction_id = f"reaction_world_axis_{domain['id']}_{level}"
+    if any(item.get("id") == reaction_id for item in scene.setdefault("pending_world_reactions", [])):
+        return
+    scene["pending_world_reactions"].append({
+        "id": reaction_id,
+        "world_axis_domain": domain["id"],
+        "level": level,
+        "direction": kierunek,
+        "effect": (
+            f"Dziedzina '{domain.get('label', domain['id'])}' przeszla prog na poziom {level} "
+            f"w strone {kierunek}. Nazwij jedna konsekwencje widoczna dla Lucana i wskaz "
+            f"plik, z ktorego ona wynika; znaczenie znaku jest w world-axis.yaml "
+            f"({'order_means' if kierunek == 'porzadek' else 'entropy_means'})."
+        ),
+        "world_test_required": False,
+        "trigger_event_id": event_id,
+    })
 
 
 def queue_clock_reaction(
@@ -1002,6 +1116,34 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         isinstance(ref, str) and ref.strip() for ref in source_refs
     ):
         raise RuntimeError("outcome.consequence_source_refs must be a list of non-empty strings")
+
+
+def validate_world_axis_applied(
+    transaction: dict[str, Any], outcome: dict[str, Any]
+) -> None:
+    """Niezerowa delta osi swiata MUSI wejsc do outcome.operations.
+
+    Bez tej bramki "rozwoj wydarzen zalezny od rzutow" jest zalezny od pamieci narratora,
+    a rzut policzony i niezastosowany jest gorszy od braku rzutu: liczba lezy w dzienniku
+    i twierdzi, ze cos zmienila.
+    """
+    roll = transaction.get("roll") or {}
+    axis = roll.get("world_axis") or {}
+    delta = axis.get("delta")
+    if not delta:
+        return
+    dopasowane = [
+        op for op in outcome.get("operations", [])
+        if isinstance(op, dict) and op.get("op") == "shift_world_axis"
+        and op.get("delta") == delta
+    ]
+    if not dopasowane:
+        raise RuntimeError(
+            f"rzut {roll.get('id')} dal pasmo {axis.get('band')} (margines {axis.get('margin')}, "
+            f"delta {delta:+d}), a outcome.operations nie ma shift_world_axis z ta delta. "
+            f"Dopisz operacje z `domain`, `delta: {delta:+d}`, `roll_id` i jednym zdaniem "
+            f"`reason`. Regula: system/tests.md#rzut-w-akcie-3-porzadek-albo-entropia"
+        )
 
 
 def validate_prose_contract(outcome: dict[str, Any]) -> list[str]:
@@ -1212,6 +1354,7 @@ def commit_turn(
     validate_interlude_outcome(transaction, outcome)
     validate_source_refs_resolve(campaign_root, outcome)
     validate_turn_identity(transaction)
+    validate_world_axis_applied(transaction, outcome)
     prose_warnings = validate_prose_contract(outcome)
     due = transaction.get("preview", {}).get("world_reactions_due_before", [])
     resolved_ids = set(outcome.get("resolved_world_reaction_ids", []))
@@ -1867,14 +2010,27 @@ def activate_migration(campaign_root: Path, manifest_path: Path, dry_run: bool) 
 def roll_summary(roll: dict[str, Any] | None) -> dict[str, Any] | None:
     if not roll:
         return None
-    return {
+    summary = {
         "id": roll.get("id"),
         "natural": roll.get("natural_roll"),
         "modified": roll.get("modified_result"),
         "difficulty": roll.get("difficulty"),
-        "passes": roll.get("passes_threshold"),
         "critical": roll.get("critical"),
     }
+    axis = roll.get("world_axis")
+    if axis:
+        # POD OS SWIATA `passes` NIE JEST NAGLOWKIEM RZUTU i celowo go tu nie ma. Zostaje
+        # w pelnym rekordzie w journal/rolls.jsonl dla tych testow, w ktorych prog naprawde
+        # rozstrzyga wykonanie - ale pierwsza liczba, ktora narrator widzi po rzucie, ma byc
+        # przechyleniem swiata, nie ocena "zdal / nie zdal".
+        summary["world_axis"] = axis
+        summary["hint"] = (
+            "Czy zamiar sie udal, rozstrzyga fikcja i metoda, nie ten rzut. "
+            "Rzut mowi, w ktora strone przechylil sie swiat."
+        )
+    else:
+        summary["passes"] = roll.get("passes_threshold")
+    return summary
 
 
 def assessment_summary(assessment: dict[str, Any]) -> dict[str, Any]:

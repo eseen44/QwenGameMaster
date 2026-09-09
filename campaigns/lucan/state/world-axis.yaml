@@ -1,0 +1,87 @@
+schema_version: 1
+campaign_id: campaign_lucan
+object_type: world_axis
+status: defined_inactive_until_act_03
+activated_by: przejscie roll_policy.mode z disabled na world_axis (state/time.yaml)
+rule_ref: system/tests.md#rzut-w-akcie-3-porzadek-albo-entropia
+established: 2026-09-09
+established_by: decyzja gracza 2026-09-09
+
+purpose: >-
+  OS SWIATA, NIE LICZNIK SUKCESOW. Od Aktu 3 rzut nie rozstrzyga, czy akcja sie udala -
+  to wynika z fikcji, mozliwosci i metody, tak jak w interludium. Rzut rozstrzyga, W KTORA
+  STRONE PRZECHYLA SIE SWIAT: wysoki wynik zaciska porzadek, niski rozpuszcza go w entropie.
+  Akcja moze sie udac i przy tym rozprzac swiat; moze sie nie udac, a swiat i tak stezeje.
+  Te dwie rzeczy sa niezalezne i zapisuje sie je osobno: `outcome.intent_achieved` mowi,
+  czy zamiar zostal osiagniety, a ta os mowi, co sie stalo ze swiatem.
+
+# ZNACZENIE ZNAKU, dla kazdej dziedziny osobno. Bez tego "porzadek" jest slowem bez tresci,
+# a narrator wpisuje w nie, co mu wygodnie.
+domains:
+- id: prawo
+  label: Prawo i papier
+  factions:
+  - faction_lumaria_magistracy
+  - faction_lumaria_civic_services
+  value: 0
+  step: 3
+  last_reaction_level: 0
+  order_means: >-
+    Sprawy koncza sie pismem, terminy sa dotrzymywane, akta sie zgadzaja, a urzednik ma
+    nazwisko i odpowiada za podpis. Kto ma racje na papierze, ten ja ma.
+  entropy_means: >-
+    Rozstrzyga sila i znajomosc, ludzie znikaja bez wpisu, postepowania stoja bez terminu,
+    a ten sam fakt ma trzy wersje w trzech kancelariach.
+- id: ulica
+  label: Ulica i trakt
+  factions:
+  - faction_lumaria_criminal_networks
+  - faction_lumaria_merchant_consortium
+  - faction_oren_corpse_network
+  value: 0
+  step: 3
+  last_reaction_level: 0
+  order_means: >-
+    Towar jedzie, trasy sa przewidywalne, umowy sie trzymaja i wiadomo, kto komu winien.
+    Podziemie tez woli spokoj, bo spokoj jest tanszy.
+  entropy_means: >-
+    Rozboj na trakcie, wymuszenia, ladunki przepadaja, nikt za nic nie reczy, a kazda
+    przysluga wymaga nowego poreczenia.
+- id: wiara
+  label: Wiara i klatwa
+  factions:
+  - faction_lumaria_church
+  - faction_inquisition
+  - faction_lumaria_martial_orders
+  value: 0
+  step: 3
+  last_reaction_level: 0
+  order_means: >-
+    Doktryna jest egzekwowana przewidywalnie i granica dozwolonego jest znana z gory.
+    Da sie wiedziec, za co bedzie kara.
+  entropy_means: >-
+    Gorliwosc zamiast procedury, oskarzenie zamiast dowodu, polowania na podejrzenie
+    i kaznodzieja mocniejszy od kanonika.
+- id: wiedza
+  label: Wiedza i wynik
+  factions:
+  - faction_lumaria_magical_academy
+  - faction_lumaria_adventurers_guild
+  value: 0
+  step: 3
+  last_reaction_level: 0
+  order_means: >-
+    Spor rozstrzyga argument i powtarzalny wynik, katedra odpowiada za to, co oglasza,
+    a definicja trzyma sie tego, co da sie pokazac.
+  entropy_means: >-
+    Definicje ustala frakcja, wynik ustala patron, prace gina albo zmieniaja autora,
+    a dysputa jest przedstawieniem dla widowni.
+
+totals:
+  world_total: 0
+  note: >-
+    Suma wartosci dziedzin. Jedna liczba na naglowek ("swiat tezeje" albo "swiat sie
+    rozprzega"), ale rozstrzyga zawsze dziedzina, bo w niej siedzi tresc.
+
+history: []
+last_event_id: null

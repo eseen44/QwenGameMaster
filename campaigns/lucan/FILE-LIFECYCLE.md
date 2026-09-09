@@ -16,6 +16,7 @@ Ta tabela jest kompletną mapą aktualizacji: każdy plik projektu wpada w dokł
 | `campaigns/*/context/scene.yaml` | bieżąca scena | Każdy `turn commit`, który zmienia uczestników, lokację, napięcie, presję, pytanie lub reakcję świata; obowiązkowo przy otwarciu/zamknięciu sceny. |
 | `campaigns/*/context/active.yaml` | minimalny kontekst | Po każdym commicie, gdy zmienia się zestaw potrzebnych plików; zawsze po zmianie sceny. Generuje `gm context refresh`. |
 | `campaigns/*/state/time.yaml` | czas i faza kampanii | Gdy akcja ma czas większy od zera albo zostaje domknięty downtime. `campaign_phase` i `roll_policy` zmieniaj wyłącznie przy jawnie zatwierdzonym przejściu między interludium i aktem. |
+| `campaigns/*/state/world-axis.yaml` | oś porządku i entropii świata | Wyłącznie operacją `shift_world_axis` w turze, w której padł rzut w trybie `world_axis`. Delta bierze się z `roll.world_axis`, nigdy z ręki; `reason` jest zdaniem fikcji. Nie edytuj wartości ręcznie i nie kasuj `history`. |
 | `campaigns/*/state/clocks.yaml` | zegary i reakcje świata | Gdy czas, konsekwencja albo decyzja zmienia postęp zegara; należną reakcję dodaj też do sceny. |
 | `campaigns/*/state/instances/*.yaml` | zmienny stan bytów | Gdy byt zmienia pozycję, integralność, zasób, warunek, właściciela, rozkaz lub rewizję. Używaj operacji transakcyjnych, nie ręcznego nadpisania. |
 | `campaigns/*/state/resources.yaml` | dobra, dowody, świadkowie, saldo | Gdy zmieniają się pieniądze, własność, dowód, świadek, dług lub zasób wspólny. |

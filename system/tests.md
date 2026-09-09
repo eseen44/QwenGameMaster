@@ -19,6 +19,14 @@ wykonalna akcja daje `automatic` albo `automatic_with_cost`, a `impossible` i
 `possible_only_with_new_leverage` pozostają twardymi granicami. Odblokowanie wymaga jawnego
 przejścia do następnego aktu; nie wymaga ukończenia wszystkich planów interludium.
 
+Tryby `roll_policy.mode`:
+
+| tryb | co rozstrzyga rzut |
+|---|---|
+| `disabled` | nic — rzutów nie ma (całe interludium) |
+| `threshold` | wykonanie: `modified >= difficulty` (Akty 1–2, zapis historyczny) |
+| `world_axis` | **przechylenie świata**, nie wykonanie — sekcja niżej (Akt 3) |
+
 ## Kiedy wykonywać test
 
 Test jest potrzebny, gdy:
@@ -92,6 +100,84 @@ tworzy okazji ani konsekwencji - łamie zasadę z sekcji "Kiedy wykonywać test"
 sensownie zmienić sytuację"). `difficulty` w takim teście służy do skalibrowania
 *progu*, ale narrator zawsze buduje z surowego wyniku jakiś fabularny fakt,
 nie pustkę.
+
+## Rzut w Akcie 3: porządek albo entropia
+
+Decyzja gracza 2026-09-09, obowiązująca od przejścia `roll_policy.mode` na `world_axis`.
+
+**Rzut przestaje odpowiadać na pytanie „czy się udało".** Na to odpowiada fikcja, metoda
+i `system/capabilities.md` — dokładnie tak, jak przez całe interludium przy `disabled`.
+Rzut odpowiada na pytanie, **w którą stronę przechylił się świat**: wysoki wynik zaciska
+porządek, niski rozpuszcza go w entropii.
+
+Te dwie rzeczy są **niezależne** i zapisuje się je osobno:
+
+- `outcome.intent_achieved` — czy zamiar Lucana został osiągnięty;
+- `roll.world_axis.delta` — co się przy tym stało ze światem.
+
+Więc: **akcja może się udać i przy tym rozprząc świat.** Podpis wymuszony na urzędniku
+zamyka sprawę i uczy magistrat, że podpisy się wymusza. Może być też odwrotnie: zamiar
+nieosiągnięty, a świat stężał, bo procedura wytrzymała nacisk. „Nie udało się" i „zrobiło
+się gorzej" to od teraz dwa różne zdania i nie wolno ich zlepiać.
+
+### Pasma
+
+Liczone z **marginesu** nad progiem (`modified_result − difficulty`), nie z surowego d100:
+`difficulty` już niesie opór sytuacji, więc 70 przy progu 40 i 70 przy progu 85 nie mogą
+znaczyć tego samego.
+
+| margines | delta | pasmo |
+|---|---|---|
+| ≥ +25 | **+2** | `porzadek_wyrazny` |
+| +5 … +24 | **+1** | `porzadek` |
+| −4 … +4 | **0** | `zawieszenie` — świat nie tężeje i nie pęka |
+| −5 … −24 | **−1** | `entropia` |
+| ≤ −25 | **−2** | `entropia_wyrazna` |
+
+Naturalne `100` daje **+3**, naturalne `1` daje **−3**, niezależnie od marginesu
+(sekcja „Wyniki krytyczne"). Runtime liczy to sam w `build_roll` i zapisuje w rzucie —
+czyli **przed narracją**, więc pasma nie wolno przeliczyć po zobaczeniu, co wyszło w fikcji.
+
+### Dziedziny
+
+`campaigns/lucan/state/world-axis.yaml` trzyma cztery dziedziny: **prawo i papier**,
+**ulica i trakt**, **wiara i klątwa**, **wiedza i wynik**. Każda ma zapisane, co u niej
+znaczy porządek, a co entropia — bez tego „porządek" jest słowem, w które narrator wpisuje,
+co mu wygodnie. Dziedzinę wybiera **scena**: przechyla się ta, której instytucji rzut
+dotyczył. Suma dziedzin (`totals.world_total`) jest liczbą na nagłówek; rozstrzyga zawsze
+dziedzina, bo w niej siedzi treść.
+
+### Zapis
+
+Niezerową deltę **trzeba** zastosować w tej samej turze:
+
+```yaml
+operations:
+- op: shift_world_axis
+  domain: prawo
+  delta: -1
+  roll_id: roll_turn_act_03_004
+  reason: Urzędnik przyjął pismo, ale bez terminu i bez własnego nazwiska.
+```
+
+`turn commit` **odmawia**, jeżeli rzut policzył przechylenie, a `outcome.operations` go nie
+zawiera. Rzut policzony i niezastosowany jest gorszy od braku rzutu: liczba leży w dzienniku
+i twierdzi, że coś zmieniła. `reason` musi być zdaniem fikcji, nie numerem pasma.
+
+Co `step` punktów (domyślnie 3) dziedzina przechodzi próg i do sceny wchodzi reakcja świata —
+tym samym mechanizmem, którym robią to zegary. **Reakcja nie niesie gotowego efektu**: mówi,
+która dziedzina i w którą stronę, a konsekwencję narrator bierze z pliku i wskazuje który
+(`retcon_000055`, `retcon_000058`). Os świata nie jest licencją na produkowanie zagrożeń,
+których kanon nie ma.
+
+### Czego to nie zmienia
+
+- Bramka możliwości działa bez zmian: `impossible` i `possible_only_with_new_leverage`
+  nadal zabraniają rzutu, a naturalne `100` nie omija anatomii, skali ani zasięgu.
+- „Nieograniczona powtórka znosi test" obowiązuje dalej. Oś świata nie jest powodem, żeby
+  rzucać częściej — jest powodem, żeby rzut **znaczył więcej**, kiedy już padnie.
+- Niepowodzenie Lucana nadal nie może być nagrodą pocieszenia. Entropia nie jest nagrodą:
+  jest zmianą świata, w którym on dalej musi żyć.
 
 ## Wyniki krytyczne
 

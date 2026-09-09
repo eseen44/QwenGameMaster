@@ -158,7 +158,8 @@ def main() -> int:
         print(json.dumps(pomiar, ensure_ascii=False, indent=2))
         return 1 if pomiar["wyceny_metaforyczne"] > LIMIT_WYCEN else 0
 
-    wybrane = [e for e in wpisy() if (e.get("prose") or "").strip()][-max(1, args.limit):]
+    wszystkie = wpisy()[-max(1, args.limit):]
+    wybrane = [e for e in wszystkie if (e.get("prose") or "").strip()]
     if not wybrane:
         print("[OK] brak prozy autorskiej do sprawdzenia")
         return 0
@@ -195,6 +196,16 @@ def main() -> int:
             raport.append(f"  {event.get('id')} ({pomiar['znaki']} zn.): " + "; ".join(flagi))
 
     if not args.quiet:
+        # PRZECHYL PROZA / PROTOKOL. Zmierzone 2026-09-09 na 20 turach: 15 972 znakow prozy
+        # na 115 819 znakow audytu, czyli 7,3x. To nie jest bramka - audyt ma byc techniczny
+        # (retcon_000162) - ale przechyl, ktorego nikt nie liczy, wraca.
+        audyt = sum(len(e.get("audit") or e.get("summary") or "") for e in wszystkie)
+        proza_all = sum(len(e.get("prose") or e.get("prose_auto") or "") for e in wszystkie)
+        if proza_all:
+            print(f"przechyl proza/protokol na {len(wszystkie)} turach: proza {proza_all} zn., "
+                  f"audyt {audyt} zn. - protokol {audyt / proza_all:.1f}x wiekszy")
+            print("  (audyt ma byc szczegolowy, ale NIE ma powtarzac tego, co sprawdza "
+                  "checker - patrz AGENTS.md#audyt-nie-jest-samo-raportem)")
         print(f"proza autorska: {len(wybrane)} tur, {suma['znaki']} znakow")
         print(f"  wyceny metaforyczne: {suma['wyceny_metaforyczne']}")
         print(f"  mowa zalezna:        {suma['mowa_zalezna']}")
