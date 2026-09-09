@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **89** z 162 retconow.
+Regul z klauzula normatywna: **90** z 163 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -37,7 +37,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000152` — Narrator dostaje JAWNA LICENCJE od gracza, zeby uczynic to wyjscie teraz niewykonalnym - przeszkoda ma byc nazwana w fikcji i zrodlowana tym retconem, a nie wymyslona po cichu; zakaz...
 - `retcon_000161` — CZEGO TA KOREKTA NIE ZMIENIA: zaliczki nadal nie ma, bo gracz jej nie zadeklarowal, i zadne srebro nie zmienia wlasciciela; Sedd nadal nie identyfikuje instytucji ze sygnatury i nie...
 
-## ekspozycja i wiedza NPC (32)
+## ekspozycja i wiedza NPC (33)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -71,6 +71,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000159` — Jest to w pelni pokryte jego wlasna karta (speech_traits: states_his_position_before_he_has_to; portrayal.temperament: precise, unsentimental) i nie wymaga zadnego zapozyczenia.
 - `retcon_000160` — Narratorowi nie wolno umieszczac t_203 w innym dniu niz t_236-t_244 - caly ten ciag to dzien 4 interludium, 19.08.2026, sroda.
 - `retcon_000162` — (1) LIMIT, NIE OBOWIAZEK.
+- `retcon_000163` — Sekret 'northern_foundation_route' w locations/cemetery-chapel/discovery.yaml jest wlasnie ta droga i od teraz jest jej ADRESEM.
 
 ## czas i tempo (13)
 

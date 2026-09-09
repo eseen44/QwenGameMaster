@@ -46,7 +46,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_238
+  last_confirmed_event_id: event_turn_interlude_250
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -153,6 +153,31 @@ knowledge:
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
+    source_event_id: event_turn_interlude_250
+    claim: 'Rozstrzygnieta zapowiedz z t_234, otwarta od czterech dni. Sygnet lezal na jej biurku od t_233
+      do t_238, wiec miala go na czym obejrzec; porownala go z papierami garbarnika, ktore ma u siebie
+      od milestone_022 (fact_seraphine_received_tannery_evidence). Wynik: Nic. Jelenia przebitego trzema
+      strzalami nie ma w niczym, co trzyma - jej papiery dotycza zakladu i jego wlasciciela, a herb jest
+      sprawa rodu.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
+  - fact_id: fact_seraphine_let_varkhen_walk_out_and_stayed_behind
+    source_event_id: event_turn_interlude_250
+    claim: Otworzyla drzwi wlasna reka, gdy Varkhen ruszal, i zostala w gabinecie. Nie zapytano jej, czy
+      idzie pod trzecia pieczec, i sama sie nie zglosila. Nie postawila zadnego warunku przy wyjsciu -
+      transport nocny ulica uzgodniono przy niej w t_230, kustodia Varkhena jest formalna, a pomiar trzeciej
+      pieczeci jest krokiem pierwszym jej wlasnej kolejnosci z t_234.
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_let_varkhen_walk_out_and_stayed_behind
+  - fact_id: fact_seraphine_heard_varkhen_say_the_oath_had_no_end
+    source_event_id: event_turn_interlude_249
+    claim: 'Byla w gabinecie, gdy Lucan zapytal Varkhena wprost, co ten chce robic po wszystkim - to samo
+      pytanie, ktore ona zadala mu w t_230. Uslyszala te sama odpowiedz i powod, ktorego wtedy nie dostala:
+      postawiono go przy bramie i dano mu slowo, a w slowie nie bylo konca. Skwitowala to jednym zdaniem,
+      ze pytala o to samo i dostala krocej.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_heard_varkhen_say_the_oath_had_no_end
   - fact_id: fact_seraphine_has_the_clerks_name_malen_corth
     source_event_id: event_turn_interlude_238
     claim: 'MA nazwisko, O ktore zapytala raz w t_235: Malen corth, urzednik akt magistratu uzgadniajacy
@@ -161,32 +186,10 @@ knowledge:
       pozostaje instytucja niezalezna od gildii.'
     claim_truncated: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_has_the_clerks_name_malen_corth
-  - fact_id: fact_seraphine_priced_the_magistrate_flood_idea
-    source_event_id: event_turn_interlude_238
-    claim: 'Wycenila pomysl lucana na magistrat, rachunkiem i bez moralizowania (portrayal: she_is_a_co_conspirator_not_a_lawful_paragon,
-      do_not_play: oburzenie moralne). Lucan zapytal, czy ma cos zrobic z Corthem, zastrzegl, ze nie zamierza
-      go zabijac ani krzywdzic, i podal wlasny pomysl: zalac caly parter magistratu eksplozja szamba.
-      Pytanie i pomysl, nie wykonanie - nikt nigdzie nie poszedl.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_priced_the_magistrate_flood_idea
-  - fact_id: fact_seraphine_released_the_signet_and_named_the_kesz_risk
-    source_event_id: event_turn_interlude_238
-    claim: 'Puscila sygnet bez oporu. Lucan podniosl item_three_arrow_deer_signet z jej biurka, gdzie
-      lezal od t_233, i zapowiedzial, ze pokaze go npc_rovan_keszowi - "prawnik powinien znac swoja klientele".
-      Nie zatrzymywala: obejrzala go, gdy lezal, i to jej wystarczy do porownania z papierami garbarnika,
-      ktore ma u siebie (zapowiedz z t_234). Czy cos w nich znalazla - Nierozstrzygniete, to jej otwarta
-      praca.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_released_the_signet_and_named_the_kesz_risk
-  - fact_id: fact_seraphine_described_her_own_detection_envelope
-    source_event_id: event_turn_interlude_237
-    claim: 'Oferta z t_235 przyjeta przez lucana ("a jak cos mi mozesz odpowiedziec, to chetnie") i wydana
-      w slowach - bez demonstracji na zywo, bez ani jednej jednostki wydanej przez Lucana. Uwaga dla narratora:
-      pierwsze rozegranie tej tury (t_236) zostalo uchylone przez retcon_000156, bo mowila jezykiem systemu
-      i podawala koszty zdolnosci Lucana, ktorych nie zna. Ten wpis jest wersja obowiazujaca.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_described_her_own_detection_envelope
   older_confirmed_index:
+  - fact_seraphine_priced_the_magistrate_flood_idea@238
+  - fact_seraphine_released_the_signet_and_named_the_kesz_risk@238
+  - fact_seraphine_described_her_own_detection_envelope@237
   - fact_seraphine_answered_the_combat_mage_question@235
   - fact_seraphine_registered_lucans_position_on_rusk@235
   - fact_seraphine_asked_again_for_the_clerks_name@235
@@ -210,6 +213,7 @@ knowledge:
   - fact_seraphine_holds_the_barbers_casebook@190
   - fact_seraphine_knows_lucan_will_not_defend_himself@190
   - fact_seraphine_watch_meeting_today_day4@188
+  - fact_seraphine_attributed_the_north_foundation_emission_to_orens_relay@163
   - fact_seraphine_refuses_authorisation_but_names_the_line@126
   - fact_seraphine_is_not_on_corths_distribution_list@125
   - fact_seraphine_knows_the_dispute_fuse_burns_without_lucan@124
@@ -299,11 +303,11 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 95
+  confirmed_entries_total: 99
   in_digest: 4
-  last_fact_from_turn: 238
-  current_turn: 248
-  turns_behind: 10
+  last_fact_from_turn: 250
+  current_turn: 256
+  turns_behind: 6
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
     recall/dziennik przed pierwsza kwestia tej postaci.

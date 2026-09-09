@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 239
+revision: 247
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_main_hall
-  formation: with_lucan_back_in_the_guild_main_hall_since_t_248_standing_order_never_revoked
+  location_id: loc_cemetery_underworks
+  zone_id: zone_relay_chamber
+  formation: with_lucan_at_the_north_foundation_level_below_the_chapel_crypts_since_t_254_standing_order_never_revoked
 integrity:
   current: 13
   maximum: 13
@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 79780
+      hunting_recovery_elapsed_seconds: 84940
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -53,10 +53,9 @@ traits:
 status_flags:
 - autonomous_hunting
 - death_anchored
-- at_market_back_alleys_with_lucan
 - decay_suppressed
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_248
+last_event_id: event_turn_interlude_256
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559

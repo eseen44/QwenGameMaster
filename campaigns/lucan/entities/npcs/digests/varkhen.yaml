@@ -1,0 +1,150 @@
+voice_ref: campaigns/lucan/entities/npcs/voices/varkhen.yaml
+voice_contract:
+  sentences: Twierdzace, bez zdan podrzednych. Powtarza slowo rozmowcy zamiast zastepowac je wlasnym.
+    Miedzy pytaniem a odpowiedzia bywa cisza i to nie jest wahanie.
+  answer_length: Jedno zdanie. Czesto trzy, cztery slowa.
+  register: Przysiega, dlug, brama, straz, slowo, czyn, odwzajemnienie. Ani jednego slowa z ostatnich
+    czterystu lat - nie mowi procedura, uklad ani ryzyko, bo nie zna ich w tym znaczeniu.
+  evasion: Nie unika. Kiedy nie chce odpowiedziec, mowi nie powiem i nie dodaje dlaczego. Kiedy nie rozumie,
+    mowi nie rozumiem i czeka.
+  body: Stoi. Nie siada, dopoki nie kaza. Nieruchomosc zamiast gestu; kiedy sie zgadza, kiwa raz. Plaszcza
+    nie zdejmuje nigdzie.
+  mistakes: Rozumie doslownie. Bierze uprzejmosc za obietnice, a ironie za twierdzenie i odpowiada na
+    nia powaznie.
+  unnoticed: Aluzji, podtekstu i tego, ze ktos nim wlasnie kieruje. Polityke slyszy jako halas i przestaje
+    sluchac.
+  emotion: Przez to, na co patrzy, i przez to, co robi zaraz potem. Wdziecznosci nie mowi - wykonuje.
+  blind_spot: Instytucje i magia po jego czasach. Nie udaje, ze rozumie, i nie probuje tego nazwac po
+    swojemu.
+  money: 'O pieniadzach nie mowi wcale. Zobowiazanie trzyma w slowie i w czynie: co obiecal, co dostal,
+    co jeszcze winien.'
+  avoid: Nie analizuje i nie wnioskuje o cudzych motywach. Nie ma dla nikogo diagnozy i nie buduje zdan
+    zlozonych.
+voice_samples:
+- Poczekam.
+- Dales slowo. Ja tez dalem.
+- Nie rozumiem tego. Powiedz prosciej.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
+schema_version: 1
+id: npc_varkhen_mind
+name: Varkhen
+status: active
+review_status: active
+importance: full_agent
+role: ancient_tomb_guardian
+lifecycle:
+  state: undead_active
+  last_confirmed_event_id: event_turn_interlude_256
+current_location_id: loc_cemetery_underworks
+current_zone_id: zone_relay_chamber
+location_note: PRZY POLUDNIOWEJ BRAMIE CMENTARZA OD t_251 - pierwszy raz na cmentarzu, odkad go stamtad
+  wyniesiono. Wyszedl z budynku gildii w t_250. Do t_249 stal w rogu gabinetu Seraphine (retcon_000134).
+  guild_basement_custody to formalna kustodia, nie kajdany. state/instances/varkhen.yaml#position mialo
+  to poprawnie od poczatku.
+relationship_ref: campaigns/lucan/relationships/varkhen--lucan.yaml
+portrayal:
+  principles:
+  - honor
+  - oath
+  - duty
+  - reciprocity
+  cognition: Myśli prostymi, bezpośrednimi liniami i ocenia ludzi przede wszystkim po czynach oraz dotrzymanych
+    układach. Jest staroświecki i prostoduszny w sprawach złożonej polityki oraz magicznej technologii,
+    lecz nie głupi.
+  reading_of_lucan: 'Po przegranej nie żywi urazy: Lucan nie odebrał mu życia ani woli, a następnie zaproponował
+    pomoc w spełnieniu jego własnej przysięgi. Ostrożność wynika z krótkiej znajomości i nieznanej mechaniki
+    więzi, nie z resentymentu.'
+agenda:
+- recover_enough_to_act
+- restore_and_secure_three_seals
+- judge_lucan_by_deeds
+- keep_the_lower_gate_closed
+- honor_conditional_confidentiality
+mechanics_ref: candidate_varkhen_cutoff
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/varkhen.yaml
+knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
+    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
+    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
+  recent_confirmed:
+  - fact_id: fact_varkhen_does_not_know_the_foundation_object
+    source_event_id: event_turn_interlude_256
+    claim: 'Zapytany wprost, czy wie, CO lezy w niszy polnocnego fundamentu, odpowiedzial, ZE nie wie
+      - i nie probowal tego nazwac po swojemu (voice_contract#blind_spot, #evasion). Dodal jedno zdanie
+      z wlasnego rejestru: Nie postawiono go tutaj. To pomieszczenie nie bylo czescia jego warty; strzegl
+      trzech pieczeci i dolnej bramy (agenda: restore_and_secure_three_seals, keep_the_lower_gate_closed).'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_does_not_know_the_foundation_object
+  - fact_id: fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please
+    source_event_id: event_turn_interlude_255
+    claim: 'Lucan pobral nadmiar z sieci i zaladowal go w niego (+2,0 do ancient_necrotic_reservoir, 19,4
+      -> 21,4; cialo tylko +0,2, bo condition_severely_depleted tlumi odbudowe). NA sama energie nie zareagowal
+      slowem - wdziecznosci nie mowi, wykonuje. Zareagowal na "prosze": powtorzyl je jako stwierdzenie
+      i od razu poszedl do roboty, wyjmujac trzy kamienie fundamentu recznie.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please
+  - fact_id: fact_varkhen_named_the_priest_as_what_watched_means
+    source_event_id: event_turn_interlude_252
+    claim: 'Dopytany przy murze, CO znaczy "obserwowane" I CO widzi, odpowiedzial doslownie: nie widzi,
+      tylko wie. Zawezil wlasne ostrzezenie z t_053 - nie chodzi o kogos, kto patrzy teraz, tylko o to,
+      czego byl swiadkiem, stojac tam: kaplan tu przychodzil, znal wlasciwe wejscie, sprawdzal pieczecie,
+      a ostatnim razem nie byl sam.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_named_the_priest_as_what_watched_means
+  - fact_id: fact_varkhen_received_the_offer_of_a_stewardship_after_the_oath
+    source_event_id: event_turn_interlude_251
+    claim: Pierwsza propozycja tego, CO jest po przysiedze, zlozona przez lucana w drodze na cmentarz.
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_received_the_offer_of_a_stewardship_after_the_oath
+  older_confirmed_index:
+  - fact_varkhen_repeated_the_cemetery_is_watched_at_the_wall@251
+  - fact_varkhen_walked_out_of_the_guild_for_the_third_seal@250
+  - fact_varkhen_has_no_after_because_the_oath_had_no_end@249
+  - fact_varkhen_accepted_the_postponement_to_night@237
+  - fact_varkhen_rose_to_leave_for_the_third_seal@235
+  - fact_varkhen_will_testify_as_ancient_guardian@234
+  - fact_varkhen_heard_the_oral_only_plan@233
+  - fact_varkhen_stated_what_he_wants@230
+  - fact_varkhen_transport_plan_night_street@230
+  - fact_varkhen_knows_priest_and_oren_visits@47
+  - fact_varkhen_detected_remote_corpse_order@47
+  - fact_varkhen_knows_four_marked_corpses@47
+  - fact_varkhen_accepted_oath_compact@46
+  - fact_varkhen_knows_own_name@45
+  - fact_varkhen_recognizes_control_link@45
+  - fact_varkhen_knows_guild_basement_custody@2
+  - fact_varkhen_knows_ring_transfer@2
+  - fact_varkhen_knows_lucan_family_evasion@2
+  suspicions:
+  - id: suspicion_lucan_can_veto_or_compel_action
+    basis_event_ids:
+    - milestone_045_varkhen_takeover
+    confidence: low
+  false_beliefs: []
+  forbidden_without_source:
+  - whether_dump_bodies_still_exist
+  - final_guild_or_church_verdict
+freshness:
+  confirmed_entries_total: 22
+  in_digest: 4
+  last_fact_from_turn: 256
+  current_turn: 256
+  turns_behind: 0
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
+  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

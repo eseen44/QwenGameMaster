@@ -25,8 +25,6 @@ load_when_testing:
 - system/tests.md
 - system/character-score.md
 - system/capabilities.md
-# Stan osi swiata czytany dokladnie wtedy, gdy pada rzut. Bez tego narrator wymysli
-# wartosci od nowa - dokladnie tak zniknal growth-banks.yaml w turze 178 (retcon_000114).
 - campaigns/lucan/state/world-axis.yaml
 load_when_time_matters:
 - system/pacing.md
@@ -53,34 +51,38 @@ active_refs:
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
-search_terms: []
-last_refreshed_event_id: event_turn_interlude_248
-context_bytes: 40100
+search_terms:
+- 'Nisza, 21:19. Rzecz jest zbiornikiem, nie zrodlem: trzy czynne kanaly wnosza do
+  niej smierc bez wlasciciela i robia to od dawna. To nie duch cmentarza. Czym jest
+  rytual - sonda nie powie. Nierozstrzygniete: skad kanaly to biora i czy przedmiot
+  da sie wyjac.'
+last_refreshed_event_id: event_turn_interlude_256
+context_bytes: 40610
 context_budget_bytes: 40960
 context_warnings:
-- total_informational:131772>40960
+- total_informational:142693>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 8985
+  bytes: 9112
 - ref: campaigns/lucan/state/objectives.yaml
-  bytes: 5443
+  bytes: 5535
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4176
+  bytes: 4194
 - ref: campaigns/lucan/state/sustained-links.yaml
   bytes: 3877
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3233
+  bytes: 3196
 conditional_sets:
   npc_speaks:
     refs:
     - ref: system/npc-voice.md
-      bytes: 6337
-    bytes: 6337
+      bytes: 6447
+    bytes: 6447
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
-      bytes: 18789
-    bytes: 18789
+      bytes: 19069
+    bytes: 19069
   curse_used:
     refs:
     - ref: system/curses.md
@@ -98,13 +100,13 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 12056
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14084
-    bytes: 26140
+      bytes: 14206
+    bytes: 26262
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
-      bytes: 2708
-    bytes: 2708
+      bytes: 2762
+    bytes: 2762
   debugging_runtime:
     refs:
     - ref: system/runtime.md
@@ -113,12 +115,14 @@ conditional_sets:
   testing:
     refs:
     - ref: system/tests.md
-      bytes: 7665
+      bytes: 11852
     - ref: system/character-score.md
       bytes: 1647
     - ref: system/capabilities.md
       bytes: 2887
-    bytes: 12199
+    - ref: campaigns/lucan/state/world-axis.yaml
+      bytes: 3287
+    bytes: 19673
   time_matters:
     refs:
     - ref: system/pacing.md
@@ -132,12 +136,12 @@ conditional_sets:
   choosing_a_plan:
     refs:
     - ref: planning/interlude-act-03-entry-scope.yaml
-      bytes: 3782
+      bytes: 3829
     - ref: planning/obligations-rationale.yaml
-      bytes: 3771
+      bytes: 3816
     - ref: planning/act-03-defence.yaml
-      bytes: 4329
-    bytes: 11882
+      bytes: 4431
+    bytes: 12076
   social_stakes_matter:
     refs:
     - ref: system/social-intrigue.md
@@ -148,14 +152,14 @@ conditional_sets:
     - ref: worlds/solmara/lore/legal-order.yaml
       bytes: 4191
     - ref: worlds/solmara/lore/necromancy-law.yaml
-      bytes: 6080
+      bytes: 6158
     - ref: campaigns/lucan/state/secrets.yaml
-      bytes: 11582
-    bytes: 21853
+      bytes: 11739
+    bytes: 22088
 context_breakdown:
-  rules_always: 26695
-  state_active: 28311
-  participant_cards: 76766
-  participant_digests: 29412
-  conditional_heaviest: 26140
-context_total_bytes: 131772
+  rules_always: 29644
+  state_active: 28694
+  participant_cards: 84355
+  participant_digests: 29439
+  conditional_heaviest: 26262
+context_total_bytes: 142693
