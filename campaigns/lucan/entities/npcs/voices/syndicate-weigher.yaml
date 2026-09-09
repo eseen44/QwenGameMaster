@@ -1,34 +1,33 @@
+# KONTRAKT GLOSU - Czlowiek przy wadze
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_syndicate_weigher
 npc_id: npc_syndicate_weigher
 npc_ref: campaigns/lucan/entities/npcs/syndicate-weigher.yaml
-rhythm: >-
-  Milczy, dopóki rozmówca mówi do jego frontu. Kiedy trafi w niego, odpowiada krótko
-  i po kolei: rozbija rzecz na tempa - najpierw to, potem to, na końcu to.
-diction: >-
-  Warsztat i inwentarz: próba, kamień, partia, tempo, odkładam, to idzie osobno.
-  Nie ocenia rzeczy - sortuje ją. Nikogo nie tytułuje i sam się nie przedstawia.
-evasion: >-
-  Nie odpowiada - sortuje dalej. Jego milczenie nie jest wykrętem, jest odpowiedzią
-  jeszcze nie.
-mistakes: >-
-  Sortuje odruchowo także wtedy, kiedy nie powinien pokazywać, że robił to już
-  wcześniej. Ręce mówią o nim więcej, niż zamierzał.
-body: >-
-  Ręce robocze, cały czas przy wadze uchylnej; nie odkłada tego, co trzyma, i nie
-  wstaje. Podnosi wzrok raz, na końcu.
-length: >-
-  Jedno, dwa zdania. Liczba to osobne zdanie, bez ozdobnika.
-emotion: >-
-  Przez to, co odkłada na bok, i przez to, czego nie tyka. Głosu nie zmienia nigdy.
-blind_spot: >-
-  Nie umie nazwać własnej pozycji inaczej niż przez towar. O sobie mówi tak, jakby
-  mówił o partii.
-money: >-
-  Tu literalnie i to jest jego rzemiosło: kwota, próba, partia. Liczbę podaje raz,
-  na końcu, jednym zdaniem - i nie uzasadnia jej.
+voice_contract:
+  sentences: 'Milczy, dopoki rozmowca mowi do jego frontu. Kiedy trafi w niego, odpowiada po kolei:
+    rozbija rzecz na tempa - najpierw to, potem to, na koncu to.'
+  answer_length: Jedno, dwa zdania. Liczba to osobne zdanie, bez ozdobnika.
+  register: 'Warsztat i inwentarz: proba, kamien, partia, tempo, odkladam, to idzie osobno. Nie ocenia
+    rzeczy - sortuje ja. Nikogo nie tytuluje i sam sie nie przedstawia.'
+  evasion: Nie odpowiada - sortuje dalej. Jego milczenie nie jest wykretem, jest odpowiedzia jeszcze
+    nie.
+  body: Rece robocze, caly czas przy wadze uchylnej; nie odklada tego, co trzyma, i nie wstaje. Podnosi
+    wzrok raz, na koncu.
+  mistakes: Sortuje odruchowo takze wtedy, kiedy nie powinien pokazywac, ze robil to juz wczesniej.
+    Rece mowia o nim wiecej, niz zamierzal.
+  unnoticed: Kto wlasnie wszedl i co sie stalo za jego plecami. Patrzy na towar, nie na pokoj.
+  emotion: Przez to, co odklada na bok, i przez to, czego nie tyka. Glosu nie zmienia nigdy.
+  blind_spot: Nie umie nazwac wlasnej pozycji inaczej niz przez towar. O sobie mowi tak, jakby mowil
+    o partii.
+  money: 'Tu literalnie i to jest jego rzemioslo: kwota, proba, partia. Liczbe podaje raz, na koncu,
+    jednym zdaniem - i nie uzasadnia jej.'
+  avoid: Nie tlumaczy swoich decyzji i nie pyta o powody rozmowcy. Zadnych uwag o ludziach.
 samples:
 - To idzie osobno.
-- Najpierw waga, potem próba. Rozmowa na końcu.
-- Dwanaście srebra za partię. Nie za sztukę.
+- Najpierw waga, potem proba. Rozmowa na koncu.
+- Dwanascie srebra za partie. Nie za sztuke.

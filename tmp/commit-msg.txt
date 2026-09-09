@@ -1,0 +1,66 @@
+Kontrakt glosu wypiera archiwum wiedzy; ruch swiata przestaje znaczyc diagnoze
+
+Druga iteracja naprawy narracji. Pierwsza dala glosowi wlasne zrodlo i zmierzyla
+problem, ale byla latka w trzech miejscach, ktore zamykaja sprawe dopiero razem.
+
+DIAGNOZA, NIE DOMYSL. Narrator nie lamal retcon_000162 - WYKONYWAL KARTE.
+`speech_traits` Kesza brzmialy "Wycenia, nie bramkuje: mowi to kosztuje tyle, nigdy
+nie da sie", a audyty czterech ZACOMMITOWANYCH tur cytuja te linie jako uzasadnienie:
+  t_240 "Kesz NIE bramkowal i nie moralizowal (speech_traits: wycenia, nie bramkuje)"
+  t_242 "WYCENIL DWIE DROGI, nie zabramkowal zadnej (speech_traits: wycenia, nie bramkuje)"
+  t_244 "to jest PYTANIE, nie brama (speech_traits: wycenia, nie bramkuje)"
+  t_245 "speech_traits: ...; wycenia, nie bramkuje; zero moralizowania"
+Karta byla przyczyna wady, nie ofiara - dlatego pole zostalo ZDJETE, nie zlagodzone.
+
+TRZY ZMIANY STRUKTURALNE
+
+1. voice_contract, jedenascie osi zamiast trzech wypunktowan: sentences,
+   answer_length, register, evasion, body, mistakes, unnoticed, emotion, blind_spot,
+   money, avoid + 2-4 samples bedace kwestiami wprost. Kontrakt jest POZYTYWNY;
+   `avoid` jest jedynym polem, w ktorym wolno nazwac konstrukcje do unikania, i jedynym
+   wylaczonym z zakazu slownika wyceny. speech_traits zniknelo z 7 kart, ktore maja
+   kontrakt - jedno zrodlo glosu, nie dwa rozjezdzajace sie.
+
+2. Archiwum wiedzy przestalo przewazac nad instrukcja stylu. Skrot scina kazdy `claim`
+   NA GRANICY ZDANIA i dokłada claim_truncated + claim_full z adresem calosci; cap
+   schodzi adaptacyjnie 420->130 znakow, az archiwum zejdzie pod 1,2x kontraktu. Indeks
+   starszych faktow ma format etykieta@numer_tury. Stosunek recent_confirmed do
+   kontraktu: bylo 20:1, po pierwszej iteracji 1,1-2,5x, teraz 0,86-1,18x przy bramce
+   1,5x. Generator gwarantuje niezmiennik konstrukcja, kontrola tylko go potwierdza.
+
+3. Ruch swiata przestal znaczyc diagnoze gracza. Reguly, ktora by tego zadala, nie ma
+   w zadnym pliku - presja byla POSREDNIA: `outcome.new_decision` bylo w szablonie
+   polem do wypelnienia w kazdej turze, a commit_turn przepisuje je do
+   scene.immediate_questions, wiec kazda tura musiala wyprodukowac nowy ostry dylemat.
+   Najtaniej produkuje sie go cudza przenikliwoscia. Kod nigdy tego nie wymagal;
+   wymagal szablon. Pole ma teraz null, a w zamian jedzie MENU RUCHOW SWIATA (gest,
+   milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana tematu, czynnosc
+   fizyczna, bledny odczyt intencji, emocja bez analizy) w voice_rules kazdego skrotu.
+
+PRZY OKAZJI: STARSZY DEFEKT. Generator skrotow obslugiwal tylko schemat {fact_id,
+claim}, a 6 z 24 kart pisze {fact} bez fact_id. Dla nich indeks starszych faktow
+skladal sie Z SAMYCH ZNAKOW ZAPYTANIA - 67 wpisow Neris jako "? <- event_...171".
+Skrot twierdzil, ze pokazuje, co ona wie, i nie pokazywal niczego.
+
+DRUGA BRAMKA PROZY. Trzy albo wiecej konstrukcji "powiedzial, ze..." przy ZERO
+kwestiach wprost to tura rozmowy, w ktorej gracz nie uslyszal nikogo - turn commit
+i prose_check --new-only ja odrzucaja. Prog trzy, nie jeden: tura podrozy przechodzi,
+dwie parafrazy dostaja ostrzezenie. Chodzi o jedna kwestie, nie o serie cytatow.
+
+TESTY. 46 testow w test_npc_voice.py (kontrakt w AKTYWNYM briefie, waga stylu,
+zachowanie faktow przy scieciu, oba schematy wiedzy, obie bramki prozy, szablon
+new_decision, dwie fikstury blind testu 4 i 5 glosow). preflight --full: 12/12
+kontrol OK, 259 testow przechodzi.
+
+BLIND TEST, ten sam bodziec: dlugosci 1/4/15/30/48 slow, 5/5 bez slownika ceny,
+0/5 z "nie X, tylko Y", 5/5 roznych otwarc.
+
+Bez nowego retconu i bez nowego akapitu zakazow - narrator.md zmalal 9 648 -> 8 985 B,
+a mechanizm awarii poszedl do narrator-appendix.md. Append-only logi nietkniete:
+scinanie dziala wylacznie w generowanym skrocie, pelna karta zachowuje cala tresc.
+
+Znany dlug niezawiniony: test_event_prose::RecentTest wymaga stosunku ponad 5x
+pominietego protokolu do prozy, a ostatnie cztery tury daja 4,7x. Sprawdzone na
+ba04430 - przewraca sie tam identycznie; recent_prose i events.jsonl nietkniete.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

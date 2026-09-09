@@ -1,34 +1,40 @@
 voice_ref: campaigns/lucan/entities/npcs/voices/lucan-father.yaml
-voice:
-  rhythm: Wchodzi w rozmowę w połowie własnej myśli, jakby trwała już od kwadransa. Zdania długie i rozgałęziające
-    się, urywane w chwili, w której trafi na ciekawszy problem.
-  diction: 'Laboratorium: preparat, seria, kontrola, odbitka, to się nie powtórzyło, czyj był podpis pod
-    tą tabelą. Do Lucana na ty i najczęściej bez żadnego zwrotu, do obcych grzecznościowo.'
-  evasion: Nie unika - nie słyszy. Odpowiada na tę część pytania, która jest problemem badawczym, resztę
-    pomija bez złośliwości i nie wraca do niej.
-  mistakes: Ryje w cudzej odpowiedzi, aż nic z niej nie zostanie, i nie zauważa, że kogoś przy tym niszczy.
-    Zapomina, po co ktoś przyszedł, i pyta o to drugi raz.
-  body: Nie siedzi przy rozmowie - chodzi po laboratorium i szuka czegoś w stosach. Podaje przedmiot zamiast
-    odpowiedzi. Nie patrzy na rozmówcę, kiedy mówi najważniejsze.
-  length: 'Skrajnie nierówna: pięć zdań o preparacie, pół zdania o człowieku.'
-  emotion: Ciepło mówi wprost i naprawdę tak myśli, ale go nie wykonuje. Entuzjazm i poczucie krzywdy
-    brzmią u niego równie głośno.
-  blind_spot: Cudze samopoczucie i własna nieobecność. Nie umie nazwać, że kogoś zawiódł, bo nie zapisał
-    tego jako zdarzenia.
-  money: Pieniądze go nudzą i nie zapamiętuje kwot. Jeżeli o nich mówi, to jako o przeszkodzie w dostaniu
-    materiału, nigdy jako o mierze czegokolwiek.
-  samples:
-  - Zaraz, zaraz - a ta odbitka miała nazwisko na drugiej stronie czy na pierwszej?
-  - Dobrze, że przyszedłeś. (nie odwraca się) Podaj mi to z lewej.
-  - Nie, nie, to nie o to. Pytanie jest, dlaczego to się nie powtórzyło.
 voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+  sentences: Dlugie i rozgalezajace sie, urywane w chwili, w ktorej trafi na ciekawszy problem. Wchodzi
+    w rozmowe w polowie wlasnej mysli, jakby trwala od kwadransa.
+  answer_length: 'Skrajnie nierowna: piec zdan o preparacie, pol zdania o czlowieku.'
+  register: 'Laboratorium: preparat, seria, kontrola, odbitka, to sie nie powtorzylo, czyj byl podpis
+    pod ta tabela. Do Lucana na ty i najczesciej bez zadnego zwrotu, do obcych grzecznosciowo.'
+  evasion: Nie unika - nie slyszy. Odpowiada na te czesc pytania, ktora jest problemem badawczym, reszte
+    pomija bez zlosliwosci i nie wraca do niej.
+  body: Nie siedzi przy rozmowie - chodzi po laboratorium i szuka czegos w stosach. Podaje przedmiot zamiast
+    odpowiedzi. Nie patrzy na rozmowce, kiedy mowi najwazniejsze.
+  mistakes: Ryje w cudzej odpowiedzi, az nic z niej nie zostanie, i nie zauwaza, ze kogos przy tym niszczy.
+    Zapomina, po co ktos przyszedl, i pyta o to drugi raz.
+  unnoticed: Ze kogos zranil, ze ktos czeka, ze minela noc. Cudzy klopot nie zapisuje sie u niego jako
+    zdarzenie.
+  emotion: Cieplo mowi wprost i naprawde tak mysli, ale go nie wykonuje. Entuzjazm i poczucie krzywdy
+    brzmia u niego rownie glosno.
+  blind_spot: Wlasna nieobecnosc. Nie umie nazwac, ze kogos zawiodl, bo nie zarejestrowal tego jako faktu.
+  money: Pieniadze go nudza i nie zapamietuje kwot. Jezeli o nich mowi, to jako o przeszkodzie w dostaniu
+    materialu, nigdy jako o mierze czegokolwiek.
+  avoid: Nie diagnozuje ludzi i nie komentuje ukladow. Mysli nie konczy puenta, bo zwykle nie konczy jej
+    wcale.
+voice_samples:
+- Zaraz, zaraz - a ta odbitka miala nazwisko na drugiej stronie czy na pierwszej?
+- Dobrze, ze przyszedles. (nie odwraca sie) Podaj mi to z lewej.
+- Nie, nie, to nie o to. Pytanie jest, dlaczego to sie nie powtorzylo.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_lucan_father
 name: Ojciec Lucana (imię nieustalone)
@@ -114,59 +120,57 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact: 'Wlaczyl sie dokladnie raz, na slowach "w nauce sie nie klamie" - jedynej czesci wykladu o poziomach,
       ktora lezy w jego jurysdykcji. Zgodzil sie z entuzjazmem i dolozyl poprawke metodologiczna: prawie
       nikt w nauce nie klamie, ludzie po prostu nie mierza tego, co by im zaprzeczylo. Nie zorientowal
-      sie, ze opisal wlasnie mechanizm, ktory jego syn minute wczesniej zaproponowal jako metode. Poziomow,
-      umowy spolecznej, Kolma ani cmentarza nie skomentowal.'
+      sie, ze opisal wlasnie mechanizm, ktory jego syn minute wczesniej zaproponowal jako metode.'
     source_event_id: event_turn_interlude_167
-  - fact: 'Slyszal przy sobie slowa "gildia", "nekromanci" i "cmentarz" - i nie zareagowal na zadne. Odpowiedzial
-      wylacznie na wzmianke o wloknach ze smoczego serca, bo tylko ta czesc dotyczyla materialu. Nowy
-      kanon (gracz, t_166): profesor Veyr ma zwyczaj rzucac wloknem ze smoczego serca w dowolny problem,
-      co czyni jego rozwiazania swietnymi i nieosiagalnymi cenowo - to jest powod, dla ktorego Lucan przedstawia
-      mu problemy jako masowe. Ekspozycja: zdania o cmentarzu padly przy czlowieku, ktory zamierza rozmawiac
-      z kolegami (agenda.next_action). Nie laczy tego z synem, bo nie szuka przestepstwa. Ryzyko niskie
-      i realne jednoczesnie - nie odpalac automatycznie.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/lucan-father.yaml#~wlaczyl_sie_dokladnie_raz_na_slowach
+  - fact: Slyszal przy sobie slowa "gildia", "nekromanci" i "cmentarz" - i nie zareagowal na zadne. Odpowiedzial
+      wylacznie na wzmianke o wloknach ze smoczego serca, bo tylko ta czesc dotyczyla materialu.
     source_event_id: event_turn_interlude_166
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/lucan-father.yaml#~slyszal_przy_sobie_slowa_gildia_nekromanci
   - fact: 'Wie, ze modyfikacje dotycza konkretnego okazu - zawisaka - i ze Lucan na razie odmawia go pokazac,
       bo trzy poprzednie cmy zjadly nietoperze albo ptaki. Nie uslyszal w tym porazki, tylko dane: skoro
       cma ma narzad do slyszenia nietoperza, a mimo to zostaje zjedzona, wada nie siedzi w narzadzie,
-      tylko w tym, ze narzad nie jest do niczego podpiety - roznica miedzy czuciem a zachowaniem. Nie
-      wie o rozkazach ani o tym, ze cmy poszly w pole bez zadnego. Chce zobaczyc okaz i traktuje odmowe
-      jako opoznienie w dostawie, nie jako granice - wroci do tego.'
+      tylko w tym, ze narzad nie jest do niczego podpiety - roznica miedzy czuciem a zachowaniem.'
     source_event_id: event_turn_interlude_164
-  - fact: 'Wydal trzecia substancje ukrywajaca - porost slepy. W t_151 jej nie wymienil, bo wyliczal wtedy
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/lucan-father.yaml#~wie_ze_modyfikacje_dotycza_konkretnego_okazu
+  - fact: Wydal trzecia substancje ukrywajaca - porost slepy. W t_151 jej nie wymienil, bo wyliczal wtedy
       wlasne skargi, a porost nie jest jego szkodnikiem. Padla dopiero, gdy Lucan opisal wymaganie zamiast
-      nazwy. Wszedl w temat glebiej, niz trzeba, bo to nowy problem badawczy (attitude_to_pc.likely_hook),
-      i powtorzyl ograniczenie z kanonu: porost daje kryjowke W bezruchu i nie znosi nocnego trybu okazu
-      ani tego, ze za dnia rzuca sie w oczy. Przyjal tez bez sporu, ze Lucan bierze na siebie dziekana
-      i dwoch ekspertow.'
+      nazwy.
     source_event_id: event_turn_interlude_163
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/lucan-father.yaml#~wydal_trzecia_substancje_ukrywajaca_porost_slepy
   older_confirmed_index:
-  - '? <- event_turn_interlude_162'
-  - '? <- event_turn_interlude_162'
-  - '? <- event_turn_interlude_161'
-  - '? <- event_turn_interlude_160'
-  - '? <- event_turn_interlude_159'
-  - '? <- event_turn_interlude_158'
-  - '? <- event_turn_interlude_155'
-  - '? <- event_turn_interlude_152'
-  - '? <- event_turn_interlude_151'
-  - '? <- event_turn_interlude_149'
-  - '? <- event_turn_interlude_149'
-  - '? <- event_turn_interlude_148'
-  - '? <- event_turn_interlude_148'
-  - '? <- event_turn_interlude_147'
-  - '? <- retcon_000083'
-  - '? <- event_turn_interlude_020_decoy_construct_plan'
-  - '? <- event_turn_interlude_019_vitae_disclosure_to_father'
-  - '? <- event_turn_interlude_018_father_construct_pitch'
-  - '? <- event_turn_interlude_018_father_construct_pitch'
-  - '? <- event_turn_interlude_018_father_construct_pitch'
-  - '? <- event_turn_interlude_017_misnotice_past_porter'
-  - '? <- event_turn_interlude_017_misnotice_past_porter'
-  - '? <- event_turn_interlude_144b'
+  - ~przyjal_bez_sporu_ze_lucan_zajmie@162
+  - ~uslyszal_westchniecie_syna_i_odpowiedzial_z@162
+  - ~przyjal_wymog_formalny_ograniczenia_zakresu_od@161
+  - ~uslyszal_fragment_projektu_granicy_konkretnie_limit@160
+  - ~odzyskal_slowo_vitae_nie_sam_tylko@159
+  - ~przyznal_ze_krytyka_poznania_jest_symetryczna@158
+  - ~zaproponowal_zamiane_kryterium_na_procedure_uzgadniana@155
+  - ~wie_ze_kobieta_ktorej_dyktuje_jest@152
+  - ~wydal_dwie_z_trzech_substancji_ukrywajacych@151
+  - ~syn_poprosił_go_o_trzy_najlepsze@149
+  - ~wstał_żeby_przynieść_rejestr_zaopatrzenia_akademii@149
+  - ~lucan_wetknął_mu_pod_nos_kartkę@148
+  - ~zlecił_przypisy_do_krzywej_kosztu_osobie@148
+  - ~lucan_przedstawił_kobietę_przy_drzwiach_jako@147
+  - ~wiedział_o_dyskretnych_poszukiwaniach_beatrix_podczas@83
+  - ~lucan_zgodził_się_dostarczyć_kilka_okazów@20
+  - ~spidey_jest_poruszany_czystym_vitae_energią@19
+  - ~lucan_przyniósł_martwego_zmodyfikowanego_pająka_i@18
+  - ~widział_z_bliska_corpse_stitch_wzmocnioną_chitynę@18
+  - ~wie_że_kikut_wymaga_materiału_dawcy@18
+  - ~lucan_zjawił_się_u_niego_w@17
+  - ~lucan_przyniósł_żywe_jedwabniki@17
+  - ~lucan_wpadł_do_laboratorium_o_zmierzchu@-1
   suspicions: []
   false_beliefs:
   - 'Nadpisane, nie zdemaskowane (event_turn_interlude_152). Przez t_147-t_151 uwazal Neris Aldhen za

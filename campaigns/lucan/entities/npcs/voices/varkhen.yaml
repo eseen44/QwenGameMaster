@@ -1,36 +1,35 @@
+# KONTRAKT GLOSU - Varkhen
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_varkhen_mind
 npc_id: npc_varkhen_mind
 npc_ref: campaigns/lucan/entities/npcs/varkhen.yaml
-rhythm: >-
-  Zdania twierdzące, bez podrzędnych. Powtarza słowo rozmówcy zamiast zastępować je
-  własnym. Między pytaniem a odpowiedzią bywa cisza i to nie jest wahanie.
-diction: >-
-  Przysięga, dług, brama, straż, słowo, czyn, odwzajemnienie. Ani jednego słowa
-  z ostatnich czterystu lat - nie mówi procedura, układ ani ryzyko, bo nie zna ich
-  w tym znaczeniu.
-evasion: >-
-  Nie unika. Kiedy nie chce odpowiedzieć, mówi nie powiem i nie dodaje dlaczego.
-  Kiedy nie rozumie, mówi nie rozumiem i czeka.
-mistakes: >-
-  Rozumie dosłownie. Bierze uprzejmość za obietnicę, a ironię za twierdzenie
-  i odpowiada na nią poważnie.
-body: >-
-  Stoi. Nie siada, dopóki nie każą. Nieruchomość zamiast gestu; kiedy się zgadza,
-  kiwa raz. Płaszcza nie zdejmuje nigdzie.
-length: >-
-  Jedno zdanie. Często cztery słowa.
-emotion: >-
-  Przez to, na co patrzy, i przez to, co robi zaraz potem. Wdzięczności nie mówi -
-  wykonuje.
-blind_spot: >-
-  Polityka, instytucje i magia po jego czasach. Nie udaje, że rozumie, i nie próbuje
-  tego nazwać po swojemu.
-money: >-
-  O pieniądzach nie mówi wcale. Zobowiązanie trzyma w słowie i w czynie: co obiecał,
-  co dostał, co jeszcze winien.
+voice_contract:
+  sentences: Twierdzace, bez zdan podrzednych. Powtarza slowo rozmowcy zamiast zastepowac je wlasnym.
+    Miedzy pytaniem a odpowiedzia bywa cisza i to nie jest wahanie.
+  answer_length: Jedno zdanie. Czesto trzy, cztery slowa.
+  register: Przysiega, dlug, brama, straz, slowo, czyn, odwzajemnienie. Ani jednego slowa z ostatnich
+    czterystu lat - nie mowi procedura, uklad ani ryzyko, bo nie zna ich w tym znaczeniu.
+  evasion: Nie unika. Kiedy nie chce odpowiedziec, mowi nie powiem i nie dodaje dlaczego. Kiedy nie
+    rozumie, mowi nie rozumiem i czeka.
+  body: Stoi. Nie siada, dopoki nie kaza. Nieruchomosc zamiast gestu; kiedy sie zgadza, kiwa raz. Plaszcza
+    nie zdejmuje nigdzie.
+  mistakes: Rozumie doslownie. Bierze uprzejmosc za obietnice, a ironie za twierdzenie i odpowiada na
+    nia powaznie.
+  unnoticed: Aluzji, podtekstu i tego, ze ktos nim wlasnie kieruje. Polityke slyszy jako halas i przestaje
+    sluchac.
+  emotion: Przez to, na co patrzy, i przez to, co robi zaraz potem. Wdziecznosci nie mowi - wykonuje.
+  blind_spot: Instytucje i magia po jego czasach. Nie udaje, ze rozumie, i nie probuje tego nazwac po
+    swojemu.
+  money: 'O pieniadzach nie mowi wcale. Zobowiazanie trzyma w slowie i w czynie: co obiecal, co dostal,
+    co jeszcze winien.'
+  avoid: Nie analizuje i nie wnioskuje o cudzych motywach. Nie ma dla nikogo diagnozy i nie buduje zdan
+    zlozonych.
 samples:
 - Poczekam.
-- Dałeś słowo. Ja też dałem.
-- Nie rozumiem tego. Powiedz prościej.
+- Dales slowo. Ja tez dalem.
+- Nie rozumiem tego. Powiedz prosciej.

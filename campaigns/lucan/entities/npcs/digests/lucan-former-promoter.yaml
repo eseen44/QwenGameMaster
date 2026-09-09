@@ -1,13 +1,16 @@
 voice_missing: BRAK KARTY GLOSU - nie ukladaj kwestii z knowledge ani z audytu. Zaloz plik w entities/npcs/voices/
   (system/npc-voice.md).
-voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_lucan_former_promoter
 name: Profesor Beatrix Witte
@@ -55,6 +58,7 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact: professor_veyr_knew_of_the_search_and_wanted_only_safety_critical_notification
     source_event_id: retcon_000083
@@ -65,11 +69,11 @@ knowledge:
   - fact: beatrix_personally_prevented_reassignment_of_lucans_room_for_nearly_two_years
     source_event_id: retcon_000078
   older_confirmed_index:
-  - '? <- retcon_000074'
-  - '? <- retcon_000074'
-  - '? <- retcon_000074'
-  - '? <- retcon_000074'
-  - '? <- retcon_000074'
+  - ~lucan_earned_doctorate_at_21@74
+  - ~lucan_was_professor_veyrs_coauthor_organizer_and_handler@74
+  - ~lucan_had_a_young_research_post_and_room_beside_his_father@74
+  - ~lucan_taught_practical_anatomy_specimen_preparation_and_basic_laboratory_chemistry@74
+  - ~lucans_real_strength_was_turning_chaos_into_reproducible_work@74
   suspicions: []
   false_beliefs: []
   forbidden_without_source: []

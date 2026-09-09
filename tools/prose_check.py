@@ -44,6 +44,7 @@ EVENTS = ROOT / "campaigns" / "lucan" / "journal" / "events.jsonl"
 BASELINE_TURN = 248
 
 LIMIT_WYCEN = 1          # retcon_000162: wiecej niz jedno zdanie o cenie - przepisz
+LIMIT_MOWY_ZALEZNEJ = 3  # tyle parafraz przy ZERO kwestiach wprost to juz nie skracanie
 OKNO = 90                # promien w znakach, w ktorym szukamy znacznika pieniedzy
 
 SLOWNIK_WYCENY = re.compile(
@@ -181,6 +182,13 @@ def main() -> int:
                            + " | ".join(pomiar["wyceny_fragmenty"][:3]))
         if pomiar["mowa_zalezna"] >= 2 and pomiar["dialog_wprost"] == 0:
             flagi.append(f"mowa zalezna {pomiar['mowa_zalezna']}x, dialogu wprost ZERO")
+            # Ta sama bramka, ktora ma turn commit (gm_runtime.validate_prose_contract):
+            # trzy albo wiecej parafraz przy zero kwestiach wprost to tura rozmowy, w ktorej
+            # gracz nie uslyszal nikogo. Dwie parafrazy sa jeszcze skracaniem.
+            if tura > BASELINE_TURN and pomiar["mowa_zalezna"] >= LIMIT_MOWY_ZALEZNEJ:
+                zle.append(f"{event.get('id')}: {pomiar['mowa_zalezna']} konstrukcji mowy "
+                           f"zaleznej i ZERO kwestii wprost - gdy postac mowi, gracz ma "
+                           f"zobaczyc co najmniej jedna jej kwestie")
         if pomiar["szablon_nie_tylko"] > 1:
             flagi.append(f"szablon 'nie X, tylko Y': {pomiar['szablon_nie_tylko']}")
         if flagi:

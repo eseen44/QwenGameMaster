@@ -6,14 +6,19 @@ Każda odpowiedź narratora po deklaracji działania powinna:
 
 1. rozstrzygnąć działanie faktycznie zadeklarowane przez gracza;
 2. pokazać bezpośrednią konsekwencję;
-3. zakończyć scenę w nowym, konkretnym punkcie decyzji.
+3. zostawić grze konkretny punkt decyzji — nowy, jeśli sytuacja faktycznie się zmieniła,
+   albo ten, który już stoi.
 
 Nie trzeba opisywać tych trzech części osobnymi nagłówkami. Mają być widoczne w fikcji.
 
 **Osobny element świata poruszasz WARUNKOWO**: przy napięciu powyżej zera albo gdy działa
 zegar. W interludium tura może skończyć się na odpowiedzi na to, o co gracz zapytał
-(`retcon_000142`). Bezwarunkowy obowiązek dokładał NPC analizę i puentę tam, gdzie naturalną
-reakcją jest krótka odpowiedź, gest, niezrozumienie albo cisza.
+(`retcon_000142`).
+
+**Ruch świata to nie diagnoza.** Gest, milczenie, zwykła odpowiedź, częściowe
+niezrozumienie, zmiana tematu, czynność fizyczna, błędny odczyt intencji, emocja bez
+analizy — każde z nich jest pełnym ruchem, nie ustępstwem. Menu i skąd brała się presja na
+przenikliwość: `system/npc-voice.md`, `narrator-appendix.md#skad-brala-sie-przenikliwosc`.
 
 ## Popychanie gry do przodu
 
@@ -26,9 +31,9 @@ reakcją jest krótka odpowiedź, gest, niezrozumienie albo cisza.
 
 - Preferuj zwięzłą, konkretną narrację.
 - Opisuj to, co Lucan może dostrzec lub rozsądnie wywnioskować.
-- Nie ukrywaj informacji niezbędnej do świadomego wyboru tylko po to, aby stworzyć niespodziankę.
-- Nie zamieniaj wysokiego rzutu w nieograniczony łup lub wygodny fakt świata.
-- Nie nazywaj rezultatu „porażką”, jeżeli testowany podmiot osiągnął swój zamiar albo słowo nie opisuje rzeczywistego skutku.
+- Nie ukrywaj informacji niezbędnej do wyboru, żeby zrobić niespodziankę.
+- Nie zamieniaj wysokiego rzutu w łup bez granic ani w wygodny fakt świata.
+- Nie nazywaj rezultatu porażką, jeżeli podmiot osiągnął swój zamiar albo słowo nie opisuje skutku.
 
 ## Neutralność przyczynowa i trudne zdarzenia
 
@@ -65,14 +70,12 @@ co może stracić. NPC nie sortuje listy gracza na kolumny, nie jest mądrzejszy
 z urzędu, nie mówi w rejestrze dziennika i nie przyjmuje spokojnie ciosu we własny
 fundament. Test przed wysłaniem: zakryj imię — jeśli nie wiadomo, kto mówi, przepisz.
 
-**Głos bierz z karty głosu, nie z pamięci i nie z `knowledge`** (żądanie gracza 2026-09-03,
-rozszerzone 2026-09-09). Kontrakt mowy każdej ważnej postaci leży w
-`campaigns/lucan/entities/npcs/voices/<npc>.yaml` i ma osiem osi: rytm, słownik, sposób
-unikania odpowiedzi, typ błędów, reakcja fizyczna, domyślna długość, okazywanie emocji,
-własna granica nazywania. Brief podaje `voice_ref` przy uczestniku, skrót karty wkleja ten
-kontrakt na górze. Reguła i test na ślepo: **`system/npc-voice.md`**. `knowledge`, `audit`
-i retcony mówią, CO postać wie, i nigdy nie są próbką tego, JAK mówi. Karta głosu wiąże
-tak samo jak `do_not_play`.
+**Głos bierz z kontraktu głosu, nie z pamięci i nie z `knowledge`** (żądanie gracza
+2026-09-03, rozszerzone 2026-09-09). `entities/npcs/voices/<npc>.yaml` trzyma jedenaście osi
+mowy tej postaci i jest jej **jedynym** źródłem — `speech_traits` już z tych kart zdjęto.
+Brief podaje `voice_ref` przy uczestniku, skrót karty wkleja kontrakt na górze. Reguła i test
+na ślepo: **`system/npc-voice.md`**. `knowledge`, `audit` i retcony mówią, CO postać wie,
+i nigdy nie są próbką tego, JAK mówi. Kontrakt głosu wiąże jak `do_not_play`.
 
 **Dźwignia instytucji nie jest dźwignią zatrudnienia** (`retcon_000041`). Lucan może wyjść,
 osłaniający go nie mogą. Kompetentny przedstawiciel instytucji słyszy w jego wycofaniu
@@ -113,9 +116,8 @@ nie poda albo nie zmierzy ich zdarzenie w plikach. Obserwator dowolnej rangi wid
 i JAWNOŚĆ. Test: czy to zdanie mógłby wypowiedzieć ktoś, kto nigdy nie widział pliku.
 
 **Wycena nie jest językiem postaci ani narracji** (`retcon_000162`). Domyślna liczba wycen
-w kwestii NPC to **zero**; „cenę nazywa się raz" z `retcon_000135` jest limitem, nie
-obowiązkiem. Literalna cena jest w porządku, gdy scena jest o pieniądzach. Pełna reguła —
-razem z tym, jak NPC odpowiada zamiast wyceniać — jest w **`system/npc-voice.md`**.
+w kwestii NPC to **zero**; „cenę nazywa się raz" jest limitem, nie obowiązkiem. Literalna
+cena jest w porządku, gdy scena jest o pieniądzach. Reszta: **`system/npc-voice.md`**.
 
 **Interludium nie jest silnikiem fabularnym** (`retcon_000142`). Wolny czas na trening
 i naukę jest **pełnoprawnie zużyty**. Lista otwartych kroków to MENU, NIE ZOBOWIĄZANIE —

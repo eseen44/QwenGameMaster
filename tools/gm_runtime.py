@@ -1036,12 +1036,23 @@ def validate_prose_contract(outcome: dict[str, Any]) -> list[str]:
             f"honorarium albo kwocie NIE jest tu liczona - to sa wyceny decyzji. "
             f"Przepisz: {fragmenty}. Regula: system/npc-voice.md"
         )
+    # DRUGA BRAMKA: ROZMOWA STRESZCZONA W CALOSCI. Trzy albo wiecej konstrukcji "powiedzial,
+    # ze..." przy ZERO kwestii wprost to definicyjnie tura rozmowy, w ktorej gracz nie
+    # uslyszal nikogo. Prog trzy, nie jeden: tura podrozy nie ma zadnej takiej konstrukcji
+    # i przechodzi, a jedna albo dwie parafrazy sa normalnym skracaniem. Pomiar tur 236-248:
+    # 13 wpisow autorskich, 20 konstrukcji mowy zaleznej, ZERO kwestii wprost.
+    if pomiar["mowa_zalezna"] >= 3 and pomiar["dialog_wprost"] == 0:
+        raise RuntimeError(
+            f"outcome.prose streszcza {pomiar['mowa_zalezna']} wypowiedzi mowa zalezna i nie "
+            "ma ani jednej kwestii wprost. Gdy postac mowi, gracz ma zobaczyc co najmniej "
+            "jedna jej kwestie - myslnik dialogowy albo cudzyslow obejmujacy zdanie. "
+            "Nie chodzi o serie dlugich cytatow, chodzi o jedna. Regula: system/npc-voice.md"
+        )
     ostrzezenia = []
-    if pomiar["mowa_zalezna"] >= 2 and pomiar["dialog_wprost"] == 0:
+    if pomiar["mowa_zalezna"] == 2 and pomiar["dialog_wprost"] == 0:
         ostrzezenia.append(
-            f"proza streszcza {pomiar['mowa_zalezna']} wypowiedzi mowa zalezna i nie ma ani "
-            "jednej kwestii wprost - kwestia, ktora rozstrzyga scene, ma padac w dialogu "
-            "(system/npc-voice.md)"
+            "proza streszcza dwie wypowiedzi mowa zalezna i nie ma kwestii wprost - jeszcze "
+            "przechodzi, ale trzecia parafraza bedzie bledem (system/npc-voice.md)"
         )
     if pomiar["szablon_nie_tylko"] > 1:
         ostrzezenia.append(

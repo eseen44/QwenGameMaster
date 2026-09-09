@@ -247,3 +247,34 @@ stawia — tylko w wersji „harmonogram" zamiast „stawki" albo „zasoby".
 - **Stare pytanie NPC należy do NPC.** Jeśli postać chce o coś zapytać ponownie, pyta
   w scenie sama. Narrator nie przypomina graczowi wątków sprzed stu tur jako zaległości.
   Gracz odpowiada NPC dokładnie tyle, ile chce, żeby NPC wiedział (`retcon_000120`).
+
+## Skad brala sie przenikliwosc
+
+Reguly, ktora kazalaby NPC w kazdej turze przeswietlic gracza i odwrocic jego argument, nie
+ma w zadnym pliku. Presja byla POSREDNIA i miala trzy zrodla, wszystkie zmierzone 2026-09-09:
+
+1. **`outcome.new_decision` bylo w szablonie polem do wypelnienia w kazdej turze**, a
+   `commit_turn` przepisuje je do `scene.immediate_questions`. Kazda tura musiala wiec
+   wyprodukowac nowy, ostry punkt decyzyjny - a w spokojnej turze interludium najtanszy nowy
+   dylemat produkuje sie cudza przenikliwoscia: NPC wyglasza diagnoze, ktora otwiera wybor.
+   Kod nigdy tego nie wymagal (`if outcome.get("new_decision")`), wymagal szablon i dwa
+   zdania w regulach. Od 2026-09-09 pole ma w szablonie `null` i komentarz, co znaczy jego
+   brak.
+2. **`speech_traits` byly drugim zrodlem glosu obok kontraktu** i u Kesza brzmialy
+   `Wycenia, nie bramkuje: mowi to kosztuje tyle, nigdy nie da sie.` Narrator wykonywal
+   karte i powolywal sie na nia wprost w audytach czterech zacommitowanych tur:
+   t_240 "Kesz NIE bramkowal i nie moralizowal (speech_traits: wycenia, nie bramkuje)",
+   t_242 "WYCENIL DWIE DROGI, nie zabramkowal zadnej (speech_traits: wycenia, nie bramkuje)",
+   t_244 "to jest PYTANIE, nie brama (speech_traits: wycenia, nie bramkuje)",
+   t_245 "speech_traits: ...; wycenia, nie bramkuje; zero moralizowania".
+   **Karta byla przyczyna wady, nie jej ofiara** - dlatego pole zostalo z tych kart zdjete,
+   a nie zlagodzone.
+3. **Archiwum wiedzy przewazalo nad instrukcja stylu w tym samym kontekscie.** W skrocie
+   karty Kesza `knowledge` wazylo 8 343 B rejestrem protokolu tury przy 400 B `speech_traits`
+   - dwadziescia do jednego. Model imituje rejestr dominujacy. Po wprowadzeniu kontraktu
+   glosu i scisnieciu `claim` do granicy zdania stosunek `recent_confirmed` do kontraktu
+   wynosi 0,86-1,18 i jest BRAMKA w `tools/voice_check.py`, nie zaleceniem.
+
+Menu ruchow swiata, ktore zastapilo presje: gest, milczenie, zwykla odpowiedz, czesciowe
+niezrozumienie, zmiana tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy.
+Lista jest w `system/npc-voice.md` i jedzie w `voice_rules` kazdego skrotu karty NPC.

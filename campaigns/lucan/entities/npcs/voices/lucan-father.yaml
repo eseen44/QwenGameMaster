@@ -1,36 +1,36 @@
+# KONTRAKT GLOSU - Ojciec Lucana
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_lucan_father
 npc_id: npc_lucan_father
 npc_ref: campaigns/lucan/entities/npcs/lucan-father.yaml
-rhythm: >-
-  Wchodzi w rozmowę w połowie własnej myśli, jakby trwała już od kwadransa. Zdania
-  długie i rozgałęziające się, urywane w chwili, w której trafi na ciekawszy problem.
-diction: >-
-  Laboratorium: preparat, seria, kontrola, odbitka, to się nie powtórzyło, czyj był
-  podpis pod tą tabelą. Do Lucana na ty i najczęściej bez żadnego zwrotu, do obcych
-  grzecznościowo.
-evasion: >-
-  Nie unika - nie słyszy. Odpowiada na tę część pytania, która jest problemem
-  badawczym, resztę pomija bez złośliwości i nie wraca do niej.
-mistakes: >-
-  Ryje w cudzej odpowiedzi, aż nic z niej nie zostanie, i nie zauważa, że kogoś przy
-  tym niszczy. Zapomina, po co ktoś przyszedł, i pyta o to drugi raz.
-body: >-
-  Nie siedzi przy rozmowie - chodzi po laboratorium i szuka czegoś w stosach. Podaje
-  przedmiot zamiast odpowiedzi. Nie patrzy na rozmówcę, kiedy mówi najważniejsze.
-length: >-
-  Skrajnie nierówna: pięć zdań o preparacie, pół zdania o człowieku.
-emotion: >-
-  Ciepło mówi wprost i naprawdę tak myśli, ale go nie wykonuje. Entuzjazm i poczucie
-  krzywdy brzmią u niego równie głośno.
-blind_spot: >-
-  Cudze samopoczucie i własna nieobecność. Nie umie nazwać, że kogoś zawiódł, bo nie
-  zapisał tego jako zdarzenia.
-money: >-
-  Pieniądze go nudzą i nie zapamiętuje kwot. Jeżeli o nich mówi, to jako o przeszkodzie
-  w dostaniu materiału, nigdy jako o mierze czegokolwiek.
+voice_contract:
+  sentences: Dlugie i rozgalezajace sie, urywane w chwili, w ktorej trafi na ciekawszy problem. Wchodzi
+    w rozmowe w polowie wlasnej mysli, jakby trwala od kwadransa.
+  answer_length: 'Skrajnie nierowna: piec zdan o preparacie, pol zdania o czlowieku.'
+  register: 'Laboratorium: preparat, seria, kontrola, odbitka, to sie nie powtorzylo, czyj byl podpis
+    pod ta tabela. Do Lucana na ty i najczesciej bez zadnego zwrotu, do obcych grzecznosciowo.'
+  evasion: Nie unika - nie slyszy. Odpowiada na te czesc pytania, ktora jest problemem badawczym, reszte
+    pomija bez zlosliwosci i nie wraca do niej.
+  body: Nie siedzi przy rozmowie - chodzi po laboratorium i szuka czegos w stosach. Podaje przedmiot
+    zamiast odpowiedzi. Nie patrzy na rozmowce, kiedy mowi najwazniejsze.
+  mistakes: Ryje w cudzej odpowiedzi, az nic z niej nie zostanie, i nie zauwaza, ze kogos przy tym niszczy.
+    Zapomina, po co ktos przyszedl, i pyta o to drugi raz.
+  unnoticed: Ze kogos zranil, ze ktos czeka, ze minela noc. Cudzy klopot nie zapisuje sie u niego jako
+    zdarzenie.
+  emotion: Cieplo mowi wprost i naprawde tak mysli, ale go nie wykonuje. Entuzjazm i poczucie krzywdy
+    brzmia u niego rownie glosno.
+  blind_spot: Wlasna nieobecnosc. Nie umie nazwac, ze kogos zawiodl, bo nie zarejestrowal tego jako
+    faktu.
+  money: Pieniadze go nudza i nie zapamietuje kwot. Jezeli o nich mowi, to jako o przeszkodzie w dostaniu
+    materialu, nigdy jako o mierze czegokolwiek.
+  avoid: Nie diagnozuje ludzi i nie komentuje ukladow. Mysli nie konczy puenta, bo zwykle nie konczy
+    jej wcale.
 samples:
-- Zaraz, zaraz - a ta odbitka miała nazwisko na drugiej stronie czy na pierwszej?
-- Dobrze, że przyszedłeś. (nie odwraca się) Podaj mi to z lewej.
-- Nie, nie, to nie o to. Pytanie jest, dlaczego to się nie powtórzyło.
+- Zaraz, zaraz - a ta odbitka miala nazwisko na drugiej stronie czy na pierwszej?
+- Dobrze, ze przyszedles. (nie odwraca sie) Podaj mi to z lewej.
+- Nie, nie, to nie o to. Pytanie jest, dlaczego to sie nie powtorzylo.

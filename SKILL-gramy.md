@@ -104,16 +104,28 @@ Wczytaj (dokładnie te, nie więcej):
   trzyma część „jak grać" jeden do jednego, cztery najnowsze fakty w całości i indeks
   wszystkich starszych. Karta Seraphiny to 60,7 KB, jej skrót 19,4 KB. Szczegół starszego
   faktu dociągnij z pełnej karty — skrót **nie jest kanonem** i sam to o sobie mówi.
-- **GŁOS BIERZ Z KARTY GŁOSU, DANE Z `knowledge` — TO DWA RÓŻNE PLIKI.**
-  `entities/npcs/voices/<npc>.yaml` (do 2,5 KB, osiem osi: rytm, słownik, sposób unikania
-  odpowiedzi, typ błędów, reakcja fizyczna, domyślna długość, emocje, własna granica
-  nazywania) jest **jedynym** źródłem tego, jak postać mówi; brief podaje `voice_ref` przy
-  uczestniku, a skrót karty wkleja kontrakt na górze. `knowledge`, `audit`, transakcje
-  i retcony mówią, CO postać wie — i nigdy nie są próbką mowy. Zmierzone 09.09.2026: w
-  skrócie karty Kesza `knowledge` w rejestrze protokołu ważyło 8,3 KB przy 0,4 KB
-  `speech_traits`, więc rejestrem dominującym w kontekście był protokół i to on wracał
-  w dialogu — `retcon_000040` i `retcon_000136` wchodzące przez skrót, nie przez `summary`.
-  Reguła i test na ślepo: `system/npc-voice.md` (trigger `npc_speaks`).
+- **GŁOS BIERZ Z KONTRAKTU GŁOSU, DANE Z `knowledge` — TO DWA RÓŻNE PLIKI.**
+  `entities/npcs/voices/<npc>.yaml` (do 2,8 KB) trzyma `voice_contract` z jedenastoma osiami
+  — budowa zdań, domyślna długość odpowiedzi, rejestr, sposób unikania odpowiedzi, odruchy
+  fizyczne, typowe błędy, czego nie zauważa, jak okazuje emocje, czego sama nie umie nazwać,
+  kiedy mówi o pieniądzach, czego u niej nie nadużywać — plus 2–4 `samples` będące kwestiami
+  wprost. Jest **jedynym** źródłem głosu: `speech_traits` **zdjęto** z kart, które mają
+  kontrakt. Brief podaje `voice_ref` przy uczestniku, skrót karty wkleja kontrakt i reguły
+  na samej górze. `knowledge`, `audit`, transakcje i retcony mówią, CO postać wie — i nigdy
+  nie są próbką mowy.
+  **Dlaczego to nie była wina modelu.** Karta Kesza mówiła `Wycenia, nie bramkuje: mowi to
+  kosztuje tyle`, a narrator powoływał się na to wprost w audytach tur **240, 242, 244
+  i 245** („WYCENIL DWIE DROGI, nie zabramkowal zadnej (speech_traits: wycenia, nie
+  bramkuje)"). Do tego w skrócie karty `knowledge` w rejestrze protokołu ważyło 8,3 KB przy
+  0,4 KB `speech_traits` — rejestrem dominującym w kontekście był protokół i to on wracał
+  w dialogu. Dziś stosunek archiwum do kontraktu wynosi 0,86–1,18 i jest **bramką**
+  (`tools/voice_check.py`), a nie zaleceniem.
+  Reguła, menu ruchów świata i test na ślepo: `system/npc-voice.md` (trigger `npc_speaks`).
+- **RUCH ŚWIATA TO NIE DIAGNOZA GRACZA.** Gest, milczenie, zwyczajna odpowiedź, częściowe
+  niezrozumienie, zmiana tematu, czynność fizyczna, błędny odczyt intencji, emocja bez
+  analizy — każde jest pełnym ruchem. `outcome.new_decision` jest od 09.09.2026 **opcjonalne**
+  i puste zostawia w mocy pytanie, które już stoi; wcześniej szablon żądał go w każdej turze,
+  a najtańszy nowy dylemat produkuje się cudzą przenikliwością.
 - **`outcome.prose` to NARRACJA, nie streszczenie protokołu.** Kwestia, która rozstrzyga
   scenę, pada w dialogu; parafraza „powiedział, że…" jest do rzeczy nieistotnych. `recent`
   podaje tę prozę następnej sesji jako jedyną próbkę języka, więc tura uczy następnej tury:

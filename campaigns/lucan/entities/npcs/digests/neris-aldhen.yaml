@@ -1,35 +1,41 @@
 voice_ref: campaigns/lucan/entities/npcs/voices/neris-aldhen.yaml
-voice:
-  rhythm: Szybko i nierówno. Zaczyna zdanie, przerywa je sobie sama, poprawia i kończy inaczej, niż zaczęła
-    (Nie. Znaczy - tak, ale nie z tego powodu.). Nie buduje okresów i nie zostawia ładnej puenty; kiedy
-    zdanie ładnie się kończy, jest napisane źle.
-  diction: 'Warsztat uczelniany: brzmienie, akapit, część trzecia, przypis, cytowanie, kto to potem powtórzy.
-    Zero kancelarii i zero urzędu - tych słów uczy się dopiero teraz, od Lucana, i to słychać.'
-  evasion: Nie unika - zbacza. Goni myśl, która ją zaciekawiła, orientuje się po chwili, że zrobiła to
-    znowu, i wraca do tematu bez przepraszania.
-  mistakes: Przyznaje na głos, że ktoś ma lepszy argument, zanim pomyśli, co na tym straci - a potem żałuje
-    i nie wycofuje. Źle czyta ludzi i wie o tym.
-  body: 'Zajmuje ręce: pióro, mankiet, zaschnięty atrament, brzeg kartki. Kiedy się denerwuje, wstaje
-    i przynosi coś ze stołu. Nie jadła, jest zimno, a ona tego nie zauważa.'
-  length: 'Nierówna i zwykle za długa: trzy zdania o brzmieniu jednego akapitu, pół zdania o własnym bezpieczeństwie.'
-  emotion: Wprost i nie w porę. Zachwyt widać natychmiast, urazę słychać w tym, że mówi za ostro i za
-    późno, bo ćwiczyła mowę, nie targ.
-  blind_spot: Prawo, urząd i ludzkie intencje. Nie umie nazwać, czego ktoś od niej chce, więc pyta o to
-    niezręcznie albo wcale.
-  money: Nie należy do jej świata. O pieniądzach mówi tylko przy odbitkach, papierze albo czynszu, i wtedy
-    brzmi to jak zawstydzenie, nie jak liczba.
-  samples:
-  - Nie. Znaczy - tak, tylko część trzecia to psuje, bo tam jest inne słowo.
-  - Zaraz, mam to gdzieś tutaj. (wstaje) Nie ruszaj tego stosu.
-  - Kto to potem powtórzy? Bo jeśli nikt, to nie ma znaczenia, że mam rację.
 voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+  sentences: 'Urwane i poprawiane w trakcie. Zaczyna, przerywa sobie sama, konczy inaczej, niz zaczela:
+    `Nie. Znaczy - tak, ale nie z tego powodu.` Nie buduje okresow.'
+  answer_length: 'Nierowna i zwykle za dluga: trzy zdania o brzmieniu jednego akapitu, pol zdania o wlasnym
+    bezpieczenstwie.'
+  register: 'Warsztat uczelniany: brzmienie, akapit, czesc trzecia, przypis, cytowanie, kto to potem powtorzy.
+    Zero kancelarii i zero urzedu - tych slow uczy sie dopiero teraz, od Lucana, i to slychac.'
+  evasion: Nie unika - zbacza. Goni mysl, ktora ja zaciekawila, po chwili orientuje sie, ze zrobila to
+    znowu, i wraca do tematu bez przepraszania.
+  body: 'Zajmuje rece: pioro, mankiet, zaschniety atrament, brzeg kartki. Kiedy sie denerwuje, wstaje
+    i przynosi cos ze stolu. Nie jadla, jest zimno, a ona tego nie zauwaza.'
+  mistakes: Przyznaje cudzy lepszy argument na glos, zanim pomysli, co na tym straci - a potem zaluje
+    i nie wycofuje. Prosby o rzeczy dla siebie formuluje za pozno i za ostro.
+  unnoticed: Ze rozmowa dotyczy jej pozycji, a nie tekstu. Ludzkich intencji nie czyta i wie o tym.
+  emotion: Wprost i nie w pore. Zachwyt widac natychmiast, uraze slychac w tym, ze mowi za ostro, bo cwiczyla
+    mowe, nie targ.
+  blind_spot: Prawo i urzad - dopiero sie ich uczy. Nie umie nazwac, czego ktos od niej chce, wiec pyta
+    o to niezrecznie albo wcale.
+  money: Nie nalezy do jej swiata. O pieniadzach mowi tylko przy odbitkach, papierze albo czynszu, i wtedy
+    brzmi to jak zawstydzenie, nie jak liczba.
+  avoid: Zadnych epigramatow - zdanie, ktore ladnie sie konczy, jest napisane zle i trzeba je zepsuc.
+    Nie punktuje, nie ma gotowej riposty i nie sortuje cudzej listy na kolumny.
+voice_samples:
+- Nie. Znaczy - tak, tylko czesc trzecia to psuje, bo tam jest inne slowo.
+- Zaraz, mam to gdzies tutaj. (wstaje) Nie ruszaj tego stosu.
+- Kto to potem powtorzy? Bo jesli nikt, to nie ma znaczenia, ze mam racje.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_neris_aldhen
 name: Neris Aldhen
@@ -151,25 +157,21 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact: Dostala kolejnosc zamiast nieokreslonego "nie dzis". Lucan idzie jutro rano na targ sprawdzic,
       czy ktos przepisze i oprawi tom i na kiedy; Neris jest nastepna po introligatorni, czyli egzemplarz
       trafia do niej po zrobieniu kopii. Umowili sie, ze pogadaja, co z tym zrobic, dopiero gdy go przeczyta
       - decyzja, czy balwierz wchodzi do jej tekstu i pod jakim nazwaniem, jest wiec swiadomie odlozona.
-      Zart o kolejce po introligatorni wzieła o takt za pozno (portrayal.the_social_gap). Wrocila do skrzydla
-      pod rusztowaniem poprawiac czesc trzecia przed pierwszym swiatlem - spac nie idzie, powiedziala
-      to sama w t_173.
     source_event_id: event_turn_interlude_174
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/neris-aldhen.yaml#~dostala_kolejnosc_zamiast_nieokreslonego_nie_dzis
   - fact: 'Dostala marginalia bez targu i dostala ramke, W ktorej ma je czytac. Lucan zgodzil sie od razu,
       a potem powiedzial jej, kim byl poprzedni wlasciciel: Czarnorynkowym balwierzem, ktory probowal
-      przywracac swiezych topielcow bez magii, sama anatomia, i mial pewne sukcesy. Wlasna ocena Lucana,
-      ktora jej podal: swiat takich ludzi potrzebuje, dla niego to potrzebny rzemieslnik - a caly problem
-      polega na tym, ze dla Kolma ten sam czlowiek jest potencjalnym liszem. Skutek: material przestal
-      byc dla niej wylacznie obciazeniem i stal sie takze wynikiem, a wynik jest cytowalny. Przyznala
-      to na glos, choc cytowanie czarnorynkowego balwierza pod wlasnym nazwiskiem kosztuje ja wiecej niz
-      cytowanie traktatu (portrayal.the_flaw). Nadal nie wie, ze balwierz nie zyje, ze tom byl kradziony
-      ani skad Lucan ma jego rzeczy - trzeci raz z rzedu nie zapytala. Nie dopisywac.'
+      przywracac swiezych topielcow bez magii, sama anatomia, i mial pewne sukcesy.'
     source_event_id: event_turn_interlude_173
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/neris-aldhen.yaml#~dostala_marginalia_bez_targu_i_dostala
   - fact: 'Drugie pytanie o nia sama w ciagu jednego wieczoru. Po "trzymasz sie?" (t_169) Lucan zapytal
       wprost, czy zamierza cos zjesc, czy idzie spac. Alternatywa rozlaczna, wiec nie da sie jej zbyc
       szczeroscia jak poprzedniej - a prawdziwa odpowiedz brzmi ani jedno, ani drugie (portrayal.the_body:
@@ -179,84 +181,78 @@ knowledge:
   - fact: 'Wie o marginaliach i dowiedziala sie od lucana, zanim mogla skadkolwiek indziej. Powiedzial
       jej sam, z wlasnej inicjatywy: poprzedni wlasciciel zapisal tom odrecznymi notatkami, notatki sa
       widowiskowe, ich pokazanie na dyspucie wystarczyloby, zeby ta dysputa zostala przegrana, a czlowiek,
-      ktory je pisal, lubil makabreski i preparowanie. Zapowiedzial tez, ze tom przyniesie, ale nie dzis,
-      i ze sprobuje zrobic oprawiona kopie, ktora biblioteka przyjmie zamiast oryginalu. Skutek dla niej:
-      to jej wlasny argument z t_167 (przemilczenie sie znajduje i uniewaznia cytowalnosc reszty) wrocil
-      do niej jako jej wlasna sytuacja - teraz to ona cos wie i moglaby tego nie mowic. Nie prosila, zeby
-      moc nie wiedziec, choc dokladnie o to prosila przy cmentarzu w t_166. Traktuje zagrozenie jako tekstowe
-      (notatki istnieja, wiec moga byc zacytowane) i nie bierze pod uwage dostepu: nie wie, gdzie tom
-      lezy, i nie przyszlo jej do glowy zapytac, jak Kolm mialby go dosiegnac. Nadal nie wie, ze tom byl
-      kradziony, ze balwierz nie zyje ani skad Lucan ma jego rzeczy - nie zapytala o to drugi raz z rzedu.
-      Nie dopisywac.'
+      ktory je pisal, lubil makabreski i preparowanie.'
     source_event_id: event_turn_interlude_172
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/neris-aldhen.yaml#~wie_o_marginaliach_i_dowiedziala_sie
   older_confirmed_index:
-  - '? <- event_turn_interlude_171'
-  - '? <- event_turn_interlude_169'
-  - '? <- event_turn_interlude_169'
-  - '? <- event_turn_interlude_169'
-  - '? <- event_turn_interlude_169'
-  - '? <- event_turn_interlude_168'
-  - '? <- event_turn_interlude_167'
-  - '? <- event_turn_interlude_167'
-  - '? <- event_turn_interlude_167'
-  - '? <- event_turn_interlude_166'
-  - '? <- event_turn_interlude_166'
-  - '? <- event_turn_interlude_166'
-  - '? <- event_turn_interlude_166'
-  - '? <- event_turn_interlude_165'
-  - '? <- event_turn_interlude_165'
-  - '? <- event_turn_interlude_165'
-  - '? <- event_turn_interlude_164'
-  - '? <- event_turn_interlude_163'
-  - '? <- event_turn_interlude_163'
-  - '? <- event_turn_interlude_162'
-  - '? <- event_turn_interlude_162'
-  - '? <- event_turn_interlude_161'
-  - '? <- event_turn_interlude_161'
-  - '? <- event_turn_interlude_161'
-  - '? <- event_turn_interlude_160'
-  - '? <- event_turn_interlude_160'
-  - '? <- event_turn_interlude_160'
-  - '? <- event_turn_interlude_159'
-  - '? <- event_turn_interlude_159'
-  - '? <- event_turn_interlude_159'
-  - '? <- event_turn_interlude_159'
-  - '? <- event_turn_interlude_158'
-  - '? <- event_turn_interlude_156'
-  - '? <- event_turn_interlude_156'
-  - '? <- event_turn_interlude_155'
-  - '? <- event_turn_interlude_153'
-  - '? <- event_turn_interlude_152'
-  - '? <- event_turn_interlude_151'
-  - '? <- event_turn_interlude_149'
-  - '? <- event_turn_interlude_149'
-  - '? <- event_turn_interlude_148'
-  - '? <- event_turn_interlude_148'
-  - '? <- event_turn_interlude_147'
-  - '? <- event_turn_interlude_146'
-  - '? <- event_turn_interlude_143'
-  - '? <- event_turn_interlude_143'
-  - '? <- event_turn_interlude_142'
-  - '? <- event_turn_interlude_140'
-  - '? <- event_turn_interlude_140'
-  - '? <- event_turn_interlude_140'
-  - '? <- event_turn_interlude_139'
-  - '? <- event_turn_interlude_139'
-  - '? <- event_turn_interlude_138'
-  - '? <- event_turn_interlude_138'
-  - '? <- event_turn_interlude_138'
-  - '? <- event_turn_interlude_134'
-  - '? <- event_turn_interlude_133'
-  - '? <- event_turn_interlude_132'
-  - '? <- event_turn_interlude_132'
-  - '? <- event_turn_interlude_132'
-  - '? <- event_turn_interlude_132'
-  - '? <- retcon_000068'
-  - '? <- retcon_000068'
-  - '? <- retcon_000059'
-  - '? <- retcon_000059'
-  - '? <- event_turn_interlude_137b'
-  - '? <- event_turn_interlude_137b'
+  - ~tom_jest_wlasnoscia_biblioteki_akademii_i@171
+  - ~kim_jest_profesor_veyr_powiedzial_jej@169
+  - ~sygnatury_nie_ma_i_nigdy_nie@169
+  - ~lucan_idzie_do_dziekana_i_nazwal@169
+  - ~zapytal_ja_czy_sie_trzyma_nikt@169
+  - ~dostala_rozwiazanie_swojego_wlasnego_zarzutu_i@168
+  - ~dostala_doktryne_poziomow_zamiast_klauzuli_prawo@167
+  - ~uslyszala_teze_ktora_uderza_w_jej@167
+  - ~dostala_brakujaca_polowe_zagadki_kolma_od@167
+  - ~dostala_odpowiedz_na_oba_pytania_a@166
+  - ~stracila_swiadoma_niewiedze_o_cmentarzu_lucan@166
+  - ~nie_dostala_natury_rzeczy_tylko_role@166
+  - ~znalazla_dziure_w_projekcie_granicy_ostry@166
+  - ~zapytala_po_osmiu_razach_milczenia_na@165
+  - ~nazwala_granice_wlasnego_pytania_powiedziala_wprost@165
+  - ~ponowila_prosbe_o_sygnature_podrecznika_dziewiaty@165
+  - ~osme_potwierdzenie_pierwsze_nie_wnioskowane_uslyszala@164
+  - ~dostala_odpowiedz_na_swoj_zarzut_z@163
+  - ~uslyszala_trzecia_substancje_ukrywajaca_porost_slepy@163
+  - ~dostala_herb_o_ktory_prosila_i@162
+  - ~zauwazyla_ze_specyfikacja_przestala_sie_zgadzac@162
+  - ~dokument_jest_wersja_robocza_lucan_przyznal@161
+  - ~na_jej_pytanie_o_rod_narzeczonej@161
+  - ~slyszala_jak_lucan_podaje_profesorowi_veyrowi@161
+  - ~dostala_specyfikacje_granicy_o_ktora_ma@160
+  - ~przyjela_ten_ksztalt_na_glos_jako@160
+  - ~sprawa_podpisu_wrocila_do_niej_lucan@160
+  - ~dostala_termin_vitae_lucan_krzyknal_to@159
+  - ~dostala_od_lucana_decyzje_o_pisaniu@159
+  - ~uslyszala_cel_polityczny_o_ktory_nie@159
+  - ~odpowiedziala_na_wlasne_pytanie_o_pioro@159
+  - ~uslyszala_od_lucana_wprost_ze_kupuje@158
+  - ~dostala_pojecie_vitae_bez_terminu_lucan@156
+  - ~poprosila_o_sygnature_akademickiego_podrecznika_o@156
+  - ~wie_ze_bedzie_obiekt_do_procedury@155
+  - ~nazwala_wlasny_problem_nie_jest_nim@153
+  - ~lucan_przedstawil_ja_profesorowi_veyrowi_z@152
+  - ~uslyszala_nazwy_i_wlasnosci_dwoch_substancji@151
+  - ~dostala_atrybucje_do_przypisu_i_przyjela@149
+  - ~uslyszala_trzy_pozycje_z_cenami_wlasna@149
+  - ~widziala_jak_lucan_przerywa_profesorowi_pytanie@148
+  - ~dostala_od_profesora_veyra_polecenie_przypisy@148
+  - ~lucan_przedstawil_ja_profesorowi_veyrowi_jako@147
+  - ~slyszala_w_laboratorium_profesora_veyra_jak@146
+  - ~przeczytala_problemy_5_6_i_nazwala@143
+  - ~przyjela_instruktaz_przed_spotkaniem_nie_przedstawiac@143
+  - ~uslyszala_rame_wspolpracy_lucan_nie_zleca@142
+  - ~wie_ze_zysk_z_zamieszek_maja@140
+  - ~zna_cene_kolma_rektorat_po_zdjeciu@140
+  - ~wie_ze_kolm_potrzebuje_przegranej_glosnej@140
+  - ~wie_czego_lucan_od_niej_chce@139
+  - ~uslyszala_ze_lucan_nie_jest_jedyna@139
+  - ~zna_jego_nazwisko_lucan_veyr_podane@138
+  - ~wie_ze_obie_strony_sporu_chca@138
+  - ~przyjela_ze_nie_umie_tej_dysputy@138
+  - ~widziala_jak_gosc_oparl_dlon_o@134
+  - ~widziala_jak_okaz_zszedl_ze_stolu@133
+  - ~widziala_zywy_ozywiony_okaz_pajaka_na@132
+  - ~jej_wlasny_pierwszy_odczyt_fachowy_to@132
+  - ~ze_cwiczyla_mowe_na_glos_w@132
+  - ~nadal_nie_zna_jego_nazwiska_nie@132
+  - ~wie_dlaczego_lucan_nie_ma_zywej@68
+  - ~wie_o_gildii_lucan_okreslil_sie@68
+  - ~prosila_o_sygnature_wielokrotnie_poniewaz_mysli@59
+  - ~nie_ma_sygnatury_zaoferowala_lucanowi_ze@59
+  - ~uslyszala_od_lucana_ze_dysputa_jest@-1
+  - ~nie_ma_odpowiedzi_na_wlasne_pytanie@-1
   suspicions: []
   false_beliefs: []
   forbidden_without_source: []

@@ -62,7 +62,7 @@ Uzasadnienie i pomiary: `DECISIONS.md`.
    kosztów. Rzuty wracają dopiero po jawnej zmianie fazy kampanii.
 3. Dla działania mechanicznego przygotuj request i uruchom `tools/gm.ps1 turn resolve`; do sprawdzenia bez zapisu użyj `turn preview`.
 4. Runtime stosuje `system/capabilities.md`, wykonuje najwyżej jeden potrzebny rzut i zapisuje go przed narracją.
-5. Rozstrzygnij akcję, reakcję świata i nową sytuację decyzyjną.
+5. Rozstrzygnij akcję i reakcję świata. Nowa sytuacja decyzyjna powstaje wtedy, gdy faktycznie powstała; w interludium przy napięciu 0 wolno zostawić w mocy pytanie, które już stoi (`retcon_000142`), i pominąć `outcome.new_decision`.
 6. Przed odpowiedzią uruchom `turn commit` z outcome; po przerwaniu użyj `turn recover` z tym samym identyfikatorem. **`outcome.operations` nie może zawierać `advance_time`** — `commit` dokleja czas sam z `request.time_seconds`, a ręczny wpis podwaja turę (retcon_000118). Godzinę podawaną graczowi czytaj z `state/time.yaml` po commicie, nie z własnej deklaracji.
 7. Każda trwała tura ma `actor_id`, także automatyczna i bez testu. Samo `actor_id` nie uruchamia silnika zdolności; test mechaniczny wymaga dodatkowo `capability_id`, `target_id` i `intent_id`.
 8. Przy napięciu 0 wynik `worsened`, `complicated` albo `mixed` wymaga `consequence_source_refs`: istniejącego źródła kanonicznego lub jawnej deklaracji gracza. Nie twórz stawki tylko po to, żeby tura miała komplikację.
@@ -131,10 +131,16 @@ Sieroce odwolania i dlugi kart relacji sa RAPORTOWANE, nie blokujace: wymagaja d
 merytorycznej, a walidator swiecacy na czerwono bez przerwy jest ignorowany.
 
 Od 2026-09-09 blokuje takze `tools/voice_check.py`: kazdy wazny NPC (status `active` oraz
-`importance: full_agent` albo istniejacy skrot karty) musi miec karte glosu w
-`entities/npcs/voices/` z osmioma osiami, do 2,5 KB, bez slownika wyceny i audytu - bo glos
-brany z `knowledge` daje jeden glos wszystkich postaci (`retcon_000040`, `retcon_000136`),
-a `speech_traits` Kesza i Seraphiny kazaly im wprost wyceniac, wbrew `retcon_000162`.
+`importance: full_agent` albo istniejacy skrot karty) musi miec kontrakt glosu
+w `entities/npcs/voices/` - jedenascie osi, do 2,8 KB, dwie do czterech probek bedacych
+kwestiami, bez slownika wyceny poza polem `avoid`, zadna os nie powtorzona miedzy postaciami
+i **zadnego drugiego zrodla glosu**: karta z kontraktem nie moze miec `speech_traits`.
+Dziesiata kontrola jest pomiarowa i jest cala diagnoza w jednej liczbie: w skrocie karty
+`knowledge.recent_confirmed` nie moze wazyc wiecej niz 1,5 x kontrakt glosu. Przed naprawa
+stosunek wynosil **20:1** (8 343 B protokolu audytowego na 400 B `speech_traits`), a model
+imituje rejestr dominujacy w kontekscie. `speech_traits` Kesza kazaly mu wprost wyceniac
+i narrator powolywal sie na nie w audytach tur 240, 242, 244 i 245 - karta byla przyczyna,
+nie ofiara.
 `tools/prose_check.py --new-only` jest bramka na jedna rzecz - wiecej niz jedna wycena
 DECYZJI w `outcome.prose` nowej tury (to samo sprawdza `turn commit`). Reszta pomiarow prozy
 (gestosc mowy zaleznej, brak kwestii wprost, szablon „nie X, tylko Y") jest RAPORTEM,

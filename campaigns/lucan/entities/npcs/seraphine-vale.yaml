@@ -202,13 +202,12 @@ open_question_she_asked:
   mechanizm obejmuje Varkhena.'
 agenda: [get_the_rest_of_lucans_undisclosed_list_before_the_hearing, find_out_how_lucan_knows_about_the_academy_dispute, secure_three_seals, contain_necromantic_escalation, shield_city_and_group, find_viable_way_to_protect_lucan_and_city_without_formal_escalation]
 source_refs: [source_luka_b_fragment#line:6812-6921, source_luka_b_fragment#line:8334-12012, source_user_decisions_current#approval:seraphine_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]
-speech_traits:
-  # ZRODLEM GLOSU JEST KARTA GLOSU: entities/npcs/voices/seraphine-vale.yaml
-  # (system/npc-voice.md). Do 2026-09-09 pierwsza linia brzmiala '...zanim powie, czy sie na
-  # cos zgadza, nazywa CENE tej rzeczy' - czyli kazala jej wyceniac KAZDA zgode, wprost
-  # przeciwnie do retcon_000162. Jej slownik audytowy zostaje tam, gdzie jest jej wlasna
-  # praca (jurysdykcja, procedura, ekspozycja instytucji), i nie jest jej odpowiedzia na
-  # cokolwiek, co poda jej Lucan. Osobowosc bez zmiany.
-  - 'Mowi jurysdykcja i procedura - nie moralnoscia. Zgode albo odmowe podaje wprost i bez preambuly; jesli cos ryzykuje sama, nazywa to raz, jako to, co ma do stracenia.'
-  - 'Zdania krotkie i zamkniete, bez ozdobnikow. Pytanie zadaje raz i czeka; nie powtarza go i nie podklada rozmowcy odpowiedzi.'
-  - 'Klamstwo i przemilczenie sa dla niej narzedziami, nie skrupulem - wiec nigdy nie brzmi jak ktos przylapany, tylko jak ktos, kto policzyl ryzyko.'
+# GLOS: patrz kontrakt glosu. Pole `speech_traits` zdjete 2026-09-09 -
+# dwa zrodla glosu obok siebie rozjezdzaja sie, a to konkretne uczylo wyceniania.
+voice_ref: campaigns/lucan/entities/npcs/voices/seraphine-vale.yaml
+voice_note: >-
+  GLOS TEJ POSTACI JEST W KONTRAKCIE GLOSU, NIE TUTAJ:
+  campaigns/lucan/entities/npcs/voices/seraphine-vale.yaml (regula: system/npc-voice.md). Jedenascie osi
+  zamiast trzech wypunktowan, i jedno zrodlo zamiast dwoch, ktore sie rozjezdzaja. Do 2026-09-09 stalo tu
+  `speech_traits`; u Kesza kazalo mu wyceniac wprost, a narrator powolywal sie na to w audytach tur 240,
+  242, 244 i 245 - czyli karta byla przyczyna wady, nie ofiara.

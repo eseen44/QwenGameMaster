@@ -1,38 +1,36 @@
+# KONTRAKT GLOSU - Neris Aldhen
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_neris_aldhen
 npc_id: npc_neris_aldhen
 npc_ref: campaigns/lucan/entities/npcs/neris-aldhen.yaml
-rhythm: >-
-  Szybko i nierówno. Zaczyna zdanie, przerywa je sobie sama, poprawia i kończy inaczej,
-  niż zaczęła (Nie. Znaczy - tak, ale nie z tego powodu.). Nie buduje okresów i nie
-  zostawia ładnej puenty; kiedy zdanie ładnie się kończy, jest napisane źle.
-diction: >-
-  Warsztat uczelniany: brzmienie, akapit, część trzecia, przypis, cytowanie, kto to
-  potem powtórzy. Zero kancelarii i zero urzędu - tych słów uczy się dopiero teraz,
-  od Lucana, i to słychać.
-evasion: >-
-  Nie unika - zbacza. Goni myśl, która ją zaciekawiła, orientuje się po chwili, że
-  zrobiła to znowu, i wraca do tematu bez przepraszania.
-mistakes: >-
-  Przyznaje na głos, że ktoś ma lepszy argument, zanim pomyśli, co na tym straci -
-  a potem żałuje i nie wycofuje. Źle czyta ludzi i wie o tym.
-body: >-
-  Zajmuje ręce: pióro, mankiet, zaschnięty atrament, brzeg kartki. Kiedy się denerwuje,
-  wstaje i przynosi coś ze stołu. Nie jadła, jest zimno, a ona tego nie zauważa.
-length: >-
-  Nierówna i zwykle za długa: trzy zdania o brzmieniu jednego akapitu, pół zdania
-  o własnym bezpieczeństwie.
-emotion: >-
-  Wprost i nie w porę. Zachwyt widać natychmiast, urazę słychać w tym, że mówi za
-  ostro i za późno, bo ćwiczyła mowę, nie targ.
-blind_spot: >-
-  Prawo, urząd i ludzkie intencje. Nie umie nazwać, czego ktoś od niej chce, więc
-  pyta o to niezręcznie albo wcale.
-money: >-
-  Nie należy do jej świata. O pieniądzach mówi tylko przy odbitkach, papierze albo
-  czynszu, i wtedy brzmi to jak zawstydzenie, nie jak liczba.
+voice_contract:
+  sentences: 'Urwane i poprawiane w trakcie. Zaczyna, przerywa sobie sama, konczy inaczej, niz zaczela:
+    `Nie. Znaczy - tak, ale nie z tego powodu.` Nie buduje okresow.'
+  answer_length: 'Nierowna i zwykle za dluga: trzy zdania o brzmieniu jednego akapitu, pol zdania o
+    wlasnym bezpieczenstwie.'
+  register: 'Warsztat uczelniany: brzmienie, akapit, czesc trzecia, przypis, cytowanie, kto to potem
+    powtorzy. Zero kancelarii i zero urzedu - tych slow uczy sie dopiero teraz, od Lucana, i to slychac.'
+  evasion: Nie unika - zbacza. Goni mysl, ktora ja zaciekawila, po chwili orientuje sie, ze zrobila
+    to znowu, i wraca do tematu bez przepraszania.
+  body: 'Zajmuje rece: pioro, mankiet, zaschniety atrament, brzeg kartki. Kiedy sie denerwuje, wstaje
+    i przynosi cos ze stolu. Nie jadla, jest zimno, a ona tego nie zauwaza.'
+  mistakes: Przyznaje cudzy lepszy argument na glos, zanim pomysli, co na tym straci - a potem zaluje
+    i nie wycofuje. Prosby o rzeczy dla siebie formuluje za pozno i za ostro.
+  unnoticed: Ze rozmowa dotyczy jej pozycji, a nie tekstu. Ludzkich intencji nie czyta i wie o tym.
+  emotion: Wprost i nie w pore. Zachwyt widac natychmiast, uraze slychac w tym, ze mowi za ostro, bo
+    cwiczyla mowe, nie targ.
+  blind_spot: Prawo i urzad - dopiero sie ich uczy. Nie umie nazwac, czego ktos od niej chce, wiec pyta
+    o to niezrecznie albo wcale.
+  money: Nie nalezy do jej swiata. O pieniadzach mowi tylko przy odbitkach, papierze albo czynszu, i
+    wtedy brzmi to jak zawstydzenie, nie jak liczba.
+  avoid: Zadnych epigramatow - zdanie, ktore ladnie sie konczy, jest napisane zle i trzeba je zepsuc.
+    Nie punktuje, nie ma gotowej riposty i nie sortuje cudzej listy na kolumny.
 samples:
-- Nie. Znaczy - tak, tylko część trzecia to psuje, bo tam jest inne słowo.
-- Zaraz, mam to gdzieś tutaj. (wstaje) Nie ruszaj tego stosu.
-- Kto to potem powtórzy? Bo jeśli nikt, to nie ma znaczenia, że mam rację.
+- Nie. Znaczy - tak, tylko czesc trzecia to psuje, bo tam jest inne slowo.
+- Zaraz, mam to gdzies tutaj. (wstaje) Nie ruszaj tego stosu.
+- Kto to potem powtorzy? Bo jesli nikt, to nie ma znaczenia, ze mam racje.

@@ -1,9 +1,9 @@
 # Głos NPC i proza tury
 
-Ten plik jest **jedynym źródłem głosu postaci**. Osiem osi na postać leży w
-`campaigns/lucan/entities/npcs/voices/<npc>.yaml`; tutaj jest reguła, jak z nich korzystać.
-Pilnuje tego `python tools/voice_check.py` (blokujące) i `python tools/prose_check.py`
-(raport plus jedna bramka).
+Głos każdej ważnej postaci leży w jej **kontrakcie głosu**:
+`campaigns/lucan/entities/npcs/voices/<npc>.yaml` — jedenaście osi i dwie–cztery próbki
+kwestii. Tutaj jest reguła, jak z niego korzystać. Pilnują tego `tools/voice_check.py`
+i `tools/prose_check.py`, oba blokujące, oba wpięte w `tools/preflight.py`.
 
 ## Skąd bierze się kwestia
 
@@ -41,6 +41,26 @@ awaria co `retcon_000040` i `retcon_000136`, tylko wchodząca przez skrót karty
   dlatego, że…") jest dozwolona **najwyżej raz w całej odpowiedzi** i nie u dwóch postaci
   w tej samej scenie. Kwestia może się skończyć byle jak — pytaniem, gestem, w pół zdania.
 
+## Ruch świata
+
+Tura ma poruszyć świat, ale **ruch świata to nie diagnoza gracza**. Każde z poniższych jest
+pełnym ruchem i żadne nie jest turą „słabszą":
+
+- **gest** — odłożone pióro, zgaszona lampa, podany przedmiot;
+- **milczenie** — i to nie jest wykręt, jeśli karta tak mówi;
+- **zwyczajna odpowiedź** na to, o co gracz zapytał, bez drugiego dna;
+- **częściowe niezrozumienie** albo dopytanie o rzecz oczywistą;
+- **zmiana tematu** na własną sprawę tej postaci;
+- **czynność fizyczna** — wstaje, przynosi papier, sortuje dalej;
+- **błędny odczyt intencji Lucana** — postać nie ma racji z urzędu;
+- **emocja bez analizy** — irytacja, ulga, zmęczenie, bez wniosku na koniec.
+
+Nie ma reguły, która kazałaby NPC prześwietlić gracza. Presja brała się z tego, że
+`outcome.new_decision` było w szablonie polem obowiązkowym, a najtańszy nowy dylemat
+produkuje się cudzą przenikliwością. Pole jest od 2026-09-09 opcjonalne: puste zostawia
+w mocy pytanie, które już stoi. Mechanizm:
+`system/narrator-appendix.md#skad-brala-sie-przenikliwosc`.
+
 ## Cena
 
 - **Metaforycznej ceny decyzji domyślnie nie ma.** Postać mówi, czego chce, czego się boi
@@ -57,13 +77,34 @@ awaria co `retcon_000040` i `retcon_000136`, tylko wchodząca przez skrót karty
 ## Test na ślepo
 
 Przed wysłaniem kwestii zakryj imię. Jeżeli nie wiadomo, kto mówi — przepisz
-(`retcon_000040`). Fikstura odniesienia z czterema głosami na to samo wejście:
-`system/fixtures/voice-blind-test.yaml`; sprawdza ją `tools/tests/test_npc_voice.py`.
+(`retcon_000040`). Fikstura odniesienia: `system/fixtures/voice-blind-test.yaml` — dwa
+wejścia, po cztery i pięć głosów, sprawdzane maszynowo przez
+`tools/tests/test_npc_voice.py` (rozróżnialność długości, brak seryjnego „nie X, tylko Y",
+próbki są kwestiami, nie opisami).
 
 ## Nowa postać
 
-Postać z kwestiami w scenie ma kartę głosu z ośmioma osiami: `rhythm`, `diction`,
-`evasion`, `mistakes`, `body`, `length`, `emotion`, `blind_spot`, plus `money` i dwie–trzy
-`samples`. Karta głosu jest **krótka i pozytywna**: mówi, jak ta osoba mówi, a nie czego
-narrator ma nie robić. Limit 2,5 KB jest bramką — dłuższa karta przestaje być kontraktem
-i zaczyna być kolejnym magazynem tekstu.
+Postać z kwestiami w scenie ma `voice_contract` z jedenastoma osiami, w tej kolejności:
+
+| oś | co opisuje |
+|---|---|
+| `sentences` | długość i budowa zdań |
+| `answer_length` | domyślna długość odpowiedzi |
+| `register` | słownictwo i rejestr |
+| `evasion` | sposób unikania odpowiedzi |
+| `body` | fizyczne odruchy |
+| `mistakes` | typowe błędy i ograniczenia |
+| `unnoticed` | czego zwykle nie zauważa |
+| `emotion` | jak okazuje emocje |
+| `blind_spot` | czego sama nie potrafi dobrze nazwać |
+| `money` | kiedy w ogóle mówi o pieniądzach |
+| `avoid` | konstrukcje, których u niej nie nadużywać |
+
+Plus dwie–cztery `samples`, które są **kwestiami wprost**, nie opisami. Kontrakt jest
+**krótki i pozytywny**: mówi, jak ta osoba mówi. `avoid` jest jedynym polem, w którym wolno
+nazwać konstrukcję do unikania — jedno pole, nie cały plik. Limit 2,8 KB jest bramką: dłuższy
+kontrakt przestaje być kontraktem i zaczyna być kolejnym magazynem tekstu.
+
+`speech_traits` **nie istnieje już na kartach, które mają kontrakt głosu**. Dwa źródła głosu
+obok siebie rozjeżdżają się i wygrywa dłuższe; u Kesza to krótsze kazało mu wyceniać, a
+narrator powoływał się na nie w audytach tur 240, 242, 244 i 245.

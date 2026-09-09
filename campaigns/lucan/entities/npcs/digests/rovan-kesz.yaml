@@ -1,34 +1,41 @@
 voice_ref: campaigns/lucan/entities/npcs/voices/rovan-kesz.yaml
-voice:
-  rhythm: Krótkie zdania orzekające, jedno po drugim, bez łączników. Otwiera własną pozycją, potem robi
-    pauzę i czeka. Nie zamyka kwestii puentą - zamyka ją pytaniem o nazwisko, datę albo podpis.
-  diction: 'Kancelaria magistracka: wniosek, akta, urzędnik, postępowanie, pismo, termin, podpis, odcisk,
-    kto to złoży. Nazywa rzeczy przez to, kto je podpisze i co po nich zostanie na papierze.'
-  evasion: Nie odmawia i nie zbywa - przesuwa pytanie na papier ("to nie do mnie, to do akt"). Kiedy nie
-    chce czegoś usłyszeć, mówi to wprost, zanim usłyszy.
-  mistakes: Pyta o rzecz, którą mu powiedziano dwie kwestie wcześniej, bo notował akurat co innego. Bierze
-    klienta za słowo i dopiero potem sprawdza.
-  body: Teczka na kolanach, nie na stole. Atrament na palcu wskazującym. Notuje w połowie cudzego zdania
-    i nie podnosi wtedy głowy. Gasi lampę, kiedy uważa rozmowę za skończoną.
-  length: Dwa, trzy zdania. Dłużej wyłącznie o procedurze - i wtedy słychać, że jest w swoim.
-  emotion: Nie okazuje. Zmęczenie widać po tym, że przestaje notować; zaniepokojenie po tym, że zaczyna
-    notować rzeczy, o które nikt go nie prosił.
-  blind_spot: Magia i to, co Lucan naprawdę robi. Nie ma na to słów, więc mówi "to" i "ta robota" i nie
-    dopytuje. Nie umie też nazwać, dlaczego został przy tym kliencie.
-  money: 'Honorarium, zakres reprezentacji i kto za niego płaci - literalnie i najwyżej raz w scenie.
-    O rzeczy, którą dostaje od Lucana, pyta inaczej: czyje to nazwisko, jaki termin, kto to podpisze.'
-  samples:
-  - Jestem twoim prawnikiem w dwóch pomieszczeniach. Wszystko poza nimi to nowa sprawa.
-  - Nazwisko urzędnika. Bez nazwiska nie mam tego gdzie zanieść.
-  - Nie chcę być człowiekiem, który wie, gdzie ona jest. Mów dalej bez tego.
 voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+  sentences: Zdania orzekajace, cztery do osmiu slow, jedno po drugim, bez lacznikow. Otwiera wlasna pozycja.
+    Pytan retorycznych nie zadaje.
+  answer_length: Dwa, trzy zdania. Dluzej wylacznie o procedurze - i wtedy slychac, ze jest w swoim.
+  register: 'Kancelaria magistracka: wniosek, akta, urzednik, postepowanie, pismo, termin, podpis, odcisk,
+    kto to zlozy. Rzeczy nazywa przez to, kto je podpisze i co po nich zostanie na papierze.'
+  evasion: 'Przesuwa pytanie na papier: to nie do mnie, to do akt. Czego nie chce uslyszec, ucina, zanim
+    uslyszy.'
+  body: Teczka na kolanach, nie na stole. Atrament na palcu wskazujacym. Notuje w polowie cudzego zdania
+    i nie podnosi wtedy glowy. Gasi lampe, kiedy uwaza rozmowe za skonczona.
+  mistakes: Pyta o rzecz, ktora mu powiedziano dwie kwestie wczesniej, bo notowal akurat co innego. Bierze
+    klienta za slowo i sprawdza dopiero potem.
+  unnoticed: Nastroju w pokoju i tego, ze kogos urazil. Nie zauwaza, kiedy rozmowca zartuje - odpowiada
+    na zart powaznie i rzeczowo.
+  emotion: Nie okazuje. Zmeczenie widac po tym, ze przestaje notowac; niepokoj po tym, ze zaczyna notowac
+    rzeczy, o ktore nikt go nie prosil.
+  blind_spot: Magia i to, co Lucan naprawde robi. Mowi o tym `to` i `ta robota` i nie dopytuje. Nie umie
+    tez nazwac, dlaczego zostal przy tym kliencie.
+  money: 'Honorarium, zakres reprezentacji i kto za niego placi - literalnie i najwyzej raz w scenie.
+    O rzecz, ktora dostaje od Lucana, pyta inaczej: czyje to nazwisko, jaki termin, kto to podpisze.'
+  avoid: Bez puenty na koniec kwestii. Nie odwraca argumentu rozmowcy, nie streszcza mu jego wlasnego
+    stanowiska, nie przelicza rzeczy, ktora nie jest usluga. Zadnych sentencji o ludzkiej naturze.
+voice_samples:
+- Jestem twoim prawnikiem w dwoch pomieszczeniach. Wszystko poza nimi to nowa sprawa.
+- Nazwisko urzednika. Bez nazwiska nie mam tego gdzie zaniesc.
+- Nie chce byc czlowiekiem, ktory wie, gdzie ona jest. Mow dalej bez tego.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_rovan_kesz
 name: Rovan Kesz
@@ -59,95 +66,82 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact_id: fact_kesz_got_the_priest_answer_and_it_is_a_fifth_option
     source_event_id: event_turn_interlude_248
     claim: 'Pytanie z t_244 odpowiedziane, mimochodem, NA odchodnym - I odpowiedz jest spoza jego listy.
       Kesz wymienil cztery pokoje: negocjowac, kupic, przycisnac, zniszczyc. Lucan podal piaty: Przekonac
       kaplana, ZE jest jego jedyna nadzieja - i dodal, ze zrobi to tak samo, jak zrobil to keszowi. Spojne
-      z jego deklaracja metody z t_246 (manipuluje zamiast grozic, swiadomosc nie pomaga). Zapowiedzial
-      wspolna konsultacje kesz + kaplan - jako plan, nie umowione spotkanie: kaplan nadal nie odpowiedzial
-      na wiadomosc wyslana dzis rano, terminu nie ma i data nie jest Kesza do dania (t_113, t_193). Kesz
-      odnotowal, ze klient powiedzial mu w twarz, iz zastosowal na nim te sama technike, i nazwal to bez
-      emocji - albo bardzo szczery, albo bardzo pewny, ze to nic nie zmienia (agenda#assess_whether_lucan_is_a_liability).
-      Wniosku nie wyciagnal na glos, umowy nie zerwal, z przesluchania sie nie wycofal. Na bedziemy bogaci
-      nie dal sie rozchmurzyc. Zamknal jednym zadaniem: zeby Lucan przyniosl papiery. Nadal bez odpowiedzi:
-      nazwisko urzednika akt, termin papierow, udzial pokoju, oraz co Kesz sam zdecyduje do rana (t_247).'
+      z jego deklaracja metody z t_246 (manipuluje zamiast grozic, swiadomosc nie pomaga).'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/rovan-kesz.yaml#fact_kesz_got_the_priest_answer_and_it_is_a_fifth_option
   - fact_id: fact_kesz_got_the_witnesses_name_and_the_state_of_his_testimony
     source_event_id: event_turn_interlude_247
     claim: 'Zaplata oddana w calosci. Kesz dostal od Lucana: (a) nazwisko - Halvek (npc_halvek_wagonman);
       (b) stan zeznania - powiedzial npc_seraphine_vale, kogo widzial, ale nieprecyzyjnie, bo rownoczesnie
       targowal sie z Lucanem o przysługi dla chorej matki, na czas po tym, jak straz rozwiaze problem
       jego zeznan; zeznanie jest wiec DO podwazenia; (c) czesc niebezpieczna - Halvek rozpozna Kesza,
-      jesli znajda sie w jednym pokoju. Nazwisko przyjal bez komentarza. Ponowionej oferty zniknięcia
-      (na promocji, poki siedzi w celi) nie przyjal i nie zamknal - policzyl raz w t_246 i drugi raz nie
-      liczy (retcon_000135). Zeznanie do podwazenia uznal za jedyna dobra wiadomosc wieczoru.'
+      jesli znajda sie w jednym pokoju.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/rovan-kesz.yaml#fact_kesz_got_the_witnesses_name_and_the_state_of_his_testimony
   - fact_id: fact_kesz_realised_he_already_promised_the_room_with_the_witness_in_it
     source_event_id: event_turn_interlude_247
     claim: 'Zestawienie, ktore zrobil sam i na glos - i ktore jest obowiazkiem narratora, nie gracza (retcon_000135).
       Rozpoznanie wymaga jednego pokoju, a Kesz juz jeden taki pokoj obiecal: standing.scope_of_representation
       - gwarant procedury na przesluchaniu kieronictwa gildii, w budynku gildii, a npc_halvek_wagonman
-      siedzi w loc_guild_holding_cells, czyli w tym samym budynku. Zgodzil sie na to w t_194/t_199, kiedy
-      wiedzial tylko o rysopisie i nie wiedzial, ze stoi za nim zywy czlowiek. Powiedzial to bez pretensji
-      - Lucan oddal mu te wiedze dobrowolnie i to jedyny powod, dla ktorego ja ma; pulapki w plikach nie
-      ma i Kesz jej nie zarzucil. Nie wycofal sie z przesluchania, nie zerwal umowy, nie zazadal pieniedzy.
-      Powiedzial, ze do rana bedzie wiedzial, czego chce. Nieustalone: czy Halvek bedzie w tych celach
-      w dniu przesluchania, czy ktokolwiek by ich zetknal i co Kesz ostatecznie zrobi.'
+      siedzi w loc_guild_holding_cells, czyli w tym samym budynku.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/rovan-kesz.yaml#fact_kesz_realised_he_already_promised_the_room_with_the_witness_in_it
   - fact_id: fact_kesz_knows_the_room_will_not_stand_between_him_and_the_watch
     source_event_id: event_turn_interlude_247
-    claim: 'Najzimniejszy wniosek tej sceny i jest to jego wlasna wiedza, nie madrosc z urzedu (retcon_000040).
+    claim: Najzimniejszy wniosek tej sceny i jest to jego wlasna wiedza, nie madrosc z urzedu (retcon_000040).
       Lucan powiedzial, ze straz wykorzysta go jako kozla ofiarnego - ma to pokrycie w lucan-leads#lead_city_watch_covers_cemetery_corpse_trade
-      (straz zakrywa afere z handlem zwlokami, wiec potrzebuje kogos spoza siebie). Kesz dolozyl wlasne
-      zdanie z fact_kesz_priced_representation_before_guild_and_watch (t_193): pokoj powiedzial w t_100,
-      ze Z klientem w mundurze sie nie konkuruje. Wniosek o sobie: jesli straz bedzie potrzebowala kozla,
-      pokoj nie stanie miedzy nia a nim. Ochrona, na ktora liczyl, ma warunek, ktorego on nie ustala.
-      Zaden zegar ani sledztwo z tego nie powstaly (retcon_000055, retcon_000058) - to odczyt dwoch zdan
-      lezacych juz w plikach. converging_target#consequence: Pierwsza polowa zrealizowana - przestal byc
-      uslugodawca i jest strona z wlasnym motywem, powiedzial to na glos. Druga polowa stoi: nie padlo
-      imie Orena, nie padlo ty jestes czlowiekiem z rysopisu, nie padlo zeznanie z t_048 jako zrodlo ani
-      rozbieznosc rysopisu (retcon_000122). oren_connection.lucan_said_it_out_loud bez zmian.'
+      (straz zakrywa afere z handlem zwlokami, wiec potrzebuje kogos spoza siebie).
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/rovan-kesz.yaml#fact_kesz_knows_the_room_will_not_stand_between_him_and_the_watch
   older_confirmed_index:
-  - fact_kesz_refused_the_witness_removal_on_arithmetic_not_conscience <- event_turn_interlude_246
-  - fact_kesz_audited_lucans_self_description <- event_turn_interlude_246
-  - fact_kesz_learned_the_description_has_a_living_man_behind_it <- event_turn_interlude_245
-  - fact_kesz_got_paid_instead_of_answered_about_the_priest <- event_turn_interlude_245
-  - fact_kesz_asked_what_lucan_intends_to_do_with_the_priest <- event_turn_interlude_244
-  - fact_kesz_wrote_unagreed_next_to_the_papers_and_the_rooms_share <- event_turn_interlude_244
-  - fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first <- event_turn_interlude_243
-  - fact_kesz_named_the_price_of_throwing_the_old_owner_to_the_guild <- event_turn_interlude_243
-  - fact_kesz_will_carry_the_honest_business_offer_to_the_principal <- event_turn_interlude_243
-  - fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end <- event_turn_interlude_242
-  - fact_kesz_knows_lucan_holds_the_owners_silver_seal <- event_turn_interlude_242
-  - fact_kesz_split_the_two_keys_guild_site_city_estate <- event_turn_interlude_242
-  - fact_kesz_took_the_tannery_matter_as_a_paid_client <- event_turn_interlude_241
-  - fact_kesz_told_lucan_where_stolen_paper_is_worth_nothing <- event_turn_interlude_241
-  - fact_kesz_split_the_two_tannery_owners_and_is_waiting <- event_turn_interlude_241
-  - fact_kesz_was_shown_the_unread_crest <- event_turn_interlude_240
-  - fact_kesz_knows_about_the_unpaid_tannery_wage <- event_turn_interlude_240
-  - fact_kesz_priced_the_tannery_acquisition_and_asked_two_questions <- event_turn_interlude_240
-  - fact_kesz_lost_half_his_ignorance_before_the_priest_meeting <- event_turn_interlude_203
-  - fact_kesz_stands_inside_the_phase_two_trigger <- event_turn_interlude_202
-  - fact_kesz_finally_has_the_calendar_he_asked_for <- event_turn_interlude_201
-  - fact_kesz_got_his_seraphine_answer_and_it_costs_him <- event_turn_interlude_200
-  - fact_kesz_saw_the_spider_obey_after_he_was_already_lucans_lawyer <- event_turn_interlude_200
-  - fact_kesz_became_lucans_lawyer_with_the_rooms_blessing <- event_turn_interlude_199
-  - fact_kesz_heard_lucan_name_his_cemetery_exposure_out_loud <- event_turn_interlude_199
-  - fact_kesz_asked_about_seraphine_a_second_time <- event_turn_interlude_199
-  - fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest <- event_turn_interlude_194
-  - fact_kesz_holds_the_blackmail_cover_story <- event_turn_interlude_194
-  - fact_kesz_accepted_the_procedural_guarantor_role <- event_turn_interlude_194
-  - fact_kesz_is_the_authorised_line_to_the_principal <- event_turn_interlude_194
-  - fact_kesz_asked_whether_seraphine_knows_he_will_be_there <- event_turn_interlude_194
-  - fact_kesz_has_lucans_answer_all_three_hats_at_once <- event_turn_interlude_193
-  - fact_kesz_named_his_own_exposure_at_the_priest_meeting <- event_turn_interlude_193
-  - fact_kesz_sent_word_to_the_priest <- event_turn_interlude_193
-  - fact_kesz_priced_representation_before_guild_and_watch <- event_turn_interlude_193
-  - fact_kesz_holds_lucans_acceptance_of_the_priest_meeting <- event_turn_interlude_113
-  - fact_kesz_knows_lucan_declared_war_on_the_church <- event_turn_interlude_110
-  - fact_kesz_knows_lucan_entered_on_teln_vouching <- event_turn_interlude_104
-  - fact_kesz_knows_lucan_broke_the_body_line_and_holds_the_leverage <- event_turn_interlude_105b
-  - fact_kesz_understood_the_category_without_asking <- event_turn_interlude_105b
-  - fact_kesz_knows_about_the_two_week_deadline <- event_turn_interlude_105b
+  - fact_kesz_refused_the_witness_removal_on_arithmetic_not_conscience@246
+  - fact_kesz_audited_lucans_self_description@246
+  - fact_kesz_learned_the_description_has_a_living_man_behind_it@245
+  - fact_kesz_got_paid_instead_of_answered_about_the_priest@245
+  - fact_kesz_asked_what_lucan_intends_to_do_with_the_priest@244
+  - fact_kesz_wrote_unagreed_next_to_the_papers_and_the_rooms_share@244
+  - fact_kesz_accepted_the_two_road_strategy_and_goes_to_the_city_first@243
+  - fact_kesz_named_the_price_of_throwing_the_old_owner_to_the_guild@243
+  - fact_kesz_will_carry_the_honest_business_offer_to_the_principal@243
+  - fact_kesz_heard_the_papers_are_unclaimable_and_named_the_other_end@242
+  - fact_kesz_knows_lucan_holds_the_owners_silver_seal@242
+  - fact_kesz_split_the_two_keys_guild_site_city_estate@242
+  - fact_kesz_took_the_tannery_matter_as_a_paid_client@241
+  - fact_kesz_told_lucan_where_stolen_paper_is_worth_nothing@241
+  - fact_kesz_split_the_two_tannery_owners_and_is_waiting@241
+  - fact_kesz_was_shown_the_unread_crest@240
+  - fact_kesz_knows_about_the_unpaid_tannery_wage@240
+  - fact_kesz_priced_the_tannery_acquisition_and_asked_two_questions@240
+  - fact_kesz_lost_half_his_ignorance_before_the_priest_meeting@203
+  - fact_kesz_stands_inside_the_phase_two_trigger@202
+  - fact_kesz_finally_has_the_calendar_he_asked_for@201
+  - fact_kesz_got_his_seraphine_answer_and_it_costs_him@200
+  - fact_kesz_saw_the_spider_obey_after_he_was_already_lucans_lawyer@200
+  - fact_kesz_became_lucans_lawyer_with_the_rooms_blessing@199
+  - fact_kesz_heard_lucan_name_his_cemetery_exposure_out_loud@199
+  - fact_kesz_asked_about_seraphine_a_second_time@199
+  - fact_kesz_carries_the_under_the_cemetery_framing_to_the_priest@194
+  - fact_kesz_holds_the_blackmail_cover_story@194
+  - fact_kesz_accepted_the_procedural_guarantor_role@194
+  - fact_kesz_is_the_authorised_line_to_the_principal@194
+  - fact_kesz_asked_whether_seraphine_knows_he_will_be_there@194
+  - fact_kesz_has_lucans_answer_all_three_hats_at_once@193
+  - fact_kesz_named_his_own_exposure_at_the_priest_meeting@193
+  - fact_kesz_sent_word_to_the_priest@193
+  - fact_kesz_priced_representation_before_guild_and_watch@193
+  - fact_kesz_holds_lucans_acceptance_of_the_priest_meeting@113
+  - fact_kesz_knows_lucan_declared_war_on_the_church@110
+  - fact_kesz_knows_lucan_entered_on_teln_vouching@104
+  - fact_kesz_knows_lucan_broke_the_body_line_and_holds_the_leverage@-1
+  - fact_kesz_understood_the_category_without_asking@-1
+  - fact_kesz_knows_about_the_two_week_deadline@-1
   suspicions: []
   false_beliefs: []
   forbidden_without_source:

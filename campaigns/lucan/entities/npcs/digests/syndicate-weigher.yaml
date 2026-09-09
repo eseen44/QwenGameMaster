@@ -1,32 +1,37 @@
 voice_ref: campaigns/lucan/entities/npcs/voices/syndicate-weigher.yaml
-voice:
-  rhythm: 'Milczy, dopóki rozmówca mówi do jego frontu. Kiedy trafi w niego, odpowiada krótko i po kolei:
-    rozbija rzecz na tempa - najpierw to, potem to, na końcu to.'
-  diction: 'Warsztat i inwentarz: próba, kamień, partia, tempo, odkładam, to idzie osobno. Nie ocenia
-    rzeczy - sortuje ją. Nikogo nie tytułuje i sam się nie przedstawia.'
-  evasion: Nie odpowiada - sortuje dalej. Jego milczenie nie jest wykrętem, jest odpowiedzią jeszcze nie.
-  mistakes: Sortuje odruchowo także wtedy, kiedy nie powinien pokazywać, że robił to już wcześniej. Ręce
-    mówią o nim więcej, niż zamierzał.
-  body: Ręce robocze, cały czas przy wadze uchylnej; nie odkłada tego, co trzyma, i nie wstaje. Podnosi
-    wzrok raz, na końcu.
-  length: Jedno, dwa zdania. Liczba to osobne zdanie, bez ozdobnika.
-  emotion: Przez to, co odkłada na bok, i przez to, czego nie tyka. Głosu nie zmienia nigdy.
-  blind_spot: Nie umie nazwać własnej pozycji inaczej niż przez towar. O sobie mówi tak, jakby mówił o
-    partii.
-  money: 'Tu literalnie i to jest jego rzemiosło: kwota, próba, partia. Liczbę podaje raz, na końcu, jednym
-    zdaniem - i nie uzasadnia jej.'
-  samples:
-  - To idzie osobno.
-  - Najpierw waga, potem próba. Rozmowa na końcu.
-  - Dwanaście srebra za partię. Nie za sztukę.
 voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+  sentences: 'Milczy, dopoki rozmowca mowi do jego frontu. Kiedy trafi w niego, odpowiada po kolei: rozbija
+    rzecz na tempa - najpierw to, potem to, na koncu to.'
+  answer_length: Jedno, dwa zdania. Liczba to osobne zdanie, bez ozdobnika.
+  register: 'Warsztat i inwentarz: proba, kamien, partia, tempo, odkladam, to idzie osobno. Nie ocenia
+    rzeczy - sortuje ja. Nikogo nie tytuluje i sam sie nie przedstawia.'
+  evasion: Nie odpowiada - sortuje dalej. Jego milczenie nie jest wykretem, jest odpowiedzia jeszcze nie.
+  body: Rece robocze, caly czas przy wadze uchylnej; nie odklada tego, co trzyma, i nie wstaje. Podnosi
+    wzrok raz, na koncu.
+  mistakes: Sortuje odruchowo takze wtedy, kiedy nie powinien pokazywac, ze robil to juz wczesniej. Rece
+    mowia o nim wiecej, niz zamierzal.
+  unnoticed: Kto wlasnie wszedl i co sie stalo za jego plecami. Patrzy na towar, nie na pokoj.
+  emotion: Przez to, co odklada na bok, i przez to, czego nie tyka. Glosu nie zmienia nigdy.
+  blind_spot: Nie umie nazwac wlasnej pozycji inaczej niz przez towar. O sobie mowi tak, jakby mowil o
+    partii.
+  money: 'Tu literalnie i to jest jego rzemioslo: kwota, proba, partia. Liczbe podaje raz, na koncu, jednym
+    zdaniem - i nie uzasadnia jej.'
+  avoid: Nie tlumaczy swoich decyzji i nie pyta o powody rozmowcy. Zadnych uwag o ludziach.
+voice_samples:
+- To idzie osobno.
+- Najpierw waga, potem proba. Rozmowa na koncu.
+- Dwanascie srebra za partie. Nie za sztuke.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_syndicate_weigher
 name: Wagowy
@@ -59,79 +64,79 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact_id: fact_weigher_finally_named_prices_and_took_no_coin
     source_event_id: event_turn_interlude_205
     claim: 'Pierwsze liczby od poczatku znajomosci - podal je dopiero, gdy mial specyfikacje (agenda#set_the_number_himself).
       Szkielka, pierwsza partia probek: 15 srebra - trzy worki odpadu jubilerskiego i trzy dniowki przebierania;
-      kamien gratis, placi sie za oczy i czas, dokladnie jak zapowiedzial w t_198. Namiary do wiedzmy:
-      10 srebra - nie za wiedze, tylko za poslanie i za to, ze ktos po drodze musi zapytac czlowieka,
-      ktory nie lubi pytan. Razem 25. Metal bez ceny, bo nie ma nazwy materialu. Nie wzial gotowki: sciaga
-      to z drugiej raty, bo nie wyciaga reki po 25 srebra od czlowieka, ktoremu sam winien jest 40 000.
-      Zadne srebro nie zmienilo wlasciciela - carried_silver 150 i syndicate_payout_outstanding_silver
-      40000 nietkniete, potracenie nastapi przy wyplacie. Terminow dostawy nie podal.'
+      kamien gratis, placi sie za oczy i czas, dokladnie jak zapowiedzial w t_198.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/syndicate-weigher.yaml#fact_weigher_finally_named_prices_and_took_no_coin
   - fact_id: fact_weigher_got_a_reason_he_did_not_ask_for
     source_event_id: event_turn_interlude_205
     claim: 'Lucan sam, niepytany, dorzucil do zamowienia na wiedzme: nic jej nie zrobi, szuka uslugodawcy.
       Pryncypal nie zmienil swojej zasady z t_196 (powodu nie kupuje i nie pyta o niego), ale odnotowal,
       ze akurat to zdanie ma wartosc uzytkowa - nie dla niego, tylko dla czlowieka na koncu lancucha,
       bo ludzie robiacy rzeczy tego rodzaju sa ostrozni co do tego, kto o nich pyta. Zdanie idzie dalej
-      razem z zamowieniem. Narrator nie rozstrzyga, czy jest prawdziwe, i nie zapowiada, ze zostanie sprawdzone.'
+      razem z zamowieniem.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/syndicate-weigher.yaml#fact_weigher_got_a_reason_he_did_not_ask_for
   - fact_id: fact_weigher_got_the_scale_walked_back_to_ordinary_subsidence
     source_event_id: event_turn_interlude_204
     claim: 'Lucan nie odwolal niczego z t_203 - podal zwyczajne wytlumaczenie tego samego zjawiska: grunt
       nad duza nekropolia potrafi sie zarywac, zwlaszcza kiedy ktos stamtad wykopuje zasoby, wiec na razie
       mowa o zwyklym zagrozeniu zawalem. Pryncypal wraca przez to z ''moje przedsiewziecie moze nie miec
       gruntu'' do ''teren jest ryzykowny'' - teza inwestycyjna przestaje byc uniewazniona i wraca do bycia
-      ryzykowna. Niewiedzy straconej w t_203 nie odzyskuje i tego nie udaje. Uwaga: ''ktos stamtad wykopuje
-      zasoby'' obejmuje jego - trzy dni temu kupil szescdziesiat kilo wykopanych stamtad rzeczy (t_111)
-      i posortowal je wlasnymi rekami. Lucan powiedzial to uprzejmie, bez akcentu; pryncypal uslyszal,
-      bo to jego wlasny towar.'
+      ryzykowna.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/syndicate-weigher.yaml#fact_weigher_got_the_scale_walked_back_to_ordinary_subsidence
   - fact_id: fact_weigher_heard_you_do_not_know_half_of_it
     source_event_id: event_turn_interlude_204
     claim: 'Lucan jednoczesnie zmniejszyl mechanizm i powiekszyl tajemnice: ''nadal nie wie pan nawet
       polowy''. Pryncypal zauwazyl napiecie miedzy tymi dwoma zdaniami i nazwal je raz, bez triumfu, nie
       zadajac rozwiniecia. Narrator nie rozwija tej drugiej polowy ani o slowo i nie daje do niej zadnej
-      wskazowki; zaden npc nie zgaduje. forbidden_without_source nienaruszone: varkhen_existence, seals_and_lower_gate,
-      lucan_necromancy, spidey_existence.'
+      wskazowki; zaden npc nie zgaduje.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/syndicate-weigher.yaml#fact_weigher_heard_you_do_not_know_half_of_it
   older_confirmed_index:
-  - fact_weigher_weighs_lucan_by_the_fact_he_has_not_left <- event_turn_interlude_204
-  - fact_weigher_was_told_the_scale_and_stopped_being_the_man_who_does_not_know <- event_turn_interlude_203
-  - fact_weigher_lost_the_not_knowing_he_had_bought <- event_turn_interlude_203
-  - fact_weigher_had_his_investment_thesis_undercut <- event_turn_interlude_203
-  - fact_weigher_has_the_revised_four_phases <- event_turn_interlude_202
-  - fact_weigher_accepted_that_the_last_saucer_is_the_deadline_to_be_gone <- event_turn_interlude_202
-  - fact_weigher_asked_how_far_not_what_it_is <- event_turn_interlude_202
-  - fact_weigher_has_the_four_phase_schedule <- event_turn_interlude_201
-  - fact_weigher_still_does_not_know_what_is_under_the_cemetery <- event_turn_interlude_201
-  - fact_weigher_received_toby_as_the_alarm_channel <- event_turn_interlude_200
-  - fact_weigher_saw_a_spider_obey_a_command_and_did_not_ask <- event_turn_interlude_200
-  - fact_weigher_had_his_name_refused_by_lucan <- event_turn_interlude_200
-  - fact_weigher_authorised_kesz_to_stand_visibly_for_lucan <- event_turn_interlude_199
-  - fact_weigher_set_one_condition_room_visible_principal_unnamed <- event_turn_interlude_199
-  - fact_weigher_does_not_buy_the_spectacle <- event_turn_interlude_199
-  - fact_weigher_accepted_the_lawyer_line_as_partial_warning_channel <- event_turn_interlude_199
-  - fact_weigher_saw_the_beetle_and_got_the_optical_spec <- event_turn_interlude_198
-  - fact_weigher_heard_the_cemetery_trace_reason <- event_turn_interlude_198
-  - fact_weigher_was_asked_for_a_hard_brittle_magic_conducting_metal <- event_turn_interlude_198
-  - fact_weigher_got_the_first_non_gold_offer_from_lucan <- event_turn_interlude_198
-  - fact_weigher_narrowed_the_witch_order_to_a_name_and_a_place <- event_turn_interlude_198
-  - fact_weigher_got_the_full_stone_specification <- event_turn_interlude_197
-  - fact_weigher_heard_that_grave_provenance_spoils_the_function <- event_turn_interlude_197
-  - fact_weigher_took_lucan_off_the_table_into_the_back_room <- event_turn_interlude_197
-  - fact_weigher_took_two_new_orders_stone_and_curse_information <- event_turn_interlude_196
-  - fact_weigher_heard_lucans_hobbyist_scholar_cover <- event_turn_interlude_196
-  - fact_weigher_was_asked_for_a_person_of_unimpeachable_reputation <- event_turn_interlude_196
-  - fact_weigher_drew_the_line_at_the_market_table <- event_turn_interlude_196
-  - fact_weigher_saw_his_own_lawyer_arrive_beside_lucan <- event_turn_interlude_195
-  - fact_weigher_was_greeted_and_nothing_more <- event_turn_interlude_195
-  - fact_weigher_priced_the_warning_channel_without_pressing <- event_turn_interlude_113
-  - fact_weigher_knows_lucan_declared_war_on_the_church <- event_turn_interlude_110
-  - fact_weigher_knows_a_bigger_cemetery_problem_exists <- event_turn_interlude_110
-  - fact_weigher_agreed_to_stock_ahead_of_the_ruling <- event_turn_interlude_109
-  - fact_weigher_has_a_stake_in_lucan_surviving <- event_turn_interlude_109
-  - fact_weigher_heard_the_entire_conversation <- event_turn_interlude_107
-  - fact_weigher_was_addressed_directly_and_correctly <- event_turn_interlude_107
+  - fact_weigher_weighs_lucan_by_the_fact_he_has_not_left@204
+  - fact_weigher_was_told_the_scale_and_stopped_being_the_man_who_does_not_know@203
+  - fact_weigher_lost_the_not_knowing_he_had_bought@203
+  - fact_weigher_had_his_investment_thesis_undercut@203
+  - fact_weigher_has_the_revised_four_phases@202
+  - fact_weigher_accepted_that_the_last_saucer_is_the_deadline_to_be_gone@202
+  - fact_weigher_asked_how_far_not_what_it_is@202
+  - fact_weigher_has_the_four_phase_schedule@201
+  - fact_weigher_still_does_not_know_what_is_under_the_cemetery@201
+  - fact_weigher_received_toby_as_the_alarm_channel@200
+  - fact_weigher_saw_a_spider_obey_a_command_and_did_not_ask@200
+  - fact_weigher_had_his_name_refused_by_lucan@200
+  - fact_weigher_authorised_kesz_to_stand_visibly_for_lucan@199
+  - fact_weigher_set_one_condition_room_visible_principal_unnamed@199
+  - fact_weigher_does_not_buy_the_spectacle@199
+  - fact_weigher_accepted_the_lawyer_line_as_partial_warning_channel@199
+  - fact_weigher_saw_the_beetle_and_got_the_optical_spec@198
+  - fact_weigher_heard_the_cemetery_trace_reason@198
+  - fact_weigher_was_asked_for_a_hard_brittle_magic_conducting_metal@198
+  - fact_weigher_got_the_first_non_gold_offer_from_lucan@198
+  - fact_weigher_narrowed_the_witch_order_to_a_name_and_a_place@198
+  - fact_weigher_got_the_full_stone_specification@197
+  - fact_weigher_heard_that_grave_provenance_spoils_the_function@197
+  - fact_weigher_took_lucan_off_the_table_into_the_back_room@197
+  - fact_weigher_took_two_new_orders_stone_and_curse_information@196
+  - fact_weigher_heard_lucans_hobbyist_scholar_cover@196
+  - fact_weigher_was_asked_for_a_person_of_unimpeachable_reputation@196
+  - fact_weigher_drew_the_line_at_the_market_table@196
+  - fact_weigher_saw_his_own_lawyer_arrive_beside_lucan@195
+  - fact_weigher_was_greeted_and_nothing_more@195
+  - fact_weigher_priced_the_warning_channel_without_pressing@113
+  - fact_weigher_knows_lucan_declared_war_on_the_church@110
+  - fact_weigher_knows_a_bigger_cemetery_problem_exists@110
+  - fact_weigher_agreed_to_stock_ahead_of_the_ruling@109
+  - fact_weigher_has_a_stake_in_lucan_surviving@109
+  - fact_weigher_heard_the_entire_conversation@107
+  - fact_weigher_was_addressed_directly_and_correctly@107
   suspicions: []
   false_beliefs: []
   forbidden_without_source:

@@ -4,48 +4,89 @@ id: fixture_voice_blind_test
 canon: false
 established: 2026-09-09
 purpose: >-
-  Fikstura stylu, NIE kanon i NIE zdarzenie. Cztery ważne postacie dostają dokładnie tę samą
-  informację od Lucana. Test na ślepo z retcon_000040: zakryj imię i sprawdź, czy wiadomo,
-  kto mówi. Kwestie są dialogiem, nie opisem typu "Kesz ocenił ryzyko".
-  Żadna z tych rozmów się nie odbyła; to próbka głosu do porównania, nie fakt o świecie.
+  Fikstura stylu, NIE kanon i NIE zdarzenie. Kilka waznych postaci dostaje DOKLADNIE TE SAMA
+  wypowiedz Lucana. Test na slepo z retcon_000040: zakryj imie i sprawdz, czy wiadomo, kto
+  mowi. Kwestie sa dialogiem, nie opisem typu "Kesz ocenil ryzyko".
+  Zadna z tych rozmow sie nie odbyla; to probka glosu do porownania, nie fakt o swiecie.
 checked_by: tools/tests/test_npc_voice.py
 rule: system/npc-voice.md
 
-stimulus: >-
-  Lucan, do każdej z tych osób osobno, tymi samymi słowami: "Za trzy tygodnie na otwartej
-  dysputie ktoś podniesie szeroką definicję ożywionego konstruktu. Będę tam i powiem, co
-  o tym myślę."
-
-# WYMAGANIA, KTORE SPRAWDZA TEST (nie sa opinia recenzenta):
-#   - kazda odpowiedz jest krotka i jest kwestia wprost,
-#   - najwyzej jedna z czterech uzywa konstrukcji "nie X, tylko Y",
-#   - co najmniej trzy z czterech nie zawieraja ani jednego slowa z rodziny
+# WYMAGANIA SPRAWDZANE MASZYNOWO (nie sa opinia recenzenta):
+#   - kazda odpowiedz jest kwestia wprost, nie relacja o kwestii,
+#   - najwyzej jedna odpowiedz w przypadku uzywa konstrukcji "nie X, tylko Y",
+#   - co najmniej trzy czwarte odpowiedzi nie zawiera ani jednego slowa z rodziny
 #     cena/koszt/wartosc/rachunek/wycena/oplacalnosc,
-#   - zadne dwie odpowiedzi nie sa tym samym rejestrem (rozne dlugosci, rozne slowniki).
-answers:
-- npc_id: npc_rovan_kesz
-  line: >-
-    Publicznie. Dobrze. Kto prowadzi protokół tej dysputy i czy nazwisko mówcy wchodzi
-    do akt Akademii, czy do miejskich.
-  why_it_is_him: >-
-    Otwiera własną pozycją, kończy pytaniem o papier i nazwisko. Zero puenty.
-    Nie odnosi się do treści dysputy, bo nie ma na nią słów.
-- npc_id: npc_seraphine_vale
-  line: >-
-    Zamknij drzwi. Pytam raz: mówisz jako Veyr, jako doktor czy jako mój ranga D?
-  why_it_is_her: >-
-    Dwa zdania, jedno pytanie, zadane raz. Rozdziela role formalne, bo od nich zależy,
-    kto za to odpowiada. Poleceniem otwiera, nie prośbą.
-- npc_id: npc_neris_aldhen
-  line: >-
-    Będziesz - dobrze, tylko nie mów "szeroka", bo Kolm to potem powtórzy jako
-    "dowolna". Zaraz, mam gdzieś jego zeszłoroczny akapit. (wstaje) Nie ruszaj tego stosu.
-  why_it_is_her: >-
-    Przerywa sobie, poprawia cudze słowo, martwi się brzmieniem i tym, kto to powtórzy,
-    a potem idzie po papier. Najdłuższa z czterech i najbardziej nierówna.
-- npc_id: npc_varkhen_mind
-  line: >-
-    Będę stał obok.
-  why_it_is_him: >-
-    Cztery słowa, twierdzenie, żadnej analizy. Nie pyta, o co w tej dysputie chodzi -
-    to jest poza jego czasami. Odpowiada czynem, nie zdaniem o sprawie.
+#   - najdluzsza odpowiedz jest co najmniej trzy razy dluzsza od najkrotszej (rozny rytm
+#     ma byc widoczny w pomiarze, nie tylko w opisie),
+#   - zadne dwie odpowiedzi nie zaczynaja sie tym samym slowem.
+
+cases:
+- id: case_public_dispute
+  stimulus: >-
+    Lucan, do kazdej z tych osob osobno, tymi samymi slowami: "Za trzy tygodnie na otwartej
+    dyspucie ktos podniesie szeroka definicje ozywionego konstruktu. Bede tam i powiem, co
+    o tym mysle."
+  answers:
+  - npc_id: npc_rovan_kesz
+    line: >-
+      Publicznie. Dobrze. Kto prowadzi protokol tej dysputy i czy nazwisko mowcy wchodzi
+      do akt Akademii, czy do miejskich.
+    why_it_is_him: >-
+      Otwiera wlasna pozycja, konczy pytaniem o papier i nazwisko, nie o sens sprawy.
+      Zadnej puenty. Do tresci dysputy sie nie odnosi, bo nie ma na nia slow.
+  - npc_id: npc_seraphine_vale
+    line: >-
+      Zamknij drzwi. Pytam raz: mowisz jako Veyr, jako doktor czy jako moj ranga D?
+    why_it_is_her: >-
+      Dwa zdania, jedno pytanie, zadane raz. Rozdziela role formalne, bo od nich zalezy,
+      kto odpowiada. Otwiera poleceniem, nie prosba.
+  - npc_id: npc_neris_aldhen
+    line: >-
+      Bedziesz - dobrze, tylko nie mow "szeroka", bo Kolm to potem powtorzy jako "dowolna".
+      Zaraz, mam gdzies jego zeszloroczny akapit. (wstaje) Nie ruszaj tego stosu.
+    why_it_is_her: >-
+      Przerywa sobie, poprawia cudze slowo, martwi sie brzmieniem i tym, kto to powtorzy,
+      a potem idzie po papier. Najdluzsza z czterech i najbardziej nierowna.
+  - npc_id: npc_varkhen_mind
+    line: Bede stal obok.
+    why_it_is_him: >-
+      Cztery slowa, twierdzenie, zadnej analizy. Nie pyta, o co w dyspucie chodzi - to jest
+      poza jego czasami. Odpowiada czynem, nie zdaniem o sprawie.
+
+- id: case_someone_is_reading_the_papers
+  stimulus: >-
+    Lucan, do kazdej z tych osob osobno, tymi samymi slowami: "Ktos czyta papiery po
+    garbarni. Nie wiem kto, ale czyta je od tygodnia."
+  answers:
+  - npc_id: npc_rovan_kesz
+    line: >-
+      Od tygodnia. Kto ci to powiedzial i czy powiedzial to komus jeszcze. Nazwisko, nie
+      opis.
+    why_it_is_him: >-
+      Chwyta sie jednej rzeczy - terminu - i pyta o zrodlo, nie o skutek. Trzy zdania,
+      wszystkie orzekajace, ostatnie ucieta komenda.
+  - npc_id: npc_seraphine_vale
+    line: Wiem.
+    why_it_is_her: >-
+      Jedno slowo i to jest pelna odpowiedz. Nie tlumaczy, skad wie, i nie pyta o wiecej,
+      bo pytanie zadaje raz i nie teraz.
+  - npc_id: npc_neris_aldhen
+    line: >-
+      Papiery po - zaraz, po garbarni? To jest to samo miejsce co ten przypis o kadziach?
+      Bo jesli tak, to ja mam ten przypis, tylko nie wiem, gdzie go mam.
+    why_it_is_her: >-
+      Wpada w problem intelektualny w polowie wiadomosci o wlasnym bezpieczenstwie, poprawia
+      sobie zdanie w trakcie i konczy przyznaniem, ze nie wie, gdzie go ma - nie wnioskiem.
+  - npc_id: npc_varkhen_mind
+    line: Pokaz mi te papiery.
+    why_it_is_him: >-
+      Nie pyta kto ani dlaczego. Chce zobaczyc rzecz i stanac przy niej; wniosku nie wyciaga
+      i nie udaje, ze rozumie, po co komu papier.
+  - npc_id: npc_lucan_father
+    line: >-
+      Po garbarni? To znaczy, ze ktos ma te tabele - bo tam byly tabele, ja je widzialem
+      raz u tego z targu, znaczy nie u niego, u tego drugiego - i jesli ma tabele, to niech
+      mi je poda, bo brakuje mi serii z tamtego roku. Jadles cos?
+    why_it_is_him: >-
+      Slyszy tylko material badawczy, gubi nazwisko w polowie, wchodzi we wlasna mysl
+      i doklada na koniec troske bez zwiazku z niebezpieczenstwem, ktore mu wlasnie zglosili.

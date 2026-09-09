@@ -1,34 +1,41 @@
 voice_ref: campaigns/lucan/entities/npcs/voices/seraphine-vale.yaml
-voice:
-  rhythm: Zdania krótkie i zamknięte. Pytanie zadaje raz i czeka - cisza jest jej narzędziem, nie zawahaniem.
-    Nie powtarza pytania i nie podkłada rozmówcy odpowiedzi.
-  diction: 'Jurysdykcja, procedura, protokół, przesłuchanie, stopień, pieczęć, zasięg. O magii mówi jak
-    o pogodzie, bo widzi ją bez sprawdzania: "świeciło", "poszło szeroko", "czuć to od progu".'
-  evasion: Na pytanie, na które nie chce odpowiedzieć, zadaje własne - i nie udaje, że to odpowiedź. Zmiana
-    kolejności jest u niej jawna.
-  mistakes: Przecenia własną osłonę. Pyta o coś, co już wie. Zajmuje się swoim jutrzejszym stawaniem przed
-    służbami zamiast tym, po co Lucan przyszedł.
-  body: Odkłada pióro, zanim odpowie. Kiedy jest zła, nie siada. Drzwi zamyka ręką i nie prosi o zamknięcie.
-    Do pieczęci sięga, nie patrząc.
-  length: Jedno, dwa zdania. Czasem jedno słowo, i to jest pełna odpowiedź.
-  emotion: Tempem. Wściekła mówi ciszej i wolniej, i przestaje pytać - zaczyna wydawać polecenia. Ulgi
-    nie nazywa nigdy.
-  blind_spot: Czym jest dla niej Lucan poza kimś, za kogo ręczy. Zaczyna to zdanie i nie kończy go dobrze,
-    i sama to słyszy.
-  money: Domyślnie wcale. Wolno jej raz nazwać, co ryzykuje sama - stopień, stanowisko, współwinę - jako
-    to, co ma do stracenia, nie jako liczbę.
-  samples:
-  - Zamknij drzwi. Będę mówić głośno.
-  - Pytam raz. Kto jeszcze o tym wie?
-  - Jutro stoję przed nimi ja, nie ty. Resztę powiedz mi dzisiaj.
 voice_contract:
-- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
-- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
-- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
-- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+  sentences: 'Krotkie i zamkniete: jedno zdanie, jedno rozstrzygniecie. Nie zaczyna od `mysle, ze` i nie
+    zostawia zdania otwartego.'
+  answer_length: Jedno zdanie, czasem jedno slowo - i to jest pelna odpowiedz. Dwa, kiedy wydaje polecenie.
+  register: 'Jurysdykcja, procedura, protokol, przesluchanie, stopien, pieczec, zasieg. O magii mowi jak
+    o pogodzie, bo widzi ja bez sprawdzania: swiecilo, poszlo szeroko, czuc to od progu.'
+  evasion: Na pytanie, na ktore nie chce odpowiedziec, zadaje wlasne - i nie udaje, ze to odpowiedz. Zmiana
+    kolejnosci jest u niej jawna.
+  body: Odklada pioro, zanim odpowie. Kiedy jest zla, nie siada. Drzwi zamyka reka i nie prosi o zamkniecie.
+    Do pieczeci siega, nie patrzac.
+  mistakes: Przecenia wlasna oslone. Pyta o cos, co juz wie. Wraca do swojego jutrzejszego stawania przed
+    sluzbami zamiast do tego, po co Lucan przyszedl.
+  unnoticed: Ze kogos wlasnie przycisnela. Mierzy skutek, nie wrazenie, wiec cudza uraza dochodzi do niej
+    z opoznieniem albo wcale.
+  emotion: Tempem. Wsciekla mowi ciszej i wolniej, i przestaje pytac - zaczyna wydawac polecenia. Ulgi
+    nie nazywa nigdy.
+  blind_spot: Czym jest dla niej Lucan poza kims, za kogo reczy. Zaczyna to zdanie i nie konczy go dobrze,
+    i sama to slyszy.
+  money: Domyslnie wcale. Wolno jej raz nazwac, co ryzykuje sama - stopien, stanowisko, wspolwine - jako
+    to, co ma do stracenia, nie jako liczbe.
+  avoid: Nie rozbiera wypowiedzi Lucana na punkty i nie wylicza konsekwencji. Zgode albo odmowe podaje
+    bez preambuly, bez sentencji na koniec i bez wyceny tego, na co sie zgadza.
+voice_samples:
+- Zamknij drzwi. Bede mowic glosno.
+- Pytam raz. Kto jeszcze o tym wie?
+- Jutro stoje przed nimi ja, nie ty. Reszte powiedz mi dzisiaj.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
-- 'Pelna regula i test na slepo: system/npc-voice.md'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_seraphine_vale
 name: Seraphine Vale
@@ -144,153 +151,133 @@ knowledge:
   register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
     wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
     emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  claim_cap_chars: 420
   recent_confirmed:
   - fact_id: fact_seraphine_has_the_clerks_name_malen_corth
     source_event_id: event_turn_interlude_238
     claim: 'MA nazwisko, O ktore zapytala raz w t_235: Malen corth, urzednik akt magistratu uzgadniajacy
       akta garbarni. Lucan podal je bez targu i bez warunku. TO nie jest dostep - fact_seraphine_is_not_on_corths_distribution_list
       nadal stoi, wiec nazwisko mowi jej, gdzie patrzec, a nie daje jej reki w tej szufladzie; magistrat
-      pozostaje instytucja niezalezna od gildii. CO Z tym zrobi - Nierozstrzygniete, narrator nie zadeklarowal
-      za nia zadnego ruchu.'
+      pozostaje instytucja niezalezna od gildii.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_has_the_clerks_name_malen_corth
   - fact_id: fact_seraphine_priced_the_magistrate_flood_idea
     source_event_id: event_turn_interlude_238
     claim: 'Wycenila pomysl lucana na magistrat, rachunkiem i bez moralizowania (portrayal: she_is_a_co_conspirator_not_a_lawful_paragon,
       do_not_play: oburzenie moralne). Lucan zapytal, czy ma cos zrobic z Corthem, zastrzegl, ze nie zamierza
       go zabijac ani krzywdzic, i podal wlasny pomysl: zalac caly parter magistratu eksplozja szamba.
-      Pytanie i pomysl, nie wykonanie - nikt nigdzie nie poszedl. Jej odpowiedz ma jeden argument glowny
-      i jest ON Z pliku, nie z ostroznosci: fact_corth_sent_statement_requests_to_roster_names - Corth
-      rozeslal pisma do nazwisk z obsady i zbiera odpowiedzi, wiec sprawa nie lezy w jednym pomieszczeniu,
-      a jej kawalki sa u kazdego, kto dostal list. Zatopienie parteru niszczy egzemplarz, nie sprawe;
-      kupuje czas i balagan. Cena, nazwana raz: dzis Corth jest urzednikiem, ktory dopisuje pytanie tam,
-      gdzie sie nie zgadza (jego portrayal - nie sciga, nie ma teorii sprawy); po zdarzeniu w magistracie
-      ta sama sprawa przestaje byc rubryka i dostaje kogos, kto teorie ma, a plynie to przez Straz, na
-      ktorej przytrzymanie ona wydala wlasna wiarygodnosc (t_224) tuz przed ogloszeniem (t_232). Niczego
-      nie zabronila. Nie rozstrzygniete: czy magistrat ma kanalizacje uzyteczna do tego pomyslu - zaden
-      plik nie opisuje jego wnetrza.'
+      Pytanie i pomysl, nie wykonanie - nikt nigdzie nie poszedl.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_priced_the_magistrate_flood_idea
   - fact_id: fact_seraphine_released_the_signet_and_named_the_kesz_risk
     source_event_id: event_turn_interlude_238
     claim: 'Puscila sygnet bez oporu. Lucan podniosl item_three_arrow_deer_signet z jej biurka, gdzie
       lezal od t_233, i zapowiedzial, ze pokaze go npc_rovan_keszowi - "prawnik powinien znac swoja klientele".
       Nie zatrzymywala: obejrzala go, gdy lezal, i to jej wystarczy do porownania z papierami garbarnika,
       ktore ma u siebie (zapowiedz z t_234). Czy cos w nich znalazla - Nierozstrzygniete, to jej otwarta
-      praca. Powiedziala za to jedno zdanie o ryzyku, ktore lucan-leads#lead_signet_heraldry_research.kesz_as_a_route_2026_09_05
-      kaze narratorowi pokazac wprost: Kesz zapamieta, ze Lucan pytal, a sygnet jest jednoczesnie sladem
-      po poprzednim wlascicielu garbarni i rzecza zabrana ze skarbca obecnego - czyli samo pytanie jest
-      informacja.'
+      praca.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_released_the_signet_and_named_the_kesz_risk
   - fact_id: fact_seraphine_described_her_own_detection_envelope
     source_event_id: event_turn_interlude_237
     claim: 'Oferta z t_235 przyjeta przez lucana ("a jak cos mi mozesz odpowiedziec, to chetnie") i wydana
       w slowach - bez demonstracji na zywo, bez ani jednej jednostki wydanej przez Lucana. Uwaga dla narratora:
       pierwsze rozegranie tej tury (t_236) zostalo uchylone przez retcon_000156, bo mowila jezykiem systemu
-      i podawala koszty zdolnosci Lucana, ktorych nie zna. Ten wpis jest wersja obowiazujaca. Powiedziala
-      cztery rzeczy, wszystkie o wlasnym rzemiosle. (1) tamtej nocy przy okienku zarejestrowala czlowieka,
-      ktory cos robi - dzialanie w chwili, z czterech krokow, a nie nature, kategorie ani osobe. Opisala
-      to jak sluch: w tym budynku ktos cos robi przez caly wieczor i ona nie podnosi glowy, a tamto glowe
-      podnioslo. Nie powiedziala, ile go to kosztowalo ani ze mogl inaczej - Nie wie tego i nie wolno
-      jej tego wkladac w usta (retcon_000156 regula B; jedyny fakt, jaki ma o jego technice, to fact_seraphine_knows_lucan_uses_numb).
-      (2) nastepnego dnia na tych drzwiach nie ma niczego - poszla obejrzec. Slad zyje tyle, co samo dzialanie,
-      potem zostaje najwyzej "cos tu bylo", nigdy czyje (magic-practice#curses_and_magical_traces, system/magic.md#slad).
-      Jej wniosek: pod sciane stawia sie ludzmi i papierem, nie kamieniem. (3) pieczecie, nie skaner -
-      stawia je z gory, obejmuja miejsce, dzialaja bez niej; przewaga jest tam, gdzie zdazyla sie ustawic,
-      gdzie indziej ma oczy i rapier (retcon_000154 punkt 3). (4) nic nie dzieje sie samo - zgaszenie
-      cudzej roboty kosztuje ja dzialanie zamiast innego dzialania (punkt 4). Granica ustalona z graczem
-      2026-09-07, obowiazujaca w calej kampanii: nie istnieje stale wykrywanie nekromanty jako osoby -
-      gdyby istnialo, nekromanci by wyginęli. Kontroler rejestruje zdarzenie w zasiegu i w chwili. Zgodne
-      z pc-lucan#retired_conditions (retcon_000019) i z concealment-materials#detection_model. Czego nie
-      podala: zasiegu wlasnej rejestracji w metrach - zaden plik go nie ma. Ceny nie powtorzyla; nazwala
-      ja raz, w t_235.'
+      i podawala koszty zdolnosci Lucana, ktorych nie zna. Ten wpis jest wersja obowiazujaca.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_described_her_own_detection_envelope
   older_confirmed_index:
-  - fact_seraphine_answered_the_combat_mage_question <- event_turn_interlude_235
-  - fact_seraphine_registered_lucans_position_on_rusk <- event_turn_interlude_235
-  - fact_seraphine_asked_again_for_the_clerks_name <- event_turn_interlude_235
-  - fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian <- event_turn_interlude_234
-  - fact_seraphine_revised_the_sequence_after_the_citability_argument <- event_turn_interlude_234
-  - fact_seraphine_heard_the_political_liability_frame <- event_turn_interlude_234
-  - fact_seraphine_heard_the_tannery_kolm_hypothesis <- event_turn_interlude_233
-  - fact_seraphine_accepted_oral_only_channel_for_varkhen <- event_turn_interlude_233
-  - fact_seraphine_set_the_measurement_first_sequence <- event_turn_interlude_233
-  - fact_seraphine_got_the_boundary_text_and_the_priest_warning <- event_turn_interlude_233
-  - fact_seraphine_corrected_lucans_order_of_the_two_dates <- event_turn_interlude_233
-  - fact_seraphine_got_the_three_priorities_and_the_kolm_read <- event_turn_interlude_232
-  - fact_seraphine_will_declare_the_emergency_knowing_it_pays_kolm <- event_turn_interlude_232
-  - fact_seraphine_told_boros_and_mara_are_bought <- event_turn_interlude_229
-  - fact_seraphine_admits_she_filtered_the_cemetery_dossier <- event_turn_interlude_229
-  - fact_seraphine_will_not_report_varkhen_before_the_hearing <- event_turn_interlude_227
-  - fact_seraphine_named_the_blind_spot_of_the_public_ledger <- event_turn_interlude_227
-  - fact_seraphine_has_the_lawyers_name_kesz <- event_turn_interlude_226
-  - fact_seraphine_knows_the_ledger_goes_to_every_side_at_once <- event_turn_interlude_226
-  - fact_seraphine_stalled_the_watch_meeting_and_spent_her_own_credibility <- event_turn_interlude_224
-  - fact_seraphine_holds_the_barbers_casebook <- event_turn_interlude_190
-  - fact_seraphine_knows_lucan_will_not_defend_himself <- event_turn_interlude_190
-  - fact_seraphine_watch_meeting_today_day4 <- event_turn_interlude_188
-  - fact_seraphine_refuses_authorisation_but_names_the_line <- event_turn_interlude_126
-  - fact_seraphine_is_not_on_corths_distribution_list <- event_turn_interlude_125
-  - fact_seraphine_knows_the_dispute_fuse_burns_without_lucan <- event_turn_interlude_124
-  - fact_seraphine_notes_neris_interest_aligns_without_transaction <- event_turn_interlude_124
-  - fact_seraphine_knows_about_the_pen_on_rusk <- event_turn_interlude_122
-  - fact_seraphine_knows_lucans_seven_levers <- event_turn_interlude_122
-  - fact_seraphine_knows_varkhen_is_bored <- event_turn_interlude_122
-  - fact_seraphine_will_contract_the_martial_order_herself_or_not_at_all <- event_turn_interlude_122
-  - fact_seraphine_knows_the_watch_runs_the_corpse_line <- event_turn_interlude_120
-  - fact_seraphine_knows_lucan_has_a_syndicate_arrangement_over_the_cemetery <- event_turn_interlude_120
-  - fact_seraphine_learned_lucan_holds_a_frozen_academy_post <- retcon_000069
-  - fact_seraphine_knows_father_human_transmutation_precedent <- event_turn_interlude_068_father_transmutation_anecdote
-  - fact_seraphine_knows_father_disaster_precedent <- event_turn_interlude_067_academy_volcano_scale
-  - fact_seraphine_holds_corpse_pipeline_hypothesis <- event_turn_interlude_066_corpse_pipeline_hypothesis
-  - fact_seraphine_knows_no_academy_faction_is_safe <- event_turn_interlude_065_no_safe_academy_victory
-  - fact_seraphine_understood_the_veyr_system <- retcon_000064
-  - fact_seraphine_knows_public_necromancy_charge_is_a_fuse <- event_turn_interlude_064_public_charge_is_a_fuse
-  - fact_seraphine_knows_spidey_research_ownership_frame <- event_turn_interlude_063_spidey_research_ownership_frame
-  - fact_seraphine_knows_academic_priority_doctrine <- event_turn_interlude_062_academic_priority_doctrine
-  - fact_seraphine_knows_source_and_stakes_of_academy_dispute <- event_turn_interlude_061_academy_dispute_source_disclosed
-  - fact_seraphine_knows_priest_visited_varkhen_with_oren <- milestone_047_seraphine_risk_disclosure
-  - fact_seraphine_knows_remote_corpse_order <- milestone_047_seraphine_risk_disclosure
-  - fact_seraphine_knows_spider_network_exists <- milestone_047_seraphine_risk_disclosure
-  - fact_seraphine_knows_four_marked_corpses <- milestone_047_seraphine_risk_disclosure
-  - fact_seraphine_offers_conditional_cover <- milestone_047_seraphine_risk_disclosure
-  - fact_seraphine_arrived_after_varkhen_assault <- milestone_046_varkhen_oath_compact
-  - fact_seraphine_knows_three_seals <- milestone_046_varkhen_oath_compact
-  - fact_seraphine_conditionally_accepts_varkhen <- milestone_046_varkhen_oath_compact
-  - fact_seraphine_knows_lucan_uses_numb <- milestone_044_oren_containment_and_kill_attempt
-  - fact_seraphine_knows_varkhen_link_terms <- event_turn_interlude_044_varkhen_terms_and_survivors
-  - fact_seraphine_accepts_controlled_interrogation_pressure <- event_turn_interlude_044_varkhen_terms_and_survivors
-  - fact_seraphine_has_lucans_cover_story_for_the_permit <- event_turn_interlude_043_cover_story
-  - fact_seraphine_knows_lucan_cursed_three_on_the_wagon <- milestone_041_corpse_wagon_takeover
-  - fact_seraphine_watched_lucan_curse_a_guild_employee <- event_turn_interlude_038_numb_on_the_night_clerk
-  - fact_seraphine_heard_spidey_will_become_famous <- event_turn_interlude_038_numb_on_the_night_clerk
-  - fact_seraphine_saw_spidey_react_to_his_name <- event_turn_interlude_037_every_signature_has_a_room
-  - fact_seraphine_accepted_provocation_doctrine_with_limits <- event_turn_interlude_037_every_signature_has_a_room
-  - fact_seraphine_knows_lucan_cemetery_report <- milestone_036_cemetery_conversations_and_missing_guard
-  - fact_seraphine_read_the_permit_but_refused_custody <- event_turn_interlude_036_the_permit_on_the_table
-  - fact_seraphine_knows_the_watch_lead_is_a_transport_permit <- event_turn_interlude_035_the_permit_disclosed
-  - fact_seraphine_knows_lucans_blackmail_doctrine <- event_turn_interlude_035_the_permit_disclosed
-  - fact_seraphine_knows_a_powerful_relic_is_claimed <- event_turn_interlude_032_relic_watch_lead_and_a_bed
-  - fact_seraphine_knows_of_a_watch_side_corpse_transport_lead <- event_turn_interlude_032_relic_watch_lead_and_a_bed
-  - fact_seraphine_noticed_lucan_named_assets_without_handing_them_over <- event_turn_interlude_032_relic_watch_lead_and_a_bed
-  - fact_seraphine_told_lucan_the_tannery_case_is_open <- event_turn_interlude_032_relic_watch_lead_and_a_bed
-  - fact_seraphine_learned_the_seminar_mechanism <- event_turn_interlude_030_the_seminar_problem
-  - fact_seraphine_heard_lucans_assessment_of_academics <- event_turn_interlude_030_the_seminar_problem
-  - fact_seraphine_knows_about_the_academy_dispute_in_detail <- event_turn_interlude_029_academy_as_civic_risk
-  - fact_seraphine_wants_names_of_church_linked_academics <- event_turn_interlude_029_academy_as_civic_risk
-  - fact_seraphine_set_one_condition_advance_warning <- event_turn_interlude_029_academy_as_civic_risk
-  - fact_seraphine_knows_lucan_visited_his_father_tonight <- event_turn_interlude_027_legal_argument_and_the_father_answer
-  - fact_seraphine_heard_lucans_legal_reading <- event_turn_interlude_027_legal_argument_and_the_father_answer
-  - fact_seraphine_saw_spidey_up_close_and_obeying <- event_turn_interlude_025_spidey_on_seraphines_desk
-  - fact_seraphine_infers_worse_items_on_the_list <- event_turn_interlude_025_spidey_on_seraphines_desk
-  - fact_seraphine_gave_lucan_the_hearing_horizon <- event_turn_interlude_024_seraphine_date_and_payments
-  - fact_seraphine_knows_custody_fight_over_bodies <- event_turn_interlude_024_seraphine_date_and_payments
-  - fact_seraphine_received_tannery_evidence <- milestone_022_owner_exposed_and_detained
-  - fact_seraphine_knows_rusk_inquiry_origin <- milestone_022_owner_exposed_and_detained
-  - fact_seraphine_knows_four_survivors_are_in_guild_custody <- retcon_000011
-  - fact_seraphine_knows_the_four_survivors_composition <- retcon_000009
-  - fact_seraphine_knows_dump_bodies_resolved <- retcon_000003
-  - fact_seraphine_saw_ring_taken_from_varkhen_sarcophagus <- event_act_02_closeout_interlude_import
-  - fact_seraphine_moved_varkhen_to_guild_basement <- event_act_02_closeout_interlude_import
-  - fact_seraphine_received_preoperation_cemetery_report <- milestone_037b_guild_cemetery_report_and_support
-  - fact_seraphine_saw_lucan_leave_heart_site <- milestone_044b_oren_termination_and_energy_sample
-  - fact_seraphine_knows_lucan_is_a_veyr <- event_turn_interlude_026b_veyr_name_and_the_observer_question
-  - fact_seraphine_knows_academy_runs_classification_dispute <- event_turn_interlude_026b_veyr_name_and_the_observer_question
-  - fact_seraphine_conceded_the_observer_argument <- event_turn_interlude_026b_veyr_name_and_the_observer_question
+  - fact_seraphine_answered_the_combat_mage_question@235
+  - fact_seraphine_registered_lucans_position_on_rusk@235
+  - fact_seraphine_asked_again_for_the_clerks_name@235
+  - fact_seraphine_conceded_varkhen_is_citable_as_ancient_guardian@234
+  - fact_seraphine_revised_the_sequence_after_the_citability_argument@234
+  - fact_seraphine_heard_the_political_liability_frame@234
+  - fact_seraphine_heard_the_tannery_kolm_hypothesis@233
+  - fact_seraphine_accepted_oral_only_channel_for_varkhen@233
+  - fact_seraphine_set_the_measurement_first_sequence@233
+  - fact_seraphine_got_the_boundary_text_and_the_priest_warning@233
+  - fact_seraphine_corrected_lucans_order_of_the_two_dates@233
+  - fact_seraphine_got_the_three_priorities_and_the_kolm_read@232
+  - fact_seraphine_will_declare_the_emergency_knowing_it_pays_kolm@232
+  - fact_seraphine_told_boros_and_mara_are_bought@229
+  - fact_seraphine_admits_she_filtered_the_cemetery_dossier@229
+  - fact_seraphine_will_not_report_varkhen_before_the_hearing@227
+  - fact_seraphine_named_the_blind_spot_of_the_public_ledger@227
+  - fact_seraphine_has_the_lawyers_name_kesz@226
+  - fact_seraphine_knows_the_ledger_goes_to_every_side_at_once@226
+  - fact_seraphine_stalled_the_watch_meeting_and_spent_her_own_credibility@224
+  - fact_seraphine_holds_the_barbers_casebook@190
+  - fact_seraphine_knows_lucan_will_not_defend_himself@190
+  - fact_seraphine_watch_meeting_today_day4@188
+  - fact_seraphine_refuses_authorisation_but_names_the_line@126
+  - fact_seraphine_is_not_on_corths_distribution_list@125
+  - fact_seraphine_knows_the_dispute_fuse_burns_without_lucan@124
+  - fact_seraphine_notes_neris_interest_aligns_without_transaction@124
+  - fact_seraphine_knows_about_the_pen_on_rusk@122
+  - fact_seraphine_knows_lucans_seven_levers@122
+  - fact_seraphine_knows_varkhen_is_bored@122
+  - fact_seraphine_will_contract_the_martial_order_herself_or_not_at_all@122
+  - fact_seraphine_knows_the_watch_runs_the_corpse_line@120
+  - fact_seraphine_knows_lucan_has_a_syndicate_arrangement_over_the_cemetery@120
+  - fact_seraphine_learned_lucan_holds_a_frozen_academy_post@69
+  - fact_seraphine_knows_father_human_transmutation_precedent@68
+  - fact_seraphine_knows_father_disaster_precedent@67
+  - fact_seraphine_holds_corpse_pipeline_hypothesis@66
+  - fact_seraphine_knows_no_academy_faction_is_safe@65
+  - fact_seraphine_understood_the_veyr_system@64
+  - fact_seraphine_knows_public_necromancy_charge_is_a_fuse@64
+  - fact_seraphine_knows_spidey_research_ownership_frame@63
+  - fact_seraphine_knows_academic_priority_doctrine@62
+  - fact_seraphine_knows_source_and_stakes_of_academy_dispute@61
+  - fact_seraphine_knows_priest_visited_varkhen_with_oren@47
+  - fact_seraphine_knows_remote_corpse_order@47
+  - fact_seraphine_knows_spider_network_exists@47
+  - fact_seraphine_knows_four_marked_corpses@47
+  - fact_seraphine_offers_conditional_cover@47
+  - fact_seraphine_arrived_after_varkhen_assault@46
+  - fact_seraphine_knows_three_seals@46
+  - fact_seraphine_conditionally_accepts_varkhen@46
+  - fact_seraphine_knows_lucan_uses_numb@44
+  - fact_seraphine_knows_varkhen_link_terms@44
+  - fact_seraphine_accepts_controlled_interrogation_pressure@44
+  - fact_seraphine_has_lucans_cover_story_for_the_permit@43
+  - fact_seraphine_knows_lucan_cursed_three_on_the_wagon@41
+  - fact_seraphine_watched_lucan_curse_a_guild_employee@38
+  - fact_seraphine_heard_spidey_will_become_famous@38
+  - fact_seraphine_saw_spidey_react_to_his_name@37
+  - fact_seraphine_accepted_provocation_doctrine_with_limits@37
+  - fact_seraphine_knows_lucan_cemetery_report@36
+  - fact_seraphine_read_the_permit_but_refused_custody@36
+  - fact_seraphine_knows_the_watch_lead_is_a_transport_permit@35
+  - fact_seraphine_knows_lucans_blackmail_doctrine@35
+  - fact_seraphine_knows_a_powerful_relic_is_claimed@32
+  - fact_seraphine_knows_of_a_watch_side_corpse_transport_lead@32
+  - fact_seraphine_noticed_lucan_named_assets_without_handing_them_over@32
+  - fact_seraphine_told_lucan_the_tannery_case_is_open@32
+  - fact_seraphine_learned_the_seminar_mechanism@30
+  - fact_seraphine_heard_lucans_assessment_of_academics@30
+  - fact_seraphine_knows_about_the_academy_dispute_in_detail@29
+  - fact_seraphine_wants_names_of_church_linked_academics@29
+  - fact_seraphine_set_one_condition_advance_warning@29
+  - fact_seraphine_knows_lucan_visited_his_father_tonight@27
+  - fact_seraphine_heard_lucans_legal_reading@27
+  - fact_seraphine_saw_spidey_up_close_and_obeying@25
+  - fact_seraphine_infers_worse_items_on_the_list@25
+  - fact_seraphine_gave_lucan_the_hearing_horizon@24
+  - fact_seraphine_knows_custody_fight_over_bodies@24
+  - fact_seraphine_received_tannery_evidence@22
+  - fact_seraphine_knows_rusk_inquiry_origin@22
+  - fact_seraphine_knows_four_survivors_are_in_guild_custody@11
+  - fact_seraphine_knows_the_four_survivors_composition@9
+  - fact_seraphine_knows_dump_bodies_resolved@3
+  - fact_seraphine_saw_ring_taken_from_varkhen_sarcophagus@2
+  - fact_seraphine_moved_varkhen_to_guild_basement@2
+  - fact_seraphine_received_preoperation_cemetery_report@-1
+  - fact_seraphine_saw_lucan_leave_heart_site@-1
+  - fact_seraphine_knows_lucan_is_a_veyr@-1
+  - fact_seraphine_knows_academy_runs_classification_dispute@-1
+  - fact_seraphine_conceded_the_observer_argument@-1
   suspicions:
   - id: suspicion_lucan_has_hidden_necromantic_support
     basis_event_ids:

@@ -9,6 +9,85 @@ i bez uzasadnienia ktoś rozsądny cofnąłby ją przy następnym przeglądzie.
 
 ---
 
+## 2026-09-09 (druga iteracja) — kontrakt głosu wypiera archiwum wiedzy, a „ruch świata" przestaje znaczyć „diagnoza"
+
+Pierwsza iteracja tego dnia dała głosowi własne źródło i zmierzyła problem. Została jednak
+łatką w trzech miejscach, które zamykają sprawę dopiero razem.
+
+**Czego dowiodła diagnoza, a nie domysł.** Narrator nie łamał `retcon_000162` — **wykonywał
+kartę**. `speech_traits` Kesza brzmiały `Wycenia, nie bramkuje: mowi to kosztuje tyle, nigdy
+nie da sie`, a audyty czterech zacommitowanych tur cytują tę linię *jako uzasadnienie*:
+
+- `t_240`: „Kesz NIE bramkowal i nie moralizowal (speech_traits: wycenia, nie bramkuje)."
+- `t_242`: „WYCENIL DWIE DROGI, nie zabramkowal zadnej (speech_traits: wycenia, nie bramkuje)"
+- `t_244`: „to jest PYTANIE, nie brama (speech_traits: wycenia, nie bramkuje)"
+- `t_245`: „speech_traits: podaje wlasna pozycje…; wycenia, nie bramkuje; zero moralizowania"
+
+Karta była przyczyną wady, nie jej ofiarą. Dlatego pole zostało z tych kart **zdjęte**, a nie
+złagodzone: dwa źródła głosu obok siebie rozjeżdżają się i wygrywa dłuższe.
+
+**Trzy zmiany strukturalne.**
+
+1. **`voice_contract` z jedenastoma osiami** zamiast trzech wypunktowań: `sentences`,
+   `answer_length`, `register`, `evasion`, `body`, `mistakes`, `unnoticed`, `emotion`,
+   `blind_spot`, `money`, `avoid`, plus 2–4 `samples` będące kwestiami wprost. Kontrakt jest
+   pozytywny — mówi, jak ta osoba mówi; `avoid` jest **jedynym** polem, w którym wolno nazwać
+   konstrukcję do unikania, i jedynym wyłączonym z zakazu słownika wyceny. Limit 2,8 KB.
+   `speech_traits` zniknęło z siedmiu kart, które mają kontrakt; karty bez kontraktu mają je
+   dalej, bo ich usunięcie zostawiłoby postać bez żadnego opisu mowy.
+2. **Archiwum wiedzy przestało przeważać nad instrukcją stylu.** Wygaszenie wersalików
+   (iteracja pierwsza) zdjęło krzyk, ale nie wagę: `recent_confirmed` Kesza to było 4 482 B
+   na 2 323 B kontraktu. Skrót ścina teraz każdy `claim` **na granicy zdania** i dokłada
+   `claim_truncated` + `claim_full` z adresem całości; cap schodzi adaptacyjnie
+   (420→130 znaków), aż archiwum zejdzie pod 1,2× kontraktu. Indeks starszych faktów ma
+   format `etykieta@numer_tury` zamiast pełnego `event_id`. Wynik: **0,86–1,18×**, przy
+   bramce 1,5× w `tools/voice_check.py`. Generator gwarantuje niezmiennik konstrukcją,
+   kontrola tylko go potwierdza — bramka, która zapala się od dopisania jednego faktu
+   w turze, byłaby złą ergonomią, bo narrator nie ma jej czym naprawić poza edycją stałej.
+3. **„Ruch świata" przestał znaczyć „diagnoza gracza".** Reguły, która by tego żądała, nie
+   ma w żadnym pliku — presja była **pośrednia**: `outcome.new_decision` było w szablonie
+   polem do wypełnienia w każdej turze, a `commit_turn` przepisuje je do
+   `scene.immediate_questions`. Każda tura musiała więc wyprodukować nowy ostry dylemat,
+   a w spokojnej turze interludium najtaniej produkuje się go cudzą przenikliwością.
+   Kod nigdy tego nie wymagał (`if outcome.get("new_decision")`) — wymagał szablon i dwa
+   zdania w regułach. Pole ma teraz `null` i komentarz, co znaczy jego brak; w zamian
+   pojawiło się **menu ruchów świata** (gest, milczenie, zwyczajna odpowiedź, częściowe
+   niezrozumienie, zmiana tematu, czynność fizyczna, błędny odczyt intencji, emocja bez
+   analizy), które jedzie w `voice_rules` każdego skrótu karty.
+
+**Przy okazji naprawiony starszy defekt.** Generator skrótów obsługiwał tylko schemat
+`{fact_id, claim}`, a 6 z 24 kart (Neris, ojciec, portier, matka, promotor, garbarz) pisze
+`{fact}` bez `fact_id`. Dla nich indeks starszych faktów składał się **z samych znaków
+zapytania** — 67 wpisów Neris jako `? <- event_turn_interlude_171`. Skrót twierdził, że
+pokazuje, co ona wie, i nie pokazywał niczego. Teraz oba schematy są obsłużone, a etykieta
+bez `fact_id` powstaje ze slugu pierwszych słów faktu.
+
+**Druga bramka prozy.** Trzy lub więcej konstrukcji „powiedział, że…" przy **zero** kwestiach
+wprost to definicyjnie tura rozmowy, w której gracz nie usłyszał nikogo — `turn commit`
+i `prose_check --new-only` ją odrzucają. Próg jest trzy, nie jeden: tura podróży nie ma ani
+jednej takiej konstrukcji i przechodzi, dwie parafrazy są normalnym skracaniem i dostają
+ostrzeżenie. Chodzi o jedną kwestię, nie o serię cytatów.
+
+**Czego świadomie NIE zrobiono.**
+- Bez nowego retconu i bez nowego akapitu zakazów. `system/narrator.md` znowu **zmalał** —
+  9 648 B → 8 985 B przez dwie iteracje — a mechanizm awarii poszedł do
+  `narrator-appendix.md#skad-brala-sie-przenikliwosc`, zgodnie z podziałem etapu 7.
+- Nie tknięto append-only logów: `events.jsonl`, transakcje i `retcons.jsonl` bez zmian.
+  Ścinanie działa **wyłącznie w generowanym skrócie**; pełna karta zachowuje całą treść
+  i oryginalną pisownię, a każdy ścięty wpis nosi adres całości.
+- `speech_traits` nie usunięto z 17 kart bez kontraktu głosu.
+- Nie oparto naprawy na liście zakazanych słów. Regexy są zabezpieczeniem pomocniczym
+  (i rozróżniają literalne pieniądze od wyceniania decyzji); naprawą są jedenaście osi,
+  pomiar wagi stylu i zdjęcie drugiego źródła głosu.
+
+**Znany dług, niezawiniony.** `test_event_prose::RecentTest` wymaga, żeby pominięty protokół
+był ponad pięć razy większy od prozy; ostatnie cztery tury dają 4,7× (20 528 B audytu na
+4 387 B prozy). Sprawdzone na `ba04430` — przewraca się tam identycznie; `recent_prose`
+i `events.jsonl` są w obu iteracjach nietknięte. Naprawą jest krótsza proza w nowych turach,
+nie obniżenie progu.
+
+---
+
 ## 2026-09-09 — głos NPC ma własne, krótkie źródło; proza tury ma kontrakt
 
 Reklamacja gracza: wszyscy NPC brzmią jak ta sama osoba i każdy wycenia każdą decyzję.

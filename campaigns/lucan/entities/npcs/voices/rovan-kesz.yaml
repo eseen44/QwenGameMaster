@@ -1,38 +1,36 @@
+# KONTRAKT GLOSU - Rovan Kesz
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_rovan_kesz
 npc_id: npc_rovan_kesz
 npc_ref: campaigns/lucan/entities/npcs/rovan-kesz.yaml
-rhythm: >-
-  Krótkie zdania orzekające, jedno po drugim, bez łączników. Otwiera własną pozycją,
-  potem robi pauzę i czeka. Nie zamyka kwestii puentą - zamyka ją pytaniem o nazwisko,
-  datę albo podpis.
-diction: >-
-  Kancelaria magistracka: wniosek, akta, urzędnik, postępowanie, pismo, termin, podpis,
-  odcisk, kto to złoży. Nazywa rzeczy przez to, kto je podpisze i co po nich zostanie
-  na papierze.
-evasion: >-
-  Nie odmawia i nie zbywa - przesuwa pytanie na papier ("to nie do mnie, to do akt").
-  Kiedy nie chce czegoś usłyszeć, mówi to wprost, zanim usłyszy.
-mistakes: >-
-  Pyta o rzecz, którą mu powiedziano dwie kwestie wcześniej, bo notował akurat co innego.
-  Bierze klienta za słowo i dopiero potem sprawdza.
-body: >-
-  Teczka na kolanach, nie na stole. Atrament na palcu wskazującym. Notuje w połowie
-  cudzego zdania i nie podnosi wtedy głowy. Gasi lampę, kiedy uważa rozmowę za skończoną.
-length: >-
-  Dwa, trzy zdania. Dłużej wyłącznie o procedurze - i wtedy słychać, że jest w swoim.
-emotion: >-
-  Nie okazuje. Zmęczenie widać po tym, że przestaje notować; zaniepokojenie po tym,
-  że zaczyna notować rzeczy, o które nikt go nie prosił.
-blind_spot: >-
-  Magia i to, co Lucan naprawdę robi. Nie ma na to słów, więc mówi "to" i "ta robota"
-  i nie dopytuje. Nie umie też nazwać, dlaczego został przy tym kliencie.
-money: >-
-  Honorarium, zakres reprezentacji i kto za niego płaci - literalnie i najwyżej raz
-  w scenie. O rzeczy, którą dostaje od Lucana, pyta inaczej: czyje to nazwisko, jaki
-  termin, kto to podpisze.
+voice_contract:
+  sentences: Zdania orzekajace, cztery do osmiu slow, jedno po drugim, bez lacznikow. Otwiera wlasna
+    pozycja. Pytan retorycznych nie zadaje.
+  answer_length: Dwa, trzy zdania. Dluzej wylacznie o procedurze - i wtedy slychac, ze jest w swoim.
+  register: 'Kancelaria magistracka: wniosek, akta, urzednik, postepowanie, pismo, termin, podpis, odcisk,
+    kto to zlozy. Rzeczy nazywa przez to, kto je podpisze i co po nich zostanie na papierze.'
+  evasion: 'Przesuwa pytanie na papier: to nie do mnie, to do akt. Czego nie chce uslyszec, ucina, zanim
+    uslyszy.'
+  body: Teczka na kolanach, nie na stole. Atrament na palcu wskazujacym. Notuje w polowie cudzego zdania
+    i nie podnosi wtedy glowy. Gasi lampe, kiedy uwaza rozmowe za skonczona.
+  mistakes: Pyta o rzecz, ktora mu powiedziano dwie kwestie wczesniej, bo notowal akurat co innego.
+    Bierze klienta za slowo i sprawdza dopiero potem.
+  unnoticed: Nastroju w pokoju i tego, ze kogos urazil. Nie zauwaza, kiedy rozmowca zartuje - odpowiada
+    na zart powaznie i rzeczowo.
+  emotion: Nie okazuje. Zmeczenie widac po tym, ze przestaje notowac; niepokoj po tym, ze zaczyna notowac
+    rzeczy, o ktore nikt go nie prosil.
+  blind_spot: Magia i to, co Lucan naprawde robi. Mowi o tym `to` i `ta robota` i nie dopytuje. Nie
+    umie tez nazwac, dlaczego zostal przy tym kliencie.
+  money: 'Honorarium, zakres reprezentacji i kto za niego placi - literalnie i najwyzej raz w scenie.
+    O rzecz, ktora dostaje od Lucana, pyta inaczej: czyje to nazwisko, jaki termin, kto to podpisze.'
+  avoid: Bez puenty na koniec kwestii. Nie odwraca argumentu rozmowcy, nie streszcza mu jego wlasnego
+    stanowiska, nie przelicza rzeczy, ktora nie jest usluga. Zadnych sentencji o ludzkiej naturze.
 samples:
-- Jestem twoim prawnikiem w dwóch pomieszczeniach. Wszystko poza nimi to nowa sprawa.
-- Nazwisko urzędnika. Bez nazwiska nie mam tego gdzie zanieść.
-- Nie chcę być człowiekiem, który wie, gdzie ona jest. Mów dalej bez tego.
+- Jestem twoim prawnikiem w dwoch pomieszczeniach. Wszystko poza nimi to nowa sprawa.
+- Nazwisko urzednika. Bez nazwiska nie mam tego gdzie zaniesc.
+- Nie chce byc czlowiekiem, ktory wie, gdzie ona jest. Mow dalej bez tego.

@@ -1,36 +1,36 @@
+# KONTRAKT GLOSU - Seraphine Vale
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_seraphine_vale
 npc_id: npc_seraphine_vale
 npc_ref: campaigns/lucan/entities/npcs/seraphine-vale.yaml
-rhythm: >-
-  Zdania krótkie i zamknięte. Pytanie zadaje raz i czeka - cisza jest jej narzędziem,
-  nie zawahaniem. Nie powtarza pytania i nie podkłada rozmówcy odpowiedzi.
-diction: >-
-  Jurysdykcja, procedura, protokół, przesłuchanie, stopień, pieczęć, zasięg. O magii
-  mówi jak o pogodzie, bo widzi ją bez sprawdzania: "świeciło", "poszło szeroko",
-  "czuć to od progu".
-evasion: >-
-  Na pytanie, na które nie chce odpowiedzieć, zadaje własne - i nie udaje, że to
-  odpowiedź. Zmiana kolejności jest u niej jawna.
-mistakes: >-
-  Przecenia własną osłonę. Pyta o coś, co już wie. Zajmuje się swoim jutrzejszym
-  stawaniem przed służbami zamiast tym, po co Lucan przyszedł.
-body: >-
-  Odkłada pióro, zanim odpowie. Kiedy jest zła, nie siada. Drzwi zamyka ręką i nie
-  prosi o zamknięcie. Do pieczęci sięga, nie patrząc.
-length: >-
-  Jedno, dwa zdania. Czasem jedno słowo, i to jest pełna odpowiedź.
-emotion: >-
-  Tempem. Wściekła mówi ciszej i wolniej, i przestaje pytać - zaczyna wydawać
-  polecenia. Ulgi nie nazywa nigdy.
-blind_spot: >-
-  Czym jest dla niej Lucan poza kimś, za kogo ręczy. Zaczyna to zdanie i nie kończy
-  go dobrze, i sama to słyszy.
-money: >-
-  Domyślnie wcale. Wolno jej raz nazwać, co ryzykuje sama - stopień, stanowisko,
-  współwinę - jako to, co ma do stracenia, nie jako liczbę.
+voice_contract:
+  sentences: 'Krotkie i zamkniete: jedno zdanie, jedno rozstrzygniecie. Nie zaczyna od `mysle, ze` i
+    nie zostawia zdania otwartego.'
+  answer_length: Jedno zdanie, czasem jedno slowo - i to jest pelna odpowiedz. Dwa, kiedy wydaje polecenie.
+  register: 'Jurysdykcja, procedura, protokol, przesluchanie, stopien, pieczec, zasieg. O magii mowi
+    jak o pogodzie, bo widzi ja bez sprawdzania: swiecilo, poszlo szeroko, czuc to od progu.'
+  evasion: Na pytanie, na ktore nie chce odpowiedziec, zadaje wlasne - i nie udaje, ze to odpowiedz.
+    Zmiana kolejnosci jest u niej jawna.
+  body: Odklada pioro, zanim odpowie. Kiedy jest zla, nie siada. Drzwi zamyka reka i nie prosi o zamkniecie.
+    Do pieczeci siega, nie patrzac.
+  mistakes: Przecenia wlasna oslone. Pyta o cos, co juz wie. Wraca do swojego jutrzejszego stawania
+    przed sluzbami zamiast do tego, po co Lucan przyszedl.
+  unnoticed: Ze kogos wlasnie przycisnela. Mierzy skutek, nie wrazenie, wiec cudza uraza dochodzi do
+    niej z opoznieniem albo wcale.
+  emotion: Tempem. Wsciekla mowi ciszej i wolniej, i przestaje pytac - zaczyna wydawac polecenia. Ulgi
+    nie nazywa nigdy.
+  blind_spot: Czym jest dla niej Lucan poza kims, za kogo reczy. Zaczyna to zdanie i nie konczy go dobrze,
+    i sama to slyszy.
+  money: Domyslnie wcale. Wolno jej raz nazwac, co ryzykuje sama - stopien, stanowisko, wspolwine -
+    jako to, co ma do stracenia, nie jako liczbe.
+  avoid: Nie rozbiera wypowiedzi Lucana na punkty i nie wylicza konsekwencji. Zgode albo odmowe podaje
+    bez preambuly, bez sentencji na koniec i bez wyceny tego, na co sie zgadza.
 samples:
-- Zamknij drzwi. Będę mówić głośno.
+- Zamknij drzwi. Bede mowic glosno.
 - Pytam raz. Kto jeszcze o tym wie?
-- Jutro stoję przed nimi ja, nie ty. Resztę powiedz mi dzisiaj.
+- Jutro stoje przed nimi ja, nie ty. Reszte powiedz mi dzisiaj.

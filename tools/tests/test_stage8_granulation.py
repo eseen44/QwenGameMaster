@@ -116,13 +116,16 @@ class DigestTest(unittest.TestCase):
         digest = yaml.safe_load((CARDS / "digests" / "seraphine-vale.yaml").read_text(encoding="utf-8"))
         self.assertEqual(digest["portrayal"], card["portrayal"])
         self.assertEqual(digest["agenda"], card["agenda"])
-        # GLOS ZAMIAST speech_traits (2026-09-09). Postac z karta glosu
-        # (entities/npcs/voices/) dostaje w skrocie `voice` i NIE dostaje `speech_traits` -
-        # dwie listy o tym samym roznia sie zawsze i wygrywa dluzsza. Postac bez karty
-        # glosu ma `speech_traits` jak dotad. Patrz system/npc-voice.md.
-        if "voice" in digest:
+        # KONTRAKT GLOSU ZAMIAST speech_traits (2026-09-09). Postac z kontraktem glosu
+        # (entities/npcs/voices/) dostaje w skrocie `voice_contract` z jedenastoma osiami
+        # i NIE dostaje `speech_traits` - dwie listy o tym samym rozjezdzaja sie i wygrywa
+        # dluzsza, a ta konkretna uczyla wyceniania. Postac bez kontraktu ma `speech_traits`
+        # jak dotad. Patrz system/npc-voice.md.
+        if "voice_contract" in digest:
             self.assertNotIn("speech_traits", digest)
-            self.assertIn("rhythm", digest["voice"])
+            self.assertNotIn("speech_traits", card)
+            for os_ in ("sentences", "answer_length", "register", "avoid"):
+                self.assertIn(os_, digest["voice_contract"])
         else:
             self.assertEqual(digest["speech_traits"], card["speech_traits"])
         self.assertEqual(digest["knowledge"]["forbidden_without_source"],
@@ -132,9 +135,12 @@ class DigestTest(unittest.TestCase):
         """Starszy fakt moze stracic szczegol, ale NIE moze zniknac z widoku."""
         card = yaml.safe_load((CARDS / "seraphine-vale.yaml").read_text(encoding="utf-8-sig"))
         digest = yaml.safe_load((CARDS / "digests" / "seraphine-vale.yaml").read_text(encoding="utf-8"))
+        # Indeks ma od 2026-09-09 format `etykieta@numer_tury` (byl `fact_id <- event_id`):
+        # ten sam adres o trzydziesci procent taniej, a bajty w tym bloku odpychaly kontrakt
+        # glosu od miejsca, w ktorym narrator sklada kwestie.
         w_karcie = {entry.get("fact_id") for entry in card["knowledge"]["confirmed"]}
         w_skrocie = {entry.get("fact_id") for entry in digest["knowledge"]["recent_confirmed"]}
-        w_indeksie = {line.split(" <- ")[0] for line in digest["knowledge"]["older_confirmed_index"]}
+        w_indeksie = {line.rsplit("@", 1)[0] for line in digest["knowledge"]["older_confirmed_index"]}
         brak = sorted(w_karcie - (w_skrocie | w_indeksie))
         self.assertEqual(brak, [], f"fakty niewidoczne w skrocie: {brak}")
 

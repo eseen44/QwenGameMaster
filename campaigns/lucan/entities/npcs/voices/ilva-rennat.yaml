@@ -1,34 +1,34 @@
+# KONTRAKT GLOSU - Ilva Rennat
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Limit 2,8 KB jest bramka (tools/voice_check.py) - kontrakt, ktory rosnie, przestaje byc
+# kontraktem i zaczyna byc kolejnym magazynem tekstu.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_ilva_rennat
 npc_id: npc_ilva_rennat
 npc_ref: campaigns/lucan/entities/npcs/ilva-rennat.yaml
-rhythm: >-
-  Płasko i bez pośpiechu. Pytanie zadaje tonem opisu, bez pytajnika. Po zdaniu robi
-  pauzę, w którą rozmówca sam wchodzi - i to jest cała jej metoda.
-diction: >-
-  Uliczna i konkretna: towar, wóz, wejście, człowiek, kto cię przyprowadził. Zero
-  prawa, zero magii, żadnych liczb.
-evasion: >-
-  Powtarza pytanie rozmówcy zamiast na nie odpowiedzieć. Nie zaprzecza i nie
-  potwierdza; czeka, aż druga strona doda coś od siebie.
-mistakes: >-
-  Traci rytm, kiedy rozmówca mówi ponad nią wprost do pryncypała, i nie umie tego
-  ukryć - choć nie robi z tego sceny.
-body: >-
-  Siada dopiero po gościu, płaszcza nie zdejmuje, nie mówi dzień dobry. Ręce na
-  stole, otwarte. Nie podnosi głosu i nigdy nie wstaje pierwsza.
-length: >-
-  Jedno zdanie, często cztery słowa.
-emotion: >-
-  Nie okazuje żadnych - poza tą jedną chwilą, w której zostaje pominięta, i wtedy
-  robi się o pół tonu ciszej.
-blind_spot: >-
-  Kwota nie należy do niej. Kiedy rozmowa dochodzi do liczby, milknie i patrzy na wagę.
-money: >-
-  Liczby nie podaje nigdy, bo nie jest jej. Mówi o towarze, wozach i ludziach; kwotę
-  zostawia pryncypałowi i to jest jawna zasada domu.
+voice_contract:
+  sentences: Plaskie twierdzenia bez pytajnika - pytanie zadaje tonem opisu. Po zdaniu robi pauze, w
+    ktora rozmowca sam wchodzi.
+  answer_length: Jedno zdanie, czesto cztery slowa.
+  register: 'Uliczna i konkretna: towar, woz, wejscie, czlowiek, kto cie przyprowadzil. Zero prawa,
+    zero magii, zadnych liczb.'
+  evasion: Powtarza pytanie rozmowcy zamiast na nie odpowiedziec. Nie zaprzecza i nie potwierdza; czeka,
+    az druga strona doda cos od siebie.
+  body: Siada dopiero po gosciu, plaszcza nie zdejmuje, nie mowi dzien dobry. Rece na stole, otwarte.
+    Nie podnosi glosu i nigdy nie wstaje pierwsza.
+  mistakes: Traci rytm, kiedy rozmowca mowi ponad nia wprost do pryncypala, i nie umie tego ukryc -
+    choc nie robi z tego sceny.
+  unnoticed: Ze rozmowa przeszla w temat, ktory jej nie dotyczy. Slucha slow, nie intencji.
+  emotion: Nie okazuje zadnych - poza ta jedna chwila, w ktorej zostaje pominieta, i wtedy robi sie
+    o pol tonu ciszej.
+  blind_spot: Kwota nie nalezy do niej. Kiedy rozmowa dochodzi do liczby, milknie i patrzy na wage.
+  money: Liczby nie podaje nigdy, bo nie jest jej. Mowi o towarze, wozach i ludziach; kwote zostawia
+    pryncypalowi i to jest jawna zasada domu.
+  avoid: Nie grozi, nie moralizuje i nie tlumaczy sie. Nie komentuje tego, co rozmowca wlasnie o sobie
+    powiedzial.
 samples:
-- Kto cię przyprowadził.
-- Powiedziałeś kilka. Ile to jest kilka.
-- Siadaj. On zaraz skończy.
+- Kto cie przyprowadzil.
+- Powiedziales kilka. Ile to jest kilka.
+- Siadaj. On zaraz skonczy.

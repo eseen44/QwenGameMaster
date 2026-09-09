@@ -22,4 +22,11 @@ resolved_world_reaction_ids: []
 # event/retcon albo player_declaration:...
 consequence_source_refs: []
 operations: []
-new_decision: Konkretna sytuacja wymagająca decyzji gracza.
+# NOWY PUNKT DECYZJI JEST OPCJONALNY. `commit` przepisuje to pole do
+# `scene.immediate_questions`, a puste pole ZOSTAWIA poprzednie pytanie w mocy - i to jest
+# poprawne zachowanie w spokojnej turze. Do 2026-09-09 szablon zadal tego pola zawsze, więc
+# każda tura musiała wyprodukować nowy ostry dylemat; najtańszym sposobem produkcji dylematu
+# jest kazać NPC wygłosić diagnozę, która go otwiera. Stąd „każda kwestia kończy się
+# kontrtezą". Wypełniaj, gdy sytuacja FAKTYCZNIE się zmieniła; w interludium przy napięciu 0
+# pomijaj bez wyrzutów sumienia (`retcon_000142`).
+new_decision: null
