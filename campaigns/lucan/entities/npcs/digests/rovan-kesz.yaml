@@ -1,3 +1,34 @@
+voice_ref: campaigns/lucan/entities/npcs/voices/rovan-kesz.yaml
+voice:
+  rhythm: Krótkie zdania orzekające, jedno po drugim, bez łączników. Otwiera własną pozycją, potem robi
+    pauzę i czeka. Nie zamyka kwestii puentą - zamyka ją pytaniem o nazwisko, datę albo podpis.
+  diction: 'Kancelaria magistracka: wniosek, akta, urzędnik, postępowanie, pismo, termin, podpis, odcisk,
+    kto to złoży. Nazywa rzeczy przez to, kto je podpisze i co po nich zostanie na papierze.'
+  evasion: Nie odmawia i nie zbywa - przesuwa pytanie na papier ("to nie do mnie, to do akt"). Kiedy nie
+    chce czegoś usłyszeć, mówi to wprost, zanim usłyszy.
+  mistakes: Pyta o rzecz, którą mu powiedziano dwie kwestie wcześniej, bo notował akurat co innego. Bierze
+    klienta za słowo i dopiero potem sprawdza.
+  body: Teczka na kolanach, nie na stole. Atrament na palcu wskazującym. Notuje w połowie cudzego zdania
+    i nie podnosi wtedy głowy. Gasi lampę, kiedy uważa rozmowę za skończoną.
+  length: Dwa, trzy zdania. Dłużej wyłącznie o procedurze - i wtedy słychać, że jest w swoim.
+  emotion: Nie okazuje. Zmęczenie widać po tym, że przestaje notować; zaniepokojenie po tym, że zaczyna
+    notować rzeczy, o które nikt go nie prosił.
+  blind_spot: Magia i to, co Lucan naprawdę robi. Nie ma na to słów, więc mówi "to" i "ta robota" i nie
+    dopytuje. Nie umie też nazwać, dlaczego został przy tym kliencie.
+  money: 'Honorarium, zakres reprezentacji i kto za niego płaci - literalnie i najwyżej raz w scenie.
+    O rzeczy, którą dostaje od Lucana, pyta inaczej: czyje to nazwisko, jaki termin, kto to podpisze.'
+  samples:
+  - Jestem twoim prawnikiem w dwóch pomieszczeniach. Wszystko poza nimi to nowa sprawa.
+  - Nazwisko urzędnika. Bez nazwiska nie mam tego gdzie zanieść.
+  - Nie chcę być człowiekiem, który wie, gdzie ona jest. Mów dalej bez tego.
+voice_contract:
+- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
+- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
+- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
+- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_rovan_kesz
 name: Rovan Kesz
@@ -17,11 +48,6 @@ portrayal:
   appearance: Po pięćdziesiątce, ubrany jak urzędnik ze średniej półki, teczka, atrament na palcu wskazującym.
   group_role: Prawnik obiegu przestępczego - ten z pakietu drogi Mary. Zna urzędników magistratu, nie
     Akademię.
-speech_traits:
-- Podaje wlasna pozycje, zanim ktos go o nia zapyta - nie z uprzejmosci, tylko zeby nie musiec sie z niej
-  potem tlumaczyc.
-- 'Wycenia, nie bramkuje: mowi to kosztuje tyle, nigdy nie da sie.'
-- Precyzyjny i bez sentymentu; zero ozdobnikow, zero moralizowania nad tym, co wycenia.
 agenda:
 - arrange_the_meeting_with_the_priest
 - protect_the_room_first
@@ -30,53 +56,56 @@ agenda:
 object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/rovan-kesz.yaml
 knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
+    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
+    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
   recent_confirmed:
   - fact_id: fact_kesz_got_the_priest_answer_and_it_is_a_fifth_option
     source_event_id: event_turn_interlude_248
-    claim: 'PYTANIE Z t_244 ODPOWIEDZIANE, MIMOCHODEM, NA ODCHODNYM - I ODPOWIEDZ JEST SPOZA JEGO LISTY.
-      Kesz wymienil cztery pokoje: negocjowac, kupic, przycisnac, zniszczyc. Lucan podal piaty: PRZEKONAC
-      KAPLANA, ZE JEST JEGO JEDYNA NADZIEJA - i dodal, ze zrobi to TAK SAMO, JAK ZROBIL TO KESZOWI. Spojne
-      z jego deklaracja metody z t_246 (manipuluje zamiast grozic, swiadomosc nie pomaga). ZAPOWIEDZIAL
-      WSPOLNA KONSULTACJE KESZ + KAPLAN - jako PLAN, nie umowione spotkanie: kaplan nadal nie odpowiedzial
+    claim: 'Pytanie z t_244 odpowiedziane, mimochodem, NA odchodnym - I odpowiedz jest spoza jego listy.
+      Kesz wymienil cztery pokoje: negocjowac, kupic, przycisnac, zniszczyc. Lucan podal piaty: Przekonac
+      kaplana, ZE jest jego jedyna nadzieja - i dodal, ze zrobi to tak samo, jak zrobil to keszowi. Spojne
+      z jego deklaracja metody z t_246 (manipuluje zamiast grozic, swiadomosc nie pomaga). Zapowiedzial
+      wspolna konsultacje kesz + kaplan - jako plan, nie umowione spotkanie: kaplan nadal nie odpowiedzial
       na wiadomosc wyslana dzis rano, terminu nie ma i data nie jest Kesza do dania (t_113, t_193). Kesz
       odnotowal, ze klient powiedzial mu w twarz, iz zastosowal na nim te sama technike, i nazwal to bez
       emocji - albo bardzo szczery, albo bardzo pewny, ze to nic nie zmienia (agenda#assess_whether_lucan_is_a_liability).
-      WNIOSKU NIE WYCIAGNAL NA GLOS, umowy nie zerwal, z przesluchania sie nie wycofal. Na bedziemy bogaci
-      nie dal sie rozchmurzyc. ZAMKNAL JEDNYM ZADANIEM: zeby Lucan przyniosl papiery. Nadal bez odpowiedzi:
+      Wniosku nie wyciagnal na glos, umowy nie zerwal, z przesluchania sie nie wycofal. Na bedziemy bogaci
+      nie dal sie rozchmurzyc. Zamknal jednym zadaniem: zeby Lucan przyniosl papiery. Nadal bez odpowiedzi:
       nazwisko urzednika akt, termin papierow, udzial pokoju, oraz co Kesz sam zdecyduje do rana (t_247).'
   - fact_id: fact_kesz_got_the_witnesses_name_and_the_state_of_his_testimony
     source_event_id: event_turn_interlude_247
-    claim: 'ZAPLATA ODDANA W CALOSCI. Kesz dostal od Lucana: (a) NAZWISKO - Halvek (npc_halvek_wagonman);
-      (b) STAN ZEZNANIA - powiedzial npc_seraphine_vale, kogo widzial, ale NIEPRECYZYJNIE, bo rownoczesnie
+    claim: 'Zaplata oddana w calosci. Kesz dostal od Lucana: (a) nazwisko - Halvek (npc_halvek_wagonman);
+      (b) stan zeznania - powiedzial npc_seraphine_vale, kogo widzial, ale nieprecyzyjnie, bo rownoczesnie
       targowal sie z Lucanem o przysługi dla chorej matki, na czas po tym, jak straz rozwiaze problem
-      jego zeznan; zeznanie jest wiec DO PODWAZENIA; (c) CZESC NIEBEZPIECZNA - Halvek ROZPOZNA Kesza,
-      jesli znajda sie w JEDNYM POKOJU. Nazwisko przyjal bez komentarza. Ponowionej oferty zniknięcia
-      (na promocji, poki siedzi w celi) NIE przyjal i nie zamknal - policzyl raz w t_246 i drugi raz nie
+      jego zeznan; zeznanie jest wiec DO podwazenia; (c) czesc niebezpieczna - Halvek rozpozna Kesza,
+      jesli znajda sie w jednym pokoju. Nazwisko przyjal bez komentarza. Ponowionej oferty zniknięcia
+      (na promocji, poki siedzi w celi) nie przyjal i nie zamknal - policzyl raz w t_246 i drugi raz nie
       liczy (retcon_000135). Zeznanie do podwazenia uznal za jedyna dobra wiadomosc wieczoru.'
   - fact_id: fact_kesz_realised_he_already_promised_the_room_with_the_witness_in_it
     source_event_id: event_turn_interlude_247
-    claim: 'ZESTAWIENIE, KTORE ZROBIL SAM I NA GLOS - i ktore jest obowiazkiem narratora, nie gracza (retcon_000135).
-      Rozpoznanie wymaga jednego pokoju, a Kesz JUZ JEDEN TAKI POKOJ OBIECAL: standing.scope_of_representation
-      - gwarant procedury na PRZESLUCHANIU KIERONICTWA GILDII, w BUDYNKU GILDII, a npc_halvek_wagonman
+    claim: 'Zestawienie, ktore zrobil sam i na glos - i ktore jest obowiazkiem narratora, nie gracza (retcon_000135).
+      Rozpoznanie wymaga jednego pokoju, a Kesz juz jeden taki pokoj obiecal: standing.scope_of_representation
+      - gwarant procedury na przesluchaniu kieronictwa gildii, w budynku gildii, a npc_halvek_wagonman
       siedzi w loc_guild_holding_cells, czyli w tym samym budynku. Zgodzil sie na to w t_194/t_199, kiedy
-      wiedzial tylko o RYSOPISIE i nie wiedzial, ze stoi za nim zywy czlowiek. Powiedzial to bez pretensji
+      wiedzial tylko o rysopisie i nie wiedzial, ze stoi za nim zywy czlowiek. Powiedzial to bez pretensji
       - Lucan oddal mu te wiedze dobrowolnie i to jedyny powod, dla ktorego ja ma; pulapki w plikach nie
-      ma i Kesz jej nie zarzucil. NIE WYCOFAL SIE Z PRZESLUCHANIA, nie zerwal umowy, nie zazadal pieniedzy.
-      Powiedzial, ze do rana bedzie wiedzial, czego chce. NIEUSTALONE: czy Halvek bedzie w tych celach
+      ma i Kesz jej nie zarzucil. Nie wycofal sie z przesluchania, nie zerwal umowy, nie zazadal pieniedzy.
+      Powiedzial, ze do rana bedzie wiedzial, czego chce. Nieustalone: czy Halvek bedzie w tych celach
       w dniu przesluchania, czy ktokolwiek by ich zetknal i co Kesz ostatecznie zrobi.'
   - fact_id: fact_kesz_knows_the_room_will_not_stand_between_him_and_the_watch
     source_event_id: event_turn_interlude_247
-    claim: 'NAJZIMNIEJSZY WNIOSEK TEJ SCENY I JEST TO JEGO WLASNA WIEDZA, NIE MADROSC Z URZEDU (retcon_000040).
+    claim: 'Najzimniejszy wniosek tej sceny i jest to jego wlasna wiedza, nie madrosc z urzedu (retcon_000040).
       Lucan powiedzial, ze straz wykorzysta go jako kozla ofiarnego - ma to pokrycie w lucan-leads#lead_city_watch_covers_cemetery_corpse_trade
       (straz zakrywa afere z handlem zwlokami, wiec potrzebuje kogos spoza siebie). Kesz dolozyl wlasne
       zdanie z fact_kesz_priced_representation_before_guild_and_watch (t_193): pokoj powiedzial w t_100,
-      ze Z KLIENTEM W MUNDURZE SIE NIE KONKURUJE. Wniosek o sobie: jesli straz bedzie potrzebowala kozla,
-      POKOJ NIE STANIE MIEDZY NIA A NIM. Ochrona, na ktora liczyl, ma warunek, ktorego on nie ustala.
-      ZADEN ZEGAR ANI SLEDZTWO Z TEGO NIE POWSTALY (retcon_000055, retcon_000058) - to odczyt dwoch zdan
-      lezacych juz w plikach. converging_target#consequence: PIERWSZA POLOWA ZREALIZOWANA - przestal byc
-      uslugodawca i jest strona z wlasnym motywem, powiedzial to na glos. DRUGA POLOWA STOI: nie padlo
+      ze Z klientem w mundurze sie nie konkuruje. Wniosek o sobie: jesli straz bedzie potrzebowala kozla,
+      pokoj nie stanie miedzy nia a nim. Ochrona, na ktora liczyl, ma warunek, ktorego on nie ustala.
+      Zaden zegar ani sledztwo z tego nie powstaly (retcon_000055, retcon_000058) - to odczyt dwoch zdan
+      lezacych juz w plikach. converging_target#consequence: Pierwsza polowa zrealizowana - przestal byc
+      uslugodawca i jest strona z wlasnym motywem, powiedzial to na glos. Druga polowa stoi: nie padlo
       imie Orena, nie padlo ty jestes czlowiekiem z rysopisu, nie padlo zeznanie z t_048 jako zrodlo ani
-      rozbieznosc rysopisu (retcon_000122). oren_connection.lucan_said_it_out_loud BEZ ZMIAN.'
+      rozbieznosc rysopisu (retcon_000122). oren_connection.lucan_said_it_out_loud bez zmian.'
   older_confirmed_index:
   - fact_kesz_refused_the_witness_removal_on_arithmetic_not_conscience <- event_turn_interlude_246
   - fact_kesz_audited_lucans_self_description <- event_turn_interlude_246

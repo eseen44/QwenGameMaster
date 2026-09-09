@@ -16,6 +16,17 @@ Skrot zawiera wiec:
 NIC NIE GINIE PRZEZ KONSTRUKCJE: skrot jest WYLICZANY, pelna karta zostaje na miejscu
 i jest jedynym zrodlem prawdy. Skrot bez pelnej karty nie jest kanonem.
 
+GLOS OSOBNO OD DANYCH (2026-09-09). Zmierzone na karcie Kesza: `knowledge` w skrocie wazylo
+8 343 B, `speech_traits` 400 B - dwadziescia razy wiecej tekstu w rejestrze protokolu
+audytowego niz tekstu o tym, jak ta osoba brzmi. Model imituje rejestr dominujacy
+w kontekscie, wiec skrot UCZYL mowic protokolem; to retcon_000040 i retcon_000136 wchodzace
+przez skrot karty, a nie przez `summary`. Dwie rzeczy sie wiec zmienily:
+  - `voice` (karta glosu z entities/npcs/voices/) jest WKLEJANY NA GORE skrotu, przed
+    czymkolwiek innym, i jest jedynym zrodlem glosu,
+  - wersaliki emfatyczne w `claim` sa GASZONE do zwyklego zapisu. Tresc zostaje bez zmiany
+    ani jednego slowa; ginie tylko krzyk, ktory byl najglosniejszym sygnalem stylu
+    w calym aktywnym kontekscie. Pelna karta zachowuje oryginalna pisownie.
+
 Uruchomienie:  python tools/build_npc_digests.py [--check] [--recent N]
 """
 
@@ -31,6 +42,21 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CARDS = ROOT / "campaigns" / "lucan" / "entities" / "npcs"
 DIGESTS = CARDS / "digests"
+VOICES = CARDS / "voices"
+
+# KONTRAKT GLOSU JEDZIE RAZEM Z GLOSEM. Pelna regula (system/npc-voice.md) jest osiagalna
+# przez load_when_npc_speaks, ale nie siedzi w always_load - sufit always_load to 12 KB,
+# a narrator.md z player-agency.md go prawie wypelniaja. Te szesc linii kosztuje ~0,5 KB
+# na uczestnika i stoi dokladnie tam, gdzie narrator czyta, jak ta postac mowi.
+KONTRAKT_GLOSU = [
+    "Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.",
+    "Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.",
+    "Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.",
+    "Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.",
+    "Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.",
+    "'nie X, tylko Y' najwyzej raz i nie u dwoch postaci w tej samej scenie.",
+    "Pelna regula i test na slepo: system/npc-voice.md",
+]
 SCENE = ROOT / "campaigns" / "lucan" / "context" / "scene.yaml"
 
 RECENT_DEFAULT = 4
@@ -43,6 +69,51 @@ PLAY_FIELDS = (
     "open_question_she_asked", "open_question_asked", "introduced_by", "relevance_to_lucan",
     "mechanics_ref", "faction_ref",
 )
+
+
+WERSALIKI = re.compile(r"(?<!\w)([A-ZĄĆĘŁŃÓŚŹŻ]{3,}(?:[ -][A-ZĄĆĘŁŃÓŚŹŻ]{1,})*)(?!\w)")
+POCZATEK_ZDANIA = re.compile(r"(?:^|[.!?:;]\s+|-\s+)$")
+
+
+def wygas_wersaliki(text: str) -> str:
+    """Gasi emfatyczne wersaliki, nie ruszajac tresci ani identyfikatorow.
+
+    W `claim` narrator krzyczy: "NAJZIMNIEJSZY WNIOSEK TEJ SCENY", "ZAPLATA ODDANA
+    W CALOSCI", "NIEUSTALONE". To jest sygnal stylu, a nie informacja - i w skrocie karty
+    stoi tuz obok kontraktu glosu, ktory jest dwadziescia razy krotszy. Identyfikatory
+    (npc_..., fact_..., retcon_000162) sa pisane malymi literami, wiec ich to nie dotyczy.
+
+    Wielka litera wraca tylko na POCZATKU ZDANIA. Bez tego warunku srodek zdania dostawal
+    wielkie litery przy kazdym urwanym ciagu wersalikow ("wiedza, Nie madrosc Z Urzedu").
+    """
+    def zamien(match: re.Match) -> str:
+        run = match.group(1)
+        przed = text[:match.start()]
+        return run.capitalize() if POCZATEK_ZDANIA.search(przed) or not przed else run.lower()
+
+    return WERSALIKI.sub(zamien, text)
+
+
+def wygas_w_strukturze(node: object) -> object:
+    if isinstance(node, str):
+        return wygas_wersaliki(node)
+    if isinstance(node, list):
+        return [wygas_w_strukturze(item) for item in node]
+    if isinstance(node, dict):
+        return {key: wygas_w_strukturze(value) for key, value in node.items()}
+    return node
+
+
+def voice_for(stem: str) -> dict | None:
+    """Karta glosu dla tej postaci albo None. Kontrola pokrycia: tools/voice_check.py."""
+    path = VOICES / f"{stem}.yaml"
+    if not path.exists():
+        return None
+    try:
+        voice = yaml.safe_load(path.read_text(encoding="utf-8-sig"))
+    except yaml.YAMLError:
+        return None
+    return voice if isinstance(voice, dict) else None
 
 
 def turn_number(event_id: object) -> int:
@@ -60,8 +131,27 @@ def current_turn() -> int:
     return turn_number(scene.get("last_event_id"))
 
 
-def digest_for(card: dict, recent: int, now: int) -> dict:
-    out = {key: card[key] for key in PLAY_FIELDS if key in card}
+def digest_for(card: dict, recent: int, now: int, stem: str = "", voice: dict | None = None) -> dict:
+    # GLOS PIERWSZY, PRZED DANYMI. O kolejnosci w aktywnym kontekscie decyduje ten plik,
+    # a nie dobra wola czytajacego - a rejestr dominujacy w kontekscie jest tym, ktory
+    # model imituje.
+    out: dict = {}
+    if voice is not None:
+        out["voice_ref"] = f"{VOICES.relative_to(ROOT).as_posix()}/{stem}.yaml"
+        out["voice"] = {key: value for key, value in voice.items()
+                        if key not in ("schema_version", "object_type", "id", "npc_id", "npc_ref")}
+        out["voice_contract"] = list(KONTRAKT_GLOSU)
+    else:
+        out["voice_missing"] = (
+            "BRAK KARTY GLOSU - nie ukladaj kwestii z knowledge ani z audytu. "
+            "Zaloz plik w entities/npcs/voices/ (system/npc-voice.md)."
+        )
+        out["voice_contract"] = list(KONTRAKT_GLOSU)
+    # JEDNO ZRODLO GLOSU. Karta glosu zastepuje `speech_traits`, a nie stoi obok nich -
+    # dwie listy o tym samym roznia sie zawsze i wygrywa dluzsza. `speech_traits` zostaja
+    # w skrocie wylacznie dla postaci, ktore karty glosu jeszcze nie maja.
+    pola = tuple(f for f in PLAY_FIELDS if f != "speech_traits" or voice is None)
+    out.update({key: card[key] for key in pola if key in card})
     out["object_type"] = "npc_digest"
     out["full_card"] = None          # wypelniane przez wolajacego
     knowledge = card.get("knowledge") or {}
@@ -73,13 +163,19 @@ def digest_for(card: dict, recent: int, now: int) -> dict:
     ostatnia = turn_number(najnowsze[0].get("source_event_id")) if najnowsze else -1
 
     out["knowledge"] = {
-        "recent_confirmed": najnowsze,
+        "register_note": (
+            "TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: "
+            "mowia, CO postac wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze "
+            "tego skrotu (system/npc-voice.md). Wersaliki emfatyczne sa tu wygaszone "
+            "celowo - pelna karta zachowuje oryginalna pisownie."
+        ),
+        "recent_confirmed": wygas_w_strukturze(najnowsze),
         "older_confirmed_index": [
             f"{entry.get('fact_id', '?')} <- {entry.get('source_event_id', '?')}"
             for entry in reszta
         ],
-        "suspicions": knowledge.get("suspicions") or [],
-        "false_beliefs": knowledge.get("false_beliefs") or [],
+        "suspicions": wygas_w_strukturze(knowledge.get("suspicions") or []),
+        "false_beliefs": wygas_w_strukturze(knowledge.get("false_beliefs") or []),
         "forbidden_without_source": knowledge.get("forbidden_without_source") or [],
     }
     out["freshness"] = {
@@ -119,7 +215,7 @@ def build(recent: int) -> dict[Path, str]:
         confirmed = ((card.get("knowledge") or {}).get("confirmed") or [])
         if len(confirmed) <= recent:
             continue          # karta i tak jest mala - skrot nic nie da
-        digest = digest_for(card, recent, now)
+        digest = digest_for(card, recent, now, path.stem, voice_for(path.stem))
         digest["full_card"] = path.relative_to(ROOT).as_posix()
         body = yaml.safe_dump(digest, allow_unicode=True, sort_keys=False, width=100)
         # SKROT, KTORY NIE ZMNIEJSZA, JEST SZUMEM. Naglowki, ostrzezenie o swiezosci

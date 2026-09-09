@@ -7,6 +7,8 @@ Kontrole istnieja, tylko nikt ich nie uruchamia w momencie, w ktorym maja znacze
 Domyslnie leci zestaw SZYBKI (kilkanascie sekund), bo ma sie nadawac na pre-commit:
   - zapora dziennika        (tools/journal_guard.py)   ~8 s
   - proza jako klucze null  (tools/fix_prose_keys.py)  ~2 s
+  - karty glosu NPC         (tools/voice_check.py)     <1 s
+  - kontrakt prozy tury     (tools/prose_check.py)     <1 s
   - sieroce odwolania       (tools/audit_refs.py)      ~10 s
 `--full` dokleja pelna walidacje projektu (tools/validate_project.py, ~55 s) i testy.
 
@@ -100,6 +102,14 @@ CHECKS = [
     ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
     ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
     ("skroty kart NPC aktualne", [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True),
+    # Glos NPC ma wlasne, krotkie zrodlo i nie wolno go brac z `knowledge` ani z audytu -
+    # inaczej wszystkie postacie brzmia jednakowo (retcon_000040, retcon_000136), a karty
+    # Kesza i Seraphiny kazaly im wprost wyceniac, wbrew retcon_000162.
+    ("karty glosu NPC", [sys.executable, "tools/voice_check.py", "--check"], 60, True),
+    # BRAMKA NA JEDNA RZECZ, cytat z retcon_000162: wiecej niz jedna wycena DECYZJI
+    # w prozie nowej tury. Pozostale pomiary prozy sa raportem - wymagaja decyzji
+    # redakcyjnej, a bramka swiecaca na czerwono bez przerwy jest ignorowana.
+    ("kontrakt prozy", [sys.executable, "tools/prose_check.py", "--new-only", "--quiet"], 60, True),
     ("kontrakt pol instancji", [sys.executable, "tools/build_field_contract.py", "--check"], 60, True),
     # NIEBLOKUJACA: uzgodnienie silnika z rejestrem wzrostu wymaga decyzji mechanicznych,
     # nie poprawki skryptem. Raport ma byc widoczny, nie ma zatrzymywac pracy.
@@ -144,6 +154,17 @@ def main() -> int:
             # Zmiana karty NPC bez przebudowy skrotu znaczy, ze brief podaje stary stan.
             checks.append(("skroty kart NPC aktualne",
                            [sys.executable, "tools/build_npc_digests.py", "--check"], 60, True))
+        if any("/entities/npcs/voices/" in path.as_posix() or "npc-voice" in path.as_posix()
+               for path in staged):
+            # Karta glosu jest jedynym zrodlem glosu, wiec jej kompletnosc i rejestr sa
+            # warunkiem, nie prosba (system/npc-voice.md).
+            checks.append(("karty glosu NPC",
+                           [sys.executable, "tools/voice_check.py", "--check"], 60, True))
+        if any("events.jsonl" in path.as_posix() for path in staged):
+            # Nowa proza tury wchodzi do dziennika i przy nastepnym otwarciu sesji jest
+            # jedyna probka jezyka - jedna bramka: wiecej niz jedna wycena decyzji.
+            checks.append(("kontrakt prozy",
+                           [sys.executable, "tools/prose_check.py", "--new-only", "--quiet"], 60, True))
         if any("/state/instances/" in path.as_posix() for path in staged):
             # Nowe pole w instancji bez wpisu w kontrakcie moze udawac mechanike.
             checks.append(("kontrakt pol instancji",

@@ -1,0 +1,51 @@
+schema_version: 1
+object_type: voice_fixture
+id: fixture_voice_blind_test
+canon: false
+established: 2026-09-09
+purpose: >-
+  Fikstura stylu, NIE kanon i NIE zdarzenie. Cztery ważne postacie dostają dokładnie tę samą
+  informację od Lucana. Test na ślepo z retcon_000040: zakryj imię i sprawdź, czy wiadomo,
+  kto mówi. Kwestie są dialogiem, nie opisem typu "Kesz ocenił ryzyko".
+  Żadna z tych rozmów się nie odbyła; to próbka głosu do porównania, nie fakt o świecie.
+checked_by: tools/tests/test_npc_voice.py
+rule: system/npc-voice.md
+
+stimulus: >-
+  Lucan, do każdej z tych osób osobno, tymi samymi słowami: "Za trzy tygodnie na otwartej
+  dysputie ktoś podniesie szeroką definicję ożywionego konstruktu. Będę tam i powiem, co
+  o tym myślę."
+
+# WYMAGANIA, KTORE SPRAWDZA TEST (nie sa opinia recenzenta):
+#   - kazda odpowiedz jest krotka i jest kwestia wprost,
+#   - najwyzej jedna z czterech uzywa konstrukcji "nie X, tylko Y",
+#   - co najmniej trzy z czterech nie zawieraja ani jednego slowa z rodziny
+#     cena/koszt/wartosc/rachunek/wycena/oplacalnosc,
+#   - zadne dwie odpowiedzi nie sa tym samym rejestrem (rozne dlugosci, rozne slowniki).
+answers:
+- npc_id: npc_rovan_kesz
+  line: >-
+    Publicznie. Dobrze. Kto prowadzi protokół tej dysputy i czy nazwisko mówcy wchodzi
+    do akt Akademii, czy do miejskich.
+  why_it_is_him: >-
+    Otwiera własną pozycją, kończy pytaniem o papier i nazwisko. Zero puenty.
+    Nie odnosi się do treści dysputy, bo nie ma na nią słów.
+- npc_id: npc_seraphine_vale
+  line: >-
+    Zamknij drzwi. Pytam raz: mówisz jako Veyr, jako doktor czy jako mój ranga D?
+  why_it_is_her: >-
+    Dwa zdania, jedno pytanie, zadane raz. Rozdziela role formalne, bo od nich zależy,
+    kto za to odpowiada. Poleceniem otwiera, nie prośbą.
+- npc_id: npc_neris_aldhen
+  line: >-
+    Będziesz - dobrze, tylko nie mów "szeroka", bo Kolm to potem powtórzy jako
+    "dowolna". Zaraz, mam gdzieś jego zeszłoroczny akapit. (wstaje) Nie ruszaj tego stosu.
+  why_it_is_her: >-
+    Przerywa sobie, poprawia cudze słowo, martwi się brzmieniem i tym, kto to powtórzy,
+    a potem idzie po papier. Najdłuższa z czterech i najbardziej nierówna.
+- npc_id: npc_varkhen_mind
+  line: >-
+    Będę stał obok.
+  why_it_is_him: >-
+    Cztery słowa, twierdzenie, żadnej analizy. Nie pyta, o co w tej dysputie chodzi -
+    to jest poza jego czasami. Odpowiada czynem, nie zdaniem o sprawie.

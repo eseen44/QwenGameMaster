@@ -115,8 +115,16 @@ class DigestTest(unittest.TestCase):
         card = yaml.safe_load((CARDS / "seraphine-vale.yaml").read_text(encoding="utf-8-sig"))
         digest = yaml.safe_load((CARDS / "digests" / "seraphine-vale.yaml").read_text(encoding="utf-8"))
         self.assertEqual(digest["portrayal"], card["portrayal"])
-        self.assertEqual(digest["speech_traits"], card["speech_traits"])
         self.assertEqual(digest["agenda"], card["agenda"])
+        # GLOS ZAMIAST speech_traits (2026-09-09). Postac z karta glosu
+        # (entities/npcs/voices/) dostaje w skrocie `voice` i NIE dostaje `speech_traits` -
+        # dwie listy o tym samym roznia sie zawsze i wygrywa dluzsza. Postac bez karty
+        # glosu ma `speech_traits` jak dotad. Patrz system/npc-voice.md.
+        if "voice" in digest:
+            self.assertNotIn("speech_traits", digest)
+            self.assertIn("rhythm", digest["voice"])
+        else:
+            self.assertEqual(digest["speech_traits"], card["speech_traits"])
         self.assertEqual(digest["knowledge"]["forbidden_without_source"],
                          card["knowledge"]["forbidden_without_source"])
 

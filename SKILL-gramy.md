@@ -104,6 +104,23 @@ Wczytaj (dokładnie te, nie więcej):
   trzyma część „jak grać" jeden do jednego, cztery najnowsze fakty w całości i indeks
   wszystkich starszych. Karta Seraphiny to 60,7 KB, jej skrót 19,4 KB. Szczegół starszego
   faktu dociągnij z pełnej karty — skrót **nie jest kanonem** i sam to o sobie mówi.
+- **GŁOS BIERZ Z KARTY GŁOSU, DANE Z `knowledge` — TO DWA RÓŻNE PLIKI.**
+  `entities/npcs/voices/<npc>.yaml` (do 2,5 KB, osiem osi: rytm, słownik, sposób unikania
+  odpowiedzi, typ błędów, reakcja fizyczna, domyślna długość, emocje, własna granica
+  nazywania) jest **jedynym** źródłem tego, jak postać mówi; brief podaje `voice_ref` przy
+  uczestniku, a skrót karty wkleja kontrakt na górze. `knowledge`, `audit`, transakcje
+  i retcony mówią, CO postać wie — i nigdy nie są próbką mowy. Zmierzone 09.09.2026: w
+  skrócie karty Kesza `knowledge` w rejestrze protokołu ważyło 8,3 KB przy 0,4 KB
+  `speech_traits`, więc rejestrem dominującym w kontekście był protokół i to on wracał
+  w dialogu — `retcon_000040` i `retcon_000136` wchodzące przez skrót, nie przez `summary`.
+  Reguła i test na ślepo: `system/npc-voice.md` (trigger `npc_speaks`).
+- **`outcome.prose` to NARRACJA, nie streszczenie protokołu.** Kwestia, która rozstrzyga
+  scenę, pada w dialogu; parafraza „powiedział, że…" jest do rzeczy nieistotnych. `recent`
+  podaje tę prozę następnej sesji jako jedyną próbkę języka, więc tura uczy następnej tury:
+  236–248 to 13 wpisów autorskich, **zero** kwestii wprost i 20 konstrukcji mowy zależnej.
+  `turn commit` odmawia prozy z więcej niż jedną wyceną DECYZJI (`retcon_000162`) i wypisuje
+  `prose_warnings`, gdy proza streszcza rozmowę bez ani jednej kwestii. Literalna cena przy
+  zakupie, honorarium albo kwocie u wagi jest w porządku i nie jest liczona.
 
 Nie wczytuj całego dziennika. Nigdy nie wczytuj `migration/sources/` ani
 `migration/noncanonical/` w zwykłej turze.

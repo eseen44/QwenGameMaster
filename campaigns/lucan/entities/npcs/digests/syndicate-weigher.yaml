@@ -1,3 +1,32 @@
+voice_ref: campaigns/lucan/entities/npcs/voices/syndicate-weigher.yaml
+voice:
+  rhythm: 'Milczy, dopóki rozmówca mówi do jego frontu. Kiedy trafi w niego, odpowiada krótko i po kolei:
+    rozbija rzecz na tempa - najpierw to, potem to, na końcu to.'
+  diction: 'Warsztat i inwentarz: próba, kamień, partia, tempo, odkładam, to idzie osobno. Nie ocenia
+    rzeczy - sortuje ją. Nikogo nie tytułuje i sam się nie przedstawia.'
+  evasion: Nie odpowiada - sortuje dalej. Jego milczenie nie jest wykrętem, jest odpowiedzią jeszcze nie.
+  mistakes: Sortuje odruchowo także wtedy, kiedy nie powinien pokazywać, że robił to już wcześniej. Ręce
+    mówią o nim więcej, niż zamierzał.
+  body: Ręce robocze, cały czas przy wadze uchylnej; nie odkłada tego, co trzyma, i nie wstaje. Podnosi
+    wzrok raz, na końcu.
+  length: Jedno, dwa zdania. Liczba to osobne zdanie, bez ozdobnika.
+  emotion: Przez to, co odkłada na bok, i przez to, czego nie tyka. Głosu nie zmienia nigdy.
+  blind_spot: Nie umie nazwać własnej pozycji inaczej niż przez towar. O sobie mówi tak, jakby mówił o
+    partii.
+  money: 'Tu literalnie i to jest jego rzemiosło: kwota, próba, partia. Liczbę podaje raz, na końcu, jednym
+    zdaniem - i nie uzasadnia jej.'
+  samples:
+  - To idzie osobno.
+  - Najpierw waga, potem próba. Rozmowa na końcu.
+  - Dwanaście srebra za partię. Nie za sztukę.
+voice_contract:
+- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
+- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
+- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
+- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_syndicate_weigher
 name: Wagowy
@@ -20,11 +49,6 @@ portrayal:
     niego.'
   tell: Sortuje grobowy towar odruchowo i bezbłędnie, w tym odkłada na bok robotę konsekracyjną bez pytania
     - robił to już wcześniej.
-speech_traits:
-- Mowi sam, krotko i tylko wtedy, gdy rozmowca trafil w niego, a nie w jego front. Nie przedstawia sie
-  i nikogo nie tytuluje.
-- Rozbija rzecz na tempa i etapy, zamiast ja oceniac - mysli inwentarzem, nie opinia.
-- Liczbe zostawia sobie na koniec i podaje ja bez ozdobnikow, jednym zdaniem.
 agenda:
 - set_the_number_himself
 - stay_unnamed
@@ -32,40 +56,43 @@ agenda:
 object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/syndicate-weigher.yaml
 knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
+    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
+    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
   recent_confirmed:
   - fact_id: fact_weigher_finally_named_prices_and_took_no_coin
     source_event_id: event_turn_interlude_205
-    claim: 'PIERWSZE LICZBY OD POCZATKU ZNAJOMOSCI - podal je dopiero, gdy mial specyfikacje (agenda#set_the_number_himself).
-      SZKIELKA, pierwsza partia probek: 15 SREBRA - trzy worki odpadu jubilerskiego i trzy dniowki przebierania;
-      kamien gratis, placi sie za oczy i czas, dokladnie jak zapowiedzial w t_198. NAMIARY DO WIEDZMY:
-      10 SREBRA - nie za wiedze, tylko za poslanie i za to, ze ktos po drodze musi zapytac czlowieka,
-      ktory nie lubi pytan. RAZEM 25. METAL bez ceny, bo nie ma nazwy materialu. NIE WZIAL GOTOWKI: sciaga
+    claim: 'Pierwsze liczby od poczatku znajomosci - podal je dopiero, gdy mial specyfikacje (agenda#set_the_number_himself).
+      Szkielka, pierwsza partia probek: 15 srebra - trzy worki odpadu jubilerskiego i trzy dniowki przebierania;
+      kamien gratis, placi sie za oczy i czas, dokladnie jak zapowiedzial w t_198. Namiary do wiedzmy:
+      10 srebra - nie za wiedze, tylko za poslanie i za to, ze ktos po drodze musi zapytac czlowieka,
+      ktory nie lubi pytan. Razem 25. Metal bez ceny, bo nie ma nazwy materialu. Nie wzial gotowki: sciaga
       to z drugiej raty, bo nie wyciaga reki po 25 srebra od czlowieka, ktoremu sam winien jest 40 000.
-      ZADNE SREBRO NIE ZMIENILO WLASCICIELA - carried_silver 150 i syndicate_payout_outstanding_silver
-      40000 nietkniete, potracenie nastapi przy wyplacie. TERMINOW DOSTAWY NIE PODAL.'
+      Zadne srebro nie zmienilo wlasciciela - carried_silver 150 i syndicate_payout_outstanding_silver
+      40000 nietkniete, potracenie nastapi przy wyplacie. Terminow dostawy nie podal.'
   - fact_id: fact_weigher_got_a_reason_he_did_not_ask_for
     source_event_id: event_turn_interlude_205
-    claim: 'Lucan sam, NIEPYTANY, dorzucil do zamowienia na wiedzme: nic jej nie zrobi, szuka uslugodawcy.
+    claim: 'Lucan sam, niepytany, dorzucil do zamowienia na wiedzme: nic jej nie zrobi, szuka uslugodawcy.
       Pryncypal nie zmienil swojej zasady z t_196 (powodu nie kupuje i nie pyta o niego), ale odnotowal,
-      ze akurat to zdanie ma wartosc UZYTKOWA - nie dla niego, tylko dla czlowieka na koncu lancucha,
+      ze akurat to zdanie ma wartosc uzytkowa - nie dla niego, tylko dla czlowieka na koncu lancucha,
       bo ludzie robiacy rzeczy tego rodzaju sa ostrozni co do tego, kto o nich pyta. Zdanie idzie dalej
-      razem z zamowieniem. NARRATOR NIE ROZSTRZYGA, czy jest prawdziwe, i nie zapowiada, ze zostanie sprawdzone.'
+      razem z zamowieniem. Narrator nie rozstrzyga, czy jest prawdziwe, i nie zapowiada, ze zostanie sprawdzone.'
   - fact_id: fact_weigher_got_the_scale_walked_back_to_ordinary_subsidence
     source_event_id: event_turn_interlude_204
-    claim: 'Lucan NIE odwolal niczego z t_203 - podal zwyczajne wytlumaczenie tego samego zjawiska: grunt
+    claim: 'Lucan nie odwolal niczego z t_203 - podal zwyczajne wytlumaczenie tego samego zjawiska: grunt
       nad duza nekropolia potrafi sie zarywac, zwlaszcza kiedy ktos stamtad wykopuje zasoby, wiec na razie
       mowa o zwyklym zagrozeniu zawalem. Pryncypal wraca przez to z ''moje przedsiewziecie moze nie miec
       gruntu'' do ''teren jest ryzykowny'' - teza inwestycyjna przestaje byc uniewazniona i wraca do bycia
-      ryzykowna. NIEWIEDZY STRACONEJ W t_203 NIE ODZYSKUJE i tego nie udaje. UWAGA: ''ktos stamtad wykopuje
-      zasoby'' obejmuje JEGO - trzy dni temu kupil szescdziesiat kilo wykopanych stamtad rzeczy (t_111)
+      ryzykowna. Niewiedzy straconej w t_203 nie odzyskuje i tego nie udaje. Uwaga: ''ktos stamtad wykopuje
+      zasoby'' obejmuje jego - trzy dni temu kupil szescdziesiat kilo wykopanych stamtad rzeczy (t_111)
       i posortowal je wlasnymi rekami. Lucan powiedzial to uprzejmie, bez akcentu; pryncypal uslyszal,
       bo to jego wlasny towar.'
   - fact_id: fact_weigher_heard_you_do_not_know_half_of_it
     source_event_id: event_turn_interlude_204
     claim: 'Lucan jednoczesnie zmniejszyl mechanizm i powiekszyl tajemnice: ''nadal nie wie pan nawet
-      polowy''. Pryncypal ZAUWAZYL napiecie miedzy tymi dwoma zdaniami i nazwal je raz, bez triumfu, NIE
-      ZADAJAC rozwiniecia. NARRATOR NIE ROZWIJA TEJ DRUGIEJ POLOWY ANI O SLOWO i nie daje do niej zadnej
-      wskazowki; zaden NPC nie zgaduje. forbidden_without_source nienaruszone: varkhen_existence, seals_and_lower_gate,
+      polowy''. Pryncypal zauwazyl napiecie miedzy tymi dwoma zdaniami i nazwal je raz, bez triumfu, nie
+      zadajac rozwiniecia. Narrator nie rozwija tej drugiej polowy ani o slowo i nie daje do niej zadnej
+      wskazowki; zaden npc nie zgaduje. forbidden_without_source nienaruszone: varkhen_existence, seals_and_lower_gate,
       lucan_necromancy, spidey_existence.'
   older_confirmed_index:
   - fact_weigher_weighs_lucan_by_the_fact_he_has_not_left <- event_turn_interlude_204

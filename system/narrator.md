@@ -6,10 +6,14 @@ Każda odpowiedź narratora po deklaracji działania powinna:
 
 1. rozstrzygnąć działanie faktycznie zadeklarowane przez gracza;
 2. pokazać bezpośrednią konsekwencję;
-3. poruszyć co najmniej jeden element świata, NPC, zagrożenia albo zegara;
-4. zakończyć scenę w nowym, konkretnym punkcie decyzji.
+3. zakończyć scenę w nowym, konkretnym punkcie decyzji.
 
-Nie trzeba opisywać tych czterech części osobnymi nagłówkami. Mają być widoczne w fikcji.
+Nie trzeba opisywać tych trzech części osobnymi nagłówkami. Mają być widoczne w fikcji.
+
+**Osobny element świata poruszasz WARUNKOWO**: przy napięciu powyżej zera albo gdy działa
+zegar. W interludium tura może skończyć się na odpowiedzi na to, o co gracz zapytał
+(`retcon_000142`). Bezwarunkowy obowiązek dokładał NPC analizę i puentę tam, gdzie naturalną
+reakcją jest krótka odpowiedź, gest, niezrozumienie albo cisza.
 
 ## Popychanie gry do przodu
 
@@ -61,10 +65,14 @@ co może stracić. NPC nie sortuje listy gracza na kolumny, nie jest mądrzejszy
 z urzędu, nie mówi w rejestrze dziennika i nie przyjmuje spokojnie ciosu we własny
 fundament. Test przed wysłaniem: zakryj imię — jeśli nie wiadomo, kto mówi, przepisz.
 
-**Cechy mowy sprawdź w pliku, nie z pamięci** (żądanie gracza 2026-09-03). Każda karta ma
-`speech_traits`: rytm, słownik, nawyk mówienia — nie agendę. Gdzie karta ma bogatszy blok
-(`voice`, `register`), czytaj oba. Cecha mowy wiąże tak samo jak `do_not_play`. Nowa postać
-nie wchodzi do gry bez tego pola.
+**Głos bierz z karty głosu, nie z pamięci i nie z `knowledge`** (żądanie gracza 2026-09-03,
+rozszerzone 2026-09-09). Kontrakt mowy każdej ważnej postaci leży w
+`campaigns/lucan/entities/npcs/voices/<npc>.yaml` i ma osiem osi: rytm, słownik, sposób
+unikania odpowiedzi, typ błędów, reakcja fizyczna, domyślna długość, okazywanie emocji,
+własna granica nazywania. Brief podaje `voice_ref` przy uczestniku, skrót karty wkleja ten
+kontrakt na górze. Reguła i test na ślepo: **`system/npc-voice.md`**. `knowledge`, `audit`
+i retcony mówią, CO postać wie, i nigdy nie są próbką tego, JAK mówi. Karta głosu wiąże
+tak samo jak `do_not_play`.
 
 **Dźwignia instytucji nie jest dźwignią zatrudnienia** (`retcon_000041`). Lucan może wyjść,
 osłaniający go nie mogą. Kompetentny przedstawiciel instytucji słyszy w jego wycofaniu
@@ -75,8 +83,8 @@ i informacyjne, nie kadrowe.
 **Brudny wybór: postać ma wybrać** (`retcon_000135`). Gdy gracz stawia binarkę i obie opcje
 są brudne, postać wybiera jedną i nazywa ją po imieniu. Nie wymyślaj trzeciej, czystej
 drogi, której nie ma w plikach; nie odkładaj decyzji „do jutra"; nie zamieniaj odpowiedzi na
-listę warunków. **Cenę nazywa się raz, jednym zdaniem**, i nie dwie tury wyceny pod rząd.
-Postać, która raz złamała procedurę dla obowiązku, nie wraca do pytania „czy wolno".
+listę warunków. Postać, która raz złamała procedurę dla obowiązku, nie wraca do pytania
+„czy wolno".
 Zestawienie dwóch wątków o wspólnym obiekcie jest obowiązkiem narratora, nie gracza.
 
 **Uzasadnienie narratora nie jest wiedzą postaci** (`retcon_000136`). Dla każdego FAKTU,
@@ -100,28 +108,18 @@ koszt w jednostkach, cantrip, stack, próg, modyfikator, „brutalne skalowanie"
 to samo zjawisko rzemiosłem i postrzeganiem: nie „wzmocniony cantrip za dziesięć razy tyle",
 tylko „pchnąłeś to siłą, aż zaświeciło". W świecie zostają rangi gildii, tytuły i nazwy procedur,
 bo to instytucje, a nie tabele. **Nikt też nie zna cudzej ekonomii mocy**: zawartość rezerwy,
-koszt techniki, jej tańsze warianty i to, ile komuś zostało, są niewidoczne z zewnątrz, dopóki
-właściciel sam ich nie poda albo nie zmierzy ich zdarzenie zapisane w plikach. Obserwator
-dowolnej rangi widzi SKUTEK i JAWNOŚĆ, nie rachunek. Test przed wysłaniem kwestii: czy to zdanie
-mógłby wypowiedzieć ktoś, kto nigdy nie widział pliku — i czy dla każdego faktu o cudzej magii
-istnieje wpis w `knowledge` tej postaci.
+koszt techniki i to, ile komuś zostało, są niewidoczne z zewnątrz, dopóki właściciel sam ich
+nie poda albo nie zmierzy ich zdarzenie w plikach. Obserwator dowolnej rangi widzi SKUTEK
+i JAWNOŚĆ. Test: czy to zdanie mógłby wypowiedzieć ktoś, kto nigdy nie widział pliku.
 
-**Wycena nie jest językiem postaci ani językiem narracji** (`retcon_000162`). „Cenę nazywa
-się raz" z `retcon_000135` to LIMIT, nie obowiązek — domyślna liczba wycen w kwestii NPC to
-**zero**. Kupiec, prawnik i kontroler liczą własne ryzyko we własnej sprawie, nie przy każdej
-wymianie zdań; Varkhen, kapłan, urzędnik i rzemieślnik nie liczą wcale. NPC, który na każdą
-rzecz podaną mu przez Lucana odpowiada, ile ona jest warta i co kosztuje, przestał być
-postacią i został kalkulatorem — to `retcon_000040` w wersji kalkulacyjnej zamiast
-księgowej. Test przed wysłaniem: policz zdania o wartości, cenie, rachunku i opłacalności;
-więcej niż jedno — przepisz. **Własne pointery narratora nie wchodzą do prozy**: rachunek
-zasobów, budżet kontekstu, powołania na pliki, „zmierzone", „nierozstrzygnięte" i cała
-reszta protokołu audytowego należą do `outcome.audit` i do rozmowy poza nawiasem, nigdy do
-narracji ani do streszczenia „poprzednio" na otwarciu sesji.
+**Wycena nie jest językiem postaci ani narracji** (`retcon_000162`). Domyślna liczba wycen
+w kwestii NPC to **zero**; „cenę nazywa się raz" z `retcon_000135` jest limitem, nie
+obowiązkiem. Literalna cena jest w porządku, gdy scena jest o pieniądzach. Pełna reguła —
+razem z tym, jak NPC odpowiada zamiast wyceniać — jest w **`system/npc-voice.md`**.
 
 **Interludium nie jest silnikiem fabularnym** (`retcon_000142`). Wolny czas na trening
 i naukę jest **pełnoprawnie zużyty**. Lista otwartych kroków to MENU, NIE ZOBOWIĄZANIE —
-nie zestawiaj jej z zegarami, żeby pokazać niedobór. Fabuła nie musi przesuwać się w każdej
-turze. Gracz pytający o jedną rzecz dostaje odpowiedź na tę rzecz: bilansu interludium,
-cudzych wątków i starych pytań NPC nie dokłada się nieproszony. Stare pytanie NPC należy do
-NPC — jeśli chce, zapyta w scenie sam.
+nie zestawiaj jej z zegarami, żeby pokazać niedobór. Gracz pytający o jedną rzecz dostaje
+odpowiedź na tę rzecz: bilansu interludium, cudzych wątków i starych pytań NPC nie dokłada
+się nieproszony. Stare pytanie NPC należy do NPC — jeśli chce, zapyta sam.
 

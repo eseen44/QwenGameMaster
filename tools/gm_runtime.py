@@ -1004,6 +1004,53 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.consequence_source_refs must be a list of non-empty strings")
 
 
+def validate_prose_contract(outcome: dict[str, Any]) -> list[str]:
+    """Kontrakt prozy: wycena metaforyczna BLOKUJE, brak dialogu jest ostrzezeniem.
+
+    Do 2026-09-09 `outcome.prose` nie mialo zadnego kontraktu: nie bylo go w szablonie,
+    nie sprawdzal go commit, a `gm recent` podaje te sama proze przy otwarciu nastepnej
+    sesji jako JEDYNA probke jezyka. Petla domykala sie sama - proza tury 248 uczyla tury
+    249, ze narracja to relacja posrednia w rejestrze narratora. Pomiar tur 236-248:
+    13 wpisow autorskich, ZERO kwestii wprost, 20 konstrukcji mowy zaleznej, 7 wycen
+    metaforycznych.
+
+    Bramka jest jedna i jest cytatem z retcon_000162 ("wiecej niz jedno - przepisz"),
+    a nie nowym zakazem slow: prose_check odroznia rozmowe o pieniadzach (srebro,
+    honorarium, kwota) od wyceniania kazdej decyzji. Reszta jest OSTRZEZENIEM, bo wymaga
+    decyzji redakcyjnej, a bramka swiecaca na czerwono bez przerwy jest ignorowana.
+    """
+    prose = (outcome.get("prose") or "").strip()
+    if not prose:
+        return []
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import prose_check
+    except Exception:              # kontrola nie moze wywrocic commita
+        return []
+    pomiar = prose_check.zmierz(prose)
+    if pomiar["wyceny_metaforyczne"] > prose_check.LIMIT_WYCEN:
+        fragmenty = " | ".join(pomiar["wyceny_fragmenty"][:3])
+        raise RuntimeError(
+            f"outcome.prose ma {pomiar['wyceny_metaforyczne']} wycen metaforycznych "
+            f"(limit {prose_check.LIMIT_WYCEN}, retcon_000162). Literalna cena przy zakupie, "
+            f"honorarium albo kwocie NIE jest tu liczona - to sa wyceny decyzji. "
+            f"Przepisz: {fragmenty}. Regula: system/npc-voice.md"
+        )
+    ostrzezenia = []
+    if pomiar["mowa_zalezna"] >= 2 and pomiar["dialog_wprost"] == 0:
+        ostrzezenia.append(
+            f"proza streszcza {pomiar['mowa_zalezna']} wypowiedzi mowa zalezna i nie ma ani "
+            "jednej kwestii wprost - kwestia, ktora rozstrzyga scene, ma padac w dialogu "
+            "(system/npc-voice.md)"
+        )
+    if pomiar["szablon_nie_tylko"] > 1:
+        ostrzezenia.append(
+            f"szablon 'nie X, tylko Y' {pomiar['szablon_nie_tylko']}x w jednej prozie - "
+            "najwyzej raz, i nie u dwoch postaci w tej samej scenie"
+        )
+    return ostrzezenia
+
+
 def validate_turn_identity(transaction: dict[str, Any]) -> None:
     """Kazda trwala tura ma actor_id, a test mechaniczny ma pelna trojke.
 
@@ -1154,6 +1201,7 @@ def commit_turn(
     validate_interlude_outcome(transaction, outcome)
     validate_source_refs_resolve(campaign_root, outcome)
     validate_turn_identity(transaction)
+    prose_warnings = validate_prose_contract(outcome)
     due = transaction.get("preview", {}).get("world_reactions_due_before", [])
     resolved_ids = set(outcome.get("resolved_world_reaction_ids", []))
     if due and not resolved_ids.intersection(item.get("id") for item in due if isinstance(item, dict)):
@@ -1187,7 +1235,13 @@ def commit_turn(
     transaction["status"] = "committed"
     transaction["committed_at"] = now_iso()
     atomic_yaml(path, transaction)
-    return refresh_after_commit(campaign_root, transaction)
+    result = refresh_after_commit(campaign_root, transaction)
+    # OSTRZEZENIA O PROZIE WIDOCZNE DOKLADNIE TAM, GDZIE MAJA ZNACZENIE - w wyjsciu commita,
+    # tuz przed napisaniem odpowiedzi dla gracza. Raport uruchamiany raz na tydzien nie
+    # zmieni ani jednej kwestii; ten sam tekst przy commicie zmienia nastepna.
+    if prose_warnings:
+        result["prose_warnings"] = prose_warnings
+    return result
 
 
 def abort_turn(
@@ -1446,6 +1500,18 @@ def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
             "over_budget_by": max(0, grand - CONTEXT_BUDGET_BYTES),
         },
     }
+
+
+def npc_voice_ref(card_path: Path) -> str | None:
+    """Ref do karty glosu, jesli istnieje (system/npc-voice.md, tools/voice_check.py).
+
+    Brief wypisuje ten ref OSOBNO od skrotu karty, bo glos i dane sa dwoma roznymi
+    zrodlami i tylko jedno z nich wolno czytac jako probke mowy. Do 2026-09-09 zrodla
+    glosu nie bylo wcale: brief podawal skrot karty, a w skrocie Kesza `knowledge` w
+    rejestrze protokolu wazylo 8,3 KB przy 0,4 KB `speech_traits`.
+    """
+    candidate = card_path.parent / "voices" / card_path.name
+    return project_ref(candidate) if candidate.exists() else None
 
 
 def npc_digest_ref(card_path: Path) -> str | None:
@@ -1867,6 +1933,8 @@ def transaction_summary(
         summary["abort_reason"] = transaction["abort_reason"]
     if transaction.get("context_warnings"):
         summary["context_warnings"] = transaction["context_warnings"]
+    if transaction.get("prose_warnings"):
+        summary["prose_warnings"] = transaction["prose_warnings"]
     return summary
 
 
@@ -1992,6 +2060,11 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             # relationship_ref, ani stanu swiezosci, wiec najgestszy zapis "co ta postac
             # o Lucanie mysli" (relationships/*.yaml, osie i axis_change_log) nie trafial
             # do narratora ani razu - karta seraphine--lucan.yaml stala 197 tur w tyle.
+            voice_ref = npc_voice_ref(entity_path)
+            if voice_ref:
+                digest["voice_ref"] = voice_ref
+            else:
+                digest["voice_missing"] = "system/npc-voice.md"
             digest_ref = npc_digest_ref(entity_path)
             if digest_ref:
                 # SKROT KARTY (etap 8). Pelna karta Seraphiny wazy 60 675 B, skrot 19 404 B.

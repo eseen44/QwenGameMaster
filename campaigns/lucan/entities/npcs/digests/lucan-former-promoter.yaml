@@ -1,3 +1,13 @@
+voice_missing: BRAK KARTY GLOSU - nie ukladaj kwestii z knowledge ani z audytu. Zaloz plik w entities/npcs/voices/
+  (system/npc-voice.md).
+voice_contract:
+- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
+- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
+- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
+- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_lucan_former_promoter
 name: Profesor Beatrix Witte
@@ -42,6 +52,9 @@ faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
 object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml
 knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
+    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
+    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
   recent_confirmed:
   - fact: professor_veyr_knew_of_the_search_and_wanted_only_safety_critical_notification
     source_event_id: retcon_000083

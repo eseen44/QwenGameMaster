@@ -5,6 +5,8 @@ scene_ref: campaigns/lucan/context/scene.yaml
 always_load:
 - system/narrator.md
 - system/player-agency.md
+load_when_npc_speaks:
+- system/npc-voice.md
 load_when_narrator_failure_modes:
 - system/narrator-appendix.md
 load_when_curse_used:
@@ -50,13 +52,13 @@ active_refs:
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms: []
 last_refreshed_event_id: event_turn_interlude_248
-context_bytes: 40390
+context_bytes: 40070
 context_budget_bytes: 40960
 context_warnings:
-- total_informational:130181>40960
+- total_informational:131285>40960
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 9275
+  bytes: 8955
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
@@ -66,6 +68,11 @@ heaviest_refs:
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
   bytes: 3233
 conditional_sets:
+  npc_speaks:
+    refs:
+    - ref: system/npc-voice.md
+      bytes: 4230
+    bytes: 4230
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
@@ -143,9 +150,9 @@ conditional_sets:
       bytes: 11582
     bytes: 21853
 context_breakdown:
-  rules_always: 25098
+  rules_always: 26029
   state_active: 28311
-  participant_cards: 76772
-  participant_digests: 32601
+  participant_cards: 76945
+  participant_digests: 34618
   conditional_heaviest: 26140
-context_total_bytes: 130181
+context_total_bytes: 131285

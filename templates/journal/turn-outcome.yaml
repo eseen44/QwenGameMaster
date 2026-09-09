@@ -3,6 +3,19 @@ intent_achieved: true
 arrangement: complicated
 perspective: instance_actor
 summary: Krótki faktyczny opis rezultatu.
+# PROZA TURY. Do 2026-09-09 tego pola nie było w szablonie i nikt go nie sprawdzał, a to
+# ona - nie `summary` - jest tym, co `gm recent` podaje przy otwarciu następnej sesji jako
+# jedyną próbkę języka. Wychodziło z tego streszczenie protokołu zapisane zdaniami: w turach
+# 236-248 zero kwestii wprost i 20 konstrukcji „powiedział, że...".
+# KONTRAKT (system/npc-voice.md, sprawdza `turn commit`):
+#   - narracja, nie protokół: żadnego rachunku zasobów, powołań na pliki, „zmierzone";
+#   - kwestia, która rozstrzyga scenę, PADA W DIALOGU, nie w parafrazie narratora;
+#   - najwyżej jedna wycena decyzji (`retcon_000162`); literalna cena przy zakupie,
+#     honorarium albo kwocie jest w porządku i nie jest liczona;
+#   - „nie X, tylko Y" najwyżej raz i nie u dwóch postaci w tej samej scenie.
+prose: |
+  Trzy do sześciu zdań narracji. Co najmniej jedna kwestia wprost, jeśli w turze
+  ktokolwiek się odezwał.
 apply_required_costs: true
 resolved_world_reaction_ids: []
 # Przy napięciu 0 wymagane dla worsened/complicated/mixed: istniejący plik,

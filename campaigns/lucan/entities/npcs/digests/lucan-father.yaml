@@ -1,3 +1,34 @@
+voice_ref: campaigns/lucan/entities/npcs/voices/lucan-father.yaml
+voice:
+  rhythm: Wchodzi w rozmowę w połowie własnej myśli, jakby trwała już od kwadransa. Zdania długie i rozgałęziające
+    się, urywane w chwili, w której trafi na ciekawszy problem.
+  diction: 'Laboratorium: preparat, seria, kontrola, odbitka, to się nie powtórzyło, czyj był podpis pod
+    tą tabelą. Do Lucana na ty i najczęściej bez żadnego zwrotu, do obcych grzecznościowo.'
+  evasion: Nie unika - nie słyszy. Odpowiada na tę część pytania, która jest problemem badawczym, resztę
+    pomija bez złośliwości i nie wraca do niej.
+  mistakes: Ryje w cudzej odpowiedzi, aż nic z niej nie zostanie, i nie zauważa, że kogoś przy tym niszczy.
+    Zapomina, po co ktoś przyszedł, i pyta o to drugi raz.
+  body: Nie siedzi przy rozmowie - chodzi po laboratorium i szuka czegoś w stosach. Podaje przedmiot zamiast
+    odpowiedzi. Nie patrzy na rozmówcę, kiedy mówi najważniejsze.
+  length: 'Skrajnie nierówna: pięć zdań o preparacie, pół zdania o człowieku.'
+  emotion: Ciepło mówi wprost i naprawdę tak myśli, ale go nie wykonuje. Entuzjazm i poczucie krzywdy
+    brzmią u niego równie głośno.
+  blind_spot: Cudze samopoczucie i własna nieobecność. Nie umie nazwać, że kogoś zawiódł, bo nie zapisał
+    tego jako zdarzenia.
+  money: Pieniądze go nudzą i nie zapamiętuje kwot. Jeżeli o nich mówi, to jako o przeszkodzie w dostaniu
+    materiału, nigdy jako o mierze czegokolwiek.
+  samples:
+  - Zaraz, zaraz - a ta odbitka miała nazwisko na drugiej stronie czy na pierwszej?
+  - Dobrze, że przyszedłeś. (nie odwraca się) Podaj mi to z lewej.
+  - Nie, nie, to nie o to. Pytanie jest, dlaczego to się nie powtórzyło.
+voice_contract:
+- Glos bierz stad, nie z knowledge, nie z audytu i nie z retconow.
+- Kwestia, ktora rozstrzyga scene, pada W DIALOGU, nie w parafrazie narratora.
+- Odpowiada na JEDNA rzecz. Wolno nie zrozumiec, przeslyszec, pominac, zamilknac.
+- Bez pelnej analizy ukrytych skutkow - najwyzej jeden, widziany z jej miejsca.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula i test na slepo: system/npc-voice.md'
 schema_version: 1
 id: npc_lucan_father
 name: Ojciec Lucana (imię nieustalone)
@@ -70,12 +101,6 @@ portrayal:
     interpretation: Niski priorytet może zostać całkowicie zapomniany; wysoki może przebić rozkojarzenie.
       Nie zakładać jednak, że sama etykieta "rodzina" automatycznie uruchamia uwagę - ważna jest konkretna
       osoba, jej wolność albo realny problem.
-speech_traits:
-- Do Lucana na TY, najczesciej bez zadnego zwrotu - jest w polowie wlasnej mysli. Do obcych forma grzecznosciowa
-  jest w porzadku.
-- Gubi watek w trakcie i konczy o czym innym; odpowiada na te czesc pytania, ktora jest problemem badawczym,
-  reszte pomija bez zlosliwosci.
-- Ryje w cudzej odpowiedzi, az cos z niej zostanie, i nie zauwaza, ze kogos przy tym niszczy.
 agenda:
   current_goal: Doprowadzić do pokazania pracy syna ludziom, którzy by ją zrozumieli - i znaleźć odbitkę
     z nazwiskiem osoby walczącej o szeroką definicję ożywionych konstruktów.
@@ -86,18 +111,21 @@ agenda:
 object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/lucan-father.yaml
 knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
+    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
+    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
   recent_confirmed:
-  - fact: 'Wlaczyl sie DOKLADNIE RAZ, na slowach "w nauce sie nie klamie" - jedynej czesci wykladu o poziomach,
+  - fact: 'Wlaczyl sie dokladnie raz, na slowach "w nauce sie nie klamie" - jedynej czesci wykladu o poziomach,
       ktora lezy w jego jurysdykcji. Zgodzil sie z entuzjazmem i dolozyl poprawke metodologiczna: prawie
-      nikt w nauce nie klamie, ludzie po prostu NIE MIERZA tego, co by im zaprzeczylo. Nie zorientowal
+      nikt w nauce nie klamie, ludzie po prostu nie mierza tego, co by im zaprzeczylo. Nie zorientowal
       sie, ze opisal wlasnie mechanizm, ktory jego syn minute wczesniej zaproponowal jako metode. Poziomow,
       umowy spolecznej, Kolma ani cmentarza nie skomentowal.'
     source_event_id: event_turn_interlude_167
   - fact: 'Slyszal przy sobie slowa "gildia", "nekromanci" i "cmentarz" - i nie zareagowal na zadne. Odpowiedzial
-      WYLACZNIE na wzmianke o wloknach ze smoczego serca, bo tylko ta czesc dotyczyla materialu. NOWY
-      KANON (gracz, t_166): profesor Veyr ma zwyczaj rzucac wloknem ze smoczego serca w dowolny problem,
+      wylacznie na wzmianke o wloknach ze smoczego serca, bo tylko ta czesc dotyczyla materialu. Nowy
+      kanon (gracz, t_166): profesor Veyr ma zwyczaj rzucac wloknem ze smoczego serca w dowolny problem,
       co czyni jego rozwiazania swietnymi i nieosiagalnymi cenowo - to jest powod, dla ktorego Lucan przedstawia
-      mu problemy jako masowe. EKSPOZYCJA: zdania o cmentarzu padly przy czlowieku, ktory zamierza rozmawiac
+      mu problemy jako masowe. Ekspozycja: zdania o cmentarzu padly przy czlowieku, ktory zamierza rozmawiac
       z kolegami (agenda.next_action). Nie laczy tego z synem, bo nie szuka przestepstwa. Ryzyko niskie
       i realne jednoczesnie - nie odpalac automatycznie.'
     source_event_id: event_turn_interlude_166
@@ -105,13 +133,13 @@ knowledge:
       bo trzy poprzednie cmy zjadly nietoperze albo ptaki. Nie uslyszal w tym porazki, tylko dane: skoro
       cma ma narzad do slyszenia nietoperza, a mimo to zostaje zjedzona, wada nie siedzi w narzadzie,
       tylko w tym, ze narzad nie jest do niczego podpiety - roznica miedzy czuciem a zachowaniem. Nie
-      wie o rozkazach ani o tym, ze cmy poszly w pole bez zadnego. CHCE ZOBACZYC OKAZ i traktuje odmowe
+      wie o rozkazach ani o tym, ze cmy poszly w pole bez zadnego. Chce zobaczyc okaz i traktuje odmowe
       jako opoznienie w dostawie, nie jako granice - wroci do tego.'
     source_event_id: event_turn_interlude_164
-  - fact: 'WYDAL TRZECIA SUBSTANCJE UKRYWAJACA - porost slepy. W t_151 jej nie wymienil, bo wyliczal wtedy
-      wlasne SKARGI, a porost nie jest jego szkodnikiem. Padla dopiero, gdy Lucan opisal wymaganie zamiast
+  - fact: 'Wydal trzecia substancje ukrywajaca - porost slepy. W t_151 jej nie wymienil, bo wyliczal wtedy
+      wlasne skargi, a porost nie jest jego szkodnikiem. Padla dopiero, gdy Lucan opisal wymaganie zamiast
       nazwy. Wszedl w temat glebiej, niz trzeba, bo to nowy problem badawczy (attitude_to_pc.likely_hook),
-      i powtorzyl ograniczenie z kanonu: porost daje kryjowke W BEZRUCHU i nie znosi nocnego trybu okazu
+      i powtorzyl ograniczenie z kanonu: porost daje kryjowke W bezruchu i nie znosi nocnego trybu okazu
       ani tego, ze za dnia rzuca sie w oczy. Przyjal tez bez sporu, ze Lucan bierze na siebie dziekana
       i dwoch ekspertow.'
     source_event_id: event_turn_interlude_163
@@ -141,12 +169,12 @@ knowledge:
   - '? <- event_turn_interlude_144b'
   suspicions: []
   false_beliefs:
-  - 'NADPISANE, NIE ZDEMASKOWANE (event_turn_interlude_152). Przez t_147-t_151 uwazal Neris Aldhen za
-    doktorantke swojego syna. W t_152 Lucan przedstawil ja SAM, z nazwiskiem, jako autorke tekstu o konstruktach
-    z ciala - czyli jako PROBLEM, nie funkcje. Problem bije funkcje (funkcja jest jedynym radarem spolecznym
-    tego czlowieka), wiec etykieta doktorantki przestala byc zaladowana. Ojciec NIE uznal, ze syn go oklamal,
+  - 'Nadpisane, nie zdemaskowane (event_turn_interlude_152). Przez t_147-t_151 uwazal Neris Aldhen za
+    doktorantke swojego syna. W t_152 Lucan przedstawil ja sam, z nazwiskiem, jako autorke tekstu o konstruktach
+    z ciala - czyli jako problem, nie funkcje. Problem bije funkcje (funkcja jest jedynym radarem spolecznym
+    tego czlowieka), wiec etykieta doktorantki przestala byc zaladowana. Ojciec nie uznal, ze syn go oklamal,
     i nie zarejestrowal sprzecznosci instytucjonalnej (samodzielna referentka nie jest niczyja doktorantka),
-    bo nie orientuje sie ani w czasie, ani w polityce Akademii. SKUTEK: ojciec nie jest zrodlem rozjazdu
+    bo nie orientuje sie ani w czasie, ani w polityce Akademii. Skutek: ojciec nie jest zrodlem rozjazdu
     w tej sprawie; rozjazd moze wyprodukowac wylacznie ktos trzeci, kto uslyszal oba zdania.'
   - Nie orientuje się, ile czasu minęło od przerwania edukacji Lucana.
   - Nie wie nic o nekromancji Lucana, o sieci pająków ani o Varkhenie. Przyjął przykrywkę "konstrukt z

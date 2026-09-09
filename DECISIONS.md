@@ -9,6 +9,87 @@ i bez uzasadnienia ktoś rozsądny cofnąłby ją przy następnym przeglądzie.
 
 ---
 
+## 2026-09-09 — głos NPC ma własne, krótkie źródło; proza tury ma kontrakt
+
+Reklamacja gracza: wszyscy NPC brzmią jak ta sama osoba i każdy wycenia każdą decyzję.
+`retcon_000162` zabronił tego w prozie dzień wcześniej i **nie zadziałało**, bo nie ruszył
+ani jednego źródła wejściowego. Zmierzone przyczyny, wszystkie w tym repo:
+
+1. **Skrót karty NPC uczył mówić protokołem.** W skrócie Kesza `knowledge` ważyło 8 343 B
+   w rejestrze audytu (wersaliki, „NAJZIMNIEJSZY WNIOSEK TEJ SCENY", „NIEUSTALONE:",
+   odwołania do plików), a `speech_traits` 400 B. Dwadzieścia do jednego w tym samym
+   aktywnym kontekście: rejestr dominujący jest tym, który model imituje. To
+   `retcon_000040` i `retcon_000136` wchodzące przez skrót karty, nie przez `summary`.
+2. **Dwie karty wprost kazały wyceniać.** Kesz: „Wycenia, nie bramkuje: mowi to kosztuje
+   tyle" oraz „zero moralizowania nad tym, co wycenia". Seraphine: „Zanim powie, czy się na
+   coś zgadza, nazywa CENĘ tej rzeczy". Karta uczyła dokładnie tego, co reguła zabraniała.
+3. **`outcome.prose` nie miało kontraktu w ogóle** — nie ma go w szablonie, nie sprawdzał go
+   `commit`, jedno zdanie w `AGENTS.md`. A `recent` podaje tę prozę następnej sesji jako
+   **jedyną** próbkę języka, więc pętla domykała się sama. Tury 236–248: 13 wpisów
+   autorskich, **zero** kwestii wprost, 20 konstrukcji mowy zależnej, 7 wycen decyzji,
+   4 razy „nie X, tylko Y".
+4. **`speech_traits` to trzy wypunktowania** — za mało, żeby odróżnić rytm, słownik, sposób
+   unikania odpowiedzi, typ błędów, reakcję fizyczną, długość, emocje i własną granicę
+   nazywania. Bogaty blok `voice` miała jedna postać (Neris) i tylko dlatego, że gracz
+   złożył reklamację 26.08.
+5. **„Porusz przynajmniej jeden element świata" było bezwarunkowe** i kolidowało
+   z `retcon_000142`. Postać, której naturalną reakcją jest krótka odpowiedź, gest,
+   niezrozumienie albo cisza, dostawała jeszcze jedną analizę i puentę, żeby tura miała
+   czym się poruszyć.
+
+**Co zrobiono.** Głos oddzielony od danych jako osobne źródło:
+`campaigns/lucan/entities/npcs/voices/<npc>.yaml` — krótki (limit 2,5 KB), **pozytywny**
+(mówi, jak ta osoba mówi, nie czego narrator ma nie robić), osiem osi plus `money`
+i dwie–trzy `samples` będące kwestiami wprost. Skrót karty wkleja ten kontrakt **na samej
+górze** i, gdy karta głosu istnieje, **nie wypisuje już `speech_traits`** — dwie listy o tym
+samym różnią się zawsze i wygrywa dłuższa. `knowledge` w skrócie dostaje `register_note`
+(„to są dane, nie próbka mowy") i **wygaszone wersaliki**: treść bez zmiany ani jednego
+słowa, ginie tylko krzyk; pełna karta zachowuje oryginalną pisownię. `brief` podaje
+`voice_ref` przy każdym uczestniku. Reguła: `system/npc-voice.md` (trigger `npc_speaks`),
+szkielet reguły jedzie w każdym skrócie jako `voice_contract`.
+
+Bramki: `tools/voice_check.py` (pokrycie ważnych NPC, osiem osi, limit 2,5 KB, brak
+słownika wyceny w źródle głosu, rozróżnialność osi) i `tools/prose_check.py`. Kontrola prozy
+**nie jest zakazem słów**: trafienie ze słownika wyceny, przy którym w promieniu 90 znaków
+stoi realny znacznik pieniędzy (srebro, honorarium, zapłata, kwota, czynsz, liczba z walutą),
+jest literalne i nie jest zgłaszane — scena u wagi syndykatu ma być o kwotach. Blokuje
+dokładnie jedna rzecz i jest to cytat z `retcon_000162`: więcej niż jedna wycena DECYZJI
+w prozie nowej tury. To samo sprawdza `turn commit`, który dodatkowo zwraca
+`prose_warnings`, gdy proza streszcza rozmowę mową zależną bez ani jednej kwestii wprost.
+Gęstość mowy zależnej i szablon „nie X, tylko Y" są **raportem**, nie bramką — wymagają
+decyzji redakcyjnej, a walidator świecący na czerwono bez przerwy jest ignorowany.
+
+Test na ślepo z `retcon_000040` przestał być zaleceniem: `system/fixtures/voice-blind-test.yaml`
+trzyma cztery odpowiedzi na to samo wejście, a `tools/tests/test_npc_voice.py` sprawdza
+maszynowo, że są kwestiami a nie opisami, że co najmniej trzy z czterech nie mają ani
+jednego słowa z rodziny ceny, że najwyżej jedna używa „nie X, tylko Y" i że najdłuższa jest
+co najmniej trzy razy dłuższa od najkrótszej.
+
+**Czego świadomie NIE zrobiono.**
+- **Nie dodano retconu.** `retcon_000162` już stoi i jest poprawny; to była naprawa źródeł,
+  które go nie wykonywały, a nie zmiana kanonu świata. Poprawki `speech_traits` Kesza
+  i Seraphiny dociągają karty do zatwierdzonego retconu — osobowość i fakty bez zmiany.
+- **Nie dopisano dziesięciu zakazów do promptu.** `system/narrator.md` **zmalał** z 9 648 B
+  do 8 955 B: długi akapit `retcon_000162` zastąpił wskaźnik, zdublowane „cenę nazywa się
+  raz" wypadło, a reguła głosu jest tam trzema zdaniami. Cała treść poszła do osobnego
+  pliku wczytywanego warunkowo i do danych.
+- **`system/npc-voice.md` NIE jest w `always_load`** — sufit `always_load` to 12 KB
+  (`test_rules_reachable`), a `narrator.md` z `player-agency.md` go prawie wypełniają.
+  Rdzeń reguły jedzie w skrócie karty, przy danych, których dotyczy.
+- **Nie przepisano historycznej prozy ani `knowledge.confirmed`.** Tury do 248 są długiem
+  raportowanym; `BASELINE_TURN` w `prose_check.py` jest zapadką i jego podniesienie jest
+  cofnięciem naprawy. Wersaliki gasi **skrót**, generowany, a nie karta.
+- **Nie usunięto `speech_traits` z kart.** Postacie bez karty głosu nadal na nich stoją;
+  usunięcie pola zostawiłoby 20 kart bez żadnego opisu mowy.
+
+Znany dług, **niezawiniony przez tę zmianę**: `test_event_prose.py::RecentTest` wymaga, żeby
+pominięty protokół był ponad pięć razy większy od prozy, a ostatnie cztery tury dają 4,7×
+(20 528 B audytu na 4 387 B prozy). Test przechodził w tył i przewraca się na `ba04430`
+równie dobrze; `recent_prose` i `events.jsonl` są w tej zmianie nietknięte. Naprawą jest
+krótsza proza w nowych turach — czyli to, do czego zmierza kontrakt — a nie obniżenie progu.
+
+---
+
 ## 2026-08-28 — docelowy narrator cloudowy
 
 Główna rozgrywka odbywa się obecnie przez Claude Opus High z dostępem do repo.

@@ -6,7 +6,9 @@ Ten projekt jest lokalnym źródłem prawdy dla kampanii RPG prowadzonej przez n
 
 - Prowadź świat, NPC, konsekwencje i upływ czasu.
 - Nie wybieraj za gracza kolejnej akcji Lucana.
-- Rozstrzygnij zadeklarowaną akcję, pokaż jej konsekwencję, porusz przynajmniej jeden element świata i zakończ w konkretnym punkcie decyzji.
+- Rozstrzygnij zadeklarowaną akcję, pokaż jej konsekwencję i zakończ w konkretnym punkcie decyzji.
+- Osobny element świata porusz, gdy napięcie jest powyżej zera albo działa zegar. W interludium tura może się skończyć na odpowiedzi na to, o co gracz zapytał (`retcon_000142`); nie dokładaj analizy tylko po to, żeby tura coś poruszyła.
+- Głos NPC bierz z karty głosu (`entities/npcs/voices/<npc>.yaml`), a nie z jego `knowledge`, z `audit` ani z retconów. Reguła: `system/npc-voice.md`.
 - Zachowuj czarny humor, zwięzłość i reaktywność, ale nie poświęcaj im spójności.
 
 ## Otwarcie sesji i koszt rozmowy
@@ -115,7 +117,7 @@ Zapadka z 2026-09-04. Kontrole istnialy juz wczesniej, tylko nikt ich nie urucha
 w momencie, w ktorym maja znaczenie - nie bylo ani hooka, ani CI.
 
 ```bash
-python tools/preflight.py          # szybki zestaw: zapora dziennika, proza, sieroce odwolania
+python tools/preflight.py          # szybki zestaw: zapora dziennika, proza, glosy, sieroce odwolania
 python tools/preflight.py --full   # plus walidacja projektu i testy
 python tools/install_hooks.py      # hook pre-commit (blokujacy, ~1,5 s gdy commit nie rusza dziennika)
 ```
@@ -127,6 +129,17 @@ i gdy wrocila proza czytana jako klucze YAML o wartosci null. Pominiecie raz:
 
 Sieroce odwolania i dlugi kart relacji sa RAPORTOWANE, nie blokujace: wymagaja decyzji
 merytorycznej, a walidator swiecacy na czerwono bez przerwy jest ignorowany.
+
+Od 2026-09-09 blokuje takze `tools/voice_check.py`: kazdy wazny NPC (status `active` oraz
+`importance: full_agent` albo istniejacy skrot karty) musi miec karte glosu w
+`entities/npcs/voices/` z osmioma osiami, do 2,5 KB, bez slownika wyceny i audytu - bo glos
+brany z `knowledge` daje jeden glos wszystkich postaci (`retcon_000040`, `retcon_000136`),
+a `speech_traits` Kesza i Seraphiny kazaly im wprost wyceniac, wbrew `retcon_000162`.
+`tools/prose_check.py --new-only` jest bramka na jedna rzecz - wiecej niz jedna wycena
+DECYZJI w `outcome.prose` nowej tury (to samo sprawdza `turn commit`). Reszta pomiarow prozy
+(gestosc mowy zaleznej, brak kwestii wprost, szablon „nie X, tylko Y") jest RAPORTEM,
+bo wymaga decyzji redakcyjnej. Kontrola odroznia literalna rozmowe o pieniadzach - srebro,
+honorarium, kwota u wagi - od wyceniania kazdej decyzji, wiec nie jest zakazem slow.
 
 Od 2026-09-04 blokuje takze `tools/reconcile_growth.py --check`: deklarowana nadwyzka sieci
 (`growth-banks.yaml#surplus_economy.daily_network_surplus_units`, dzis **16,5 na dobe**) musi
