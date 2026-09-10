@@ -1159,10 +1159,7 @@ def validate_audit_contract(outcome: dict[str, Any]) -> None:
     Audyt MA byc techniczny (retcon_000162) - dlatego to jest prog, nie zakaz szczegolu.
     """
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    try:
-        import prose_check
-    except Exception:              # kontrola nie moze wywrocic commita
-        return
+    import prose_check
     pomiar = prose_check.zmierz_audyt(outcome.get("summary") or "", outcome.get("prose") or "")
     if not pomiar["naruszenia"]:
         return
@@ -1195,10 +1192,10 @@ def validate_prose_contract(outcome: dict[str, Any]) -> list[str]:
     if not prose:
         return []
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    try:
-        import prose_check
-    except Exception:              # kontrola nie moze wywrocic commita
-        return []
+    import prose_check
+    leaks = prose_check.internal_references(prose)
+    if leaks:
+        raise RuntimeError("outcome.prose exposes internal references: " + ", ".join(leaks))
     pomiar = prose_check.zmierz(prose)
     if pomiar["wyceny_metaforyczne"] > prose_check.LIMIT_WYCEN:
         fragmenty = " | ".join(pomiar["wyceny_fragmenty"][:3])
@@ -1402,6 +1399,27 @@ def commit_turn(
         apply_operation(campaign_root, changed, operation, transaction["event_id"])
     scene_path = campaign_root / "context" / "scene.yaml"
     scene = load_mutable(campaign_root, changed, scene_path)
+    scene_update = outcome.get("scene_update")
+    if scene_update is not None:
+        if not isinstance(scene_update, dict) or set(scene_update) - {"location_ref", "participants"}:
+            raise RuntimeError("scene_update accepts only location_ref and participants")
+        if "location_ref" in scene_update:
+            location_ref = scene_update["location_ref"]
+            if not isinstance(location_ref, str) or not ref_path(location_ref, campaign_root).is_file():
+                raise RuntimeError("scene_update.location_ref must reference an existing location")
+            location_path = ref_path(location_ref, campaign_root).resolve()
+            if (not location_path.is_relative_to((campaign_root / "locations").resolve())
+                    or location_path.name != "location.yaml"
+                    or not isinstance(load_yaml(location_path).get("id"), str)):
+                raise RuntimeError("scene_update.location_ref must reference a campaign location definition")
+        if "participants" in scene_update:
+            pids = scene_update["participants"]
+            if not isinstance(pids, list) or not all(isinstance(pid, str) for pid in pids):
+                raise RuntimeError("scene_update.participants must be a list of IDs")
+            for pid in pids:
+                if find_instance_path(campaign_root, pid) is None and find_named_entity_path(campaign_root, pid) is None:
+                    raise RuntimeError(f"scene_update references unknown participant {pid}")
+        scene.update(copy.deepcopy(scene_update))
     if resolved_ids:
         scene["pending_world_reactions"] = [
             item for item in scene.get("pending_world_reactions", []) if item.get("id") not in resolved_ids
@@ -1518,6 +1536,42 @@ def ref_path(ref: str, campaign_root: Path | None = None) -> Path:
     return kandydaci[0]
 
 
+def context_budget(active: dict[str, Any]) -> int:
+    """Soft repository-source budget, not a model's token window."""
+    policy = active.get("context_policy") or {}
+    if not isinstance(policy, dict):
+        raise RuntimeError("context_policy must be an object")
+    budget = policy.get("source_budget_bytes", CONTEXT_BUDGET_BYTES)
+    if type(budget) is not int or budget <= 0:
+        raise RuntimeError("context_policy.source_budget_bytes must be a positive integer")
+    return budget
+
+
+def scene_position_warnings(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
+    """Presence is not inferred from membership in the party or a shared history."""
+    location_ref = scene.get("location_ref")
+    if not isinstance(location_ref, str):
+        return []
+    path = ref_path(location_ref, campaign_root)
+    if not path.is_file():
+        return []  # missing_refs reports it
+    location_id = load_yaml(path).get("id")
+    warnings = []
+    for participant in scene.get("participants", []):
+        pid = participant.get("id") if isinstance(participant, dict) else participant
+        if not isinstance(pid, str):
+            continue
+        instance = find_instance_path(campaign_root, pid)
+        card = instance or find_named_entity_path(campaign_root, pid)
+        if card is None or not card.is_file():
+            continue
+        data = load_yaml(card)
+        actual = (data.get("position") or {}).get("location_id") if instance else data.get("current_location_id")
+        if location_id and actual and actual != location_id:
+            warnings.append(f"scene_position_mismatch:{pid}:{actual}!={location_id}")
+    return warnings
+
+
 def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> dict[str, Any]:
     """Rebuild the minimal context.
 
@@ -1530,6 +1584,7 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     scene = scene_document(campaign_root)
     active_path = campaign_root / "context" / "active.yaml"
     active = load_yaml(active_path)
+    budget = context_budget(active)
     refs = context_refs(campaign_root, scene)
     forbidden = ("migration/sources", "migration/noncanonical")
     if any(any(token in ref.replace("\\", "/") for token in forbidden) for ref in refs):
@@ -1540,11 +1595,11 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
         ref: ref_path(ref).stat().st_size for ref in loaded_refs if ref not in missing
     }
     total = sum(sizes.values())
-    warnings: list[str] = []
+    warnings: list[str] = scene_position_warnings(campaign_root, scene)
     if missing:
         warnings.append(f"missing_refs:{','.join(missing)}")
-    if total > CONTEXT_BUDGET_BYTES:
-        warnings.append(f"over_budget:{total}>{CONTEXT_BUDGET_BYTES}")
+    if total > budget:
+        warnings.append(f"over_budget:{total}>{budget}")
     result = copy.deepcopy(active)
     result["active_refs"] = refs
     result["search_terms"] = [
@@ -1552,7 +1607,7 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     ]
     result["last_refreshed_event_id"] = scene.get("last_event_id")
     result["context_bytes"] = total
-    result["context_budget_bytes"] = CONTEXT_BUDGET_BYTES
+    result["context_budget_bytes"] = budget
     # UCZCIWA KSIEGOWOSC (etap 6). context_bytes liczy always_load + active_refs i tyle -
     # a tura widzi wiecej: AGENTS.md (wymieniony przez brief jako regula), karty NPC
     # stojacych w scenie (zmierzone 68 KB) i wybrany zbior load_when_*. Licznik pokazywal
@@ -1561,6 +1616,7 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     # dzialajaca bramka walidatora; prawda dochodzi obok, jako rozbicie.
     cards = participant_card_refs(campaign_root, scene)
     card_sizes = {ref: ref_size(ref) or 0 for ref in cards}
+    selected = participant_context_refs(campaign_root, scene)
     digest_sizes = {}
     for ref in cards:
         digest = npc_digest_ref(ref_path(ref))
@@ -1575,7 +1631,8 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
         "rules_always": agents_size + sum(
             ref_size(ref) or 0 for ref in active.get("always_load", [])),
         "state_active": sum(sizes.get(ref, 0) for ref in refs),
-        "participant_cards": sum(card_sizes.values()),
+        "participant_cards": sum(ref_size(ref) or 0 for ref in selected),
+        "participant_full_cards_available": sum(card_sizes.values()),
         # Skroty kart (etap 8): to samo, co narrator faktycznie potrzebuje przeczytac,
         # gdy nie siega po szczegol starszego faktu. Roznica jest miara etapu 8.
         "participant_digests": sum(digest_sizes.values()),
@@ -1586,12 +1643,12 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     breakdown = result["context_breakdown"]
     result["context_total_bytes"] = (
         breakdown["rules_always"] + breakdown["state_active"] + breakdown["participant_cards"])
-    if result["context_total_bytes"] > CONTEXT_BUDGET_BYTES:
+    if result["context_total_bytes"] > budget:
         # Informacyjnie, NIE jako bramka: gdyby to blokowalo, walidator swiecilby na
         # czerwono bez przerwy i zostalby zignorowany. Bramka zostaje na context_bytes,
         # ktore da sie realnie zmniejszyc odchudzeniem active_refs i always_load.
         warnings.append(
-            f"total_informational:{result['context_total_bytes']}>{CONTEXT_BUDGET_BYTES}")
+            f"total_informational:{result['context_total_bytes']}>{budget}")
     result["context_warnings"] = warnings
     # Naming the heaviest refs turns "over budget" into an actionable list.
     result["heaviest_refs"] = [
@@ -1645,12 +1702,13 @@ def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
     bajtow, zamiast pamietac, ktory klucz dotyczy tej tury.
     """
     active = load_yaml(campaign_root / "context" / "active.yaml")
+    budget = context_budget(active)
     scene = scene_document(campaign_root)
     sets = conditional_sets(active)
     unknown = [tag for tag in tags if tag not in sets]
 
     base = ["AGENTS.md"] + list(active.get("always_load", [])) + context_refs(campaign_root, scene)
-    participants = participant_card_refs(campaign_root, scene)
+    participants = participant_context_refs(campaign_root, scene)
     chosen: list[str] = []
     for tag in tags:
         for entry in sets.get(tag, []):
@@ -1665,6 +1723,9 @@ def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
             total += size or 0
         return rows, total
 
+    base = list(dict.fromkeys(base))
+    participants = [ref for ref in participants if ref not in base]
+    chosen = [ref for ref in chosen if ref not in base and ref not in participants]
     base_rows, base_total = weigh(base)
     card_rows, card_total = weigh(participants)
     cond_rows, cond_total = weigh(chosen)
@@ -1681,8 +1742,8 @@ def context_plan(campaign_root: Path, tags: list[str]) -> dict[str, Any]:
             "participant_cards": card_total,
             "conditional": cond_total,
             "total": grand,
-            "budget": CONTEXT_BUDGET_BYTES,
-            "over_budget_by": max(0, grand - CONTEXT_BUDGET_BYTES),
+            "budget": budget,
+            "over_budget_by": max(0, grand - budget),
         },
     }
 
@@ -1716,6 +1777,24 @@ def participant_card_refs(campaign_root: Path, scene: dict[str, Any]) -> list[st
         if path is not None and path.exists():
             refs.append(project_ref(path))
     return refs
+
+
+def participant_context_refs(campaign_root: Path, scene: dict[str, Any]) -> list[str]:
+    """Use the same NPC sources in brief, full export and context accounting.
+
+    Generated digests already embed the voice. Full cards are recall targets;
+    only the fallback needs a separate voice file.
+    """
+    refs: list[str] = []
+    for card in participant_card_refs(campaign_root, scene):
+        path = ref_path(card, campaign_root)
+        digest = npc_digest_ref(path)
+        refs.append(digest or card)
+        if not digest:
+            voice = npc_voice_ref(path)
+            if voice:
+                refs.append(voice)
+    return list(dict.fromkeys(refs))
 
 
 def recent_prose(campaign_root: Path, limit: int) -> dict[str, Any]:
@@ -2154,7 +2233,9 @@ def preview_summary(preview: dict[str, Any]) -> dict[str, Any]:
 def context_summary(context: dict[str, Any]) -> dict[str, Any]:
     return {
         "context_bytes": context.get("context_bytes"),
+        "context_total_bytes": context.get("context_total_bytes"),
         "context_budget_bytes": context.get("context_budget_bytes"),
+        "context_budget_scope": "repository_sources_only_excludes_conversation_tools_and_output",
         "active_refs": len(context.get("active_refs", [])),
         "context_warnings": context.get("context_warnings", []),
         "heaviest_refs": context.get("heaviest_refs", []),
@@ -2232,7 +2313,7 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
     obligations = load_optional_yaml(campaign_root / "state" / "obligations.yaml", {})
 
     participants: list[dict[str, Any]] = []
-    participant_refs: list[str] = []
+    participant_refs = participant_context_refs(campaign_root, scene)
     for participant in scene.get("participants", []):
         participant_id = participant.get("id") if isinstance(participant, dict) else participant
         if not isinstance(participant_id, str):
@@ -2247,7 +2328,6 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
         if entity_path is not None and entity_path.exists():
             entity = load_yaml(entity_path)
             entity_ref = project_ref(entity_path)
-            participant_refs.append(entity_ref)
             digest = {
                 "id": participant_id,
                 "name": entity.get("name"),
@@ -2265,9 +2345,8 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
                 digest["voice_missing"] = "system/npc-voice.md"
             digest_ref = npc_digest_ref(entity_path)
             if digest_ref:
-                # SKROT KARTY (etap 8). Pelna karta Seraphiny wazy 60 675 B, skrot 19 404 B.
-                # Skrot NIE JEST kanonem - trzyma czesc "jak grac" 1:1, najnowsze fakty
-                # w calosci i indeks starszych. Szczegol starszego faktu dociagnij z karty.
+                # Digest is derived: summaries or explicitly incomplete excerpts,
+                # plus an index. Fetch the referenced full fact when detail matters.
                 digest["digest_ref"] = digest_ref
                 digest["digest_bytes"] = ref_size(digest_ref)
                 digest["full_card_bytes"] = ref_size(entity_ref)
@@ -2347,13 +2426,15 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
         "context_budget_bytes": context.get("context_budget_bytes"),
         "context_warnings": context.get("context_warnings", []),
         "last_event_id": scene.get("last_event_id"),
+        "context_total_bytes": context.get("context_total_bytes"),
+        "context_budget_scope": "repository_sources_only_excludes_conversation_tools_and_output",
     }
     if full:
         # For a browser chat with no filesystem: inline everything to paste once.
         brief["documents"] = [
             {"ref": ref, "content": ref_path(ref).read_text(encoding="utf-8-sig")}
             for ref in list(dict.fromkeys(
-                list(context.get("always_load", []))
+                brief["rules"]
                 + list(context.get("active_refs", []))
                 + participant_refs
             ))

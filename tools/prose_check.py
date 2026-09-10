@@ -43,6 +43,19 @@ EVENTS = ROOT / "campaigns" / "lucan" / "journal" / "events.jsonl"
 # tej liczby jest cofnieciem zapadki i wolno je zrobic tylko po splaceniu dlugu.
 BASELINE_TURN = 248
 
+# New rule applies prospectively; historical prose stays immutable.
+IMMERSION_BASELINE_TURN = 256
+INTERNAL_REFERENCE = re.compile(
+    r"(?i)\b(?:retcon_\d+|event_turn_\w+|capability_\w+|voice_contract\b|"
+    r"outcome\.(?:summary|audit|prose)|knowledge\.confirmed|"
+    r"(?:system|campaigns|state|journal)/[\w./-]+\.(?:yaml|jsonl|md))"
+)
+
+
+def internal_references(text: str) -> list[str]:
+    """Only unambiguous runtime identifiers, not ordinary world vocabulary."""
+    return list(dict.fromkeys(INTERNAL_REFERENCE.findall(text or "")))
+
 LIMIT_WYCEN = 1          # retcon_000162: wiecej niz jedno zdanie o cenie - przepisz
 LIMIT_MOWY_ZALEZNEJ = 3  # tyle parafraz przy ZERO kwestiach wprost to juz nie skracanie
 
@@ -209,11 +222,16 @@ def main() -> int:
 
     if args.text:
         pomiar = zmierz(args.text)
+        pomiar["internal_references"] = internal_references(args.text)
         print(json.dumps(pomiar, ensure_ascii=False, indent=2))
-        return 1 if pomiar["wyceny_metaforyczne"] > LIMIT_WYCEN else 0
+        return 1 if pomiar["wyceny_metaforyczne"] > LIMIT_WYCEN or pomiar["internal_references"] else 0
 
-    wszystkie = wpisy()[-max(1, args.limit):]
-    wybrane = [e for e in wszystkie if (e.get("prose") or "").strip()]
+    wszystkie = wpisy()
+    if args.new_only:
+        wszystkie = [e for e in wszystkie if numer_tury(e.get("id")) > BASELINE_TURN]
+    else:
+        wszystkie = wszystkie[-max(1, args.limit):]
+    wybrane = wszystkie  # Audit-only turns must pass the audit gate too.
     if not wybrane:
         print("[OK] brak prozy autorskiej do sprawdzenia")
         return 0
@@ -229,6 +247,12 @@ def main() -> int:
             suma[key] += pomiar[key]
         tura = numer_tury(event.get("id"))
         flagi = []
+        leaks = internal_references(event.get("prose") or "")
+        if leaks:
+            flagi.append("wewnetrzne identyfikatory: " + ", ".join(leaks))
+            if tura > IMMERSION_BASELINE_TURN:
+                zle.append(f"{event.get('id')}: wewnetrzne identyfikatory w prozie: "
+                           + ", ".join(leaks))
         if pomiar["wyceny_metaforyczne"] > LIMIT_WYCEN:
             flagi.append(f"wycen metaforycznych: {pomiar['wyceny_metaforyczne']}")
             if tura > BASELINE_TURN:

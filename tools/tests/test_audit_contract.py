@@ -126,7 +126,8 @@ class HistoryTest(unittest.TestCase):
         """Dziennik jest append-only. Bramka dziala progiem, nie edycja historii."""
         ev = [json.loads(l) for l in EVENTS.read_text(encoding="utf-8-sig").splitlines()
               if l.strip()]
-        stare = [e for e in ev[-20:] if len(e.get("audit") or "") > prose_check.LIMIT_AUDYTU]
+        stare = [e for e in ev if prose_check.numer_tury(e.get("id")) <= prose_check.BASELINE_TURN
+                 and len(e.get("audit") or "") > prose_check.LIMIT_AUDYTU]
         self.assertTrue(stare, "historyczne audyty zniknely albo zostaly skrocone")
         for e in stare:
             self.assertEqual(e["audit"], e["summary"],
@@ -135,10 +136,13 @@ class HistoryTest(unittest.TestCase):
     def test_baseline_chroni_historie_przed_bramka(self):
         ev = [json.loads(l) for l in EVENTS.read_text(encoding="utf-8-sig").splitlines()
               if l.strip()]
-        numery = [prose_check.numer_tury(e.get("id")) for e in ev]
-        self.assertLessEqual(max(numery), prose_check.BASELINE_TURN,
-                             "baseline nie pokrywa juz calej historii - bramka zablokuje "
-                             "dziennik, ktorego nie wolno przepisac")
+        self.assertEqual(prose_check.BASELINE_TURN, 248, "nie przesuwaj granicy starego dlugu")
+        nowe = [e for e in ev if prose_check.numer_tury(e.get("id")) > prose_check.BASELINE_TURN]
+        for event in nowe:
+            with self.subTest(event=event.get("id")):
+                result = prose_check.zmierz_audyt(event.get("audit") or event.get("summary"),
+                                                 event.get("prose"))
+                self.assertEqual(result["naruszenia"], [])
 
 
 class DocsTest(unittest.TestCase):

@@ -28,11 +28,12 @@ voice_samples:
 voice_rules:
 - Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
 - Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
-- Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.
+- Kontrakt opisuje tendencje, nie limity zdan ani obowiazkowe gesty. Odpowiada stosownie do sytuacji.
 - 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
   tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
   ani domyslna.'
-- Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.
+- Wie tylko to, co dostrzegla, poznala lub umie z doswiadczenia. Domysl moze byc bledny; reguly narratora,
+  prywatne skany i audit nie sa jej wiedza.
 - 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
 - '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
 - 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
@@ -154,9 +155,10 @@ faction_ref: campaigns/lucan/entities/factions/lumaria-magical-academy.yaml
 object_type: npc_digest
 full_card: campaigns/lucan/entities/npcs/neris-aldhen.yaml
 knowledge:
-  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: mowia, CO postac
-    wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze tego skrotu (system/npc-voice.md). Wersaliki
-    emfatyczne sa tu wygaszone celowo - pelna karta zachowuje oryginalna pisownie.'
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: nie kazde zdanie
+    audytu jest wiedza NPC. Sprawdz droge zdobycia informacji, oddziel obserwacje, cudza relacje i hipoteze.
+    Reguly narratora nie sa faktami swiata. Przy claim_truncated doczytaj konkretny claim_full przed uzyciem:
+    pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
   - fact: Dostala kolejnosc zamiast nieokreslonego "nie dzis". Lucan idzie jutro rano na targ sprawdzic,
@@ -266,5 +268,5 @@ freshness:
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
     recall/dziennik przed pierwsza kwestia tej postaci.
 digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
-  wskazana w full_card; tu leza czesc ''jak grac'' 1:1, najnowsze fakty w calosci oraz INDEKS starszych
-  (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'
+  wskazana w full_card; tu leza czesc ''jak grac'', streszczenia lub oznaczone fragmenty najnowszych faktow
+  oraz INDEKS starszych. Szczegol faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

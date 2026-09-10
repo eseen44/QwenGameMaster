@@ -7,15 +7,20 @@ Ten projekt jest lokalnym źródłem prawdy dla kampanii RPG prowadzonej przez n
 - Prowadź świat, NPC, konsekwencje i upływ czasu.
 - Nie wybieraj za gracza kolejnej akcji Lucana.
 - Rozstrzygnij zadeklarowaną akcję, pokaż jej konsekwencję i zakończ w konkretnym punkcie decyzji.
-- Osobny element świata porusz, gdy napięcie jest powyżej zera albo działa zegar. W interludium tura może się skończyć na odpowiedzi na to, o co gracz zapytał (`retcon_000142`); nie dokładaj analizy tylko po to, żeby tura coś poruszyła.
+- Presję rozwijaj z istniejącego napięcia lub zegara. Także w interludium dodawaj opis,
+  życie otoczenia i dobrowolne zaczepki bez narzuconych kar czy terminów. Odpowiedź bez
+  zaczepki też wystarcza (`retcon_000142`, uzupełnienie `retcon_000164`).
 - Głos NPC bierz z karty głosu (`entities/npcs/voices/<npc>.yaml`), a nie z jego `knowledge`, z `audit` ani z retconów. Reguła: `system/npc-voice.md`.
-- Zachowuj czarny humor, zwięzłość i reaktywność, ale nie poświęcaj im spójności.
+- Zachowuj czarny humor i reaktywność; długość dopasuj do sceny. Kontrakty głosu to
+  tendencje, nie automatyczne gesty i limity zdań. Reguły nie trafiają do narracji ani
+  do wiedzy NPC. Ustal, co dana osoba poznała, skąd i z jaką pewnością.
 
 ## Otwarcie sesji i koszt rozmowy
 
-Każda tura wysyła całą dotychczasową rozmowę od nowa, więc koszt rozmowy rośnie
-z kwadratem jej długości. Stan kampanii żyje w plikach, więc rozmowa jest
-jednorazowa i ma być krótka.
+Długa historia zwiększa obciążenie kontekstu; koszt zależy także od cache, kompakcji
+i aplikacji. Nie traktuj modelu N² jako cennika ani limitu sesji. Stan żyje w plikach.
+`context_policy.source_budget_bytes` ustala budżet źródeł (Lucan: 96 KiB), nie okno
+tokenów modelu. Historia, wyniki narzędzi i odpowiedź potrzebują osobnego zapasu.
 
 Głównym środowiskiem prowadzenia jest zdolny narrator cloudowy z dostępem do repo
 (obecnie Claude Opus High). Projektuj pracę dla modelu, który potrafi punktowo
@@ -30,7 +35,7 @@ jednak pozostać przenośne i nie może zależeć od zachowania jednego dostawcy
 - **Prozę ostatnich tur czytaj przez `gm.ps1 recent --limit 4`, nie przez pełne `summary`.**
   Od 2026-09-04 wpis dziennika ma osobno prozę (`prose` albo `prose_auto`) i pełny protokół
   (`audit`). Cztery ostatnie `summary` to 33 235 znaków; `recent` daje te same tury w ~2 500.
-  Nowa tura powinna podawać w `outcome.prose` krótką narrację — wtedy wpis dostaje prozę
+  Nowa tura powinna podawać w `outcome.prose` narrację pokazaną graczowi — wtedy wpis dostaje prozę
   pisaną, a nie wyciąganą maszynowo.
 
 ## Audyt nie jest samo-raportem
@@ -252,4 +257,3 @@ Zasady:
 - Nota o nazwie podobnej do flagi mechanicznej dostaje sufiks
   `_DOKUMENTACJA_NIE_MECHANIKA`, inaczej kontrola zglosi ja jako pulapke.
 - Przebudowa: `python tools/build_field_contract.py`
-

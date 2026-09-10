@@ -101,9 +101,10 @@ Wczytaj (dokładnie te, nie więcej):
   `gm.ps1 context plan --tag choosing_a_plan` — i to samo dotyczy pozostałych tagów, bo
   `load_when_*` jest od 04.09.2026 czytane przez kod, nie przez dobrą wolę narratora.
 - **Karty NPC w scenie: czytaj skrót, nie pełną kartę.** `entities/npcs/digests/<npc>.yaml`
-  trzyma część „jak grać" jeden do jednego, cztery najnowsze fakty w całości i indeks
-  wszystkich starszych. Karta Seraphiny to 60,7 KB, jej skrót 19,4 KB. Szczegół starszego
-  faktu dociągnij z pełnej karty — skrót **nie jest kanonem** i sam to o sobie mówi.
+  jest wybierany przez `participant_refs` w briefie i planie kontekstu. Zawiera głos,
+  streszczenia lub oznaczone fragmenty najnowszych faktów i indeks starszych.
+  `claim_truncated` wymaga doczytania konkretnego `claim_full` przed użyciem szczegółu:
+  odcięty ogon może zawierać zaprzeczenie. `entity_ref` nie nakazuje czytać całej karty.
 - **GŁOS BIERZ Z KONTRAKTU GŁOSU, DANE Z `knowledge` — TO DWA RÓŻNE PLIKI.**
   `entities/npcs/voices/<npc>.yaml` (do 2,8 KB) trzyma `voice_contract` z jedenastoma osiami
   — budowa zdań, domyślna długość odpowiedzi, rejestr, sposób unikania odpowiedzi, odruchy
@@ -111,8 +112,9 @@ Wczytaj (dokładnie te, nie więcej):
   kiedy mówi o pieniądzach, czego u niej nie nadużywać — plus 2–4 `samples` będące kwestiami
   wprost. Jest **jedynym** źródłem głosu: `speech_traits` **zdjęto** z kart, które mają
   kontrakt. Brief podaje `voice_ref` przy uczestniku, skrót karty wkleja kontrakt i reguły
-  na samej górze. `knowledge`, `audit`, transakcje i retcony mówią, CO postać wie — i nigdy
-  nie są próbką mowy.
+  na samej górze. Kontrakt to tendencje, nie nakaz jednego zdania i stałego gestu.
+  Audyt, transakcje i retcony nie są automatycznie wiedzą NPC. Ustal drogę zdobycia
+  informacji: obserwację, relację lub omylny wniosek. Reguły narratora są niewidoczne.
   **Dlaczego to nie była wina modelu.** Karta Kesza mówiła `Wycenia, nie bramkuje: mowi to
   kosztuje tyle`, a narrator powoływał się na to wprost w audytach tur **240, 242, 244
   i 245** („WYCENIL DWIE DROGI, nie zabramkowal zadnej (speech_traits: wycenia, nie
@@ -165,10 +167,11 @@ Wypisz **zwięźle** (to ma być orientacja, nie wykład), w tej kolejności:
    zwięzłość), nie jako lista zdarzeń. Nie sięgaj po `audit` ani po pełne `summary`, jeśli
    nie musisz: to protokół, nie narracja, i właśnie z czytania go bierze się to, że wszystkie
    NPC brzmią jednakowo (`retcon_000040`).
-2. **Tu i teraz** — lokacja, kto obecny, czas, stan Lucana (energia/integralność/warunki),
-   napięcie.
-3. **Otwarte sprawy** — aktywne cele i zegary, po jednej linii, bez ID.
-4. **Punkt decyzji** — jedno konkretne pytanie „co robisz".
+2. **Tu i teraz** — miejsce, obecne osoby i dostrzegalne szczegóły; stan odczuwany przez
+   Lucana, bez tabel zasobów i poziomu napięcia. Panel mechaniczny tylko na życzenie.
+3. **Otwarte sprawy** — tylko te, które są teraz dostrzegalne lub znane Lucanowi;
+   bez przeglądu ukrytych zegarów i bez obowiązkowego bilansu interludium.
+4. **Punkt decyzji** — miejsce na działanie lub odpowiedź, nie obowiązkowe menu.
 
 Potem **przestań pisać i czekaj**. Nie wybieraj akcji za Lucana, nie rozwijaj tury
 w tej samej wiadomości. Nie wklejaj wyjścia narzędzi do narracji.
@@ -204,13 +207,10 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 scene close
 Po zamknięciu sceny **powiedz graczowi, żeby otworzył nową rozmowę** i znów wywołał `/gramy`.
 Nie ciągnij jednego wątku przez kilka scen.
 
-**To nie jest formalność — zmierzone 19.08.2026.** Każda tura wysyła całą rozmowę od nowa,
-więc przy N turach mnożnik kosztu to N²/2, nie N. Sesja 21 tur w jednym wątku ≈ 1,39 mln
-tokenów wejścia; te same 21 tur w trzech rozmowach ≈ 0,70 mln. Ale ważniejszy jest drugi
-skutek: **po ~20 turach zaczynam gubić rzeczy, które mam w kontekście.** W tamtej sesji
-zapomniałem o `load_when_*` w `active.yaml` (czytanym w turze drugiej), wymyśliłem fakt o
-synekurze, który trzeba było wycofać, i prawie użyłem w scenie ciał, których Seraphine nie
-zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli scena formalnie trwa.
+Odtwarzalny brief jest ważniejszy niż liczba tur: przenieś rozmowę przy zmianie sceny,
+kompakcji lub utracie orientacji. Dawne szacunki N² nie uwzględniały cache i kompakcji;
+nie są pomiarem kosztu obecnego abonamentu. Nie przerywaj rozmowy postaci w połowie
+tylko dlatego, że minęło osiem tur. Zawsze utrzymuj pliki pozwalające ją wznowić.
 
 ## Zasady, o które łatwo się potknąć
 
@@ -364,8 +364,10 @@ zna. Zamykaj scenę i wątek RAZEM — najpóźniej co 6-8 tur, nawet jeśli sce
   `active_refs` - ładują się przy KAŻDYM otwarciu sceny. Uzasadnienia, cytaty i wnioski idą do
   `planning/act-03-defence.yaml`; w stanie zostaje struktura i `key_constraint` do 120 znaków.
   Raz już spuchły do 22,8 KB i 4,2 KB, czyli 66% budżetu kontekstu.
-- Budżet aktywnego kontekstu to 40 KB. `context_warnings` w briefie nie przerywa gry, ale
-  sygnalizuje, że trzeba odchudzić `active_refs`.
+- Budżet źródeł ustala `context_policy.source_budget_bytes`: obecnie 96 KiB, wcześniej
+  40 KiB. To nie maksymalne okno modelu ani limit prozy. `context plan` liczy wybrane
+  pliki bez duplikatów; historia, narzędzia i odpowiedź wymagają dodatkowego zapasu.
+  `context_warnings` sygnalizuje potrzebę selekcji, nie powód usuwania warunków z faktów.
 
 - **INTERLUDIUM BUDUJE GRACZ, NIE TY** (retcon_000033, 25.08.2026 — najdroższy błąd tej
   kampanii, dwie tury do przepisania). Brak rzutów w interludium nie znaczy, że rzutów nie

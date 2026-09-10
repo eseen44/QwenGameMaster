@@ -21,14 +21,19 @@ summary: Krótki faktyczny opis rezultatu.
 #     honorarium albo kwocie jest w porządku i nie jest liczona;
 #   - „nie X, tylko Y" najwyżej raz i nie u dwóch postaci w tej samej scenie.
 prose: |
-  Trzy do sześciu zdań narracji. Co najmniej jedna kwestia wprost, jeśli w turze
-  ktokolwiek się odezwał.
+  Scena o długości odpowiedniej do działania: przestrzeń, percepcja, reakcja świata.
+  Ważne kwestie padają wprost. Opis i dobrowolna zaczepka są dozwolone, ale nie
+  obowiązkowe. Bez instrukcji narratora, ID, bilansu zasobów i decyzji za Lucana.
 apply_required_costs: true
 resolved_world_reaction_ids: []
 # Przy napięciu 0 wymagane dla worsened/complicated/mixed: istniejący plik,
 # event/retcon albo player_declaration:...
 consequence_source_refs: []
 operations: []
+# Przy przejsciu miedzy lokacjami ustaw scene_update.location_ref i pelna liste
+# scene_update.participants. To zapis obecnosci, nie polecenie ruchu: pozycje cial
+# zmieniaj osobno operacjami set na position. Nie przenos automatycznie calej druzyny.
+scene_update: null
 # NOWY PUNKT DECYZJI JEST OPCJONALNY. `commit` przepisuje to pole do
 # `scene.immediate_questions`, a puste pole ZOSTAWIA poprzednie pytanie w mocy - i to jest
 # poprawne zachowanie w spokojnej turze. Do 2026-09-09 szablon zadal tego pola zawsze, więc

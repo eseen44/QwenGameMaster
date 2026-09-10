@@ -97,6 +97,28 @@ history:
   - {event_id: milestone_046_varkhen_oath_compact, change: baseline, reason: user_confirmed_no_resentment_and_honorable_reciprocity}
   - {event_id: event_act_02_closeout_interlude_import, change: ring_transfer_and_private_conversation, reason: Varkhen_accepted_Lucans_right_to_keep_the_ring_and_the_compact_remains_voluntary}
   - {event_id: event_turn_interlude_054_varkhen_discretion_condition, change: discretion_added_to_compact, reason: Lucan_conditions_future_repair_on_nonvoluntary_disclosure_not_becoming_a_risk_to_him}
+  - event_id: event_turn_interlude_250
+    change: journey_toward_oath_resumed
+    reason: Varkhen wyszedl z Lucanem z gildii. To wykonanie wczesniejszego planu i trwajacego ukladu, bez nowego zobowiazania.
+  - event_id: event_turn_interlude_251
+    change: conditional_stewardship_offer_unanswered
+    known_to: [pc_lucan, npc_varkhen_mind]
+    reason: Lucan zaproponowal mu zarzadzanie posiadloscia po przysiedze, z pozostawieniem wyboru Varkhenowi. Zapowiedzial tez warunkowe odlaczenie wiezi przy pozostaniu na cmentarzu. Varkhen zapytal o wlasciciela ziemi; ani nie przyjal, ani nie odmowil. Oferta nie stala sie umowa, a wiezi nie odlaczono.
+  - event_id: event_turn_interlude_255
+    change: cooperation_at_foundation
+    known_to: [pc_lucan, npc_varkhen_mind]
+    reason: Lucan przekazal Varkhenowi energie i poprosil o odsloniecie fundamentu. Varkhen wyjal trzy kamienie. Pomoc potwierdza trwajaca wspolprace; nie padla nowa przysiega ani deklaracja zmiany stosunku do Lucana.
+review:
+  through_event_id: event_turn_interlude_256
+  scope: events_236_through_256
+  axes_changed: false
+  reason: >-
+    Przejrzano pozniejsze sceny: oczekiwanie w gildii, powrot Lucana, rozmowe o czasie
+    po przysiedze, wspolna droge i odsloniecie niszy. Varkhen nadal nie wie, co zrobi
+    po przysiedze; oferta zarzadcy pozostaje bez decyzji. Przy niszy przyznal, ze nie
+    zna przedmiotu (t_256). Brak deklaracji lub czynu uzasadniajacego nowa liczbowa
+    zmiane zaufania, osobistego stosunku lub oceny osadu; osie i istniejacy pakt zostaja.
+    Nie dopisano mu wdziecznosci, niecheci ani wiedzy o prywatnych wynikach sondy.
 visibility: {known_to_subject: true, known_to_target: partially, known_to_others: [npc_seraphine_vale]}
-last_event_id: event_turn_interlude_235
+last_event_id: event_turn_interlude_256
 source_refs: [source_user_decisions_current#approval:varkhen_card, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md]

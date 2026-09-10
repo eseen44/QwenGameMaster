@@ -1,6 +1,9 @@
 schema_version: 1
 campaign_id: campaign_lucan
 status: active
+context_policy:
+  source_budget_bytes: 98304
+  scope: repository_sources_only_excludes_conversation_tools_and_output
 scene_ref: campaigns/lucan/context/scene.yaml
 always_load:
 - system/narrator.md
@@ -9,6 +12,8 @@ load_when_npc_speaks:
 - system/npc-voice.md
 load_when_narrator_failure_modes:
 - system/narrator-appendix.md
+load_when_reviewing_immersion:
+- system/fixtures/immersion-review.md
 load_when_curse_used:
 - system/curses.md
 load_when_magic_matters:
@@ -47,25 +52,25 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/lumaria-guild/location.yaml
+- campaigns/lucan/locations/cemetery-underworks/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
+- campaigns/lucan/state/instances/varkhen.yaml
 search_terms:
 - 'Nisza, 21:19. Rzecz jest zbiornikiem, nie zrodlem: trzy czynne kanaly wnosza do
   niej smierc bez wlasciciela i robia to od dawna. To nie duch cmentarza. Czym jest
   rytual - sonda nie powie. Nierozstrzygniete: skad kanaly to biora i czy przedmiot
   da sie wyjac.'
 last_refreshed_event_id: event_turn_interlude_256
-context_bytes: 40610
-context_budget_bytes: 40960
-context_warnings:
-- total_informational:142693>40960
+context_bytes: 40695
+context_budget_bytes: 98304
+context_warnings: []
 heaviest_refs:
 - ref: system/narrator.md
-  bytes: 9112
+  bytes: 8915
 - ref: campaigns/lucan/state/objectives.yaml
-  bytes: 5535
+  bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
   bytes: 4194
 - ref: campaigns/lucan/state/sustained-links.yaml
@@ -76,90 +81,96 @@ conditional_sets:
   npc_speaks:
     refs:
     - ref: system/npc-voice.md
-      bytes: 6447
-    bytes: 6447
+      bytes: 7728
+    bytes: 7728
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
-      bytes: 19069
-    bytes: 19069
+      bytes: 18789
+    bytes: 18789
+  reviewing_immersion:
+    refs:
+    - ref: system/fixtures/immersion-review.md
+      bytes: 2795
+    bytes: 2795
   curse_used:
     refs:
     - ref: system/curses.md
-      bytes: 15010
-    bytes: 15010
+      bytes: 14787
+    bytes: 14787
   magic_matters:
     refs:
     - ref: system/magic.md
-      bytes: 6834
+      bytes: 6724
     - ref: system/metamagic.md
-      bytes: 4529
-    bytes: 11363
+      bytes: 4447
+    bytes: 11171
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
-      bytes: 12056
+      bytes: 11884
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14206
-    bytes: 26262
+      bytes: 14084
+    bytes: 25968
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
-      bytes: 2762
-    bytes: 2762
+      bytes: 2708
+    bytes: 2708
   debugging_runtime:
     refs:
     - ref: system/runtime.md
-      bytes: 3247
-    bytes: 3247
+      bytes: 3193
+    bytes: 3193
   testing:
     refs:
     - ref: system/tests.md
-      bytes: 11852
+      bytes: 11621
     - ref: system/character-score.md
-      bytes: 1647
+      bytes: 1610
     - ref: system/capabilities.md
-      bytes: 2887
+      bytes: 2839
     - ref: campaigns/lucan/state/world-axis.yaml
-      bytes: 3287
-    bytes: 19673
+      bytes: 3200
+    bytes: 19270
   time_matters:
     refs:
     - ref: system/pacing.md
-      bytes: 4871
-    bytes: 4871
+      bytes: 4772
+    bytes: 4772
   location_changes:
     refs:
     - ref: system/locations-and-maps.md
-      bytes: 2330
-    bytes: 2330
+      bytes: 2286
+    bytes: 2286
   choosing_a_plan:
     refs:
     - ref: planning/interlude-act-03-entry-scope.yaml
-      bytes: 3829
+      bytes: 3782
     - ref: planning/obligations-rationale.yaml
-      bytes: 3816
+      bytes: 3771
     - ref: planning/act-03-defence.yaml
-      bytes: 4431
-    bytes: 12076
+      bytes: 4329
+    bytes: 11882
   social_stakes_matter:
     refs:
     - ref: system/social-intrigue.md
-      bytes: 4690
-    bytes: 4690
+      bytes: 4619
+    bytes: 4619
   necromancy_legality_matters:
     refs:
     - ref: worlds/solmara/lore/legal-order.yaml
-      bytes: 4191
+      bytes: 4134
     - ref: worlds/solmara/lore/necromancy-law.yaml
-      bytes: 6158
+      bytes: 6080
     - ref: campaigns/lucan/state/secrets.yaml
-      bytes: 11739
-    bytes: 22088
+      bytes: 11582
+    bytes: 21796
 context_breakdown:
-  rules_always: 29644
-  state_active: 28694
-  participant_cards: 84355
-  participant_digests: 29439
-  conditional_heaviest: 26262
-context_total_bytes: 142693
+  rules_always: 29475
+  state_active: 29033
+  participant_cards: 8600
+  participant_full_cards_available: 15617
+  participant_digests: 8600
+  conditional_heaviest: 25968
+context_total_bytes: 67108

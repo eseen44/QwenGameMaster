@@ -7,7 +7,7 @@ portrayal, speech_traits, agenda, do_not_play, forbidden_without_source - wazy 5
 
 Skrot zawiera wiec:
   - cala czesc "jak grac" 1:1 (portrayal, speech_traits, agenda, appearance, lifecycle...),
-  - N NAJNOWSZYCH wpisow knowledge.confirmed w calosci (bo to one sa stanem biezacym),
+  - N NAJNOWSZYCH wpisow knowledge.confirmed jako streszczenia albo oznaczone fragmenty,
   - INDEKS pozostalych: fact_id + source_event_id, po jednej linii, zeby bylo widac,
     CO postac wie, nawet gdy szczegol trzeba dociagnac z pelnej karty,
   - suspicions i false_beliefs w calosci (krotkie, a zmieniaja prowadzenie),
@@ -32,9 +32,10 @@ ale nie zdjelo WAGI: `recent_confirmed` Kesza to nadal 4 482 B na 2 323 B kontra
 czyli archiwum wazylo dwa razy tyle, ile instrukcja stylu, i to archiwum jest pisane jako
 protokol tury, nie jako fakt. Dlatego skrot teraz:
   - SCINA kazdy `claim` do CLAIM_CAP znakow na granicy zdania i oznacza to
-    `claim_truncated: true` plus `claim_full` ze wskazaniem na pelna karte. Fakt siedzi
-    w pierwszych zdaniach; ogon jest ksiegowoscia tury ("Nieustalone:", "converging_target#...",
-    "zaden zegar z tego nie powstal") i nalezy do `outcome.audit`, nie do glosu postaci,
+    `claim_truncated: true` plus `claim_full` ze wskazaniem na pelna karte. Fragment NIE
+    gwarantuje zachowania znaczenia: ogon moze zawierac zaprzeczenie lub warunek.
+    `recall_summary`, jesli istnieje, jest recznie opracowanym streszczeniem semantycznym;
+    nie jest ponownie ucinane i zachowuje adres oryginalu,
   - podaje indeks starszych faktow w formie `fact_id@<numer tury>` zamiast pelnego
     `fact_id <- event_turn_interlude_NNN`. Indeks Seraphiny (91 wpisow) spadl z 8,5 KB
     do ~4 KB bez utraty ani jednego adresu.
@@ -76,11 +77,12 @@ CAP_SCHODKI = (420, 340, 280, 220, 170, 130)
 REGULY_GLOSU = [
     "Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.",
     "Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.",
-    "Odpowiada na JEDNA rzecz, zwykle ostatnia albo najbardziej dla siebie niewygodna.",
+    "Kontrakt opisuje tendencje, nie limity zdan ani obowiazkowe gesty. Odpowiada stosownie do sytuacji.",
     "PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe "
     "niezrozumienie, zmiana tematu, czynnosc fizyczna, bledny odczyt intencji, emocja "
     "bez analizy. Diagnoza gracza NIE jest wymagana ani domyslna.",
-    "Bez wyliczania ukrytych skutkow - najwyzej jeden, widziany z jej miejsca, i moze byc bledny.",
+    "Wie tylko to, co dostrzegla, poznala lub umie z doswiadczenia. Domysl moze byc bledny; "
+    "reguly narratora, prywatne skany i audit nie sa jej wiedza.",
     "Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.",
     "'nie X, tylko Y' najwyzej raz i nie u dwoch postaci w tej samej scenie.",
     "Pelna regula, menu ruchow i test na slepo: system/npc-voice.md",
@@ -185,7 +187,14 @@ def scisnij_wpisy(wpisy: list, full_card: str, cap: int = CLAIM_CAP) -> list:
         nowy = dict(wpis)
         klucz, tresc = tekst_wpisu(nowy)
         if klucz:
-            tekst, ucieto = utnij_claim(tresc, cap)
+            summary = nowy.pop("recall_summary", None)
+            # A curated semantic summary preserves qualifiers; never truncate it again.
+            if isinstance(summary, str) and summary.strip():
+                tekst, ucieto = summary.strip(), False
+                nowy["claim_summarized"] = True
+                nowy["claim_full"] = f"{full_card}#{etykieta_wpisu(nowy)}"
+            else:
+                tekst, ucieto = utnij_claim(tresc, cap)
             nowy[klucz] = tekst
             if ucieto:
                 nowy["claim_truncated"] = True
@@ -203,8 +212,8 @@ def bajty(obiekt: object) -> int:
 def dopasuj_do_stylu(najnowsze: list, full_card: str, styl_bajtow: int) -> tuple[list, int]:
     """Scisnij recent_confirmed do CEL_STOSUNKU x kontrakt glosu. Zwraca (wpisy, uzyty_cap).
 
-    Fakt zostaje - ginie ogon protokolu tury. Pelna karta jest nietknieta i kazdy sciety
-    wpis nosi `claim_full` z adresem calosci, wiec zaden szczegol nie znika z widoku.
+    Pelna karta jest nietknieta. Kazdy sciety wpis wymaga doczytania claim_full;
+    kwalifikatory moga lezec poza fragmentem. Streszczenia semantyczne zostaja cale.
     """
     limit = int(CEL_STOSUNKU * styl_bajtow) if styl_bajtow else 0
     ostatnie = scisnij_wpisy(najnowsze, full_card, CAP_SCHODKI[0])
@@ -290,9 +299,10 @@ def digest_for(card: dict, recent: int, now: int, stem: str = "", voice: dict | 
     out["knowledge"] = {
         "register_note": (
             "TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: "
-            "mowia, CO postac wie, nigdy JAK mowi. Glos bierz wylacznie z `voice` na gorze "
-            "tego skrotu (system/npc-voice.md). Wersaliki emfatyczne sa tu wygaszone "
-            "celowo - pelna karta zachowuje oryginalna pisownie."
+            "nie kazde zdanie audytu jest wiedza NPC. Sprawdz droge zdobycia informacji, "
+            "oddziel obserwacje, cudza relacje i hipoteze. Reguly narratora nie sa faktami "
+            "swiata. Przy claim_truncated doczytaj konkretny claim_full przed uzyciem: "
+            "pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze."
         ),
         "claim_cap_chars": uzyty_cap,
         "recent_confirmed": dopasowane,
@@ -322,8 +332,8 @@ def digest_for(card: dict, recent: int, now: int, stem: str = "", voice: dict | 
     }
     out["digest_note"] = (
         "SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna "
-        "karta wskazana w full_card; tu leza czesc 'jak grac' 1:1, najnowsze fakty w calosci "
-        "oraz INDEKS starszych (fact_id <- zdarzenie). Szczegol starszego faktu dociagnij "
+        "karta wskazana w full_card; tu leza czesc 'jak grac', streszczenia lub oznaczone "
+        "fragmenty najnowszych faktow oraz INDEKS starszych. Szczegol faktu dociagnij "
         "z pelnej karty. Przebuduj: python tools/build_npc_digests.py"
     )
     return out
@@ -353,9 +363,6 @@ def build(recent: int) -> dict[Path, str]:
         # karty). Emitujemy tylko wtedy, gdy oszczednosc jest realna.
         PROG_OSZCZEDNOSCI = 0.75
         if len(body.encode("utf-8")) > PROG_OSZCZEDNOSCI * path.stat().st_size:
-            stary = DIGESTS / f"{path.stem}.yaml"
-            if stary.exists():
-                stary.unlink()     # skrot przestal sie oplacac - usun, zeby nie klamal
             continue
         out[DIGESTS / f"{path.stem}.yaml"] = body
     return out
@@ -368,9 +375,11 @@ def main() -> int:
     args = parser.parse_args()
 
     files = build(args.recent)
+    obsolete = set(DIGESTS.glob("*.yaml")) - set(files)
     if args.check:
         stale = [path for path, body in files.items()
                  if not path.exists() or path.read_text(encoding="utf-8") != body]
+        stale.extend(sorted(obsolete))
         if stale:
             print(f"[BLAD] {len(stale)} skrotow kart nieaktualnych "
                   f"- uruchom: python tools/build_npc_digests.py")
@@ -381,6 +390,8 @@ def main() -> int:
         return 0
 
     DIGESTS.mkdir(parents=True, exist_ok=True)
+    for path in obsolete:
+        path.unlink()
     for path, body in files.items():
         path.write_text(body, encoding="utf-8", newline="\n")
     total_full = sum((ROOT / yaml.safe_load(body)["full_card"]).stat().st_size

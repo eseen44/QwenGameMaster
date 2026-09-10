@@ -495,8 +495,11 @@ def validate_runtime(errors: list[str]) -> None:
 
     try:
         context = gm_runtime.refresh_context(campaign_root, write=False)
-        if context["context_bytes"] > gm_runtime.CONTEXT_BUDGET_BYTES:
-            errors.append("RUNTIME: active context exceeds 40 KB")
+        errors.extend("RUNTIME: " + warning for warning in context["context_warnings"]
+                      if warning.startswith("scene_position_mismatch:"))
+        if context["context_bytes"] > context["context_budget_bytes"]:
+            errors.append(f"RUNTIME: active sources exceed configured budget "
+                          f"({context['context_bytes']}>{context['context_budget_bytes']} bytes)")
     except gm_runtime.RuntimeError as exc:
         errors.append(f"RUNTIME: context: {exc}")
 

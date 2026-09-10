@@ -477,3 +477,29 @@ Osobno, gotcha narzędziowa: `tools/roll-d100.ps1 -Modifier 'a=10','b=-10'` skle
 w jeden wpis i zachowuje tylko ostatnią wartość (drugie `-Modifier` nie bindzie się wcale).
 W tym rzucie zjadło to bonus `darkness=10`, czyli wynik wyszedł zaniżony, nie zawyżony.
 Podawać jeden modyfikator albo sumę policzoną ręcznie.
+
+## 2026-09-09 — Immersja, perspektywa NPC i rzeczywisty zestaw źródeł
+
+Na jawną prośbę gracza narrator dostaje swobodę opisu i dobrowolnych zaczepek także
+w interludium (retcon_000164). Głos to tendencje, a nie mechaniczny limit zdań i gestów.
+Wiedza wymaga drogi zdobycia informacji; hipoteza, cudza relacja i fakt to różne rzeczy.
+Nie zmieniono rozegranych tur, czasu, zasobów ani tajemnicy pod fundamentem.
+
+Brief, eksport pełny i plan kontekstu wybierają te same skróty NPC z głosem; pełne karty
+służą do punktowego doczytania. `recall_summary` zachowuje znaczenie i zastrzeżenia wpisu,
+zamiast zakładać, że jego pierwsze zdanie jest całym faktem. Brak takiego streszczenia
+pozostawia jawnie oznaczony fragment z adresem do doczytania. Budżet źródeł konfiguruje
+`context_policy.source_budget_bytes`: dla Lucana 98 304 bajty (96 KiB). Dawne 40 KiB
+było ustawieniem repo, nie oknem tokenów Claude'a. Budżet nie obejmuje rozmowy, wyników
+narzędzi ani odpowiedzi; abonament 5× dotyczy użycia, nie mnożnika okna kontekstu.
+
+Źródła weryfikacji abonamentu: https://support.claude.com/en/articles/11049741-what-is-the-max-plan
+i https://code.claude.com/docs/en/model-config (odczyt 2026-09-09). Dostępne okno należy
+sprawdzić w konkretnej aplikacji/modelu; nie przypisujemy kontu użytkownika możliwości
+wyłącznie na podstawie nazwy abonamentu.
+
+Stan sceny zsynchronizowano z istniejącymi turami: podziemia, Varkhen obecny, Seraphine
+została w gildii. `scene_update` pozwala zapisać lokalizację i obecność w transakcji;
+nie porusza sam ciał. Walidacja wykrywa rozbieżność obecności i pozycji.
+Nowa bramka prozy łapie jednoznaczne identyfikatory wewnętrzne; nie udaje oceny literackiej
+ani semantycznego dowodu wiedzy. Pełna ocena wymaga prób kolejnych scen z Claude'em.

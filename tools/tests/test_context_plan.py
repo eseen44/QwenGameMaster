@@ -12,6 +12,7 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 import yaml
@@ -114,7 +115,8 @@ class BreakdownTest(unittest.TestCase):
 
     def test_ostrzezenie_o_prawdziwej_sumie_jest_informacyjne(self):
         """Bramka zostaje na context_bytes - inaczej walidator swiecilby bez przerwy."""
-        result = gm_runtime.refresh_context(CAMPAIGN, write=False)
+        with mock.patch.object(gm_runtime, "context_budget", return_value=1):
+            result = gm_runtime.refresh_context(CAMPAIGN, write=False)
         total_warnings = [w for w in result["context_warnings"] if w.startswith("total_")]
         self.assertTrue(total_warnings)
         self.assertTrue(all(w.startswith("total_informational") for w in total_warnings))

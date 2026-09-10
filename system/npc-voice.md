@@ -7,8 +7,25 @@ i `tools/prose_check.py`, oba blokujące, oba wpięte w `tools/preflight.py`.
 
 ## Skąd bierze się kwestia
 
-**Głos bierze się z karty głosu, treść z `knowledge`.** To są dwa różne pliki i nie wolno
-ich mieszać w jedną stronę: karta głosu mówi JAK ta osoba mówi, `knowledge` mówi CO wie.
+**Głos bierze się z karty głosu; wiedza wymaga drogi jej zdobycia.** Kontrakt opisuje
+tendencje: długość zdań, gesty i błędy nie są obowiązkiem ani ograniczeniem inteligencji.
+Nie odgrywaj wszystkich osi naraz i nie wyjaśniaj ich graczowi komentarzem narratora.
+NPC potrafi rozwinąć odpowiedź, uczyć się i wnioskować w granicach doświadczenia.
+
+Przed kwestią sprawdź wewnętrznie: **kto wie, co, skąd i z jaką pewnością**.
+- Obserwacja: tylko to, co było dostępne tej osobie i jej zmysłom. Obecność przy Lucanie
+  nie daje dostępu do jego myśli, prywatnego skanu, zasobów ani reguł narratora.
+- Relacja: NPC wie, że ktoś coś powiedział; może mu wierzyć, ale to nie dowód prawdy.
+- Wniosek i podejrzenie: wynikają z dostępnych przesłanek; język i zapis zachowują niepewność.
+- Sekret lub brak źródła: NPC nie ujawnia go. Plik MG nie jest wspólną pamięcią postaci.
+
+W `knowledge.confirmed` zapisuj zwięzły fakt zdobycia informacji i `source_event_id`;
+dla nowych wpisów podawaj `acquisition` (observed/reported), `source_actor_id` przy
+relacji i krótki `recall_summary` bez komentarza o prowadzeniu gry. Hipotezy należą do
+`suspicions`, fałszywe przekonania do `false_beliefs`. Nie przepisuj uzasadnienia tury do
+wiedzy. Wpis historyczny z audytem nie daje NPC wiedzy o systemie. Gdy skrót ma
+`claim_truncated`, doczytaj konkretny wpis `claim_full` przed użyciem jego szczegółów;
+pierwsze zdanie może pomijać zaprzeczenie albo warunek znajdujący się dalej.
 
 `knowledge.confirmed`, `audit`, transakcje, retcony i `summary` są **zapisem protokołu, nie
 próbką mowy**. Są pisane wielkimi literami, rejestrem wniosku i z odwołaniami do plików, bo
@@ -30,12 +47,12 @@ awaria co `retcon_000040` i `retcon_000136`, tylko wchodząca przez skrót karty
 
 ## NPC nie jest analitykiem wypowiedzi Lucana
 
-- **Odpowiada na jedną rzecz**, zwykle ostatnią albo najbardziej dla siebie niewygodną.
-  Nie rozkłada wypowiedzi na elementy i nie odnosi się do wszystkich.
+- Odpowiada na to, co ma dla niego znaczenie. Może podjąć kilka powiązanych pytań,
+  opowiedzieć wspomnienie lub dopytać; rozmowa nie wymaga odhaczania listy gracza.
 - **Wolno mu nie zrozumieć**, przesłyszeć, odczytać w drugą stronę, zignorować pytanie,
   zmienić temat, odpowiedzieć emocją, gestem albo ciszą. To normalna rozmowa, nie awaria.
-- **Nie ma z urzędu trafnego odczytu ukrytej konsekwencji.** Widzi najwyżej jedną, tę ze
-  swojego miejsca, i może się z nią pomylić. Pełne zestawienie skutków jest wiedzą
+- **Nie ma z urzędu trafnego odczytu ukrytej konsekwencji.** Wnioskuje ze swojego miejsca
+  i może się mylić. Pełne zestawienie skutków jest wiedzą
   narratora, a wiedza narratora nie jest wiedzą postaci (`retcon_000136`).
 - **Nie kończy aforyzmem.** Konstrukcja „nie X, tylko Y" (oraz „nie dlatego, że…, tylko
   dlatego, że…") jest dozwolona **najwyżej raz w całej odpowiedzi** i nie u dwóch postaci
@@ -43,8 +60,9 @@ awaria co `retcon_000040` i `retcon_000136`, tylko wchodząca przez skrót karty
 
 ## Ruch świata
 
-Tura ma poruszyć świat, ale **ruch świata to nie diagnoza gracza**. Każde z poniższych jest
-pełnym ruchem i żadne nie jest turą „słabszą":
+**Ruch świata to nie diagnoza gracza.** Poniżej przykłady, nie lista obowiązkowa.
+Tło i dobrowolne zaczepki są dozwolone także w interludium (system/narrator.md).
+Spokojna odpowiedź bez dodatkowego wydarzenia wystarcza:
 
 - **gest** — odłożone pióro, zgaszona lampa, podany przedmiot;
 - **milczenie** — i to nie jest wykręt, jeśli karta tak mówi;

@@ -29,6 +29,8 @@ Ta tabela jest kompletną mapą aktualizacji: każdy plik projektu wpada w dokł
 | `campaigns/*/companions/*.yaml` | stan i rozkazy sług | Gdy sługa zmienia zasób, obrażenie, lokalizację, skład roju, rozkaz, autonomię albo relację. |
 | `campaigns/*/entities/npcs/*.yaml`, `entities/factions/*.yaml` | fakty, wiedza, agenda i stan świata | Gdy dana postać/frakcja poznaje fakt, zmienia cel, pozycję, status, relację lub zasób. Nie zapisuj wiedzy, której nie zdobyła. |
 | `campaigns/*/entities/**/index.yaml` | rejestry | Tylko gdy tworzymy lub archiwizujemy trwały byt. |
+| `campaigns/*/entities/npcs/voices/*.yaml` | kontrakty głosu | Przy świadomej kalibracji postaci; tendencje, nie zapis wiedzy. |
+| `campaigns/*/entities/npcs/digests/*.yaml` | skróty pochodne | Generuje `tools/build_npc_digests.py`; nie edytuj ręcznie. |
 | `campaigns/*/entities/**/README.md` | dokumentacja | Tylko przy zmianie struktury, nie turą. |
 | `campaigns/*/locations/*/state.yaml` | stan fizyczny lokacji | Gdy zmieniają się uszkodzenia, przeszkody, zagrożenia, mieszkańcy lub dostępność. |
 | `campaigns/*/locations/*/discovery.yaml` i `maps/player.svg` | wiedza Lucana | Przy pierwszym odkryciu albo ujawnieniu elementu; mapa gracza nie może ujawnić więcej niż discovery. |
