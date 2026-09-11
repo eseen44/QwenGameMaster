@@ -12,10 +12,10 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 144
+  fields: 146
   engine_reads: 89
-  documentation_only: 55
-  flags: 94
+  documentation_only: 57
+  flags: 99
   flags_engine_reads: 7
   flags_looks_mechanical_but_is_not: 0
 fields:
@@ -539,6 +539,14 @@ fields:
   status: engine_reads
   note: 2 odwolan literalnych w tools/
   in_instances: 30
+- field: symbiont_upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: symbiont_upkeep_per_day_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
 - field: traits
   status: engine_reads
   note: 3 odwolan literalnych w tools/
@@ -624,6 +632,9 @@ status_flags:
   status: engine_reads_via_requires
   note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
     DZIALA (przez dane, nie przez kod)'
+- flag: bat_protocol_fold_and_drop_t_271
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: buzz_draws_attention_and_violence
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -805,6 +816,9 @@ status_flags:
 - flag: paired_with_webber_home
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: passive_concealment_when_still
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: permanently_expanded_reservoir
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -844,6 +858,9 @@ status_flags:
 - flag: slow
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: sound_dampening_symbiont
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: sparse_web_capable
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -853,7 +870,13 @@ status_flags:
 - flag: static_post_capable
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: substrate_matching_lichen
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: sugar_feeder_must_leave_a_closed_post
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: symbiotic_parasite_load
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: tactile_full_body_sensing

@@ -3,17 +3,17 @@ id: spy_wasp_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 194
+revision: 195
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_entry
-  formation: on_the_workbench
+  formation: foraging_the_meadows_around_the_tower_since_the_previous_night_retcon_000169
 integrity:
   current: 4
   maximum: 4
 resources:
   necrotic_reservoir:
-    current: 0
+    current: 3
     capacity: 3
     decay:
       interval_seconds: 86400
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 41800
-      hunting_recovery_elapsed_seconds: 21900
+      decay_elapsed_seconds: 59800
+      hunting_recovery_elapsed_seconds: 39900
     hunting_recovery_override:
       requires:
       - autonomous_hunting
@@ -47,7 +47,7 @@ status_flags:
 - buzz_draws_attention_and_violence
 - starves_at_a_static_indoor_post
 conditions: []
-last_event_id: event_turn_interlude_270
+last_event_id: event_turn_interlude_271
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
