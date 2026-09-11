@@ -48,7 +48,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_268
+  last_confirmed_event_id: event_turn_interlude_269
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -156,6 +156,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_set_the_crew_to_boros_and_mara_in_daylight
+    source_event_id: event_turn_interlude_269
+    claim: 'Przyjela, ze nie zna ojca Lucana, i zostawila sobie tylko to, ze w Akademii nie ma zadnych
+      swoich oczu. Ustalila ekipe na Borosa i Mare, bo kazdy obcy minalby sarkofag z Varkhenem, i przeniosla
+      robote na dzien, bo po to jest podpisany papier. Postawila jeden warunek: to, co wyjda spod korka,
+      ma sie dac opisac jej zdaniem, a jesli nie - ma o tym wiedziec, zanim ekipa zejdzie.'
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_set_the_crew_to_boros_and_mara_in_daylight
   - fact_id: fact_seraphine_accepted_the_evidence_reason_and_refused_both_staged_incidents
     source_event_id: event_turn_interlude_268
     claim: Uslyszala, ze ekspertem jest ojciec Lucana, i policzyla to glosno jako druga osobe, ktora wie.
@@ -180,14 +188,8 @@ knowledge:
       wie, ze istnieje. Wersje Lucana o wybuchu przyjela jako jego slowa, nie sprawdzila jej.
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_was_shown_the_vessel_and_told_lucans_version
-  - fact_id: fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
-    source_event_id: event_turn_interlude_265
-    claim: Pracowala w gabinecie po 23:00 i przyjela Lucana wracajacego z cmentarza samego. Zobaczyla
-      slad dlugiej pracy jego kanalem i odmrozona reke, zapytala o nia, a potem sama zmienila kolejnosc
-      na pytanie o Varkhena i trzecia pieczec. O przedmiocie z niszy nie wie.
-    claim_summarized: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
   older_confirmed_index:
+  - fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand@265
   - fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing@250
   - fact_seraphine_let_varkhen_walk_out_and_stayed_behind@250
   - fact_seraphine_heard_varkhen_say_the_oath_had_no_end@249
@@ -308,10 +310,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 103
+  confirmed_entries_total: 104
   in_digest: 4
-  last_fact_from_turn: 268
-  current_turn: 268
+  last_fact_from_turn: 269
+  current_turn: 269
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
