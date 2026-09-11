@@ -3,7 +3,9 @@ campaign_id: campaign_lucan
 status: active
 links:
 - id: link_lucan_hand_charges_beetle_01
-  active: true
+  active: false
+  deactivated_event_id: event_turn_interlude_260
+  deactivated_reason: "ZUK NIE JEST JUZ W KIESZENI LUCANA. Od t_258 siedzi w niszy pod polnocnym fundamentem kaplicy, a lacze opisuje LADOWANIE Z RECI bez przeskoku i bez straty propagacji - z odleglosci kilkuset metrow pod ziemia nie da sie go wykonac. Silnik debetowal za nie rezerwe Lucana 3,5 na dobe, wiec pozostawienie go aktywnym byloby placeniem za czynnosc, ktora sie nie odbywa. Dociagniecie pola do stanu, nie zmiana kanonu; wlaczyc z powrotem, gdy zuk wroci do kieszeni."
   controller_id: pc_lucan
   source_instance_id: pc_lucan
   source_pool_id: lucan_necrotic_energy
@@ -25,7 +27,7 @@ links:
     - zuk siedzi w kieszeni i jest ladowany z reki, jak w hand_feeding_program. Sufit
     rozwoju podnosi enlarge_reservoir_to_tank (3 -> 12), ok. godziny przy stole.'
   runtime:
-    elapsed_seconds: 61840
+    elapsed_seconds: 62020
     successful_intervals: 0
     missed_intervals: 0
   last_event_id: event_turn_interlude_179
@@ -44,7 +46,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 43600
+    elapsed_seconds: 43780
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
@@ -63,7 +65,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 43600
+    elapsed_seconds: 43780
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
@@ -82,7 +84,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 43600
+    elapsed_seconds: 43780
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
@@ -101,7 +103,7 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 43600
+    elapsed_seconds: 43780
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
