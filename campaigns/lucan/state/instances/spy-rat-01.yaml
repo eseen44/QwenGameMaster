@@ -1,16 +1,16 @@
 schema_version: 1
-id: spy_moth_01
+id: spy_rat_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 103
+revision: 1
 position:
-  location_id: loc_tannery
-  zone_id: zone_upper_meadow
-  formation: released_no_orders_maturing
+  location_id: loc_city_sewer
+  zone_id: zone_sewer_wall_district
+  formation: sewer_wall_district_post_with_the_centipedes_since_t_273
 integrity:
-  current: 4
-  maximum: 4
+  current: 5
+  maximum: 5
 resources:
   necrotic_reservoir:
     current: 3
@@ -24,21 +24,19 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 45880
-      hunting_recovery_elapsed_seconds: 45880
+      decay_elapsed_seconds: 1800
+      hunting_recovery_elapsed_seconds: 1800
 status_flags:
-- bat_protocol_fold_and_drop_t_271
 - newly_animated
 - fresh_obedient_and_dull
 - autonomous_hunting
-- intact_wings_capable_of_flight
-- silent_flight
-- nocturnal
-- drawn_to_light
-- fragile_wings_first_to_break
-- sugar_feeder_must_leave_a_closed_post
+- squeezes_through_grates_and_pipes
+- climbs_rough_stone
+- unremarkable_in_a_sewer_nobody_looks_twice
+- mammal_ear_hears_the_human_band_natively
 conditions: []
 last_event_id: event_turn_interlude_273
 source_refs:
-- event_turn_interlude_088
-- event_turn_interlude_090
+- event_turn_interlude_271
+- event_turn_interlude_272
+- event_turn_interlude_273
