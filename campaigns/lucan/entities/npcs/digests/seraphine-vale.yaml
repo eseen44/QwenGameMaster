@@ -48,7 +48,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_267
+  last_confirmed_event_id: event_turn_interlude_268
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -156,6 +156,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_accepted_the_evidence_reason_and_refused_both_staged_incidents
+    source_event_id: event_turn_interlude_268
+    claim: Uslyszala, ze ekspertem jest ojciec Lucana, i policzyla to glosno jako druga osobe, ktora wie.
+      Odrzucila podpalenie kaplicy i podrzucenie trupa, bo pierwsze sprowadza Kosciol, a drugie Straz.
+      Przyjela powod o zabezpieczeniu osypujacych sie dowodow po ekipie A-rank, napisala go i zadeklarowala
+      podpis. Ustalila, ze ekipa zejdzie otworem po osuwisku, bez ruszania powierzchni.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_accepted_the_evidence_reason_and_refused_both_staged_incidents
   - fact_id: fact_seraphine_ruled_varkhen_stays_and_priced_the_crew_on_a_paper_reason
     source_event_id: event_turn_interlude_267
     claim: Przyjela bez sprawdzania wersje, ze nikt o przedmiocie nie wie i ze lezal w naturalnej niecce.
@@ -179,16 +187,8 @@ knowledge:
       na pytanie o Varkhena i trzecia pieczec. O przedmiocie z niszy nie wie.
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
-  - fact_id: fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
-    source_event_id: event_turn_interlude_250
-    claim: 'Rozstrzygnieta zapowiedz z t_234, otwarta od czterech dni. Sygnet lezal na jej biurku od t_233
-      do t_238, wiec miala go na czym obejrzec; porownala go z papierami garbarnika, ktore ma u siebie
-      od milestone_022 (fact_seraphine_received_tannery_evidence). Wynik: Nic. Jelenia przebitego trzema
-      strzalami nie ma w niczym, co trzyma - jej papiery dotycza zakladu i jego wlasciciela, a herb jest
-      sprawa rodu.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
   older_confirmed_index:
+  - fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing@250
   - fact_seraphine_let_varkhen_walk_out_and_stayed_behind@250
   - fact_seraphine_heard_varkhen_say_the_oath_had_no_end@249
   - fact_seraphine_has_the_clerks_name_malen_corth@238
@@ -308,10 +308,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 102
+  confirmed_entries_total: 103
   in_digest: 4
-  last_fact_from_turn: 267
-  current_turn: 267
+  last_fact_from_turn: 268
+  current_turn: 268
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
