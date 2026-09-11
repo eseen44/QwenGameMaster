@@ -48,7 +48,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_265
+  last_confirmed_event_id: event_turn_interlude_266
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -156,6 +156,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_was_shown_the_vessel_and_told_lucans_version
+    source_event_id: event_turn_interlude_266
+    claim: Uslyszala, ze Varkhen zostal w swoim grobowcu i ze do pieczeci trzeba sie przekopac; arcymaga
+      ziemi nie ma, kilof i ludzi ma, ale pyta o podstawe do kopania na cmentarzu. Zobaczyla przedmiot
+      z niszy, czula go przez biurko i od progu, zabronila roboty przy nim w gildii i zapytala, kto jeszcze
+      wie, ze istnieje. Wersje Lucana o wybuchu przyjela jako jego slowa, nie sprawdzila jej.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_was_shown_the_vessel_and_told_lucans_version
   - fact_id: fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
     source_event_id: event_turn_interlude_265
     claim: Pracowala w gabinecie po 23:00 i przyjela Lucana wracajacego z cmentarza samego. Zobaczyla
@@ -180,15 +188,8 @@ knowledge:
       pieczeci jest krokiem pierwszym jej wlasnej kolejnosci z t_234.
     claim_truncated: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_let_varkhen_walk_out_and_stayed_behind
-  - fact_id: fact_seraphine_heard_varkhen_say_the_oath_had_no_end
-    source_event_id: event_turn_interlude_249
-    claim: 'Byla w gabinecie, gdy Lucan zapytal Varkhena wprost, co ten chce robic po wszystkim - to samo
-      pytanie, ktore ona zadala mu w t_230. Uslyszala te sama odpowiedz i powod, ktorego wtedy nie dostala:
-      postawiono go przy bramie i dano mu slowo, a w slowie nie bylo konca. Skwitowala to jednym zdaniem,
-      ze pytala o to samo i dostala krocej.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_heard_varkhen_say_the_oath_had_no_end
   older_confirmed_index:
+  - fact_seraphine_heard_varkhen_say_the_oath_had_no_end@249
   - fact_seraphine_has_the_clerks_name_malen_corth@238
   - fact_seraphine_priced_the_magistrate_flood_idea@238
   - fact_seraphine_released_the_signet_and_named_the_kesz_risk@238
@@ -306,10 +307,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 100
+  confirmed_entries_total: 101
   in_digest: 4
-  last_fact_from_turn: 265
-  current_turn: 265
+  last_fact_from_turn: 266
+  current_turn: 266
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
