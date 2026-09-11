@@ -12,10 +12,10 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 135
-  engine_reads: 82
+  fields: 136
+  engine_reads: 83
   documentation_only: 53
-  flags: 92
+  flags: 93
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
 fields:
@@ -23,6 +23,10 @@ fields:
   status: engine_reads
   note: 11 odwolan literalnych w tools/
   in_instances: 30
+- field: conditions.elapsed_seconds
+  status: engine_reads
+  note: 7 odwolan literalnych w tools/
+  in_instances: 1
 - field: conditions.id
   status: engine_reads
   note: 130 odwolan literalnych w tools/
@@ -651,9 +655,6 @@ status_flags:
 - flag: discarded
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
-- flag: distributed_network_upkeep_active
-  status: documentation_only
-  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: drawn_to_light
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -674,6 +675,9 @@ status_flags:
   note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
     DZIALA (przez dane, nie przez kod)'
 - flag: feeds_on_rot_and_detritus_no_hunting_required
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: flight_capable
@@ -796,6 +800,9 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: silk_is_continuous_strong_and_NOT_STICKY_catches_nothing
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: single_line_upkeep_from_lucan_active
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: slow

@@ -52,33 +52,30 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/varkhen-chamber/location.yaml
+- campaigns/lucan/locations/cemetery/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
-- campaigns/lucan/state/instances/varkhen.yaml
 search_terms:
-- 'Komora Varkhena przy starej bramie, 21:55. Korytarz do dolnej bramy istnieje i
-  biegnie w dol na wschod, ale wlot ma gdzie indziej - komora jest wybiciem od tylu.
-  Pierwsze kilkanascie krokow za brama jest zasypane osuwiskiem i geo nie mowi, jak
-  gruby jest korek; za nim znowu jest pustka. Zostaja dwie drogi: przekopac albo znalezc
-  wejscie frontowe, ktore znal kaplan. Varkhen czuje druga pieczec jako brudna, a
-  trzecia jako trzymajaca inaczej niz kiedys.'
-last_refreshed_event_id: event_turn_interlude_262
-context_bytes: 41641
+- Poludniowa brama cmentarza, 22:10. Varkhen lezy w swoim sarkofagu i ma udawac, ze
+  spi; z sieci odpiety, zostaje jedna linia od Lucana - ta sama racja co wczesniej,
+  tyle ze z jego rezerwy. Rzecz jedzie w izolowanej dloni. Przed Lucanem droga do
+  miasta i rozmowa z Seraphine, ktorej tresci gracz jeszcze nie dokonczyl.
+last_refreshed_event_id: event_turn_interlude_263
+context_bytes: 43269
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
 - ref: system/narrator.md
   bytes: 9049
+- ref: campaigns/lucan/state/sustained-links.yaml
+  bytes: 7807
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5535
-- ref: campaigns/lucan/state/sustained-links.yaml
-  bytes: 4411
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4122
+  bytes: 4118
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3306
+  bytes: 3356
 conditional_sets:
   npc_speaks:
     refs:
@@ -112,8 +109,8 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 12056
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14831
-    bytes: 26887
+      bytes: 15003
+    bytes: 27059
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -170,9 +167,9 @@ conditional_sets:
     bytes: 22088
 context_breakdown:
   rules_always: 29925
-  state_active: 29788
-  participant_cards: 9055
-  participant_full_cards_available: 20110
-  participant_digests: 9055
-  conditional_heaviest: 26887
-context_total_bytes: 68768
+  state_active: 31416
+  participant_cards: 0
+  participant_full_cards_available: 0
+  participant_digests: 0
+  conditional_heaviest: 27059
+context_total_bytes: 61341

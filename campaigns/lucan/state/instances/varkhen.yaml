@@ -3,11 +3,11 @@ id: companion_varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 253
+revision: 254
 position:
   location_id: loc_varkhen_chamber
-  zone_id: zone_chamber
-  formation: back_in_his_own_chamber_t_261_says_he_feels_the_second_seal_fouled_and_the_third_still_holding_but_differently
+  zone_id: zone_sarcophagus
+  formation: lying_in_his_own_open_sarcophagus_t_263_asked_to_feign_sleep_detached_from_the_network_single_line_from_lucan_only
 integrity:
   current: 9.399999999999999
   maximum: 65
@@ -34,12 +34,14 @@ conditions:
   stacks: 1
   magnitude: 60
   source_event_id: milestone_046_varkhen_oath_compact
-- id: distributed_webber_upkeep
+- id: single_line_upkeep_from_lucan
   stacks: 1
   magnitude: 80
-  source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
-  note: Dobrowolny, sterowany przez Lucana dopływ z czterech sieciarzy. Wzmacnia bardzo
-    powolną odbudowę rezerw i uszkodzonego ciała.
+  note: Jedna linia zasilania wprost od Lucana, 1,0 na wejsciu i 0,8 na wyjsciu -
+    ta sama racja, ktora skladaly cztery lacza sieciarzy (retcon_000113). Zalozona
+    w t_263 po odpieciu od sieci.
+  elapsed_seconds: 0
+  source_event_id: event_turn_interlude_263
 status_flags:
 - undead
 - conscious
@@ -50,8 +52,9 @@ status_flags:
 - control_mechanics_mutually_unknown
 - voluntary_compact_active
 - confidentiality_accepted
-- distributed_network_upkeep_active
-last_event_id: event_turn_interlude_262
+- single_line_upkeep_from_lucan_active
+- feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
+last_event_id: event_turn_interlude_263
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

@@ -37,7 +37,9 @@ links:
     missed_intervals: 0
   last_event_id: event_turn_interlude_179
 - id: link_webber_home_to_varkhen_upkeep
-  active: true
+  active: false
+  deactivated_event_id: event_turn_interlude_263
+  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
   controller_id: pc_lucan
   source_instance_id: webber_home
   source_pool_id: necrotic_reservoir
@@ -51,12 +53,14 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 44740
+    elapsed_seconds: 45640
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
 - id: link_webber_tannery_to_varkhen_upkeep
-  active: true
+  active: false
+  deactivated_event_id: event_turn_interlude_263
+  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
   controller_id: pc_lucan
   source_instance_id: webber_tannery
   source_pool_id: necrotic_reservoir
@@ -70,12 +74,14 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 44740
+    elapsed_seconds: 45640
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
 - id: link_webber_dump_to_varkhen_upkeep
-  active: true
+  active: false
+  deactivated_event_id: event_turn_interlude_263
+  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
   controller_id: pc_lucan
   source_instance_id: webber_dump
   source_pool_id: necrotic_reservoir
@@ -89,12 +95,14 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 44740
+    elapsed_seconds: 45640
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
 - id: link_webber_meadow_to_varkhen_upkeep
-  active: true
+  active: false
+  deactivated_event_id: event_turn_interlude_263
+  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
   controller_id: pc_lucan
   source_instance_id: webber_anchored
   source_pool_id: necrotic_reservoir
@@ -108,7 +116,35 @@ links:
   purpose: slow_distributed_repair
   source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
   runtime:
-    elapsed_seconds: 44740
+    elapsed_seconds: 45640
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
+- id: link_lucan_single_line_to_varkhen
+  active: true
+  controller_id: pc_lucan
+  source_instance_id: pc_lucan
+  source_pool_id: lucan_necrotic_energy
+  target_instance_id: companion_varkhen
+  target_pool_id: ancient_necrotic_reservoir
+  interval_seconds: 86400
+  source_units_per_interval: 1.0
+  target_units_per_interval: 0.8
+  target_integrity_per_interval: 0.8
+  efficiency_percent: 80
+  purpose: single_line_after_network_detach
+  source_event_id: event_turn_interlude_263
+  note: 'JEDNA LINIA ZAMIAST CZTERECH. Lucan odpial Varkhena od sieci i zostawil polaczenie
+    wylacznie ze soba, z jawnym zaproszeniem do ponownego przylaczenia bez terminu i bez
+    nacisku. Racja jest CO DO JEDNOSTKI ta sama, ktora skladaly cztery lacza sieciarzy
+    (4 x 0,25 / 0,2 / 0,2), wiec retcon_000113 nie zostal po cichu podniesiony. Roznica
+    jest w tym, KTO placi: teraz rezerwa Lucana, wczesniej sieciarze. Odleglosc nie jest
+    przeszkoda - sieciarze zasilali go z drugiego konca miasta, a retcon_000167 potwierdza
+    karmienie bez obecnosci. Hipoteza gracza, ze tlo cmentarza bedzie go leczyc szybciej
+    niz to lacze, JEST NIEZMIERZONA: condition severely_depleted ma mechanics_ref
+    condition_recovery_suppressed.'
+  runtime:
+    elapsed_seconds: 0
+    successful_intervals: 0
+    missed_intervals: 0
+  last_event_id: event_turn_interlude_263

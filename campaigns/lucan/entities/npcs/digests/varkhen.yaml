@@ -46,14 +46,14 @@ importance: full_agent
 role: ancient_tomb_guardian
 lifecycle:
   state: undead_active
-  last_confirmed_event_id: event_turn_interlude_262
+  last_confirmed_event_id: event_turn_interlude_263
 current_location_id: loc_varkhen_chamber
-current_zone_id: zone_chamber
-location_note: Z Lucanem na cmentarzu; do t_257 pod ziemia, w pomieszczeniu pod polnocnym fundamentem
-  kaplicy, przy odslonietej niszy. Polozenie zgodne z t_255-257 i korekta trasy w retcon_000163. Od t_261
-  sa W JEGO WLASNEJ KOMORZE (loc_varkhen_chamber, zone_chamber), zeszli zawalem po linie z tamtej nocy;
-  rzecz niesie Lucan, a w niszy zostal sam zuk. Wyszedl z gildii w t_250; Seraphine zostala w gabinecie.
-  Kustodia gildii pozostaje formalna.
+current_zone_id: zone_sarcophagus
+location_note: SAM, w podziemiach cmentarza; do t_257 z Lucanem, w pomieszczeniu pod polnocnym fundamentem
+  kaplicy, przy odslonietej niszy. Polozenie zgodne z t_255-257 i korekta trasy w retcon_000163. Od t_263
+  LEZY SAM W SWOIM SARKOFAGU (loc_varkhen_chamber, zone_sarcophagus) i ma udawac, ze spi; Lucan wyszedl
+  poludniowa brama cmentarza. Odpiety od sieci - jedna linia wprost od Lucana. Wyszedl z gildii w t_250;
+  Seraphine zostala w gabinecie. Kustodia gildii pozostaje formalna.
 relationship_ref: campaigns/lucan/relationships/varkhen--lucan.yaml
 portrayal:
   principles:
@@ -83,6 +83,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_varkhen_left_in_his_sarcophagus_and_detached_from_the_network
+    source_event_id: event_turn_interlude_263
+    claim: Lucan zostawil go w jego sarkofagu z prosba, zeby zostal i udawal, ze spi, i zapowiedzial,
+      ze sprobuje zalatwic u Seraphiny zlecenie gildii na weryfikacje cmentarza. Odpial go od sieci sieciarzy
+      i zostawil jedna linie wprost od siebie, z otwartym zaproszeniem do powrotu. Varkhen odpowiedzial,
+      ze jak bedzie chcial, to powie.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_left_in_his_sarcophagus_and_detached_from_the_network
   - fact_id: fact_varkhen_cannot_measure_how_much_worse_the_seal_is
     source_event_id: event_turn_interlude_262
     claim: 'Zapytany, o ile gorzej jest po drugiej stronie, odmowil miary: ostatni raz byl tu jako cialo
@@ -104,14 +112,8 @@ knowledge:
       jedna droge - osuwisko, ktorym go stamtad wyniesiono.
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_reported_the_state_of_the_three_seals_and_named_the_collapse
-  - fact_id: fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche
-    source_event_id: event_turn_interlude_258
-    claim: Lucan zatrzymal rzecz przy sobie i zabezpieczyl dlon wlasna moca; Varkhen opuscil wyciagnieta
-      reke bez sporu i poszedl przodem. Widzial trzy male okazy zostawione w niszy, po jednym na kanal,
-      i nie pytal, po co.
-    claim_summarized: true
-    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche
   older_confirmed_index:
+  - fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche@258
   - fact_varkhen_offered_to_carry_the_cold_vessel@257
   - fact_varkhen_does_not_know_the_foundation_object@256
   - fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please@255
@@ -145,10 +147,10 @@ knowledge:
   - whether_dump_bodies_still_exist
   - final_guild_or_church_verdict
 freshness:
-  confirmed_entries_total: 27
+  confirmed_entries_total: 28
   in_digest: 4
-  last_fact_from_turn: 262
-  current_turn: 262
+  last_fact_from_turn: 263
+  current_turn: 263
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
