@@ -52,18 +52,19 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/cemetery-underworks/location.yaml
+- campaigns/lucan/locations/cemetery/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 - campaigns/lucan/state/instances/varkhen.yaml
 search_terms:
-- Hala wozow przy rampie, 21:30. Rzecz jedzie w dloni izolowanej rozciagnietym wzorcem
-  - dziala, ale swieci. Trzy anchory zostaly dwa poziomy nizej przy trzech rowkach;
-  doplyw jest cienki, a tempo pozna sie dopiero po powrocie. Brama rampy jak zawsze
-  otwarta.
-last_refreshed_event_id: event_turn_interlude_258
-context_bytes: 41063
+- 'Powierzchnia cmentarza przy rampie polnocnej, 21:40. Geo dalo pas wzdluz trasy:
+  pustki w liniach, drugi poziom nizej ze starszego kamienia, smierc gestsza miedzy
+  grobami niz pod nimi. Varkhen podal stan trzech pieczeci z wlasnej pamieci i nie
+  recze za dzisiaj; do dolnej bramy zna jedna droge - osuwisko. Rzecz jedzie w izolowanej
+  dloni, zuk zostal w niszy.'
+last_refreshed_event_id: event_turn_interlude_259
+context_bytes: 41057
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
@@ -72,11 +73,11 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5535
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4250
+  bytes: 4188
 - ref: campaigns/lucan/state/sustained-links.yaml
   bytes: 3877
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3188
+  bytes: 3181
 conditional_sets:
   npc_speaks:
     refs:
@@ -103,8 +104,8 @@ conditional_sets:
     - ref: system/magic.md
       bytes: 6834
     - ref: system/metamagic.md
-      bytes: 4529
-    bytes: 11363
+      bytes: 5461
+    bytes: 12295
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
@@ -168,9 +169,9 @@ conditional_sets:
     bytes: 22088
 context_breakdown:
   rules_always: 29925
-  state_active: 29210
-  participant_cards: 8589
-  participant_full_cards_available: 16748
-  participant_digests: 8589
+  state_active: 29204
+  participant_cards: 8901
+  participant_full_cards_available: 19044
+  participant_digests: 8901
   conditional_heaviest: 26262
-context_total_bytes: 67724
+context_total_bytes: 68030

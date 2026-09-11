@@ -46,14 +46,14 @@ importance: full_agent
 role: ancient_tomb_guardian
 lifecycle:
   state: undead_active
-  last_confirmed_event_id: event_turn_interlude_258
-current_location_id: loc_cemetery_underworks
-current_zone_id: zone_wagon_hall
+  last_confirmed_event_id: event_turn_interlude_259
+current_location_id: loc_cemetery
+current_zone_id: zone_north_ramp
 location_note: Z Lucanem w podziemiach cmentarza; do t_257 w pomieszczeniu pod polnocnym fundamentem kaplicy,
-  przy odslonietej niszy. Polozenie zgodne z t_255-257 i korekta trasy w retcon_000163. Od t_258 obaj
-  sa w hali wozow przy rampie (zone_wagon_hall); rzecz niesie Lucan, a w niszy zostaly trzy zakotwiczone
-  okazy przy trzech kanalach. Wyszedl z gildii w t_250; Seraphine zostala w gabinecie. Kustodia gildii
-  pozostaje formalna.
+  przy odslonietej niszy. Polozenie zgodne z t_255-257 i korekta trasy w retcon_000163. Od t_259 obaj
+  sa NA POWIERZCHNI cmentarza przy rampie polnocnej (loc_cemetery, zone_north_ramp); rzecz niesie Lucan,
+  a w niszy zostal sam zuk. Wyszedl z gildii w t_250; Seraphine zostala w gabinecie. Kustodia gildii pozostaje
+  formalna.
 relationship_ref: campaigns/lucan/relationships/varkhen--lucan.yaml
 portrayal:
   principles:
@@ -83,6 +83,13 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_varkhen_reported_the_state_of_the_three_seals_and_named_the_collapse
+    source_event_id: event_turn_interlude_259
+    claim: Podal stan trzech pieczeci z wlasnej pamieci sprzed uszkodzenia i zastrzegl, ze nie recze za
+      dzisiaj. Powiedzial, ze cmentarz polozono na wierzchu czegos starszego i ze do dolnej bramy zna
+      jedna droge - osuwisko, ktorym go stamtad wyniesiono.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_reported_the_state_of_the_three_seals_and_named_the_collapse
   - fact_id: fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche
     source_event_id: event_turn_interlude_258
     claim: Lucan zatrzymal rzecz przy sobie i zabezpieczyl dlon wlasna moca; Varkhen opuscil wyciagnieta
@@ -102,13 +109,8 @@ knowledge:
       pieczeci i dolnej bramy. Nie podal wyjasnienia pochodzenia przedmiotu.
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_does_not_know_the_foundation_object
-  - fact_id: fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please
-    source_event_id: event_turn_interlude_255
-    claim: Lucan przekazal mu energie, a nastepnie poprosil o odsloniecie fundamentu. Varkhen wyjal trzy
-      kamienie. Nie zawarli przy tym nowej przysiegi ani umowy o stalym zasilaniu.
-    claim_summarized: true
-    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please
   older_confirmed_index:
+  - fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please@255
   - fact_varkhen_named_the_priest_as_what_watched_means@252
   - fact_varkhen_received_the_offer_of_a_stewardship_after_the_oath@251
   - fact_varkhen_repeated_the_cemetery_is_watched_at_the_wall@251
@@ -139,10 +141,10 @@ knowledge:
   - whether_dump_bodies_still_exist
   - final_guild_or_church_verdict
 freshness:
-  confirmed_entries_total: 24
+  confirmed_entries_total: 25
   in_digest: 4
-  last_fact_from_turn: 258
-  current_turn: 258
+  last_fact_from_turn: 259
+  current_turn: 259
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
