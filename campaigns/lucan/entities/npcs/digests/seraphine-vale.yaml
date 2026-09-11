@@ -48,7 +48,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_250
+  last_confirmed_event_id: event_turn_interlude_265
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -156,6 +156,13 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
+    source_event_id: event_turn_interlude_265
+    claim: Pracowala w gabinecie po 23:00 i przyjela Lucana wracajacego z cmentarza samego. Zobaczyla
+      slad dlugiej pracy jego kanalem i odmrozona reke, zapytala o nia, a potem sama zmienila kolejnosc
+      na pytanie o Varkhena i trzecia pieczec. O przedmiocie z niszy nie wie.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_saw_lucan_come_back_alone_with_a_frostburned_hand
   - fact_id: fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
     source_event_id: event_turn_interlude_250
     claim: 'Rozstrzygnieta zapowiedz z t_234, otwarta od czterech dni. Sygnet lezal na jej biurku od t_233
@@ -181,15 +188,8 @@ knowledge:
       ze pytala o to samo i dostala krocej.'
     claim_truncated: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_heard_varkhen_say_the_oath_had_no_end
-  - fact_id: fact_seraphine_has_the_clerks_name_malen_corth
-    source_event_id: event_turn_interlude_238
-    claim: 'MA nazwisko, O ktore zapytala raz w t_235: Malen corth, urzednik akt magistratu uzgadniajacy
-      akta garbarni. Lucan podal je bez targu i bez warunku. TO nie jest dostep - fact_seraphine_is_not_on_corths_distribution_list
-      nadal stoi, wiec nazwisko mowi jej, gdzie patrzec, a nie daje jej reki w tej szufladzie; magistrat
-      pozostaje instytucja niezalezna od gildii.'
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_has_the_clerks_name_malen_corth
   older_confirmed_index:
+  - fact_seraphine_has_the_clerks_name_malen_corth@238
   - fact_seraphine_priced_the_magistrate_flood_idea@238
   - fact_seraphine_released_the_signet_and_named_the_kesz_risk@238
   - fact_seraphine_described_her_own_detection_envelope@237
@@ -306,11 +306,11 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 99
+  confirmed_entries_total: 100
   in_digest: 4
-  last_fact_from_turn: 250
-  current_turn: 263
-  turns_behind: 13
+  last_fact_from_turn: 265
+  current_turn: 265
+  turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
     recall/dziennik przed pierwsza kwestia tej postaci.
