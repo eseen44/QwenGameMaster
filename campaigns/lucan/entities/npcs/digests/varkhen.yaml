@@ -46,7 +46,7 @@ importance: full_agent
 role: ancient_tomb_guardian
 lifecycle:
   state: undead_active
-  last_confirmed_event_id: event_turn_interlude_261
+  last_confirmed_event_id: event_turn_interlude_262
 current_location_id: loc_varkhen_chamber
 current_zone_id: zone_chamber
 location_note: Z Lucanem na cmentarzu; do t_257 pod ziemia, w pomieszczeniu pod polnocnym fundamentem
@@ -83,6 +83,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_varkhen_cannot_measure_how_much_worse_the_seal_is
+    source_event_id: event_turn_interlude_262
+    claim: 'Zapytany, o ile gorzej jest po drugiej stronie, odmowil miary: ostatni raz byl tu jako cialo
+      wynoszone, nie jako straznik, i nie umie oddzielic, czy zmienila sie pieczec, czy on. Powiedzial,
+      ze zeby wiedziec, trzeba przy niej stanac. Przy zasypie sprawdzil plyte reka i powiedzial ''nie
+      tej nocy''.'
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_cannot_measure_how_much_worse_the_seal_is
   - fact_id: fact_varkhen_feels_the_second_seal_fouled_and_the_third_holding_differently
     source_event_id: event_turn_interlude_261
     claim: Zapytany w komorze, czy czuje zmiany, powiedzial, ze druga pieczec jest brudna i czuc to mocniej
@@ -103,13 +111,8 @@ knowledge:
       i nie pytal, po co.
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche
-  - fact_id: fact_varkhen_offered_to_carry_the_cold_vessel
-    source_event_id: event_turn_interlude_257
-    claim: Widzial, jak Lucan wyjmuje rzecz z niszy i przeklada ja z reki do reki. Wyciagnal reke i powiedzial,
-      ze jemu zimno nie szkodzi. Oferta poniesienia, nie nowa przysiega. Nadal nie wie, czym rzecz jest.
-    claim_summarized: true
-    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_offered_to_carry_the_cold_vessel
   older_confirmed_index:
+  - fact_varkhen_offered_to_carry_the_cold_vessel@257
   - fact_varkhen_does_not_know_the_foundation_object@256
   - fact_varkhen_charged_from_the_network_and_opened_the_foundation_on_a_please@255
   - fact_varkhen_named_the_priest_as_what_watched_means@252
@@ -142,10 +145,10 @@ knowledge:
   - whether_dump_bodies_still_exist
   - final_guild_or_church_verdict
 freshness:
-  confirmed_entries_total: 26
+  confirmed_entries_total: 27
   in_digest: 4
-  last_fact_from_turn: 261
-  current_turn: 261
+  last_fact_from_turn: 262
+  current_turn: 262
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
