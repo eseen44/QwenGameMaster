@@ -831,6 +831,32 @@ items:
       (ok. godziny za przeszczep, retcon_000024) i UWAGA Lucana, ktora idzie po jednym
       wezle naraz (t_086).
     source_refs: [event_turn_interlude_091, event_turn_interlude_176, retcon_000169]
+  - id: item_animated_raw_specimens_tower_bench
+    name: Ozywiony material surowy na blacie w baszcie
+    location: wall_hideout
+    type: animated_stock_not_yet_assigned
+    created_event_id: event_turn_interlude_272
+    bookkeeping_note: >-
+      CELOWO NIE SA OSOBNYMI INSTANCJAMI. Kazda aktywna instancja ze zbiornikiem wymaga
+      wpisu w state/growth-banks.yaml (tools/reconcile_growth.py --check), wiec dziewiec
+      zerowych wezlow zasmiecilo by rejestr, ktory pilnuje nadwyzki sieci. Sztuka dostaje
+      wlasny plik instancji w chwili, gdy dostaje ROLE albo POSTERUNEK.
+    cost_note: >-
+      Ozywienie kosztowalo ZERO - jeden gest na cialo, bez odczynnikow i bez zuzycia
+      zapasow (ustalenie gracza 2026-08-24, retcon_000015, retcon_000024). Ograniczeniem
+      jest dostepnosc cial i czas, nie energia.
+    pieces:
+      - {what: szczur, count: 2, condition: swiezy, usable: true, note: 'Pelna sprawnosc ruchowa, material bez zastrzezen.'}
+      - {what: szczur, count: 1, condition: sprzed tygodnia, usable: partially, note: 'Wstal, ale staw tylnej lapy nie wytrzymal ruchu - chodzi na trzech. Moc nie byla problemem, cialo bylo.'}
+      - {what: mlody kot, count: 1, condition: swiezy i caly, usable: true, note: 'NAJLEPSZY MATERIAL Z CALEGO LUPU. Kompletne cialo: cztery lapy, kregoslup, ogon, wasy, oczy, uszy. UCHO SSAKA SLYSZY PASMO LUDZKIEGO GLOSU Z NATURY - nie potrzebuje przeszczepu prostoskrzydlego, ktory owadom byl konieczny, bo ich narzad jest nastrojony na pasmo nietoperza. Chodzi po dachach nie budzac niczyjej mysli. Uwaga na proweniencje: kot byl czyjs, mlody i zdrowy, wiec ktos go bedzie wolal.'}
+      - {what: kos, count: 1, condition: poszarpany przez kota, usable: partially, note: 'Zerwane skrzydlo - nie lata, skacze bokiem.'}
+      - {what: biegaczowaty, count: 2, condition: caly, usable: true, note: 'Za male, zeby cokolwiek w nich pekło.'}
+      - {what: cma, count: 1, condition: cala, usable: true, note: 'Przyniesiona przez cme.'}
+      - {what: golab bez glowy, count: 1, condition: bez zmyslow, usable: false, note: 'Skrzydla dzialaly, wiec podrywal sie i bil o sciane. WYGASZONY po trzech probach. Lekcja: cialo bez zmyslow jest sprawne i bezuzyteczne.'}
+    failed:
+      - {what: suszona zaba, reason: 'Material zbyt wysuszony - nie ma czego poruszyc, rozsypala sie w palcach.'}
+    not_bodies: [pas skorzany, dwa kamienie, resztka kielbasy]
+    source_refs: [event_turn_interlude_271, event_turn_interlude_272]
 external_claims:
   - id: claim_three_bags_cemetery_goods
     custodian: npc_boros_keld

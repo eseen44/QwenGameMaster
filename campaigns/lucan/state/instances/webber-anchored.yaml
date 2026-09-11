@@ -3,7 +3,7 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 262
+revision: 263
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_main
@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 26560
+      hunting_recovery_elapsed_seconds: 30160
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -55,7 +55,9 @@ status_flags:
 - death_anchored
 - decay_suppressed
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_271
+- moth_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
+- orthopteran_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
+last_event_id: event_turn_interlude_272
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
