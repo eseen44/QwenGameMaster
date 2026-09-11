@@ -6,7 +6,7 @@ known_zones: [zone_chapel_link, zone_service_tunnel, zone_wagon_hall, zone_handl
 known_connections: [connection_north_ramp, connection_chapel_stairs, connection_oldest_mausoleum, connection_varkhen_collapse]
 observed_features: [feature_wagon_tracks, feature_fresh_service_wall, feature_collector, feature_relay, feature_heart_route, feature_self_closing_masonry]
 discovered_secrets: [corpse_logistics, oren_network, collector_bypass, heart_link, old_lower_structure, north_foundation_niche_and_three_inflow_channels]
-last_updated_event_id: event_turn_interlude_258
+last_updated_event_id: retcon_000165
 discovery_notes:
   - 'NISZA W POLNOCNYM FUNDAMENCIE, zone_relay_chamber (t_254-257). Za przesunietymi
     kamieniami (pyl na szczelinie stary, nikt ich nie ruszal od dawna) byla mala pustka
@@ -33,3 +33,15 @@ discovery_notes:
   - 'TO, CO KANALY DOWOZA, NIE MA WLASCICIELA ANI SYGNATURY (t_256, potwierdzone kontaktem
     okazow w t_258) - karmienie tym nie niesie niczyjego sladu. Zaden plik nie stawia za to
     skazenia, kary ani zegara i narrator ich nie dodal.'
+  - 'TEMPO DOPLYWU ZMIERZONE I USTALONE JAKO KANON (odpowiedz na pytanie gracza
+    2026-09-11): KAZDY Z TRZECH KANALOW DOWOZI OKOLO 0,6 JEDNOSTKI NA DOBE, czyli okolo
+    0,025 na godzine. Tory zbiegaja sie w JEDNYM punkcie, wiec okaz posadzony w zbiegu
+    bierze sume trzech, czyli OKOLO 1,8 NA DOBE - o ile miesci sie w growth_intake_cap.
+    Dla porownania: nadwyzka calej sieci to 16,5 na dobe, wlasna regeneracja Lucana 6,0,
+    a jeden sieciarz oddaje Varkhenowi 0,25. To nie jest zrodlo rozwoju, tylko staly,
+    drobny ciek - i wlasnie dlatego przedmiot w niszy zbieral sie tak dlugo.'
+  - 'CO Z TEGO WYNIKA DLA OBSADY NISZY: spy_beetle_01 ma sufit 1,5 na dobe, wiec sam
+    jeden przyjmuje niemal caly doplyw, a reszta (ok. 0,3) idzie dalej wg rozkazu z t_258
+    i drabiny distribution_priority. Sufity Spideya (6,0) i Tkacza (3,0) sa przy tym
+    ciekiem bezczynne. DO state/growth-banks.yaml NIE WPISANO jeszcze zadnej stawki -
+    wejdzie tam dopiero, gdy obsada niszy bedzie ustalona na stale.'

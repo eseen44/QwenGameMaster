@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **91** z 164 retconow.
+Regul z klauzula normatywna: **92** z 165 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -74,7 +74,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000162` — (1) LIMIT, NIE OBOWIAZEK.
 - `retcon_000163` — Sekret 'northern_foundation_route' w locations/cemetery-chapel/discovery.yaml jest wlasnie ta droga i od teraz jest jej ADRESEM.
 
-## czas i tempo (13)
+## czas i tempo (14)
 
 - `retcon_000008` — Cofniete takze zamkniecie sceny - obowiazuje scene_act_03_interlude_day1_afternoon, snapshot usuniety.
 - `retcon_000018` — Lucan odzyskuje 3 jednostki z jego zbiornika: 11,5 -> 14,5 z 15, czyli ponownie powyzej starego progu 12, wiec warunek elevated_energy_signature_above_old_threshold znowu obowiazuje i...
@@ -89,6 +89,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000119` — Godziny w narracji tur 178-182 (05:30, 05:35, 05:50, 06:10, 06:30) przestaja byc uchylone i ZNOWU OBOWIAZUJA.
 - `retcon_000128` — CZEGO TA KOREKTA NIE USTANAWIA: narrator NIE robi z zostawionej skrzynki zagrozenia, dowodu, zegara ani terminu (retcon_000055, retcon_000058).
 - `retcon_000129` — CZEGO NIE USTANAWIA: narrator nie robi z porzuconego rekwizytu dowodu, tropu ani zegara (retcon_000055, retcon_000058) i nie ustanawia, ze ktokolwiek na komendzie zwrocil na niego uwage.
+- `retcon_000165` — Czas, przebieg i proza tury BEZ ZMIAN - poprawiona jest wylacznie liczba w audycie i stan rezerwy, wiec zakres supersesji to 'aspect'.
 
 ## energia i ekonomia slug (10)
 

@@ -80,3 +80,18 @@ Globalna apokalipsa lodowa z tego samego wzorca pozostaje technicznie możliwa,
 ale na poziomie `10`, przy jednoczesnej intensywności, powierzchni, zasięgu,
 czasie i trwałości, wymaga około `262144` jednostek. To `512` razy koszt
 zoptymalizowanej magii poziomu `10` o podobnym rezultacie.
+
+## Osie znoszą się, a rzut z osią trwania płaci się raz (retcon_000165)
+
+Końcowy `target_tier` jest wypadkową **wszystkich** zadeklarowanych osi, także tych
+w dół. `extended +1` razem z `reduced power -1` daje ten sam poziom, ten sam koszt
+i efekt słabszy, lecz dłuższy. Wywołując `gm amplify`, podawaj `--target-tier`
+policzony **po** zbilansowaniu osi, nie po samym ich dodaniu.
+
+Pojedynczy rzut, który trzyma efekt przez kilka do kilkunastu minut, kosztuje tyle,
+co jeden rzut na swoim poziomie. Naliczanie kosztu za interwał
+(`cost_is_paid_each_interval`) dotyczy wyłącznie kanałowania **ciągłego**, w którym
+rzucający przepycha strumień przez cały czas trwania — precedens Bone Chill wyżej,
+około `1024` jednostek na każde sześć sekund z `collector_overflow`. Limit
+`sustained_output_is_exhausting` z `abilities#ability_bone_chill` opisuje tamto,
+nie efekt rzucony raz i trzymający się sam.
