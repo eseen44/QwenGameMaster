@@ -3,7 +3,7 @@ id: spy_beetle_08
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 182
+revision: 183
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_streets_and_refuse
@@ -11,25 +11,17 @@ position:
 integrity:
   current: 10
   maximum: 10
+upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+  (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+  zostaje.
 resources:
   necrotic_reservoir:
     current: 3
     capacity: 3
-    decay:
-      interval_seconds: 86400
-      units: 1
-    hunting_recovery:
-      interval_seconds: 86400
-      units: 3
-      requires:
-      - autonomous_hunting
-    runtime:
-      decay_elapsed_seconds: 29020
-      hunting_recovery_elapsed_seconds: 29020
+    runtime: {}
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
-- autonomous_hunting
 - feeds_on_rot_and_detritus_no_hunting_required
 - armoured_survives_handling_and_pockets
 - load_carrying_for_body_scale
@@ -39,6 +31,6 @@ status_flags:
 - audible_clicking_on_stone
 - scattered_no_standing_order_left_to_mature
 conditions: []
-last_event_id: event_turn_interlude_260
+last_event_id: event_turn_interlude_261
 source_refs:
 - event_turn_interlude_078

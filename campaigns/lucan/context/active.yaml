@@ -52,18 +52,20 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/cemetery/location.yaml
+- campaigns/lucan/locations/varkhen-chamber/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 - campaigns/lucan/state/instances/varkhen.yaml
 search_terms:
-- Krawedz zawalu, 21:43. Lejek, polamane plyty, czarna dziura i zimne powietrze z
-  dolu; zejsc sie da, ale to sypka skarpa z przewieszka i nie widac, gdzie sie konczy.
-  Liny nikt nie ma - plik mowi o tej drodze "dwie minuty z linami". Varkhen stoi na
-  samej krawedzi i nie zaglada w dol.
-last_refreshed_event_id: event_turn_interlude_260
-context_bytes: 40784
+- 'Komora Varkhena przy starej bramie, 21:55. Korytarz do dolnej bramy istnieje i
+  biegnie w dol na wschod, ale wlot ma gdzie indziej - komora jest wybiciem od tylu.
+  Pierwsze kilkanascie krokow za brama jest zasypane osuwiskiem i geo nie mowi, jak
+  gruby jest korek; za nim znowu jest pustka. Zostaja dwie drogi: przekopac albo znalezc
+  wejscie frontowe, ktore znal kaplan. Varkhen czuje druga pieczec jako brudna, a
+  trzecia jako trzymajaca inaczej niz kiedys.'
+last_refreshed_event_id: event_turn_interlude_261
+context_bytes: 41641
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
@@ -71,12 +73,12 @@ heaviest_refs:
   bytes: 9049
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5535
+- ref: campaigns/lucan/state/sustained-links.yaml
+  bytes: 4411
 - ref: campaigns/lucan/state/instances/spidey.yaml
   bytes: 4122
-- ref: campaigns/lucan/state/sustained-links.yaml
-  bytes: 3877
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3151
+  bytes: 3306
 conditional_sets:
   npc_speaks:
     refs:
@@ -110,8 +112,8 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 12056
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 14206
-    bytes: 26262
+      bytes: 14831
+    bytes: 26887
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -168,9 +170,9 @@ conditional_sets:
     bytes: 22088
 context_breakdown:
   rules_always: 29925
-  state_active: 28931
-  participant_cards: 8901
-  participant_full_cards_available: 19044
-  participant_digests: 8901
-  conditional_heaviest: 26262
-context_total_bytes: 67757
+  state_active: 29788
+  participant_cards: 9055
+  participant_full_cards_available: 20110
+  participant_digests: 9055
+  conditional_heaviest: 26887
+context_total_bytes: 68768

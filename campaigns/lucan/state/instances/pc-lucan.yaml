@@ -3,17 +3,17 @@ id: pc_lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 254
+revision: 255
 position:
-  location_id: loc_cemetery
-  zone_id: zone_north_collapse
-  formation: at_the_lip_of_the_collapse_t_260_vessel_still_in_the_insulated_hand_no_rope_in_inventory_descent_not_attempted
+  location_id: loc_varkhen_chamber
+  zone_id: zone_chamber
+  formation: in_varkhens_chamber_at_the_old_door_t_261_five_geo_scans_located_the_front_corridor_by_direction_only_first_stretch_beyond_the_door_is_choked
 integrity:
   current: 19
   maximum: 19
 resources:
   lucan_necrotic_energy:
-    current: 13.85
+    current: 13.35
     capacity: 15
     comfortable_capacity: 15
     permanent_expansion: 3
@@ -24,7 +24,7 @@ resources:
     campaign_calibration: true
     decision_status: approved
     runtime:
-      regeneration_elapsed_seconds: 580
+      regeneration_elapsed_seconds: 1300
     regeneration:
       interval_seconds: 3600
       units: 0.75
@@ -43,9 +43,11 @@ resources:
         to jego siec): dopoki rezerwa nie stoi przy sufcie, nadwyzka idzie w nia.
         Po sufcie ten sam strumien schodzi drabina z growth-banks#distribution_priority
         - najpierw wlasny growth_bank Lucana, potem okazy ZAKOTWICZONE, na koncu pozostale.
-        Varkhen zostaje poza rozdzialem, racjonowany osobno (retcon_000113). Osobne,
-        niezmienione: 3,5 na dobe wychodzace do zuka 01 (link_lucan_hand_charges_beetle_01).
-        Netto przy pustej rezerwie: +14,5 na dobe.'
+        Varkhen zostaje poza rozdzialem, racjonowany osobno (retcon_000113). ZMIANA
+        2026-09-11 (retcon_000167): 3,5 na dobe do zuka 01 JUZ NIE WYCHODZI - lacze
+        link_lucan_hand_charges_beetle_01 wylaczone jako zbedne, bo nisza pod polnocnym
+        fundamentem pokrywa caly sufit zuka. Netto przy pustej rezerwie: +18,0 na
+        dobe.'
 conditions: []
 retired_conditions:
 - id: elevated_energy_signature_above_old_threshold
@@ -61,7 +63,7 @@ status_flags:
 - permanently_expanded_reservoir
 - within_normal_capacity
 - running_on_life_energy_not_sleep
-last_event_id: event_turn_interlude_260
+last_event_id: event_turn_interlude_261
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

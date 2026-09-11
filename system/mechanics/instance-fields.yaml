@@ -12,9 +12,9 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 134
+  fields: 135
   engine_reads: 82
-  documentation_only: 52
+  documentation_only: 53
   flags: 92
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
@@ -350,11 +350,11 @@ fields:
 - field: resources.necrotic_reservoir.decay
   status: engine_reads
   note: 2 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.decay.interval_seconds
   status: engine_reads
   note: 4 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.decay.suppressed_by
   status: documentation_only
   note: silnik tego NIE czyta
@@ -362,7 +362,7 @@ fields:
 - field: resources.necrotic_reservoir.decay.units
   status: engine_reads
   note: 6 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.flight_surcharge
   status: documentation_only
   note: silnik tego NIE czyta
@@ -394,19 +394,19 @@ fields:
 - field: resources.necrotic_reservoir.hunting_recovery
   status: engine_reads
   note: 1 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.hunting_recovery.interval_seconds
   status: engine_reads
   note: 4 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.hunting_recovery.requires
   status: engine_reads
   note: 1 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.hunting_recovery.units
   status: engine_reads
   note: 6 odwolan literalnych w tools/
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.hunting_recovery_override
   status: documentation_only
   note: silnik tego NIE czyta
@@ -426,11 +426,11 @@ fields:
 - field: resources.necrotic_reservoir.runtime.decay_elapsed_seconds
   status: engine_reads
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
-  in_instances: 27
+  in_instances: 19
 - field: resources.necrotic_reservoir.runtime.hunting_recovery_elapsed_seconds
   status: engine_reads
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
-  in_instances: 27
+  in_instances: 19
 - field: resources.paralytic_toxin_reservoir
   status: engine_reads
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
@@ -555,6 +555,10 @@ fields:
   status: documentation_only
   note: silnik tego NIE czyta
   in_instances: 1
+- field: upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 8
 status_flags:
 - flag: armoured_survives_handling_and_pockets
   status: documentation_only

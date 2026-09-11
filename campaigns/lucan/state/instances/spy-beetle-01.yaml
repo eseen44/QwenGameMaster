@@ -3,7 +3,7 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 184
+revision: 185
 position:
   location_id: loc_cemetery_underworks
   zone_id: zone_relay_chamber
@@ -11,22 +11,15 @@ position:
 integrity:
   current: 10
   maximum: 10
+upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+  (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+  zostaje.
 resources:
   necrotic_reservoir:
     current: 3
     capacity: 3
-    decay:
-      interval_seconds: 86400
-      units: 1
-    hunting_recovery:
-      interval_seconds: 86400
-      units: 1
-      requires:
-      - autonomous_hunting
-    runtime:
-      decay_elapsed_seconds: 33220
-      hunting_recovery_elapsed_seconds: 33220
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
+    runtime: {}
 traits:
   source: player_declaration_day3_evening_anchored_personalities
   decided_on: '2026-08-26'
@@ -49,7 +42,6 @@ status_flags:
 - hears_ultrasonic_band_not_words
 - newly_animated
 - fresh_obedient_and_dull
-- autonomous_hunting
 - hand_charged_by_lucan_3_5_per_day
 - armoured_survives_handling_and_pockets
 - load_carrying_for_body_scale
@@ -58,7 +50,7 @@ status_flags:
 - poor_climber_on_smooth_surfaces
 - audible_clicking_on_stone
 conditions: []
-last_event_id: event_turn_interlude_260
+last_event_id: event_turn_interlude_261
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

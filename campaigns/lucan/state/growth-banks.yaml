@@ -37,10 +37,14 @@ surplus_economy:
     retcon_000141 stawka LUCANA, nie sieci - nota powstala przed tym retconem. Liczba jest teraz
     TAKZE POLEM (daily_network_surplus_units) i pilnuje jej kontrola tools/reconcile_growth.py
     --check, wiec nie rozjedzie sie po cichu.
-  daily_network_surplus_units: 16.5
+  daily_network_surplus_units: 18.3
   daily_network_surplus_units_basis: >-
     Suma rate_per_day wezlow AKTYWNYCH z pominieciem wpisow z funded_by: lucan_reserve. Stan na
-    event_turn_interlude_235. Pilnowane przez tools/reconcile_growth.py --check.
+    event_turn_interlude_260. Pilnowane przez tools/reconcile_growth.py --check.
+    ZMIANA 2026-09-11 (retcon_000167): 16,5 -> 18,3. Roznica 1,8 to NOWY, ZEWNETRZNY doplyw -
+    trzy kanaly w niszy pod polnocnym fundamentem kaplicy, odbierane przez spy_beetle_01.
+    Nie jest to energia Lucana zawrocona drugi raz, wiec wchodzi do sumy sieci; dawne 3,5
+    z jego rezerwy wypadlo, bo ladowanie z reki przestalo byc potrzebne.
   growth_intake_cap: >-
     Wezel wchlania w ROZWOJ najwyzej POLOWE WLASNEJ POJEMNOSCI ZBIORNIKA na dobe.
     Zbiornik 3 daje wiec sufit 1,5 na dobe, zbiornik 6 sufit 3,0, zbiornik 12 sufit 6,0,
@@ -96,7 +100,7 @@ backlog_basis: >-
   Okno tur 178-179 to 35 minut, czyli mniej niz 0,1 jednostki na najszybszym wezle - ponizej
   precyzji tego pliku, doliczane przy nastepnym istotnym tyknieciu.
 banks:
-  - {id: spy_beetle_01, funded_by: lucan_reserve, rate_per_day: 3.5, growth_cap_per_day: 1.5, overflow_per_day: 1.0, basis: 'od t_179 LUCAN LADUJE GO SAM z wlasnej rezerwy, 3,5 na dobe - kieszen, wiec bez przeskoku i bez straty. 1,0 pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika 3), 1,0 wraca w siec. Sufit podnosi enlarge_reservoir_to_tank (3 -> 12, ok. godziny przy stole) - wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
+  - {id: spy_beetle_01, funded_by: north_foundation_channels, rate_per_day: 1.8, growth_cap_per_day: 1.5, overflow_per_day: 0.3, basis: 'OD t_258 SIEDZI W NISZY POD POLNOCNYM FUNDAMENTEM KAPLICY, w zbiegu trzech kanalow, ktore dowoza lacznie ok. 1,8 na dobe (discovery podziemi, pomiar 2026-09-11). ZUKI NIE MAJA DOBOWEGO UBYTKU (retcon_000167), wiec nic nie schodzi na utrzymanie: 1,5 idzie w rozwoj, czyli DOKLADNIE TYLE, ILE SZLO z reki Lucana, a 0,3 wchodzi w siec. Dawna stawka 3,5 funded_by lucan_reserve jest tym samym zdjeta - ladowanie z reki stalo sie zbedne, nie niemozliwe: okaz zakotwiczony mozna karmic zdalnie (retcon_000167). Sufit podnosi enlarge_reservoir_to_tank (3 -> 12), wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
   - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, growth_cap_per_day: 1.5, overflow_per_day: 1.5, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
   - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
   - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}

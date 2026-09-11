@@ -3,17 +3,17 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 251
+revision: 252
 position:
-  location_id: loc_cemetery
-  zone_id: zone_north_collapse
-  formation: with_lucan_at_the_collapse_t_260
+  location_id: loc_varkhen_chamber
+  zone_id: zone_chamber
+  formation: with_lucan_in_varkhens_chamber_t_261
 integrity:
   current: 13
   maximum: 13
 resources:
   necrotic_reservoir:
-    current: 6.0
+    current: 6
     capacity: 6
     decay:
       interval_seconds: 86400
@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 86380
+      hunting_recovery_elapsed_seconds: 700
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -55,7 +55,7 @@ status_flags:
 - death_anchored
 - decay_suppressed
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_260
+last_event_id: event_turn_interlude_261
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
