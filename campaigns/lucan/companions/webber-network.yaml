@@ -108,6 +108,32 @@ state:
       webber_dump: mostly_clean_improved_since_015
     expected_delivery: Nocny zbior, wynik czeka w baszcie nad ranem.
     compatible_with_standing_order: true
+  additional_order_4:
+    id: order_find_new_bodies_and_bring_them_to_the_tower
+    issued_event_id: event_turn_interlude_270
+    scope: >-
+      CALA SIEC OPROCZ ZUKOW I WIJOW - deklaracja gracza wprost. Objeci: webber_home,
+      webber_tannery, webber_dump, webber_anchored, spy_cellar_spider_01-06, spy_moth_01-04,
+      spy_hawk_moth_01, spy_wasp_01 oraz companion_spidey. NIE objeci: spy_beetle_01-08
+      (zuk 01 siedzi w niszy pod cmentarzem) i spy_centipede_01-02, ktore zostaja na
+      swoich odcinkach kanalu.
+    intended_instruction: >-
+      "Znajdzcie mi jakies nowe miniony i do baszty z nimi" - czyli material na nowe
+      okazy do ozywienia, przyniesiony do loc_city_wall_hideout.
+    actually_transmitted: >-
+      POJECIE "MINION" NIE MA JAK PRZEJSC KANALEM - nie ma takiego obrazu. Faktycznie
+      poszlo prosciej i brzydziej: ZNAJDZCIE TO, CO JUZ NIE UCIEKA, I PRZYNIESCIE DO
+      BASZTY. Spodziewac sie wyniku NIEROWNEGO, jak przy order_collect_live_specimens_from_posts
+      (t_015, brudno) i order_collect_moths_and_butterflies (t_078, czysciej): martwe
+      szczury, ptaki, wieksze owady, ale tez rzeczy, ktore tylko przestaly sie ruszac,
+      i smieci pasujace do obrazu.
+    expected_delivery: >-
+      Zbiorka nocna - wynik czeka w baszcie nad ranem. Ilosc i sklad NIEUSTALONE; nie
+      dostarczono niczego w t_270.
+    cost: >-
+      Zero. Rozkaz idzie kanalem, utrzymanie sieci to routine_upkeep_cost 0, a sam akt
+      byl nawiasowym rozkazem mentalnym o zerowym czasie (retcon_000032/000060).
+    compatible_with_standing_order: true
   casualties: 1
   casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]

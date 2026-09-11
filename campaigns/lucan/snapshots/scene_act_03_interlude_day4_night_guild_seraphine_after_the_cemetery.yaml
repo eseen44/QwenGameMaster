@@ -1,0 +1,205 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day4_night_guild_seraphine_after_the_cemetery
+object_type: scene_snapshot
+closed_at: '2026-09-11T22:47:36+02:00'
+summary: x
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day4_night_guild_seraphine_after_the_cemetery
+  location_ref: campaigns/lucan/locations/wall-hideout/location.yaml
+  started_at: '2026-08-19T22:59:40+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Baszta przy murze, 00:06, piaty dzien interludium. Rozkaz poszedl w cala siec
+    oprocz zukow i wijow, ale przeszedl w wersji, ktora dalo sie przeslac: "przyniescie
+    to, co juz nie ucieka". Zbiorka jest nocna, wiec wynik czeka rano i nie wiadomo,
+    ile go bedzie ani co w nim bedzie. Rzecz z niszy nadal owinieta i nadal przy Lucanie.'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_270
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day4_night_guild_before_the_third_seal.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  context_policy:
+    source_budget_bytes: 98304
+    scope: repository_sources_only_excludes_conversation_tools_and_output
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_npc_speaks:
+  - system/npc-voice.md
+  load_when_narrator_failure_modes:
+  - system/narrator-appendix.md
+  load_when_reviewing_immersion:
+  - system/fixtures/immersion-review.md
+  load_when_curse_used:
+  - system/curses.md
+  load_when_magic_matters:
+  - system/magic.md
+  - system/metamagic.md
+  load_when_companion_growth_matters:
+  - system/companion-growth.md
+  - campaigns/lucan/state/growth-banks.yaml
+  load_when_writing_npc_knowledge:
+  - system/canon-policy.md
+  load_when_debugging_runtime:
+  - system/runtime.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  - campaigns/lucan/state/world-axis.yaml
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/obligations-rationale.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/wall-hideout/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Baszta przy murze, 00:06, piaty dzien interludium. Rozkaz poszedl w cala siec
+    oprocz zukow i wijow, ale przeszedl w wersji, ktora dalo sie przeslac: "przyniescie
+    to, co juz nie ucieka". Zbiorka jest nocna, wiec wynik czeka rano i nie wiadomo,
+    ile go bedzie ani co w nim bedzie. Rzecz z niszy nadal owinieta i nadal przy Lucanie.'
+  last_refreshed_event_id: event_turn_interlude_270
+  context_bytes: 43814
+  context_budget_bytes: 98304
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 9049
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 7643
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5535
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4162
+  - ref: campaigns/lucan/state/instances/pc-lucan.yaml
+    bytes: 3327
+  conditional_sets:
+    npc_speaks:
+      refs:
+      - ref: system/npc-voice.md
+        bytes: 7856
+      bytes: 7856
+    narrator_failure_modes:
+      refs:
+      - ref: system/narrator-appendix.md
+        bytes: 19069
+      bytes: 19069
+    reviewing_immersion:
+      refs:
+      - ref: system/fixtures/immersion-review.md
+        bytes: 2821
+      bytes: 2821
+    curse_used:
+      refs:
+      - ref: system/curses.md
+        bytes: 15010
+      bytes: 15010
+    magic_matters:
+      refs:
+      - ref: system/magic.md
+        bytes: 6834
+      - ref: system/metamagic.md
+        bytes: 5461
+      bytes: 12295
+    companion_growth_matters:
+      refs:
+      - ref: system/companion-growth.md
+        bytes: 12056
+      - ref: campaigns/lucan/state/growth-banks.yaml
+        bytes: 15185
+      bytes: 27241
+    writing_npc_knowledge:
+      refs:
+      - ref: system/canon-policy.md
+        bytes: 2762
+      bytes: 2762
+    debugging_runtime:
+      refs:
+      - ref: system/runtime.md
+        bytes: 3247
+      bytes: 3247
+    testing:
+      refs:
+      - ref: system/tests.md
+        bytes: 11852
+      - ref: system/character-score.md
+        bytes: 1647
+      - ref: system/capabilities.md
+        bytes: 2887
+      - ref: campaigns/lucan/state/world-axis.yaml
+        bytes: 3287
+      bytes: 19673
+    time_matters:
+      refs:
+      - ref: system/pacing.md
+        bytes: 4871
+      bytes: 4871
+    location_changes:
+      refs:
+      - ref: system/locations-and-maps.md
+        bytes: 2330
+      bytes: 2330
+    choosing_a_plan:
+      refs:
+      - ref: planning/interlude-act-03-entry-scope.yaml
+        bytes: 3829
+      - ref: planning/obligations-rationale.yaml
+        bytes: 3816
+      - ref: planning/act-03-defence.yaml
+        bytes: 4431
+      bytes: 12076
+    social_stakes_matter:
+      refs:
+      - ref: system/social-intrigue.md
+        bytes: 4690
+      bytes: 4690
+    necromancy_legality_matters:
+      refs:
+      - ref: worlds/solmara/lore/legal-order.yaml
+        bytes: 4191
+      - ref: worlds/solmara/lore/necromancy-law.yaml
+        bytes: 6158
+      - ref: campaigns/lucan/state/secrets.yaml
+        bytes: 14882
+      bytes: 25231
+  context_breakdown:
+    rules_always: 29925
+    state_active: 31961
+    participant_cards: 0
+    participant_full_cards_available: 0
+    participant_digests: 0
+    conditional_heaviest: 27241
+  context_total_bytes: 61886
