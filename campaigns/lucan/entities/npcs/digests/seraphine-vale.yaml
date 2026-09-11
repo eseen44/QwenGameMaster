@@ -48,7 +48,7 @@ role: guild_controller_antimage
 guild_rank: A
 lifecycle:
   state: alive
-  last_confirmed_event_id: event_turn_interlude_266
+  last_confirmed_event_id: event_turn_interlude_267
 current_location_id: loc_lumaria_adventurers_guild
 current_zone_id: zone_guild_upper_offices
 appearance:
@@ -156,6 +156,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_seraphine_ruled_varkhen_stays_and_priced_the_crew_on_a_paper_reason
+    source_event_id: event_turn_interlude_267
+    claim: Przyjela bez sprawdzania wersje, ze nikt o przedmiocie nie wie i ze lezal w naturalnej niecce.
+      Rozstrzygnela, ze Varkhen zostaje na cmentarzu, bo drugi nocny transport to kolejne oczy. Kilof
+      i ludzi obiecala pod warunkiem podstawy, ktora wytrzyma pytanie rano. Zapytala, jaki ekspert ma
+      pomoc przy przedmiocie.
+    claim_summarized: true
+    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_ruled_varkhen_stays_and_priced_the_crew_on_a_paper_reason
   - fact_id: fact_seraphine_was_shown_the_vessel_and_told_lucans_version
     source_event_id: event_turn_interlude_266
     claim: Uslyszala, ze Varkhen zostal w swoim grobowcu i ze do pieczeci trzeba sie przekopac; arcymaga
@@ -180,15 +188,8 @@ knowledge:
       sprawa rodu.'
     claim_truncated: true
     claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_compared_the_signet_with_her_tannery_papers_and_found_nothing
-  - fact_id: fact_seraphine_let_varkhen_walk_out_and_stayed_behind
-    source_event_id: event_turn_interlude_250
-    claim: Otworzyla drzwi wlasna reka, gdy Varkhen ruszal, i zostala w gabinecie. Nie zapytano jej, czy
-      idzie pod trzecia pieczec, i sama sie nie zglosila. Nie postawila zadnego warunku przy wyjsciu -
-      transport nocny ulica uzgodniono przy niej w t_230, kustodia Varkhena jest formalna, a pomiar trzeciej
-      pieczeci jest krokiem pierwszym jej wlasnej kolejnosci z t_234.
-    claim_truncated: true
-    claim_full: campaigns/lucan/entities/npcs/seraphine-vale.yaml#fact_seraphine_let_varkhen_walk_out_and_stayed_behind
   older_confirmed_index:
+  - fact_seraphine_let_varkhen_walk_out_and_stayed_behind@250
   - fact_seraphine_heard_varkhen_say_the_oath_had_no_end@249
   - fact_seraphine_has_the_clerks_name_malen_corth@238
   - fact_seraphine_priced_the_magistrate_flood_idea@238
@@ -307,10 +308,10 @@ knowledge:
   - academy_dispute_plan
   - that_lucans_father_now_knows_the_method
 freshness:
-  confirmed_entries_total: 101
+  confirmed_entries_total: 102
   in_digest: 4
-  last_fact_from_turn: 266
-  current_turn: 266
+  last_fact_from_turn: 267
+  current_turn: 267
   turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
