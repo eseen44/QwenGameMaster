@@ -12,11 +12,11 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 136
-  engine_reads: 83
-  documentation_only: 53
-  flags: 93
-  flags_engine_reads: 6
+  fields: 144
+  engine_reads: 89
+  documentation_only: 55
+  flags: 94
+  flags_engine_reads: 7
   flags_looks_mechanical_but_is_not: 0
 fields:
 - field: conditions
@@ -271,9 +271,41 @@ fields:
   status: engine_reads
   note: 18 odwolan literalnych w tools/
   in_instances: 1
+- field: resources.ancient_necrotic_reservoir.integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.regeneration
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.regeneration.interval_seconds
+  status: engine_reads
+  note: 4 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.regeneration.note
+  status: engine_reads
+  note: 5 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.regeneration.requires
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.regeneration.units
+  status: engine_reads
+  note: 6 odwolan literalnych w tools/
+  in_instances: 1
 - field: resources.ancient_necrotic_reservoir.runtime
   status: engine_reads
   note: 2 odwolan literalnych w tools/
+  in_instances: 1
+- field: resources.ancient_necrotic_reservoir.runtime.regeneration_elapsed_seconds
+  status: engine_reads
+  note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 1
 - field: resources.lucan_necrotic_energy
   status: engine_reads
@@ -564,6 +596,9 @@ fields:
   note: silnik tego NIE czyta
   in_instances: 8
 status_flags:
+- flag: alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: armoured_survives_handling_and_pockets
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -717,6 +752,10 @@ status_flags:
 - flag: held_back_pending_hardening
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: in_cemetery_death_field
+  status: engine_reads_via_requires
+  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
+    DZIALA (przez dane, nie przez kod)'
 - flag: intact_wings_capable_of_flight
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
@@ -800,9 +839,6 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: silk_is_continuous_strong_and_NOT_STICKY_catches_nothing
-  status: documentation_only
-  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
-- flag: single_line_upkeep_from_lucan_active
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: slow

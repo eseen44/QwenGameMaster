@@ -3,7 +3,7 @@ id: companion_varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 254
+revision: 255
 position:
   location_id: loc_varkhen_chamber
   zone_id: zone_sarcophagus
@@ -15,7 +15,24 @@ resources:
   ancient_necrotic_reservoir:
     current: 21.4
     capacity: 72
-    runtime: {}
+    regeneration:
+      interval_seconds: 86400
+      units: 0.8
+      requires:
+      - in_cemetery_death_field
+      note: 'TLO CMENTARZA ZAMIAST SIECI (retcon_000168, deklaracja gracza). Zalozenie
+        gracza: tlo jest tu tak silne jak to, co Lucan mu wysylal, wiec podtrzymywanie
+        go jest zbedne. 0,8 na dobe to DOKLADNIE tyle, ile dawaly cztery lacza sieciarzy
+        na wyjsciu. Dziala wylacznie przy fladze in_cemetery_death_field - gdy Varkhen
+        opusci cmentarz, silnik przestanie to naliczac sam z siebie.'
+    integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA: 0.8
+    integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA: 'Cztery lacza dawaly mu tez
+      0,8 integralnosci na dobe i tlo cmentarza daje tyle samo, ALE SILNIK NIE NALICZA
+      INTEGRALNOSCI Z REGENERACJI - process_instance_time rusza wylacznie pule zasobow
+      (tools/gm_runtime.py). Jest to wiec rejestr RECZNY, jak growth-banks: przy nastepnej
+      scenie z Varkhenem doliczyc 0,8 za kazda dobe spedzona na cmentarzu, od t_263.'
+    runtime:
+      regeneration_elapsed_seconds: 2700
 conditions:
 - id: formal_control_link_unenforced
   stacks: 1
@@ -34,12 +51,14 @@ conditions:
   stacks: 1
   magnitude: 60
   source_event_id: milestone_046_varkhen_oath_compact
-- id: single_line_upkeep_from_lucan
+- id: cemetery_ambient_upkeep
   stacks: 1
   magnitude: 80
-  note: Jedna linia zasilania wprost od Lucana, 1,0 na wejsciu i 0,8 na wyjsciu -
-    ta sama racja, ktora skladaly cztery lacza sieciarzy (retcon_000113). Zalozona
-    w t_263 po odpieciu od sieci.
+  note: 'KOREKTA retcon_000168: podtrzymuje go TLO CMENTARZA, nie Lucan. 0,8 na dobe
+    do puli (silnik: regeneration z requires in_cemetery_death_field) plus 0,8 integralnosci
+    na dobe (rejestr reczny). Tyle samo, ile dawaly cztery lacza sieciarzy. Miedzy
+    nim a Lucanem zostala wylacznie linia alarmowa o zerowym przeplywie, zrywalna
+    ze strony Lucana.'
   elapsed_seconds: 0
   source_event_id: event_turn_interlude_263
 status_flags:
@@ -52,9 +71,10 @@ status_flags:
 - control_mechanics_mutually_unknown
 - voluntary_compact_active
 - confidentiality_accepted
-- single_line_upkeep_from_lucan_active
+- in_cemetery_death_field
+- alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
 - feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_263
+last_event_id: event_turn_interlude_264
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

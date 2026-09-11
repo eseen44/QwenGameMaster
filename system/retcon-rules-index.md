@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **94** z 167 retconow.
+Regul z klauzula normatywna: **95** z 168 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -93,7 +93,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000165` — Czas, przebieg i proza tury BEZ ZMIAN - poprawiona jest wylacznie liczba w audycie i stan rezerwy, wiec zakres supersesji to 'aspect'.
 - `retcon_000166` — POZYCJE SA W SKALI, WYMIARY POMIESZCZEN SA RZECZYWISTE, A RYSUNEK SVG JEST SCHEMATEM - sale narysowano z przesada dla czytelnosci i nie wolno wyliczac wymiaru komory z pikseli.
 
-## energia i ekonomia slug (10)
+## energia i ekonomia slug (11)
 
 - `retcon_000014` — Pojedynczy sieciarz może nie podołać każdemu zwierzęciu, lecz gatunek 'kot' nie jest zakazem ani fizyczną granicą; sieciarze mogą działać z zasadzki lub zespołowo.
 - `retcon_000019` — Uwaga na przyszlosc: migration/packages/02-lucan/package.yaml nadal zawiera stary opis z progiem 12 - to zrodlo migracyjne, uchylone przez retcon_000004 i ten, i NIE wolno go czytac w...
@@ -105,6 +105,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000145` — To wymaga decyzji mechanicznych gracza, nie poprawki wskaznika.
 - `retcon_000146` — Flaga opisowa zostaje - to ona niesie WARUNEK kanonu (maly zer, z dala od duzych obiektow) i nie wolno jej zgubic.
 - `retcon_000157` — Istniejacy precedens brutalnego skalowania Bone Chill (milestone_043a, przeciazenie kolektora, metamagic.md#precedens-bone-chill) POZOSTAJE BEZ ZMIAN - zmienia sie etykieta dziedziny,...
+- `retcon_000168` — Nie wolno wpisywac tam jednostek bez nowej deklaracji gracza.
 
 ## nawias i sprawczosc gracza (4)
 

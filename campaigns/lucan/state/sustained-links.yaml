@@ -128,21 +128,20 @@ links:
   target_instance_id: companion_varkhen
   target_pool_id: ancient_necrotic_reservoir
   interval_seconds: 86400
-  source_units_per_interval: 1.0
-  target_units_per_interval: 0.8
-  target_integrity_per_interval: 0.8
-  efficiency_percent: 80
-  purpose: single_line_after_network_detach
+  source_units_per_interval: 0
+  target_units_per_interval: 0
+  target_integrity_per_interval: 0
+  efficiency_percent: 100
+  purpose: severable_alarm_line_not_a_feed
+  severable_from: pc_lucan
+  severance_cost: instant_and_free_from_lucans_side
   source_event_id: event_turn_interlude_263
-  note: 'JEDNA LINIA ZAMIAST CZTERECH. Lucan odpial Varkhena od sieci i zostawil polaczenie
-    wylacznie ze soba, z jawnym zaproszeniem do ponownego przylaczenia bez terminu i bez
-    nacisku. Racja jest CO DO JEDNOSTKI ta sama, ktora skladaly cztery lacza sieciarzy
-    (4 x 0,25 / 0,2 / 0,2), wiec retcon_000113 nie zostal po cichu podniesiony. Roznica
-    jest w tym, KTO placi: teraz rezerwa Lucana, wczesniej sieciarze. Odleglosc nie jest
-    przeszkoda - sieciarze zasilali go z drugiego konca miasta, a retcon_000167 potwierdza
-    karmienie bez obecnosci. Hipoteza gracza, ze tlo cmentarza bedzie go leczyc szybciej
-    niz to lacze, JEST NIEZMIERZONA: condition severely_depleted ma mechanics_ref
-    condition_recovery_suppressed.'
+  note: 'TO NIE JEST PRZESYL (korekta gracza, retcon_000168). Jedyne, co zostalo miedzy
+    Lucanem a Varkhenem po odpieciu od sieci, to LINIA ALARMOWA: kanal sygnalowy o zerowym
+    przeplywie, ktory Lucan moze zerwac ze swojej strony natychmiast i za darmo - przecinak
+    i nie ma. Zasilania Varkhen nie potrzebuje, bo tlo cmentarza daje mu tyle samo, ile
+    dawaly cztery lacza sieciarzy (patrz state/instances/varkhen.yaml#ambient). Nie
+    wpisywac tu zadnych jednostek bez nowej deklaracji gracza.'
   runtime:
     elapsed_seconds: 0
     successful_intervals: 0

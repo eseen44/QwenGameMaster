@@ -3,11 +3,11 @@ id: webber_anchored
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 254
+revision: 255
 position:
-  location_id: loc_cemetery
-  zone_id: zone_south_gate
-  formation: with_lucan_at_the_south_gate_t_263_its_upkeep_line_to_varkhen_switched_off
+  location_id: loc_lumaria_adventurers_guild
+  zone_id: zone_guild_main_hall
+  formation: with_lucan_t_264
 integrity:
   current: 13
   maximum: 13
@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 1840
+      hunting_recovery_elapsed_seconds: 4540
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -55,7 +55,7 @@ status_flags:
 - death_anchored
 - decay_suppressed
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_263
+last_event_id: event_turn_interlude_264
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
