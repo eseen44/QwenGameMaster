@@ -55,6 +55,23 @@ POOL = "necrotic_reservoir"
 NIE_WEZLY = {"pc_lucan"}
 
 
+def wiersze_bilansu() -> dict[str, float]:
+    """Tabela bilansu dobowego: {id_wiersza: jednostki_na_dobe}.
+
+    Brak pliku = pusta tabela i kontrola sie nie odpala. Tabela jest PRZEPISANIEM
+    retcon_000105 i nastepnych, nie nowym zrodlem stawek.
+    """
+    path = ROOT / "system" / "mechanics" / "daily-balance.yaml"
+    if not path.is_file():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {
+        row["id"]: float(row["units_per_day"])
+        for row in (document.get("rows") or [])
+        if isinstance(row, dict) and "id" in row and "units_per_day" in row
+    }
+
+
 def load(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8-sig")) or {}
 
@@ -194,6 +211,34 @@ def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
         "nadwyzka_deklarowana": deklarowana if deklarowana is not None else float("nan"),
         "nadwyzka_policzona": policzona,
     }
+    # STAWKA MUSI POCHODZIC Z WIERSZA TABELI, NIE Z GLOWY (retcon_000172B).
+    # Wpis, ktory deklaruje balance_row, ma miec stawke rowna wartosci tego wiersza
+    # pomniejszonej o zadeklarowane utrzymanie. Wpisy BEZ wiersza sa dlugiem: raportowane
+    # osobno, nigdy blokujace - bo brak wiersza znaczy "tabela nie ma tej kategorii",
+    # a to rozstrzyga czlowiek, nie skrypt.
+    tabela = wiersze_bilansu()
+    bez_wiersza: list[str] = []
+    for entry in (bank.get("banks") or []):
+        if not isinstance(entry, dict):
+            continue
+        node_id = entry.get("id")
+        if node_id in NIE_WEZLY:
+            continue
+        row = entry.get("balance_row")
+        if not row:
+            bez_wiersza.append(str(node_id))
+            continue
+        if row not in tabela:
+            zglos("wiersz_bilansu", f"{node_id}: balance_row '{row}' nie istnieje w tabeli")
+            continue
+        oczekiwane = tabela[row] - float(entry.get("upkeep_per_day", 0.0) or 0.0)
+        stawka = float(entry.get("rate_per_day", 0.0) or 0.0)
+        if abs(stawka - oczekiwane) > 1e-9:
+            zglos("wiersz_bilansu",
+                  f"{node_id}: rate_per_day {stawka} != wiersz {row} ({tabela[row]}) "
+                  f"minus utrzymanie {entry.get('upkeep_per_day', 0.0)} = {oczekiwane}")
+    liczby["wezlow_bez_wiersza"] = f"{len(bez_wiersza)} ({', '.join(bez_wiersza)})" if bez_wiersza else "0"
+
     return problems, liczby
 
 

@@ -1,0 +1,98 @@
+schema_version: 1
+id: daily_balance_table
+status: active
+source_refs: [retcon_000105, retcon_000110, retcon_000167, retcon_000172, retcon_000174]
+
+purpose: >-
+  PRZEPISANIE ISTNIEJACEGO MODELU NA WIERSZE, nie nowe stawki. Wszystkie wartosci
+  pochodza z companions/spy-series.yaml#survival_model.daily_balance_model (zrodlo:
+  retcon_000105) plus dwa wiersze dopisane pozniejszymi retconami. Ten plik nie ustanawia
+  zadnej stawki, ktorej model by nie mial.
+
+why_it_exists: >-
+  2026-09-12, tura 274: zawisak zszedl z kosza jedwabnikow na wlasny nektar. Narrator
+  zaklasyfikowal laki jako "zer normalny" (+1,0), z czego wyszedl deficyt -1,0 na dobe
+  wobec symbiontow jedzacych 2,0 - i podal graczowi nieistniejacy problem. Gracz odrzucil
+  klasyfikacje: nektar w szczycie sezonu to zer obfity, bilans wychodzi na zero
+  (retcon_000172B). Zaden plik nie mowil, ktory wiersz stosuje sie do nektaru, bo wiersze
+  zyly w prozie z przecinkiem dziesietnym, nieparsowalne i niewybieralne.
+
+  REGULA, KTORA Z TEGO WYNIKA: narrator wybiera WIERSZ, a liczbe wystawia tabela.
+  Klasyfikacja fikcji zostaje ludzka - arytmetyka przestaje byc.
+
+rows:
+  - id: posterunek_z_zadaniem_i_zerem
+    units_per_day: 0.0
+    condition: >-
+      Okaz stoi W BEZRUCHU na posterunku z zadaniem, a zer jest na miejscu. Zadanie zjada
+      czas, ktory poszedlby na zbieranie - wychodzi na zero.
+    source: retcon_000105
+
+  - id: bez_rozkazu_zer_normalny
+    units_per_day: 1.0
+    condition: 'Brak rozkazu poza domyslnym polowaniem, zer zwyczajny: laka, ulica.'
+    source: retcon_000105
+
+  - id: bez_rozkazu_zer_obfity
+    units_per_day: 2.0
+    condition: >-
+      Brak rozkazu, zer obfity: kanaly pelne robactwa, nektar lak w szczycie sezonu.
+      Koniec sierpnia, laki za murem graja nocami (companions/spy-series.yaml).
+    source: [retcon_000105, retcon_000172]
+
+  - id: padlinozerca_bez_rozkazu
+    units_per_day: 0.5
+    condition: >-
+      Zuki. Zra gnilne - padline, detrytus, zepsute ziarno - i to NIE JEST polowanie,
+      wiec stawka jest nizsza, a posterunek najtrwalszy: wystarczy, ze cos gnije.
+    source: retcon_000105
+
+  - id: posterunek_bez_zeru
+    units_per_day: -1.0
+    condition: >-
+      Posterunek, na ktorym nie ma czego jesc. Zbiornik 3 przy ubytku 1 na dobe daje
+      trzydniowa smycz - okaz konczy sie sam.
+    source: retcon_000105
+
+  - id: rozkaz_ruchomy_nad_zerem
+    units_per_day: 2.0
+    condition: >-
+      Rozkaz, ktory PRZEMIESZCZA okaz przez teren obfity w zer - wije mapujace kanaly od
+      t_186. Nie zeruje stawki, bo "posterunek" w wierszach wyzej znaczy STANIE W MIEJSCU,
+      a okaz w ruchu je po drodze.
+    source: retcon_000174
+    ruling: 'Rozstrzygniecie gracza 2026-09-12.'
+
+  - id: karmiony_z_reki_bez_ograniczenia
+    units_per_day: 3.0
+    condition: >-
+      Okaz zywiony z zapasu przy stole, bez limitu - zawisak na koszu jedwabnikow do t_273.
+      NIE jest to zerowanie wlasne i konczy sie wraz z odcieciem od zapasu.
+    source: retcon_000110
+
+  - id: zuk_bez_dobowego_ubytku
+    units_per_day: 0.0
+    condition: >-
+      MODYFIKATOR, NIE STAWKA. Zuki nie maja dobowego ubytku, wiec nic nie schodzi im na
+      utrzymanie i cala stawka idzie w rozwoj. Stosuj razem z wierszem zeru.
+    source: retcon_000167
+
+maturity_ladder:
+  fresh_to_settled: 10
+  settled_to_judging: 30
+  judging_to_seasoned: 60
+  grants_per_step: '+1 pojemnosci zbiornika, +2 integralnosci, plus nazwany zysk behawioralny'
+  thresholds_adjustable: >-
+    Progi sa propozycja narratora; drabina wylacznie PRZYZNAJE, niczego nie odbiera.
+
+upkeep_is_separate: >-
+  UTRZYMANIE NIE JEST W TEJ TABELI. Symbionty, kolonie i inne trwale obciazenia maja
+  wlasne pola przy okazie (patrz spy_hawk_moth_01: 2,0 na dobe za sordine i porost,
+  planning/specimen-upgrades.yaml#build_moth_glutton). Stawka netto to WIERSZ MINUS
+  UTRZYMANIE i tak wlasnie liczy ja rejestr wzrostu.
+
+not_covered: >-
+  Czego tu nie ma: rozdzialu nadwyzki miedzy wezly (to distribution_priority w
+  state/growth-banks.yaml - Lucan, potem zakotwiczone, potem reszta), strat propagacji
+  (companions/webber-network.yaml#network_cost_model) oraz stawki samego Lucana, ktora
+  od retcon_000151 rosnie WYLACZNIE z wysysania zywych.
