@@ -65,7 +65,7 @@ ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
 OPERATIONS = {
     "set", "adjust", "consume", "restore", "add_condition", "remove_condition",
     "advance_time", "advance_clock", "shift_world_axis", "transfer_item",
-    "change_relationship",
+    "change_relationship", "consume_item",
 }
 
 # OS SWIATA (decyzja gracza 2026-09-09). Pasma liczone z MARGINESU nad progiem, nie
@@ -1139,6 +1139,92 @@ def apply_operation(
             {"delta": operation.get("delta", 0), "reason": operation.get("reason"), "event_id": event_id}
         )
         return
+    if op == "consume_item":
+        # ZUZYCIE PRZEDMIOTU I JEGO SKUTEK W JEDNEJ OPERACJI.
+        #
+        # POWOD. Do 2026-09-12 runtime nie mial NIC na przedmioty: `consume` dotyczyl
+        # wylacznie pul energii instancji, a `transfer_item` nie sprawdzal nawet, czy jest
+        # co przekazac. Odjecie fiolki i naniesienie jej skutku byly dwoma OSOBNYMI
+        # obowiazkami narratora - i w turze 177 drugi z nich wypadl. Preparat wszedl
+        # w Tkacza, zapas zostal nietkniety, a 97 tur pozniej narrator przeczytal ten
+        # zapas i polozyl graczowi na stole przedmiot, ktorego nie ma (retcon_000170/173).
+        #
+        # SKUTEK JEST PODAWANY JAWNIE W OPERACJI, nie brany z mapy "item -> efekt".
+        # Mapa ustanowilaby po cichu mechanike, ktorej nikt nie zatwierdzil: ta sama
+        # porcja tlumiaca dala Tkaczowi flage dokumentacyjna, a zawisakowi wpis
+        # suppressed_by na puli. Jeden przedmiot, dwa rozne skutki, obie wersje kanoniczne.
+        item_id = require_id(operation.get("item_id"), "item_id")
+        units = operation.get("units", 1)
+        if not isinstance(units, (int, float)) or units <= 0:
+            raise RuntimeError("consume_item.units must be a positive number")
+
+        resources_path = campaign_root / "state" / "resources.yaml"
+        if not resources_path.is_file():
+            raise RuntimeError("state/resources.yaml nie istnieje - nie ma z czego zuzywac")
+        resources = load_mutable(campaign_root, changed, resources_path)
+
+        record = None
+        for cache in resources.get("caches") or []:
+            for entry in cache.get("contents") or []:
+                if isinstance(entry, dict) and entry.get("id") == item_id:
+                    record = entry
+                    break
+            if record is not None:
+                break
+        if record is None:
+            raise RuntimeError(
+                f"nieznany przedmiot {item_id} - nie ma go w state/resources.yaml. "
+                "Zapas, ktorego nie ma w rejestrze, nie istnieje."
+            )
+
+        quantity = record.get("quantity")
+        if not isinstance(quantity, (int, float)):
+            raise RuntimeError(
+                f"{item_id}: quantity to {quantity!r}, nie liczba - nie da sie z tego odjac. "
+                "Wartosci prozatorskie wymagaja rozstrzygniecia, nie zgadywania."
+            )
+        if quantity < units:
+            raise RuntimeError(
+                f"za malo {item_id}: jest {quantity}, potrzeba {units}. "
+                "Zaden plik nie zostal zmieniony."
+            )
+
+        # Cel i skutek sa opcjonalne: przedmiot mozna zuzyc bez odbiorcy (rozlany,
+        # zniszczony), ale skutek BEZ celu jest bledem deklaracji.
+        target_id = operation.get("on")
+        effect_flags = operation.get("effect_flags") or []
+        if not isinstance(effect_flags, list) or not all(isinstance(f, str) for f in effect_flags):
+            raise RuntimeError("consume_item.effect_flags must be a list of strings")
+        if effect_flags and not target_id:
+            raise RuntimeError(
+                "consume_item.effect_flags bez consume_item.on - skutek nie ma na kogo spasc"
+            )
+
+        if target_id:
+            _, target = entity_for_operation(
+                campaign_root, changed, {"instance_id": require_id(target_id, "on")}
+            )
+            flags = target.setdefault("status_flags", [])
+            for flag in effect_flags:
+                if flag not in flags:
+                    flags.append(flag)
+            if target.get("last_event_id") != event_id:
+                target["revision"] = int(target.get("revision", 0)) + 1
+            target["last_event_id"] = event_id
+
+        record["quantity"] = stable_number(quantity - units)
+        if record["quantity"] == 0:
+            record["status"] = "consumed"
+            record["consumed_event_id"] = event_id
+            if target_id:
+                record["consumed_on"] = target_id
+        else:
+            record.setdefault("status", "available")
+        record["last_event_id"] = event_id
+        if operation.get("reason"):
+            record["consumption_reason"] = operation["reason"]
+        return
+
     raise RuntimeError(f"unsupported operation: {op}")
 
 

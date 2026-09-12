@@ -348,5 +348,92 @@ class EnvironmentRequirementTests(unittest.TestCase):
         self.assertEqual(instance["resources"]["reservoir"]["current"], 0)
 
 
+class ConsumeItemTests(unittest.TestCase):
+    """retcon_000170/173 - zuzycie przedmiotu i jego skutek musza byc JEDNA operacja.
+
+    W turze 177 preparat wszedl w Tkacza, a zapas zostal nietkniety, bo to byly dwa
+    osobne obowiazki narratora. 97 tur pozniej ktos przeczytal ten zapas i polozyl
+    graczowi na stole przedmiot, ktorego nie ma.
+    """
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory()
+        self.campaign = Path(self._tmp.name) / "campaigns" / "lucan"
+        (self.campaign / "state").mkdir(parents=True)
+        self.resources = self.campaign / "state" / "resources.yaml"
+        self.resources.write_text(yaml.safe_dump({
+            "caches": [{
+                "id": "cache_test",
+                "contents": [
+                    {"id": "decay_suppressing_vial", "quantity": 2, "unit": "vial"},
+                    {"id": "ritual_salt", "quantity": 1, "unit": "packet"},
+                ],
+            }],
+        }, allow_unicode=True), encoding="utf-8")
+        self.target = {"id": "companion_test", "revision": 3, "status_flags": []}
+
+    def tearDown(self) -> None:
+        self._tmp.cleanup()
+
+    def _apply(self, operation: dict, changed: dict | None = None) -> dict:
+        changed = {} if changed is None else changed
+        with mock.patch.object(
+            gm_runtime, "entity_for_operation",
+            return_value=(Path("companion_test.yaml"), self.target),
+        ):
+            gm_runtime.apply_operation(self.campaign, changed, operation, "event_turn_test")
+        return changed
+
+    def _record(self, changed: dict, item_id: str) -> dict:
+        doc = changed[self.resources.resolve()]
+        return next(e for e in doc["caches"][0]["contents"] if e["id"] == item_id)
+
+    def test_jedna_operacja_odejmuje_zapas_i_naklada_skutek(self) -> None:
+        changed = self._apply({
+            "op": "consume_item", "item_id": "decay_suppressing_vial", "units": 1,
+            "on": "companion_test", "effect_flags": ["decay_suppressed"],
+            "reason": "porcja tlumiaca rozklad",
+        })
+
+        record = self._record(changed, "decay_suppressing_vial")
+        self.assertEqual(record["quantity"], 1)
+        self.assertIn("decay_suppressed", self.target["status_flags"])
+        self.assertEqual(self.target["revision"], 4, "rewizja odbiorcy nie zostala podbita")
+
+    def test_ostatnia_sztuka_zamyka_pozycje_z_data_i_odbiorca(self) -> None:
+        changed = self._apply({
+            "op": "consume_item", "item_id": "ritual_salt", "units": 1,
+            "on": "companion_test", "effect_flags": ["preserved"],
+        })
+
+        record = self._record(changed, "ritual_salt")
+        self.assertEqual(record["quantity"], 0)
+        self.assertEqual(record["status"], "consumed")
+        self.assertEqual(record["consumed_event_id"], "event_turn_test")
+        self.assertEqual(record["consumed_on"], "companion_test")
+
+    def test_ponad_stan_odmawia_i_nie_rusza_niczego(self) -> None:
+        changed: dict = {}
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            self._apply({"op": "consume_item", "item_id": "decay_suppressing_vial",
+                         "units": 5, "on": "companion_test",
+                         "effect_flags": ["decay_suppressed"]}, changed)
+        self.assertIn("za malo", str(ctx.exception))
+        self.assertEqual(self.target["status_flags"], [],
+                         "skutek spadl na odbiorce mimo odmowy")
+        self.assertEqual(self.target["revision"], 3)
+
+    def test_nieznany_przedmiot_odmawia(self) -> None:
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            self._apply({"op": "consume_item", "item_id": "nie_ma_takiego", "units": 1})
+        self.assertIn("nieznany przedmiot", str(ctx.exception))
+
+    def test_skutek_bez_odbiorcy_jest_bledem_deklaracji(self) -> None:
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            self._apply({"op": "consume_item", "item_id": "ritual_salt", "units": 1,
+                         "effect_flags": ["preserved"]})
+        self.assertIn("nie ma na kogo spasc", str(ctx.exception))
+
+
 if __name__ == "__main__":
     unittest.main()
