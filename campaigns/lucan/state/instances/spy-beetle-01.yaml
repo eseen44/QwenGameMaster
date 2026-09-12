@@ -3,17 +3,16 @@ id: spy_beetle_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 198
+revision: 199
 position:
   location_id: loc_cemetery_underworks
   zone_id: zone_relay_chamber
-  formation: alone_in_the_north_foundation_niche_since_t_259_sits_at_the_junction_of_all_three_channels_about_1_8_per_day_against_his_1_5_intake_cap_standing_order_surplus_to_lucan_then_network
+  formation: alone_in_the_north_foundation_niche_since_t_259_at_the_junction_of_all_three_channels
 integrity:
   current: 10
   maximum: 10
-upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
-  (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
-  zostaje.
+upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA (retcon_000167). Pola
+  decay i hunting_recovery zdjete; padlinozerstwo z growth-banks zostaje.
 resources:
   necrotic_reservoir:
     current: 3
@@ -29,13 +28,11 @@ traits:
   - somnolent
   - militaristic
   - general_of_arms
-  note: Len, ktory z lenistwa zrobil doktryne. Nie rusza sie, jesli moze sie nie ruszac
-    - docelowo nauczy sie jesc bez poruszania sie. Ciezka muszla, maly tank, ruchoma
-    bateria dla innych owadow i punkt kontaktowy spajajacy siec w gwiazde zamiast
-    lancucha przeskokow.
-  development_direction: Dowodzenie. Nie robi sam - KAZE robic. Wlasne podlegle robale
-    wykonujace rozkazy w polu, podczas gdy on siedzi pod plyta na murze. Docelowo
-    dialog z Lucanem.
+  note: Len, ktory z lenistwa zrobil doktryne. Nie rusza sie, jesli moze sie nie ruszac - docelowo nauczy
+    sie jesc bez poruszania sie. Ciezka muszla, maly tank, ruchoma bateria dla innych owadow i punkt kontaktowy
+    spajajacy siec w gwiazde zamiast lancucha przeskokow.
+  development_direction: Dowodzenie. Nie robi sam - KAZE robic. Wlasne podlegle robale wykonujace rozkazy
+    w polu, podczas gdy on siedzi pod plyta na murze. Docelowo dialog z Lucanem.
 status_flags:
 - death_anchored
 - moth_tympanal_hearing_organ
@@ -54,3 +51,10 @@ last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
+orders:
+- id: order_surplus_to_lucan_then_network
+  status: active
+  source_event_id: event_turn_interlude_259
+  instruction: Nadwyzke oddawac Lucanowi, potem sieci.
+  note: 'Stawki NIE MA w tym polu: 1,8 na dobe przy sufcie przyjecia 1,5 stoi w state/growth-banks.yaml#spy_beetle_01.
+    Kopia liczby w lancuchu prozatorskim byla wektorem rozjazdu.'
