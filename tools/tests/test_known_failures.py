@@ -489,5 +489,61 @@ class PositionFixTests(unittest.TestCase):
         gm_runtime.validate_position_fix(entity)
 
 
+class StandbyLinkTests(unittest.TestCase):
+    """Linia alarmowa do Varkhena to ADRES, nie rura.
+
+    Slowa gracza: "de facto martwe lacze, nieuzywane, ale pozwalajace na wznowienie.
+    Sam adres. Otwarty port, o ktorym obie strony widza, ze moga go uzyc, ale po ktorym
+    samemu nic nie leci. Whitelist w firewallu."
+
+    Do 2026-09-12 silnik pomijal je WYLACZNIE dlatego, ze mialo zerowe jednostki - czyli
+    jedna cyfra wpisana przez nieuwage zamienialaby adres w rure i nikt by nie zauwazyl.
+    """
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory()
+        self.campaign = Path(self._tmp.name) / "campaigns" / "lucan"
+        (self.campaign / "state").mkdir(parents=True)
+        self.links = self.campaign / "state" / "sustained-links.yaml"
+
+    def tearDown(self) -> None:
+        self._tmp.cleanup()
+
+    def _write(self, link: dict) -> None:
+        self.links.write_text(yaml.safe_dump({"links": [link]}, allow_unicode=True),
+                              encoding="utf-8")
+
+    def _base(self) -> dict:
+        return {
+            "id": "link_test", "active": True, "channel": "standby",
+            "source_instance_id": "pc_lucan", "source_pool_id": "p",
+            "target_instance_id": "companion_varkhen", "target_pool_id": "q",
+            "interval_seconds": 86400,
+            "source_units_per_interval": 0, "target_units_per_interval": 0,
+        }
+
+    def test_standby_nie_jest_naliczane(self) -> None:
+        self._write(self._base())
+        changed: dict = {}
+        gm_runtime.process_sustained_links(self.campaign, changed, 86400, "event_test")
+        link = changed[self.links.resolve()]["links"][0]
+        self.assertEqual(link.get("runtime", {}).get("successful_intervals", 0), 0)
+
+    def test_liczba_przy_standby_jest_bledem_a_nie_cichym_przesylem(self) -> None:
+        link = self._base()
+        link["source_units_per_interval"] = 1.0
+        self._write(link)
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            gm_runtime.process_sustained_links(self.campaign, {}, 86400, "event_test")
+        self.assertIn("standby", str(ctx.exception))
+
+    def test_nieznany_rodzaj_lacza_jest_odrzucany(self) -> None:
+        link = self._base()
+        link["channel"] = "cokolwiek"
+        self._write(link)
+        with self.assertRaises(gm_runtime.RuntimeError):
+            gm_runtime.process_sustained_links(self.campaign, {}, 86400, "event_test")
+
+
 if __name__ == "__main__":
     unittest.main()

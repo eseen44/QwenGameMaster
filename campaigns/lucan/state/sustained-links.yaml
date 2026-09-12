@@ -5,12 +5,11 @@ links:
 - id: link_lucan_hand_charges_beetle_01
   active: false
   deactivated_event_id: event_turn_interlude_260
-  deactivated_reason: ZBEDNE, NIE NIEMOZLIWE (retcon_000167). Nisza pokrywa caly sufit
-    rozwoju zuka (1,5 z dowozonych 1,8), wiec dokladanie 3,5 na dobe z rezerwy Lucana
-    byloby wylewaniem energii, ktora i tak wroci do sieci ze stratami. Karmienie okazu
-    ZAKOTWICZONEGO nie wymaga obecnosci Lucana - opis ladowania z reki byl zapisem
-    metody z t_179, nie ograniczeniem zasiegu. Wlaczyc z powrotem jedna decyzja, gdy
-    zuk dostanie wiekszy zbiornik albo wyjdzie z niszy.
+  deactivated_reason: ZBEDNE, NIE NIEMOZLIWE (retcon_000167). Nisza pokrywa caly sufit rozwoju zuka (1,5
+    z dowozonych 1,8), wiec dokladanie 3,5 na dobe z rezerwy Lucana byloby wylewaniem energii, ktora i
+    tak wroci do sieci ze stratami. Karmienie okazu ZAKOTWICZONEGO nie wymaga obecnosci Lucana - opis
+    ladowania z reki byl zapisem metody z t_179, nie ograniczeniem zasiegu. Wlaczyc z powrotem jedna decyzja,
+    gdy zuk dostanie wiekszy zbiornik albo wyjdzie z niszy.
   controller_id: pc_lucan
   source_instance_id: pc_lucan
   source_pool_id: lucan_necrotic_energy
@@ -23,23 +22,26 @@ links:
   efficiency_percent: 100
   purpose: hand_charging_for_growth_not_for_reservoir
   source_event_id: event_turn_interlude_179
-  note: 'Deklaracja gracza w t_179: Lucan laduje zuka SAM, 3,5 jednostki na dobe.
-    target_units_per_interval jest ZEREM CELOWO - zbiornik zuka stoi pelny (3/3),
-    a dostarczone jednostki nie ida w zbiornik, tylko w bank wzrostu prowadzony w
-    campaigns/lucan/state/growth-banks.yaml. Podzial dostarczonych 3,5: 1,0 pokrywa
-    dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika
-    wg retcon_000115), 1,0 wraca w siec. Brak straty propagacji, bo nie ma przeskoku
-    - zuk siedzi w kieszeni i jest ladowany z reki, jak w hand_feeding_program. Sufit
-    rozwoju podnosi enlarge_reservoir_to_tank (3 -> 12), ok. godziny przy stole.'
+  note: 'Deklaracja gracza w t_179: Lucan laduje zuka SAM, 3,5 jednostki na dobe. target_units_per_interval
+    jest ZEREM CELOWO - zbiornik zuka stoi pelny (3/3), a dostarczone jednostki nie ida w zbiornik, tylko
+    w bank wzrostu prowadzony w campaigns/lucan/state/growth-banks.yaml. Podzial dostarczonych 3,5: 1,0
+    pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy zbiornika wg retcon_000115),
+    1,0 wraca w siec. Brak straty propagacji, bo nie ma przeskoku - zuk siedzi w kieszeni i jest ladowany
+    z reki, jak w hand_feeding_program. Sufit rozwoju podnosi enlarge_reservoir_to_tank (3 -> 12), ok.
+    godziny przy stole.'
   runtime:
     elapsed_seconds: 62020
     successful_intervals: 0
     missed_intervals: 0
   last_event_id: event_turn_interlude_179
+  channel: feed
 - id: link_webber_home_to_varkhen_upkeep
   active: false
   deactivated_event_id: event_turn_interlude_263
-  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
+  deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly
+    razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen)
+    o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z
+    powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu.
   controller_id: pc_lucan
   source_instance_id: webber_home
   source_pool_id: necrotic_reservoir
@@ -57,10 +59,14 @@ links:
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
+  channel: feed
 - id: link_webber_tannery_to_varkhen_upkeep
   active: false
   deactivated_event_id: event_turn_interlude_263
-  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
+  deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly
+    razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen)
+    o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z
+    powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu.
   controller_id: pc_lucan
   source_instance_id: webber_tannery
   source_pool_id: necrotic_reservoir
@@ -78,10 +84,14 @@ links:
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
+  channel: feed
 - id: link_webber_dump_to_varkhen_upkeep
   active: false
   deactivated_event_id: event_turn_interlude_263
-  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
+  deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly
+    razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen)
+    o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z
+    powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu.
   controller_id: pc_lucan
   source_instance_id: webber_dump
   source_pool_id: necrotic_reservoir
@@ -99,10 +109,14 @@ links:
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
+  channel: feed
 - id: link_webber_meadow_to_varkhen_upkeep
   active: false
   deactivated_event_id: event_turn_interlude_263
-  deactivated_reason: "ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu."
+  deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery lacza sieciarzy skladaly
+    razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen)
+    o dokladnie tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec. Wlaczyc z
+    powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie zostalo zlozone bez terminu.
   controller_id: pc_lucan
   source_instance_id: webber_anchored
   source_pool_id: necrotic_reservoir
@@ -120,6 +134,7 @@ links:
     successful_intervals: 3
     missed_intervals: 0
   last_event_id: event_turn_interlude_183
+  channel: feed
 - id: link_lucan_single_line_to_varkhen
   active: true
   controller_id: pc_lucan
@@ -136,14 +151,19 @@ links:
   severable_from: pc_lucan
   severance_cost: instant_and_free_from_lucans_side
   source_event_id: event_turn_interlude_263
-  note: 'TO NIE JEST PRZESYL (korekta gracza, retcon_000168). Jedyne, co zostalo miedzy
-    Lucanem a Varkhenem po odpieciu od sieci, to LINIA ALARMOWA: kanal sygnalowy o zerowym
-    przeplywie, ktory Lucan moze zerwac ze swojej strony natychmiast i za darmo - przecinak
-    i nie ma. Zasilania Varkhen nie potrzebuje, bo tlo cmentarza daje mu tyle samo, ile
-    dawaly cztery lacza sieciarzy (patrz state/instances/varkhen.yaml#ambient). Nie
-    wpisywac tu zadnych jednostek bez nowej deklaracji gracza.'
+  note: 'ADRES, NIE RURA. TO NIE JEST PRZESYL (korekta gracza, retcon_000168). Jedyne, co zostalo miedzy
+    Lucanem a Varkhenem po odpieciu od sieci, to LINIA ALARMOWA: kanal sygnalowy o zerowym przeplywie,
+    ktory Lucan moze zerwac ze swojej strony natychmiast i za darmo - przecinak i nie ma. DOPRECYZOWANIE
+    GRACZA 2026-09-12: "de facto martwe lacze, nieuzywane, ale pozwalajace na wznowienie. Sam adres. Otwarty
+    port, o ktorym obie strony widza, ze moga go uzyc, ale po ktorym samemu nic nie leci. Whitelist w
+    firewallu." Zerowosc jest teraz ZADEKLAROWANA przez channel: standby, a nie wynika z braku wpisanych
+    jednostek - silnik odrzuci kazda niezerowa wartosc przy tym laczu. Zasilania Varkhen nie potrzebuje,
+    bo tlo cmentarza daje mu tyle samo, ile dawaly cztery lacza sieciarzy (state/instances/varkhen.yaml).
+    Zeby cokolwiek plynelo, trzeba jawnie zmienic channel na feed - czyli podjac decyzje, a nie wpisac
+    liczbe.'
   runtime:
     elapsed_seconds: 0
     successful_intervals: 0
     missed_intervals: 0
   last_event_id: event_turn_interlude_263
+  channel: standby

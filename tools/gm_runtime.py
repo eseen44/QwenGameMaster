@@ -62,6 +62,21 @@ ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
 # w apply_operation, czyli PO tym, jak wczesniejsze operacje z tej samej tury zdazyly juz
 # zmienic dokumenty w slowniku `changed`. Literowka w nazwie operacji byla wiec wykrywana
 # w polowie zapisu. Lista musi odpowiadac dyspozytorowi w apply_operation.
+# RODZAJE LACZA. Roznica jest zasadnicza i do 2026-09-12 nie byla nigdzie zadeklarowana:
+# silnik pomijal linie alarmowa TYLKO dlatego, ze miala zerowe jednostki - czyli byla
+# bezwladna PRZEZ PRZYPADEK. Ktokolwiek wpisalby tam liczbe, zamienilby adres w rure
+# i nikt by tego nie zauwazyl.
+LINK_CHANNELS = {
+    # Rura. Niesie energie, ma jednostki, silnik ja nalicza.
+    "feed",
+    # ADRES, NIE RURA (slowa gracza 2026-09-12): "de facto martwe lacze, nieuzywane, ale
+    # pozwalajace na wznowienie. Sam adres. Otwarty port, o ktorym obie strony widza, ze
+    # moga go uzyc, ale po ktorym samemu nic nie leci. Whitelist w firewallu."
+    # Nie jest to lacze zerwane - zerwane przestaje istniec. To jest lacze CZYNNE
+    # o zerowym przeplywie z definicji, nie z braku wpisu.
+    "standby",
+}
+
 OPERATIONS = {
     "set", "adjust", "consume", "restore", "add_condition", "remove_condition",
     "advance_time", "advance_clock", "shift_world_axis", "transfer_item",
@@ -880,6 +895,28 @@ def process_sustained_links(
     for link in document.get("links", []):
         if not isinstance(link, dict) or not link.get("active", False):
             continue
+        # LACZE W TRYBIE standby NIE JEST NALICZANE Z DEFINICJI, nie z braku liczb.
+        # Do 2026-09-12 linia alarmowa do Varkhena byla pomijana wylacznie dlatego, ze
+        # miala zerowe jednostki - czyli jedna cyfra wpisana przez nieuwage zamienialaby
+        # adres w rure. Teraz zerowosc jest ZADEKLAROWANA, a niezgodnosc jest bledem.
+        channel = link.get("channel", "feed")
+        if channel not in LINK_CHANNELS:
+            raise RuntimeError(
+                f"{link.get('id')}: channel '{channel}' - dozwolone {sorted(LINK_CHANNELS)}"
+            )
+        if channel == "standby":
+            for pole in ("source_units_per_interval", "target_units_per_interval",
+                         "target_integrity_per_interval"):
+                wartosc = link.get(pole)
+                if isinstance(wartosc, (int, float)) and wartosc != 0:
+                    raise RuntimeError(
+                        f"{link.get('id')}: channel standby, ale {pole} = {wartosc}. "
+                        "Lacze w trybie standby to ADRES, nie rura - obie strony wiedza, ze "
+                        "moga go uzyc, ale samo z siebie nie niesie nic. Zeby cokolwiek "
+                        "plynelo, zmien channel na feed jawna deklaracja."
+                    )
+            continue
+
         interval = link.get("interval_seconds")
         source_units = link.get("source_units_per_interval")
         target_units = link.get("target_units_per_interval")
