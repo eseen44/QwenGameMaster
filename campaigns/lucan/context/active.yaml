@@ -57,16 +57,15 @@ active_refs:
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Baszta, 06:38, dzien piaty, za oknem robi sie jasno. Kot lezy odlozony na boku blatu NIEUTRWALONY i
-  psuje sie od brzucha - za dwa dni widac, za trzy czuc. Srodkow jest dokladnie tyle: sol rytualna i proszek
-  suszacy (nietkniete, ale UTRWALAJA TKANKE - ocena t_087) oraz nieustalona item_silver_preservation_essence.
-  Porcji tlumiacej rozklad NIE MA ZADNEJ - trzecia poszla na Tkacza w t_177 (retcon_000170). Gracz chce
-  isc z problemem futra i z rzecza z niszy do ojca; intencja zapisana w nawiasie, niewykonana. Dwa biegaczowate
-  poszly sie pasc (spy_beetle_09, spy_beetle_10), golab wyrzucony, zawisak zeruje sam na lakach i wylatuje
-  o zmierzchu - bilans netto 0,0, bez deficytu i bez kosza (retcon_000172). Trzy szczury w kanalach pod
-  garbarnia (retcon_000171), nie przy zadnym wiju. Kos nadal nierozdysponowany na blacie.'
+- 'Baszta, 06:38, ranek dnia piatego, noc przy blacie zamknieta. OTWARTE: kot lezy odlozony i NIEUTRWALONY
+  - psuje sie od brzucha, za dwa dni widac, za trzy czuc. Sol rytualna i proszek suszacy sa nietkniete,
+  ale UTRWALAJA TKANKE (ocena t_087), a porcji tlumiacej rozklad nie ma zadnej (retcon_000170). Zostaje
+  nieustalona item_silver_preservation_essence. Gracz uznal, ze kot musi pozostac FUTRZASTY, zeby dzialal,
+  i zamierza isc z tym pytaniem oraz z item_north_foundation_vessel do ojca, po wiecej ksiazek - intencja
+  zapisana W NAWIASIE w planning/lucan-leads.yaml, NIEWYKONANA, czeka na deklaracje poza nawiasem. Kos
+  z jednym skrzydlem nadal nieprzydzielony na blacie. Reszta sieci rozdysponowana i bez deficytu.'
 last_refreshed_event_id: event_turn_interlude_274
-context_bytes: 44349
+context_bytes: 44224
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
@@ -77,9 +76,9 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5535
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4164
+  bytes: 4275
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3269
+  bytes: 3339
 conditional_sets:
   npc_speaks:
     refs:
@@ -113,8 +112,8 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 12056
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 17370
-    bytes: 29426
+      bytes: 17721
+    bytes: 29777
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -171,9 +170,9 @@ conditional_sets:
     bytes: 25436
 context_breakdown:
   rules_always: 29925
-  state_active: 32496
+  state_active: 32371
   participant_cards: 0
   participant_full_cards_available: 0
   participant_digests: 0
-  conditional_heaviest: 29426
-context_total_bytes: 62421
+  conditional_heaviest: 29777
+context_total_bytes: 62296
