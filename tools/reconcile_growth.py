@@ -55,6 +55,19 @@ POOL = "necrotic_reservoir"
 NIE_WEZLY = {"pc_lucan"}
 
 
+def modyfikatory_bilansu() -> dict[str, float]:
+    """Mnozniki stawki: {id_modyfikatora: mnoznik}. Mnoza wiersz, nie zastepuja go."""
+    path = ROOT / "system" / "mechanics" / "daily-balance.yaml"
+    if not path.is_file():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {
+        row["id"]: float(row["multiplier"])
+        for row in (document.get("modifiers") or [])
+        if isinstance(row, dict) and "id" in row and "multiplier" in row
+    }
+
+
 def wiersze_bilansu() -> dict[str, float]:
     """Tabela bilansu dobowego: {id_wiersza: jednostki_na_dobe}.
 
@@ -217,6 +230,7 @@ def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
     # osobno, nigdy blokujace - bo brak wiersza znaczy "tabela nie ma tej kategorii",
     # a to rozstrzyga czlowiek, nie skrypt.
     tabela = wiersze_bilansu()
+    modyfikatory = modyfikatory_bilansu()
     bez_wiersza: list[str] = []
     for entry in (bank.get("banks") or []):
         if not isinstance(entry, dict):
@@ -231,7 +245,14 @@ def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
         if row not in tabela:
             zglos("wiersz_bilansu", f"{node_id}: balance_row '{row}' nie istnieje w tabeli")
             continue
-        oczekiwane = tabela[row] - float(entry.get("upkeep_per_day", 0.0) or 0.0)
+        oczekiwane = tabela[row]
+        mod = entry.get("mobility_modifier")
+        if mod:
+            if mod not in modyfikatory:
+                zglos("wiersz_bilansu", f"{node_id}: modyfikator '{mod}' nie istnieje w tabeli")
+                continue
+            oczekiwane *= modyfikatory[mod]
+        oczekiwane -= float(entry.get("upkeep_per_day", 0.0) or 0.0)
         stawka = float(entry.get("rate_per_day", 0.0) or 0.0)
         if abs(stawka - oczekiwane) > 1e-9:
             zglos("wiersz_bilansu",

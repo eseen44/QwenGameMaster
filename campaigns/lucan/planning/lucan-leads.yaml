@@ -811,6 +811,28 @@ notes:
     nie zadeklaruje konkretnego kroku (np. eksperyment, rozmowa z ekspertem, zdobycie
     materialu).
 
+open_rulings_needed_from_player:
+  - id: ruling_mammal_upkeep_numbers
+    logged_event_id: event_turn_interlude_274
+    opened: '2026-09-12'
+    topic: Ile kosztuje utrzymanie okazu ssaczego na dobe
+    what_is_settled: >-
+      retcon_000175 ustala KIERUNEK: rozmiar ciala nie wplywa na zbieranie, tylko na
+      zuzycie. Slowa gracza: "ssaki i wieksze jednostki beda potrzebowac i pochlaniac
+      wiecej... nieumarly kon bedzie zarl wiecej niz wszystkie nasze minionki razem wziete".
+    what_is_missing: >-
+      LICZBY. system/mechanics/daily-balance.yaml#body_size_rule mowi wprost, ze konkretnych
+      stawek utrzymania per gatunek NIE MA i nie wolno ich wymyslic. Narratorowi nie wolno
+      wyprowadzic ich z niczego - to ta sama klasa bledu co klasyfikacja zeru w t_274.
+    when_it_bites: >-
+      Dzis zaden okaz ssaczy nie stoi w rejestrze, wiec regula nie ma adresata. PIERWSZYM
+      BEDZIE KOT, jesli Lucan go zatrzyma - a to jest otwarta decyzja sceny. Wtedy trzeba
+      zapytac gracza o stawke, zanim kot dostanie wpis w growth-banks.
+    refs:
+      - system/mechanics/daily-balance.yaml#body_size_rule
+      - campaigns/lucan/player/inventory.yaml#item_animated_raw_specimens_tower_bench
+    status: open
+
 declared_intents_awaiting_normal_declaration:
   - id: intent_take_the_fur_problem_and_the_vessel_to_the_father
     declared: 'Poza gra (nawias), 2026-09-12, przy ogladaniu kota na blacie w t_274.

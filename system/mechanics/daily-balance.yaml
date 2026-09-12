@@ -77,6 +77,31 @@ rows:
       utrzymanie i cala stawka idzie w rozwoj. Stosuj razem z wierszem zeru.
     source: retcon_000167
 
+modifiers:
+  - id: ograniczona_ruchliwosc
+    multiplier: 0.5
+    condition: >-
+      Okaz z uszkodzonym aparatem ruchu - trzynogi szczur z t_273, ktory "zbiera mniej niz
+      dwa sprawne". Mnozy stawke wiersza, nie zastepuje jej.
+    source: [event_turn_interlude_273, retcon_000175]
+
+body_size_rule:
+  source: retcon_000175
+  declared_by: player_ruling_2026_09_12
+  rule: >-
+    ROZMIAR CIALA NIE WPLYWA NA ZBIERANIE - wplywa na ZUZYCIE. Wiersz zeru zalezy od tego,
+    ILE JEDZENIA JEST W TERENIE, a nie od tego, jak duzy jest okaz: kanal pelen robactwa
+    karmi szczura tak samo jak wija. Wieksze cialo natomiast POCHLANIA wiecej i to schodzi
+    po stronie utrzymania (upkeep_per_day przy wpisie), tak jak symbionty zawisaka.
+  players_words: >-
+    "zakladam ze ssaki i wieksze jednostki beda potrzebowac i pochlaniac wiecej. Na zasadzie
+    nieumarly kon bedzie zarl wiecej niz wszystkie nasze minionki razem wziete."
+  not_yet_numbered: >-
+    KONKRETNYCH STAWEK UTRZYMANIA PER GATUNEK NIE MA I NIE WOLNO ICH WYMYSLIC. Dzis zaden
+    okaz ssaczy nie stoi w rejestrze, wiec regula nie ma jeszcze zadnego adresata. Pierwszym
+    bedzie kot, jesli Lucan go zatrzyma - i wtedy trzeba zapytac gracza o liczbe, a nie
+    wyprowadzac ja z niczego. Zapisane w planning/lucan-leads.yaml.
+
 maturity_ladder:
   fresh_to_settled: 10
   settled_to_judging: 30
