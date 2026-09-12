@@ -96,6 +96,21 @@ def world_axis_from_roll(roll: dict[str, Any]) -> dict[str, Any]:
                 delta, band = wartosc, nazwa
                 break
     return {"margin": margin, "band": band, "delta": delta}
+# ZAPADKA NA UZASADNIENIE CZASU. Tury do tego numeru wlacznie sa dlugiem: jawny
+# time_seconds bez podanego zrodla przechodzi. Od nastepnej tury zrodlo jest wymagane.
+# Powod: tura 274 dostala 600 s przy klasie, dla ktorej tabela mowi 300, i nikt tego nie
+# porownal, bo deklaracja nie musiala mowic, SKAD liczba pochodzi (retcon_000172A).
+TIME_BASIS_BASELINE_TURN = 274
+
+# Dozwolone odpowiedzi na pytanie "skad ta liczba". Pelny opis: system/mechanics/durations.yaml.
+TIME_BASIS_VALUES = {
+    "pacing_row",          # wiersz tabeli pasm
+    "canon_ref",           # plik kanonu albo zacommitowana tura
+    "player_declaration",  # gracz podal czas wprost - MA PIERWSZENSTWO (retcon_000061)
+    "clock",               # prog albo termin z state/clocks.yaml
+    "workshop_hours",      # praca reczna przy stole, wyceniana w godzinach (retcon_000024)
+}
+
 TIME_SECONDS = {
     0: {"instant": 0, "brief": 300, "significant": 3600},
     1: {"instant": 0, "brief": 120, "significant": 600},
@@ -268,6 +283,64 @@ def scene_document(campaign_root: Path) -> dict[str, Any]:
     return load_yaml(campaign_root / "context" / "scene.yaml")
 
 
+def turn_number(turn_id: str | None) -> int | None:
+    match = re.search(r"(\d+)\s*$", turn_id or "")
+    return int(match.group(1)) if match else None
+
+
+def duration_rows() -> list[dict[str, Any]]:
+    """Pasma czasu z system/mechanics/durations.yaml. Brak pliku = brak podpowiedzi."""
+    path = Path(__file__).resolve().parent.parent / "system" / "mechanics" / "durations.yaml"
+    document = load_optional_yaml(path, {}) or {}
+    rows = document.get("rows")
+    return rows if isinstance(rows, list) else []
+
+
+def time_guidance(request: dict[str, Any], scene: dict[str, Any]) -> dict[str, Any]:
+    """Co silnik WIE o czasie tej tury - podane, zanim narrator zgadnie.
+
+    To jest polowa naprawy retcon_000172A. Druga polowa (wymog time_basis) siedzi
+    w action_seconds. Sama bramka nie wystarczy: narrator, ktory nie ma skad wziac
+    liczby, poda dowolna i dopisze do niej uzasadnienie.
+    """
+    time_class = request.get("time_class", "brief")
+    tension = scene.get("tension", {}).get("level", 0)
+    tabela = TIME_SECONDS.get(tension, {}).get(time_class)
+    zadeklarowane = request.get("time_seconds")
+
+    pasujacy = None
+    rows = duration_rows()
+    if isinstance(zadeklarowane, int):
+        for row in rows:
+            granice = row.get("seconds")
+            if (isinstance(granice, list) and len(granice) == 2
+                    and granice[0] <= zadeklarowane <= granice[1]):
+                pasujacy = row.get("id")
+                break
+
+    return {
+        "time_class": time_class,
+        "tension": tension,
+        "engine_default_seconds": tabela,
+        "declared_seconds": zadeklarowane,
+        "matching_row": pasujacy,
+        "declared_outside_every_row": (
+            isinstance(zadeklarowane, int) and bool(rows) and pasujacy is None
+        ),
+        "rows": [
+            {"id": row.get("id"), "seconds": row.get("seconds"),
+             "default_seconds": row.get("default_seconds"),
+             "applies_to": row.get("applies_to")}
+            for row in rows
+        ],
+        "basis": request.get("time_basis"),
+        "precedence": (
+            "Jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc przez wymyslone "
+            "tarcie (retcon_000061). Pasma sa podpowiedzia, nie limitem."
+        ),
+    }
+
+
 def action_seconds(request: dict[str, Any], scene: dict[str, Any]) -> int:
     time_class = request.get("time_class", "brief")
     tension = scene.get("tension", {}).get("level", 0)
@@ -285,6 +358,39 @@ def action_seconds(request: dict[str, Any], scene: dict[str, Any]) -> int:
         seconds = request["time_seconds"]
         if not isinstance(seconds, int) or seconds < 0:
             raise RuntimeError("time_seconds must be a non-negative integer")
+        # SKAD TA LICZBA. Wymagane od tury 275 w gore; wczesniejsze sa dlugiem i przechodza.
+        numer = turn_number(request.get("turn_id"))
+        if numer is not None and numer > TIME_BASIS_BASELINE_TURN:
+            basis = request.get("time_basis")
+            if basis not in TIME_BASIS_VALUES:
+                raise RuntimeError(
+                    "jawny time_seconds wymaga request.time_basis - jednej z wartosci "
+                    f"{sorted(TIME_BASIS_VALUES)}. Opis kazdej: system/mechanics/durations.yaml. "
+                    "Czas podany przez gracza to player_declaration i ma pierwszenstwo "
+                    "(retcon_000061); liczba wzieta z pasma to pacing_row."
+                )
+            # ZRODLO MA COS ZNACZYC. Deklaracja "pacing_row" przy liczbie spoza kazdego
+            # pasma jest pieczatka, a pieczatka jest gorsza niz brak bramki: produkuje
+            # sfabrykowane uzasadnienie i usypia czytajacego. Pozostale zrodla wskazuja
+            # POZA te tabele (plik kanonu, deklaracja gracza, zegar, godziny przy stole),
+            # wiec ich tutaj nie sprawdzamy - sprawdza je czlowiek przy czytaniu prozy.
+            if basis == "pacing_row":
+                rows = duration_rows()
+                pasuje = any(
+                    isinstance(row.get("seconds"), list) and len(row["seconds"]) == 2
+                    and row["seconds"][0] <= seconds <= row["seconds"][1]
+                    for row in rows
+                )
+                if rows and not pasuje:
+                    nazwy = ", ".join(
+                        f"{row.get('id')} {row.get('seconds')}" for row in rows
+                    )
+                    raise RuntimeError(
+                        f"time_basis: pacing_row, ale {seconds} s nie miesci sie w zadnym "
+                        f"pasmie tabeli. Pasma: {nazwy}. Albo wybierz inne zrodlo "
+                        "(canon_ref / player_declaration / clock / workshop_hours), albo "
+                        "popraw liczbe - pieczatka bez pokrycia jest gorsza niz jej brak."
+                    )
         return seconds
     if time_class == "extended":
         raise RuntimeError("extended actions require explicit time_seconds")
@@ -451,6 +557,7 @@ def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]
         "assessment": assessment,
         "roll_allowed": assessment.get("roll_allowed", False),
         "time_seconds": seconds,
+        "time_guidance": time_guidance(request, scene),
         "world_reactions_due_before": due,
         "required_resource_costs": assessment.get("resource_costs", []),
         "automatic_roll_modifiers": automatic_roll_modifiers,
@@ -2268,6 +2375,18 @@ def preview_summary(preview: dict[str, Any]) -> dict[str, Any]:
         "status": preview.get("status"),
         "time_seconds": preview.get("time_seconds"),
     }
+    # PODAJNIK, NIE OZDOBA. Skrot preview jest tym, co narrator faktycznie czyta przed
+    # tura - jesli sugestia czasu nie trafi TUTAJ, nie trafi nigdzie.
+    guidance = preview.get("time_guidance") or {}
+    if guidance:
+        summary["time"] = {
+            "class": guidance.get("time_class"),
+            "engine_default_seconds": guidance.get("engine_default_seconds"),
+            "declared_seconds": guidance.get("declared_seconds"),
+            "matching_row": guidance.get("matching_row"),
+            "outside_every_row": guidance.get("declared_outside_every_row"),
+            "basis": guidance.get("basis"),
+        }
     summary.update(assessment_summary(preview.get("assessment") or {}))
     due = preview.get("world_reactions_due_before") or []
     if due:

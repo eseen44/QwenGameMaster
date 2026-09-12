@@ -50,6 +50,74 @@ class TimeClassGateTests(unittest.TestCase):
         )
 
 
+class TimeBasisTests(unittest.TestCase):
+    """retcon_000172A, druga polowa - skad wzieta jest liczba sekund."""
+
+    SCENE = {"tension": {"level": 0}}
+
+    def test_jawny_czas_po_zapadce_wymaga_zrodla(self) -> None:
+        request = {
+            "turn_id": f"turn_interlude_{gm_runtime.TIME_BASIS_BASELINE_TURN + 1}",
+            "time_class": "brief",
+            "time_seconds": 300,
+        }
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            gm_runtime.action_seconds(request, self.SCENE)
+        self.assertIn("time_basis", str(ctx.exception))
+
+    def test_tury_sprzed_zapadki_sa_dlugiem_i_przechodza(self) -> None:
+        request = {
+            "turn_id": f"turn_interlude_{gm_runtime.TIME_BASIS_BASELINE_TURN}",
+            "time_class": "brief",
+            "time_seconds": 600,
+        }
+        self.assertEqual(gm_runtime.action_seconds(request, self.SCENE), 600)
+
+    def test_pacing_row_musi_miescic_sie_w_pasmie(self) -> None:
+        # Pieczatka bez pokrycia jest gorsza niz brak bramki: produkuje uzasadnienie,
+        # ktore wyglada na sprawdzone.
+        request = {
+            "turn_id": "turn_interlude_999",
+            "time_class": "brief",
+            "time_seconds": 600,
+            "time_basis": "pacing_row",
+        }
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            gm_runtime.action_seconds(request, self.SCENE)
+        self.assertIn("pasmie", str(ctx.exception))
+
+    def test_czas_w_pasmie_przechodzi(self) -> None:
+        request = {
+            "turn_id": "turn_interlude_999",
+            "time_class": "brief",
+            "time_seconds": 300,
+            "time_basis": "pacing_row",
+        }
+        self.assertEqual(gm_runtime.action_seconds(request, self.SCENE), 300)
+
+    def test_deklaracja_gracza_nie_jest_ograniczona_pasmami(self) -> None:
+        # retcon_000061: jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc
+        # przez wymyslone tarcie. Tabela pasm nie moze tego cofnac.
+        request = {
+            "turn_id": "turn_interlude_999",
+            "time_class": "brief",
+            "time_seconds": 5,
+            "time_basis": "player_declaration",
+        }
+        self.assertEqual(gm_runtime.action_seconds(request, self.SCENE), 5)
+
+    def test_preview_podaje_domysl_silnika_obok_deklaracji(self) -> None:
+        guidance = gm_runtime.time_guidance(
+            {"time_class": "brief", "time_seconds": 600}, self.SCENE
+        )
+        self.assertEqual(guidance["engine_default_seconds"], 300)
+        self.assertEqual(guidance["declared_seconds"], 600)
+        self.assertTrue(
+            guidance["declared_outside_every_row"],
+            "600 s przy klasie brief bylo dokladnie tym, czego nikt nie porownal w t_274",
+        )
+
+
 class OperationDictionaryTests(unittest.TestCase):
     """Literowka w nazwie operacji nie moze zatrzymywac commita w polowie zapisu."""
 

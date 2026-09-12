@@ -1,0 +1,92 @@
+schema_version: 1
+id: durations_table
+status: active
+source_refs: [retcon_000042, retcon_000061, system/pacing.md, event_turn_interlude_086]
+
+purpose: >-
+  PRZEPISANIE ISTNIEJACEGO KANONU NA LICZBY, nie nowe wartosci. Wszystkie pasma nizej
+  pochodza z system/pacing.md (tabela referencyjna gracza z retcon_000042) albo ze
+  zmierzonej trasy w t_086. Ten plik nie ustanawia zadnego czasu, ktorego kanon by nie
+  mial - istnieje po to, zeby liczba dala sie PODAC narratorowi przed tura, zamiast
+  czekac, az ktos ja wymysli.
+
+why_it_exists: >-
+  Tura 274 zadeklarowala time_class: brief i 600 sekund. Tabela TIME_SECONDS w
+  tools/gm_runtime.py mowi dla brief przy napieciu 0 dokladnie 300. Poprawna odpowiedz
+  lezala w kodzie, w tym samym procesie, i nikt jej z deklaracja nie porownal - bo nic
+  jej nie WYPISYWALO. To jest ta sama klasa bledu co klasyfikacja zeru w retcon_000172B:
+  narrator nie ma skad wziac liczby, wiec ja produkuje.
+
+rule_of_precedence: >-
+  JAWNIE PODANY CZAS MA PIERWSZENSTWO (retcon_000061) i nie wolno go mnozyc przez
+  wymyslone tarcie. Pasma ponizej NIE sa limitem i nie odrzucaja deklaracji. Sluza
+  do dwoch rzeczy: (1) preview podaje sugestie, zanim narrator zgadnie; (2) czas poza
+  pasmem wymaga nazwania ZRODLA w request.time_basis - czyli odpowiedzi na pytanie
+  "skad ta liczba", a nie zgody na nia.
+
+basis_values:
+  pacing_row: Liczba wzieta z wiersza tej tabeli.
+  canon_ref: Liczba stoi w pliku kanonu albo w zacommitowanej turze - podaj ref.
+  player_declaration: Gracz podal czas wprost (retcon_000061 - ma pierwszenstwo).
+  clock: Czas wynika z progu zegara albo z terminu w state/clocks.yaml.
+  workshop_hours: Praca reczna przy stole, wyceniana w godzinach (retcon_000024).
+
+rows:
+  - id: wymiana_zdan
+    seconds: [180, 480]
+    default_seconds: 300
+    applies_to: 'Jedna tura rozmowy: pytanie i odpowiedz, wymiana zdan, krotka reakcja.'
+    source: 'system/pacing.md - "Jedna tura rozmowy to 3-8 minut, nie 15-40" (retcon_000042).'
+
+  - id: rozporzadzenie_przy_stole
+    seconds: [60, 300]
+    default_seconds: 120
+    applies_to: >-
+      Czynnosc bez rozmowy i bez przemieszczenia: wydanie rozkazu w siec, odlozenie
+      przedmiotu, wyniesienie czegos za prog. NIE jest to tura rozmowy.
+    source: >-
+      retcon_000172A. Tura 274 (wyniesienie dwoch zukow, wyrzucenie goleba, jeden rozkaz)
+      dostala 600 s i gracz to odrzucil slowami "to nie byla tura i nie trwala 3 minut
+      nawet". Wiersz nazywa kategorie, ktorej tabela wczesniej nie miala - dlatego
+      najtansza odpowiedzia bylo wziecie liczby z sufitu.
+
+  - id: rozmowa_w_gabinecie
+    seconds: [1500, 2100]
+    default_seconds: 1800
+    applies_to: Cala rozmowa z jedna osoba w jej gabinecie, od wejscia do wyjscia.
+    source: 'system/pacing.md - "rozmowa z Seraphine w jej biurze ~30 min" (retcon_000042).'
+
+  - id: negocjacja_w_pokoju
+    seconds: [1800, 3600]
+    default_seconds: 3600
+    applies_to: Pelna negocjacja wielostronna, kilka watkow, ustalanie warunkow.
+    source: 'system/pacing.md - "cala negocjacja w pokoju syndykatu do 1 h" (retcon_000042).'
+
+  - id: przejscie_przez_miasto
+    seconds: [1200, 1500]
+    default_seconds: 1200
+    applies_to: Przejscie z dzielnicy do dzielnicy wewnatrz Lumarii (targ - gildia).
+    source: 'system/pacing.md - "przejscie przez miasto ~20 min" (retcon_000042).'
+
+  - id: marsz_pod_mur
+    seconds: [2700, 2700]
+    default_seconds: 2700
+    applies_to: Trasa gildia/cela - baszta przy murze, w jedna strone.
+    source: >-
+      event_turn_interlude_086 - trzy kwadranse marszu, zmierzone. NIE jest to "pelna noc"
+      i NIE prowadzi tamtedy zadna droga kanalem: wlaz jest droga stonog.
+
+  - id: praca_reczna_przy_stole
+    seconds: [3600, 7200]
+    default_seconds: 3600
+    applies_to: >-
+      Jeden trwaly krok modyfikacji okazu - przeszczep, wszczep, utrwalenie. Okolo godziny,
+      do dwoch przy wyzszej trudnosci, BEZ ESKALACJI.
+    source: 'retcon_000024 - dawna formula 8 x 1.5^n skasowana w calosci.'
+
+not_covered: >-
+  Czego tu NIE MA i czego nie wolno stad wyprowadzac: czasu podrozy poza miasto, czasu
+  scen w napieciu 2 i 3 (tam liczy sie TIME_SECONDS z silnika, bo jednostka sa sekundy
+  i minuty), oraz dlugosci luk miedzy scenami. Jesli fikcja potrzebuje, zeby bylo pozniej,
+  bierze sie to z LUK MIEDZY SCENAMI - czekania, wazenia, kolejki - a nie z wydluzania tur
+  (system/pacing.md).
