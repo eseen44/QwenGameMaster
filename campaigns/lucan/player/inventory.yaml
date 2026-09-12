@@ -633,7 +633,7 @@ items:
     type: recovered_loot_lot
     identification: examined
     contents_ref: cache_cemetery_north_bushes
-    contents_summary: "Materialy do preparowania i konserwacji zwlok. STAN PO event_turn_interlude_090: ritual_salt i corpse_drying_powder nietkniete (material na obudowe wabikow), small_ritual_tool_set w uzyciu na stole. ZUZYTE: necromantic_conduction_agent - jedyna fiolka, poszla na spy_hawk_moth_01; decay_suppressing_vial x2 - spy_hawk_moth_01 i companion_spidey. ZOSTAJE: necromantic_preservative, trzecia i ostatnia porcja tlumiaca rozklad, odlozona i podpisana dla webber_anchored (Tkacz)."
+    contents_summary: "Materialy do preparowania i konserwacji zwlok. STAN PO event_turn_interlude_090: ritual_salt i corpse_drying_powder nietkniete (material na obudowe wabikow), small_ritual_tool_set w uzyciu na stole. ZUZYTE: necromantic_conduction_agent - jedyna fiolka, poszla na spy_hawk_moth_01; decay_suppressing_vial x2 - spy_hawk_moth_01 i companion_spidey. ZUZYTE TAKZE: necromantic_preservative - trzecia i ostatnia porcja tlumiaca rozklad, ZASTOSOWANA NA webber_anchored (Tkacz) w event_turn_interlude_177 (retcon_000170). Dawny zapis 'odlozona i podpisana dla Tkacza' byl stanem sprzed t_177. ZOSTAJE: ritual_salt i corpse_drying_powder (nietkniete) oraz small_ritual_tool_set (w uzyciu). ZADNA porcja tlumiaca rozklad nie jest juz dostepna dla nowego okazu."
     source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md, event_turn_interlude_004_loot_pile_review, campaigns/lucan/state/resources.yaml#cache_cemetery_north_bushes]
   - id: item_tannery_owner_cache
     name: Papiery, klucze i srebrna pieczęć właściciela garbarni
@@ -776,9 +776,13 @@ items:
       sieciarza, bez eskalacji (retcon_000024). Czterej sieciarze to ok. cztery godziny.
       Zasobem jest czas przy stole i materiał dawcy, nie energia.
     fuel_use: 'Od event_turn_interlude_091 / retcon_000026 kosz sluzy TAKZE jako paliwo -
-      spy_hawk_moth_01 jest zywiony energia jedwabnikow zamiast wychodzic po nektar. Kilka
-      dni z zapasu. Konkurencja o ten sam material jest realna, ale niegrozna przy pelnym
-      koszu: gruczol przedny to jeden dawca na sluge, a sieciarzy do zrobienia jest czterech.'
+      spy_hawk_moth_01 byla zywiona energia jedwabnikow zamiast wychodzic po nektar.
+      OD event_turn_interlude_274 zawisak zeruje SAM na lakach przed baszta (decyzja gracza).
+      KOSZ NIE ZOSTAL ODCIETY i stoi dalej na stole: sam nektar daje 1,0 na dobe, a sordina
+      i porost z t_271 zjadaja 2,0 na dobe ze zbiornika o pojemnosci 3, wiec bez dokladania
+      z kosza bilans zawisaka to -1,0 na dobe. Czy kosz ma dalej pokrywac symbionty -
+      PYTANIE OTWARTE DO GRACZA, narrator tego nie rozstrzyga. Konkurencja o material jest
+      realna, ale niegrozna przy pelnym koszu: gruczol przedny to jeden dawca na sluge.'
     legal_status: legalny, nudny, hodowany masowo
     source_refs: [event_turn_interlude_015_silkworms_and_specimen_order]
   - id: item_north_foundation_vessel
@@ -850,9 +854,9 @@ items:
       - {what: szczur, count: 1, condition: sprzed tygodnia, usable: partially, note: 'Wstal, ale staw tylnej lapy nie wytrzymal ruchu - chodzi na trzech. Moc nie byla problemem, cialo bylo. ODESZEDL Z BLATU w t_273 jako spy_rat_03, posterunek statyczny w kanale.'}
       - {what: mlody kot, count: 1, condition: 'swiezy i caly, ROZKLAD RUSZYL OD BRZUCHA (t_273) - za dwa dni widoczny, za trzy wyczuwalny; sol rytualna i proszek suszacy leza nietkniete, procedura preservation znana z companion_spidey, ok. godziny przy stole', usable: true, note: 'NAJLEPSZY MATERIAL Z CALEGO LUPU. Kompletne cialo: cztery lapy, kregoslup, ogon, wasy, oczy, uszy. UCHO SSAKA SLYSZY PASMO LUDZKIEGO GLOSU Z NATURY - nie potrzebuje przeszczepu prostoskrzydlego, ktory owadom byl konieczny, bo ich narzad jest nastrojony na pasmo nietoperza. Chodzi po dachach nie budzac niczyjej mysli. Uwaga na proweniencje: kot byl czyjs, mlody i zdrowy, wiec ktos go bedzie wolal.'}
       - {what: kos, count: 1, condition: poszarpany przez kota, usable: partially, note: 'Zerwane skrzydlo - nie lata, skacze bokiem.'}
-      - {what: biegaczowaty, count: 2, condition: caly, usable: true, note: 'Za male, zeby cokolwiek w nich pekło.'}
+      - {what: biegaczowaty, count: 2, condition: caly, usable: true, assigned: 'WYPUSZCZONE Z BLATU w t_274 jako spy_beetle_09 i spy_beetle_10 - padlinozerstwo wokol baszty, bez rozkazu, maja dojrzewac', note: 'Za male, zeby cokolwiek w nich pekło.'}
       - {what: cma, count: 1, condition: cala, usable: true, assigned: 'WYPUSZCZONA w t_273 jako spy_moth_05, protokol na nietoperze', note: 'Przyniesiona przez cme.'}
-      - {what: golab bez glowy, count: 1, condition: bez zmyslow, usable: false, note: 'Skrzydla dzialaly, wiec podrywal sie i bil o sciane. WYGASZONY po trzech probach. Lekcja: cialo bez zmyslow jest sprawne i bezuzyteczne.'}
+      - {what: golab bez glowy, count: 1, condition: bez zmyslow, usable: false, assigned: 'WYRZUCONY w t_274 - cialo poszlo na smietnik za baszta', note: 'Skrzydla dzialaly, wiec podrywal sie i bil o sciane. WYGASZONY po trzech probach. Lekcja: cialo bez zmyslow jest sprawne i bezuzyteczne.'}
     failed:
       - {what: suszona zaba, reason: 'Material zbyt wysuszony - nie ma czego poruszyc, rozsypala sie w palcach.'}
     not_bodies: [pas skorzany, dwa kamienie, resztka kielbasy]

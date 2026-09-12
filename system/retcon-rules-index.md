@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **95** z 169 retconow.
+Regul z klauzula normatywna: **96** z 171 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -130,10 +130,11 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000140` — Doprecyzowanie gracza nie dodaje wiec nowego bytu (retcon_000058) - nadaje ksztalt zdarzeniu, ktore w plikach istnieje bez opisu.
 - `retcon_000155` — Dlatego naprawa przepisala statusy Z PLIKOW DO REJESTROW, nigdy odwrotnie - 36 wpisow zsynchronizowanych, zaden status w zadnej karcie nie zostal ruszony.
 
-## pozostale (5)
+## pozostale (6)
 
 - `retcon_000011` — Poprzednie zdanie o potrzebie dyskretnego ustalenia ich statusu nie obowiązuje.
 - `retcon_000063` — (a) Lucan zobowiazal sie dostarczyc przynajmniej JEDEN okaz na dyskusje.
 - `retcon_000068` — (e) Lucan nigdy nie mial wlasnej katedry.
 - `retcon_000072` — Lucan prowadzil okazjonalne obowiazkowe zajecia praktyczne z anatomii, preparatyki oraz podstaw chemii laboratoryjnej.
 - `retcon_000073` — (d) Konkretna dawna postac musi dostac wlasna uzasadniona opinie; nie wolno wybierac jej pod wygodny konflikt sceny.
+- `retcon_000170` — ZADNA porcja tlumiaca rozklad nie jest dostepna dla nowego okazu - nowa wymaga nowego zrodla.

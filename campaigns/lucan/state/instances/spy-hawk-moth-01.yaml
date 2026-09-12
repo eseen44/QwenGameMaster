@@ -3,11 +3,11 @@ id: spy_hawk_moth_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 103
+revision: 104
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_main
-  formation: on_the_bench_t_271_sordina_and_lichen_speculans_implanted_four_hours_of_work_bat_protocol_given
+  formation: at_the_tower_t_274_cleared_to_forage_nectar_on_the_meadows_flies_at_dusk_silkworm_basket_not_cut_off
 integrity:
   current: 6
   maximum: 6
@@ -26,7 +26,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 580
-      hunting_recovery_elapsed_seconds: 0
+      hunting_recovery_elapsed_seconds: 600
 traits:
   source: player_declaration_day3_evening_anchored_personalities
   decided_on: '2026-08-26'
@@ -71,10 +71,11 @@ status_flags:
 - heavy_thorax_room_for_modifications
 - carries_more_than_a_wasp
 - conspicuous_in_daylight
-- fed_on_silkworm_life_force_not_foraging
-- held_back_pending_hardening
+- autonomous_hunting
+- cleared_to_forage_nectar_on_the_meadows_t_274
+- symbiont_upkeep_2_per_day_exceeds_own_foraging_basket_still_on_the_table_t_274
 conditions: []
-last_event_id: event_turn_interlude_273
+last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_088
 - event_turn_interlude_090

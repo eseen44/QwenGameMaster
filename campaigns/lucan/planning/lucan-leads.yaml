@@ -809,6 +809,41 @@ notes:
     materialu).
 
 declared_intents_awaiting_normal_declaration:
+  - id: intent_take_the_fur_problem_and_the_vessel_to_the_father
+    declared: 'Poza gra (nawias), 2026-09-12, przy ogladaniu kota na blacie w t_274.
+      Wyjscie z baszty do Akademii jest WIDOCZNYM przemieszczeniem, wiec nie wykonuje sie
+      w nawiasie i czas nie ruszyl (retcon_000060, system/player-agency.md).'
+    content: 'Lucan idzie do ojca (npc_lucan_father) z pytaniem o UTRZYMANIE FUTRA u
+      nieumarlego ssaka, zabiera ze soba item_north_foundation_vessel i chce przy okazji
+      wyciagnac wiecej ksiazek.'
+    reasoning_as_given: 'Dwa-trzy szczury mozna zostawic w rynsztoku albo kanale i po
+      trzech-pieciu miesiacach beda czystymi koscmi - to jest AKCEPTOWALNE, bo szczur ma
+      byc w kanale i ma byc niczyj. Kot ma zadanie odwrotne: ma pozostac czyms, czego
+      czlowiek nie zauwaza, czyli musi pozostac futrzasty. Ocena gracza: futrzastosc jest
+      u nieumarlego ciezka do utrzymania bez jakichs czarow.'
+    what_supports_it: 'Sol rytualna i proszek suszacy UTRWALAJA TKANKE - ocena z
+      event_turn_interlude_087 nazywa je materialem na sucha, solona skorupe wabika i
+      wprost bezuzytecznym do przeszczepu (state/resources.yaml). Zadna porcja tlumiaca
+      rozklad nie jest juz dostepna (retcon_000170). Ojciec jest w Akademii i to on
+      zaaranzowal juz pokaz okazu na dyspucie (clock_father_arranges_academy_showing).'
+    what_does_not_support_it: 'CZTERY RZECZY, KTORYCH NIE WOLNO PODAC JAKO USTALONE.
+      (1) "Brylka many" to robocza nazwa gracza, nie kanon: item_north_foundation_vessel
+      ma identification unidentified_ritual_function_unknown, jest opisany jako ZBIORNIK,
+      NIE ZRODLO (t_256), a "czy da sie z tego ciagnac energie" stoi w pliku jako
+      NIEUSTALONE i wymagajace nowej dzwigni. (2) Zaden plik nie mowi, ze istnieje czar
+      utrzymujacy futro ani ze ojciec go zna. (3) Zaden plik nie mowi, ze ojciec ma wiecej
+      ksiazek do wydania. (4) Zaden plik nie podaje tempa, w jakim psuje sie SIERSC osobno
+      od reszty ciala - t_273 mierzy rozklad od brzucha, nie od skory.
+      Narratorowi nie wolno tego domyslac (retcon_000058).'
+    risk_not_to_hide: 'Rzecz z niszy jest wyczuwalna dla wyszkolonego antymaga od progu -
+      Seraphine czula ja przez owiniecie plaszczem w t_266 i zabronila roboty przy niej
+      u siebie i w gildii. Akademia to budynek pelen ludzi, ktorzy cos czuja.'
+    refs:
+      - campaigns/lucan/player/inventory.yaml#item_north_foundation_vessel
+      - campaigns/lucan/player/inventory.yaml#item_animated_raw_specimens_tower_bench
+      - campaigns/lucan/entities/npcs/digests/lucan-father.yaml
+      - campaigns/lucan/state/resources.yaml#cache_cemetery_north_bushes
+    status: awaiting_declaration_outside_parentheses
   - id: intent_attribute_any_fallout_of_the_vessel_removal_to_orens_removal
     declared: 'Poza gra (nawias), 2026-09-11, przy deklaracji wyjecia rzeczy z niszy w
       t_257. Jest to PLAN NA PRZYSZLOSC i rachunek ryzyka gracza, nie wypowiedz w scenie

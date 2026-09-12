@@ -11,10 +11,13 @@ caches:
     zone_id: zone_storage
     container_id: container_interlude_loot_pile
     contents:
-      - {id: necromantic_preservative, quantity: 1, unit: container,
+      - {id: necromantic_preservative, quantity: 0, unit: container, status: consumed,
+         consumed_event_id: event_turn_interlude_177, consumed_on: webber_anchored,
+         consumed_ref: retcon_000170,
          assessed_use: 'event_turn_interlude_087 - tlumi rozklad, czyli wydluza TRZYDNIOWA
            SMYCZ (zbiornik 3, ubytek 1 na dobe). Zamienia gatunki krotkiej smyczy w mozliwe
-           posterunki tam, gdzie nie ma co jesc.'}
+           posterunki tam, gdzie nie ma co jesc. ZUZYTA na Tkaczu w t_177 - wszystkie trzy
+           porcje tlumiace sa wydane, patrz retcon_000170.'}
       - {id: ritual_salt, quantity: 1, unit: packet,
          assessed_use: 'event_turn_interlude_087 - utrwala tkanke, wiec do przeszczepu
            bezuzyteczna, do OBUDOWY WABIKA idealna (sucha, solona skorupa mechaniczna).'}

@@ -3,7 +3,7 @@ id: spy_moth_05
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 1
+revision: 2
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_streets_and_refuse
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 1800
-      hunting_recovery_elapsed_seconds: 1800
+      decay_elapsed_seconds: 2400
+      hunting_recovery_elapsed_seconds: 2400
 status_flags:
 - bat_protocol_fold_and_drop_t_271
 - newly_animated
@@ -38,7 +38,7 @@ status_flags:
 - fragile_wings_first_to_break
 - sugar_feeder_must_leave_a_closed_post
 conditions: []
-last_event_id: event_turn_interlude_273
+last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_271
 - event_turn_interlude_272

@@ -3,11 +3,11 @@ id: spy_rat_03
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 1
+revision: 2
 position:
   location_id: loc_city_sewer
-  zone_id: zone_sewer_wall_district
-  formation: sewer_wall_district_static_post_three_legged_since_t_273
+  zone_id: zone_sewer_tannery
+  formation: tannery_sewer_static_post_three_legged_since_t_273_corrected_by_retcon_000171
 integrity:
   current: 4
   maximum: 4
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 1800
-      hunting_recovery_elapsed_seconds: 1800
+      decay_elapsed_seconds: 2400
+      hunting_recovery_elapsed_seconds: 2400
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -37,7 +37,7 @@ status_flags:
 - hind_leg_lost_at_the_joint_walks_on_three
 - static_post_only_not_a_runner
 conditions: []
-last_event_id: event_turn_interlude_273
+last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_271
 - event_turn_interlude_272

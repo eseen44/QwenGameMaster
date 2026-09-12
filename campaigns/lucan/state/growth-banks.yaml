@@ -37,11 +37,13 @@ surplus_economy:
     retcon_000141 stawka LUCANA, nie sieci - nota powstala przed tym retconem. Liczba jest teraz
     TAKZE POLEM (daily_network_surplus_units) i pilnuje jej kontrola tools/reconcile_growth.py
     --check, wiec nie rozjedzie sie po cichu.
-  daily_network_surplus_units: 21.8
+  daily_network_surplus_units: 20.8
   daily_network_surplus_units_basis: >-
     Suma rate_per_day wezlow AKTYWNYCH z pominieciem wpisow z funded_by: lucan_reserve. Stan na
     event_turn_interlude_260. Pilnowane przez tools/reconcile_growth.py --check.
-    ZMIANA 2026-09-11 (retcon_000167): 16,5 -> 18,3. Roznica 1,8 to NOWY, ZEWNETRZNY doplyw -
+    ZMIANA 2026-09-12 (t_274): 21,8 -> 20,8. Zawisak zszedl z kosza jedwabnikow na wlasny nektar
+    (3,0 -> 1,0, minus 2,0), a z blatu wyszly dwa biegaczowate jako spy_beetle_09 i spy_beetle_10
+    (plus 1,0). Wczesniej, ZMIANA 2026-09-11 (retcon_000167): 16,5 -> 18,3. Roznica 1,8 to NOWY, ZEWNETRZNY doplyw -
     trzy kanaly w niszy pod polnocnym fundamentem kaplicy, odbierane przez spy_beetle_01.
     Nie jest to energia Lucana zawrocona drugi raz, wiec wchodzi do sumy sieci; dawne 3,5
     z jego rezerwy wypadlo, bo ladowanie z reki przestalo byc potrzebne.
@@ -105,12 +107,12 @@ backlog_basis: >-
   precyzji tego pliku, doliczane przy nastepnym istotnym tyknieciu.
 banks:
   - {id: spy_beetle_01, funded_by: north_foundation_channels, rate_per_day: 1.8, growth_cap_per_day: 1.5, overflow_per_day: 0.3, basis: 'OD t_258 SIEDZI W NISZY POD POLNOCNYM FUNDAMENTEM KAPLICY, w zbiegu trzech kanalow, ktore dowoza lacznie ok. 1,8 na dobe (discovery podziemi, pomiar 2026-09-11). ZUKI NIE MAJA DOBOWEGO UBYTKU (retcon_000167), wiec nic nie schodzi na utrzymanie: 1,5 idzie w rozwoj, czyli DOKLADNIE TYLE, ILE SZLO z reki Lucana, a 0,3 wchodzi w siec. Dawna stawka 3,5 funded_by lucan_reserve jest tym samym zdjeta - ladowanie z reki stalo sie zbedne, nie niemozliwe: okaz zakotwiczony mozna karmic zdalnie (retcon_000167). Sufit podnosi enlarge_reservoir_to_tank (3 -> 12), wtedy 6,0 na dobe.', bank: 0.0, maturity: fresh}
-  - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 3.0, growth_cap_per_day: 1.5, overflow_per_day: 1.5, basis: karmiony jedwabnikami bez ograniczenia (retcon_000110), bank: 3.75, maturity: fresh}
+  - {id: spy_hawk_moth_01, name: Zawisak, rate_per_day: 1.0, growth_cap_per_day: 1.5, overflow_per_day: 0.0, basis: 'OD t_274 ZEROWANIE WLASNE - nektar na lakach przed baszta, bez rozkazu, wiec zer normalny +1,0 wg daily_balance_model. Do t_273 karmiona jedwabnikami z kosza bez ograniczenia (retcon_000110) i stala na 3,0 z przelewem 1,5. UWAGA, BILANS NIE DOMYKA SIE SAM: od t_271 zawisak nosi sordine i porost slepy, a ich utrzymanie to 2,0 na dobe z wlasnego zbiornika (instancja#symbiont_upkeep_per_day, rejestr reczny) przy pojemnosci 3. Sam nektar daje 1,0, czyli NETTO -1,0 na dobe i trzydniowa smycz. Kosz jedwabnikow zostaje na stole i nie zostal odciety - czy ma dalej dokladac do symbiontow, JEST OTWARTYM PYTANIEM DO GRACZA (t_274), nie rozstrzygnietym przez narratora.', bank: 3.75, maturity: fresh}
   - {id: spy_centipede_01, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
   - {id: spy_centipede_02, rate_per_day: 2.0, growth_cap_per_day: 1.5, overflow_per_day: 0.5, basis: 'kanaly, zer obfity, bez rozkazu', bank: 2.5, maturity: fresh}
-  - {id: spy_rat_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'kanal pod dzielnica muru, zer obfity, posterunek przy wijach od t_273', bank: 0.0, maturity: fresh}
-  - {id: spy_rat_02, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'kanal pod dzielnica muru, zer obfity, posterunek przy wijach od t_273', bank: 0.0, maturity: fresh}
-  - {id: spy_rat_03, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'trzynogi - posterunek statyczny, zbiera mniej niz dwa sprawne (t_273)', bank: 0.0, maturity: fresh}
+  - {id: spy_rat_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'KANALY POD GARBARNIA (retcon_000171), zer obfity, bez rozkazu poza domyslnym polowaniem; posterunek od t_273. Dawny zapis mowil o posterunku przy wijach - zaden wij tam nie siedzi', bank: 0.0, maturity: fresh}
+  - {id: spy_rat_02, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'KANALY POD GARBARNIA (retcon_000171), zer obfity, bez rozkazu poza domyslnym polowaniem; posterunek od t_273. Dawny zapis mowil o posterunku przy wijach - zaden wij tam nie siedzi', bank: 0.0, maturity: fresh}
+  - {id: spy_rat_03, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'trzynogi - posterunek statyczny w KANALACH POD GARBARNIA (retcon_000171), zbiera mniej niz dwa sprawne (t_273)', bank: 0.0, maturity: fresh}
   - {id: spy_moth_05, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'wypuszczona pod baszta, bez rozkazu poza protokolem na nietoperze (t_273)', bank: 0.0, maturity: fresh}
   - {id: spy_moth_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'gorna laka, bez rozkazu', bank: 1.25, maturity: fresh}
   - {id: spy_beetle_02, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, ulice i smietniki, bez rozkazu', bank: 0.6, maturity: fresh}
@@ -120,6 +122,8 @@ banks:
   - {id: spy_beetle_06, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
   - {id: spy_beetle_07, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
   - {id: spy_beetle_08, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, bez rozkazu', bank: 0.6, maturity: fresh}
+  - {id: spy_beetle_09, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, ulice i smietniki wokol baszty, bez rozkazu - wypuszczony z blatu w t_274', bank: 0.0, maturity: fresh}
+  - {id: spy_beetle_10, rate_per_day: 0.5, growth_cap_per_day: 1.5, basis: 'padlinozerca, ulice i smietniki wokol baszty, bez rozkazu - wypuszczony z blatu w t_274', bank: 0.0, maturity: fresh}
   - {id: spy_wasp_01, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_177 wylot i zer - male obiekty, z dala od duzych; przedtem -1,0 na posterunku bez zeru', bank: 0.0, maturity: fresh}
   - {id: webber_anchored, name: Tkacz, rate_per_day: 1.0, growth_cap_per_day: 3.0, basis: 'od t_177 poluje luzem przy Lucanie w gildii; porcja tlumiaca zdjela ubytek na stale', bank: 0.0, maturity: fresh}
   - {id: webber_home, rate_per_day: 0.0, growth_cap_per_day: 3.0, basis: rozkaz order_collect_meadow_orthopterans - posterunek z zadaniem, bank: 0.0, maturity: fresh}

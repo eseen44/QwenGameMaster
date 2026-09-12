@@ -22,7 +22,7 @@ fields:
 - field: conditions
   status: engine_reads
   note: 11 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: conditions.elapsed_seconds
   status: engine_reads
   note: 7 odwolan literalnych w tools/
@@ -54,7 +54,7 @@ fields:
 - field: definition_ref
   status: engine_reads
   note: 1 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: end_of_life
   status: documentation_only
   note: silnik tego NIE czyta
@@ -146,19 +146,19 @@ fields:
 - field: id
   status: engine_reads
   note: 130 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: integrity
   status: engine_reads
   note: 5 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: integrity.current
   status: engine_reads
   note: 18 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: integrity.maximum
   status: engine_reads
   note: 2 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: intended_post
   status: documentation_only
   note: silnik tego NIE czyta
@@ -178,7 +178,7 @@ fields:
 - field: last_event_id
   status: engine_reads
   note: 18 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: lifecycle
   status: engine_reads
   note: 2 odwolan literalnych w tools/
@@ -198,7 +198,7 @@ fields:
 - field: object_type
   status: engine_reads
   note: 17 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: orders
   status: documentation_only
   note: silnik tego NIE czyta
@@ -238,7 +238,7 @@ fields:
 - field: position
   status: engine_reads
   note: 7 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: position.detail
   status: documentation_only
   note: silnik tego NIE czyta
@@ -246,19 +246,19 @@ fields:
 - field: position.formation
   status: engine_reads
   note: 1 odwolan literalnych w tools/
-  in_instances: 31
+  in_instances: 33
 - field: position.location_id
   status: engine_reads
   note: 5 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: position.zone_id
   status: engine_reads
   note: 4 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: resources
   status: engine_reads
   note: 10 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: resources.ancient_necrotic_reservoir
   status: engine_reads
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
@@ -374,15 +374,15 @@ fields:
 - field: resources.necrotic_reservoir
   status: engine_reads
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
-  in_instances: 32
+  in_instances: 34
 - field: resources.necrotic_reservoir.capacity
   status: engine_reads
   note: 7 odwolan literalnych w tools/
-  in_instances: 32
+  in_instances: 34
 - field: resources.necrotic_reservoir.current
   status: engine_reads
   note: 18 odwolan literalnych w tools/
-  in_instances: 32
+  in_instances: 34
 - field: resources.necrotic_reservoir.decay
   status: engine_reads
   note: 2 odwolan literalnych w tools/
@@ -458,7 +458,7 @@ fields:
 - field: resources.necrotic_reservoir.runtime
   status: engine_reads
   note: 2 odwolan literalnych w tools/
-  in_instances: 31
+  in_instances: 33
 - field: resources.necrotic_reservoir.runtime.decay_elapsed_seconds
   status: engine_reads
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
@@ -522,23 +522,23 @@ fields:
 - field: revision
   status: engine_reads
   note: 15 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: schema_version
   status: engine_reads
   note: 8 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: source_refs
   status: engine_reads
   note: 8 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: status
   status: engine_reads
   note: 57 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: status_flags
   status: engine_reads
   note: 2 odwolan literalnych w tools/
-  in_instances: 34
+  in_instances: 36
 - field: symbiont_upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
   note: silnik tego NIE czyta
@@ -602,7 +602,7 @@ fields:
 - field: upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
   note: silnik tego NIE czyta
-  in_instances: 8
+  in_instances: 10
 status_flags:
 - flag: alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
@@ -648,6 +648,9 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: carries_more_than_a_wasp
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: cleared_to_forage_nectar_on_the_meadows_t_274
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: cleared_to_forage_small_prey_only_away_from_large_event_turn_interlude_177
@@ -716,9 +719,6 @@ status_flags:
 - flag: fast_over_short_distance
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
-- flag: fed_on_silkworm_life_force_not_foraging
-  status: documentation_only
-  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: fed_or_energized_state
   status: engine_reads_via_requires
   note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
@@ -761,9 +761,6 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: heavy_thorax_room_for_modifications
-  status: documentation_only
-  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
-- flag: held_back_pending_hardening
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: hind_leg_lost_at_the_joint_walks_on_three
@@ -895,6 +892,9 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: sugar_feeder_must_leave_a_closed_post
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
+- flag: symbiont_upkeep_2_per_day_exceeds_own_foraging_basket_still_on_the_table_t_274
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: symbiotic_parasite_load
