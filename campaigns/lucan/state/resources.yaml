@@ -24,10 +24,16 @@ caches:
       - {id: corpse_drying_powder, quantity: 1, unit: packet,
          assessed_use: 'event_turn_interlude_087 - jak sol rytualna: material obudowy
            wabika, nie material przeszczepu.'}
-      - {id: decay_suppressing_vial, quantity: 2, unit: vial,
+      - {id: decay_suppressing_vial, quantity: 0, unit: vial, status: consumed,
+         consumed_event_id: event_turn_interlude_090,
+         consumed_on: [spy_hawk_moth_01, companion_spidey],
+         consumed_ref: retcon_000173,
          assessed_use: 'event_turn_interlude_087 - razem z preparatem konserwujacym daje
-           TRZY porcje wydluzajace smycz, czyli trzy okazy.'}
-      - {id: necromantic_conduction_agent, quantity: 1, unit: vial,
+           TRZY porcje wydluzajace smycz, czyli trzy okazy. OBIE ZUZYTE w t_090; trzecia
+           (necromantic_preservative) na Tkaczu w t_177. Zadna nie jest dostepna.'}
+      - {id: necromantic_conduction_agent, quantity: 0, unit: vial, status: consumed,
+         consumed_event_id: event_turn_interlude_090, consumed_on: spy_hawk_moth_01,
+         consumed_ref: retcon_000173,
          role: 'trwale ulepszenie dla istniejacej slugi, NIE material zuzywany przy ozywieniu (retcon_000015)',
          assessed_use: 'event_turn_interlude_087 - jedyna pozycja uderzajaca w STRATE
            PROPAGACJI (80 proc. do Varkhena, 70 proc. Lucan/Spidey, mnozne). Jedna fiolka

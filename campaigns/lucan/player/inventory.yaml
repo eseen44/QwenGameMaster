@@ -6,12 +6,14 @@ currency:
   syndicate_payout_first_instalment_silver: 3800
   hidden_silver: 50
   leftover_market_savings_silver: 0
+  unaccounted_component_silver: 40
   refundable_deposits_silver: 5
   liquid_silver_available_now: 4040
   total_known_net_silver: 4045
   syndicate_payout_outstanding_silver: 40000
   source_refs: [retcon_000001, campaigns/lucan/journal/imports/luka-c-act-02-closeout.md#line:15, event_turn_interlude_012_reception_desk, event_turn_interlude_013_market_food_run]
   notes:
+    - 'unaccounted_component_silver: 40 - ROZSTRZYGNIECIE GRACZA 2026-09-12 (retcon_000174). Skladniki (150 + 3800 + 50 + 0) dawaly 4000 przy deklarowanej sumie 4040. Gracz rozstrzygnal, ze prawdziwa jest SUMA, a w rozpisce brakuje pozycji na 40 - zrodlo tej czterdziestki pozostaje NIEUSTALONE i narratorowi nie wolno go dopowiadac. Stan portfela bez zmian; rozpiska domyka sie teraz do 4040, a z depozytami do 4045.'
     - Osiemnaście sreber znalezionych w bocznej skrytce wozu nie jest doliczone; źródło nie mówi, że Lucan je zabrał.
     - 'hidden_silver: 50 to gotówka odłożona do schowka wprost po Akcie 1, zanim Lucan poszedł na targ w tamtym interludium (potwierdzone przez użytkownika, retcon_000001).'
     - 'leftover_market_savings_silver: 30 to reszta z tamtego targu (kosztowny tydzień przygotowań, milestone_032/033) - nigdy wcześniej niedoliczona do żadnej puli. Zostawiona w schowku razem z hidden_silver, nie noszona na cmentarną robotę - stąd nie koliduje z kanonicznym "22 w kieszeni po znalezisku".'
@@ -767,8 +769,9 @@ items:
       w event_turn_interlude_079 - spy_cellar_spider_01; koszyk nadal pełny)
     cost_silver: 1
     intended_use: Materiał dawcy gruczołu przędnego do przeszczepu sieciarzom
-      (lead_webber_silk_upgrade_human_scale). Jeden gruczol zakolejkowany dla Tkacza
-      jako DODATKOWY, bez usuwania starego (event_turn_interlude_090). Jedwab
+      (lead_webber_silk_upgrade_human_scale). Jeden gruczol byl zakolejkowany dla Tkacza
+      jako DODATKOWY, bez usuwania starego (event_turn_interlude_090) - WYKONANY w t_176
+      (companions/webber-network.yaml#done, retcon_000173). Jedwab
       jedwabnika jest ciągły i mocny,
       ale nielepki i bez kontroli wyrzutu - kleistość i przenoszenie trucizny nicią
       to osobne, kolejne kroki wzrostu.
@@ -822,12 +825,14 @@ items:
     location: wall_hideout
     type: donor_material
     inherently_magical: false
-    quantity_usable_organs: 49
+    quantity_usable_organs: 48
     contents: >-
       Koniki polne i pasikoniki zebrane przez czterech foragerow na rozkaz
       order_collect_meadow_orthopterans (t_091). Suszone i czesciowo zlezale - material
-      na PRZESZCZEPY NARZADU SLUCHU, nie na ozywianie calych cial. Jeden narzad zuzyty
-      na Spideya w t_176 (orthopteran_tympanal_hearing_organ, pasmo ludzkiego glosu).
+      na PRZESZCZEPY NARZADU SLUCHU, nie na ozywianie calych cial. DWA narzady zuzyte, oba
+      w t_176: companion_spidey i webber_anchored (Tkacz) - patrz companions/webber-network.yaml#done.
+      retcon_000169 policzyl tylko Spideya i zostawil 49; poprawione na 48 retconem 000174.
+      Baza "okolo 50" byla i pozostaje szacunkowa - liczba jest rejestrem, nie pomiarem.
     why_it_matters: >-
       Ucho prostoskrzydlego daje SLOWA, nie sam rytm - to jedyny w sieci czujnik tresci
       rozmowy. Zapas oznacza, ze granica nie jest material, tylko GODZINY PRZY STOLE

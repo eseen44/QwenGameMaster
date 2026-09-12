@@ -63,6 +63,11 @@ survival_model:
     bez_rozkazu_zer_obfity: +2,0 na dobe (wije w kanalach)
     padlinozerca_bez_rozkazu: +0,5 na dobe - zuki zra gnilne, to nie jest polowanie
     posterunek_bez_zeru: -1,0 na dobe, smycz bez zmian
+    rozkaz_ruchomy_nad_zerem: '+2,0 jak bez rozkazu. ROZSTRZYGNIECIE GRACZA 2026-09-12
+      (retcon_000174): rozkaz, ktory PRZEMIESZCZA okaz przez teren obfity w zer - wije
+      mapujace kanaly od t_186 - NIE zeruje stawki. "Posterunek" w wierszach wyzej znaczy
+      STANIE W MIEJSCU; okaz w ruchu je po drodze. Wiersz posterunek_z_zadaniem_i_zerem
+      dotyczy zadania wykonywanego w bezruchu.'
     kolejnosc: Zbiornik napelnia sie pierwszy; dopiero nadwyzka ponad pojemnosc idzie do growth_bank.
     maturity_ladder: fresh -> osiadly 10, osiadly -> z sadem 30, z sadem -> wyrobiony 60 (narastajaco w growth_bank)
     grants_per_step: +1 pojemnosci zbiornika, +2 integralnosci, plus nazwany zysk behawioralny
@@ -117,8 +122,11 @@ haul_assessment_night1:
       posterunku jak u osy, duzy jak na cme wiec w dzien jest zjawiskiem, nie owadem]
     verdict: 'Lepszy kurier od spy_wasp_01 na kazdej osi poza jedna - jest okazem nocnym i
       tylko nocnym. Odpowiada na key_insight z oceny spy_wasp_01: kurier bije szersza rure.'
-    leash_fix: 'Trzy porcje tlumiace rozklad na stole (necromantic_preservative + 2x
-      decay_suppressing_vial) adresuja dokladnie te slabosc.'
+    leash_fix: 'OCENA Z t_088, NIEAKTUALNA CO DO ZAPASU (retcon_000173): mowila o trzech
+      porcjach tlumiacych rozklad na stole (necromantic_preservative + 2x decay_suppressing_vial).
+      Wszystkie trzy sa dzis wydane - dwie w t_090 (spy_hawk_moth_01, companion_spidey),
+      trzecia w t_177 (webber_anchored). Diagnoza slabosci zostaje sluszna, SRODKA NIE MA.'
+    leash_fix_as_of_event_id: event_turn_interlude_088
     status: not_yet_animated
 feeding_model:
   source: out_of_game_question_2026-08-24
@@ -188,10 +196,11 @@ maturity:
     event_turn_interlude_070).
 deployment:
   released_event_id: event_turn_interlude_077
-  spy_centipede_01: loc_city_sewer#zone_sewer_wall_district, bez rozkazu poza domyslnym
-    polowaniem
-  spy_centipede_02: loc_city_sewer#zone_sewer_wall_district, bez rozkazu poza domyslnym
-    polowaniem
+  spy_centipede_01: loc_city_sewer#zone_sewer_wall_district, STALY ROZKAZ od t_186 -
+    aktywnie mapowac teren pod gildia, unikajac ludzi i halasu (retcon_000174; do 2026-09-12
+    wpisane tu bylo "bez rozkazu", co bylo stanem sprzed t_186)
+  spy_centipede_02: loc_city_sewer#zone_sewer_wall_district, STALY ROZKAZ od t_186 -
+    jak wyzej
   spy_beetle_01: nieprzydzielony, na blacie w baszcie
   spy_beetle_02_to_08: rozproszone po ulicach i smietnikach wokol baszty
     (loc_city_wall_hideout#zone_surrounding_streets_and_refuse), BEZ ROZKAZU, celowo -
