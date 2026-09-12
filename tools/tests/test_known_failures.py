@@ -545,5 +545,49 @@ class StandbyLinkTests(unittest.TestCase):
             gm_runtime.process_sustained_links(self.campaign, {}, 86400, "event_test")
 
 
+class ServantsCheckTests(unittest.TestCase):
+    """retcon_000171 - trzy sprzeczne zdania o jednym okazie w trzech plikach.
+
+    Kontrola dostaje dane WSTRZYKNIETE, zeby nie zalezec od tego, gdzie akurat stoi siec.
+    Test odtwarza stan SPRZED migracji z Etapu 4 - czyli dokladnie to, czego nikt nie
+    widzial przez 88 tur.
+    """
+
+    def setUp(self) -> None:
+        import servants_check
+        self.sc = servants_check
+
+    def test_lapie_rozkaz_przy_fladze_braku_rozkazu(self) -> None:
+        wij = {
+            "status_flags": ["no_standing_order_beyond_default_hunting"],
+            "orders": [{"id": "order_map_under_the_guild", "status": "active"}],
+            "position": {"location_id": "loc_city_sewer"},
+        }
+        problems = self.sc.check([("spy_centipede_01", wij)], karty={})
+        self.assertIn("rozkaz_kontra_flaga", problems)
+        self.assertIn("spy_centipede_01", problems["rozkaz_kontra_flaga"][0])
+
+    def test_lapie_rozkaz_udajacy_obserwacje(self) -> None:
+        okaz = {"position": {"location_id": "loc_x",
+                             "fix": {"status": "confirmed", "source": "order_assumption"}}}
+        problems = self.sc.check([("spy_test", okaz)], karty={})
+        self.assertIn("rozkaz_jako_obserwacja", problems)
+
+    def test_lapie_karte_grupowa_sprzeczna_z_instancja(self) -> None:
+        okaz = {"position": {"location_id": "loc_city_sewer"}}
+        karta = {"deployment": {"spy_test": "loc_lumaria_guild, posterunek przy biurku"}}
+        problems = self.sc.check([("spy_test", okaz)], karty={"spy-series.yaml": karta})
+        self.assertIn("karta_kontra_instancja", problems)
+
+    def test_stan_po_migracji_jest_czysty(self) -> None:
+        wij = {
+            "status_flags": ["standing_order_map_under_the_guild_since_t_186"],
+            "orders": [{"id": "order_map_under_the_guild", "status": "active"}],
+            "position": {"location_id": "loc_city_sewer",
+                         "fix": {"status": "unknown", "source": "borrowed_sense"}},
+        }
+        self.assertEqual(self.sc.check([("spy_centipede_01", wij)], karty={}), {})
+
+
 if __name__ == "__main__":
     unittest.main()

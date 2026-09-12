@@ -120,6 +120,11 @@ CHECKS = [
     # Rejestry klamaly o statusie 23 z 34 wpisow (przeglad 2026-09-05) - rejestr,
     # ktory klamie, jest gorszy niz jego brak, bo ktos go czyta zamiast otwierac karte.
     ("rejestry", [sys.executable, "tools/registry_check.py", "--check"], 60, True),
+    # Wchodza jako BLOKUJACE, bo na zywych danych swieca na zielono od pierwszego
+    # uruchomienia. Regula "najpierw nieblokujaca" chroni przed bramka, ktora od razu
+    # jest czerwona i zostaje wylaczona po tygodniu - tutaj nie ma czego wyciszac.
+    ("zapas", [sys.executable, "tools/audit_stock.py", "--check"], 60, True),
+    ("slugi", [sys.executable, "tools/servants_check.py", "--check"], 60, True),
 ]
 
 FULL_CHECKS = [

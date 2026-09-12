@@ -55,6 +55,36 @@ POOL = "necrotic_reservoir"
 NIE_WEZLY = {"pc_lucan"}
 
 
+def rozwiaz_ref(ref: str) -> float | None:
+    """Liczba spod 'sciezka/pliku.yaml#a.b.c'. Segment moze byc kluczem albo id w liscie.
+
+    POWOD. Utrzymanie zawisaka - 2,0 na dobe za sordine i porost - stalo w TRZECH plikach
+    naraz: w rejestrze wzrostu, w instancji i w planie ulepszen, ktory je ustala. Trzy
+    kopie tej samej liczby to trzy okazje, zeby sie rozjechaly, i dokladnie tak powstal
+    rozjazd przy konserwancie (retcon_000170). Rejestr WSKAZUJE teraz na zrodlo.
+    """
+    if "#" not in ref:
+        return None
+    sciezka, kotwica = ref.split("#", 1)
+    path = ROOT / sciezka
+    if not path.is_file():
+        return None
+    wezel = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    for segment in kotwica.split("."):
+        if isinstance(wezel, dict):
+            if segment not in wezel:
+                return None
+            wezel = wezel[segment]
+        elif isinstance(wezel, list):
+            wezel = next((e for e in wezel
+                          if isinstance(e, dict) and e.get("id") == segment), None)
+            if wezel is None:
+                return None
+        else:
+            return None
+    return float(wezel) if isinstance(wezel, (int, float)) else None
+
+
 def modyfikatory_bilansu() -> dict[str, float]:
     """Mnozniki stawki: {id_modyfikatora: mnoznik}. Mnoza wiersz, nie zastepuja go."""
     path = ROOT / "system" / "mechanics" / "daily-balance.yaml"
@@ -252,7 +282,19 @@ def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
                 zglos("wiersz_bilansu", f"{node_id}: modyfikator '{mod}' nie istnieje w tabeli")
                 continue
             oczekiwane *= modyfikatory[mod]
-        oczekiwane -= float(entry.get("upkeep_per_day", 0.0) or 0.0)
+        # Utrzymanie: albo liczba wprost, albo WSKAZANIE na plik, ktory ja ustala.
+        # Wskazanie jest preferowane - kopia liczby w rejestrze rozjezdza sie ze zrodlem.
+        upkeep = 0.0
+        if entry.get("upkeep_ref"):
+            upkeep = rozwiaz_ref(str(entry["upkeep_ref"]))
+            if upkeep is None:
+                zglos("wiersz_bilansu",
+                      f"{node_id}: upkeep_ref '{entry['upkeep_ref']}' nie rozwiazuje sie "
+                      "do liczby - wskazanie w prozni jest gorsze niz kopia")
+                continue
+        elif entry.get("upkeep_per_day") is not None:
+            upkeep = float(entry["upkeep_per_day"])
+        oczekiwane -= upkeep
         stawka = float(entry.get("rate_per_day", 0.0) or 0.0)
         if abs(stawka - oczekiwane) > 1e-9:
             zglos("wiersz_bilansu",
