@@ -152,7 +152,7 @@ fields:
 - field: growth.steps.id
   status: engine_reads
   match: leaf
-  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.intent
   status: engine_reads
@@ -177,7 +177,7 @@ fields:
 - field: id
   status: engine_reads
   match: path
-  note: 986 odwolan po pelnej sciezce
+  note: 1000 odwolan po pelnej sciezce
   in_instances: 36
 - field: integrity
   status: engine_reads
@@ -207,7 +207,7 @@ fields:
 - field: intended_post.status
   status: engine_reads
   match: leaf
-  note: 61 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 65 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: intended_post.target
   status: engine_reads
@@ -217,7 +217,7 @@ fields:
 - field: last_event_id
   status: engine_reads
   match: path
-  note: 22 odwolan po pelnej sciezce
+  note: 24 odwolan po pelnej sciezce
   in_instances: 36
 - field: lifecycle
   status: engine_reads
@@ -237,7 +237,7 @@ fields:
 - field: lifecycle.state
   status: engine_reads
   match: leaf
-  note: 21 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 24 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: object_type
   status: engine_reads
@@ -297,7 +297,7 @@ fields:
 - field: orders.id
   status: engine_reads
   match: leaf
-  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.instruction
   status: documentation_only
@@ -322,7 +322,7 @@ fields:
 - field: orders.status
   status: engine_reads
   match: leaf
-  note: 61 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 65 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.time_advanced_when_issued
   status: documentation_only
@@ -332,7 +332,7 @@ fields:
 - field: position
   status: engine_reads
   match: path
-  note: 41 odwolan po pelnej sciezce
+  note: 46 odwolan po pelnej sciezce
   in_instances: 36
 - field: position.detail
   status: documentation_only
@@ -346,8 +346,8 @@ fields:
   in_instances: 2
 - field: position.fix.as_of_event_id
   status: engine_reads
-  match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  match: parent_leaf
+  note: 1 odwolan rodzic+liscie
   in_instances: 2
 - field: position.fix.note
   status: engine_reads
@@ -382,7 +382,7 @@ fields:
 - field: resources
   status: engine_reads
   match: path
-  note: 27 odwolan po pelnej sciezce
+  note: 29 odwolan po pelnej sciezce
   in_instances: 36
 - field: resources.ancient_necrotic_reservoir
   status: engine_reads
@@ -702,7 +702,7 @@ fields:
 - field: retired_conditions.id
   status: engine_reads
   match: leaf
-  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: retired_conditions.reason
   status: engine_reads
@@ -732,7 +732,7 @@ fields:
 - field: status
   status: engine_reads
   match: path
-  note: 83 odwolan po pelnej sciezce
+  note: 87 odwolan po pelnej sciezce
   in_instances: 36
 - field: status_flags
   status: engine_reads

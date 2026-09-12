@@ -2743,6 +2743,69 @@ def interlude_scope_digest(scope: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def network_roster(campaign_root: Path) -> list[dict[str, Any]]:
+    """Jedna linia na aktywny byt sieci: gdzie stoi i kiedy ostatnio go ruszono.
+
+    POWOD. Brief wypisuje UCZESTNIKOW SCENY - zwykle trzech z trzydziestu kilku. Reszta
+    sieci jest niewidoczna od chwili wypuszczenia, a to wlasnie tam powstal retcon_000171:
+    narrator wyslal szczury do wija, ktorego tam nie ma, bo nic nie pokazywalo mu, gdzie
+    ten wij faktycznie jest. Roster liczony jest W LOCIE i nigdzie nie zapisywany -
+    wyprowadzalna liczba przepisana do stanu to kolejna kopia do rozjechania.
+    """
+    index = load_optional_yaml(
+        campaign_root / "state" / "instances" / "index.yaml", {"instances": []})
+    out: list[dict[str, Any]] = []
+    for entry in index.get("instances") or []:
+        if not isinstance(entry, dict) or entry.get("state") == "dead":
+            continue
+        ref = entry.get("ref")
+        if not isinstance(ref, str):
+            continue
+        document = load_optional_yaml(campaign_root / ref, {})
+        if not document:
+            continue
+        position = document.get("position") or {}
+        fix = position.get("fix") or {}
+        wiersz = {
+            "id": document.get("id", entry.get("id")),
+            "location_id": position.get("location_id"),
+            "zone_id": position.get("zone_id"),
+            "last_event_id": document.get("last_event_id"),
+        }
+        # Pewnosc polozenia pokazujemy TYLKO gdy jest inna niz potwierdzona - inaczej
+        # roster puchnie o informacje, ktora nic nie wnosi.
+        if fix.get("status") and fix["status"] != "confirmed":
+            wiersz["fix"] = f"{fix.get('status')} ({fix.get('as_of_event_id')})"
+        out.append(wiersz)
+    return out
+
+
+def stock_counters(campaign_root: Path) -> dict[str, Any]:
+    """Ile pozycji zapasu jest dostepnych, a ile zuzytych.
+
+    Dwie liczby zamiast calego rejestru: `state/resources.yaml` wchodzi do kontekstu na
+    stale (3,4 KB), a licznik mowi narratorowi, czy w ogole jest o czym rozmawiac, zanim
+    zajrzy. Przy retcon_000170 zabraklo dokladnie tego sygnalu.
+    """
+    document = load_optional_yaml(campaign_root / "state" / "resources.yaml", {})
+    dostepne, zuzyte = [], []
+    for cache in document.get("caches") or []:
+        for entry in cache.get("contents") or []:
+            if not isinstance(entry, dict) or not isinstance(entry.get("id"), str):
+                continue
+            (zuzyte if entry.get("status") == "consumed" else dostepne).append(entry["id"])
+    return {"available": len(dostepne), "consumed": len(zuzyte), "available_ids": dostepne}
+
+
+def clock_distance(clock: dict[str, Any]) -> str | None:
+    """Ile brakuje do progu. None, gdy prog nie jest liczba (zegar nieskalibrowany)."""
+    progress = clock.get("progress", 0)
+    threshold = clock.get("threshold")
+    if not isinstance(progress, (int, float)) or not isinstance(threshold, (int, float)):
+        return None
+    return f"{threshold - progress} do progu"
+
+
 def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
     """One self-contained block that opens a fresh conversation.
 
@@ -2841,11 +2904,14 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
             {
                 "id": clock.get("id"),
                 "progress": f"{clock.get('progress', 0)}/{clock.get('threshold')}",
+                "remaining": clock_distance(clock),
                 "effect": clock.get("effect"),
             }
             for clock in clocks_doc.get("clocks", [])
             if isinstance(clock, dict) and not clock.get("triggered")
         ],
+        "network_roster": network_roster(campaign_root),
+        "stock": stock_counters(campaign_root),
         "current_scope": interlude_scope_digest(objectives.get("current_interlude_scope", {})),
         "objectives": [
             objective_digest(objective)
