@@ -19,12 +19,16 @@ resources:
       interval_seconds: 86400
       units: 0.8
       requires:
-      - in_cemetery_death_field
+      - 'env:death_field'
       note: 'TLO CMENTARZA ZAMIAST SIECI (retcon_000168, deklaracja gracza). Zalozenie
         gracza: tlo jest tu tak silne jak to, co Lucan mu wysylal, wiec podtrzymywanie
         go jest zbedne. 0,8 na dobe to DOKLADNIE tyle, ile dawaly cztery lacza sieciarzy
-        na wyjsciu. Dziala wylacznie przy fladze in_cemetery_death_field - gdy Varkhen
-        opusci cmentarz, silnik przestanie to naliczac sam z siebie.'
+        na wyjsciu. WARUNEK JEST MIEJSCEM, NIE FLAGA (poprawione 2026-09-12): requires
+        env:death_field czyta locations/varkhen-chamber/state.yaml#environment.conditions,
+        wiec wyniesienie ciala z komnaty wylacza doplyw SAMO. Do tej poprawki zdanie
+        ponizej bylo nieprawdziwe: silnik sprawdzal flage in_cemetery_death_field, a flaga
+        nie wie o przeprowadzce - zostawala w karcie i naliczanie szlo dalej. Flaga zostaje
+        jako opis stanu, nie jest juz wyzwalaczem.'
     integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA: 0.8
     integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA: 'Cztery lacza dawaly mu tez
       0,8 integralnosci na dobe i tlo cmentarza daje tyle samo, ALE SILNIK NIE NALICZA

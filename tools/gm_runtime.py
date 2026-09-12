@@ -719,12 +719,67 @@ def resolve_turn(
     return transaction
 
 
-def instance_requirements_met(instance: dict[str, Any], requirements: Iterable[str]) -> bool:
+def location_conditions(campaign_root: Path | None, location_id: str | None) -> set[str]:
+    """Warunki srodowiskowe zadeklarowane w stanie lokacji.
+
+    Czytane z locations/<...>/state.yaml#environment.conditions przez indeks lokacji -
+    sciezki NIE da sie wyprowadzic z identyfikatora (loc_city_wall_hideout mieszka
+    w katalogu wall-hideout).
+    """
+    if campaign_root is None or not location_id:
+        return set()
+    index = load_optional_yaml(campaign_root / "locations" / "index.yaml", {}) or {}
+    for entry in index.get("locations") or []:
+        if not isinstance(entry, dict) or entry.get("id") != location_id:
+            continue
+        ref = entry.get("ref")
+        if not isinstance(ref, str):
+            return set()
+        state_path = (campaign_root.parent.parent / ref).parent / "state.yaml"
+        environment = (load_optional_yaml(state_path, {}) or {}).get("environment") or {}
+        conditions = environment.get("conditions") if isinstance(environment, dict) else None
+        return {c for c in conditions if isinstance(c, str)} if isinstance(conditions, list) else set()
+    return set()
+
+
+def instance_requirements_met(
+    instance: dict[str, Any],
+    requirements: Iterable[str],
+    campaign_root: Path | None = None,
+) -> bool:
+    """Czy okaz spelnia warunki reguly strumienia.
+
+    DWA RODZAJE WARUNKOW. Zwykly to FLAGA przy okazie. Warunek z przedrostkiem "env:"
+    pyta o MIEJSCE, w ktorym okaz stoi, i to jest roznica zasadnicza: flage trzeba zdjac
+    recznie, a miejsce zmienia sie samo przy przeniesieniu ciala.
+
+    POWOD. Karta Varkhena twierdzila wprost: "dziala wylacznie przy fladze
+    in_cemetery_death_field - gdy Varkhen opusci cmentarz, silnik przestanie to naliczac
+    sam z siebie". Nieprawda - silnik sprawdzal FLAGE, a flaga nie wie o przeprowadzce.
+    Przeniesienie ciala nie wylaczalo doplywu, dopoki ktos nie pamietal, zeby ja skasowac.
+    To jest klamstwo W STRONE BEZPIECZENSTWA: autor przeczytal wlasna note i uwierzyl.
+
+    Przy braku campaign_root warunek "env:" jest NIESPELNIONY - strumien sie nie nalicza.
+    Bezpieczny kierunek: brak dowodu na warunek srodowiskowy nie moze produkowac energii.
+    """
     flags = set(instance.get("status_flags", [])) | set(instance.get("traits", []))
-    return all(requirement in flags for requirement in requirements)
+    srodowisko: set[str] | None = None
+    for requirement in requirements:
+        if isinstance(requirement, str) and requirement.startswith("env:"):
+            if srodowisko is None:
+                srodowisko = location_conditions(
+                    campaign_root, (instance.get("position") or {}).get("location_id")
+                )
+            if requirement[4:] not in srodowisko:
+                return False
+        elif requirement not in flags:
+            return False
+    return True
 
 
-def process_instance_time(instance: dict[str, Any], seconds: int) -> None:
+def process_instance_time(
+    instance: dict[str, Any], seconds: int, campaign_root: Path | None = None
+) -> None:
     for pool in instance.get("resources", {}).values():
         if not isinstance(pool, dict):
             continue
@@ -733,7 +788,7 @@ def process_instance_time(instance: dict[str, Any], seconds: int) -> None:
             rule = pool.get(field)
             if not isinstance(rule, dict):
                 continue
-            if not instance_requirements_met(instance, rule.get("requires", [])):
+            if not instance_requirements_met(instance, rule.get("requires", []), campaign_root):
                 continue
             # FLAGA decay_suppressed FAKTYCZNIE TLUMI UBYTEK (etap 10).
             # Do 2026-09-04 byla dekoracja: companion_spidey mial ja w status_flags ORAZ
@@ -975,7 +1030,7 @@ def apply_operation(
                 continue
             path = resolve_campaign_ref(campaign_root, ref)
             instance = load_mutable(campaign_root, changed, path)
-            process_instance_time(instance, seconds)
+            process_instance_time(instance, seconds, campaign_root)
             if instance.get("last_event_id") != event_id:
                 instance["revision"] = int(instance.get("revision", 0)) + 1
             instance["last_event_id"] = event_id

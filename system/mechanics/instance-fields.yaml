@@ -16,12 +16,12 @@ counts:
   engine_reads: 90
   documentation_only: 57
   flags: 109
-  flags_engine_reads: 7
+  flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
 fields:
 - field: conditions
   status: engine_reads
-  note: 11 odwolan literalnych w tools/
+  note: 12 odwolan literalnych w tools/
   in_instances: 36
 - field: conditions.elapsed_seconds
   status: engine_reads
@@ -29,7 +29,7 @@ fields:
   in_instances: 1
 - field: conditions.id
   status: engine_reads
-  note: 134 odwolan literalnych w tools/
+  note: 135 odwolan literalnych w tools/
   in_instances: 3
 - field: conditions.magnitude
   status: engine_reads
@@ -125,7 +125,7 @@ fields:
   in_instances: 1
 - field: growth.steps.id
   status: engine_reads
-  note: 134 odwolan literalnych w tools/
+  note: 135 odwolan literalnych w tools/
   in_instances: 1
 - field: growth.steps.intent
   status: engine_reads
@@ -145,7 +145,7 @@ fields:
   in_instances: 1
 - field: id
   status: engine_reads
-  note: 134 odwolan literalnych w tools/
+  note: 135 odwolan literalnych w tools/
   in_instances: 36
 - field: integrity
   status: engine_reads
@@ -213,7 +213,7 @@ fields:
   in_instances: 1
 - field: orders.id
   status: engine_reads
-  note: 134 odwolan literalnych w tools/
+  note: 135 odwolan literalnych w tools/
   in_instances: 1
 - field: orders.instruction
   status: documentation_only
@@ -237,7 +237,7 @@ fields:
   in_instances: 1
 - field: position
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  note: 8 odwolan literalnych w tools/
   in_instances: 36
 - field: position.detail
   status: documentation_only
@@ -249,7 +249,7 @@ fields:
   in_instances: 33
 - field: position.location_id
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  note: 6 odwolan literalnych w tools/
   in_instances: 36
 - field: position.zone_id
   status: engine_reads
@@ -513,7 +513,7 @@ fields:
   in_instances: 1
 - field: retired_conditions.id
   status: engine_reads
-  note: 134 odwolan literalnych w tools/
+  note: 135 odwolan literalnych w tools/
   in_instances: 1
 - field: retired_conditions.reason
   status: engine_reads
@@ -774,9 +774,8 @@ status_flags:
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: in_cemetery_death_field
-  status: engine_reads_via_requires
-  note: 'wymieniona w requires: reguly strumienia - silnik pomija regule, gdy tej flagi nie ma, wiec flaga
-    DZIALA (przez dane, nie przez kod)'
+  status: documentation_only
+  note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi
 - flag: intact_wings_capable_of_flight
   status: documentation_only
   note: silnik tej flagi NIE czyta - nie zakladaj, ze cokolwiek robi

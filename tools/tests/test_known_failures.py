@@ -11,12 +11,15 @@ To nie jest miejsce na hipotezy o tym, co moglo by pojsc zle.
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
 
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
+
+import yaml
 
 import gm_runtime
 
@@ -279,6 +282,70 @@ class OverflowRetentionTests(unittest.TestCase):
         pool = instance["resources"]["necrotic_reservoir"]
         self.assertEqual(pool["current"], 2)
         self.assertNotIn("overflow_pending", pool["runtime"])
+
+
+class EnvironmentRequirementTests(unittest.TestCase):
+    """Warunek srodowiskowy pyta o MIEJSCE, nie o flage.
+
+    Karta Varkhena twierdzila, ze wyniesienie ciala z cmentarza wylaczy doplyw samo.
+    Nieprawda: silnik sprawdzal flage, a flaga nie wie o przeprowadzce. Testy budują
+    wlasna mini-kampanie, zeby nie zalezec od tego, gdzie akurat lezy Varkhen.
+    """
+
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory()
+        root = Path(self._tmp.name)
+        self.campaign = root / "campaigns" / "lucan"
+        (self.campaign / "locations" / "krypta").mkdir(parents=True)
+        (self.campaign / "locations" / "index.yaml").write_text(
+            yaml.safe_dump({"locations": [
+                {"id": "loc_krypta", "ref": "campaigns/lucan/locations/krypta/location.yaml"},
+            ]}, allow_unicode=True), encoding="utf-8")
+        (self.campaign / "locations" / "krypta" / "state.yaml").write_text(
+            yaml.safe_dump({"environment": {"conditions": ["death_field"]}}, allow_unicode=True),
+            encoding="utf-8")
+
+    def tearDown(self) -> None:
+        self._tmp.cleanup()
+
+    def _instance(self, location_id: str) -> dict:
+        return {
+            "id": "companion_test",
+            # Flaga ZOSTAJE w karcie przy obu wariantach - to wlasnie ona klamala.
+            "status_flags": ["in_cemetery_death_field"],
+            "position": {"location_id": location_id},
+            "resources": {
+                "reservoir": {
+                    "current": 0,
+                    "capacity": 72,
+                    "regeneration": {
+                        "interval_seconds": 86400,
+                        "units": 0.8,
+                        "requires": ["env:death_field"],
+                    },
+                    "runtime": {"regeneration_elapsed_seconds": 0},
+                }
+            },
+        }
+
+    def test_w_miejscu_z_polem_smierci_nalicza(self) -> None:
+        instance = self._instance("loc_krypta")
+        gm_runtime.process_instance_time(instance, 86400, self.campaign)
+        self.assertAlmostEqual(instance["resources"]["reservoir"]["current"], 0.8)
+
+    def test_poza_miejscem_nie_nalicza_mimo_ze_flaga_zostala(self) -> None:
+        instance = self._instance("loc_gdzie_indziej")
+        gm_runtime.process_instance_time(instance, 86400, self.campaign)
+        self.assertEqual(
+            instance["resources"]["reservoir"]["current"], 0,
+            "przeniesienie ciala nie wylaczylo doplywu - flaga znowu zdecydowala za miejsce",
+        )
+
+    def test_bez_kontekstu_kampanii_warunek_nie_jest_spelniony(self) -> None:
+        # Bezpieczny kierunek: brak dowodu na warunek srodowiskowy nie produkuje energii.
+        instance = self._instance("loc_krypta")
+        gm_runtime.process_instance_time(instance, 86400, None)
+        self.assertEqual(instance["resources"]["reservoir"]["current"], 0)
 
 
 if __name__ == "__main__":

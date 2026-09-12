@@ -9,5 +9,13 @@ obstacles:
   - {id: obstacle_broken_old_door, zone_id: zone_door, state: forced_open}
   - {id: obstacle_cracked_sarcophagus, zone_id: zone_sarcophagus, state: badly_damaged}
 damage: [fresh_pick_damage, cracked_lid, disturbed_old_masonry]
-environment: {light: carried_lights, sound: settling_stone, visibility_meters: 10}
+environment:
+  light: carried_lights
+  sound: settling_stone
+  visibility_meters: 10
+  # WARUNKI SRODOWISKOWE CZYTANE PRZEZ SILNIK (requires: env:<nazwa>). Tlo smierci jest
+  # zakotwiczone TUTAJ, w komnacie, a nie na calym cmentarzu - tak postawil je
+  # retcon_000168. Okaz, ktory stad wyjdzie, przestaje je dostawac SAM Z SIEBIE,
+  # bez kasowania zadnej flagi.
+  conditions: [death_field]
 last_updated_event_id: milestone_047_seraphine_risk_disclosure
