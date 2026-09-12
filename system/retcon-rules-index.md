@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **99** z 177 retconow.
+Regul z klauzula normatywna: **100** z 178 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -124,7 +124,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000098` — Spotkanie nie jest zaplanowane na interludium ani poczatek Aktu 3 i wymaga naturalnego kanalu Akademii.
 - `retcon_000177` — MORALNOSC KOMARA jest ATUTEM, nie skaza do naprawy: Lucan liczy koszt i ryzyko, nie wine; narrator nie dopisuje mu wahania ani karmicznej odplaty.
 
-## prawo i instytucje (6)
+## prawo i instytucje (7)
 
 - `retcon_000020` — Narrator nie traktuje tej kwoty jako problemu balansu; balans reguluje gracz.
 - `retcon_000069` — (b) Stanowisko obejmowalo okazjonalne, obowiazkowe prowadzenie zajec ze studentami.
@@ -132,6 +132,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000133` — Narrator nie moze uzyc pecha jako mechanizmu rozstrzygajacego wymiane, ucieczke, poscig ani zadnej sytuacji, w ktorej cos od wyniku zalezy.
 - `retcon_000140` — Doprecyzowanie gracza nie dodaje wiec nowego bytu (retcon_000058) - nadaje ksztalt zdarzeniu, ktore w plikach istnieje bez opisu.
 - `retcon_000155` — Dlatego naprawa przepisala statusy Z PLIKOW DO REJESTROW, nigdy odwrotnie - 36 wpisow zsynchronizowanych, zaden status w zadnej karcie nie zostal ruszony.
+- `retcon_000178` — Narratorowi NIE WOLNO grac tego jako cierpienia odrzuconego.
 
 ## pozostale (6)
 

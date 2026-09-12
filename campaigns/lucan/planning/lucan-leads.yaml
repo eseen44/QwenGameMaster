@@ -811,6 +811,56 @@ notes:
     nie zadeklaruje konkretnego kroku (np. eksperyment, rozmowa z ekspertem, zdobycie
     materialu).
 
+direction_decided:
+  - id: direction_cat_as_created_companion
+    decided: '2026-09-12'
+    decided_by: player
+    topic: Kot jako TOWARZYSZ POWOLANY, nie duch przechwycony
+    choice: >-
+      Gracz wybral powolanie wlasnego bytu zamiast zamieszkania czegos, co juz istnieje
+      (np. genius loci cmentarza). Powod podany wprost: wieksza kontrola i utrzymanie
+      kontroli po stronie Lucana.
+    what_this_buys: >-
+      Pelna specyfikacja - wola, granice, kontrakt i to, co widac z zewnatrz, sa ustalane
+      przez Lucana. Zadnych odziedziczonych dlugow ani cudzych lojalnosci. Oslona idzie
+      linia AKADEMII, nie Kosciola: worlds/solmara/lore/necromancy-law.yaml#construct_boundary
+      mowi, ze Akademia broni golemow, homunkulusow i eksperymentalnych chowancow z wlasnego
+      interesu instytucjonalnego, bo zbyt szeroka definicja nekromancji zagraza jej samej.
+      Rzecz ZROBIONA pasuje do tej kategorii lepiej niz dusza przechwycona.
+    what_this_costs: >-
+      NOWA KATEGORIA W SWIECIE. Demonow, paktow i kontraktow z bytami nie ma w Solmarze
+      w ogole - zero wystapien w lore. Wchodzi wylacznie deklaracja gracza i tak, jak ja
+      poda. Traci sie tez obrone "bylo tu przede mna" (linia Varkhena, ancient_guardian):
+      wszystko w tej rzeczy wskazuje na Lucana jako autora.
+    prerequisites:
+      - >-
+        LEKCJA SERAPHINE, nieodebrana od t_235: zaoferowala z wlasnej inicjatywy, ze pokaze
+        Lucanowi, co dokladnie zarejestrowala w t_038 - jak wyglada z drugiej strony pieczeci
+        ochronnych - i sama nazwala cene: "antymagiczka pokazujaca nekromancie, co widzi,
+        oddaje mu sposob ukrycia sie przed soba". To jedyna droga w plikach do sterowania
+        tym, co odczytuje zmysl magiczny. Zaden ability_* Lucana nie robi dzis nic w te
+        strone (lead_noble_seeming_magic).
+      - >-
+        CIALO TO OSOBNY PROBLEM. Gnicie kota nie jest rozwiazane przez zadna z tych drog.
+        Sol i proszek utrwalaja tkanke w sucha skorupe (ocena t_087); atlasy balwierza daja
+        inne podejscie - usunac zrodlo, czyli jame brzuszna, ktora u czegos, co nie je, jest
+        czystym obciazeniem (lead_hollow_out_what_does_not_carry_function).
+      - >-
+        STAWKA UTRZYMANIA SSAKA: nieustalona, patrz ruling_mammal_upkeep_numbers.
+    design_note: >-
+      STANDARD DOMYSLNY TO INCOGNITO, nie groza. Nie dlatego, ze grozi proces - szara strefa
+      dziala tak, jak opisuje ja retcon_000009: skargi przestaja byc rozpatrywane i sciezka
+      formalna cicho zanika. Powod jest ten, ktory Seraphine nazwala w tym samym pliku:
+      "kiedy skargi przestaja byc rozpatrywane, srodek zaradczy nie znika - zmienia rece
+      z papieru na ludzi", a dowodem jest ojciec Lucana, potepiony dwa razy na papierze,
+      zanim ktos przyszedl do laboratorium osobiscie. Ciekawsza wersja nie brzmi wiec
+      "zawsze przerazajacy", tylko PRZERAZAJACY NA ZADANIE - a warunek wstepny obu jest
+      identyczny.
+    open_questions:
+      - Czy byt ma miec wole na poziomie Varkhena (wolna do czasu swiadomego przejecia), czy dziala wylacznie w ramach kontraktu/przymusu.
+      - Czym Lucan jest wobec niego: kotwica utrzymujaca go na tym swiecie, czy strona kontraktu.
+    status: open
+
 open_rulings_needed_from_player:
   - id: ruling_mammal_upkeep_numbers
     logged_event_id: event_turn_interlude_274
