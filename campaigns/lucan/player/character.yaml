@@ -5,10 +5,10 @@ age: 23
 status: reviewed_2026_09_05
 world_ref: worlds/solmara
 current_location_ref: loc_lumaria_adventurers_guild
-current_location_note: >-
-  Poprawione 2026-09-05. Pole stalo na loc_varkhen_chamber, czyli na stanie sprzed okolo
-  190 tur; miejscem prawdy dla pozycji jest state/instances/pc-lucan.yaml#position.
-aliases: [Veyr]
+current_location_note: Poprawione 2026-09-05. Pole stalo na loc_varkhen_chamber, czyli na stanie sprzed
+  okolo 190 tur; miejscem prawdy dla pozycji jest state/instances/pc-lucan.yaml#position.
+aliases:
+- Veyr
 classification:
   guild_rank: D
   direct_physical: E
@@ -33,32 +33,76 @@ resistances:
   mental: 26
 conditions: []
 perks:
-  - id: perk_crisis_surfer
-    name: Surfer chaosu
-    source_ref: retcon_000071
-    mechanics:
-      trait: crisis_surfer
-      ignore_modifier_category: stress
-      exploitable_crisis_bonus: 10
-      bonus_requires_two_situation_tags: true
-    applies_when: >-
-      Sytuacja jest aktywnym kryzysem, co najmniej dwa źródła chaosu działają równocześnie,
-      a deklarowana akcja rzeczywiście wykorzystuje zamieszanie, zamiast jedynie się w nim odbywać.
-    does_not_ignore: [magical_fear, supernatural_compulsion, pain, wounds, sensory_impairment, lack_of_knowledge, capability_limits]
+- id: perk_crisis_surfer
+  name: Surfer chaosu
+  source_ref: retcon_000071
+  mechanics:
+    trait: crisis_surfer
+    ignore_modifier_category: stress
+    exploitable_crisis_bonus: 10
+    bonus_requires_two_situation_tags: true
+  applies_when: Sytuacja jest aktywnym kryzysem, co najmniej dwa źródła chaosu działają równocześnie,
+    a deklarowana akcja rzeczywiście wykorzystuje zamieszanie, zamiast jedynie się w nim odbywać.
+  does_not_ignore:
+  - magical_fear
+  - supernatural_compulsion
+  - pain
+  - wounds
+  - sensory_impairment
+  - lack_of_knowledge
+  - capability_limits
 retired_conditions:
-  - id: elevated_energy_signature_above_old_threshold
-    retired_by: retcon_000019
-    note: Próg Lucana to 15, nie 12. Warunek liczył podwyższoną detekowalność w całym
-      normalnym zakresie pracy, co przeczyło retconowi 000004. Detekowalność zależy od
-      tego, co Lucan robi (ślad rzucanego czaru), nie od stanu rezerwy.
+- id: elevated_energy_signature_above_old_threshold
+  retired_by: retcon_000019
+  note: Próg Lucana to 15, nie 12. Warunek liczył podwyższoną detekowalność w całym normalnym zakresie
+    pracy, co przeczyło retconowi 000004. Detekowalność zależy od tego, co Lucan robi (ślad rzucanego
+    czaru), nie od stanu rezerwy.
 facts_confirmed:
-  - Lucan jest żywy, przytomny i nie odniósł w komorze Varkhena jawnej rany fizycznej.
-  - Jego przewaga wynika z wiedzy, przygotowania, sług, osłabień i wykorzystywania słabości, nie z siły fizycznej.
-  - Doktorat i badania Lucana dotyczyły anatomii, biologii oraz chemii. Ten warsztat tłumaczy szybki rozwój materialnej i eksperymentalnej części nekromancji, ale nie daje automatycznej wiedzy o duszach, rytuałach ani pradawnych nieumarłych.
-  - Praca z ojcem wyrobiła w Lucanie wysoką tolerancję na chaos, mało tabu badawczych i umiejętność zarządzania ciągłym kryzysem; najlepiej działa, gdy może przekształcać katastrofę w serię problemów roboczych.
-  - Bez przygotowania pozostaje fizycznie w zakresie zwykłego, niezbyt silnego człowieka.
-  - Bezpośrednio przed granicą kanonu przejął kontrolę nad Varkhenem przy pomocy Mary i Borosa.
-  - Przeciążenie kolektora (milestone_043a_logistics_collector_overload, przesył energii z serca cmentarza) trwale poszerzyło rezerwę z 12 do 15. 15 jest nową bazą i nowym progiem komfortowym, nie stanem przeciążenia. Dawna dwunastka NIE POZOSTAWIA żadnego skutku ubocznego - nie ma podwyższonej detekowalności powyżej 12 (retcon_000004 i retcon_000019).
+- Lucan jest żywy, przytomny i nie odniósł w komorze Varkhena jawnej rany fizycznej.
+- Jego przewaga wynika z wiedzy, przygotowania, sług, osłabień i wykorzystywania słabości, nie z siły
+  fizycznej.
+- Doktorat i badania Lucana dotyczyły anatomii, biologii oraz chemii. Ten warsztat tłumaczy szybki rozwój
+  materialnej i eksperymentalnej części nekromancji, ale nie daje automatycznej wiedzy o duszach, rytuałach
+  ani pradawnych nieumarłych.
+- Praca z ojcem wyrobiła w Lucanie wysoką tolerancję na chaos, mało tabu badawczych i umiejętność zarządzania
+  ciągłym kryzysem; najlepiej działa, gdy może przekształcać katastrofę w serię problemów roboczych.
+- Bez przygotowania pozostaje fizycznie w zakresie zwykłego, niezbyt silnego człowieka.
+- Bezpośrednio przed granicą kanonu przejął kontrolę nad Varkhenem przy pomocy Mary i Borosa.
+- Przeciążenie kolektora (milestone_043a_logistics_collector_overload, przesył energii z serca cmentarza)
+  trwale poszerzyło rezerwę z 12 do 15. 15 jest nową bazą i nowym progiem komfortowym, nie stanem przeciążenia.
+  Dawna dwunastka NIE POZOSTAWIA żadnego skutku ubocznego - nie ma podwyższonej detekowalności powyżej
+  12 (retcon_000004 i retcon_000019).
 facts_uncertain: []
 last_updated_event_id: event_turn_interlude_235
 previous_last_updated_event_id: milestone_045_varkhen_takeover
+defining_traits:
+  source: Tworzenie postaci, tura 1 - jawna para sila/wada podana przez gracza.
+  source_refs:
+  - campaigns/lucan/migration/sources/normalized/In_Character.utf8.txt#line:38
+  - retcon_000177
+  why_it_is_here: Do 2026-09-12 te dwie cechy nie byly zapisane w ZADNYM pliku aktywnym - zylly wylacznie
+    w migration/sources/, ktorego playbook zakazuje wczytywac w zwyklej turze. Przez 274 tury najbardziej
+    nosny fakt o postaci byl strukturalnie nieosiagalny dla narratora.
+  strength:
+    id: trait_ethical_mosquito
+    name: Moralnosc komara
+    players_words: am an ethical mosquito at this point nobody cares about me so i dont care about them
+      - lack of moral compas is my real superpower
+    what_it_means_at_the_table: 'BRAK KOMPASU MORALNEGO JEST ATUTEM, NIE SKAZA DO NAPRAWY. Lucan liczy
+      koszt i ryzyko, nie wine. Zabicie, spalenie albo poswiecenie kogos jest dla niego zwyklym wariantem
+      na liscie, a nie progiem, przed ktorym sie waha - i narrator NIE dopisuje mu wahania, wyrzutow ani
+      karmicznej odplaty (system/narrator.md#rozwoj-zamiast-rehabilitacji, #neutralnosc-przyczynowa).'
+    what_it_is_not: To nie jest szal ani okrucienstwo dla przyjemnosci. Komar nie nienawidzi - komar bierze,
+      co mu potrzebne, i odlatuje. Motywem jest wygoda i interes, nie sadyzm.
+  flaw:
+    id: trait_cracks_begin_to_show
+    name: Pierwsze wrazenie trzyma, dluzsza rozmowa nie
+    players_words: am not exactly good with ppl tho - i fit in at the beggining but longer they talk to
+      me cracks Begin to show
+    what_it_means_at_the_table: 'PROFIL SPOLECZNY MA KSZTALT KRZYWEJ, NIE STALEJ. Krotki kontakt Lucan
+      przechodzi czysto - wpasowuje sie, brzmi normalnie, nie budzi podejrzen. Im dluzej ktos z nim rozmawia,
+      tym wiecej widzi pekniec. Narratorowi daje to konkretna regule: pierwsza wymiana zdan z nowa osoba
+      idzie gladko, a koszt rosnie z DLUGOSCIA kontaktu, nie z trudnoscia tematu.'
+    consequence_named_at_creation: 'Odpowiedz MG przy tworzeniu postaci, ktora jest teza calej kampanii:
+      "You desperately want undead allies because living people find you insufferable." Siec nieumarlych
+      slug nie jest kaprysem ani optymalizacja - jest rozwiazaniem TEJ wady.'

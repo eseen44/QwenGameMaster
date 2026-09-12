@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **98** z 176 retconow.
+Regul z klauzula normatywna: **99** z 177 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -116,12 +116,13 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000092` — Ojciec nie nalezy do lancucha rozkazodawczego, nie moze wydawac Klarze rozkazow, a starsi oficerowie moga go wysluchac bez obowiazku spelnienia jego zyczen.
 - `retcon_000150` — retcon_000033#syndicate_offer_the_permit - ta sekcja NIE ISTNIALA NIGDY: git grep po calej historii repozytorium znajduje ten klucz WYLACZNIE w retcons.jsonl, nigdy w magazynie, takze w...
 
-## mowa i prowadzenie postaci (4)
+## mowa i prowadzenie postaci (5)
 
 - `retcon_000053` — (e) STRUKTURALNY INTERES DOMU W KLAUZULI 'NIGDY TLUM' ZOSTAJE BEZ ZMIAN - wynika z handlu bronia, nie z urazy, i retcon go nie dotyka.
 - `retcon_000055` — (e) REGULA: zanim narrator nada czemus range zagrozenia, musi wskazac PLIK, ktory tak mowi - a jesli tym plikiem jest wlasny wczesniejszy wpis narratora, to nie jest zrodlo.
 - `retcon_000094` — Ojciec Klary formalnie nie ma sie czego czepic: Lucan nie zawarl osobistego zobowiazania wobec Brandtow i mial prawo odmowic narzuconego przez Veyrow malzenstwa.
 - `retcon_000098` — Spotkanie nie jest zaplanowane na interludium ani poczatek Aktu 3 i wymaga naturalnego kanalu Akademii.
+- `retcon_000177` — MORALNOSC KOMARA jest ATUTEM, nie skaza do naprawy: Lucan liczy koszt i ryzyko, nie wine; narrator nie dopisuje mu wahania ani karmicznej odplaty.
 
 ## prawo i instytucje (6)
 
