@@ -589,5 +589,25 @@ class ServantsCheckTests(unittest.TestCase):
         self.assertEqual(self.sc.check([("spy_centipede_01", wij)], karty={}), {})
 
 
+class ClockThresholdTests(unittest.TestCase):
+    """Zegar z progiem, ktorego kampania swiadomie nie zna, nie moze wywalic commita.
+
+    clock_inquisition_attention ma `threshold: uncalibrated`. Obie linie naliczajace zegar
+    robily min(clock["threshold"], ...) - czyli pierwsze ruszenie tego zegara konczylo sie
+    TypeError w polowie zapisu.
+    """
+
+    def test_prog_liczbowy_nadal_przycina(self) -> None:
+        zegar = {"progress": 4, "threshold": 15}
+        self.assertEqual(gm_runtime.clock_progress(zegar, 20), 15)
+
+    def test_prog_nieliczbowy_nie_wywala_i_nie_przycina(self) -> None:
+        zegar = {"progress": 0, "threshold": "uncalibrated"}
+        self.assertEqual(gm_runtime.clock_progress(zegar, 3), 3)
+
+    def test_brak_postepu_liczy_sie_od_zera(self) -> None:
+        self.assertEqual(gm_runtime.clock_progress({"threshold": 10}, 2), 2)
+
+
 if __name__ == "__main__":
     unittest.main()

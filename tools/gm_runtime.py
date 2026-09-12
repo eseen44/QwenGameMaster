@@ -314,6 +314,21 @@ def scene_document(campaign_root: Path) -> dict[str, Any]:
     return load_yaml(campaign_root / "context" / "scene.yaml")
 
 
+def clock_progress(clock: dict[str, Any], delta: float) -> float:
+    """Nowy postep zegara, z przycieciem do progu TYLKO gdy prog jest liczba.
+
+    clock_inquisition_attention ma `threshold: uncalibrated` - kampania swiadomie nie zna
+    tego progu. Obie linie naliczajace zegar robily `min(clock["threshold"], ...)`, czyli
+    pierwsze ruszenie tego zegara skonczyloby sie TypeError w polowie commita. Zegar bez
+    progu liczy sie dalej, tylko nie da sie go przekroczyc - bo nie wiadomo, gdzie jest.
+    """
+    biezacy = clock.get("progress", 0)
+    biezacy = biezacy if isinstance(biezacy, (int, float)) else 0
+    nowy = biezacy + delta
+    prog = clock.get("threshold")
+    return min(prog, nowy) if isinstance(prog, (int, float)) else nowy
+
+
 def turn_number(turn_id: str | None) -> int | None:
     match = re.search(r"(\d+)\s*$", turn_id or "")
     return int(match.group(1)) if match else None
@@ -1138,7 +1153,7 @@ def apply_operation(
         clock = next((item for item in clocks_doc.get("clocks", []) if item.get("id") == operation.get("clock_id")), None)
         if clock is None:
             raise RuntimeError(f"unknown clock {operation.get('clock_id')}")
-        clock["progress"] = min(clock["threshold"], clock.get("progress", 0) + operation.get("amount", 1))
+        clock["progress"] = clock_progress(clock, operation.get("amount", 1))
         queue_clock_reaction(campaign_root, changed, clock, event_id)
         return
 
@@ -1403,7 +1418,7 @@ def advance_clocks_for_time(
         elapsed = int(clock.get("elapsed_seconds", 0)) + seconds
         steps, clock["elapsed_seconds"] = divmod(elapsed, interval)
         if steps:
-            clock["progress"] = min(clock["threshold"], clock.get("progress", 0) + steps)
+            clock["progress"] = clock_progress(clock, steps)
             queue_clock_reaction(campaign_root, changed, clock, event_id)
 
 

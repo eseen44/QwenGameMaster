@@ -125,17 +125,37 @@ def build() -> str:
     entries = []
     for path, instances in sorted(fields.items()):
         name = leaf(path)
+        # KLASYFIKACJA PO SCIEZCE, NIE PO NAZWIE LISCIA. Samo szukanie liscia klamie
+        # w gore: "id", "status" czy "note" wystepuja w kodzie setki razy z zupelnie
+        # innych powodow niz to konkretne pole, a kontrakt oglaszal je wtedy jako
+        # engine_reads. Najpierw szukamy PELNEJ sciezki kropkowanej (tak wlasnie
+        # wygladaja wywolania set_path/get_path), potem pary rodzic-liscie, i dopiero
+        # na koncu samego liscia - z jawnym zapisem, ktore dopasowanie zadzialalo.
+        dotted = len(re.findall(re.escape(path), code))
+        rodzic = path.rsplit(".", 2)[-2] if path.count(".") >= 1 else None
+        para = 0
+        if rodzic:
+            para = len(re.findall(
+                r"[\"']" + re.escape(rodzic) + r"[\"'][^\n]{0,80}?[\"']"
+                + re.escape(name) + r"[\"']", code))
         literal = len(re.findall(r"[\"']" + re.escape(name) + r"[\"']", code))
         dynamic = DYNAMIC_READS.get(name)
-        if literal:
-            status, note = "engine_reads", f"{literal} odwolan literalnych w tools/"
+        if dotted:
+            status, note, match = "engine_reads", f"{dotted} odwolan po pelnej sciezce", "path"
+        elif para:
+            status, note, match = "engine_reads", f"{para} odwolan rodzic+liscie", "parent_leaf"
         elif dynamic:
-            status, note = "engine_reads", f"czytane dynamicznie: {dynamic}"
+            status, note, match = "engine_reads", f"czytane dynamicznie: {dynamic}", "dynamic"
+        elif literal:
+            status, note, match = ("engine_reads",
+                                   f"{literal} odwolan do samej nazwy liscia - DOPASOWANIE "
+                                   "SLABE, moze dotyczyc innego pola o tej nazwie", "leaf")
         else:
-            status, note = "documentation_only", "silnik tego NIE czyta"
+            status, note, match = "documentation_only", "silnik tego NIE czyta", "none"
         entries.append({
             "field": path,
             "status": status,
+            "match": match,
             "note": note,
             "in_instances": len(instances),
         })

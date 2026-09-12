@@ -13,650 +13,810 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
 warnings_looks_mechanical_but_is_not: []
 counts:
   fields: 160
-  engine_reads: 99
-  documentation_only: 61
+  engine_reads: 102
+  documentation_only: 58
   flags: 109
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
 fields:
 - field: conditions
   status: engine_reads
-  note: 12 odwolan literalnych w tools/
+  match: path
+  note: 26 odwolan po pelnej sciezce
   in_instances: 36
 - field: conditions.elapsed_seconds
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: conditions.id
   status: engine_reads
-  note: 141 odwolan literalnych w tools/
+  match: parent_leaf
+  note: 2 odwolan rodzic+liscie
   in_instances: 3
 - field: conditions.magnitude
   status: engine_reads
-  note: 6 odwolan literalnych w tools/
+  match: leaf
+  note: 6 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: conditions.mechanics_ref
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: conditions.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: conditions.source_event_id
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: conditions.stacks
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: definition_ref
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: path
+  note: 5 odwolan po pelnej sciezce
   in_instances: 36
 - field: end_of_life
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: end_of_life.cause
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: end_of_life.event_ref
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: end_of_life.lost
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: end_of_life.reclaimed_by_lucan_units
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth
-  status: documentation_only
-  note: silnik tego NIE czyta
+  status: engine_reads
+  match: path
+  note: 2 odwolan po pelnej sciezce
   in_instances: 1
 - field: growth.cost_model
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.model_ref
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.next_step_cost_hours
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.permanent_growth_steps
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.cost_hours_by_rule
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.donor_material
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.energy_cost
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.event_id
   status: engine_reads
-  note: 10 odwolan literalnych w tools/
+  match: leaf
+  note: 10 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.gained
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.hours_actually_spent
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.id
   status: engine_reads
-  note: 141 odwolan literalnych w tools/
+  match: leaf
+  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.intent
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.not_gained
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: growth.steps.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.waiver
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: id
   status: engine_reads
-  note: 141 odwolan literalnych w tools/
+  match: path
+  note: 986 odwolan po pelnej sciezce
   in_instances: 36
 - field: integrity
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: path
+  note: 18 odwolan po pelnej sciezce
   in_instances: 36
 - field: integrity.current
   status: engine_reads
-  note: 18 odwolan literalnych w tools/
+  match: leaf
+  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 36
 - field: integrity.maximum
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 36
 - field: intended_post
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: intended_post.blocker
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: intended_post.status
   status: engine_reads
-  note: 61 odwolan literalnych w tools/
+  match: leaf
+  note: 61 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: intended_post.target
   status: engine_reads
-  note: 6 odwolan literalnych w tools/
+  match: leaf
+  note: 6 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: last_event_id
   status: engine_reads
-  note: 21 odwolan literalnych w tools/
+  match: path
+  note: 22 odwolan po pelnej sciezce
   in_instances: 36
 - field: lifecycle
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: path
+  note: 10 odwolan po pelnej sciezce
   in_instances: 3
 - field: lifecycle.cause
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 3
 - field: lifecycle.destroyed_event_id
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 3
 - field: lifecycle.state
   status: engine_reads
-  note: 21 odwolan literalnych w tools/
+  match: leaf
+  note: 21 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: object_type
   status: engine_reads
-  note: 17 odwolan literalnych w tools/
+  match: path
+  note: 31 odwolan po pelnej sciezce
   in_instances: 36
 - field: observation
-  status: documentation_only
-  note: silnik tego NIE czyta
+  status: engine_reads
+  match: path
+  note: 1 odwolan po pelnej sciezce
   in_instances: 2
 - field: observation.channel
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: observation.confidence
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: observation.coordinates_recovered
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 2
 - field: observation.event_id
   status: engine_reads
-  note: 10 odwolan literalnych w tools/
+  match: leaf
+  note: 10 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: observation.method
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 2
 - field: observation.text
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: orders
-  status: documentation_only
-  note: silnik tego NIE czyta
+  status: engine_reads
+  match: path
+  note: 4 odwolan po pelnej sciezce
   in_instances: 3
 - field: orders.execution_started
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: orders.historical_parenthesis_exception
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: orders.id
   status: engine_reads
-  note: 141 odwolan literalnych w tools/
+  match: leaf
+  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.instruction
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 3
 - field: orders.issued_as
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 2
 - field: orders.precedent_for_future_parenthetical_messages
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: orders.source_event_id
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.status
   status: engine_reads
-  note: 61 odwolan literalnych w tools/
+  match: leaf
+  note: 61 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.time_advanced_when_issued
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: position
   status: engine_reads
-  note: 10 odwolan literalnych w tools/
+  match: path
+  note: 41 odwolan po pelnej sciezce
   in_instances: 36
 - field: position.detail
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 2
 - field: position.fix
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: path
+  note: 4 odwolan po pelnej sciezce
   in_instances: 2
 - field: position.fix.as_of_event_id
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: position.fix.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 2
 - field: position.fix.source
   status: engine_reads
-  note: 9 odwolan literalnych w tools/
+  match: path
+  note: 1 odwolan po pelnej sciezce
   in_instances: 2
 - field: position.fix.status
   status: engine_reads
-  note: 61 odwolan literalnych w tools/
+  match: path
+  note: 1 odwolan po pelnej sciezce
   in_instances: 2
 - field: position.formation
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: path
+  note: 3 odwolan po pelnej sciezce
   in_instances: 33
 - field: position.location_id
   status: engine_reads
-  note: 6 odwolan literalnych w tools/
+  match: path
+  note: 2 odwolan po pelnej sciezce
   in_instances: 36
 - field: position.zone_id
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: path
+  note: 2 odwolan po pelnej sciezce
   in_instances: 36
 - field: resources
   status: engine_reads
-  note: 10 odwolan literalnych w tools/
+  match: path
+  note: 27 odwolan po pelnej sciezce
   in_instances: 36
 - field: resources.ancient_necrotic_reservoir
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.capacity
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.current
   status: engine_reads
-  note: 18 odwolan literalnych w tools/
+  match: leaf
+  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.interval_seconds
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.requires
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.units
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.runtime
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.runtime.regeneration_elapsed_seconds
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 1
 - field: resources.lucan_necrotic_energy
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
   in_instances: 1
 - field: resources.lucan_necrotic_energy.campaign_calibration
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.capacity
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.comfortable_capacity
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.current
   status: engine_reads
-  note: 18 odwolan literalnych w tools/
+  match: leaf
+  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.decision_status
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.expansion_note
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.expansion_source_event_id
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.permanent_expansion
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.interval_seconds
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.requires
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.units
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.runtime
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.runtime.regeneration_elapsed_seconds
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 1
 - field: resources.necrotic_reservoir
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
   in_instances: 34
 - field: resources.necrotic_reservoir.capacity
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 34
 - field: resources.necrotic_reservoir.current
   status: engine_reads
-  note: 18 odwolan literalnych w tools/
+  match: leaf
+  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 34
 - field: resources.necrotic_reservoir.decay
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.decay.interval_seconds
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.decay.suppressed_by
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.decay.units
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.flight_surcharge
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.flight_surcharge.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.necrotic_reservoir.flight_surcharge.units_per_long_flight
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.growth_bank
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.growth_bank.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.necrotic_reservoir.growth_bank.units_earmarked
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.growth_bank_ref
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 3
 - field: resources.necrotic_reservoir.hunting_recovery
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery.interval_seconds
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery.requires
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery.units
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery_override
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: resources.necrotic_reservoir.hunting_recovery_override.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.necrotic_reservoir.hunting_recovery_override.requires
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.necrotic_reservoir.runtime
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 33
 - field: resources.necrotic_reservoir.runtime.decay_elapsed_seconds
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 23
 - field: resources.necrotic_reservoir.runtime.hunting_recovery_elapsed_seconds
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 23
 - field: resources.necrotic_reservoir.runtime.overflow_pending
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 0
 - field: resources.paralytic_toxin_reservoir
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: identyfikator puli - czytany z danych, nie z literalu'
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.capacity
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.current
   status: engine_reads
-  note: 18 odwolan literalnych w tools/
+  match: leaf
+  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration.interval_seconds
   status: engine_reads
-  note: 4 odwolan literalnych w tools/
+  match: leaf
+  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration.requires
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration.units
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  match: leaf
+  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.runtime
   status: engine_reads
-  note: 2 odwolan literalnych w tools/
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.runtime.regeneration_elapsed_seconds
   status: engine_reads
+  match: dynamic
   note: 'czytane dynamicznie: gm_runtime.process_instance_time f''{field}_elapsed_seconds'''
   in_instances: 1
 - field: retired_conditions
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: retired_conditions.id
   status: engine_reads
-  note: 141 odwolan literalnych w tools/
+  match: leaf
+  note: 141 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: retired_conditions.reason
   status: engine_reads
-  note: 15 odwolan literalnych w tools/
+  match: leaf
+  note: 15 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: retired_conditions.retired_by
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: revision
   status: engine_reads
-  note: 17 odwolan literalnych w tools/
+  match: path
+  note: 35 odwolan po pelnej sciezce
   in_instances: 36
 - field: schema_version
   status: engine_reads
-  note: 8 odwolan literalnych w tools/
+  match: path
+  note: 9 odwolan po pelnej sciezce
   in_instances: 36
 - field: source_refs
   status: engine_reads
-  note: 8 odwolan literalnych w tools/
+  match: path
+  note: 29 odwolan po pelnej sciezce
   in_instances: 36
 - field: status
   status: engine_reads
-  note: 61 odwolan literalnych w tools/
+  match: path
+  note: 83 odwolan po pelnej sciezce
   in_instances: 36
 - field: status_flags
   status: engine_reads
-  note: 3 odwolan literalnych w tools/
+  match: path
+  note: 4 odwolan po pelnej sciezce
   in_instances: 36
 - field: symbiont_upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: symbiont_upkeep_ref_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: traits
   status: engine_reads
-  note: 3 odwolan literalnych w tools/
+  match: path
+  note: 4 odwolan po pelnej sciezce
   in_instances: 4
 - field: traits.contrast_with_the_moth
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: traits.decided_on
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 4
 - field: traits.development_direction
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 4
 - field: traits.gender
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 4
 - field: traits.hard_limits
   status: engine_reads
-  note: 1 odwolan literalnych w tools/
+  match: leaf
+  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: traits.list
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 4
 - field: traits.note
   status: engine_reads
-  note: 5 odwolan literalnych w tools/
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 4
 - field: traits.source
   status: engine_reads
-  note: 9 odwolan literalnych w tools/
+  match: leaf
+  note: 9 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 4
 - field: traits.subordination
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: traits.tells
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: traits.the_core
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: traits.what_offends_him
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 1
 - field: upkeep_note_DOKUMENTACJA_NIE_MECHANIKA
   status: documentation_only
+  match: none
   note: silnik tego NIE czyta
   in_instances: 10
 status_flags:
