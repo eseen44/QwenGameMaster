@@ -54,7 +54,13 @@ class NarratorSplitTest(unittest.TestCase):
                       "appendiks nie jest osiagalny z zadnego triggera - czyli jest martwy")
 
     def test_rdzen_zostaje_maly(self):
-        size = CORE.stat().st_size
+        # TRESC, NIE ROZMIAR NA DYSKU. stat().st_size liczy konce linii: na Windowsie
+        # z CRLF ten sam plik jest o ~137 B wiekszy niz na Linuksie i test przechodzil
+        # albo nie w zaleznosci od systemu, na ktorym stoi checkout. Rdzen mial 8915 B
+        # tresci - czyli MIESCIL SIE - a test od dawna swiecil na czerwono, twierdzac,
+        # ze trzeba z niego cos wyrzucic. Ta sama pomylka co w pomiarze budzetu kontekstu
+        # (context_plan kontra session_brief, roznica 1052 B = liczba CRLF).
+        size = len(CORE.read_text(encoding="utf-8").encode("utf-8"))
         self.assertLess(size, CORE_LIMIT_BYTES,
                         f"rdzen spuchl do {size} B - historia incydentow idzie do appendiksu, "
                         f"nie do pliku wczytywanego w kazdej turze")
