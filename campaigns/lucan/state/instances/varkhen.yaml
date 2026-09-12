@@ -3,7 +3,7 @@ id: companion_varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 265
+revision: 266
 position:
   location_id: loc_varkhen_chamber
   zone_id: zone_sarcophagus
@@ -11,6 +11,17 @@ position:
 integrity:
   current: 9.399999999999999
   maximum: 65
+  repair:
+    interval_seconds: 86400
+    units: 0.8
+    requires:
+    - env:death_field
+    runtime:
+      repair_elapsed_seconds: 30240
+    note: 'Tlo cmentarza daje 0,8 integralnosci na dobe - tyle samo, ile dawaly cztery lacza sieciarzy.
+      Do 2026-09-12 byl to rejestr RECZNY, bo process_instance_time nie ruszal integralnosci. Teraz nalicza
+      ja silnik, na tych samych warunkach co pule: przy env:death_field, czyli tak dlugo, jak cialo lezy
+      w komnacie.'
 resources:
   ancient_necrotic_reservoir:
     current: 21.4
@@ -19,22 +30,14 @@ resources:
       interval_seconds: 86400
       units: 0.8
       requires:
-      - 'env:death_field'
-      note: 'TLO CMENTARZA ZAMIAST SIECI (retcon_000168, deklaracja gracza). Zalozenie
-        gracza: tlo jest tu tak silne jak to, co Lucan mu wysylal, wiec podtrzymywanie
-        go jest zbedne. 0,8 na dobe to DOKLADNIE tyle, ile dawaly cztery lacza sieciarzy
-        na wyjsciu. WARUNEK JEST MIEJSCEM, NIE FLAGA (poprawione 2026-09-12): requires
-        env:death_field czyta locations/varkhen-chamber/state.yaml#environment.conditions,
-        wiec wyniesienie ciala z komnaty wylacza doplyw SAMO. Do tej poprawki zdanie
-        ponizej bylo nieprawdziwe: silnik sprawdzal flage in_cemetery_death_field, a flaga
-        nie wie o przeprowadzce - zostawala w karcie i naliczanie szlo dalej. Flaga zostaje
-        jako opis stanu, nie jest juz wyzwalaczem.'
-    integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA: 0.8
-    integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA: 'Cztery lacza dawaly mu tez
-      0,8 integralnosci na dobe i tlo cmentarza daje tyle samo, ALE SILNIK NIE NALICZA
-      INTEGRALNOSCI Z REGENERACJI - process_instance_time rusza wylacznie pule zasobow
-      (tools/gm_runtime.py). Jest to wiec rejestr RECZNY, jak growth-banks: przy nastepnej
-      scenie z Varkhenem doliczyc 0,8 za kazda dobe spedzona na cmentarzu, od t_263.'
+      - env:death_field
+      note: 'TLO CMENTARZA ZAMIAST SIECI (retcon_000168, deklaracja gracza). Zalozenie gracza: tlo jest
+        tu tak silne jak to, co Lucan mu wysylal, wiec podtrzymywanie go jest zbedne. 0,8 na dobe to DOKLADNIE
+        tyle, ile dawaly cztery lacza sieciarzy na wyjsciu. WARUNEK JEST MIEJSCEM, NIE FLAGA (poprawione
+        2026-09-12): requires env:death_field czyta locations/varkhen-chamber/state.yaml#environment.conditions,
+        wiec wyniesienie ciala z komnaty wylacza doplyw SAMO. Do tej poprawki zdanie ponizej bylo nieprawdziwe:
+        silnik sprawdzal flage in_cemetery_death_field, a flaga nie wie o przeprowadzce - zostawala w
+        karcie i naliczanie szlo dalej. Flaga zostaje jako opis stanu, nie jest juz wyzwalaczem.'
     runtime:
       regeneration_elapsed_seconds: 30240
 conditions:
@@ -58,11 +61,10 @@ conditions:
 - id: cemetery_ambient_upkeep
   stacks: 1
   magnitude: 80
-  note: 'KOREKTA retcon_000168: podtrzymuje go TLO CMENTARZA, nie Lucan. 0,8 na dobe
-    do puli (silnik: regeneration z requires in_cemetery_death_field) plus 0,8 integralnosci
-    na dobe (rejestr reczny). Tyle samo, ile dawaly cztery lacza sieciarzy. Miedzy
-    nim a Lucanem zostala wylacznie linia alarmowa o zerowym przeplywie, zrywalna
-    ze strony Lucana.'
+  note: 'KOREKTA retcon_000168: podtrzymuje go TLO CMENTARZA, nie Lucan. 0,8 na dobe do puli (silnik:
+    regeneration z requires in_cemetery_death_field) plus 0,8 integralnosci na dobe (rejestr reczny).
+    Tyle samo, ile dawaly cztery lacza sieciarzy. Miedzy nim a Lucanem zostala wylacznie linia alarmowa
+    o zerowym przeplywie, zrywalna ze strony Lucana.'
   elapsed_seconds: 0
   source_event_id: event_turn_interlude_263
 status_flags:

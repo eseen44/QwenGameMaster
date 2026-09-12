@@ -604,6 +604,21 @@ def preview_turn(campaign_root: Path, request: dict[str, Any]) -> dict[str, Any]
         "roll_allowed": assessment.get("roll_allowed", False),
         "time_seconds": seconds,
         "time_guidance": time_guidance(request, scene),
+        # PODAJNIK LICZB. Narrator, ktory nie ma skad wziac liczby, poda dowolna i dopisze
+        # do niej uzasadnienie - tak powstal deficyt zawisaka (retcon_000172B) i czas
+        # tury 274. Preview wystawia to, co silnik i tak wie, ZANIM ktos zgadnie.
+        "numbers": {
+            "stock": stock_counters(campaign_root),
+            "clocks": [
+                {"id": clock.get("id"), "progress": clock.get("progress"),
+                 "threshold": clock.get("threshold"), "remaining": clock_distance(clock)}
+                for clock in (load_optional_yaml(
+                    campaign_root / "state" / "clocks.yaml", {"clocks": []}).get("clocks") or [])
+                if isinstance(clock, dict) and not clock.get("triggered")
+            ],
+            "daily_balance_table": "system/mechanics/daily-balance.yaml",
+            "durations_table": "system/mechanics/durations.yaml",
+        },
         "world_reactions_due_before": due,
         "required_resource_costs": assessment.get("resource_costs", []),
         "automatic_roll_modifiers": automatic_roll_modifiers,
@@ -872,6 +887,27 @@ def process_instance_time(
                         runtime.get("overflow_pending", 0) + spill
                     )
                 pool["current"] = clamped
+    # NAPRAWA INTEGRALNOSCI. Do 2026-09-12 process_instance_time ruszal WYLACZNIE pule
+    # zasobow, a integralnosc byla rejestrem RECZNYM - karta Varkhena kazala "przy nastepnej
+    # scenie doliczyc 0,8 za kazda dobe spedzona na cmentarzu, od t_263". Rejestr reczny,
+    # o ktorym trzeba pamietac, jest rejestrem, ktory sie nie zgadza: dokladnie tak
+    # rozjechal sie rejestr wzrostu (retcon_000114). Regula ma ten sam ksztalt co strumienie
+    # zasobow, wiec obowiazuja ja te same warunki - w tym env:<nazwa> czytane z lokacji.
+    integrity = instance.get("integrity")
+    if isinstance(integrity, dict) and isinstance(integrity.get("repair"), dict):
+        rule = integrity["repair"]
+        if instance_requirements_met(instance, rule.get("requires", []), campaign_root):
+            interval = rule.get("interval_seconds")
+            units = rule.get("units")
+            if isinstance(interval, int) and interval > 0 and isinstance(units, (int, float)):
+                runtime = rule.setdefault("runtime", {})
+                elapsed = int(runtime.get("repair_elapsed_seconds", 0)) + seconds
+                ticks, runtime["repair_elapsed_seconds"] = divmod(elapsed, interval)
+                if ticks and isinstance(integrity.get("current"), (int, float)):
+                    maximum = integrity.get("maximum", integrity["current"])
+                    integrity["current"] = stable_number(
+                        min(maximum, integrity["current"] + ticks * units))
+
     retained: list[dict[str, Any]] = []
     for condition in instance.get("conditions", []):
         if not isinstance(condition, dict):

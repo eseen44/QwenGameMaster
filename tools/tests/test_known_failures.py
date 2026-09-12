@@ -609,5 +609,25 @@ class ClockThresholdTests(unittest.TestCase):
         self.assertEqual(gm_runtime.clock_progress({"threshold": 10}, 2), 2)
 
 
+class ResourcesRoundTripTests(unittest.TestCase):
+    """Rejestr zapasu musi przezyc zapis przez runtime bez przeformatowania.
+
+    `consume_item` zapisuje state/resources.yaml przez yaml.safe_dump. Dopoki plik byl
+    formatowany recznie - zwarte mapy w nawiasach, bloki zwijane - pierwsza operacja
+    rozwinelaby go z 69 linii na 103 i dala 158 linii diffa zamiast jednej zmienionej
+    liczby. Taki diff jest nie do przejrzenia, wiec faktyczna zmiana ginie w szumie.
+    """
+
+    def test_plik_jest_stabilny_pod_dumperem(self) -> None:
+        path = (TOOLS.parent / "campaigns" / "lucan" / "state" / "resources.yaml")
+        tekst = path.read_text(encoding="utf-8")
+        odtworzony = yaml.safe_dump(yaml.safe_load(tekst), allow_unicode=True, sort_keys=False)
+        self.assertEqual(
+            tekst, odtworzony,
+            "resources.yaml nie przezywa round-tripu: pierwszy consume_item przeformatuje "
+            "caly plik i zakryje wlasna zmiane",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -12,9 +12,9 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 160
-  engine_reads: 102
-  documentation_only: 58
+  fields: 165
+  engine_reads: 109
+  documentation_only: 56
   flags: 109
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
@@ -152,7 +152,7 @@ fields:
 - field: growth.steps.id
   status: engine_reads
   match: leaf
-  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 148 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: growth.steps.intent
   status: engine_reads
@@ -177,23 +177,58 @@ fields:
 - field: id
   status: engine_reads
   match: path
-  note: 1000 odwolan po pelnej sciezce
+  note: 1002 odwolan po pelnej sciezce
   in_instances: 36
 - field: integrity
   status: engine_reads
   match: path
-  note: 18 odwolan po pelnej sciezce
+  note: 28 odwolan po pelnej sciezce
   in_instances: 36
 - field: integrity.current
   status: engine_reads
   match: leaf
-  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 22 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 36
 - field: integrity.maximum
   status: engine_reads
   match: leaf
-  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 36
+- field: integrity.repair
+  status: engine_reads
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.interval_seconds
+  status: engine_reads
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.note
+  status: engine_reads
+  match: leaf
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.requires
+  status: engine_reads
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.runtime
+  status: engine_reads
+  match: leaf
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.runtime.repair_elapsed_seconds
+  status: engine_reads
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: integrity.repair.units
+  status: engine_reads
+  match: leaf
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
 - field: intended_post
   status: documentation_only
   match: none
@@ -237,7 +272,7 @@ fields:
 - field: lifecycle.state
   status: engine_reads
   match: leaf
-  note: 24 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 25 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: object_type
   status: engine_reads
@@ -297,7 +332,7 @@ fields:
 - field: orders.id
   status: engine_reads
   match: leaf
-  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 148 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
 - field: orders.instruction
   status: documentation_only
@@ -397,17 +432,7 @@ fields:
 - field: resources.ancient_necrotic_reservoir.current
   status: engine_reads
   match: leaf
-  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
-  in_instances: 1
-- field: resources.ancient_necrotic_reservoir.integrity_repair_note_DOKUMENTACJA_NIE_MECHANIKA
-  status: documentation_only
-  match: none
-  note: silnik tego NIE czyta
-  in_instances: 1
-- field: resources.ancient_necrotic_reservoir.integrity_repair_per_day_DOKUMENTACJA_NIE_MECHANIKA
-  status: documentation_only
-  match: none
-  note: silnik tego NIE czyta
+  note: 22 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration
   status: engine_reads
@@ -417,7 +442,7 @@ fields:
 - field: resources.ancient_necrotic_reservoir.regeneration.interval_seconds
   status: engine_reads
   match: leaf
-  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.note
   status: engine_reads
@@ -427,17 +452,17 @@ fields:
 - field: resources.ancient_necrotic_reservoir.regeneration.requires
   status: engine_reads
   match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.regeneration.units
   status: engine_reads
   match: leaf
-  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.runtime
   status: engine_reads
   match: leaf
-  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.ancient_necrotic_reservoir.runtime.regeneration_elapsed_seconds
   status: engine_reads
@@ -467,7 +492,7 @@ fields:
 - field: resources.lucan_necrotic_energy.current
   status: engine_reads
   match: leaf
-  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 22 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.decision_status
   status: documentation_only
@@ -497,7 +522,7 @@ fields:
 - field: resources.lucan_necrotic_energy.regeneration.interval_seconds
   status: engine_reads
   match: leaf
-  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.note
   status: engine_reads
@@ -507,17 +532,17 @@ fields:
 - field: resources.lucan_necrotic_energy.regeneration.requires
   status: engine_reads
   match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.regeneration.units
   status: engine_reads
   match: leaf
-  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.runtime
   status: engine_reads
   match: leaf
-  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.runtime.regeneration_elapsed_seconds
   status: engine_reads
@@ -537,7 +562,7 @@ fields:
 - field: resources.necrotic_reservoir.current
   status: engine_reads
   match: leaf
-  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 22 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 34
 - field: resources.necrotic_reservoir.decay
   status: engine_reads
@@ -547,7 +572,7 @@ fields:
 - field: resources.necrotic_reservoir.decay.interval_seconds
   status: engine_reads
   match: leaf
-  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.decay.suppressed_by
   status: documentation_only
@@ -557,7 +582,7 @@ fields:
 - field: resources.necrotic_reservoir.decay.units
   status: engine_reads
   match: leaf
-  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.flight_surcharge
   status: documentation_only
@@ -602,17 +627,17 @@ fields:
 - field: resources.necrotic_reservoir.hunting_recovery.interval_seconds
   status: engine_reads
   match: leaf
-  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery.requires
   status: engine_reads
   match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery.units
   status: engine_reads
   match: leaf
-  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 23
 - field: resources.necrotic_reservoir.hunting_recovery_override
   status: documentation_only
@@ -627,12 +652,12 @@ fields:
 - field: resources.necrotic_reservoir.hunting_recovery_override.requires
   status: engine_reads
   match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.necrotic_reservoir.runtime
   status: engine_reads
   match: leaf
-  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 33
 - field: resources.necrotic_reservoir.runtime.decay_elapsed_seconds
   status: engine_reads
@@ -662,7 +687,7 @@ fields:
 - field: resources.paralytic_toxin_reservoir.current
   status: engine_reads
   match: leaf
-  note: 18 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 22 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration
   status: engine_reads
@@ -672,22 +697,22 @@ fields:
 - field: resources.paralytic_toxin_reservoir.regeneration.interval_seconds
   status: engine_reads
   match: leaf
-  note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration.requires
   status: engine_reads
   match: leaf
-  note: 1 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.regeneration.units
   status: engine_reads
   match: leaf
-  note: 7 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 8 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.runtime
   status: engine_reads
   match: leaf
-  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.runtime.regeneration_elapsed_seconds
   status: engine_reads
@@ -702,7 +727,7 @@ fields:
 - field: retired_conditions.id
   status: engine_reads
   match: leaf
-  note: 146 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  note: 148 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: retired_conditions.reason
   status: engine_reads
