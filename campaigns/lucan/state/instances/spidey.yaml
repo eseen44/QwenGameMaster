@@ -25,7 +25,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 32560
+      hunting_recovery_elapsed_seconds: 32080
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
   paralytic_toxin_reservoir:
     current: 4
@@ -37,7 +37,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 10960
+      regeneration_elapsed_seconds: 10480
 conditions:
 - id: partial_hind_leg_loss
   mechanics_ref: condition_spidey_partial_hind_leg_loss
