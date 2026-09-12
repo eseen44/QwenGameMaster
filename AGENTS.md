@@ -15,6 +15,13 @@ Ten projekt jest lokalnym źródłem prawdy dla kampanii RPG prowadzonej przez n
   tendencje, nie automatyczne gesty i limity zdań. Reguły nie trafiają do narracji ani
   do wiedzy NPC. Ustal, co dana osoba poznała, skąd i z jaką pewnością.
 
+## Warunki twarde od tury 275
+
+Jawny `time_seconds` wymaga `time_basis`; `position.formation` jest zamkniete dla `set`
+(miejsce, wiedza o nim i rozkaz maja osobne pola); zuzycie przedmiotu to jedna operacja
+`consume_item`. Stawki dobowe pochodza z wiersza `system/mechanics/daily-balance.yaml`,
+czasy z pasm `system/mechanics/durations.yaml`. Szczegoly i powody: `SKILL-gramy.md`.
+
 ## Otwarcie sesji i koszt rozmowy
 
 Długa historia zwiększa obciążenie kontekstu; koszt zależy także od cache, kompakcji

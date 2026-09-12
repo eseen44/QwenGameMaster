@@ -197,6 +197,32 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools\gm.ps1 turn commit
   dopuścisz rzut. Metamagia: `gm.py amplify` — tylko przy brutalnym skalowaniu znanego czaru.
 - `--allow-noncanonical` wyłącznie do prób migracyjnych. W grze nigdy.
 
+## Co zmienilo sie w silniku 2026-09-12 (obowiazuje od tury 275)
+
+Piec rzeczy, ktore wczesniej byly zaleceniem, a teraz sa warunkiem. Kazda ma czytelny
+komunikat bledu, wiec nie trzeba ich pamietac - ale warto wiedziec, ze istnieja.
+
+- **Jawny `time_seconds` wymaga `time_basis`** (patrz szablon requestu). `pacing_row` jest
+  SPRAWDZANE wzgledem `system/mechanics/durations.yaml`; `player_declaration` ma
+  pierwszenstwo i nie podlega pasmom. `turn preview` podaje domysl silnika obok twojej
+  deklaracji w bloku `time` - porownaj je, zanim zgadniesz.
+- **`position.formation` jest zamkniete dla `set`.** Miejsce, wiedza o nim i rozkaz maja
+  osobne pola: `position.location_id/zone_id`, `position.fix`, `observation`, `orders[]`.
+  Silnik sam stempluje `fix` przy kazdym secie pozycji.
+- **Zuzycie przedmiotu to jedna operacja `consume_item`**, ktora odejmuje zapas I naklada
+  skutek. Skutek podajesz jawnie; mapy "przedmiot -> efekt" nie ma.
+- **Stawki dobowe bierze sie z wiersza tabeli**, nie z glowy:
+  `system/mechanics/daily-balance.yaml`. Wpis w rejestrze wzrostu deklaruje `balance_row`,
+  a `reconcile_growth` sprawdza, ze stawka = wiersz x modyfikator - utrzymanie.
+- **Retcon musi ruszyc pliki, ktore wymienia** w `state_refs_updated` - sprawdza to
+  `retcon_apply_check` w pre-commicie.
+
+Narzedzia do przegladu, uruchamiane na zadanie, nie w turze:
+`servants_check` (wszystkie slugi, nie tylko uczestnicy sceny), `audit_stock` (rejestr
+zapasu), `scan_item_claims --consumed-only` (gdzie jeszcze mowi sie o zuzytym przedmiocie),
+`commitments_freshness` (od ilu tur nikt nie ruszyl zobowiazania), `growth_settle`
+(zaleglosc rejestru), `orphan_numbers` (liczby zyjace wylacznie w prozie).
+
 ## Zamykanie sceny
 
 ```powershell

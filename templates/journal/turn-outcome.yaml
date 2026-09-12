@@ -29,6 +29,28 @@ resolved_world_reaction_ids: []
 # Przy napięciu 0 wymagane dla worsened/complicated/mixed: istniejący plik,
 # event/retcon albo player_declaration:...
 consequence_source_refs: []
+# OPERACJE. Slownik jest ZAMKNIETY i sprawdzany PRZED zapisem - literowka w nazwie nie
+# zatrzyma juz commita w polowie zmienionych dokumentow. Dwie rzeczy, ktore zmienily sie
+# 2026-09-12 i o ktore najlatwiej sie potknac:
+#
+# 1. ZUZYCIE PRZEDMIOTU MA WLASNA OPERACJE. Nie odejmuj zapasu recznie i nie nakladaj
+#    skutku osobno - w turze 177 drugi z tych krokow wypadl i 97 tur pozniej narrator
+#    polozyl graczowi na stole przedmiot, ktorego nie ma (retcon_000170/173).
+#      - {op: consume_item, item_id: ..., units: 1, on: <instance_id>,
+#         effect_flags: [<flaga>], reason: "..."}
+#    Skutek podajesz JAWNIE. Nie ma mapy "przedmiot -> efekt" i nie bedzie: ta sama porcja
+#    tlumiaca dala Tkaczowi flage dokumentacyjna, a zawisakowi wpis na puli.
+#
+# 2. position.formation JEST ZAMKNIETE dla `set` od tury 275. To pole mieszalo trzy rzeczy
+#    naraz - POZYCJE, WIEDZE o niej i ROZKAZ - i dlatego rozkaz dalo sie przeczytac jako
+#    fakt o polozeniu (retcon_000171). Zamiast niego:
+#      position.location_id / position.zone_id  - MIEJSCE (silnik sam ostempluje position.fix)
+#      position.fix {status, as_of_event_id, source} - SKAD TO WIADOMO
+#         status: confirmed | stale | inferred | unknown
+#         source: transaction | borrowed_sense | report | order_assumption
+#         order_assumption + confirmed jest ODRZUCANE: rozkaz nie jest obserwacja
+#      observation {event_id, channel, confidence, coordinates_recovered, text} - POMIAR
+#      orders[] - ROZKAZ, z wlasnym id i source_event_id
 operations: []
 # Przy przejsciu miedzy lokacjami ustaw scene_update.location_ref i pelna liste
 # scene_update.participants. To zapis obecnosci, nie polecenie ruchu: pozycje cial

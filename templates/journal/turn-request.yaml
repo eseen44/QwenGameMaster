@@ -8,6 +8,17 @@ intent_id: intent_example
 scope: execution
 stakes: Co może się zmienić.
 time_class: brief
+# SKAD TA LICZBA SEKUND. Wymagane od tury 275 zawsze, gdy podajesz time_seconds jawnie.
+#   pacing_row         - wiersz z system/mechanics/durations.yaml. SPRAWDZANE: liczba musi
+#                        miescic sie w pasmie tego wiersza, inaczej tura jest odrzucona.
+#   canon_ref          - liczba stoi w pliku kanonu albo w zacommitowanej turze.
+#   player_declaration - gracz podal czas wprost. MA PIERWSZENSTWO (retcon_000061)
+#                        i nie podlega pasmom.
+#   clock              - czas wynika z progu albo terminu w state/clocks.yaml.
+#   workshop_hours     - praca reczna przy stole, w godzinach (retcon_000024).
+# Bez time_seconds pole jest zbedne - czas bierze sie z tabeli TIME_SECONDS.
+# `gm turn preview` PODAJE domysl silnika i pasmo, zanim zgadniesz: patrz blok "time".
+time_basis: pacing_row
 condition_ids: []
 modifiers: []
 situation_tags: []
