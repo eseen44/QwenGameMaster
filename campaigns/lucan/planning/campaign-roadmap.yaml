@@ -1,0 +1,52 @@
+schema_version: 1
+id: campaign_roadmap
+object_type: design_brief
+status: declared_not_binding
+declared_on: '2026-09-12'
+declared_by: player
+what_this_is: KIERUNEK PODANY PRZEZ GRACZA, nie harmonogram i nie zobowiazanie. Kolejnosc moze sie zmienic,
+  a niewykonane rzeczy przechodza dalej - tak jak w interludium przed Aktem 3 (state/objectives.yaml#current_interlude_scope.entry_rule).
+  Plik istnieje, zeby mapa nie zyla wylacznie w rozmowie.
+narrator_warning: TO NIE JEST LISTA ZEGAROW. Zapisanie tu czegos NIE tworzy terminu, presji ani zobowiazania
+  i nie wolno zestawiac tej listy z zegarami, zeby pokazac graczowi niedobor (retcon_000142). Elementy
+  wchodza do gry dopiero przez deklaracje.
+acts:
+- id: act_03
+  name: Rozprawy
+  elements:
+  - dwa przesluchania
+  - npc_ivar_kolm
+  - fanatycy
+  - aktualny wlasciciel garbarni
+  - Straz
+  canon_support: 'Watek czynny: clock_guild_leadership_hearing i clock_father_arranges_academy_showing,
+    oba 4/15. Cele w state/objectives.yaml#objective_prepare_guild_hearing_and_watch oraz #objective_prepare_academy_church_dispute.
+    Wlasciciel garbarni ma wlasny watek w player/inventory.yaml#item_tannery_owner_cache.'
+- id: interlude_03
+  name: Interludium 3
+  elements: []
+- id: act_04
+  name: Brama
+  elements:
+  - dolne wrota i trzy pieczecie
+  - zakony rycerskie
+  - Klara Brandt
+  - wiecej nieumarlych
+  canon_support: 'ZAKONY I KLARA TO JEDEN WATEK, NIE DWA: entities/factions/house-of-the-dandelion.yaml
+    ustala, ze byla narzeczona Lucana to KLARA BRANDT, i ma pole relationship_to_klaras_order. faction_lumaria_martial_orders
+    istnieje i jest not_yet_directly_engaged_in_lucans_case. Brama: agenda Varkhena zawiera keep_the_lower_gate_closed
+    i restore_and_secure_three_seals; pierwsza pieczec zlamana, druga zabrudzona, trzecia trzyma inaczej
+    (t_259, t_261).'
+  note: TO JEST AKT, W KTORYM PADAJA PIECZECIE - patrz companion-cat-concept.yaml#origin.sequence. Ekspedycja
+    ma sie skonczyc SUKCESEM I NUDA.
+- id: interlude_04
+  name: Interludium 4
+  elements:
+  - kot
+  - Varkhen majordomus garbarni
+  - matka
+  canon_support: 'KOT wchodzi tutaj, jako slad po bramie z Aktu 4. MATKA: player/background.yaml#background_mother_bourgeois_adapting_to_nobility
+    ustala pochodzenie (bogata rodzina mieszczanska), ale jej OBECNY STATUS I MIEJSCE stoja w unknown_not_to_invent_silently
+    - narratorowi NIE WOLNO ich wymyslic, wchodza wylacznie deklaracja gracza. VARKHEN MAJORDOMUS GARBARNI:
+    nowe, bez pokrycia w plikach - wymaga deklaracji. Laczy jednak dwa istniejace watki: garbarnie (item_tannery_owner_cache,
+    Komora III) i pytanie, co Varkhen ma robic po zamknieciu wrot.'
