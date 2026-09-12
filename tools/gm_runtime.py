@@ -102,6 +102,22 @@ def world_axis_from_roll(roll: dict[str, Any]) -> dict[str, Any]:
 # porownal, bo deklaracja nie musiala mowic, SKAD liczba pochodzi (retcon_000172A).
 TIME_BASIS_BASELINE_TURN = 274
 
+# ZAPADKA NA POLE POZYCJI. Do tury 274 wlacznie `position.formation` jest workiem, w ktorym
+# siedza naraz trzy rozne rzeczy: gdzie okaz JEST, co o tym WIADOMO i jaki ma ROZKAZ.
+# Tak powstal retcon_000171 - narrator przeczytal rozkaz "mapuj teren pod gildia" jako fakt
+# o polozeniu i wyprowadzil szczury do miejsca, w ktorym nikogo nie ma. Od tury 275 pole
+# jest zamkniete dla operacji `set`; te trzy rzeczy maja osobne miejsca.
+POSITION_FIELD_BASELINE_TURN = 274
+
+# Skad wiadomo, gdzie okaz stoi. Kolejnosc od najmocniejszego.
+POSITION_FIX_SOURCES = {
+    "transaction",      # ustawione zapisem tury - silnik wpisuje to sam
+    "borrowed_sense",   # pozyczony zmysl przez kanal sieci, z dokladnoscia kanalu
+    "report",           # ktos powiedzial
+    "order_assumption", # NIKT NIE SPRAWDZAL: wiemy, jaki rozkaz dostal, nie gdzie jest
+}
+POSITION_FIX_STATUSES = {"confirmed", "stale", "inferred", "unknown"}
+
 # Dozwolone odpowiedzi na pytanie "skad ta liczba". Pelny opis: system/mechanics/durations.yaml.
 TIME_BASIS_VALUES = {
     "pacing_row",          # wiersz tabeli pasm
@@ -952,7 +968,30 @@ def apply_operation(
                 f"stale revision for {entity['id']}: expected {expected}, found {entity.get('revision')}"
             )
         if op == "set":
-            gm_engine.set_path(entity, operation["path"], copy.deepcopy(operation.get("value")))
+            path = operation.get("path") or ""
+            numer = turn_number(event_id)
+            if path.startswith("position.formation") and (
+                numer is None or numer > POSITION_FIELD_BASELINE_TURN
+            ):
+                raise RuntimeError(
+                    "position.formation jest zamkniete od tury 275. To pole mieszalo trzy "
+                    "rozne rzeczy - POZYCJE, WIEDZE o niej i ROZKAZ - i wlasnie dlatego "
+                    "rozkaz dalo sie przeczytac jako fakt o polozeniu (retcon_000171). "
+                    "Uzyj: position.location_id / position.zone_id dla miejsca, "
+                    "position.fix dla tego, skad to wiadomo, observation dla pomiaru, "
+                    "orders dla rozkazu."
+                )
+            gm_engine.set_path(entity, path, copy.deepcopy(operation.get("value")))
+            # SILNIK SAM STEMPLUJE POCHODZENIE POZYCJI. Wersja, w ktorej narrator dopisuje
+            # `fix` recznie przy kazdym secie, opodatkowywalaby najczestsza operacje kampanii
+            # i skonczylaby sie odruchowym wklejaniem "confirmed" - czyli sfabrykowana
+            # pewnoscia, gorsza niz brak pola.
+            if path in {"position.location_id", "position.zone_id"}:
+                entity.setdefault("position", {})["fix"] = {
+                    "status": "confirmed",
+                    "as_of_event_id": event_id,
+                    "source": "transaction",
+                }
         elif op == "adjust":
             gm_engine.adjust_path(entity, operation["path"], operation["delta"])
         elif op in {"consume", "restore"}:
@@ -1000,6 +1039,8 @@ def apply_operation(
             entity["conditions"] = [
                 item for item in entity.get("conditions", []) if item.get("id") != condition_id
             ]
+        # Sprawdzane PO zastosowaniu, bo dopiero wtedy widac koncowy stan pola.
+        validate_position_fix(entity)
         if entity.get("last_event_id") != event_id:
             entity["revision"] = int(entity.get("revision", 0)) + 1
         entity["last_event_id"] = event_id
@@ -1370,6 +1411,38 @@ def event_from_transaction(transaction: dict[str, Any]) -> dict[str, Any]:
         "consequence_source_refs": list(outcome.get("consequence_source_refs") or []),
         "resolved_world_reaction_ids": list(outcome.get("resolved_world_reaction_ids") or []),
     }
+
+
+def validate_position_fix(entity: dict[str, Any]) -> None:
+    """Pozycja wywnioskowana z ROZKAZU nie moze byc oznaczona jako potwierdzona.
+
+    To jest cala tresc retcon_000171 zapisana jako warunek. spy_centipede_01 mial
+    w jednym polu rozkaz z t_186 ("mapuj teren pod gildia"), a obok flage
+    "no_standing_order_beyond_default_hunting" i pomiar z t_091 mowiacy, ze wij jest
+    gdzies pod dzielnica gildii BEZ WSPOLRZEDNYCH. Trzy zdania, trzy rozne pewnosci,
+    zadnego pola na to, ktora jest ktora.
+    """
+    fix = (entity.get("position") or {}).get("fix")
+    if not isinstance(fix, dict):
+        return
+    status = fix.get("status")
+    source = fix.get("source")
+    if status is not None and status not in POSITION_FIX_STATUSES:
+        raise RuntimeError(
+            f"{entity.get('id')}: position.fix.status '{status}' - dozwolone "
+            f"{sorted(POSITION_FIX_STATUSES)}"
+        )
+    if source is not None and source not in POSITION_FIX_SOURCES:
+        raise RuntimeError(
+            f"{entity.get('id')}: position.fix.source '{source}' - dozwolone "
+            f"{sorted(POSITION_FIX_SOURCES)}"
+        )
+    if source == "order_assumption" and status == "confirmed":
+        raise RuntimeError(
+            f"{entity.get('id')}: position.fix ma source order_assumption i status confirmed. "
+            "Rozkaz nie jest obserwacja - wiadomo, DOKAD okaz mial isc, nie gdzie jest. "
+            "Wlasciwy status to inferred albo unknown (retcon_000171)."
+        )
 
 
 def validate_outcome(outcome: dict[str, Any]) -> None:

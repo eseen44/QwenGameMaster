@@ -3,11 +3,18 @@ id: spy_centipede_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 197
+revision: 198
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_wall_district
-  formation: standing_order_from_t_186_actively_map_and_explore_the_underside_of_the_guild_avoiding_people_and_noise_moving_up_from_the_wall_district_sewers
+  formation: released_into_the_sewer_t_077_position_not_confirmed_since_t_091
+  fix:
+    status: unknown
+    as_of_event_id: event_turn_interlude_091
+    source: borrowed_sense
+    note: Ostatni pomiar ma 95 tur i NIE DAL WSPOLRZEDNYCH. location_id nizej jest miejscem WYPUSZCZENIA
+      (t_077), nie miejscem pobytu - od t_186 okaz ma rozkaz isc w gore pod gildie. Nie wolno podawac
+      tego jako polozenia.
 integrity:
   current: 7
   maximum: 7
@@ -43,3 +50,19 @@ last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
+observation:
+  event_id: event_turn_interlude_091
+  channel: borrowed_sense
+  confidence: low
+  coordinates_recovered: false
+  text: 'Sygnal ROSNIE w drodze do gildii: gdzies pod dzielnica gildii, a kanaly siegaja pod sama piwnice.
+    Ciosany kamien i powietrze STOJACE, bez ciagu i bez wody - to nie kanal, to czyjas piwnica, do ktorej
+    wij wszedl otworem od spodu. KTORA - NIE WIADOMO. Watek otwarty.'
+  method: krzywa straty jako dalmierz (pomiar z t_086)
+orders:
+- id: order_map_under_the_guild
+  status: active
+  source_event_id: event_turn_interlude_186
+  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu, idac w gore od
+    kanalow dzielnicy muru.
+  issued_as: parenthetical_internal_act

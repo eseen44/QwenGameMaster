@@ -12,9 +12,9 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 147
-  engine_reads: 90
-  documentation_only: 57
+  fields: 160
+  engine_reads: 98
+  documentation_only: 62
   flags: 109
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
@@ -29,7 +29,7 @@ fields:
   in_instances: 1
 - field: conditions.id
   status: engine_reads
-  note: 136 odwolan literalnych w tools/
+  note: 139 odwolan literalnych w tools/
   in_instances: 3
 - field: conditions.magnitude
   status: engine_reads
@@ -125,7 +125,7 @@ fields:
   in_instances: 1
 - field: growth.steps.id
   status: engine_reads
-  note: 136 odwolan literalnych w tools/
+  note: 139 odwolan literalnych w tools/
   in_instances: 1
 - field: growth.steps.intent
   status: engine_reads
@@ -145,7 +145,7 @@ fields:
   in_instances: 1
 - field: id
   status: engine_reads
-  note: 136 odwolan literalnych w tools/
+  note: 139 odwolan literalnych w tools/
   in_instances: 36
 - field: integrity
   status: engine_reads
@@ -169,7 +169,7 @@ fields:
   in_instances: 1
 - field: intended_post.status
   status: engine_reads
-  note: 59 odwolan literalnych w tools/
+  note: 61 odwolan literalnych w tools/
   in_instances: 1
 - field: intended_post.target
   status: engine_reads
@@ -199,10 +199,38 @@ fields:
   status: engine_reads
   note: 17 odwolan literalnych w tools/
   in_instances: 36
+- field: observation
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
+- field: observation.channel
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
+- field: observation.confidence
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 2
+- field: observation.coordinates_recovered
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
+- field: observation.event_id
+  status: engine_reads
+  note: 10 odwolan literalnych w tools/
+  in_instances: 2
+- field: observation.method
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
+- field: observation.text
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 2
 - field: orders
   status: documentation_only
   note: silnik tego NIE czyta
-  in_instances: 1
+  in_instances: 3
 - field: orders.execution_started
   status: documentation_only
   note: silnik tego NIE czyta
@@ -213,12 +241,16 @@ fields:
   in_instances: 1
 - field: orders.id
   status: engine_reads
-  note: 136 odwolan literalnych w tools/
-  in_instances: 1
+  note: 139 odwolan literalnych w tools/
+  in_instances: 3
 - field: orders.instruction
   status: documentation_only
   note: silnik tego NIE czyta
-  in_instances: 1
+  in_instances: 3
+- field: orders.issued_as
+  status: documentation_only
+  note: silnik tego NIE czyta
+  in_instances: 2
 - field: orders.precedent_for_future_parenthetical_messages
   status: documentation_only
   note: silnik tego NIE czyta
@@ -226,22 +258,42 @@ fields:
 - field: orders.source_event_id
   status: engine_reads
   note: 4 odwolan literalnych w tools/
-  in_instances: 1
+  in_instances: 3
 - field: orders.status
   status: engine_reads
-  note: 59 odwolan literalnych w tools/
-  in_instances: 1
+  note: 61 odwolan literalnych w tools/
+  in_instances: 3
 - field: orders.time_advanced_when_issued
   status: documentation_only
   note: silnik tego NIE czyta
   in_instances: 1
 - field: position
   status: engine_reads
-  note: 8 odwolan literalnych w tools/
+  note: 10 odwolan literalnych w tools/
   in_instances: 36
 - field: position.detail
   status: documentation_only
   note: silnik tego NIE czyta
+  in_instances: 2
+- field: position.fix
+  status: engine_reads
+  note: 2 odwolan literalnych w tools/
+  in_instances: 2
+- field: position.fix.as_of_event_id
+  status: engine_reads
+  note: 1 odwolan literalnych w tools/
+  in_instances: 2
+- field: position.fix.note
+  status: engine_reads
+  note: 5 odwolan literalnych w tools/
+  in_instances: 2
+- field: position.fix.source
+  status: engine_reads
+  note: 9 odwolan literalnych w tools/
+  in_instances: 2
+- field: position.fix.status
+  status: engine_reads
+  note: 61 odwolan literalnych w tools/
   in_instances: 2
 - field: position.formation
   status: engine_reads
@@ -513,7 +565,7 @@ fields:
   in_instances: 1
 - field: retired_conditions.id
   status: engine_reads
-  note: 136 odwolan literalnych w tools/
+  note: 139 odwolan literalnych w tools/
   in_instances: 1
 - field: retired_conditions.reason
   status: engine_reads
@@ -537,7 +589,7 @@ fields:
   in_instances: 36
 - field: status
   status: engine_reads
-  note: 59 odwolan literalnych w tools/
+  note: 61 odwolan literalnych w tools/
   in_instances: 36
 - field: status_flags
   status: engine_reads
@@ -585,7 +637,7 @@ fields:
   in_instances: 4
 - field: traits.source
   status: engine_reads
-  note: 7 odwolan literalnych w tools/
+  note: 9 odwolan literalnych w tools/
   in_instances: 4
 - field: traits.subordination
   status: documentation_only

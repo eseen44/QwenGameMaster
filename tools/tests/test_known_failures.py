@@ -435,5 +435,59 @@ class ConsumeItemTests(unittest.TestCase):
         self.assertIn("nie ma na kogo spasc", str(ctx.exception))
 
 
+class PositionFixTests(unittest.TestCase):
+    """retcon_000171/176 - pozycja, wiedza o niej i rozkaz to trzy rozne rzeczy."""
+
+    def _entity(self) -> dict:
+        return {"id": "spy_test_01", "revision": 1,
+                "position": {"location_id": "loc_a", "zone_id": "zone_a"}}
+
+    def _apply(self, entity: dict, operation: dict, event_id: str) -> None:
+        with mock.patch.object(
+            gm_runtime, "entity_for_operation", return_value=(Path("x.yaml"), entity)
+        ):
+            gm_runtime.apply_operation(Path("."), {}, operation, event_id)
+
+    def test_formation_zamkniete_po_zapadce(self) -> None:
+        entity = self._entity()
+        numer = gm_runtime.POSITION_FIELD_BASELINE_TURN + 1
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            self._apply(entity, {"op": "set", "instance_id": "spy_test_01",
+                                 "path": "position.formation", "value": "cokolwiek"},
+                        f"event_turn_interlude_{numer}")
+        self.assertIn("position.formation", str(ctx.exception))
+
+    def test_tura_sprzed_zapadki_nadal_moze_pisac_formation(self) -> None:
+        entity = self._entity()
+        self._apply(entity, {"op": "set", "instance_id": "spy_test_01",
+                             "path": "position.formation", "value": "historyczne"},
+                    f"event_turn_interlude_{gm_runtime.POSITION_FIELD_BASELINE_TURN}")
+        self.assertEqual(entity["position"]["formation"], "historyczne")
+
+    def test_silnik_sam_stempluje_pochodzenie_pozycji(self) -> None:
+        # Wersja z recznym fix przy kazdym secie skonczylaby sie odruchowym "confirmed".
+        entity = self._entity()
+        self._apply(entity, {"op": "set", "instance_id": "spy_test_01",
+                             "path": "position.zone_id", "value": "zone_b"},
+                    "event_turn_interlude_300")
+        self.assertEqual(entity["position"]["fix"], {
+            "status": "confirmed",
+            "as_of_event_id": "event_turn_interlude_300",
+            "source": "transaction",
+        })
+
+    def test_rozkaz_nie_moze_udawac_obserwacji(self) -> None:
+        entity = self._entity()
+        entity["position"]["fix"] = {"status": "confirmed", "source": "order_assumption"}
+        with self.assertRaises(gm_runtime.RuntimeError) as ctx:
+            gm_runtime.validate_position_fix(entity)
+        self.assertIn("order_assumption", str(ctx.exception))
+
+    def test_rozkaz_jako_domysl_jest_w_porzadku(self) -> None:
+        entity = self._entity()
+        entity["position"]["fix"] = {"status": "inferred", "source": "order_assumption"}
+        gm_runtime.validate_position_fix(entity)
+
+
 if __name__ == "__main__":
     unittest.main()

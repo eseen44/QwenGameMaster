@@ -3,11 +3,17 @@ id: spy_centipede_02
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 197
+revision: 198
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_wall_district
-  formation: standing_order_from_t_186_actively_map_and_explore_the_underside_of_the_guild_avoiding_people_and_noise_moving_up_from_the_wall_district_sewers
+  formation: released_into_the_sewer_t_077_position_not_confirmed_since_t_091
+  fix:
+    status: stale
+    as_of_event_id: event_turn_interlude_091
+    source: borrowed_sense
+    note: Sygnal matowy, kierunek mur/garbarnia, bez wspolrzednych. Strefa nizej jest ostatnia znana,
+      nie potwierdzona.
 integrity:
   current: 7
   maximum: 7
@@ -43,3 +49,17 @@ last_event_id: event_turn_interlude_274
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
+observation:
+  event_id: event_turn_interlude_091
+  channel: borrowed_sense
+  confidence: very_low
+  coordinates_recovered: false
+  text: Matowy, po stronie muru i garbarni. Zyje, syta, bez wspolrzednych.
+  method: krzywa straty jako dalmierz (pomiar z t_086)
+orders:
+- id: order_map_under_the_guild
+  status: active
+  source_event_id: event_turn_interlude_186
+  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu, idac w gore od
+    kanalow dzielnicy muru.
+  issued_as: parenthetical_internal_act
