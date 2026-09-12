@@ -30,7 +30,7 @@ acts:
   elements:
   - dolne wrota i trzy pieczecie
   - zakony rycerskie
-  - Klara Brandt
+  - KLARA BRANDT osobiscie - bez rodziny
   - wiecej nieumarlych
   canon_support: 'ZAKONY I KLARA TO JEDEN WATEK, NIE DWA: entities/factions/house-of-the-dandelion.yaml
     ustala, ze byla narzeczona Lucana to KLARA BRANDT, i ma pole relationship_to_klaras_order. faction_lumaria_martial_orders
@@ -39,6 +39,11 @@ acts:
     (t_259, t_261).'
   note: TO JEST AKT, W KTORYM PADAJA PIECZECIE - patrz companion-cat-concept.yaml#origin.sequence. Ekspedycja
     ma sie skonczyc SUKCESEM I NUDA.
+  who_enters_here: 'KLARA WCHODZI SAMA. entities/factions/house-of-the-dandelion.yaml ma status named_in_play_not_yet_encountered
+    - do tej pory byla NAZWANA, nie spotkana. Rodziny jeszcze nie ma, ale ona juz za nia stoi: relationship_to_klaras_order
+    mowi major_supplier_and_patron_not_owner - Brandtowie dostarczaja jej zakonowi bron i finansowanie,
+    wiec jej ojciec ma dostep do starszych oficerow i moze aranzowac jej stanowiska oraz awanse. Rod siega
+    wiec do jej ZAKONU, zanim siegnie do Lucana.'
 - id: interlude_04
   name: Interludium 4
   elements:
@@ -50,3 +55,20 @@ acts:
     - narratorowi NIE WOLNO ich wymyslic, wchodza wylacznie deklaracja gracza. VARKHEN MAJORDOMUS GARBARNI:
     nowe, bez pokrycia w plikach - wymaga deklaracji. Laczy jednak dwa istniejace watki: garbarnie (item_tannery_owner_cache,
     Komora III) i pytanie, co Varkhen ma robic po zamknieciu wrot.'
+- id: after_act_04
+  name: Po Akcie 4 - rody i polityka
+  declared_by: player 2026-09-12
+  elements:
+  - rodzina Klary (Dom Brandt)
+  - rodzina Lucana (Glowna Linia Veyr)
+  - polityka siegajaca po bohatera godziny
+  ordering_rule: 'KOLEJNOSC JEST WIAZACA: najpierw OSOBA, potem INSTYTUCJE. Klara w Akcie 4 bez rodziny;
+    rody i polityka dopiero po nim. Nie wolno wprowadzac Brandtow ani Veyrow wczesniej tylko dlatego,
+    ze sa wygodnym zrodlem nacisku.'
+  canon_support: 'OBA RODY SA DZIS JAWNIE NIEZAANGAZOWANE I TO JEST STAN, NIE LUKA. house_veyr_main_line#current_state
+    mowi, ze rod jest obecny STRUKTURALNIE WSZEDZIE, ale jeszcze NIE zaangazowany bezposrednio w sprawe
+    Lucana. Dom Brandt: named_in_play_not_yet_encountered. Oba czekaja na powod - a bohater godziny po
+    zamknieciu wrot jest dokladnie takim powodem.'
+  what_the_narrator_must_not_invent: 'Imiona glowy rodu Brandt, rodzicow i mlodszego brata Klary; obecny
+    los i miejsce ojca, MATKI i samej Klary. Wszystko to stoi w player/background.yaml#unknown_not_to_invent_silently,
+    a karta Veyrow powtarza to wprost: narrator ma o te rzeczy ZAPYTAC, a nie je wymyslac.'
