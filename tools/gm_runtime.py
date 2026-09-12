@@ -58,6 +58,16 @@ _StringDatesLoader.yaml_implicit_resolvers = {
 }
 ARRANGEMENTS = {"improved", "worsened", "complicated", "mixed", "unchanged"}
 
+# ZAMKNIETY SLOWNIK OPERACJI. Do 2026-09-12 nieznane `op` konczylo sie RuntimeError dopiero
+# w apply_operation, czyli PO tym, jak wczesniejsze operacje z tej samej tury zdazyly juz
+# zmienic dokumenty w slowniku `changed`. Literowka w nazwie operacji byla wiec wykrywana
+# w polowie zapisu. Lista musi odpowiadac dyspozytorowi w apply_operation.
+OPERATIONS = {
+    "set", "adjust", "consume", "restore", "add_condition", "remove_condition",
+    "advance_time", "advance_clock", "shift_world_axis", "transfer_item",
+    "change_relationship",
+}
+
 # OS SWIATA (decyzja gracza 2026-09-09). Pasma liczone z MARGINESU nad progiem, nie
 # z surowego d100: `difficulty` juz niesie opor sytuacji, wiec ten sam wynik przy progu 40
 # i przy progu 85 nie moze znaczyc tego samego. Naturalne 1 i 100 przebijaja margines.
@@ -259,17 +269,25 @@ def scene_document(campaign_root: Path) -> dict[str, Any]:
 
 
 def action_seconds(request: dict[str, Any], scene: dict[str, Any]) -> int:
+    time_class = request.get("time_class", "brief")
+    tension = scene.get("tension", {}).get("level", 0)
+    # KLASA CZASU JEST SPRAWDZANA ZAWSZE, TAKZE PRZY JAWNYM time_seconds (retcon_000172).
+    # Do 2026-09-12 jawne time_seconds wracalo z funkcji PRZED ta kontrola, wiec
+    # `time_class: standard` - klasa, ktorej TIME_SECONDS w ogole nie zna - przeszlo
+    # w dziewieciu turach. Gorszy skutek: tura 274 zadeklarowala `brief` i 600 sekund,
+    # podczas gdy tabela dla `brief` przy napieciu 0 mowi 300. Poprawna odpowiedz lezala
+    # w tym pliku i nikt jej z deklaracja nie porownal.
+    if time_class != "extended" and (
+        tension not in TIME_SECONDS or time_class not in TIME_SECONDS[tension]
+    ):
+        raise RuntimeError(f"unsupported time class {time_class!r} at tension {tension}")
     if "time_seconds" in request:
         seconds = request["time_seconds"]
         if not isinstance(seconds, int) or seconds < 0:
             raise RuntimeError("time_seconds must be a non-negative integer")
         return seconds
-    time_class = request.get("time_class", "brief")
     if time_class == "extended":
         raise RuntimeError("extended actions require explicit time_seconds")
-    tension = scene.get("tension", {}).get("level", 0)
-    if tension not in TIME_SECONDS or time_class not in TIME_SECONDS[tension]:
-        raise RuntimeError(f"unsupported time class {time_class!r} at tension {tension}")
     return TIME_SECONDS[tension][time_class]
 
 
@@ -631,8 +649,21 @@ def process_instance_time(instance: dict[str, Any], seconds: int) -> None:
             elapsed = int(runtime.get(elapsed_key, 0)) + seconds
             ticks, runtime[elapsed_key] = divmod(elapsed, interval)
             if ticks:
-                current = pool.get("current", 0) + direction * ticks * units
-                pool["current"] = max(0, min(pool.get("capacity", current), current))
+                raw = pool.get("current", 0) + direction * ticks * units
+                capacity = pool.get("capacity", raw)
+                clamped = max(0, min(capacity, raw))
+                # NADWYZKA PONAD SUFIT NIE PRZEPADA (retcon_000109). Do 2026-09-12 silnik
+                # scinal ja do pojemnosci i gubil bez sladu, a wiekszosc aktywnych zbiornikow
+                # stoi przy suficie - wiec kazde tykniecie niszczylo to, co retcon kazal
+                # rozdzielic. Silnik nie umie rozdzielac (drabina to rejestr reczny,
+                # state/growth-banks.yaml), ale ma obowiazek NIE GUBIC: odklada nadmiar
+                # w runtime.overflow_pending, skad rozliczy go `gm growth settle`.
+                spill = stable_number(raw - clamped)
+                if spill > 0:
+                    runtime["overflow_pending"] = stable_number(
+                        runtime.get("overflow_pending", 0) + spill
+                    )
+                pool["current"] = clamped
     retained: list[dict[str, Any]] = []
     for condition in instance.get("conditions", []):
         if not isinstance(condition, dict):
@@ -777,7 +808,11 @@ def apply_operation(
             result = stable_number(current - units if op == "consume" else current + units)
             if result < 0:
                 raise RuntimeError(f"insufficient {pool_id}: {current} < {units}")
-            pool["current"] = min(capacity, result)
+            # PRZYCINANIE DO POJEMNOSCI DOTYCZY WYLACZNIE `restore`. Przy `consume` pula
+            # stojaca PONAD pojemnoscia (nadwyzka zapisana przez process_instance_time albo
+            # reczne `set`) byla scinana do capacity zamiast pomniejszana o units - czyli
+            # odjecie jednej jednostki potrafilo zabrac kilka.
+            pool["current"] = result if op == "consume" else min(capacity, result)
         elif op == "add_condition":
             condition = copy.deepcopy(operation.get("condition"))
             if not isinstance(condition, dict) or not isinstance(condition.get("id"), str):
@@ -1100,6 +1135,16 @@ def validate_outcome(outcome: dict[str, Any]) -> None:
         raise RuntimeError("outcome.summary is required")
     if not isinstance(outcome.get("operations", []), list):
         raise RuntimeError("outcome.operations must be a list")
+    for operation in outcome.get("operations", []):
+        if not isinstance(operation, dict):
+            raise RuntimeError("outcome.operations element must be a mapping")
+        op = operation.get("op")
+        if op not in OPERATIONS:
+            raise RuntimeError(
+                f"nieznana operacja {op!r} - dozwolone: {sorted(OPERATIONS)}. "
+                "Kontrola stoi TUTAJ, przed petla zapisu, zeby literowka nie zatrzymywala "
+                "commita w polowie zmienionych dokumentow."
+            )
     # ZAPORA NA PODWOJENIE CZASU (retcon_000118). commit dokleja transaction.time_operation
     # bezwarunkowo, wiec advance_time dopisany recznie do outcome.operations liczy sie DRUGI
     # RAZ. Zakaz stal w prozie AGENTS.md i w SKILL-gramy.md, a pomiar pokazuje 28 tur

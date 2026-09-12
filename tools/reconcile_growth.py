@@ -37,13 +37,15 @@ Uruchomienie:  python tools/reconcile_growth.py [--check]
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-STATE = ROOT / "campaigns" / "lucan" / "state"
+CAMPAIGN = ROOT / "campaigns" / "lucan"
+STATE = CAMPAIGN / "state"
 INSTANCES = STATE / "instances"
 DAY = 86400
 POOL = "necrotic_reservoir"
@@ -195,6 +197,46 @@ def check(bank: dict | None = None, instances: dict[str, dict] | None = None,
     return problems, liczby
 
 
+def zaleglosc() -> str | None:
+    """Jak daleko rejestr wzrostu jest za zegarem kampanii.
+
+    RAPORT, NIE BRAMKA. Zaleglosc jest normalnym stanem miedzy rozliczeniami - rejestr
+    jest reczny z decyzji (jeden pisarz na plik), wiec nadrabia go czlowiek albo osobne
+    narzedzie. Blokowanie commita za to zatrzymywaloby gre.
+
+    POWOD ISTNIENIA: pole as_of_event_id istnialo od dawna i bylo wypisywane w raporcie,
+    ale z niczym nieporownywane. 2026-09-12 rejestr stal na turze 235 przy zegarze na 274
+    i nikt tego nie widzial, bo obie liczby byly w dwoch roznych plikach.
+    """
+    bank = load(STATE / "growth-banks.yaml")
+    time_doc = load(STATE / "time.yaml")
+    as_of = bank.get("as_of_event_id")
+    teraz = time_doc.get("last_event_id")
+    if not as_of or not teraz or as_of == teraz:
+        return None
+
+    def tura(event_id: str) -> int | None:
+        m = re.search(r"(\d+)$", event_id or "")
+        return int(m.group(1)) if m else None
+
+    a, b = tura(as_of), tura(teraz)
+    opis = f"rejestr wzrostu stoi na {as_of}, zegar na {teraz}"
+    if a is not None and b is not None and b > a:
+        opis += f" - {b - a} tur"
+    # Liczba TUR jest myląca sama w sobie: tura to minuty, a stawki sa dobowe. Jesli da sie
+    # odczytac czas z transakcji rejestru, podaj DOBY - to jest jednostka, w ktorej liczy
+    # sie zaleglosc.
+    transakcja = CAMPAIGN / "journal" / "transactions" / f"{as_of.replace('event_', '')}.yaml"
+    if transakcja.is_file():
+        tekst = transakcja.read_text(encoding="utf-8", errors="replace")
+        znalezione = re.findall(r"elapsed_seconds_total:\s*(\d+)", tekst)
+        biezace = time_doc.get("elapsed_seconds_total")
+        if znalezione and isinstance(biezace, int):
+            doby = (biezace - int(znalezione[-1])) / 86400
+            opis += f", czyli {doby:.2f} doby kampanii"
+    return opis
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true",
@@ -207,6 +249,8 @@ def main() -> int:
     for nazwa, wartosc in liczby.items():
         print(f"{nazwa:<28} {wartosc}")
     print(f"{'rejestr as_of':<28} {bank.get('as_of_event_id')}")
+    if (opis := zaleglosc()):
+        print(f"{'ZALEGLOSC':<28} {opis}")
     print()
 
     if not problems:

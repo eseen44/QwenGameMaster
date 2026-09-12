@@ -148,6 +148,13 @@ def main() -> int:
             # inaczej regula znow zyje wylacznie w dzienniku, ktorego nikt nie czyta.
             checks += [
                 ("korpus retconow", [sys.executable, "tools/retcon_lint.py", "--new-only"], 120, True),
+                # Retcon, ktory wymienia plik w state_refs_updated i go NIE OTWIERA,
+                # zostawia w kanonie zapis sprzeczny z wlasna trescia. retcon_000170
+                # zrobil to z resources.yaml i trzy tury pozniej narrator polozyl graczowi
+                # na stole przedmiot, ktory nie istnieje. Kontrola jest tania, bo patrzy
+                # wylacznie na zakres commita.
+                ("zastosowanie retconow",
+                 [sys.executable, "tools/retcon_apply_check.py", "--staged"], 60, True),
                 ("indeks regul aktualny", [sys.executable, "tools/build_rules_index.py", "--check"], 60, True),
             ]
         if any("/entities/npcs/" in path.as_posix() for path in staged):

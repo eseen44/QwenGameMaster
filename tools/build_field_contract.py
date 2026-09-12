@@ -105,8 +105,21 @@ def leaf(path: str) -> str:
     return path.rsplit(".", 1)[-1]
 
 
+# POLA, KTORE SILNIK TWORZY SAM, a ktorych zaden plik instancji moze jeszcze nie miec.
+# Bez tego kontrakt jest budowany wylacznie z dysku, wiec pole pojawia sie w nim dopiero
+# wtedy, gdy silnik pierwszy raz je zapisze - czyli bramka wywala sie W SRODKU TURY, na
+# zmianie, ktora byla zaplanowana. Deklaracja z gory zamienia niespodzianke w zapis.
+ENGINE_CREATED = {
+    # retcon_000109: nadwyzka ponad sufit nie przepada. process_instance_time odklada ja
+    # tutaj, a rozlicza ja osobne rozliczenie rejestru wzrostu (gm growth settle).
+    "resources.necrotic_reservoir.runtime.overflow_pending",
+}
+
+
 def build() -> str:
     fields, flags, required = collect()
+    for path in ENGINE_CREATED:
+        fields.setdefault(path, [])
     code = code_text()
 
     entries = []
