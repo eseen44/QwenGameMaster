@@ -40,11 +40,30 @@ class ReconcileTest(unittest.TestCase):
         flows = recon.link_flow()
         self.assertTrue(flows, "raport nie widzi zadnego lacza")
         self.assertIn("companion_varkhen", flows)
-        self.assertGreater(flows["companion_varkhen"], 0.0)
-        self.assertLess(flows["webber_home"], 0.0, "zrodlo lacza musi byc obciazone")
+        # PRZEPLYW ZERO JEST DZIS POPRAWNY. retcon_000168 odpial Varkhena od sieci: zywi go
+        # tlo cmentarza, a miedzy nim a Lucanem zostala linia alarmowa o zerowym przeplywie.
+        # Test pilnuje teraz tego, co jest wlasnoscia NARZEDZIA - ze kazde zrodlo jest
+        # obciazone dokladnie tyle, ile odbiorca dostaje - a nie tego, ile akurat plynie.
+        for node, flow in flows.items():
+            self.assertIsInstance(flow, float, f"{node}: przeplyw nie jest liczba")
+        if flows["companion_varkhen"] > 0.0:
+            self.assertLess(flows["webber_home"], 0.0, "zrodlo lacza musi byc obciazone")
 
     def test_zablokowana_bramka_jest_nazwana_z_brakujaca_flaga(self):
-        rate, notes = recon.engine_rate(self.instancja("spy-hawk-moth-01.yaml"))
+        # OKAZ SYNTETYCZNY, NIE ZYWY. Test bral wczesniej spy_hawk_moth_01 jako przyklad
+        # strumienia zablokowanego brakiem flagi - i przestal dzialac w chwili, gdy zawisak
+        # te flage DOSTAL (t_274, wypuszczony na wlasny nektar). Wlasnosc narzedzia nie
+        # moze zalezec od tego, co gracz akurat zrobil ze swoim okazem.
+        okaz = {
+            "id": "spy_test_blocked",
+            "status_flags": [],
+            "resources": {"necrotic_reservoir": {
+                "current": 0, "capacity": 3,
+                "hunting_recovery": {"interval_seconds": 86400, "units": 2,
+                                     "requires": ["autonomous_hunting"]},
+            }},
+        }
+        rate, notes = recon.engine_rate(okaz)
         blokady = [note for note in notes if "zablokowany brakiem flag" in note]
         self.assertTrue(blokady, "raport nie mowi, ktora flaga blokuje strumien")
         self.assertIn("autonomous_hunting", blokady[0])

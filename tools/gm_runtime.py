@@ -927,6 +927,22 @@ def process_sustained_links(
         link["last_event_id"] = event_id
 
 
+def source_bytes(path: Path) -> int:
+    """Rozmiar zrodla liczony TAK SAMO, jak liczy go brief - po zdekodowanej tresci.
+
+    Do 2026-09-12 context_plan bral stat().st_size, a session_brief sumowal dlugosc
+    wczytanej tresci. Na Windowsie te dwie liczby sie ROZJEZDZAJA o liczbe koncow linii:
+    zmierzone 63105 kontra 62053, roznica 1052 = dokladnie tyle, ile jest CRLF w tych
+    trzynastu plikach. Budzet kontekstu byl wiec mierzony dwoma miarkami, a ta z dysku
+    zawyzala go o 1,7 procent i zalezala od systemu, na ktorym stoi checkout - w repo,
+    ktore ma byc przenosne.
+    """
+    try:
+        return len(path.read_text(encoding="utf-8-sig").encode("utf-8"))
+    except (OSError, UnicodeDecodeError):
+        return path.stat().st_size
+
+
 def relative_to_campaign(campaign_root: Path, path: Path) -> str:
     try:
         return path.resolve().relative_to(campaign_root.resolve()).as_posix()
@@ -1958,7 +1974,7 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
     loaded_refs = list(active.get("always_load", [])) + refs
     missing = [ref for ref in loaded_refs if not ref_path(ref).exists()]
     sizes = {
-        ref: ref_path(ref).stat().st_size for ref in loaded_refs if ref not in missing
+        ref: source_bytes(ref_path(ref)) for ref in loaded_refs if ref not in missing
     }
     total = sum(sizes.values())
     warnings: list[str] = scene_position_warnings(campaign_root, scene)
@@ -2030,7 +2046,7 @@ def refresh_context(campaign_root: Path, write: bool, strict: bool = False) -> d
 
 def ref_size(ref: str) -> int | None:
     path = ref_path(ref)
-    return path.stat().st_size if path.exists() else None
+    return source_bytes(path) if path.exists() else None
 
 
 def conditional_sets(active: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
@@ -2796,7 +2812,7 @@ def session_brief(campaign_root: Path, full: bool) -> dict[str, Any]:
         "participants": participants,
         "participant_refs": list(dict.fromkeys(participant_refs)),
         "load": [
-            {"ref": ref, "bytes": ref_path(ref).stat().st_size}
+            {"ref": ref, "bytes": source_bytes(ref_path(ref))}
             for ref in context.get("active_refs", [])
             if ref_path(ref).exists()
         ],
