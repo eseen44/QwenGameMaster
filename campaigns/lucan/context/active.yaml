@@ -52,23 +52,29 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/guild-basement/location.yaml
+- campaigns/lucan/locations/lumaria-guild/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
+- campaigns/lucan/state/instances/spidey.yaml
+- campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Ulica przed gildia, 10:42, dzien piaty. Woz rusza w strone cmentarza - kilofy,
-  lopaty, drag, lina, osiem workow pod plachta i kupka gruzu na wierzchu, czyli i
-  jedno, i drugie wedle uwagi Mary z t_277. Mara liczy, ze beda pod brama cmentarna
-  dwadziescia po jedenastej, z godzina zapasu przed dwunasta. Tkacz i Spidey ida stalym
-  rozkazem oslony w dystansie 50 m. ROZSTRZYGNIETE PRZEZ BOROSA, NIE PRZEZ LUCANA:
-  pytanie o ostry koniec zostalo bez odpowiedzi, wiec Boros wzial tarcze i obsadzil
-  sam siebie - "to ja z przodu". Nie postawil z tego zarzutu ani warunku. LUCAN MOZE
-  TO ODWROCIC JEDNYM ZDANIEM w kazdej chwili i nikt sie o to nie obrazi. OTWARTE:
-  co Lucan robi w drodze; czy potwierdza obsade Borosa; czy przed zejsciem ustala
-  cokolwiek o Varkhenie, przez ktorego komore prowadzi droga do zawalu.'
-last_refreshed_event_id: event_turn_interlude_283
-context_bytes: 37223
+- 'Ulica w drodze na cmentarz, 10:49, dzien piaty. Odprawa wygloszona w calosci. Boros
+  przyjal wszystko bez jednego slowa o podatkach, przepisach i umytych rekach - te
+  kategorie u niego nie istnieja - i postawil JEDNO pytanie, ktorego nie odpusci:
+  JAKI SYGNAL ODWROTU, slyszalny przez walenie kilofem, bo to on stoi przodem do sciany.
+  Chce go TERAZ. Reszte odklada na po sprawie. Mara nie poprosila o cofniecie niczego
+  i nie zapytala JAK. Nazwala natomiast koszt, ktory wlasnie poniosla: od tej chwili,
+  zapytana, albo sklamie, albo go wyda - i chce, zeby Lucan wiedzial, ze ona to wie.
+  To NIE jest warunek ani grozba; to jest jej "wole nie wiedziec, niz potem tlumaczyc,
+  ze wiedzialam" wypowiedziane po tym, jak juz jest za pozno. OTWARTE I POSTAWIONE
+  WPROST: (1) sygnal odwrotu dla Borosa, (2) czy i co Lucan odpowie Marze. NIEROZSTRZYGNIETE:
+  czy Lucan potwierdzi Borosa na ostrym koncu. Pod brama cmentarna wedle Mary dwadziescia
+  po jedenastej.'
+last_refreshed_event_id: event_turn_interlude_284
+context_bytes: 46156
 context_budget_bytes: 98304
-context_warnings: []
+context_warnings:
+- scene_position_mismatch:npc_mara_teln:loc_lumaria_guild_basement!=loc_lumaria_adventurers_guild
+- scene_position_mismatch:npc_boros_keld:loc_lumaria_guild_basement!=loc_lumaria_adventurers_guild
 heaviest_refs:
 - ref: system/narrator.md
   bytes: 8915
@@ -76,10 +82,10 @@ heaviest_refs:
   bytes: 8074
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5468
+- ref: campaigns/lucan/state/instances/spidey.yaml
+  bytes: 4644
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3304
-- ref: campaigns/lucan/state/obligations.yaml
-  bytes: 2917
+  bytes: 3313
 conditional_sets:
   npc_speaks:
     refs:
@@ -171,9 +177,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 25561
-  participant_cards: 0
-  participant_full_cards_available: 0
-  participant_digests: 0
+  state_active: 34494
+  participant_cards: 20201
+  participant_full_cards_available: 15066
+  participant_digests: 15066
   conditional_heaviest: 44625
-context_total_bytes: 55418
+context_total_bytes: 84552
