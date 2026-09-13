@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **107** z 185 retconow.
+Regul z klauzula normatywna: **108** z 186 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -19,7 +19,7 @@ regul - a procedura wznowienia sesji nie kaze wczytywac dziennika. Regula, ktore
 nikt nie czyta, nie dziala. Indeks jest generowany, zeby nie mogl sie rozjechac ze
 zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 
-## opor i stawki (20)
+## opor i stawki (21)
 
 - `retcon_000022` — Narrator w zwyklym planowaniu: (1) nie wymysla waskich garde, (2) nie liczy graczowi kosztu alternatywnego ani nie stawia go przed wyborem 'to albo to', (3) nie zamienia deklaracji...
 - `retcon_000033` — KALIBRACJA GRACZA, OBOWIAZUJACA OD TERAZ: brak rzutow w interludium NIE oznacza, ze rzutow nie ma - oznacza, ze interludium jest etapem BUDOWY SWIATA prowadzonym przez gracza.
@@ -41,6 +41,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000174` — Zrodlo tej czterdziestki pozostaje NIEUSTALONE i nie wolno go dopowiadac; stan portfela bez zmian.
 - `retcon_000180` — Od teraz kazdy szczebel daje osobno: (a) +1 pojemnosci zbiornika i +2 integralnosci, (b) JEDNO DOSTOSOWANIE CIALA DO FUNKCJI, (c) POSUNIECIE NA OSI UMYSLU.
 - `retcon_000184` — To jest zasob do wykorzystania, nie mapa gracza - loc_city_sewer zostaje known_by_proxy_unmapped i bez layoutu, bo Lucan nigdy tam nie byl.
+- `retcon_000186` — Narratorowi NIE WOLNO podawac przejscia okazu na wolne polowanie jako utraty czujnika.
 
 ## ekspozycja i wiedza NPC (35)
 

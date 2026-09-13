@@ -24,9 +24,14 @@ rows:
   - id: posterunek_z_zadaniem_i_zerem
     units_per_day: 0.0
     condition: >-
-      Okaz stoi W BEZRUCHU na posterunku z zadaniem, a zer jest na miejscu. Zadanie zjada
+      Okaz ma na posterunku ZADANIE, KTORE GO ZAJMUJE, a zer jest na miejscu. Zadanie zjada
       czas, ktory poszedlby na zbieranie - wychodzi na zero.
-    source: retcon_000105
+      DOPRECYZOWANIE retcon_000186: zajmuje ZBIERANIE, NOSZENIE, PRZEKAZNIK trzymajacy okaz
+      w jednym punkcie i praca na czyjas rzecz. SAMO PATRZENIE ZADANIEM NIE JEST i tej stawki
+      nie uruchamia - okaz z siecia w danym miejscu widzi to miejsce niezaleznie od tego, czy
+      poluje. Dawna tresc mowila "stoi W BEZRUCHU" i to slowo bylo cala pomylka: trzy okazy
+      staly przez to na zerze wylacznie za patrzenie.
+    source: [retcon_000105, retcon_000186]
 
   - id: bez_rozkazu_zer_normalny
     units_per_day: 1.0

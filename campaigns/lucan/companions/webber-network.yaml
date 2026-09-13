@@ -137,6 +137,30 @@ state:
   casualties: 1
   casualty_notes: [Piąty dodatkowy sieciarz kancelaryjny został odnaleziony zgnieciony i wyrzucony; sprawca oraz intencjonalność pozostają nieznane; nie należał do podstawowej czwórki.]
   modifications: [undead_animation, sparse_area_web]
+sensing_model:
+  source: Deklaracja gracza 2026-09-13, retcon_000186.
+  what_it_is: >-
+    SIECIARZ ROZKLADA CZUJKI NA POLOWIE PARCELI, NA KTOREJ STOI, i czuje kazdy ruch
+    przechodzacy przez jego rewir. Zmysl jest OBSZAROWY, nie punktowy, i dziala na duzym
+    terenie - to jest roznica klasy miedzy sieciarzem a pajakiem piwnicznym, ktory widzi
+    swoje jedno wejscie.
+  what_it_does_not_give: >-
+    Rozpoznania, kto to jest. Liczby osob. Kierunku z dokladnoscia do kroku. Zamiarow.
+    Sieciarz czuje, ZE COS SZLO i mniej wiecej gdzie - identyfikacja wymaga czegos jeszcze:
+    oczu innego okazu albo pozyczonego zmyslu. Narratorowi nie wolno dopowiadac reszty.
+  interaction_with_foraging: >-
+    OBSERWACJA JEST DARMOWA (retcon_000186). Sieciarz czuje swoj rewir niezaleznie od tego,
+    czy aktualnie zbiera, poluje czy stoi. Stawke dobowa zeruje wylacznie ZADANIE ZAJMUJACE -
+    zbieranie, noszenie, przekaznik w jednym punkcie - a nie samo patrzenie.
+  posts_currently_unmanned:
+    as_of_event_id: event_turn_interlude_279
+    text: >-
+      ODCZYT STANU, NIE NOWY KANON: wszystkie trzy niezakotwiczone sieciarze sa OD t_091 poza
+      swoimi posterunkami, na rozkazie order_collect_meadow_orthopterans. Sieciarz Baszta
+      i Sieciarz Garbarnia stoja na gornej lace garbarni, Sieciarz Wysypisko przy wejsciu na
+      wysypisko. Ich wlasne rewiry nie sa wiec obsadzone zmyslem obszarowym. Rozkaz mozna
+      zdjac jednym slowem gracza.
+
 network_cost_model:
   source: out_of_game_canon_clarification_2026-08-24
   premise_by_player: 'Cena sieci to nie utrzymanie wezlow, a straty propagacji miedzy nimi -
