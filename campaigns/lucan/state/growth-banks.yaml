@@ -17,11 +17,56 @@ note: >-
   w turze 178 zostal pominiety, a stawki wymyslone od nowa w instancjach. Przed kazda tura
   dotyczaca rozwoju, nadwyzki, dojrzewania albo karmienia sieci - przeczytaj go.
 ladder:
-  fresh_to_settled: 10
-  settled_to_judging: 30
-  judging_to_seasoned: 60
-  grants_per_step: '+1 pojemnosci zbiornika, +2 integralnosci, plus nazwany zysk behawioralny'
+  source_refs: [retcon_000105, retcon_000180]
+  scale_note: >-
+    JEDNA DRABINA DLA WSZYSTKICH OKAZOW, x10 DLA LUCANA (retcon_000180). Klas posrednich nie ma -
+    gracz rozstrzygnal wprost, ze Spidey "nie jest specjalny, tylko jest juz powyzej 30".
+    Progi sa narastajace w growth_bank, nie za szczebel.
   thresholds_adjustable: true
+  lucan_multiplier: 10
+  rungs:
+  - {rank: 0, id: fresh, threshold: 0, lucan_threshold: 0, mind: 'Wykonuje rozkaz doslownie i gubi go, gdy warunki sie zmienia.'}
+  - {rank: 1, id: settled, threshold: 10, lucan_threshold: 100, mind: 'Trzyma rozkaz staly. Wlasny gest i wlasny timing.'}
+  - {rank: 2, id: judging, threshold: 30, lucan_threshold: 300, mind: 'Wybiera SPOSOB wykonania.'}
+  - {rank: 3, id: seasoned, threshold: 60, lucan_threshold: 600, mind: 'Ocenia sytuacje. Odstepuje od litery rozkazu, gdy litera szkodzi celowi.'}
+  - {rank: 4, id: autonomous, threshold: 110, lucan_threshold: 1100, mind: 'Stawia sobie podcele i dziala bez rozkazu w swojej dziedzinie.'}
+  - {rank: 5, id: thinking, threshold: 180, lucan_threshold: 1800, mind: 'Wnioskuje o tym, czego nie widzial. Laczy meldunki. Dzieli sie pamiecia.'}
+  - {rank: 6, id: distinct, threshold: 280, lucan_threshold: 2800, mind: 'Ma wlasne zdanie i je WYRAZA - glos, preferencje, niechec, odmowa.'}
+  - {rank: 7, id: companion, threshold: 420, lucan_threshold: 4200, mind: 'Wlasna wola. Wejscie do companion_class (retcon_000179): sluzy z przywiazania, a Lucanowi zostaje weto, ktorego uzycie NISZCZY RELACJE.'}
+  grants_per_step:
+    reservoir_and_integrity: '+1 pojemnosci zbiornika, +2 integralnosci'
+    body: >-
+      JEDNO DOSTOSOWANIE CIALA DO FUNKCJI. Kierunku NIE wybiera gracz ani narrator - czyta sie go
+      z tego, co okaz FAKTYCZNIE ROBI: posterunek, staly rozkaz, historia uzycia. Zuk kopiacy
+      dostaje latwiejsze kopanie, zuk magazynujacy pojemnosc i mniejszy uplyw, wij mapujacy pamiec
+      trasy, Spidey od spec-ops cisze i wybor drogi, zawisak pokrycie i cichy lot. TEST: jesli nie
+      umiesz powiedziec, co ten okaz robil przez ostatnie dni, nie umiesz przyznac mu szczebla.
+      Wypowiedziana intencja Lucana NIE jest zrodlem kierunku.
+    mind: 'Posuniecie na osi umyslu - tresc w rungs[].mind. Dla Lucana kolumna umyslu nie obowiazuje.'
+    lucan_instead_of_mind: >-
+      Lucan placi szczeble z listy retcon_000112: pokrycie braku snu, szybsze uczenie sie, przyrost
+      miesni, lepsza pamiec, +1 pojemnosci rezerwy. Efekty nie sa oczywiste z zewnatrz - w zasiegu
+      jest dzis jedna osoba, ktora moglaby zauwazyc: npc_mara.
+experience_credit:
+  source: retcon_000180
+  rate: '+1 do banku za SCENE, w ktorej okaz faktycznie wykonal swoja funkcje i cos z tego wyniklo'
+  why: >-
+    retcon_000105 dawal posterunkowi z zadaniem i zerem 0,0 na dobe, czyli okaz UZYWANY do pracy
+    nie dojrzewal, a dojrzewal wylacznie ten, kto lazil luzem. Gracz to odwrocil slowami
+    "urosl przy tym przejsciu" o Spideyu w t_276. Staly rozkaz przestaje byc kara za rozwoj.
+  bookkeeping: >-
+    SKLADNIK OSOBNY, ksiegowany ZA ZDARZENIE, nie za dobe - stawki w daily-balance.yaml zostaja
+    bez zmian. tools/growth_settle.py tego NIE liczy, bo nie wie, ktora scena byla robota; wpis
+    robi narrator recznie w turze, w ktorej praca sie wydarzyla.
+drain_yield:
+  source: retcon_000180
+  rule: >-
+    Bezposrednie wyssanie ZYWEGO wpada do banku W CALOSCI, z pominieciem sufitu przyjecia.
+    To jest cala tresc zdania gracza "bedzie musial w koncu wyssac cos duzego".
+  living_targets: {maly_szczur_ptak_kot: 2, sredni_pies_owca_cielak: 10, doroslty_czlowiek: 30, duze_zwierze_kon_wol: 60}
+  undead_targets: >-
+    NIE DAJA ROZWOJU. Wyssany nieumarly oddaje swoj zbiornik do REZERWY i tyle - retcon_000018,
+    pajak dal 3 jednostki. Ta czesc retcon_000151 zostaje w mocy.
 surplus_economy:
   source: retcon_000115
   declared_by: player_declaration_2026_08_31_bracket
@@ -153,5 +198,5 @@ banks:
   - {id: spy_cellar_spider_03, balance_row: bez_rozkazu_zer_normalny, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_181 poluje swobodnie, ale ZOSTAJE W ZASIEGU GABINETU SERAPHINE - pustki sciany i szuflada biurka (retcon_000117: zwyczajny zer, z daleka od ludzi, a zer pajaka piwnicznego jest dostepny w budynku). Jego funkcja to KANAL ALARMOWY SERAPHINE uzgodniony w t_070 (retcon_000116), nie pulapka na nia - dziala dalej. Stawka +1,0, bo poza rozkazem domyslnym nie ma zadania.', bank: 0.56, maturity: fresh}
   - {id: spy_cellar_spider_04, balance_row: posterunek_z_zadaniem_i_zerem, rate_per_day: 0.0, growth_cap_per_day: 1.5, basis: 'ZAWROCONY t_183 na posterunek czujnika przeszukania w pokoju dyzurnym Lucana - posterunek z zadaniem i dostepnym zerem wychodzi na 0,0 na dobe (retcon_000105), wiec stawka spada 1,0 -> 0,0, a generowana nadwyzka sieci 17,5 -> 16,5. Powod: w pokoju leza od t_183 takze papiery z baszty. Do t_183 poluje swobodnie w pustkach scian i zaulkach przy gildii - zer normalny, z daleka od ludzi, +1,0. Do t_180 byl CZUJNIKIEM PRZESZUKANIA W POKOJU DYZURNYM LUCANA (lucans_cover_room_search_sensor) i mial stawke 0,0. KOSZT: pokoj, w ktorym leza trzy ksiazki z nocy, przestaje miec czujnik. KOREKTA t_180: dawny basis mowil "gabinet Seraphine" i mylil go z 03.', bank: 0.0, maturity: fresh}
   - {id: spy_cellar_spider_06, balance_row: bez_rozkazu_zer_normalny, rate_per_day: 1.0, growth_cap_per_day: 1.5, basis: 'od t_180 poluje swobodnie w piwnicy i pustkach scian - zer normalny, z daleka od ludzi, +1,0. Cela i tak stala pusta, odkad Lucan spi na gorze (retcon_000038), wiec ten posterunek kosztowal najmniej. KOREKTA t_178: dawne zdanie w instancji "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia po formule 8 x 1.5^n, skasowanej przez retcon_000024 - trwaly krok kosztuje CZAS PRZY STOLE, nie jednostki z banku.', bank: 0.56, maturity: fresh}
-  - {id: companion_spidey, balance_row: bez_rozkazu_zer_normalny, rate_per_day: 1.0, growth_cap_per_day: 6.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj. Stopnia z sadem nie trzeba mu przyznawac: zademonstrowal go w t_133, sam wybierajac stanowisko.', bank: 0.56, maturity: seasoned_by_history}
-  - {id: pc_lucan, rate_per_day: 14.5, growth_cap_per_day: 7.5, basis: 'PRZELICZONE retconem 000141 - dawne 4,5 na dobe bralo do rozdzialu tylko przelew ponad sufity rozwoju cudzych wezlow (2,5, po stratach ~2,0), a od 03.09.2026 Lucan jest wezlem PIERWSZYM: dopoki rezerwa nie stoi przy 15, idzie w nia 12,0 na dobe dowiezione plus 6,0 wlasnej regeneracji minus 3,5 dla zuka 01 = 14,5 na dobe. Poprzedni zapis: retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 0.0, maturity: human_no_ladder, note: 'Wlasna czesc rozwojowa nalicza sie dopiero PRZY SUFICIE rezerwy. NIEAKTUALNY RACHUNEK Z t_183, ZOSTAWIONY JAKO SLAD: o 05:35 dnia 4 Lucan mial 14,10/15 przy bilansie +4,5 na dobe, wiec sufit wypadal ok. 10:30. STAN NA 18:01 DNIA 4, PO retcon_000141: rezerwa 15,0/15. Wydatki dnia czwartego (rezerwa spadla do 3,97) wrocily, bo przy +14,5 na dobe pelna pula z niecalych czterech jednostek odbudowuje sie w niespelna dwie godziny; zapis 3,97 byl artefaktem tego, ze silnik naliczal wylacznie 0,25 na godzine i nie widzial dowozu z sieci. Od tej pory szczebel 1 drabiny liczy runtime, nie ten plik. SPROSTOWANIE 2026-09-05 DO ZDANIA POWYZEJ: ''niespelna dwie godziny'' dotyczy odbudowy z 14,10 do 15 (0,9 jednostki przy 0,75 na godzine to 1,2 h), a NIE odbudowy z 3,97. Ta druga zajmuje 14,7 godziny przy 0,75/h, czyli 18,3 godziny liczac netto 14,5 na dobe. Pelna rezerwa od zera to 20 godzin. Liczba zostala przypisana do zlego przypadku. REGULA ROZWOJU OSOBISTEGO, decyzja gracza 2026-09-05 (retcon_000151): bank Lucana rosnie WYLACZNIE z wysysania zywych - czlowieka albo wiekszego zywego stworzenia. Dowoz z sieci i wlasna regeneracja sluza TYLKO odbudowie rezerwy; kiedy rezerwa stoi przy sufcie 15/15, nadmiar WYPAROWUJE i nie bankuje sie nigdzie. Dlatego bank wynosi 0,0 i nie jest to zaleglosc do zaksiegowania: zrodlo fabularne podane przez gracza brzmi ''od dluzszego czasu nie jadlem ludzi''. Konsekwencja przy stole: same wolne godziny NIE daja Lucanowi rozwoju - potrzebny jest material. growth_cap_per_day 7,5 pozostaje jako SUFIT przyjecia na dobe, nie jako stawka naliczania.'}
+  - {id: companion_spidey, balance_row: bez_rozkazu_zer_normalny, rate_per_day: 1.0, growth_cap_per_day: 6.0, basis: 'przy Lucanie, zbiornik 12/12 pelny, decay_suppressed, poluje luzem od t_177 - nadwyzka idzie w rozwoj. Stopnia z sadem nie trzeba mu przyznawac: zademonstrowal go w t_133, sam wybierajac stanowisko. USTAWIONY NA 65,0 DECYZJA GRACZA 2026-09-13 (retcon_000180): "nie jest specjalny, tylko jest juz na pewno powyzej 30" i "urosl przy tym przejsciu" - marsz do gildii w t_276. BEZ NOWYCH GRANTOW: pojemnosc 12 i integralnosc 33 sa juz zapisem tej historii, przyznanie ich drugi raz byloby podwojnym liczeniem. Nastepny prog: autonomous 110.', bank: 65.0, maturity: seasoned}
+  - {id: pc_lucan, rate_per_day: 14.5, growth_cap_per_day: 7.5, basis: 'PRZELICZONE retconem 000141 - dawne 4,5 na dobe bralo do rozdzialu tylko przelew ponad sufity rozwoju cudzych wezlow (2,5, po stratach ~2,0), a od 03.09.2026 Lucan jest wezlem PIERWSZYM: dopoki rezerwa nie stoi przy 15, idzie w nia 12,0 na dobe dowiezione plus 6,0 wlasnej regeneracji minus 3,5 dla zuka 01 = 14,5 na dobe. Poprzedni zapis: retcon_000112 + retcon_000115. Wlasna regeneracja 6,0 na dobe MINUS 3,5 oddawane zukowi 01 od t_179, PLUS ok. 2,0 rozdzielanej nadwyzki sieci po stratach propagacji - Lucan jest wezlem jak pozostale i nie potrzebuje osobnego rozkazu. Rozwoj: pokrycie braku snu, szybsze uczenie, miesnie, pamiec, powolny wzrost samej rezerwy. Niewidoczny z zewnatrz poza npc_mara.', bank: 4.2, maturity: human_ladder_x10, note: 'Wlasna czesc rozwojowa nalicza sie dopiero PRZY SUFICIE rezerwy. NIEAKTUALNY RACHUNEK Z t_183, ZOSTAWIONY JAKO SLAD: o 05:35 dnia 4 Lucan mial 14,10/15 przy bilansie +4,5 na dobe, wiec sufit wypadal ok. 10:30. STAN NA 18:01 DNIA 4, PO retcon_000141: rezerwa 15,0/15. Wydatki dnia czwartego (rezerwa spadla do 3,97) wrocily, bo przy +14,5 na dobe pelna pula z niecalych czterech jednostek odbudowuje sie w niespelna dwie godziny; zapis 3,97 byl artefaktem tego, ze silnik naliczal wylacznie 0,25 na godzine i nie widzial dowozu z sieci. Od tej pory szczebel 1 drabiny liczy runtime, nie ten plik. SPROSTOWANIE 2026-09-05 DO ZDANIA POWYZEJ: ''niespelna dwie godziny'' dotyczy odbudowy z 14,10 do 15 (0,9 jednostki przy 0,75 na godzine to 1,2 h), a NIE odbudowy z 3,97. Ta druga zajmuje 14,7 godziny przy 0,75/h, czyli 18,3 godziny liczac netto 14,5 na dobe. Pelna rezerwa od zera to 20 godzin. Liczba zostala przypisana do zlego przypadku. UCHYLONE PRZEZ retcon_000180 (decyzja gracza 2026-09-13): to nie bylo ograniczenie ZRODLA, tylko SKALI. Bank Lucana rosnie z nadwyzki jak kazdy inny wezel, przez sufit przyjecia 7,5 na dobe; nadmiar przy pelnej rezerwie JUZ NIE WYPAROWUJE. Drabina Lucana jest za to o rzad wyzsza (100/300/600/1100/1800/2800/4200), wiec zwykla regeneracja daje pierwszy szczebel dopiero po ok. 13,5 dnia - stad zdanie gracza, ze "bedzie musial w koncu wyssac cos duzego". Wyssanie zywego omija sufit i wchodzi w calosci: dorosly czlowiek 30, duze zwierze 60. Bank ustawiony na 4,2 ksiegowaniem wstecznym od 18:01 dnia czwartego, odkad rezerwa stoi przy 15/15. HISTORYCZNY ZAPIS retcon_000151, ktory mowil, ze bank rosnie WYLACZNIE z wysysania zywych - czlowieka albo wiekszego zywego stworzenia. Dowoz z sieci i wlasna regeneracja sluza TYLKO odbudowie rezerwy; kiedy rezerwa stoi przy sufcie 15/15, nadmiar WYPAROWUJE i nie bankuje sie nigdzie. Dlatego bank wynosi 0,0 i nie jest to zaleglosc do zaksiegowania: zrodlo fabularne podane przez gracza brzmi ''od dluzszego czasu nie jadlem ludzi''. Konsekwencja przy stole: same wolne godziny NIE daja Lucanowi rozwoju - potrzebny jest material. growth_cap_per_day 7,5 pozostaje jako SUFIT przyjecia na dobe, nie jako stawka naliczania.'}

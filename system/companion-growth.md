@@ -69,10 +69,72 @@ Nadwyżka ponad pełny zbiornik idzie do `growth_bank` w instancji.
 Zbiornik napełnia się pierwszy; dopiero nadwyżka ponad pojemność idzie do `growth_bank`.
 Porcja tłumiąca rozkład zdejmuje ostatni wiersz, **nie zastępuje żywienia**.
 
-Drabina dojrzałości, narastająco w `growth_bank`: `fresh` → osiadły **10**, osiadły → z sądem
-**30**, z sądem → wyrobiony **60**. Każdy stopień daje **+1 pojemności zbiornika, +2 integralności**
-oraz nazwany zysk behawioralny. Progi są propozycją narratora przyjętą w tej turze i wolno je
-zmienić — drabina wyłącznie **przyznaje**, niczego nie odbiera.
+Drabina dojrzałości ma od `retcon_000180` **osiem stopni** i własną sekcję niżej. Trzy progi
+z tej tury (10 / 30 / 60) zostały w niej bez zmian jako pierwsze trzy szczeble.
+
+## Drabina dojrzałości — osiem stopni (retcon_000180, deklaracja gracza 13.09.2026)
+
+Jedna drabina dla **wszystkich** okazów; klas pośrednich nie ma. Progi narastająco w `growth_bank`.
+Lucan stoi na tych samych progach **razy dziesięć** — jego rozwój jest o rząd droższy niż rozwój
+drobnego okazu i to jest cały powód, dla którego jego bank latami stoi nisko.
+
+| # | stopień | próg | Lucan | co się zmienia w głowie |
+|---|---|---|---|---|
+| 0 | `fresh` | 0 | 0 | wykonuje rozkaz dosłownie, gubi go przy zmianie warunków |
+| 1 | `settled` | 10 | 100 | trzyma rozkaz stały; własny gest i własny timing |
+| 2 | `judging` | 30 | 300 | wybiera **sposób** wykonania |
+| 3 | `seasoned` | 60 | 600 | ocenia sytuację; odstępuje od litery rozkazu, gdy litera szkodzi celowi |
+| 4 | `autonomous` | 110 | 1100 | stawia sobie podcele; działa bez rozkazu w swojej dziedzinie |
+| 5 | `thinking` | 180 | 1800 | wnioskuje o tym, czego nie widział; łączy meldunki; dzieli się pamięcią |
+| 6 | `distinct` | 280 | 2800 | ma własne zdanie i je **wyraża** — głos, preferencje, niechęci, odmowa |
+| 7 | `companion` | 420 | 4200 | własna wola; wejście do `companion_class` (`retcon_000179`) |
+
+Szczebel siódmy jest tym samym, co opisuje `retcon_000179`: byt, który służy z **przywiązania**,
+nie z trzymania. Lucanowi zostaje weto, ale jego użycie **niszczy relację** — to akt nazwany,
+z konsekwencją na osiach, nie przełącznik trybu. Drabina jest więc drogą od okazu do kompana
+i domyka zdanie, które od 31.08.2026 stało w `planning/anchored-companions.yaml` bez liczb:
+*„teraz gest i timing, później wybór sposobu wykonania, na końcu głos"*.
+
+**Każdy szczebel daje trzy rzeczy, nie jedną:**
+
+1. **+1 pojemności zbiornika, +2 integralności.**
+2. **Jedno dostosowanie ciała do funkcji** — patrz reguła kierunku niżej.
+3. **Posunięcie na osi umysłu** — treść z tabeli. Lucana ta kolumna nie dotyczy; jego szczeble
+   płacą z listy `retcon_000112`: pokrycie braku snu, szybsze uczenie, mięśnie, pamięć,
+   +1 pojemności rezerwy.
+
+Progi wolno przesunąć jednym zdaniem gracza. Drabina wyłącznie **przyznaje**, niczego nie odbiera.
+
+### Kierunek szczebla czyta się z funkcji, nie z deklaracji
+
+Kierunku **nie wybiera gracz ani narrator**. Źródłem jest to, co okaz **faktycznie robi**:
+posterunek, stały rozkaz i historia użycia. Żuk, który kopie, dostaje łatwiejsze kopanie.
+Żuk, który magazynuje, dostaje pojemność i mniejszy upływ. Wij, który mapuje, dostaje pamięć
+trasy. Spidey, który robi spec-ops, dostaje ciszę, ocenę i wybór drogi. Zawisak, który ma być
+niewidzialny w locie, dostaje pokrycie i cichy lot.
+
+**Test przed przyznaniem:** jeśli nie umiesz powiedzieć, co ten okaz robił przez ostatnie dni,
+nie umiesz przyznać mu szczebla. Wypowiedziana intencja Lucana nie jest źródłem kierunku — jest
+nim funkcja, którą okaz pełni.
+
+### Doświadczenie karmi bank obok żeru
+
+`retcon_000105` dawał posterunkowi z zadaniem i dostępnym żerem **0,0 na dobę** — czyli okaz
+**używany do pracy nie dojrzewał**, a dojrzewał wyłącznie ten, kto łaził luzem. To zostało
+odwrócone: okaz, który faktycznie wykonał swoją funkcję i coś z tego wynikło, dostaje **+1 do
+banku za scenę**, niezależnie od żerowania. Stały rozkaz przestaje być karą za rozwój.
+
+Składnik jest **osobny i księgowany za zdarzenie**, nie za dobę — stawki dobowe zostają bez zmian.
+`tools/growth_settle.py` go nie liczy, bo nie wie, która scena była robotą; wpis robi narrator
+w turze, w której praca się wydarzyła.
+
+### Wyssanie żywego omija sufit
+
+Bezpośrednie wyssanie **żywego** wpada do banku w całości, z pominięciem sufitu przyjęcia:
+mały (szczur, ptak, kot) **2**, średni (pies, owca, cielak) **10**, dorosły człowiek **30**,
+duże zwierzę (koń, wół) **60**. Wyssanie **nieumarłego** rozwoju nie daje — oddaje swój zbiornik
+do rezerwy i tyle (`retcon_000018`: pająk dał 3).
+
 
 ## Siła nieumarłego jako dźwignia integralności (retcon_000104, deklaracja gracza 31.08.2026)
 

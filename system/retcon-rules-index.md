@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **101** z 179 retconow.
+Regul z klauzula normatywna: **102** z 180 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -19,7 +19,7 @@ regul - a procedura wznowienia sesji nie kaze wczytywac dziennika. Regula, ktore
 nikt nie czyta, nie dziala. Indeks jest generowany, zeby nie mogl sie rozjechac ze
 zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 
-## opor i stawki (18)
+## opor i stawki (19)
 
 - `retcon_000022` — Narrator w zwyklym planowaniu: (1) nie wymysla waskich garde, (2) nie liczy graczowi kosztu alternatywnego ani nie stawia go przed wyborem 'to albo to', (3) nie zamienia deklaracji...
 - `retcon_000033` — KALIBRACJA GRACZA, OBOWIAZUJACA OD TERAZ: brak rzutow w interludium NIE oznacza, ze rzutow nie ma - oznacza, ze interludium jest etapem BUDOWY SWIATA prowadzonym przez gracza.
@@ -39,6 +39,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000164` — Pominiecie nowej zaczepki nie tworzy kary, zegara ani obowiazku; nadal nie wolno wytwarzac oporu, zmieniac sekretow lub cofac zadeklarowanego sukcesu bez podstawy.
 - `retcon_000167` — Jedyna realna cena ukladu jest taka, ze zuk MUSI TAM SIEDZIEC.
 - `retcon_000174` — Zrodlo tej czterdziestki pozostaje NIEUSTALONE i nie wolno go dopowiadac; stan portfela bez zmian.
+- `retcon_000180` — Od teraz kazdy szczebel daje osobno: (a) +1 pojemnosci zbiornika i +2 integralnosci, (b) JEDNO DOSTOSOWANIE CIALA DO FUNKCJI, (c) POSUNIECIE NA OSI UMYSLU.
 
 ## ekspozycja i wiedza NPC (33)
 
