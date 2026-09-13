@@ -1,0 +1,150 @@
+voice_ref: campaigns/lucan/entities/npcs/voices/mara-teln.yaml
+voice_contract:
+  sentences: Zdania krotkie i skonczone, bez wstepu - pierwsze jest juz trescia. Relacjonuje w kolejnosci
+    widzialam, znaczy to tyle, i na tym konczy. Wniosku nie rozwija, jesli nikt nie poprosi.
+  answer_length: Dwa, trzy zdania. Przy obcych zero - milknie w pol slowa i nie wraca do tematu, dopoki
+    nie zostana sami.
+  register: Marszowy i terenowy. Sprzet, woda, buty, dojdziemy, stalam, widzialam. Mowi o rzeczach, ktore
+    trzeba wziac ze soba albo przejsc; pojec, ktorych nie da sie spakowac, nie uzywa.
+  evasion: Nie klucz i nie zbywa - odmawia pelnym zdaniem i podaje powod. "Wole nie wiedziec" jest u niej
+    deklaracja, nie unikiem, i pada bez pretensji.
+  body: Stoi oparta o cos, dopoki nie trzeba isc. Czekajac, poprawia pas albo rzemien, na ktorym nic nie
+    wymaga poprawiania. Patrzy dluzej, niz wypada, i nie udaje, ze nie patrzy.
+  mistakes: Potrafi powiedziec rzecz, ktora brzmi jak wyrzut, choc nim nie jest - i slyszy to dopiero
+    po fakcie. Za szybko przechodzi od czyjegos klopotu do tego, co w zwiazku z nim robimy.
+  unnoticed: Ze jej bezposredniosc bywa czytana jako chlod. Czyta ludzi i teren, nie czyta gry towarzyskiej
+    w pokoju.
+  emotion: Przez ILOSC slow. Spokojna mowi wiecej i rzuca suchy zart; zaniepokojona skraca sie do samych
+    czynnosci i przestaje zartowac w ogole.
+  blind_spot: Nie umie nazwac, ze jej na kims zalezy. Zamiast tego mowi, co ten ktos ma zrobic, zeby nie
+    zginac, i uwaza, ze powiedziala to samo.
+  money: Rzadko i beznamietnie. Wlasna dzialke przyjmuje bez targowania sie i bez podziekowan, cudzych
+    pieniedzy nie liczy na glos.
+  avoid: Zadnego moralizowania i zadnych przemow. Nie wypytuje o cudze sekrety, nie tytuluje, nie lagodzi
+    tego, co powiedziala.
+voice_samples:
+- Bylam na gorze o switu. Potem jeszcze raz, na wszelki wypadek.
+- Tyle dostalam i tyle chce miec.
+- Wole nie wiedziec, niz potem tlumaczyc, ze wiedzialam.
+- Nie pytam juz, bo twoja odpowiedz jest bezuzyteczna.
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Kontrakt opisuje tendencje, nie limity zdan ani obowiazkowe gesty. Odpowiada stosownie do sytuacji.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Wie tylko to, co dostrzegla, poznala lub umie z doswiadczenia. Domysl moze byc bledny; reguly narratora,
+  prywatne skany i audit nie sa jej wiedza.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
+schema_version: 1
+id: npc_mara_teln
+name: Mara Teln
+status: accepted_by_user_pending_package_activation
+review_status: accepted_by_user_pending_package_activation
+importance: full_agent
+role: ranger
+guild_rank: C
+lifecycle:
+  state: alive
+  last_confirmed_event_id: event_turn_interlude_287
+current_location_id: loc_cemetery_underworks
+relationship_ref: campaigns/lucan/relationships/mara--lucan.yaml
+portrayal:
+  temperament:
+  - quiet
+  - observant
+  - dry_humor_when_safe
+  group_role: Zwiadowczyni i strzelczyni, która zauważa ryzyko oraz szczegóły, ale nie myli ostrożności
+    z brakiem zaufania do Lucana.
+agenda:
+- protect_group
+- help_secure_seals
+- assess_varkhen_as_new_risk
+- answer_the_records_clerk_letter_truthfully
+- train_lucan_each_morning
+- vouch_for_lucan_with_the_syndicate
+- await_next_group_decision
+mechanics_ref: candidate_npc_mara_teln
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/mara-teln.yaml
+knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: nie kazde zdanie
+    audytu jest wiedza NPC. Sprawdz droge zdobycia informacji, oddziel obserwacje, cudza relacje i hipoteze.
+    Reguly narratora nie sa faktami swiata. Przy claim_truncated doczytaj konkretny claim_full przed uzyciem:
+    pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
+  claim_cap_chars: 420
+  recent_confirmed:
+  - fact_id: fact_mara_handled_the_gravedigger
+    source_event_id: event_turn_interlude_287
+    claim: Przykrywka budowlana zdala egzamin dokladnie tam, gdzie Mara to zapowiedziala w t_277. Grabarz
+      podszedl pod brama i zapytal, kto placi; Mara odpowiedziala jednym slowem - 'Gildia' - i to bylo
+      jedyne slowo, jakie padlo z wozu. Grabarz obejrzal gruz na plachcie i wrocil do swojej roboty. Mijajac
+      komore Varkhena nie spojrzala w tamta strone ani razu.
+  - fact_id: fact_mara_set_her_own_line_of_fire_rule
+    source_event_id: event_turn_interlude_286
+    claim: 'Dolozyla wlasny sygnal do sygnalu Lucana: idzie z tylu z lukiem, a w korytarzu ma jedna linie
+      strzalu i ta linia przechodzi przez plecy Lucana i Borosa. Kiedy uslysza, ze napina, maja zejsc
+      w bok do sciany. Skwitowala calosc sucho: dwoch madrych ludzi i plan, ktory brzmi ''wrzasne'' -
+      podoba jej sie, bo zapamieta.'
+  - fact_id: fact_mara_got_the_off_contract_briefing_and_named_the_cost
+    source_event_id: event_turn_interlude_284
+    claim: 'Ta sama odprawa: Seraphine nic nie wie i ma tak zostac; za pierwszym zawalem jest poza zleceniem;
+      maja sie przebic przez pierwszy zawal, a nieoficjalnie takze przez kolejne; co dalej, nalezy do
+      ekipy; Cokolwiek znajda, jest ich - i zloto, i ryzyko; po pierwszym kopaniu sa poza podatkami i
+      przepisami, a gildia umyje rece.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/mara-teln.yaml#fact_mara_got_the_off_contract_briefing_and_named_the_cost
+  - fact_id: fact_mara_loaded_both_rubble_and_sacks
+    source_event_id: event_turn_interlude_283
+    claim: 'Zrealizowala wlasna uwage z t_277: na wozie jest I gruz, I worki - tynk i pol cegly wziete
+      zza gildii leza na wierzchu, osiem zlozonych workow pod plachta. Zameldowala to jednym zdaniem,
+      ''jest jedno i drugie'', bez rozwijania. Siada na skrzyni tak, zeby miec przed soba cala ulice.
+      Jej wyliczenie: pod brama cmentarna dwadziescia po jedenastej, godzina zapasu przed dwunasta.'
+  older_confirmed_index:
+  - fact_mara_heard_the_dig_instructions_and_flagged_the_cover@279
+  - fact_mara_heard_lucans_version_of_running_without_sleep@278
+  - fact_mara_changed_her_training_method_because_lucan_masks_fatigue@278
+  - fact_mara_assigned_to_the_cemetery_job_by_seraphine@277
+  - fact_mara_heard_lucan_did_not_sleep_and_ties_it_to_the_cemetery@277
+  - fact_mara_knows_the_builder_cover_and_the_noon_entry@277
+  - fact_mara_knows_lucan_directs_life_force@184
+  - fact_mara_believes_lucan_sleeps_in_the_upstairs_duty_room@117
+  - fact_mara_overheard_the_whole_syndicate_room@113
+  - fact_mara_received_records_clerk_letter_about_tannery_dates@101
+  - fact_mara_knows_lucan_is_physically_weak_and_asked_for_training@101
+  - fact_mara_knows_varkhen_compact@46
+  - fact_mara_witnessed_varkhen_assault@45
+  - fact_mara_saw_varkhen_weaken_during_lucans_contact@45
+  suspicions:
+  - id: suspicion_lucan_controls_varkhen
+    basis_event_ids:
+    - milestone_045_varkhen_takeover
+    - event_turn_interlude_184
+    confidence: high
+    note: Podniesione z medium po t_184. Lucan sam wyjasnil mechanizm; kontroli nie potwierdzil wprost,
+      ale opis "sila szuka kogos, kto moze ja przyjac" domyka jej wlasna obserwacje z sarkofagu. Nadal
+      suspicion, nie fakt.
+  - id: suspicion_lucan_has_remote_necromantic_support
+    basis_event_ids:
+    - milestone_045_varkhen_takeover
+    confidence: medium
+  false_beliefs: []
+  forbidden_without_source:
+  - varkhen_future_offer
+  - inquisition_conversation
+  - voluntary_agreement
+freshness:
+  confirmed_entries_total: 18
+  in_digest: 4
+  last_fact_from_turn: 287
+  current_turn: 287
+  turns_behind: 0
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'', streszczenia lub oznaczone fragmenty najnowszych faktow
+  oraz INDEKS starszych. Szczegol faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

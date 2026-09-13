@@ -4,7 +4,7 @@ name: Pająk 05
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 207
+revision: 208
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_entry
@@ -25,8 +25,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 78340
-      hunting_recovery_elapsed_seconds: 78340
+      decay_elapsed_seconds: 82540
+      hunting_recovery_elapsed_seconds: 82540
 orders:
 - id: order_free_hunt_around_the_tower
   status: active
@@ -48,6 +48,6 @@ status_flags:
 - not_anchored_by_choice
 - assigned_to_webber_anchored_pending_transit
 conditions: []
-last_event_id: event_turn_interlude_286
+last_event_id: event_turn_interlude_287
 source_refs:
 - event_turn_interlude_078

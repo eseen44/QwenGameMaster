@@ -52,26 +52,26 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/lumaria-guild/location.yaml
+- campaigns/lucan/locations/cemetery-underworks/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Ulica, w drodze na cmentarz, 10:50, dzien piaty. SYGNAL USTALONY: krzyk Lucana
-  znaczy odwrot; brak krzyku znaczy walic dalej. Boros sam dopowiedzial, co zrobi
-  po uslyszeniu - rzuca kilof i cofa sie trzy kroki - i przypomnial, ze przy sarkofagu
-  ten sam sygnal juz raz zadzialal. Mara dolozyla wlasny: kiedy uslysza, ze napina
-  luk, maja zejsc w bok do sciany, bo w korytarzu jej jedyna linia strzalu przechodzi
-  przez ich plecy. ZAMKNIETE: pytanie Borosa z t_279, otwarte przez dwie tury. NADAL
-  OTWARTE: czy Lucan potwierdza Borosa w pierwszej linii (obsadzil sie sam w t_283).
-  Pod brama cmentarna wedle Mary dwadziescia po jedenastej - zostalo okolo pol godziny
-  drogi.'
-last_refreshed_event_id: event_turn_interlude_286
-context_bytes: 46613
+- 'Podziemia cmentarza, stara nizsza trasa, 12:00, dzien piaty - dokladnie o godzinie,
+  ktora Lucan podal rano. Ekipa stoi przed zawalem, lampy zapalone, sprzet na wozku.
+  OBSADA: na otwartym pierwszy Lucan, przy scianie Boros. Sygnal odwrotu: krzyk. CO
+  WIADOMO O ZAWALE: kamien i ziemia z gory, stozek na trzy-cztery kroki wglab, a pod
+  stropem SZPARA NA DWIE DLONIE, ktorej gruz nie domyka. Przez szpare idzie chlodne,
+  rowne powietrze OD STRONY ZAWALU DO NICH - czyli za gruzem jest pustka dosc duza,
+  zeby ciagnelo. CZEGO NIE WIADOMO I CZEGO NARRATOR NIE ROZSTRZYGA: co w tej pustce
+  jest. Zaden rzut nie padl i zaden zegar nie chodzi. OTWARTE: jak otwieraja zawal
+  i czy Lucan uzyje najpierw rekonesansu, ktory zapowiedzial Borosowi i Marze na wozie
+  - szpara na dwie dlonie jest przejezdna dla kazdego okazu z sieci. Varkhen lezy
+  w komorze dwiescie krokow za nimi, dalej udajac sen.'
+last_refreshed_event_id: event_turn_interlude_287
+context_bytes: 45633
 context_budget_bytes: 98304
-context_warnings:
-- scene_position_mismatch:npc_mara_teln:loc_lumaria_guild_basement!=loc_lumaria_adventurers_guild
-- scene_position_mismatch:npc_boros_keld:loc_lumaria_guild_basement!=loc_lumaria_adventurers_guild
+context_warnings: []
 heaviest_refs:
 - ref: system/narrator.md
   bytes: 8915
@@ -80,15 +80,15 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5468
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4644
+  bytes: 4631
 - ref: campaigns/lucan/state/obligations.yaml
   bytes: 3660
 conditional_sets:
   npc_speaks:
     refs:
     - ref: system/npc-voice.md
-      bytes: 10255
-    bytes: 10255
+      bytes: 11754
+    bytes: 11754
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
@@ -174,9 +174,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 34951
-  participant_cards: 22726
-  participant_full_cards_available: 17591
-  participant_digests: 17591
+  state_active: 33971
+  participant_cards: 19195
+  participant_full_cards_available: 19698
+  participant_digests: 16492
   conditional_heaviest: 44625
-context_total_bytes: 87534
+context_total_bytes: 83023

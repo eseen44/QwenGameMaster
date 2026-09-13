@@ -5,13 +5,13 @@ anchor_class: true
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 276
+revision: 277
 position:
-  location_id: loc_lumaria_adventurers_guild
-  zone_id: zone_guild_surrounding_lanes
+  location_id: loc_cemetery_underworks
+  zone_id: zone_old_lower_route
   fix:
     status: confirmed
-    as_of_event_id: event_turn_interlude_276
+    as_of_event_id: event_turn_interlude_287
     source: transaction
 integrity:
   current: 27
@@ -30,7 +30,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 49300
+      hunting_recovery_elapsed_seconds: 53500
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
   paralytic_toxin_reservoir:
     current: 4
@@ -42,7 +42,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 6100
+      regeneration_elapsed_seconds: 10300
       overflow_pending: 1
 conditions:
 - id: partial_hind_leg_loss
@@ -113,7 +113,7 @@ orders:
   instruction: 'Towarzyszyc Lucanowi poza baszta w dystansie ok. 50 m - nie na nim.
     Zadanie: oslona i wczesne dostrzezenie zagrozenia. Wybor trasy i stanowiska pozostawiony
     okazowi (karta: sam wybiera stanowisko, t_133).'
-last_event_id: event_turn_interlude_286
+last_event_id: event_turn_interlude_287
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906
