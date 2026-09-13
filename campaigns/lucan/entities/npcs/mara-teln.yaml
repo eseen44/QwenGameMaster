@@ -6,7 +6,7 @@ review_status: accepted_by_user_pending_package_activation
 importance: full_agent
 role: ranger
 guild_rank: C
-lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_277}
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_278}
 mechanics_ref: candidate_npc_mara_teln
 current_location_id: loc_lumaria_adventurers_guild
 equipment: [bow, short_sword]
@@ -27,6 +27,8 @@ knowledge:
     - {fact_id: fact_mara_assigned_to_the_cemetery_job_by_seraphine, source_event_id: event_turn_interlude_277, claim: "Seraphine przyszla do swietlicy pozno wieczorem dnia czwartego, powiedziala dwa zdania i wyszla: schodza we dwoje z Borosem, robota jest PODPISANA i ida DNIEM. Wersja, ktora Mara dostala, jest z papieru (t_266/t_267): naturalna niecka pod cmentarzem, cos sie obsuwa, trzeba obadac, ustabilizowac i odciac, kilofy i ludzie gildii, na pismie konserwacja. NIE dostala tego, co pod spodem, i sama powiedziala Lucanowi 'tyle dostalam i tyle chce miec'. INSTRUKCJI OD LUCANA NADAL NIE MA - nalezaly do niego od t_269 i Mara nazwala ten brak wprost."}
     - {fact_id: fact_mara_heard_lucan_did_not_sleep_and_ties_it_to_the_cemetery, source_event_id: event_turn_interlude_277, claim: "Lucan przeprosil za nieobecnosc na porannych cwiczeniach i powiedzial sam z siebie, ze nie spal, i ze ma to zwiazek z cmentarzem. UWAGA retcon_000120: to jest KWESTIA LUCANA, nie fakt o swiecie - Mara ma tyle, ile uslyszala. Zapytala wczesniej, gdzie byl z rana, i zaraz sama zamknela temat slowami, ze woli nie wiedziec, niz potem tlumaczyc, ze wiedziala. Zauwazyla za to zmyslami, ze po nieprzespanej nocy wyglada jak ktos wyspany, powiedziala mu to i dodala, ze nie pyta (retcon_000112 - jest jedyna osoba w zasiegu, ktora moze to zauwazyc)."}
     - {fact_id: fact_mara_knows_the_builder_cover_and_the_noon_entry, source_event_id: event_turn_interlude_277, claim: "Plan wejscia podany przez Lucana: na cmentarz wchodza ZA DNIA i JAWNIE, tak zeby widziano ich jako ekipe budowlana; czas do dziesiatej albo jedenastej, na miejscu o dwunastej. Mara przyjela to bez zastrzezen i dodala od siebie, ze murarzy na cmentarzu w poludnie ludzie zagaduja - grabarz zapyta, kto placi. Zgodzila sie tez na GODZINE treningu z Lucanem od razu, z wlasna granica: potem jedzenie i przeglad sprzetu, ktory wybierze Boros."}
+    - {fact_id: fact_mara_heard_lucans_version_of_running_without_sleep, source_event_id: event_turn_interlude_278, claim: "Lucan powiedzial jej wprost, ze nawykl do malej ilosci snu i ze DOPALA SIE w sposob analogiczny do tego, co jej tlumaczyl na poprzednim treningu (t_184, kierowanie sila zyciowa), oraz ze na dluzsza mete pewnie nie jest to zdrowe, ale na dzis wytrzyma. UWAGA retcon_000120: to jest JEGO WERSJA, nie mechanizm - czesc prawdziwa (retcon_000112: nadwyzka sieci realnie pokrywa brak snu), czesc zmiekczona tak samo jak w t_184. Mara nie ma czym tego rozroznic i nie probuje."}
+    - {fact_id: fact_mara_changed_her_training_method_because_lucan_masks_fatigue, source_event_id: event_turn_interlude_278, claim: "Druga sesja treningu. Mara PRZESTALA pytac Lucana o samopoczucie i powiedziala mu dlaczego: trener czyta zmeczenie, a jego odpowiedz jest bezuzyteczna, wiec bedzie czytac forme. Porownala tez wczoraj z dzis - drzenie reki po szesciu powtorzeniach w t_184, dzis zadnego - i nazwala to nie-komplementem. Zapowiedziala, ze tydzien codziennych sesji widac przy CHODZENIU, nie przy biciu. Umowa na dzis: pod brama o jedenastej."}
   suspicions:
     - {id: suspicion_lucan_controls_varkhen, basis_event_ids: [milestone_045_varkhen_takeover, event_turn_interlude_184], confidence: high, note: 'Podniesione z medium po t_184. Lucan sam wyjasnil mechanizm; kontroli NIE potwierdzil wprost, ale opis "sila szuka kogos, kto moze ja przyjac" domyka jej wlasna obserwacje z sarkofagu. Nadal suspicion, nie fakt.'}
     - {id: suspicion_lucan_has_remote_necromantic_support, basis_event_ids: [milestone_045_varkhen_takeover], confidence: medium}
@@ -34,9 +36,4 @@ knowledge:
   forbidden_without_source: [varkhen_future_offer, inquisition_conversation, voluntary_agreement]
 agenda: [protect_group, help_secure_seals, assess_varkhen_as_new_risk, answer_the_records_clerk_letter_truthfully, train_lucan_each_morning, vouch_for_lucan_with_the_syndicate, await_next_group_decision]
 source_refs: [source_luka_a_fragment#line:797-805, source_luka_b_fragment#line:11251-11409, source_user_decisions_current#approval:mara_card]
-speech_traits:
-  # OBOWIAZKOWE do przeczytania PRZED pierwsza kwestia tej postaci w scenie
-  # (system/narrator.md#cechy-mowy). Ustanowione 2026-09-03 na zadanie gracza.
-  - 'Cicha i obserwujaca; pyta wprost, krotko i tylko o to jedno, co naprawde chce wiedziec.'
-  - 'Suchy zart wylacznie wtedy, gdy jest bezpiecznie. Przy obcych nie komentuje niczego.'
-  - 'Woli nie wiedziec, niz potem odpowiadac, ze wiedziala - i mowi to na glos, bez pretensji.'
+voice_ref: campaigns/lucan/entities/npcs/voices/mara-teln.yaml

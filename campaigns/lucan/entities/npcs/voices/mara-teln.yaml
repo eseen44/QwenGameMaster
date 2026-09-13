@@ -1,0 +1,38 @@
+# KONTRAKT GLOSU - Mara Teln
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
+# i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Powstal 2026-09-13, kiedy Mara zaczela mowic w scenach - do t_277 glos szedl z `speech_traits`
+# na karcie, ktore zostaly stad zdjete, zeby nie bylo drugiego zrodla.
+schema_version: 1
+object_type: npc_voice
+id: voice_npc_mara_teln
+npc_id: npc_mara_teln
+npc_ref: campaigns/lucan/entities/npcs/mara-teln.yaml
+voice_contract:
+  sentences: Zdania krotkie i skonczone, bez wstepu - pierwsze jest juz trescia. Relacjonuje w kolejnosci
+    widzialam, znaczy to tyle, i na tym konczy. Wniosku nie rozwija, jesli nikt nie poprosi.
+  answer_length: Dwa, trzy zdania. Przy obcych zero - milknie w pol slowa i nie wraca do tematu, dopoki
+    nie zostana sami.
+  register: Marszowy i terenowy. Sprzet, woda, buty, dojdziemy, stalam, widzialam. Mowi o rzeczach,
+    ktore trzeba wziac ze soba albo przejsc; pojec, ktorych nie da sie spakowac, nie uzywa.
+  evasion: Nie klucz i nie zbywa - odmawia pelnym zdaniem i podaje powod. "Wole nie wiedziec" jest u niej
+    deklaracja, nie unikiem, i pada bez pretensji.
+  body: Stoi oparta o cos, dopoki nie trzeba isc. Czekajac, poprawia pas albo rzemien, na ktorym nic
+    nie wymaga poprawiania. Patrzy dluzej, niz wypada, i nie udaje, ze nie patrzy.
+  mistakes: Potrafi powiedziec rzecz, ktora brzmi jak wyrzut, choc nim nie jest - i slyszy to dopiero
+    po fakcie. Za szybko przechodzi od czyjegos klopotu do tego, co w zwiazku z nim robimy.
+  unnoticed: Ze jej bezposredniosc bywa czytana jako chlod. Czyta ludzi i teren, nie czyta gry
+    towarzyskiej w pokoju.
+  emotion: Przez ILOSC slow. Spokojna mowi wiecej i rzuca suchy zart; zaniepokojona skraca sie do
+    samych czynnosci i przestaje zartowac w ogole.
+  blind_spot: Nie umie nazwac, ze jej na kims zalezy. Zamiast tego mowi, co ten ktos ma zrobic, zeby
+    nie zginac, i uwaza, ze powiedziala to samo.
+  money: Rzadko i beznamietnie. Wlasna dzialke przyjmuje bez targowania sie i bez podziekowan, cudzych
+    pieniedzy nie liczy na glos.
+  avoid: Zadnego moralizowania i zadnych przemow. Nie wypytuje o cudze sekrety, nie tytuluje, nie
+    lagodzi tego, co powiedziala.
+samples:
+- Bylam na gorze o switu. Potem jeszcze raz, na wszelki wypadek.
+- Tyle dostalam i tyle chce miec.
+- Wole nie wiedziec, niz potem tlumaczyc, ze wiedzialam.
+- Nie pytam juz, bo twoja odpowiedz jest bezuzyteczna.
