@@ -5,13 +5,13 @@ anchor_class: true
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 277
+revision: 278
 position:
-  location_id: loc_cemetery_underworks
-  zone_id: zone_old_lower_route
+  location_id: loc_cemetery
+  zone_id: zone_north_ramp
   fix:
     status: confirmed
-    as_of_event_id: event_turn_interlude_287
+    as_of_event_id: event_turn_interlude_288
     source: transaction
 integrity:
   current: 13
@@ -30,7 +30,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 53500
+      hunting_recovery_elapsed_seconds: 53800
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
 conditions: []
 traits:
@@ -62,7 +62,7 @@ status_flags:
 - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
 - moth_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
 - orthopteran_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_287
+last_event_id: event_turn_interlude_288
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:5351-5559
@@ -70,9 +70,10 @@ source_refs:
 - source_luka_b_fragment#line:11352-11368
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
 orders:
-- id: order_standoff_escort_fifty_metres
+- id: order_watch_the_ramp_and_the_ground_above
   status: active
-  source_event_id: event_turn_interlude_276
-  instruction: 'Towarzyszyc Lucanowi poza baszta w dystansie ok. 50 m - nie na nim.
-    Zadanie: oslona i wczesne dostrzezenie zagrozenia. Przy gildii dach jest jej posterunkiem
-    domyslnym (zone_guild_rooftop).'
+  source_event_id: event_turn_interlude_288
+  instruction: 'Zabezpieczyc wejscie do podziemi i teren wokol zjazdu. Rozlozyc czujki
+    po parceli i meldowac KAZDE zblizenie sie kogokolwiek do rampy. Zmysl obszarowy
+    wedle retcon_000186: daje "ktos idzie i mniej wiecej ktoredy", NIE daje rozpoznania,
+    liczby osob ani zamiarow. Obserwacja jest darmowa, wiec stawka dobowa bez zmian.'
