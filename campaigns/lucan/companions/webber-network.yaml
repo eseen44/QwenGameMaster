@@ -54,7 +54,10 @@ state:
   location_ref: dispersed_to_named_posts_and_guild_rooftop
   condition: redeployed_after_overnight_recharge_at_wall_hideout
   post_assignment:
-    webber_home: loc_city_wall_hideout  # posterunek, już nie "przy Spideyu"
+    webber_home: loc_cemetery  # KOREKTA GRACZA retcon_000187: cmentarz, nie baszta.
+    # Do 2026-09-13 stalo tu loc_city_wall_hideout z komentarzem "posterunek, juz nie
+    # przy Spideyu" - i to wlasnie z tego wpisu narrator wyprowadzil bledna nazwe
+    # "Sieciarz Baszta". Baszta sieciarza NIE MA.
     webber_tannery: loc_tannery
     webber_dump: loc_dump
     webber_anchored: loc_tannery#zone_upper_meadow
@@ -160,6 +163,30 @@ sensing_model:
       i Sieciarz Garbarnia stoja na gornej lace garbarni, Sieciarz Wysypisko przy wejsciu na
       wysypisko. Ich wlasne rewiry nie sa wiec obsadzone zmyslem obszarowym. Rozkaz mozna
       zdjac jednym slowem gracza.
+
+control_zones:
+  source: Deklaracja gracza 2026-09-13, retcon_000187.
+  text: >-
+    TRZY STREFY KONTROLI, po jednej na niezakotwiczonego sieciarza: CMENTARZ (webber_home),
+    GARBARNIA (webber_tannery), WYSYPISKO (webber_dump). Tkacz do stref sie nie liczy - chodzi
+    przy Lucanie. BASZTA PRZY MURZE NIE MA SIECIARZA i nie ma w niej zmyslu obszarowego; stoja
+    tam dwa punkty pajecze (Pajak 02 w skladziku, Pajak 05 przy wejsciu), a to jest co innego.
+  caveat: >-
+    Wszystkie trzy sieciarze sa OD t_091 poza swoimi strefami, na rozkazie
+    order_collect_meadow_orthopterans - patrz sensing_model.posts_currently_unmanned.
+class_growth_direction:
+  source: Deklaracja gracza 2026-09-13, retcon_000187.
+  archetype: INZYNIER
+  text: >-
+    Sieciarz jest z zalozenia STATYCZNY i rosnie w TEREN. Kierunki: kontrola obszaru, pulapki,
+    detekcja, trucizny NANOSZONE NA SIEC, tasmociagi, produkcja jedwabiu, produkcja sprzetu.
+    Jego wartoscia jest teren, ktory trzyma, i to, co potrafi na nim postawic.
+  how_it_binds: >-
+    To jest MENU DLA KLASY, z ktorego wybiera FUNKCJA okazu (retcon_000180: kierunku szczebla
+    nie wybiera gracz ani narrator). Nie jest to obietnica, ze kazdy sieciarz dostanie wszystko,
+    ani kolejnosc. Nowy NARZAD nadal kosztuje godziny przy stole i material dawcy
+    (retcon_000024, retcon_000103) - z dojrzalosci przychodzi uzycie tego, co okaz ma.
+    Sufit skali retcon_000157 obowiazuje: tasmociag to tasmociag, nie fabryka.
 
 network_cost_model:
   source: out_of_game_canon_clarification_2026-08-24

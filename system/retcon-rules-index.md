@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **108** z 186 retconow.
+Regul z klauzula normatywna: **109** z 187 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -81,7 +81,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000181` — Narratorowi NIE WOLNO wybrac jednej z tych wersji za gracza ani przeliczyc na jej podstawie innych tras - wiersz marsz_pod_mur w system/mechanics/durations.yaml zostaje bez zmian, bo ta...
 - `retcon_000183` — Przepis, regulamin i cudzy zakaz nie wchodza mu do glowy jako rzeczy istniejace.
 
-## czas i tempo (15)
+## czas i tempo (16)
 
 - `retcon_000008` — Cofniete takze zamkniecie sceny - obowiazuje scene_act_03_interlude_day1_afternoon, snapshot usuniety.
 - `retcon_000018` — Lucan odzyskuje 3 jednostki z jego zbiornika: 11,5 -> 14,5 z 15, czyli ponownie powyzej starego progu 12, wiec warunek elevated_energy_signature_above_old_threshold znowu obowiazuje i...
@@ -98,6 +98,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000129` — CZEGO NIE USTANAWIA: narrator nie robi z porzuconego rekwizytu dowodu, tropu ani zegara (retcon_000055, retcon_000058) i nie ustanawia, ze ktokolwiek na komendzie zwrocil na niego uwage.
 - `retcon_000165` — Czas, przebieg i proza tury BEZ ZMIAN - poprawiona jest wylacznie liczba w audycie i stan rezerwy, wiec zakres supersesji to 'aspect'.
 - `retcon_000166` — POZYCJE SA W SKALI, WYMIARY POMIESZCZEN SA RZECZYWISTE, A RYSUNEK SVG JEST SCHEMATEM - sale narysowano z przesada dla czytelnosci i nie wolno wyliczac wymiaru komory z pikseli.
+- `retcon_000187` — Tkacz nie liczy sie do stref - chodzi przy Lucanie.
 
 ## energia i ekonomia slug (14)
 

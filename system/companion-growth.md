@@ -116,6 +116,18 @@ posterunek, stały rozkaz i historia użycia. Żuk, który kopie, dostaje łatwi
 trasy. Spidey, który robi spec-ops, dostaje ciszę, ocenę i wybór drogi. Zawisak, który ma być
 niewidzialny w locie, dostaje pokrycie i cichy lot.
 
+Dla dwóch klas pajęczaków menu jest nazwane wprost (`retcon_000187`) — **inżynier i złodziej**:
+
+| | **Sieciarz** — inżynier | **Pająk piwniczny** — złodziej i skrytobójca |
+|---|---|---|
+| tryb | statyczny, trzyma teren | aktywny, przez teren przechodzi |
+| rośnie w | kontrolę obszaru, pułapki, detekcję, **trucizny na sieci**, taśmociągi, produkcję jedwabiu i sprzętu | zabójstwa, kradzież, szybkość, zręczność, **truciznę aplikowaną bezpośrednio**, wielkość, niewidoczność |
+| wartość | teren, który trzyma, i co na nim postawi | gdzie wejdzie i z czym stamtąd wyjdzie |
+
+Sieciarz truje **sieć**, pająk truje **ciało**. To jest cały podział pracy w pajęczej części
+sieci i nie wolno go zacierać. Obie listy są **menu dla klasy**, z którego wybiera funkcja
+konkretnego okazu — nie obietnicą, że każdy dostanie wszystko, i nie kolejnością.
+
 **Test przed przyznaniem:** jeśli nie umiesz powiedzieć, co ten okaz robił przez ostatnie dni,
 nie umiesz przyznać mu szczebla. Wypowiedziana intencja Lucana nie jest źródłem kierunku — jest
 nim funkcja, którą okaz pełni.
