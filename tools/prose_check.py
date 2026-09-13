@@ -176,9 +176,40 @@ def wyceny_metaforyczne(text: str) -> list[str]:
     return out
 
 
+# GESTOSC ZAPRZECZEN W KWESTIACH (retcon_000190). Osie kontraktow glosu sa w 10 na 11
+# przypadkow zdefiniowane przez to, czego postac NIE robi - zmierzone 14.09.2026 na dziewieciu
+# z dziesieciu plikow. Kiedy narrator pisze kwestie, siegajac po osie, dostaje postac mowiaca
+# wylacznie zaprzeczeniami: kwestie Mary w t_284 to 62 slowa, 6 wystapien "nie" (9,7%),
+# 5 z 7 zdan z zaprzeczeniem. To jest RAPORT, nie bramka - sceny odmowy istnieja i maja prawo
+# byc gesto zaprzeczone. Liczba ma tylko nie dac sie przeoczyc.
+NEGACJA = re.compile('(?<!\w)(?:nie|ani)(?!\w)', re.IGNORECASE)
+
+
+def linie_dialogowe(text: str) -> list[str]:
+    """Same kwestie, bez narracji - linie zaczynajace sie od myslnika albo polpauzy."""
+    out = []
+    for line in (text or "").splitlines():
+        stripped = line.strip()
+        if stripped[:1] in {"—", "–"}:
+            out.append(stripped)
+    return out
+
+
+def zaprzeczenia_w_kwestiach(text: str) -> dict:
+    linie = linie_dialogowe(text)
+    zlepek = " ".join(linie)
+    slowa = len(re.findall(r"\w+", zlepek))
+    return {
+        "slowa": slowa,
+        "negacje": len(NEGACJA.findall(zlepek)),
+        "linie": len(linie),
+    }
+
+
 def zmierz(text: str) -> dict:
     text = text or ""
     metafory = wyceny_metaforyczne(text)
+    neg = zaprzeczenia_w_kwestiach(text)
     return {
         "znaki": len(text),
         "wyceny_metaforyczne": len(metafory),
@@ -186,6 +217,8 @@ def zmierz(text: str) -> dict:
         "mowa_zalezna": len(MOWA_ZALEZNA.findall(text)),
         "dialog_wprost": kwestie_wprost(text),
         "szablon_nie_tylko": len(SZABLON_NIE_TYLKO.findall(text)),
+        "slowa_w_kwestiach": neg["slowa"],
+        "negacje_w_kwestiach": neg["negacje"],
     }
 
 
@@ -239,7 +272,8 @@ def main() -> int:
     zle: list[str] = []
     raport: list[str] = []
     suma = {"wyceny_metaforyczne": 0, "mowa_zalezna": 0, "dialog_wprost": 0,
-            "szablon_nie_tylko": 0, "znaki": 0}
+            "szablon_nie_tylko": 0, "znaki": 0, "slowa_w_kwestiach": 0,
+            "negacje_w_kwestiach": 0}
 
     for event in wybrane:
         pomiar = zmierz(event.get("prose"))
@@ -268,6 +302,12 @@ def main() -> int:
                 zle.append(f"{event.get('id')}: {pomiar['mowa_zalezna']} konstrukcji mowy "
                            f"zaleznej i ZERO kwestii wprost - gdy postac mowi, gracz ma "
                            f"zobaczyc co najmniej jedna jej kwestie")
+        if pomiar["slowa_w_kwestiach"] >= 40:
+            gestosc = pomiar["negacje_w_kwestiach"] / pomiar["slowa_w_kwestiach"]
+            if gestosc > 0.07:
+                flagi.append(f"zaprzeczenia w kwestiach: {pomiar['negacje_w_kwestiach']}"
+                             f"/{pomiar['slowa_w_kwestiach']} slow ({gestosc:.0%}) - "
+                             "kontrakt glosu jest filtrem, nie generatorem (retcon_000190)")
         if pomiar["szablon_nie_tylko"] > 1:
             flagi.append(f"szablon 'nie X, tylko Y': {pomiar['szablon_nie_tylko']}")
         audyt = zmierz_audyt(event.get("audit") or event.get("summary") or "",
@@ -295,6 +335,10 @@ def main() -> int:
         print(f"  mowa zalezna:        {suma['mowa_zalezna']}")
         print(f"  kwestie wprost:      {suma['dialog_wprost']}")
         print(f"  'nie X, tylko Y':    {suma['szablon_nie_tylko']}")
+        if suma["slowa_w_kwestiach"]:
+            print(f"  zaprzeczenia w kwestiach: {suma['negacje_w_kwestiach']}"
+                  f"/{suma['slowa_w_kwestiach']} slow "
+                  f"({suma['negacje_w_kwestiach'] / suma['slowa_w_kwestiach']:.0%})")
         if raport:
             print("\nUWAGA (raport, nie bramka - poza turami powyzej baseline):")
             print("\n".join(raport))

@@ -92,6 +92,45 @@ w mocy pytanie, które już stoi. Mechanizm:
   powołania na pliki, „zmierzone", „nierozstrzygnięte". To należy do `outcome.audit`
   i do rozmowy poza nawiasem.
 
+## Kontrakt jest filtrem, nie generatorem (retcon_000190)
+
+Osie kontraktu są w ogromnej większości zdefiniowane przez to, czego postać **nie** robi —
+zmierzone 14.09.2026: **10 z 11 osi** w dziewięciu na dziesięć kontraktów. To jest w porządku
+jako opis, ale zabójcze jako źródło kwestii: narrator sięga po osie, osie są zaprzeczeniami,
+i wychodzi postać, która mówi wyłącznie, czego nie robi.
+
+Pomiar kwestii Mary z `t_284`, po którym ta reguła powstała: 62 słowa, 7 zdań, **6 wystąpień
+„nie" (9,7% słów)**, 3 zdania zaczynające się od „Nie", 5 z 7 zawierających „nie".
+
+Trzy rzeczy obowiązujące przy pisaniu kwestii:
+
+1. **Osie negatywne mówią, czego NIE MA NAPISAĆ NARRATOR.** Nie są słownikiem dla postaci
+   i nie wolno ich przepisywać do jej ust. „Nie moralizuje" znaczy: nie pisz jej morałów —
+   a nie: każ jej powiedzieć, że nie moralizuje.
+2. **Każda odpowiedź zawiera co najmniej jedno zdanie twierdzące** o tym, czego postać chce,
+   co zrobi albo co jest prawdą. Jeżeli wszystkie zdania są w formie „nie X" — przepisz.
+3. **Wcześniejsza kwestia postaci nie jest szablonem.** Nawiązanie raz jest nawiązaniem,
+   drugi raz jest tikiem. Mara powiedziała w `t_277` „tyle dostałam i tyle chcę mieć";
+   powtórzenie tej konstrukcji w `t_284` zamieniło rozmowę o zaufaniu w rachunek, czyli
+   w `retcon_000162` przeniesione z narratora na postać.
+
+Miernik: `python tools/prose_check.py` raportuje gęstość zaprzeczeń w kwestiach. Jest
+RAPORTEM, nie bramką — liczba sama w sobie niczego nie przesądza, bo bywają sceny odmowy.
+
+## Mowa własna Lucana idzie w dialogu, nie w parafrazie (retcon_000190)
+
+Kiedy gracz deklaruje, co Lucan MÓWI, parafraza narratora gubi treść — zmierzone na `t_284`:
+z jedenastu zadeklarowanych elementów w prozie wylądowało siedem, a cztery brakujące były
+całym ujawnieniem i zostały wyłącznie w audycie, którego gracz nie czyta.
+
+Reguła: **dłuższa mowa Lucana idzie w cudzysłowie albo w myślnikach**, w całości. Wolno
+streścić fragment, który jest powtórzeniem czegoś, co w scenie już padło — nigdy fragment,
+który wnosi nowy fakt, warunek albo deklarację o nim samym. Po napisaniu prozy policz
+elementy deklaracji gracza i sprawdź, czy każdy ma swoje miejsce w tekście.
+
+Uwaga na ślepy punkt miernika: `prose_check` liczy mowę zależną po wzorcu „powiedział, że…",
+a narracja w trzeciej osobie bez tej frazy przechodzi niezauważona. Gubi treść tak samo.
+
 ## Test na ślepo
 
 Przed wysłaniem kwestii zakryj imię. Jeżeli nie wiadomo, kto mówi — przepisz

@@ -57,20 +57,15 @@ active_refs:
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Ulica w drodze na cmentarz, 10:49, dzien piaty. Odprawa wygloszona w calosci. Boros
-  przyjal wszystko bez jednego slowa o podatkach, przepisach i umytych rekach - te
-  kategorie u niego nie istnieja - i postawil JEDNO pytanie, ktorego nie odpusci:
-  JAKI SYGNAL ODWROTU, slyszalny przez walenie kilofem, bo to on stoi przodem do sciany.
-  Chce go TERAZ. Reszte odklada na po sprawie. Mara nie poprosila o cofniecie niczego
-  i nie zapytala JAK. Nazwala natomiast koszt, ktory wlasnie poniosla: od tej chwili,
-  zapytana, albo sklamie, albo go wyda - i chce, zeby Lucan wiedzial, ze ona to wie.
-  To NIE jest warunek ani grozba; to jest jej "wole nie wiedziec, niz potem tlumaczyc,
-  ze wiedzialam" wypowiedziane po tym, jak juz jest za pozno. OTWARTE I POSTAWIONE
-  WPROST: (1) sygnal odwrotu dla Borosa, (2) czy i co Lucan odpowie Marze. NIEROZSTRZYGNIETE:
+- 'Ulica w drodze na cmentarz, 10:49, dzien piaty - bez zmiany wzgledem t_284, bo
+  ta tura nie zajela ani sekundy. Odprawa wygloszona w calosci i tym razem w dialogu.
+  OTWARTE I POSTAWIONE WPROST: (1) SYGNAL ODWROTU dla Borosa, slyszalny przez walenie
+  kilofem, ktorego chce TERAZ; (2) co Lucan odpowie Marze, ktora nie prosi o nic i
+  sama zapowiedziala, ze zapytana sklamie - ale kazala mu to policzyc. NIEROZSTRZYGNIETE:
   czy Lucan potwierdzi Borosa na ostrym koncu. Pod brama cmentarna wedle Mary dwadziescia
   po jedenastej.'
-last_refreshed_event_id: event_turn_interlude_284
-context_bytes: 46156
+last_refreshed_event_id: event_turn_interlude_285
+context_bytes: 46464
 context_budget_bytes: 98304
 context_warnings:
 - scene_position_mismatch:npc_mara_teln:loc_lumaria_guild_basement!=loc_lumaria_adventurers_guild
@@ -84,14 +79,14 @@ heaviest_refs:
   bytes: 5468
 - ref: campaigns/lucan/state/instances/spidey.yaml
   bytes: 4644
-- ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3313
+- ref: campaigns/lucan/state/obligations.yaml
+  bytes: 3660
 conditional_sets:
   npc_speaks:
     refs:
     - ref: system/npc-voice.md
-      bytes: 7728
-    bytes: 7728
+      bytes: 10255
+    bytes: 10255
   narrator_failure_modes:
     refs:
     - ref: system/narrator-appendix.md
@@ -177,9 +172,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 34494
-  participant_cards: 20201
-  participant_full_cards_available: 15066
-  participant_digests: 15066
+  state_active: 34802
+  participant_cards: 22726
+  participant_full_cards_available: 17591
+  participant_digests: 17591
   conditional_heaviest: 44625
-context_total_bytes: 84552
+context_total_bytes: 87385

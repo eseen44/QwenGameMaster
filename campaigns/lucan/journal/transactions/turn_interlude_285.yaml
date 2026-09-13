@@ -1,0 +1,306 @@
+schema_version: 1
+id: turn_interlude_285
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-14T00:12:18+02:00'
+scene_id: scene_act_03_interlude_day5_morning_guild_return
+event_id: event_turn_interlude_285
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_285
+  declared_action: 'POWTORKA TURY 284 (retcon_000190). Ta sama odprawa na wozie, bez
+    zmiany faktow i bez uplywu czasu: Lucan mowi WPROST, w dialogu, wszystkie jedenascie
+    elementow deklaracji gracza, wlacznie z czterema, ktore pierwsza wersja zgubila
+    w parafrazie - wyczucie umarlych, brak wyczucia zywych, rekonesans na sto metrow,
+    prosba, zeby nie pytali jak, i nazwanie jedynego realnego ryzyka.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Ta sama tura, poprawiona proza. Zaden fakt sie nie zmienia.
+  time_class: brief
+  time_seconds: 0
+  time_basis: canon_ref
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - briefing
+  - npc_speaks
+  - replay
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_285
+  status: preview
+  scene_id: scene_act_03_interlude_day5_morning_guild_return
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'POWTORKA TURY 284 (retcon_000190). Ta sama odprawa na wozie, bez zmiany
+    faktow i bez uplywu czasu: Lucan mowi WPROST, w dialogu, wszystkie jedenascie
+    elementow deklaracji gracza, wlacznie z czterema, ktore pierwsza wersja zgubila
+    w parafrazie - wyczucie umarlych, brak wyczucia zywych, rekonesans na sto metrow,
+    prosba, zeby nie pytali jak, i nazwanie jedynego realnego ryzyka.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method,
+      time and certain costs.
+  roll_allowed: false
+  time_seconds: 0
+  time_guidance:
+    time_class: brief
+    tension: 0
+    engine_default_seconds: 300
+    declared_seconds: 0
+    matching_row: null
+    declared_outside_every_row: true
+    rows:
+    - id: pojedyncza_kwestia
+      seconds:
+      - 10
+      - 90
+      default_seconds: 30
+      applies_to: 'JEDNA kwestia albo krotka wymiana dwoch-trzech zdan bez rozwijania
+        tematu: rzucone pytanie, odpowiedz przez drzwi, pozegnanie, komenda, jedno
+        zdanie w przejsciu.'
+    - id: wymiana_zdan
+      seconds:
+      - 180
+      - 480
+      default_seconds: 300
+      applies_to: 'Jedna tura rozmowy: pytanie i odpowiedz, wymiana zdan, krotka reakcja.'
+    - id: rozporzadzenie_przy_stole
+      seconds:
+      - 60
+      - 300
+      default_seconds: 120
+      applies_to: 'Czynnosc bez rozmowy i bez przemieszczenia: wydanie rozkazu w siec,
+        odlozenie przedmiotu, wyniesienie czegos za prog. NIE jest to tura rozmowy.'
+    - id: rozmowa_w_gabinecie
+      seconds:
+      - 1500
+      - 2100
+      default_seconds: 1800
+      applies_to: Cala rozmowa z jedna osoba w jej gabinecie, od wejscia do wyjscia.
+    - id: negocjacja_w_pokoju
+      seconds:
+      - 1800
+      - 3600
+      default_seconds: 3600
+      applies_to: Pelna negocjacja wielostronna, kilka watkow, ustalanie warunkow.
+    - id: przejscie_przez_miasto
+      seconds:
+      - 1200
+      - 1500
+      default_seconds: 1200
+      applies_to: Przejscie z dzielnicy do dzielnicy wewnatrz Lumarii (targ - gildia).
+    - id: marsz_pod_mur
+      seconds:
+      - 2700
+      - 2700
+      default_seconds: 2700
+      applies_to: Trasa gildia/cela - baszta przy murze, w jedna strone.
+    - id: praca_reczna_przy_stole
+      seconds:
+      - 3600
+      - 7200
+      default_seconds: 3600
+      applies_to: Jeden trwaly krok modyfikacji okazu - przeszczep, wszczep, utrwalenie.
+        Okolo godziny, do dwoch przy wyzszej trudnosci, BEZ ESKALACJI.
+    basis: canon_ref
+    precedence: Jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc przez wymyslone
+      tarcie (retcon_000061). Pasma sa podpowiedzia, nie limitem.
+  numbers:
+    stock:
+      available: 3
+      consumed: 3
+      available_ids:
+      - ritual_salt
+      - corpse_drying_powder
+      - small_ritual_tool_set
+    clocks:
+    - id: clock_inquisition_attention
+      progress: 0
+      threshold: uncalibrated
+      remaining: null
+    - id: clock_father_arranges_academy_showing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    - id: clock_guild_leadership_hearing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    daily_balance_table: system/mechanics/daily-balance.yaml
+    durations_table: system/mechanics/durations.yaml
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'POWTORKA t_284, ZAKRES: PROZA. Zaden fakt, zaden stan i zadna sekunda
+    sie nie zmieniaja - t_284 dostaje superseded_by z supersession_scope: prose, a
+    jego pierwotna wersja idzie do journal/superseded (dziennik jest append-only,
+    AGENTS.md). CO BYLO ZLE, ZMIERZONE. (1) Z jedenastu elementow deklaracji gracza
+    proza oddala SIEDEM. Cztery brakujace - wyczucie umarlych, brak wyczucia zywych,
+    rekonesans na sto metrow i prosba, zeby nie pytac jak - byly calym ujawnieniem
+    i zostaly wylacznie w audycie. Przyczyna: cala mowa poszla jako PARAFRAZA NARRATORA,
+    a parafraza kompresuje. (2) Kwestie Mary: 62 slowa, 6 wystapien "nie" (9,7%),
+    5 z 7 zdan z zaprzeczeniem, 3 zdania zaczynajace sie od "Nie". Przyczyna zmierzona:
+    10 z 11 osi jej kontraktu glosu jest zdefiniowanych przez zaprzeczenie, a narrator
+    uzyl kontraktu jako GENERATORA zamiast jako filtra. Do tego jej kwestia z t_277
+    posluzyla za SZABLON, co zamienilo jednorazowe nawiazanie w tik i przenioslo retcon_000162
+    z narratora na postac. (3) Cztery kalki skladniowe, w tym niegramatyczne "nie
+    prosze, zebys cofnal" bez dopelnienia. CO JEST TERAZ: cala mowa Lucana w dialogu,
+    wszystkie jedenascie elementow. Mara ma piec krotkich zdan, JEDNO zaprzeczenie
+    i dwa zdania twierdzace o tym, co zrobi. Boros bez zmian - jego kwestie byly poprawne
+    i jego pytanie o sygnal zostaje otwarte tak, jak bylo.'
+  prose: 'Przecznicę za gildią ulica robi się na tyle pusta, że da się mówić. Lucan
+    mówi do pleców
+
+    Borosa i do profilu Mary, bo tak się rozmawia na wozie.
+
+
+    — Sera nic nie wie i ma tak zostać. Wszystko za pierwszym zawałem jest poza zleceniem.
+
+    Przebijamy się przez pierwszy. Jeśli za nim będą następne, przez nie też — tego
+    już nikt
+
+    nam nie zlecił i nie zleci. Co robimy dalej, należy do nas trojga, a cokolwiek
+    tam leży,
+
+    jest nasze. Złoto i ryzyko po równo.
+
+
+    Koń idzie równo, koła robią swoje, nikt się nie odwraca.
+
+
+    — Teraz to, o co Boros pytał rano. Umarłego wyczuję. Wyczuję go wcześniej, niż
+    on zobaczy
+
+    was, i zdążę was stamtąd wyprowadzić. — Krótka pauza. — Żywego nie wyczuję. Zwierzę,
+
+    człowiek, cokolwiek oddycha — nic. Za to korytarz przed nami obejrzę na sto metrów.
+
+    Co najmniej.
+
+
+    Mara nie odwraca głowy. Boros przekłada uzdę do drugiej ręki i to jest cała jego
+    reakcja.
+
+
+    — I o jedno proszę: nie pytajcie jak. Do końca śledztwa. Potem powiem sam, obojgu.
+    —
+
+    Lucan pozwala temu chwilę poleżeć, zanim domknie. — Z tego wychodzi jedna rzecz
+    i chcę,
+
+    żeby padła głośno. Jedyny moment, w którym może pójść naprawdę źle, to coś żywego
+
+    bezpośrednio za ścianą, którą właśnie rozbijamy.
+
+
+    Wóz mija bramę podwórza i skręca w szerszą ulicę.
+
+
+    — I na koniec, żeby potem nie było: po pierwszym kopaniu jesteśmy poza podatkami,
+    poza
+
+    przepisami, a gildia umyje ręce, jeśli coś się nam stanie. Pytania?
+
+
+    Boros nie reaguje ani na podatki, ani na przepisy, ani na umyte ręce. Te trzy
+    rzeczy
+
+    przechodzą przez niego tak, jak przechodzi informacja, że w czwartek będzie targ.
+
+
+    Reaguje dokładnie na jedno.
+
+
+    — Jaki sygnał? — pyta, nie odwracając się. — Bo ja będę stał przodem do ściany
+    i będę
+
+    miał w rękach kilof. Jak mam się cofnąć, to musi być coś, co usłyszę przez walenie.
+
+
+    Mara odzywa się dopiero po nim, i krótko.
+
+
+    — Teraz już wiem — mówi. — Jak mnie zapytają, skłamię. Chcę, żebyś to policzył.
+
+
+    Poprawia rzemień kołczana, na którym nic nie wymaga poprawiania.
+
+
+    — Pytać nie będę. Idziemy.
+
+
+    Boros wybiera ten moment, żeby poprawić tarczę na plecach.
+
+
+    — Ja mam pytanie na potem — mówi. — Jak się skończy, to mi powiesz. — Pauza długości
+
+    dwóch kroków konia. — Ale sygnał chcę teraz.
+
+    '
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs: []
+  operations:
+  - *id002
+  scene_update: null
+  new_decision: 'Ulica w drodze na cmentarz, 10:49, dzien piaty - bez zmiany wzgledem
+    t_284, bo ta tura nie zajela ani sekundy. Odprawa wygloszona w calosci i tym razem
+    w dialogu. OTWARTE I POSTAWIONE WPROST: (1) SYGNAL ODWROTU dla Borosa, slyszalny
+    przez walenie kilofem, ktorego chce TERAZ; (2) co Lucan odpowie Marze, ktora nie
+    prosi o nic i sama zapowiedziala, ze zapytana sklamie - ale kazala mu to policzyc.
+    NIEROZSTRZYGNIETE: czy Lucan potwierdzi Borosa na ostrym koncu. Pod brama cmentarna
+    wedle Mary dwadziescia po jedenastej.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: c25d73cb7f064626a195f1c4091410314da5662b85c7274345af5df270ff3936
+  after_hash: 936302fbdaaa9ccfa6b4a8852e2a0390bebbf5f0d98348cd9bb0450303684b92
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day5_morning_guild_return
+    location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+    started_at: '2026-08-20T07:31:40+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - npc_mara_teln
+    - npc_boros_keld
+    pressures: []
+    immediate_facts: []
+    immediate_questions:
+    - 'Ulica w drodze na cmentarz, 10:49, dzien piaty - bez zmiany wzgledem t_284,
+      bo ta tura nie zajela ani sekundy. Odprawa wygloszona w calosci i tym razem
+      w dialogu. OTWARTE I POSTAWIONE WPROST: (1) SYGNAL ODWROTU dla Borosa, slyszalny
+      przez walenie kilofem, ktorego chce TERAZ; (2) co Lucan odpowie Marze, ktora
+      nie prosi o nic i sama zapowiedziala, ze zapytana sklamie - ale kazala mu to
+      policzyc. NIEROZSTRZYGNIETE: czy Lucan potwierdzi Borosa na ostrym koncu. Pod
+      brama cmentarna wedle Mary dwadziescia po jedenastej.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_285
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work.yaml
+prepared_at: '2026-09-14T00:13:12+02:00'
+committed_at: '2026-09-14T00:13:12+02:00'
