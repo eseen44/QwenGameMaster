@@ -1,13 +1,21 @@
 schema_version: 1
 id: spy_moth_05
+name: Ćma 05
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
 revision: 7
 position:
   location_id: loc_city_wall_hideout
-  zone_id: zone_surrounding_streets_and_refuse
-  formation: released_outside_the_tower_t_273_with_the_bat_protocol
+  zone_id: zone_surrounding_meadows
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_279
+    source: report
+    note: >-
+      ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta z ulic wokol baszty na laki przed murem, razem z Zawisakiem.
+      Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
+      i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
 integrity:
   current: 4
   maximum: 4

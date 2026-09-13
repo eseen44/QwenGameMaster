@@ -1,13 +1,22 @@
 schema_version: 1
 id: spy_hawk_moth_01
+name: Zawisak
+anchor_class: true
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
 revision: 109
 position:
   location_id: loc_city_wall_hideout
-  zone_id: zone_main
-  formation: at_the_tower_t_274_cleared_to_forage_nectar_on_the_meadows_flies_at_dusk_silkworm_basket_not_cut_off
+  zone_id: zone_surrounding_meadows
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_279
+    source: report
+    note: >-
+      ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Zawisak zszedl z blatu na laki - zeruje i poluje aktywnie, nie czeka na zmierzch.
+      Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
+      i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
 integrity:
   current: 6
   maximum: 6

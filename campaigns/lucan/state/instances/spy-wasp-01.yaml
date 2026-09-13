@@ -1,13 +1,21 @@
 schema_version: 1
 id: spy_wasp_01
+name: Osa 01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
 revision: 203
 position:
   location_id: loc_city_wall_hideout
-  zone_id: zone_entry
-  formation: foraging_the_meadows_around_the_tower_since_the_previous_night_retcon_000169
+  zone_id: zone_surrounding_meadows
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_279
+    source: report
+    note: >-
+      ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta z wejscia baszty na laki przed murem, razem z Zawisakiem.
+      Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
+      i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
 integrity:
   current: 4
   maximum: 4

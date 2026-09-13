@@ -19,7 +19,7 @@ Uruchomienie:
     python tools/roster.py                 # tabela + uwagi
     python tools/roster.py --problems      # same uwagi
     python tools/roster.py --debt          # rozwin dlug migracyjny do pojedynczych linii
-    python tools/roster.py --sort bank     # id (domyslnie) | bank | rate | miejsce
+    python tools/roster.py --sort bank     # id (domyslnie) | nazwa | bank | rate | miejsce
     python tools/roster.py --wide          # nie skracaj kolumny rozkazu
 """
 
@@ -122,6 +122,8 @@ def build_row(inst: dict, rows_by_id: dict, rungs: list[dict], wide: bool) -> di
         nxt = "-"
     return {
         "id": iid,
+        "name": inst.get("name") or iid,
+        "anchor": "*" if inst.get("anchor_class") else "",
         "place": fmt_place(inst),
         "orders": fmt_orders(inst, wide),
         "pool": f"{num(pool['current'])}/{num(pool.get('capacity', '?'))}" if pool else "-",
@@ -140,8 +142,10 @@ def build_row(inst: dict, rows_by_id: dict, rungs: list[dict], wide: bool) -> di
 def print_table(rows: list[dict], title: str) -> None:
     if not rows:
         return
-    head = ("ID", "MIEJSCE", "ROZKAZ", "ZBIORNIK", "INT", "STAWKA", "BANK", "DOJRZALOSC", "DO SZCZEBLA")
-    keys = ["id", "place", "orders", "pool", "integrity", "rate", "bank", "maturity", "next"]
+    head = ("NAZWA", "ID", "MIEJSCE", "ROZKAZ", "ZBIORNIK", "INT", "STAWKA", "BANK", "DOJRZALOSC", "DO SZCZEBLA")
+    keys = ["display", "id", "place", "orders", "pool", "integrity", "rate", "bank", "maturity", "next"]
+    for r in rows:
+        r["display"] = r["anchor"] + r["name"]
     widths = [max(len(h), *(len(str(r[k])) for r in rows)) for h, k in zip(head, keys)]
     line = "  ".join(h.ljust(w) for h, w in zip(head, widths))
     print(title)
@@ -156,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Tabela sieci: rozkazy, pozycje, zasoby, banki.")
     ap.add_argument("--problems", action="store_true", help="same uwagi, bez tabeli")
     ap.add_argument("--debt", action="store_true", help="rozwin dlug migracyjny do pojedynczych linii")
-    ap.add_argument("--sort", choices=["id", "bank", "rate", "miejsce"], default="id")
+    ap.add_argument("--sort", choices=["id", "nazwa", "bank", "rate", "miejsce"], default="id")
     ap.add_argument("--wide", action="store_true", help="nie skracaj kolumny rozkazu")
     args = ap.parse_args(argv)
 
@@ -173,6 +177,7 @@ def main(argv: list[str] | None = None) -> int:
     table = [build_row(i, rows_by_id, rungs, args.wide) for i in live]
     keyfun = {
         "id": lambda r: r["id"],
+        "nazwa": lambda r: r["name"],
         "bank": lambda r: -float(r["bank"]) if r["bank"] != "-" else 1e9,
         "rate": lambda r: -float(r["rate"]) if r["rate"] != "-" else 1e9,
         "miejsce": lambda r: r["place"],
@@ -182,11 +187,12 @@ def main(argv: list[str] | None = None) -> int:
     if not args.problems:
         print_table(table, f"SIEC CZYNNA ({len(table)})")
         print("  ! pozycja stale, ?? nieznana, ~ wywnioskowana, ? brak position.fix")
+        print("  * przy nazwie = okaz ZAKOTWICZONY (anchor_class)")
 
         if gone:
             print()
             print(f"POZA SIECIA ({len(gone)}): " + ", ".join(
-                f"{i['id']} [{i.get('status', '?')}]" for i in gone))
+                f"{i.get('name') or i['id']} [{i.get('status', '?')}]" for i in gone))
 
         lucan = by_id.get(PLAYER_ID)
         lrow = rows_by_id.get(PLAYER_ID, {})
@@ -212,15 +218,16 @@ def main(argv: list[str] | None = None) -> int:
     for r in table:
         inst, row = r["_inst"], r["_row"]
         iid = r["id"]
+        label = f"{r['name']} ({iid})" if r["name"] != iid else iid
         pos = inst.get("position") or {}
         _, pool = pool_of(inst)
 
         if pool and not row and iid not in OUTSIDE_THE_LADDER:
-            problems.append(f"{iid}: ma zbiornik, a NIE MA wiersza w growth-banks.yaml")
+            problems.append(f"{label}: ma zbiornik, a NIE MA wiersza w growth-banks.yaml")
 
         fix = (pos.get("fix") or {}).get("status")
         if fix in {"stale", "unknown"}:
-            problems.append(f"{iid}: pozycja {fix} - ostatnie potwierdzenie "
+            problems.append(f"{label}: pozycja {fix} - ostatnie potwierdzenie "
                             f"{(pos.get('fix') or {}).get('as_of_event_id', '?')}")
         elif not pos.get("fix"):
             debt_fix.append(iid)
@@ -229,10 +236,10 @@ def main(argv: list[str] | None = None) -> int:
             debt_formation.append(iid)
 
         if (row.get("rate_per_day") or 0) < 0:
-            problems.append(f"{iid}: stawka ujemna {row['rate_per_day']} - deficyt dobowy")
+            problems.append(f"{label}: stawka ujemna {row['rate_per_day']} - deficyt dobowy")
 
         if not (inst.get("orders") or []) and str(row.get("balance_row", "")).startswith("posterunek"):
-            problems.append(f"{iid}: rejestr mowi 'posterunek z zadaniem', "
+            problems.append(f"{label}: rejestr mowi 'posterunek z zadaniem', "
                             "a w instancji NIE MA zadnego rozkazu")
 
     for bid in rows_by_id:

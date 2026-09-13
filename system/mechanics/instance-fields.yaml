@@ -12,13 +12,18 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 168
-  engine_reads: 112
-  documentation_only: 56
+  fields: 170
+  engine_reads: 113
+  documentation_only: 57
   flags: 109
   flags_engine_reads: 6
   flags_looks_mechanical_but_is_not: 0
 fields:
+- field: anchor_class
+  status: documentation_only
+  match: none
+  note: silnik tego NIE czyta
+  in_instances: 4
 - field: conditions
   status: engine_reads
   match: path
@@ -274,6 +279,11 @@ fields:
   match: leaf
   note: 25 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 3
+- field: name
+  status: engine_reads
+  match: path
+  note: 38 odwolan po pelnej sciezce
+  in_instances: 36
 - field: object_type
   status: engine_reads
   match: path
@@ -318,7 +328,7 @@ fields:
   status: engine_reads
   match: path
   note: 4 odwolan po pelnej sciezce
-  in_instances: 14
+  in_instances: 15
 - field: orders.definition_ref
   status: engine_reads
   match: leaf
@@ -338,12 +348,12 @@ fields:
   status: engine_reads
   match: leaf
   note: 148 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
-  in_instances: 14
+  in_instances: 15
 - field: orders.instruction
   status: documentation_only
   match: none
   note: silnik tego NIE czyta
-  in_instances: 14
+  in_instances: 15
 - field: orders.issued_as
   status: documentation_only
   match: none
@@ -363,12 +373,12 @@ fields:
   status: engine_reads
   match: leaf
   note: 4 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
-  in_instances: 14
+  in_instances: 15
 - field: orders.status
   status: engine_reads
   match: leaf
   note: 65 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
-  in_instances: 14
+  in_instances: 15
 - field: orders.time_advanced_when_issued
   status: documentation_only
   match: none
@@ -388,32 +398,32 @@ fields:
   status: engine_reads
   match: path
   note: 4 odwolan po pelnej sciezce
-  in_instances: 5
+  in_instances: 10
 - field: position.fix.as_of_event_id
   status: engine_reads
   match: parent_leaf
   note: 1 odwolan rodzic+liscie
-  in_instances: 5
+  in_instances: 10
 - field: position.fix.note
   status: engine_reads
   match: leaf
   note: 5 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
-  in_instances: 2
+  in_instances: 7
 - field: position.fix.source
   status: engine_reads
   match: path
   note: 1 odwolan po pelnej sciezce
-  in_instances: 5
+  in_instances: 10
 - field: position.fix.status
   status: engine_reads
   match: path
   note: 1 odwolan po pelnej sciezce
-  in_instances: 5
+  in_instances: 10
 - field: position.formation
   status: engine_reads
   match: path
   note: 3 odwolan po pelnej sciezce
-  in_instances: 28
+  in_instances: 23
 - field: position.location_id
   status: engine_reads
   match: path

@@ -1,5 +1,6 @@
 schema_version: 1
 id: spy_cellar_spider_06
+name: Pająk 06
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
@@ -7,7 +8,14 @@ revision: 201
 position:
   location_id: loc_lumaria_market
   zone_id: zone_market_back_alleys
-  formation: stationed_in_a_crate_on_the_lower_shelf_of_the_syndicate_back_room_as_toby_on_saucer_one_phases_redefined_in_t202_two_is_hearing_plus_disputation_both_held_three_is_the_political_storm_ending_and_the_group_being_formed_four_is_the_entry_and_also_the_deadline_by_which_the_principal_must_be_out_of_the_city_retcon_000127
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_202
+    source: transaction
+    note: >-
+      Zaplecze syndykatu na targu. Dawne position.formation trzymalo tu CALA HISTORIE
+      posterunku wraz z czteroma fazami planu z retcon_000127 - czyli dokladnie to, czego
+      retcon_000171 zakazuje. Tresc przeniesiona do orders[], pole zdjete (retcon_000185).
 integrity:
   current: 6
   maximum: 6
@@ -34,6 +42,17 @@ resources:
         po formule 8 x 1.5^n, skasowanej w calosci przez retcon_000024. Trwaly krok
         kosztuje CZAS PRZY STOLE (ok. godziny), nie jednostki z banku; bank finansuje
         mase i dojrzewanie.'
+orders:
+- id: order_syndicate_back_room_listening_post
+  status: active
+  source_event_id: event_turn_interlude_202
+  instruction: >-
+    POSTERUNEK NA ZAPLECZU SYNDYKATU, w skrzynce na dolnej polce, pod imieniem "Toby"
+    nadanym mu przez ludzi syndykatu. Poluje swobodnie w zaulkach i pustkach scian
+    (zer normalny, +1,0), ale nie opuszcza zasiegu zaplecza. Cztery fazy planu, wedle
+    ktorych ma meldowac, zdefiniowano w t_202 i doprecyzowano w retcon_000127: (1) faza
+    pierwsza, (2) przesluchanie i disputa - obie odbyte, (3) koniec burzy politycznej
+    i sformowanie grupy, (4) wejscie oraz termin, do ktorego mocodawca ma byc poza miastem.
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
