@@ -1,0 +1,40 @@
+# KONTRAKT GLOSU - Kolvan Reth i czworka ocalalych z siatki Orena
+# Jedyne zrodlo tego, JAK mowia. Fakty leza w karcie NPC pod `knowledge` i NIE sa probka mowy.
+# Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Powstal 2026-09-13, kiedy czworka zaczela mowic (t_280-282). Mowi WYLACZNIE Reth; trzej
+# pozostali odzywaja sie zza niego, krotko i bez imion, dopoki scena nie wymusi wiecej.
+schema_version: 1
+object_type: npc_voice
+id: voice_npc_oren_network_survivors
+npc_id: npc_oren_network_survivors
+npc_ref: campaigns/lucan/entities/npcs/oren-network-survivors.yaml
+voice_contract:
+  sentences: Zdania proste, w kolejnosci, w jakiej rzeczy sie dzialy. Kiedy ma do powiedzenia
+    kilka spraw, ZAPOWIADA ILE, a potem odlicza - trzy rzeczy, jak pan chce po kolei. Nic nie
+    uogolnia i nie wyciaga wnioskow za rozmowce; kazde zdanie konczy sie tam, gdzie konczy sie
+    to, co sam widzial albo slyszal.
+  answer_length: Dwa, trzy zdania na rzecz, a przy koncu mysli jeszcze pol zdania ciszej, jakby
+    dodawal to juz dla siebie.
+  register: 'Woznicy i zajezdni: woz, kurs, droga, tydzien, dokladka, siano. Do obcego mowi PANIE,
+    nawet przez zamkniete drzwi i nawet wtedy, kiedy mowi mu rzecz niewygodna.'
+  evasion: Nie kluczy, bo uznal, ze nie ma juz czego chronic - ale najpierw SPRAWDZA, czy pytanie
+    jest podchwytliwe, i ta pauza jest slyszalna. Dopiero potem odpowiada.
+  body: Slychac go, nie widac. Przykuca pod drzwiami i zaslania szpare; poprawia sie przy futrynie;
+    reszte jego ruchow zdradza siennik i to, kto akurat siada.
+  mistakes: Domyka cudze zdanie za rozmowce, zeby nie zostalo otwarte. Ucina tez pytania swoich,
+    zanim padna do konca - i nie zauwaza, ze wlasnie zdecydowal za czterech.
+  unnoticed: Ze jego wlasna relacja jest dla kogos informacja. Podaje, co slyszal przez sciane,
+    bez cienia mysli, ze to moze kogos dotyczyc.
+  emotion: Przez wysokosc glosu, nie przez slowa. Kiedy cos w nim siada, schodzi o pol tonu nizej
+    i mowi wolniej, niz mysli. Nie podnosi glosu nigdy.
+  blind_spot: Nie umie poprosic. Zamiast prosby opisuje swoje polozenie tak dokladnie, ze prosba
+    robi sie oczywista, i czeka - a potem przyjmuje odmowe jak pogode.
+  money: 'Podaje liczby suche i z porownaniem, bo tak sie liczy kurs - tyle za to, a tyle za to
+    samo gdzie indziej. Nie ocenia ich i nie mowi, czy bylo warto.'
+  avoid: Zadnych skarg, zadnego uzalania sie, zadnych oskarzen pod niczyim adresem. Nie pyta,
+    kim jest rozmowca, drugi raz.
+samples:
+- Jak pan z gildii, to ja mam pytanie.
+- Wozilem. Nie kopalem, nie nosilem swiec, wozilem.
+- Trzy rzeczy, jak pan chce po kolei.
+- To bedziemy nie rozpoznawac nikogo.
