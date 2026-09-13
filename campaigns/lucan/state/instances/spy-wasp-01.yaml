@@ -3,7 +3,7 @@ id: spy_wasp_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 198
+revision: 199
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_entry
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 65320
-      hunting_recovery_elapsed_seconds: 45420
+      decay_elapsed_seconds: 65500
+      hunting_recovery_elapsed_seconds: 45600
     hunting_recovery_override:
       requires:
       - autonomous_hunting
@@ -47,7 +47,7 @@ status_flags:
 - buzz_draws_attention_and_violence
 - starves_at_a_static_indoor_post
 conditions: []
-last_event_id: event_turn_interlude_274
+last_event_id: event_turn_interlude_275
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

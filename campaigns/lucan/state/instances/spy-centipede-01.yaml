@@ -3,7 +3,7 @@ id: spy_centipede_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 198
+revision: 199
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_wall_district
@@ -12,9 +12,9 @@ position:
     status: unknown
     as_of_event_id: event_turn_interlude_091
     source: borrowed_sense
-    note: Ostatni pomiar ma 95 tur i NIE DAL WSPOLRZEDNYCH. location_id nizej jest miejscem WYPUSZCZENIA
-      (t_077), nie miejscem pobytu - od t_186 okaz ma rozkaz isc w gore pod gildie. Nie wolno podawac
-      tego jako polozenia.
+    note: Ostatni pomiar ma 95 tur i NIE DAL WSPOLRZEDNYCH. location_id nizej jest
+      miejscem WYPUSZCZENIA (t_077), nie miejscem pobytu - od t_186 okaz ma rozkaz
+      isc w gore pod gildie. Nie wolno podawac tego jako polozenia.
 integrity:
   current: 7
   maximum: 7
@@ -31,8 +31,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 65320
-      hunting_recovery_elapsed_seconds: 65320
+      decay_elapsed_seconds: 65500
+      hunting_recovery_elapsed_seconds: 65500
 status_flags:
 - newly_animated
 - released_into_city_sewer
@@ -46,7 +46,7 @@ status_flags:
 - provokes_immediate_extermination_response_if_seen
 - unmistakably_biological_in_motion
 conditions: []
-last_event_id: event_turn_interlude_274
+last_event_id: event_turn_interlude_275
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
@@ -55,14 +55,15 @@ observation:
   channel: borrowed_sense
   confidence: low
   coordinates_recovered: false
-  text: 'Sygnal ROSNIE w drodze do gildii: gdzies pod dzielnica gildii, a kanaly siegaja pod sama piwnice.
-    Ciosany kamien i powietrze STOJACE, bez ciagu i bez wody - to nie kanal, to czyjas piwnica, do ktorej
-    wij wszedl otworem od spodu. KTORA - NIE WIADOMO. Watek otwarty.'
+  text: 'Sygnal ROSNIE w drodze do gildii: gdzies pod dzielnica gildii, a kanaly siegaja
+    pod sama piwnice. Ciosany kamien i powietrze STOJACE, bez ciagu i bez wody - to
+    nie kanal, to czyjas piwnica, do ktorej wij wszedl otworem od spodu. KTORA - NIE
+    WIADOMO. Watek otwarty.'
   method: krzywa straty jako dalmierz (pomiar z t_086)
 orders:
 - id: order_map_under_the_guild
   status: active
   source_event_id: event_turn_interlude_186
-  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu, idac w gore od
-    kanalow dzielnicy muru.
+  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu,
+    idac w gore od kanalow dzielnicy muru.
   issued_as: parenthetical_internal_act

@@ -3,7 +3,7 @@ id: spy_hawk_moth_01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 104
+revision: 105
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_main
@@ -26,7 +26,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 580
-      hunting_recovery_elapsed_seconds: 120
+      hunting_recovery_elapsed_seconds: 300
 traits:
   source: player_declaration_day3_evening_anchored_personalities
   decided_on: '2026-08-26'
@@ -45,10 +45,10 @@ traits:
     mechanika zasilania i zaczynaja byc SWITA - regal plus glutton daje krolowa, ktora
     nie poluje, bo nie musi. Egotyzm i ciety jezyk rosna razem z liczba poddanych.
     Docelowo dialog z Lucanem.
-symbiont_upkeep_ref_DOKUMENTACJA_NIE_MECHANIKA: 'campaigns/lucan/planning/specimen-upgrades.yaml#builds.build_moth_glutton.energy_model.symbiont_upkeep.units_per_day'
+symbiont_upkeep_ref_DOKUMENTACJA_NIE_MECHANIKA: campaigns/lucan/planning/specimen-upgrades.yaml#builds.build_moth_glutton.energy_model.symbiont_upkeep.units_per_day
 symbiont_upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: 'Od t_271 zawisak nosi sordine i
-  porost slepy. planning/specimen-upgrades.yaml#builds.build_moth_glutton#energy_model stawia
-  utrzymanie kolonii na 2 jednostki na dobe z necrotic_reservoir, przy POJEMNOSCI
+  porost slepy. planning/specimen-upgrades.yaml#builds.build_moth_glutton#energy_model
+  stawia utrzymanie kolonii na 2 jednostki na dobe z necrotic_reservoir, przy POJEMNOSCI
   NIEZMIENIONEJ (3). Pole jest rejestrem RECZNYM: silnik czyta wylacznie regeneration,
   decay i hunting_recovery, a decay zawisaka jest zniesione fiolka z t_090 (decay_suppressed)
   i tego sie NIE rusza, zeby dwie rzeczy sie nie mieszaly. Pokrycie: kosz jedwabnikow
@@ -75,7 +75,7 @@ status_flags:
 - cleared_to_forage_nectar_on_the_meadows_t_274
 - symbiont_upkeep_2_per_day_covered_by_own_nectar_foraging_net_zero_t_274_retcon_000172
 conditions: []
-last_event_id: event_turn_interlude_274
+last_event_id: event_turn_interlude_275
 source_refs:
 - event_turn_interlude_088
 - event_turn_interlude_090

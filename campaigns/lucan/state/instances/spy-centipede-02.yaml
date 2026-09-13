@@ -3,7 +3,7 @@ id: spy_centipede_02
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 198
+revision: 199
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_wall_district
@@ -12,8 +12,8 @@ position:
     status: stale
     as_of_event_id: event_turn_interlude_091
     source: borrowed_sense
-    note: Sygnal matowy, kierunek mur/garbarnia, bez wspolrzednych. Strefa nizej jest ostatnia znana,
-      nie potwierdzona.
+    note: Sygnal matowy, kierunek mur/garbarnia, bez wspolrzednych. Strefa nizej jest
+      ostatnia znana, nie potwierdzona.
 integrity:
   current: 7
   maximum: 7
@@ -30,8 +30,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 65320
-      hunting_recovery_elapsed_seconds: 65320
+      decay_elapsed_seconds: 65500
+      hunting_recovery_elapsed_seconds: 65500
 status_flags:
 - newly_animated
 - released_into_city_sewer
@@ -45,7 +45,7 @@ status_flags:
 - provokes_immediate_extermination_response_if_seen
 - unmistakably_biological_in_motion
 conditions: []
-last_event_id: event_turn_interlude_274
+last_event_id: event_turn_interlude_275
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076
@@ -60,6 +60,6 @@ orders:
 - id: order_map_under_the_guild
   status: active
   source_event_id: event_turn_interlude_186
-  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu, idac w gore od
-    kanalow dzielnicy muru.
+  instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi i halasu,
+    idac w gore od kanalow dzielnicy muru.
   issued_as: parenthetical_internal_act
