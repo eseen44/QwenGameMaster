@@ -1,0 +1,80 @@
+voice_missing: BRAK KARTY GLOSU - nie ukladaj kwestii z knowledge ani z audytu. Zaloz plik w entities/npcs/voices/
+  (system/npc-voice.md).
+voice_rules:
+- Glos bierz z voice_contract powyzej - nie z knowledge, nie z audytu, nie z retconow.
+- Kiedy ta postac mowi, gracz widzi CO NAJMNIEJ JEDNA jej kwestie wprost.
+- Kontrakt opisuje tendencje, nie limity zdan ani obowiazkowe gesty. Odpowiada stosownie do sytuacji.
+- 'PELNY RUCH SWIATA, nie ustepstwo: gest, milczenie, zwykla odpowiedz, czesciowe niezrozumienie, zmiana
+  tematu, czynnosc fizyczna, bledny odczyt intencji, emocja bez analizy. Diagnoza gracza NIE jest wymagana
+  ani domyslna.'
+- Wie tylko to, co dostrzegla, poznala lub umie z doswiadczenia. Domysl moze byc bledny; reguly narratora,
+  prywatne skany i audit nie sa jej wiedza.
+- 'Wycen decyzji: zero. Literalna cena tylko wtedy, gdy scena jest o pieniadzach.'
+- '''nie X, tylko Y'' najwyzej raz i nie u dwoch postaci w tej samej scenie.'
+- 'Pelna regula, menu ruchow i test na slepo: system/npc-voice.md'
+schema_version: 1
+id: npc_oren_network_survivors
+name: Czwórka ocalałych z siatki Orena
+status: active
+review_status: generated_by_narrator_2026_09_13_at_player_request
+importance: supporting
+role: detained_cooperating_witnesses
+lifecycle:
+  state: alive
+  last_confirmed_event_id: event_turn_interlude_282
+current_location_id: loc_lumaria_guild_basement
+current_zone_id: zone_witness_holding
+object_type: npc_digest
+full_card: campaigns/lucan/entities/npcs/oren-network-survivors.yaml
+knowledge:
+  register_note: 'TO SA DANE, NIE PROBKA MOWY. Ponizsze `claim` sa zapisem protokolu tury: nie kazde zdanie
+    audytu jest wiedza NPC. Sprawdz droge zdobycia informacji, oddziel obserwacje, cudza relacje i hipoteze.
+    Reguly narratora nie sa faktami swiata. Przy claim_truncated doczytaj konkretny claim_full przed uzyciem:
+    pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
+  claim_cap_chars: 130
+  recent_confirmed:
+  - fact_id: fact_reth_named_orens_rates
+    source_event_id: event_turn_interlude_282
+    claim: 'Reth podal wprost, ile placil Oren: Trzydziesci srebra tygodniowo plus dokladka za kursy po
+      ciemku, liczona od wozu - przy jego wlasnej stawce rynkowej osmiu za wozenie siana tym samym wozem
+      ta sama droga.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/oren-network-survivors.yaml#fact_reth_named_orens_rates
+  - fact_id: fact_survivors_heard_a_conditional_job_offer
+    source_event_id: event_turn_interlude_282
+    claim: TO, CO uslyszeli od nieznanego glosu, nie umowa (retcon_000120).
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/oren-network-survivors.yaml#fact_survivors_heard_a_conditional_job_offer
+  - fact_id: fact_survivors_hear_someone_in_the_end_cell_since_morning
+    source_event_id: event_turn_interlude_281
+    claim: 'Ich wlasne doswiadczenie, zaszle dzisiaj: od rana slychac kogos w ostatniej celi za zalomem,
+      rozpakowujacego cos brzeczacego - szklo albo blache, przez kamien nie rozrozniaja.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/oren-network-survivors.yaml#fact_survivors_hear_someone_in_the_end_cell_since_morning
+  - fact_id: fact_survivors_testimony_coherence_is_decaying
+    source_event_id: event_turn_interlude_281
+    claim: 'Piaty dzien w jednym pokoju: zaczeli miedzy soba porownywac, kto co powiedzial na przesluchaniach.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/oren-network-survivors.yaml#fact_survivors_testimony_coherence_is_decaying
+  older_confirmed_index:
+  - fact_reth_heard_a_stranger_glad_they_are_alive@281
+  - fact_survivors_interrogations_stopped_two_days_ago@280
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source:
+  - co jest za zawalem na starej nizszej trasie
+  - czy siatka Orena schodzila na nizszy poziom i po co
+  - cokolwiek o niszy w polnocnym fundamencie i o item_north_foundation_vessel
+  - kto usunal Orena
+freshness:
+  confirmed_entries_total: 6
+  in_digest: 4
+  last_fact_from_turn: 282
+  current_turn: 282
+  turns_behind: 0
+  warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
+    to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
+    recall/dziennik przed pierwsza kwestia tej postaci.
+digest_note: 'SKROT GENEROWANY - NIE EDYTUJ i NIE TRAKTUJ JAKO KANONU. Zrodlem prawdy jest pelna karta
+  wskazana w full_card; tu leza czesc ''jak grac'', streszczenia lub oznaczone fragmenty najnowszych faktow
+  oraz INDEKS starszych. Szczegol faktu dociagnij z pelnej karty. Przebuduj: python tools/build_npc_digests.py'

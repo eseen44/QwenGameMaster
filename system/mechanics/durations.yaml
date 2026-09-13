@@ -32,6 +32,17 @@ basis_values:
   workshop_hours: Praca reczna przy stole, wyceniana w godzinach (retcon_000024).
 
 rows:
+  - id: pojedyncza_kwestia
+    seconds: [10, 90]
+    default_seconds: 30
+    applies_to: >-
+      JEDNA kwestia albo krotka wymiana dwoch-trzech zdan bez rozwijania tematu: rzucone
+      pytanie, odpowiedz przez drzwi, pozegnanie, komenda, jedno zdanie w przejsciu.
+    source: >-
+      retcon_000189. Tabela nie miala nic ponizej wymiany_zdan (180-480 s), wiec narrator
+      wyceniał jedna linie na trzy do szesciu minut. Gracz sprostowal po t_281: "ta jedna
+      linia dialogu trwala moze z 10 sekund".
+
   - id: wymiana_zdan
     seconds: [180, 480]
     default_seconds: 300
