@@ -12,8 +12,8 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 167
-  engine_reads: 111
+  fields: 168
+  engine_reads: 112
   documentation_only: 56
   flags: 109
   flags_engine_reads: 6
@@ -553,6 +553,11 @@ fields:
   status: engine_reads
   match: leaf
   note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: resources.lucan_necrotic_energy.runtime.overflow_pending
+  status: engine_reads
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.lucan_necrotic_energy.runtime.regeneration_elapsed_seconds
   status: engine_reads

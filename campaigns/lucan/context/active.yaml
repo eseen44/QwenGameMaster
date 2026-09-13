@@ -56,9 +56,18 @@ active_refs:
 - campaigns/lucan/state/instances/pc-lucan.yaml
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
-search_terms: []
-last_refreshed_event_id: event_turn_interlude_276
-context_bytes: 45284
+search_terms:
+- 'Gildia, pod schodami, 07:06, ranek dnia piatego. Mara zgodzila sie na GODZINE treningu
+  teraz i sama postawila granice: potem jedzenie i przeglad sprzetu. Boros jest na
+  dole po woz i kilofy, wraca pod brame. Plan wejscia stoi tak, jak Lucan go podal:
+  za dnia, jawnie, jako ekipa budowlana, na miejscu o dwunastej. OTWARTE: (1) czy
+  Lucan bierze te godzine, (2) INSTRUKCJE DLA MARY I BOROSA, ktore naleza do niego
+  od t_269 i nadal nie padly - Mara nazwala to wprost. Mara ma z papieru wersje konserwacyjna
+  i NIE dostala od Seraphine tego, co pod spodem; wie za to od dawna, co lezy w komorze
+  (fact_mara_witnessed_varkhen_assault, fact_mara_knows_varkhen_compact), i sama mowi,
+  ze woli nie wiedziec wiecej.'
+last_refreshed_event_id: event_turn_interlude_277
+context_bytes: 45746
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
@@ -69,9 +78,9 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5443
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4676
+  bytes: 4587
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3387
+  bytes: 3292
 conditional_sets:
   npc_speaks:
     refs:
@@ -103,10 +112,10 @@ conditional_sets:
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
-      bytes: 11884
+      bytes: 16035
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 20891
-    bytes: 32775
+      bytes: 25430
+    bytes: 41465
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -163,9 +172,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 33622
-  participant_cards: 0
-  participant_full_cards_available: 0
-  participant_digests: 0
-  conditional_heaviest: 32775
-context_total_bytes: 63479
+  state_active: 34084
+  participant_cards: 7805
+  participant_full_cards_available: 7805
+  participant_digests: 7805
+  conditional_heaviest: 41465
+context_total_bytes: 71746
