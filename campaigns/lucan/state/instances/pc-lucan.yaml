@@ -3,11 +3,14 @@ id: pc_lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 269
+revision: 270
 position:
-  location_id: loc_city_wall_hideout
-  zone_id: zone_main
-  formation: at_the_tower_t_273_cat_set_aside_unpreserved_rats_sent_to_the_sewer_grate_moth_released_with_the_bat_protocol
+  location_id: loc_lumaria_adventurers_guild
+  zone_id: zone_guild_main_hall
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_276
+    source: transaction
 integrity:
   current: 19
   maximum: 19
@@ -24,7 +27,7 @@ resources:
     campaign_calibration: true
     decision_status: approved
     runtime:
-      regeneration_elapsed_seconds: 460
+      regeneration_elapsed_seconds: 3460
     regeneration:
       interval_seconds: 3600
       units: 0.75
@@ -63,7 +66,7 @@ status_flags:
 - permanently_expanded_reservoir
 - within_normal_capacity
 - running_on_life_energy_not_sleep
-last_event_id: event_turn_interlude_275
+last_event_id: event_turn_interlude_276
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

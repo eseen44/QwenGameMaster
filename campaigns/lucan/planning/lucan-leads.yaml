@@ -878,6 +878,10 @@ open_rulings_needed_from_player:
       Dzis zaden okaz ssaczy nie stoi w rejestrze, wiec regula nie ma adresata. PIERWSZYM
       BEDZIE KOT, jesli Lucan go zatrzyma - a to jest otwarta decyzja sceny. Wtedy trzeba
       zapytac gracza o stawke, zanim kot dostanie wpis w growth-banks.
+    update_2026_09_13: >-
+      ADRESAT ZNIKNAL, PYTANIE ZOSTAJE. W t_276 Lucan wygasil kota i wyrzucil go na kupe
+      za murem, wiec zaden okaz ssaczy nie wchodzi do rejestru i stawki nie trzeba dzis
+      ustalac. Ruling zostaje OTWARTY - wroci przy pierwszym ssaku, ktorego Lucan zatrzyma.
     refs:
       - system/mechanics/daily-balance.yaml#body_size_rule
       - campaigns/lucan/player/inventory.yaml#item_animated_raw_specimens_tower_bench
@@ -918,6 +922,12 @@ declared_intents_awaiting_normal_declaration:
       - campaigns/lucan/player/inventory.yaml#item_animated_raw_specimens_tower_bench
       - campaigns/lucan/entities/npcs/digests/lucan-father.yaml
       - campaigns/lucan/state/resources.yaml#cache_cemetery_north_bushes
+    update_2026_09_13: >-
+      POLOWA TEJ INTENCJI STRACILA PRZEDMIOT. Kot zostal wygaszony i wyrzucony w t_276,
+      wiec pytanie o utrzymanie futra nie dotyczy juz zadnego konkretnego ciala - zostaje
+      jako pytanie ogolne na nastepnego ssaka. Naczynie (item_north_foundation_vessel)
+      i chec wyciagniecia od ojca wiecej ksiazek nie zmieniaja sie w niczym. Wyjscie do
+      Akademii nadal NIEZADEKLAROWANE poza nawiasem; w t_276 Lucan poszedl do gildii.
     status: awaiting_declaration_outside_parentheses
   - id: intent_attribute_any_fallout_of_the_vessel_removal_to_orens_removal
     declared: 'Poza gra (nawias), 2026-09-11, przy deklaracji wyjecia rzeczy z niszy w

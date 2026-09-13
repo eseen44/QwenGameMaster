@@ -3,7 +3,7 @@ id: spy_rat_02
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 3
+revision: 4
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_tannery
@@ -24,8 +24,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 2100
-      hunting_recovery_elapsed_seconds: 2100
+      decay_elapsed_seconds: 5100
+      hunting_recovery_elapsed_seconds: 5100
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -35,8 +35,14 @@ status_flags:
 - unremarkable_in_a_sewer_nobody_looks_twice
 - mammal_ear_hears_the_human_band_natively
 conditions: []
-last_event_id: event_turn_interlude_275
+last_event_id: event_turn_interlude_276
 source_refs:
 - event_turn_interlude_271
 - event_turn_interlude_272
 - event_turn_interlude_273
+orders:
+- id: order_confine_to_tannery_sewers
+  status: active
+  source_event_id: event_turn_interlude_276
+  instruction: Poruszac sie wylacznie po kanalach pod garbarnia. Poza ten obszar nie
+    wychodzic.

@@ -1,0 +1,218 @@
+schema_version: 1
+id: snapshot_scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work
+object_type: scene_snapshot
+closed_at: '2026-09-13T11:03:13+02:00'
+summary: 'Gildia, 07:31, ranek dnia piatego. Lucan wrocil z baszty w 45 minut; blat
+  zostal pusty - kot i kos wygaszeni i wyrzuceni na kupe za murem (t_276), reszta
+  okazow na posterunkach, szczury zawezone rozkazem do kanalow pod garbarnia. Tkacz
+  na dachu gildii, Spidey w zaulkach, oboje na stalym rozkazie oslony w dystansie
+  ok. 50 m (order_standoff_escort_fifty_metres). Odczyt sieci: rezerwa 15/15 przy
+  sufcie, nadwyzka 22,3 na dobe, zadnych aktywnych lacz podtrzymujacych, wszystkie
+  okazy fresh i daleko od progu 10; rejestr wzrostu rozliczony do t_276. OTWARTE:
+  po co Lucan przyszedl do gildii.'
+scene:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  scene_id: scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work
+  location_ref: campaigns/lucan/locations/lumaria-guild/location.yaml
+  started_at: '2026-08-20T06:38:40+02:00'
+  tension:
+    level: 0
+    reason: null
+  participants:
+  - pc_lucan
+  - companion_spidey
+  - webber_anchored
+  pressures: []
+  immediate_facts: []
+  immediate_questions:
+  - 'Gildia, ranek dnia piatego. Lucan w sali glownej, Tkacz na dachu, Spidey w zaulkach
+    w dystansie 50 m. Blat w baszcie jest pusty - kot i kos wygaszeni i wyrzuceni,
+    reszta okazow na posterunkach, szczury zawezone do kanalow pod garbarnia. OTWARTE:
+    po co Lucan przyszedl do gildii. Nierozstrzygniete i czekajace: naczynie z niszy
+    (item_north_foundation_vessel) i pytanie o futro u nieumarlego ssaka, oba nadal
+    bez adresata; jedyne wolne stanowisko w sieci to spy_cellar_spider_05 w wejsciu
+    baszty; zawisak przestal rosnac po zejsciu z kosza (3,75 przy progu 10).'
+  pending_world_reactions: []
+  last_event_id: event_turn_interlude_276
+  previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day5_night_wall_tower_after_seraphine.yaml
+active_context:
+  schema_version: 1
+  campaign_id: campaign_lucan
+  status: active
+  context_policy:
+    source_budget_bytes: 98304
+    scope: repository_sources_only_excludes_conversation_tools_and_output
+  scene_ref: campaigns/lucan/context/scene.yaml
+  always_load:
+  - system/narrator.md
+  - system/player-agency.md
+  load_when_npc_speaks:
+  - system/npc-voice.md
+  load_when_narrator_failure_modes:
+  - system/narrator-appendix.md
+  load_when_reviewing_immersion:
+  - system/fixtures/immersion-review.md
+  load_when_curse_used:
+  - system/curses.md
+  load_when_magic_matters:
+  - system/magic.md
+  - system/metamagic.md
+  load_when_companion_growth_matters:
+  - system/companion-growth.md
+  - campaigns/lucan/state/growth-banks.yaml
+  load_when_writing_npc_knowledge:
+  - system/canon-policy.md
+  load_when_debugging_runtime:
+  - system/runtime.md
+  load_when_testing:
+  - system/tests.md
+  - system/character-score.md
+  - system/capabilities.md
+  - campaigns/lucan/state/world-axis.yaml
+  load_when_time_matters:
+  - system/pacing.md
+  load_when_location_changes:
+  - system/locations-and-maps.md
+  load_when_choosing_a_plan:
+  - planning/interlude-act-03-entry-scope.yaml
+  - planning/obligations-rationale.yaml
+  - planning/act-03-defence.yaml
+  load_when_social_stakes_matter:
+  - system/social-intrigue.md
+  load_when_necromancy_legality_matters:
+  - worlds/solmara/lore/legal-order.yaml
+  - worlds/solmara/lore/necromancy-law.yaml
+  - campaigns/lucan/state/secrets.yaml
+  active_refs:
+  - campaigns/lucan/context/scene.yaml
+  - campaigns/lucan/state/time.yaml
+  - campaigns/lucan/state/clocks.yaml
+  - campaigns/lucan/state/objectives.yaml
+  - campaigns/lucan/state/sustained-links.yaml
+  - campaigns/lucan/state/obligations.yaml
+  - campaigns/lucan/locations/lumaria-guild/location.yaml
+  - campaigns/lucan/state/instances/pc-lucan.yaml
+  - campaigns/lucan/state/instances/spidey.yaml
+  - campaigns/lucan/state/instances/webber-anchored.yaml
+  search_terms:
+  - 'Gildia, ranek dnia piatego. Lucan w sali glownej, Tkacz na dachu, Spidey w zaulkach
+    w dystansie 50 m. Blat w baszcie jest pusty - kot i kos wygaszeni i wyrzuceni,
+    reszta okazow na posterunkach, szczury zawezone do kanalow pod garbarnia. OTWARTE:
+    po co Lucan przyszedl do gildii. Nierozstrzygniete i czekajace: naczynie z niszy
+    (item_north_foundation_vessel) i pytanie o futro u nieumarlego ssaka, oba nadal
+    bez adresata; jedyne wolne stanowisko w sieci to spy_cellar_spider_05 w wejsciu
+    baszty; zawisak przestal rosnac po zejsciu z kosza (3,75 przy progu 10).'
+  last_refreshed_event_id: event_turn_interlude_276
+  context_bytes: 45869
+  context_budget_bytes: 98304
+  context_warnings: []
+  heaviest_refs:
+  - ref: system/narrator.md
+    bytes: 8915
+  - ref: campaigns/lucan/state/sustained-links.yaml
+    bytes: 8074
+  - ref: campaigns/lucan/state/objectives.yaml
+    bytes: 5443
+  - ref: campaigns/lucan/state/instances/spidey.yaml
+    bytes: 4676
+  - ref: campaigns/lucan/state/instances/pc-lucan.yaml
+    bytes: 3387
+  conditional_sets:
+    npc_speaks:
+      refs:
+      - ref: system/npc-voice.md
+        bytes: 7728
+      bytes: 7728
+    narrator_failure_modes:
+      refs:
+      - ref: system/narrator-appendix.md
+        bytes: 18789
+      bytes: 18789
+    reviewing_immersion:
+      refs:
+      - ref: system/fixtures/immersion-review.md
+        bytes: 2795
+      bytes: 2795
+    curse_used:
+      refs:
+      - ref: system/curses.md
+        bytes: 14787
+      bytes: 14787
+    magic_matters:
+      refs:
+      - ref: system/magic.md
+        bytes: 6724
+      - ref: system/metamagic.md
+        bytes: 5379
+      bytes: 12103
+    companion_growth_matters:
+      refs:
+      - ref: system/companion-growth.md
+        bytes: 11884
+      - ref: campaigns/lucan/state/growth-banks.yaml
+        bytes: 19824
+      bytes: 31708
+    writing_npc_knowledge:
+      refs:
+      - ref: system/canon-policy.md
+        bytes: 2708
+      bytes: 2708
+    debugging_runtime:
+      refs:
+      - ref: system/runtime.md
+        bytes: 3193
+      bytes: 3193
+    testing:
+      refs:
+      - ref: system/tests.md
+        bytes: 11621
+      - ref: system/character-score.md
+        bytes: 1610
+      - ref: system/capabilities.md
+        bytes: 2839
+      - ref: campaigns/lucan/state/world-axis.yaml
+        bytes: 3200
+      bytes: 19270
+    time_matters:
+      refs:
+      - ref: system/pacing.md
+        bytes: 4772
+      bytes: 4772
+    location_changes:
+      refs:
+      - ref: system/locations-and-maps.md
+        bytes: 2286
+      bytes: 2286
+    choosing_a_plan:
+      refs:
+      - ref: planning/interlude-act-03-entry-scope.yaml
+        bytes: 3782
+      - ref: planning/obligations-rationale.yaml
+        bytes: 3771
+      - ref: planning/act-03-defence.yaml
+        bytes: 4329
+      bytes: 11882
+    social_stakes_matter:
+      refs:
+      - ref: system/social-intrigue.md
+        bytes: 4619
+      bytes: 4619
+    necromancy_legality_matters:
+      refs:
+      - ref: worlds/solmara/lore/legal-order.yaml
+        bytes: 4134
+      - ref: worlds/solmara/lore/necromancy-law.yaml
+        bytes: 6080
+      - ref: campaigns/lucan/state/secrets.yaml
+        bytes: 14882
+      bytes: 25096
+  context_breakdown:
+    rules_always: 29857
+    state_active: 34207
+    participant_cards: 0
+    participant_full_cards_available: 0
+    participant_digests: 0
+    conditional_heaviest: 31708
+  context_total_bytes: 64064
