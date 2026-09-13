@@ -90,7 +90,10 @@ drobnego okazu i to jest cały powód, dla którego jego bank latami stoi nisko.
 | 7 | `companion` | 420 | 4200 | własna wola; wejście do `companion_class` (`retcon_000179`) |
 
 Szczebel siódmy jest tym samym, co opisuje `retcon_000179`: byt, który służy z **przywiązania**,
-nie z trzymania. Lucanowi zostaje weto, ale jego użycie **niszczy relację** — to akt nazwany,
+nie z trzymania. Własna wola **nie jest pretekstem do buntu** (`retcon_000182`): taki byt wyrósł
+w sieci i czuje w niej wszystkie pozostałe jednostki — to jego rodzina i jedyne, co zna. Sprzeciw
+ma kształt zdania odrębnego, ociągania się i pytania „po co", nie odmowy służby. Naprawdę rusza
+nim zagrożenie dla sieci, nie obietnica wolności. Lucanowi zostaje weto, ale jego użycie **niszczy relację** — to akt nazwany,
 z konsekwencją na osiach, nie przełącznik trybu. Drabina jest więc drogą od okazu do kompana
 i domyka zdanie, które od 31.08.2026 stało w `planning/anchored-companions.yaml` bez liczb:
 *„teraz gest i timing, później wybór sposobu wykonania, na końcu głos"*.

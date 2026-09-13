@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **102** z 180 retconow.
+Regul z klauzula normatywna: **104** z 182 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -41,7 +41,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000174` — Zrodlo tej czterdziestki pozostaje NIEUSTALONE i nie wolno go dopowiadac; stan portfela bez zmian.
 - `retcon_000180` — Od teraz kazdy szczebel daje osobno: (a) +1 pojemnosci zbiornika i +2 integralnosci, (b) JEDNO DOSTOSOWANIE CIALA DO FUNKCJI, (c) POSUNIECIE NA OSI UMYSLU.
 
-## ekspozycja i wiedza NPC (33)
+## ekspozycja i wiedza NPC (34)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -76,6 +76,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000160` — Narratorowi nie wolno umieszczac t_203 w innym dniu niz t_236-t_244 - caly ten ciag to dzien 4 interludium, 19.08.2026, sroda.
 - `retcon_000162` — (1) LIMIT, NIE OBOWIAZEK.
 - `retcon_000163` — Sekret 'northern_foundation_route' w locations/cemetery-chapel/discovery.yaml jest wlasnie ta droga i od teraz jest jej ADRESEM.
+- `retcon_000181` — Narratorowi NIE WOLNO wybrac jednej z tych wersji za gracza ani przeliczyc na jej podstawie innych tras - wiersz marsz_pod_mur w system/mechanics/durations.yaml zostaje bez zmian, bo ta...
 
 ## czas i tempo (15)
 
@@ -126,7 +127,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000098` — Spotkanie nie jest zaplanowane na interludium ani poczatek Aktu 3 i wymaga naturalnego kanalu Akademii.
 - `retcon_000177` — MORALNOSC KOMARA jest ATUTEM, nie skaza do naprawy: Lucan liczy koszt i ryzyko, nie wine; narrator nie dopisuje mu wahania ani karmicznej odplaty.
 
-## prawo i instytucje (7)
+## prawo i instytucje (8)
 
 - `retcon_000020` — Narrator nie traktuje tej kwoty jako problemu balansu; balans reguluje gracz.
 - `retcon_000069` — (b) Stanowisko obejmowalo okazjonalne, obowiazkowe prowadzenie zajec ze studentami.
@@ -135,6 +136,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000140` — Doprecyzowanie gracza nie dodaje wiec nowego bytu (retcon_000058) - nadaje ksztalt zdarzeniu, ktore w plikach istnieje bez opisu.
 - `retcon_000155` — Dlatego naprawa przepisala statusy Z PLIKOW DO REJESTROW, nigdy odwrotnie - 36 wpisow zsynchronizowanych, zaden status w zadnej karcie nie zostal ruszony.
 - `retcon_000178` — Narratorowi NIE WOLNO grac tego jako cierpienia odrzuconego.
+- `retcon_000182` — WLASNA WOLA KOMPANA NIE JEST PRETEKSTEM DO BUNTU I NARRATOR NIE MA JEJ TAK GRAC.
 
 ## pozostale (6)
 
