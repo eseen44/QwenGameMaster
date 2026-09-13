@@ -4,7 +4,7 @@ name: Osa 01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 203
+revision: 204
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_meadows
@@ -12,10 +12,10 @@ position:
     status: confirmed
     as_of_event_id: event_turn_interlude_279
     source: report
-    note: >-
-      ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta z wejscia baszty na laki przed murem, razem z Zawisakiem.
-      Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
-      i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta
+      z wejscia baszty na laki przed murem, razem z Zawisakiem. Laki przed murem to
+      obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym i prostoskrzydlymi
+      w sezonie (locations/wall-hideout#zone_surrounding_meadows).
 integrity:
   current: 4
   maximum: 4
@@ -32,8 +32,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 75400
-      hunting_recovery_elapsed_seconds: 55500
+      decay_elapsed_seconds: 81100
+      hunting_recovery_elapsed_seconds: 61200
     hunting_recovery_override:
       requires:
       - autonomous_hunting
@@ -55,7 +55,7 @@ status_flags:
 - buzz_draws_attention_and_violence
 - starves_at_a_static_indoor_post
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

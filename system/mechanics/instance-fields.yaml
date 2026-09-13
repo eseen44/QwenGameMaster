@@ -12,8 +12,8 @@ how_to_change: 'Nowe pole mechaniczne: najpierw napisz odczyt w tools/, potem pr
   a wychodzi documentation_only, to znaczy, ze silnik tego nie czyta i pole nie dziala.'
 warnings_looks_mechanical_but_is_not: []
 counts:
-  fields: 170
-  engine_reads: 113
+  fields: 171
+  engine_reads: 114
   documentation_only: 57
   flags: 109
   flags_engine_reads: 6
@@ -738,6 +738,11 @@ fields:
   status: engine_reads
   match: leaf
   note: 3 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
+  in_instances: 1
+- field: resources.paralytic_toxin_reservoir.runtime.overflow_pending
+  status: engine_reads
+  match: leaf
+  note: 2 odwolan do samej nazwy liscia - DOPASOWANIE SLABE, moze dotyczyc innego pola o tej nazwie
   in_instances: 1
 - field: resources.paralytic_toxin_reservoir.runtime.regeneration_elapsed_seconds
   status: engine_reads

@@ -4,7 +4,7 @@ name: Wij 02
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 203
+revision: 204
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_guild_district
@@ -12,12 +12,12 @@ position:
     status: confirmed
     as_of_event_id: event_turn_interlude_279
     source: report
-    note: >-
-      KOREKTA KANONU GRACZA, retcon_000184. Pozycja stala jako unknown/stale od t_091 przez
-      190 tur. Gracz rozstrzygnal: wij byl tu CALY CZAS, w kanalach pod dzielnica gildii, i ma
-      tu zer obfity. Zrodlem nie jest obserwacja Lucana - on tam nadal nie byl i loc_city_sewer
-      zostaje known_by_proxy_unmapped. Dawne position.formation zdjete razem z dawnym fix: mowilo
-      "position_not_confirmed_since_t_091" i po tej korekcie bylo juz nieprawda.
+    note: 'KOREKTA KANONU GRACZA, retcon_000184. Pozycja stala jako unknown/stale
+      od t_091 przez 190 tur. Gracz rozstrzygnal: wij byl tu CALY CZAS, w kanalach
+      pod dzielnica gildii, i ma tu zer obfity. Zrodlem nie jest obserwacja Lucana
+      - on tam nadal nie byl i loc_city_sewer zostaje known_by_proxy_unmapped. Dawne
+      position.formation zdjete razem z dawnym fix: mowilo "position_not_confirmed_since_t_091"
+      i po tej korekcie bylo juz nieprawda.'
 integrity:
   current: 7
   maximum: 7
@@ -34,8 +34,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 75400
-      hunting_recovery_elapsed_seconds: 75400
+      decay_elapsed_seconds: 81100
+      hunting_recovery_elapsed_seconds: 81100
 status_flags:
 - newly_animated
 - released_into_city_sewer
@@ -49,7 +49,7 @@ status_flags:
 - provokes_immediate_extermination_response_if_seen
 - unmistakably_biological_in_motion
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

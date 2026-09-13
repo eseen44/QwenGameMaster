@@ -5,7 +5,7 @@ anchor_class: true
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 109
+revision: 110
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_meadows
@@ -13,10 +13,10 @@ position:
     status: confirmed
     as_of_event_id: event_turn_interlude_279
     source: report
-    note: >-
-      ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Zawisak zszedl z blatu na laki - zeruje i poluje aktywnie, nie czeka na zmierzch.
-      Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
-      i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Zawisak zszedl
+      z blatu na laki - zeruje i poluje aktywnie, nie czeka na zmierzch. Laki przed
+      murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym i prostoskrzydlymi
+      w sezonie (locations/wall-hideout#zone_surrounding_meadows).
 integrity:
   current: 6
   maximum: 6
@@ -35,7 +35,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 580
-      hunting_recovery_elapsed_seconds: 10200
+      hunting_recovery_elapsed_seconds: 15900
 traits:
   source: player_declaration_day3_evening_anchored_personalities
   decided_on: '2026-08-26'
@@ -84,7 +84,7 @@ status_flags:
 - cleared_to_forage_nectar_on_the_meadows_t_274
 - symbiont_upkeep_2_per_day_covered_by_own_nectar_foraging_net_zero_t_274_retcon_000172
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_088
 - event_turn_interlude_090

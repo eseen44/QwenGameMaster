@@ -4,7 +4,7 @@ name: Pająk 02
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 201
+revision: 202
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_storage
@@ -25,17 +25,17 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 71200
-      hunting_recovery_elapsed_seconds: 71200
+      decay_elapsed_seconds: 76900
+      hunting_recovery_elapsed_seconds: 76900
 orders:
 - id: order_watch_the_tower_storage
   status: active
   source_event_id: event_turn_interlude_180
-  instruction: >-
-    OBSERWACJA SKLADZIKU BASZTY, sparowany z webber_home. Siec w niszy zostaje na stale:
-    okaz widzi to pomieszczenie ZAWSZE, niezaleznie od tego, czy aktualnie poluje
-    (retcon_000186). Poluje przy okazji - stawka +1,0. Rozkaz istnial w basis rejestru od
-    t_180 i do retcon_000184 nie byl zapisany w polu, ktore silnik czyta.
+  instruction: 'OBSERWACJA SKLADZIKU BASZTY, sparowany z webber_home. Siec w niszy
+    zostaje na stale: okaz widzi to pomieszczenie ZAWSZE, niezaleznie od tego, czy
+    aktualnie poluje (retcon_000186). Poluje przy okazji - stawka +1,0. Rozkaz istnial
+    w basis rejestru od t_180 i do retcon_000184 nie byl zapisany w polu, ktore silnik
+    czyta.'
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -49,6 +49,6 @@ status_flags:
 - not_anchored_by_choice
 - paired_with_webber_home
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_078

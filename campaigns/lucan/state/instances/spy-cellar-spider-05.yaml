@@ -4,7 +4,7 @@ name: Pająk 05
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 201
+revision: 202
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_entry
@@ -25,16 +25,16 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 71200
-      hunting_recovery_elapsed_seconds: 71200
+      decay_elapsed_seconds: 76900
+      hunting_recovery_elapsed_seconds: 76900
 orders:
 - id: order_free_hunt_around_the_tower
   status: active
   source_event_id: event_turn_interlude_279
-  instruction: >-
-    SIEC NA WEJSCIU BASZTY ZOSTAJE - okaz zauwazy wtargniecie niezaleznie od polowania
-    (retcon_000186; dawny zapis o utracie czujnika byl bledem). Poza tym poluje swobodnie
-    w baszcie i wokol niej: pustki scian, zaulki, wejscie. Stawka +1,0 od t_279.
+  instruction: 'SIEC NA WEJSCIU BASZTY ZOSTAJE - okaz zauwazy wtargniecie niezaleznie
+    od polowania (retcon_000186; dawny zapis o utracie czujnika byl bledem). Poza
+    tym poluje swobodnie w baszcie i wokol niej: pustki scian, zaulki, wejscie. Stawka
+    +1,0 od t_279.'
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -48,6 +48,6 @@ status_flags:
 - not_anchored_by_choice
 - assigned_to_webber_anchored_pending_transit
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_078

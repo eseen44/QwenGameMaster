@@ -1,0 +1,68 @@
+schema_version: 1
+id: npc_oren_network_survivors
+name: Czwórka ocalałych z siatki Orena
+object_type: npc_group
+status: active
+importance: supporting
+review_status: generated_by_narrator_2026_09_13_at_player_request
+role: detained_cooperating_witnesses
+lifecycle: {state: alive, last_confirmed_event_id: event_turn_interlude_280}
+current_location_id: loc_lumaria_guild_basement
+current_zone_id: zone_witness_holding
+why_this_card_exists: >-
+  locations/guild-basement/location.yaml#zone_witness_holding mowilo od dawna "obecnie trzymana
+  jest tu czworka ocalalych z siatki Orena", a zaden plik nie mowil o nich nic wiecej. Gracz
+  podszedl do drzwi w t_280, wiec karta powstala na zasadzie z 13.09.2026 (SKILL-gramy:
+  braku danych nie traktuj jak zakazu - generuj albo pytaj). Wygenerowano MINIMUM potrzebne
+  do rozmowy i ani slowa wiecej.
+members:
+  - id: npc_kolvan_reth
+    name: Kolvan Reth
+    role: wozak
+    note: >-
+      Jedyny, ktory mowi przez drzwi. Powiedzial o sobie tyle: "Wozilem. Nie kopalem, nie
+      nosilem swiec, wozilem" - i ze powtorzyl to przy pierwszym, drugim i trzecim
+      przesluchaniu. Niski, zmeczony glos; zadaje pytanie od razu, bez czekania na zgode.
+      Nie skarzy sie - podaje fakty tak, jak sie podaje wage worka.
+  - id: null
+    count: 3
+    note: >-
+      NIEUSTALENI. Trzech pozostalych nie ma imion, rol ani kwestii i narrator ich nie wymysla,
+      dopoki scena tego nie wymusi. Jeden z nich odezwal sie krotko z glebi pomieszczenia
+      i Reth to zignorowal.
+knowledge:
+  confirmed:
+    - {fact_id: fact_survivors_interrogations_stopped_two_days_ago, source_event_id: event_turn_interlude_280,
+       claim: "ICH WLASNE DOSWIADCZENIE, nie wiedza o swiecie: przez pierwsze trzy dni schodzil do nich
+       pisarz dwa razy dziennie, z ta sama kartka. OD DWOCH DNI nie zszedl nikt, nawet po to, zeby
+       powiedziec, ze nie ma nowych pytan. Jedzenie przynosza dalej. Reth powiedzial to Lucanowi przez
+       drzwi, niepytany. CO TO ZNACZY - NIEUSTALONE; narrator nie rozstrzyga i nie wiaze tego z zadnym
+       zegarem bez nowego zrodla."}
+  suspicions: []
+  false_beliefs: []
+  forbidden_without_source:
+    - co jest za zawalem na starej nizszej trasie
+    - czy siatka Orena schodzila na nizszy poziom i po co
+    - cokolwiek o niszy w polnocnym fundamencie i o item_north_foundation_vessel
+    - kto usunal Orena
+what_they_have_not_connected:
+  source_ref: retcon_000027
+  text: >-
+    Jeden z czworki widzial TWARZ Lucana w holu gildii (event_turn_interlude_093) - czlowieka
+    idacego srodkiem i podspiewujacego, minietego na trzy kroki. NIE WIE, ze to ten sam czlowiek,
+    co zza zalomu na ich korytarzu. retcon_000027 mowi wprost, ze to skojarzenie NIE JEST DOMYSLNE
+    - narrator go nie robi za nich i nie odpala go jako zwrotu akcji bez zdarzenia, ktore je
+    uzasadni.
+narrator_limits:
+  - >-
+    NIE SA ZRODLEM MAPY PODZIEMI. Wozak wie, ktoredy jezdzil wozem, a nie co lezy za zawalem.
+    Kazdy szczegol o dolnym poziomie musi miec zdarzenie, w ktorym go zdobyli - inaczej nie ma
+    go w ogole (retcon_000058).
+  - >-
+    Sa zatrzymani, nie wiezieni z wyrokiem, i wspolpracuja. Nie robic z nich ani meczennikow,
+    ani zbirow. Chca wyjsc i to jest cala ich agenda, dopoki gracz nie da im innej.
+source_refs:
+  - campaigns/lucan/locations/guild-basement/location.yaml#zone_witness_holding
+  - retcon_000027
+  - retcon_000038
+  - event_turn_interlude_280

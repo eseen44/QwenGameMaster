@@ -106,6 +106,14 @@ i domyka zdanie, które od 31.08.2026 stało w `planning/anchored-companions.yam
    płacą z listy `retcon_000112`: pokrycie braku snu, szybsze uczenie, mięśnie, pamięć,
    +1 pojemności rezerwy.
 
+**Granica: zdolność kontra ciało** (`retcon_000188`). Z samej dojrzałości przychodzą **konkretne
+zdolności**, równolegle do ręcznej modyfikacji i mniej więcej na jej poziomie: sieciarz zaczyna
+stawiać pułapkę zamiast samej sieci, pająk zaczyna chodzić bezgłośnie, wij zaczyna pamiętać trasę
+i ją odtwarzać. Nie przychodzi z niej **ciało**: dodatkowa kończyna, wszczepiony gruczoł,
+przeszczepiony narząd i powiększony zbiornik ponad to, co daje szczebel, dalej kosztują godziny
+przy stole i materiał dawcy. Test jednym zdaniem: jeśli okaz **wygląda** tak samo, a **umie**
+więcej — to dojrzałość; jeśli wygląda inaczej — to stół.
+
 Progi wolno przesunąć jednym zdaniem gracza. Drabina wyłącznie **przyznaje**, niczego nie odbiera.
 
 ### Kierunek szczebla czyta się z funkcji, nie z deklaracji

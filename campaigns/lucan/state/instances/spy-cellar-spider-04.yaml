@@ -4,7 +4,7 @@ name: Pająk 04
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 201
+revision: 202
 position:
   location_id: loc_lumaria_adventurers_guild
   zone_id: zone_guild_upper_offices
@@ -25,16 +25,15 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 71200
-      hunting_recovery_elapsed_seconds: 71200
+      decay_elapsed_seconds: 76900
+      hunting_recovery_elapsed_seconds: 76900
 orders:
 - id: order_search_sensor_in_lucans_duty_room
   status: active
   source_event_id: event_turn_interlude_183
-  instruction: >-
-    CZUJNIK PRZESZUKANIA w pokoju dyzurnym Lucana, od t_183, odkad leza tam takze papiery
-    z baszty. Widzi ten pokoj ZAWSZE; poluje przy tym w pustkach scian, bo patrzenie nie
-    jest zadaniem zajmujacym (retcon_000186) - stawka +1,0.
+  instruction: CZUJNIK PRZESZUKANIA w pokoju dyzurnym Lucana, od t_183, odkad leza
+    tam takze papiery z baszty. Widzi ten pokoj ZAWSZE; poluje przy tym w pustkach
+    scian, bo patrzenie nie jest zadaniem zajmujacym (retcon_000186) - stawka +1,0.
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull
@@ -48,6 +47,6 @@ status_flags:
 - not_anchored_by_choice
 - assigned_to_webber_dump_pending_transit
 conditions: []
-last_event_id: event_turn_interlude_279
+last_event_id: event_turn_interlude_280
 source_refs:
 - event_turn_interlude_078

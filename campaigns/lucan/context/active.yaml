@@ -52,23 +52,22 @@ active_refs:
 - campaigns/lucan/state/objectives.yaml
 - campaigns/lucan/state/sustained-links.yaml
 - campaigns/lucan/state/obligations.yaml
-- campaigns/lucan/locations/lumaria-guild/location.yaml
+- campaigns/lucan/locations/guild-basement/location.yaml
 - campaigns/lucan/state/instances/pc-lucan.yaml
-- campaigns/lucan/state/instances/spidey.yaml
-- campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Piwnica gildii, cela Lucana, 08:56, dzien piaty. Warsztat alchemiczny STOI ROZSTAWIONY
-  - dostawa ze straganu rozstrzygnieta, item_basic_alchemical_bench przestaje byc
-  oplaconym przedmiotem bez miejsca. Instrukcje dla ekipy padly: worki, kopanie, bez
-  nadzoru, cel to otwarcie drogi do nizszych katakumb za zawalem przy komorze Varkhena,
-  bezpanskie w gre wchodzi. OTWARTE I POSTAWIONE PRZEZ BOROSA: kto idzie na ostry
-  koniec, jesli za zawalem cos jest - odpowiedzi chce do jedenastej, nie natychmiast.
-  Boros nazwal tez swoj udzial z gory, bez targowania. Mara dolozyla, ze na wozie
-  powinien byc i gruz, i worki. Zostaje ok. dwoch godzin do bramy; nadal bez adresata:
-  item_north_foundation_vessel, pytanie o futro u nieumarlego ssaka, spy_cellar_spider_05
-  bez rozkazu.'
-last_refreshed_event_id: event_turn_interlude_279
-context_bytes: 45840
+- 'Piwnica gildii, korytarz zatrzyman, 10:31, dzien piaty. Lucan stoi pod zamknietymi
+  drzwiami pokoju zatrzyman; w srodku czworka ocalalych z siatki Orena, mowi jeden
+  - npc_kolvan_reth, wozak. Postawil pytanie, na ktore Lucan nie musi odpowiadac,
+  i podal fakt ze swojego doswiadczenia: przez pierwsze trzy dni schodzil do nich
+  pisarz dwa razy dziennie, OD DWOCH DNI NIE ZSZEDL NIKT. Co to znaczy - NIEUSTALONE,
+  narrator tego nie rozstrzyga. WARSZTAT: dziala, ma komplet szkla i kompetencje,
+  nie ma ANI JEDNEJ substancji. Lista zakupow zapisana. Odczynniki z baszty (sol rytualna,
+  proszek suszacy) sa do trupow, nie do apteki. Jedyne stezone zrodlo zwierzece w
+  zasiegu to gruczol Spideya - nietkniete, Lucan niczego w tej sprawie nie zadeklarowal.
+  DO BRAMY OKOLO POL GODZINY. Boros chce odpowiedzi, kto idzie na ostry koniec, do
+  jedenastej.'
+last_refreshed_event_id: event_turn_interlude_280
+context_bytes: 37260
 context_budget_bytes: 98304
 context_warnings: []
 heaviest_refs:
@@ -78,10 +77,10 @@ heaviest_refs:
   bytes: 8074
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5468
-- ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4587
 - ref: campaigns/lucan/state/instances/pc-lucan.yaml
-  bytes: 3293
+  bytes: 3304
+- ref: campaigns/lucan/state/obligations.yaml
+  bytes: 2917
 conditional_sets:
   npc_speaks:
     refs:
@@ -113,10 +112,10 @@ conditional_sets:
   companion_growth_matters:
     refs:
     - ref: system/companion-growth.md
-      bytes: 16035
+      bytes: 17609
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 26364
-    bytes: 42399
+      bytes: 27016
+    bytes: 44625
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -173,9 +172,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 34178
-  participant_cards: 11062
-  participant_full_cards_available: 8572
-  participant_digests: 8572
-  conditional_heaviest: 42399
-context_total_bytes: 75097
+  state_active: 25598
+  participant_cards: 0
+  participant_full_cards_available: 0
+  participant_digests: 0
+  conditional_heaviest: 44625
+context_total_bytes: 55455
