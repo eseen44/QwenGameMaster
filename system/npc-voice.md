@@ -131,6 +131,30 @@ elementy deklaracji gracza i sprawdź, czy każdy ma swoje miejsce w tekście.
 Uwaga na ślepy punkt miernika: `prose_check` liczy mowę zależną po wzorcu „powiedział, że…",
 a narracja w trzeciej osobie bez tej frazy przechodzi niezauważona. Gubi treść tak samo.
 
+## Kalki: idiom, którego nie ma po polsku (retcon_000191)
+
+Osobna rodzina od kalk składniowych z `retcon_000190`. Tam chodziło o **szyk zdania**;
+tu o **cały zwrot**, przetłumaczony słowo w słowo z angielskiego i wstawiony do ust postaci,
+która nigdy nie słyszała angielskiego.
+
+Przypadek wzorcowy: **„na ostrym końcu"** — kalka z `at the sharp end`. Weszła do repo
+25.08.2026 w audycie `t_115` jako nota o Borosie, przeleżała tam trzy tygodnie, a 13.09.2026
+narrator przepisał ją z noty **do dialogu** i rozniósł do 56 miejsc w plikach. Po polsku
+mówi się **„kto idzie pierwszy"**, „kto stoi w pierwszej linii", „kto obrywa pierwszy".
+
+Mechanizm i dlaczego jest groźny: nota w karcie jest po polsku *na tyle*, żeby przejść bez
+zapalonej lampki, a potem zostaje zacytowana jako kwestia — i wtedy postać mówi zwrotem,
+który w Solmarze nie istnieje. To jest ta sama klasa błędu co `retcon_000156` (mechanika
+w ustach NPC), tylko przez język, a nie przez pojęcie.
+
+**Test przed wysłaniem kwestii:** czy tego zwrotu użyłby człowiek, który zna wyłącznie
+polski i nigdy nie widział korporacji ani wojskowego podręcznika? Jeśli brzmi jak coś
+z tłumaczenia — przepisz na najkrótsze polskie słowa, jakie postać zna.
+
+Uwaga na drugi krok: zwrot wpisany do karty **wraca**, bo karta jest źródłem. Poprawiając
+kalkę w prozie, popraw ją w tej samej turze w karcie i w kontrakcie głosu — inaczej wróci
+przy następnej scenie z tą postacią.
+
 ## Test na ślepo
 
 Przed wysłaniem kwestii zakryj imię. Jeżeli nie wiadomo, kto mówi — przepisz
