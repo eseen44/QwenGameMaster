@@ -26,6 +26,13 @@ resources:
     runtime:
       decay_elapsed_seconds: 71200
       hunting_recovery_elapsed_seconds: 71200
+orders:
+- id: order_watch_the_tower_storage
+  status: active
+  source_event_id: event_turn_interlude_180
+  instruction: >-
+    Posterunek w skladziku baszty, sparowany z webber_home. Rozkaz istnial w basis rejestru
+    wzrostu od t_180 i nigdy nie zostal zapisany w polu, ktore silnik czyta (retcon_000184).
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull

@@ -26,6 +26,14 @@ resources:
     runtime:
       decay_elapsed_seconds: 71200
       hunting_recovery_elapsed_seconds: 71200
+orders:
+- id: order_search_sensor_in_lucans_duty_room
+  status: active
+  source_event_id: event_turn_interlude_183
+  instruction: >-
+    Czujnik przeszukania w pokoju dyzurnym Lucana - od t_183, odkad leza tam takze papiery
+    z baszty. Rozkaz istnial w basis rejestru wzrostu i nie byl zapisany w orders[]
+    (retcon_000184).
 status_flags:
 - newly_animated
 - fresh_obedient_and_dull

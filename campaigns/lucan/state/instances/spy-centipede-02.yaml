@@ -6,14 +6,17 @@ definition_ref: candidate_spy_series_01
 revision: 203
 position:
   location_id: loc_city_sewer
-  zone_id: zone_sewer_wall_district
-  formation: released_into_the_sewer_t_077_position_not_confirmed_since_t_091
+  zone_id: zone_sewer_guild_district
   fix:
-    status: stale
-    as_of_event_id: event_turn_interlude_091
-    source: borrowed_sense
-    note: Sygnal matowy, kierunek mur/garbarnia, bez wspolrzednych. Strefa nizej jest
-      ostatnia znana, nie potwierdzona.
+    status: confirmed
+    as_of_event_id: event_turn_interlude_279
+    source: report
+    note: >-
+      KOREKTA KANONU GRACZA, retcon_000184. Pozycja stala jako unknown/stale od t_091 przez
+      190 tur. Gracz rozstrzygnal: wij byl tu CALY CZAS, w kanalach pod dzielnica gildii, i ma
+      tu zer obfity. Zrodlem nie jest obserwacja Lucana - on tam nadal nie byl i loc_city_sewer
+      zostaje known_by_proxy_unmapped. Dawne position.formation zdjete razem z dawnym fix: mowilo
+      "position_not_confirmed_since_t_091" i po tej korekcie bylo juz nieprawda.
 integrity:
   current: 7
   maximum: 7

@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **104** z 182 retconow.
+Regul z klauzula normatywna: **106** z 184 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -19,7 +19,7 @@ regul - a procedura wznowienia sesji nie kaze wczytywac dziennika. Regula, ktore
 nikt nie czyta, nie dziala. Indeks jest generowany, zeby nie mogl sie rozjechac ze
 zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 
-## opor i stawki (19)
+## opor i stawki (20)
 
 - `retcon_000022` — Narrator w zwyklym planowaniu: (1) nie wymysla waskich garde, (2) nie liczy graczowi kosztu alternatywnego ani nie stawia go przed wyborem 'to albo to', (3) nie zamienia deklaracji...
 - `retcon_000033` — KALIBRACJA GRACZA, OBOWIAZUJACA OD TERAZ: brak rzutow w interludium NIE oznacza, ze rzutow nie ma - oznacza, ze interludium jest etapem BUDOWY SWIATA prowadzonym przez gracza.
@@ -40,8 +40,9 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000167` — Jedyna realna cena ukladu jest taka, ze zuk MUSI TAM SIEDZIEC.
 - `retcon_000174` — Zrodlo tej czterdziestki pozostaje NIEUSTALONE i nie wolno go dopowiadac; stan portfela bez zmian.
 - `retcon_000180` — Od teraz kazdy szczebel daje osobno: (a) +1 pojemnosci zbiornika i +2 integralnosci, (b) JEDNO DOSTOSOWANIE CIALA DO FUNKCJI, (c) POSUNIECIE NA OSI UMYSLU.
+- `retcon_000184` — To jest zasob do wykorzystania, nie mapa gracza - loc_city_sewer zostaje known_by_proxy_unmapped i bez layoutu, bo Lucan nigdy tam nie byl.
 
-## ekspozycja i wiedza NPC (34)
+## ekspozycja i wiedza NPC (35)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -77,6 +78,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000162` — (1) LIMIT, NIE OBOWIAZEK.
 - `retcon_000163` — Sekret 'northern_foundation_route' w locations/cemetery-chapel/discovery.yaml jest wlasnie ta droga i od teraz jest jej ADRESEM.
 - `retcon_000181` — Narratorowi NIE WOLNO wybrac jednej z tych wersji za gracza ani przeliczyc na jej podstawie innych tras - wiersz marsz_pod_mur w system/mechanics/durations.yaml zostaje bez zmian, bo ta...
+- `retcon_000183` — Przepis, regulamin i cudzy zakaz nie wchodza mu do glowy jako rzeczy istniejace.
 
 ## czas i tempo (15)
 

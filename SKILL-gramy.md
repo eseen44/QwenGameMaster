@@ -310,6 +310,22 @@ tylko dlatego, że minęło osiem tur. Zawsze utrzymuj pliki pozwalające ją wz
   lokalizacja konkretnego przedmiotu nie należy do playbooka**, bo playbook się nie
   odświeża po turze; należy do pliku stanu. Reguła zostaje, przykład wypada.
 
+- **BRAKU DANYCH NIE TRAKTUJ JAK ZAKAZU — GENERUJ ALBO PYTAJ** (żądanie gracza 13.09.2026).
+  „Żaden plik tego nie mówi" jest powodem, żeby **uzupełnić**, a nie żeby zatrzymać scenę albo
+  odmówić. Dwie drogi, obie dobre: (a) **wygeneruj najmniejszą wersję**, która domyka lukę,
+  zapisz ją we właściwym pliku i powiedz o tym jedną linią poza grą; (b) **zapytaj**, gdy
+  brakująca rzecz jest liczbą kalibrującą mechanikę albo wyborem między dwiema niesprzecznymi
+  wersjami fikcji. Czego nie wolno: zablokować tury, udawać, że rzecz nie istnieje, ani
+  przemilczeć, że coś dopisałeś.
+  **To NIE jest furtka do retcon_000058.** Tam zakazana jest ekspozycja zbudowana z list,
+  świadków i zapisów, których nie ma — czyli produkowanie CUDZEJ WIEDZY i HAKÓW NA GRACZA.
+  Ta reguła dotyczy odwrotnej strony: braków, które blokują zadeklarowane działanie gracza
+  (dostawa opłaconego przedmiotu, godzina, adres, kontrakt głosu NPC, brakujący tor
+  w `progression.yaml`). Gdy generujesz, wybieraj wersję najtańszą i najmniej dramatyczną,
+  nie najciekawszą. Przykład z 13.09.2026: `item_basic_alchemical_bench` stał od t_191 jako
+  „opłacony, czeka na dostawę", a jego własny plik mówił, że moment dostawy czeka na
+  deklarację gracza — więc skrzynia po prostu przyszła ze straganu, bez incydentu i bez zegara.
+
 - **ROZJAZD W PLIKACH NAPRAWIAJ SAM, NIE PYTAJ O POZWOLENIE** (żądanie gracza 09.09.2026).
   Kiedy dwa pliki stanu mówią co innego, a proza zacommitowanej tury rozstrzyga sprawę
   jednoznacznie, to nie jest decyzja gracza — to dług do dociągnięcia. Napraw, dopisz retcon

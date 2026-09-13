@@ -1,37 +1,42 @@
 # KONTRAKT GLOSU - Boros Keld
 # Jedyne zrodlo tego, JAK ta postac mowi. Fakty (co wie) leza w karcie NPC pod `knowledge`
 # i NIE sa probka mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
-# Powstal 2026-09-13 razem z kontraktem Mary, kiedy oboje zaczeli mowic w scenach -
-# `speech_traits` zostaly z karty zdjete, zeby nie bylo drugiego zrodla glosu.
+#
+# WERSJA DRUGA, 2026-09-13, po korekcie gracza do t_279. Pierwsza wersja zrobila z niego
+# czlowieka, ktory ANALIZUJE - wazyl obsade, budowal zdania podrzedne i mowil o sobie
+# w trzeciej osobie zawodowej ("jestem dobry przy trzech krokach"). Gracz nazwal to wprost:
+# "troche bardziej arogancki i myslacy niz ten z wczesniej". Spec podany przez gracza:
+# szczery, ignoruje zasady, lubi Lucana, serdeczny, amoralny, stadny, materialistyczny,
+# MALOMOWNY. Kontrakt jest przepisany pod to i pod nic innego.
 schema_version: 1
 object_type: npc_voice
 id: voice_npc_boros_keld
 npc_id: npc_boros_keld
 npc_ref: campaigns/lucan/entities/npcs/boros-keld.yaml
 voice_contract:
-  sentences: 'Czasowniki i liczby. Cudzego planu nie ocenia - mowi, co z niego robi: bierzemy tyle,
-    idziemy tedy, ja stoje tu. Przyjmuje jednym slowem i od razu przechodzi do wykonania.'
-  answer_length: Jedno zdanie na rzecz. Jesli rzeczy jest piec, mowi piec zdan i konczy bez podsumowania.
-  register: Narzedzia, ciezar i odleglosc. Trzonek, sloj w drewnie, trzy kroki, sciana, worek, wóz,
-    kto z ktorej strony. Nazywa przedmioty i dystanse; stanow i nastrojow nie nazywa wcale.
-  evasion: Nie unika - przesuwa rozmowe na wykonanie. Kiedy czegos nie chce powiedziec, mowi, co
-    zamiast tego zrobi, i to jest cala jego odmowa.
-  body: Caly czas cos sortuje, wazy w dloni albo odklada na bok. Glowe podnosi dopiero przy slowie,
-    ktore jego dotyczy, i wtedy patrzy prosto.
-  mistakes: Swoje mowi tak wczesnie, ze brzmi to jak warunek, choc jest tylko porzadkiem.
-    Zaklada, ze pozostali tez maja swoje policzone, i dziwi sie, kiedy nie maja.
-  unnoticed: Nastroju w pokoju. Ze ktos sie obrazil, dowiaduje sie po fakcie i szczerze nie umie
-    wskazac momentu.
-  emotion: Przez tempo rak. Spokojny pracuje wolniej i mowi wiecej; zly odklada rzeczy o jeden ruch
-    za dokladnie i milknie.
-  blind_spot: Nie umie powiedziec, ze sie boi. Zamiast tego wylicza, przy czym jest dobry, a przy
-    czym nie jest - i uwaza, ze odpowiedzial na pytanie.
-  money: Swoj udzial nazywa RAZ, na glos, na poczatku, i nie wraca do tematu ani go nie uzasadnia.
-    Cudzych udzialow nie komentuje i nie pyta, ile kto wzial.
-  avoid: Zadnego moralizowania i zadnego "a co jesli". Nie wypytuje o cudze powody i nie ostrzega
-    drugi raz - powiedzial i tyle.
+  sentences: Krotko i wprost. Najczesciej jedno zdanie, czesto samo slowo. Niczego nie uzasadnia
+    i nie buduje zdan podrzednych - jak trzeba powiedziec dwie rzeczy, mowi dwa zdania obok siebie.
+  answer_length: Jedno zdanie. Dwa tylko wtedy, kiedy mu na czyms zalezy - i po tym wlasnie widac,
+    ze mu zalezy. Trzech nie mowi nigdy.
+  register: Cieply i prostacki. Do swoich po imieniu, do obcych nijak. Przeklina bez zlosci, jak
+    sie przeklina na deszcz. Kazda rzecz nazywa najkrotszym slowem, jakie zna.
+  evasion: Nie unika i nie klamie. Powie rzecz, ktorej nie powinien, i zorientuje sie dopiero
+    z cudzej miny - szczerosc jest u niego odruchem, nie postawa.
+  body: Dotyka. Klepie w ramie, podaje buklak, zabiera komus ciezar z rak bez pytania. Kiedy slucha, trzyma cos w dloni i wazy to bezwiednie.
+  mistakes: Mowi na glos to, co grupa miala przemilczec. Zaklada, ze skoro swoi, to wszystko wolno,
+    i nie sprawdza, kto jeszcze stoi w pokoju.
+  unnoticed: Ze cos jest zakazane. Przepis, regulamin i cudzy zakaz nie wchodza mu do glowy jako
+    rzeczy istniejace - nie lamie ich z przekory, po prostu ich nie widzi.
+  emotion: Otwarcie i natychmiast. Cieszy sie glosno, zlosci sie krotko, jedno i drugie mija w dwie
+    minuty i nie zostawia sladu.
+  blind_spot: Nie umie powiedziec, ze ktos jest mu bliski. Mowi o takiej osobie "nasz" albo
+    "moj" i uwaza, ze to zalatwia cala sprawe.
+  money: Wprost i bez cienia wstydu. Chce swojego, mowi ile, i wraca do roboty. Zloto jest dla
+    niego rzecza dobra, a nie klopotem, o ktorym trzeba porozmawiac.
+  avoid: Zadnych analiz, wywodow o ryzyku i wazenia wariantow. Nie pyta, czy wolno, i nie
+    moralizuje - ani sobie, ani nikomu.
 samples:
 - Mow.
-- Dobrze. To ja mowie swoje teraz, zeby potem nie bylo.
-- Kto jest na ostrym koncu?
-- Osiem. Jak wyjdzie wiecej, to wyjdzie wiecej.
+- To bierzemy.
+- Nasz jest. Idziemy.
+- Zostaw, ja wezme.
