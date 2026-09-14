@@ -1,0 +1,55 @@
+schema_version: 1
+id: loc_tannery_cellar_hideout
+name: Zawalona piwnica przy garbarni
+status: active
+world_ref: worlds/solmara
+type: hideout
+parent_location_id: loc_tannery
+known_to_lucan: his_own_first_hideout
+why_this_file_exists: >-
+  Lokacja byla odwolywana z CZTERECH miejsc - locations/tannery-mound/location.yaml, jego
+  layoutu, migration/packages/01-timeline/milestones.yaml i planning/act-03-anticipated-shape.yaml
+  - i nie miala wlasnego pliku. Brak wylapany 2026-09-14 (retcon_000194), kiedy narrator
+  zadeklarowal w jej miejsce wymyslona zone_cellar w loc_tannery, zamiast sprawdzic, czy miejsce
+  nie istnieje pod innym identyfikatorem.
+history:
+  first_use: milestone_005_tannery_cellar_hideout
+  text: >-
+    PIERWSZA KRYJOWKA LUCANA. "Lucan znajduje zawalona piwnice przy garbarni i urzadza w niej
+    kryjowke" (milestone_005, confidence confirmed). Mieszkal tu na poczatku Aktu 1, zanim baszta
+    przy murze zastapila ja jako primary_hideout.
+access:
+  no_street_door: >-
+    NIE MA WEJSCIA Z PODWORZA I NIE MA FURTKI (korekta gracza, retcon_000194). Sa DWIE drogi
+    i obie sa niewygodne dla kogos, kto nie wie, ze istnieja.
+  from_the_meadow: >-
+    GLOWNE WEJSCIE, uzupelnienie gracza 2026-09-14: od strony LAKI ZA GARBARNIA
+    (loc_tannery#zone_upper_meadow). NA WPOL ZAWALONE SCHODY, zarosniete, malo widoczne,
+    przytulone do muru. Nie widac ich z podworza ani z drogi; trzeba wiedziec, gdzie sa.
+    Tedy wnosi sie ladunek - bez schodzenia pod ziemie.
+  from_below: >-
+    DRUGA DROGA, przez podziemia: podworze garbarni, wlaz (loc_tannery#zone_descent,
+    connection_mound_descent, 1 minuta), kopiec (loc_rat_mound), zone_old_cellar_link,
+    connection_old_cellar, 2 minuty. Stan kopca po Akcie 1: NIEUSTALONY.
+  why_it_matters: >-
+    Laka za garbarnia to ta sama parcela, na ktorej stoja dzis DWAJ sieciarze - webber_tannery
+    i webber_home - odkad w t_091 dostali rozkaz zbierania prostoskrzydlych. Wejscie do
+    kryjowki jest wiec dwadziescia krokow od dwoch wlasnych okazow Lucana, ktore w tej chwili
+    NIE pilnuja swoich rewirow, tylko zbieraja owady.
+connections:
+  - {id: connection_old_cellar, leads_to: loc_rat_mound, zone_id: zone_old_cellar_link, travel_time: 2 minutes}
+known_to_others:
+  npc_boros_keld: >-
+    BYL TU RAZ, przy konkretnej robocie: pomagal wywiezc stamtad DOKUMENTY WLASCICIELA GARBARNI
+    do Seraphine (deklaracja gracza 2026-09-14). To jest cala tresc jego pamieci o tym miejscu
+    i narratorowi nie wolno jej rozszerzac.
+contents:
+  - {item_id: item_lower_catacomb_grave_goods_first_three, since_event_id: event_turn_interlude_300,
+     note: 'Osiem workow, okolo 55 kg, w tym 9-10 kg metalu. Lup z jedenastu grobow dolnej komory.'}
+watch:
+  note: >-
+    Parcela garbarni MA przypisany zmysl obszarowy - webber_tannery, Sieciarz Garbarnia - ale
+    sieciarz stoi od t_091 na gornej lace przy zbieraniu prostoskrzydlych, wiec rewir jest pusty.
+    Zdjecie rozkazu to jedno slowo gracza.
+source_refs: [milestone_005_tannery_cellar_hideout, retcon_000194,
+              campaigns/lucan/locations/tannery-mound/location.yaml]

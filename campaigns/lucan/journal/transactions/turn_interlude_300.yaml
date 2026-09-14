@@ -1,0 +1,385 @@
+schema_version: 1
+id: turn_interlude_300
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-14T13:20:07+02:00'
+scene_id: scene_act_03_interlude_day5_morning_guild_return
+event_id: event_turn_interlude_300
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_300
+  declared_action: 'POWTORKA CZESCI TURY 299 (retcon_000194), zakres: proza, czas
+    zero. Ten sam kurs i te same meldunki sieci, ale skladowisko jest tym, czym jest
+    w plikach: loc_tannery_cellar_hideout, zawalona piwnica przy garbarni i pierwsza
+    kryjowka Lucana z Aktu 1, do ktorej wchodzi sie OD DOLU przez podziemia kopca,
+    bo furtki nie ma.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Ta sama tura, poprawione miejsce i droga. Zaden fakt poza tym sie nie zmienia.
+  time_class: brief
+  time_seconds: 0
+  time_basis: canon_ref
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - travel
+  - replay
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_300
+  status: preview
+  scene_id: scene_act_03_interlude_day5_morning_guild_return
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'POWTORKA CZESCI TURY 299 (retcon_000194), zakres: proza, czas zero.
+    Ten sam kurs i te same meldunki sieci, ale skladowisko jest tym, czym jest w plikach:
+    loc_tannery_cellar_hideout, zawalona piwnica przy garbarni i pierwsza kryjowka
+    Lucana z Aktu 1, do ktorej wchodzi sie OD DOLU przez podziemia kopca, bo furtki
+    nie ma.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method,
+      time and certain costs.
+  roll_allowed: false
+  time_seconds: 0
+  time_guidance:
+    time_class: brief
+    tension: 0
+    engine_default_seconds: 300
+    declared_seconds: 0
+    matching_row: null
+    declared_outside_every_row: true
+    rows:
+    - id: pojedyncza_kwestia
+      seconds:
+      - 10
+      - 90
+      default_seconds: 30
+      applies_to: 'JEDNA kwestia albo krotka wymiana dwoch-trzech zdan bez rozwijania
+        tematu: rzucone pytanie, odpowiedz przez drzwi, pozegnanie, komenda, jedno
+        zdanie w przejsciu.'
+    - id: wymiana_zdan
+      seconds:
+      - 180
+      - 480
+      default_seconds: 300
+      applies_to: 'Jedna tura rozmowy: pytanie i odpowiedz, wymiana zdan, krotka reakcja.'
+    - id: rozporzadzenie_przy_stole
+      seconds:
+      - 60
+      - 300
+      default_seconds: 120
+      applies_to: 'Czynnosc bez rozmowy i bez przemieszczenia: wydanie rozkazu w siec,
+        odlozenie przedmiotu, wyniesienie czegos za prog. NIE jest to tura rozmowy.'
+    - id: rozmowa_w_gabinecie
+      seconds:
+      - 1500
+      - 2100
+      default_seconds: 1800
+      applies_to: Cala rozmowa z jedna osoba w jej gabinecie, od wejscia do wyjscia.
+    - id: negocjacja_w_pokoju
+      seconds:
+      - 1800
+      - 3600
+      default_seconds: 3600
+      applies_to: Pelna negocjacja wielostronna, kilka watkow, ustalanie warunkow.
+    - id: przejscie_przez_miasto
+      seconds:
+      - 1200
+      - 1500
+      default_seconds: 1200
+      applies_to: Przejscie z dzielnicy do dzielnicy wewnatrz Lumarii (targ - gildia).
+    - id: marsz_pod_mur
+      seconds:
+      - 2700
+      - 2700
+      default_seconds: 2700
+      applies_to: Trasa gildia/cela - baszta przy murze, w jedna strone.
+    - id: praca_reczna_przy_stole
+      seconds:
+      - 3600
+      - 7200
+      default_seconds: 3600
+      applies_to: Jeden trwaly krok modyfikacji okazu - przeszczep, wszczep, utrwalenie.
+        Okolo godziny, do dwoch przy wyzszej trudnosci, BEZ ESKALACJI.
+    basis: canon_ref
+    precedence: Jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc przez wymyslone
+      tarcie (retcon_000061). Pasma sa podpowiedzia, nie limitem.
+  numbers:
+    stock:
+      available: 3
+      consumed: 3
+      available_ids:
+      - ritual_salt
+      - corpse_drying_powder
+      - small_ritual_tool_set
+    clocks:
+    - id: clock_inquisition_attention
+      progress: 0
+      threshold: uncalibrated
+      remaining: null
+    - id: clock_father_arranges_academy_showing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    - id: clock_guild_leadership_hearing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    daily_balance_table: system/mechanics/daily-balance.yaml
+    durations_table: system/mechanics/durations.yaml
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: unchanged
+  perspective: pc_lucan
+  summary: 'POWTORKA t_299, ZAKRES: PROZA, CZAS ZERO. Zegar, stan sieci i wszystkie
+    fakty poza miejscem skladowania zostaja. t_299 dostaje superseded_by ze scope
+    prose. CO BYLO HALUCYNACJA: narrator zadeklarowal NOWA zone_cellar w loc_tannery
+    i dopisal do niej klodke na skoblu, wejscie od podworza, dwie beczki bez dna,
+    zapach wapna, wizyte Borosa "w maju" i otwieranie dragiem. Zaden z tych szczegolow
+    nie ma zrodla. CO JEST W PLIKACH: loc_tannery_cellar_hideout - ZAWALONA PIWNICA
+    PRZY GARBARNI, pierwsza kryjowka Lucana (milestone_005, confidence confirmed).
+    Odwolywana z czterech miejsc i bez wlasnego pliku, ktory powstal przy tej poprawce.
+    FURTKI I DRZWI OD ULICY NIE MA, ale sa DWIE drogi. GLOWNA, uzupelniona przez gracza:
+    od strony LAKI ZA GARBARNIA - na wpol zawalone schody, zarosniete, malo widoczne,
+    przytulone do muru; tedy wnosi sie ladunek bez schodzenia pod ziemie. DRUGA, przez
+    podziemia: wlaz z podworza, kopiec loc_rat_mound, zone_old_cellar_link, connection_old_cellar
+    (2 min). ZBIEG OKOLICZNOSCI, KTORY WART JEST ODNOTOWANIA, a nie jest zaczepka:
+    laka za garbarnia to ta sama parcela, na ktorej od t_091 stoja DWAJ sieciarze
+    - webber_tannery i webber_home - zbierajac prostoskrzydle zamiast pilnowac rewirow.
+    Wejscie do skladu jest dwadziescia krokow od nich. BOROS PAMIETA TO Z JEDNEJ ROBOTY,
+    podanej przez gracza: pomagal wywiezc stamtad DOKUMENTY WLASCICIELA GARBARNI do
+    Seraphine. Narrator nie rozszerza tej pamieci ani o zdanie. CZEGO NARRATOR CELOWO
+    NIE ROZSTRZYGA: stanu podziemi kopca po Akcie 1. loc_rat_mound ma w layoucie zone_colony_edge
+    i zone_rat_ogre_breach; zaden plik nie mowi, co tam jest DZIS, wiec droga jest
+    opisana jako przejscie, a nie jako pusta ani jako niebezpieczna. ZOSTAJE BEZ ZMIAN:
+    meldunki sieci i ich ograniczenie, pelny odczyt Tkaczki, dwadziescia workow, brak
+    zaczepki, powrot pod cmentarz, godzina 21:52.'
+  prose: '— Mamy to gdzie składować?
+
+
+    Boros myśli przez trzy kroki konia.
+
+
+    — Piwnica przy garbarni — mówi Lucan, zanim tamten skończy. — Powinieneś pamiętać.
+
+
+    I Boros pamięta, bo był tam raz i z konkretnego powodu.
+
+
+    — Woziliśmy stamtąd papiery garbarnika — mówi. — Do niej. — Nie wymienia imienia
+    i nie musi.
+
+    — Nie ma tam drzwi od ulicy. Wchodzi się od łąki, schodkami przy murze.
+
+
+    — Zgadza się.
+
+
+    Wyjeżdżają bramą jak każdy wóz, który cały dzień woził gruz, i nikt na nich nie
+    patrzy,
+
+    bo nie ma po co. Grabarz siedzi przy szopie i je.
+
+
+    — Jakby ktoś nas zaczepiał, pacnijcie mnie — mówi Lucan i opiera głowę o deski.
+
+
+    Potem przez większość drogi go nie ma.
+
+
+    Sieć odpowiada cała i to jest pierwsza rzecz, którą sprawdza: nikogo nie brakuje.
+    Żuki
+
+    wokół baszty, pająki na swoich miejscach, ćmy i osa na łąkach, wije pod dzielnicą
+    gildii,
+
+    szczury w kanale pod garbarnią, do której właśnie jadą. Wszyscy są.
+
+
+    I to jest wszystko, co dostaje.
+
+
+    Bo z tej odległości kanał niesie obecność, a nie treść. Pająk siedzący w skrzynce
+    na
+
+    zapleczu syndykatu jest dla niego w tej chwili jedną rzeczą: *jest*. Co słyszał
+    przez cały
+
+    dzień, zostanie w nim do momentu, w którym Lucan stanie dwadzieścia kroków od
+    tej skrzynki
+
+    i weźmie to sam.
+
+
+    Jeden węzeł jest wyjątkiem, bo został pół mili za nimi.
+
+
+    Tkacz oddaje pełny rewir i oddaje go tak, jak oddaje się rzecz prostą: przez cały
+    dzień
+
+    do rampy nie podszedł nikt poza jednym człowiekiem w południe, tym samym, który
+    potem
+
+    wrócił do swojej łopaty. Nikt nie krążył. Nikt nie stanął i nie patrzył. Nikt
+    nie wszedł
+
+    za nimi.
+
+
+    Lucan wraca do siebie gdzieś w połowie drogi i robi rachunek, którego nie robił
+    przez cały
+
+    dzień: sieciarz przypisany do garbarni siedzi od dwóch tygodni na łące i zbiera
+    prostoskrzydłe,
+
+    bo ktoś kiedyś tak kazał. Jego parcela stoi pusta. A za pół godziny Lucan położy
+    na tej
+
+    parceli pięćdziesiąt pięć kilo czegoś, czego nie da się wytłumaczyć.
+
+
+    Nikt go nie pacnął przez całą drogę.
+
+
+    Nie jadą pod podwórze. Podjeżdżają od łąki.
+
+
+    Wejście jest tam, gdzie było: przy samym murze, po wpół zawalonych schodach, tak
+    zarośniętych,
+
+    że trzeba wiedzieć, gdzie się odgarnia. Lucan odgarnia to bez patrzenia. Ktoś,
+    kto nie wie,
+
+    przejdzie tędy dziesięć razy i zobaczy krzak przy murze.
+
+
+    Osiem worków schodzi po dwa, ostrożnie, bo trzeci stopień od dołu ma tylko połowę
+    siebie.
+
+
+    Kryjówka jest dokładnie taka, jaką ją zostawił: zapadnięty strop po jednej stronie,
+    kawałek
+
+    klepiska, który kiedyś był jego podłogą, i miejsce pod ścianą, gdzie stał siennik.
+
+
+    Worki lądują właśnie tam.
+
+
+    Boros rozgląda się po tym raz, z lampą przy biodrze, i nie mówi ani słowa o tym,
+    że ktoś
+
+    tu kiedyś mieszkał. Mara w ogóle nie schodzi — zostaje na górze przy koniu, bo
+    ktoś musi.
+
+
+    Worki Boros załatwia po drodze powrotnej, u kogoś, kogo nie przedstawia, i wraca
+    z pękiem
+
+    dwudziestu na ramieniu.
+
+
+    — Będzie — mówi. — Do gildii nie jedziemy?
+
+
+    — Nie dzisiaj.
+
+
+    — Dobrze.
+
+
+    Wóz zawraca pod cmentarz, a nad miastem jest już zupełnie ciemno.
+
+    '
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - milestone_005_tannery_cellar_hideout
+  - campaigns/lucan/locations/tannery-mound/location.yaml#connection_old_cellar
+  - retcon_000194
+  operations:
+  - *id002
+  scene_update: null
+  new_decision: 'Cmentarz, przy rampie, 21:52, dzien piaty. Ciemno. Bez zmiany wzgledem
+    t_299 - ta tura nie zajela ani sekundy. LUP SCHOWANY W loc_tannery_cellar_hideout:
+    osiem workow, okolo 55 kg, w zawalonej piwnicy przy garbarni, ktora byla PIERWSZA
+    KRYJOWKA LUCANA (milestone_005). Drzwi od ulicy nie ma. Weszli OD LAKI ZA GARBARNIA
+    - na wpol zawalonymi schodami przy murze, zarosnietymi na tyle, ze trzeba wiedziec,
+    gdzie sie odgarnia. Druga droga, przez podziemia kopca, istnieje i nie byla dzis
+    uzyta; stan kopca po Akcie 1 pozostaje NIEUSTALONY. Boros byl tam raz - wywozil
+    stamtad papiery garbarnika do Seraphine - i nie skomentowal, ze ktos tam mieszkal.
+    Mara nie schodzila, zostala przy koniu. WEJSCIE DO SKLADU JEST DWADZIESCIA KROKOW
+    OD DWOCH WLASNYCH SIECIARZY Lucana, ktorzy siedza na tej lace od t_091 i zbieraja
+    owady zamiast pilnowac rewirow. MELDUNKI SIECI bez zmian: wszystkie wezly odpowiadaja,
+    ale z odleglosci kanal niesie OBECNOSC, nie tresc. To, co Toby slyszal na zapleczu
+    syndykatu, czeka, az Lucan przy nim stanie. Tkacz - jedyny pelny odczyt: przez
+    caly dzien do rampy nie podszedl nikt poza grabarzem. RACHUNEK LUCANA: lup lezy
+    na parceli, ktora MA przypisany zmysl obszarowy, ale sieciarz jest od t_091 na
+    lace. Zdjecie rozkazu to jedno slowo i narrator go nie wypowiedzial. WORKI: dwadziescia.
+    Rezerwa 14,6/15. OTWARTE: czy schodza nizej dzis po ciemku, czy Lucan odsyla sieciarza
+    na parcele garbarni, czy ktos w koncu spi.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: b4ef9bc4931f1153efc77568b1a7096354d70aaf2c3a16f6c0b6e4f75a6884e1
+  after_hash: 6f0edcb8df7f4c0db7554b652cb840aa981052bb8be58b06fd96fc468a1ca1aa
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day5_morning_guild_return
+    location_ref: campaigns/lucan/locations/cemetery-underworks/location.yaml
+    started_at: '2026-08-20T07:31:40+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - npc_boros_keld
+    - npc_mara_teln
+    pressures: []
+    immediate_facts: []
+    immediate_questions:
+    - 'Cmentarz, przy rampie, 21:52, dzien piaty. Ciemno. Bez zmiany wzgledem t_299
+      - ta tura nie zajela ani sekundy. LUP SCHOWANY W loc_tannery_cellar_hideout:
+      osiem workow, okolo 55 kg, w zawalonej piwnicy przy garbarni, ktora byla PIERWSZA
+      KRYJOWKA LUCANA (milestone_005). Drzwi od ulicy nie ma. Weszli OD LAKI ZA GARBARNIA
+      - na wpol zawalonymi schodami przy murze, zarosnietymi na tyle, ze trzeba wiedziec,
+      gdzie sie odgarnia. Druga droga, przez podziemia kopca, istnieje i nie byla
+      dzis uzyta; stan kopca po Akcie 1 pozostaje NIEUSTALONY. Boros byl tam raz -
+      wywozil stamtad papiery garbarnika do Seraphine - i nie skomentowal, ze ktos
+      tam mieszkal. Mara nie schodzila, zostala przy koniu. WEJSCIE DO SKLADU JEST
+      DWADZIESCIA KROKOW OD DWOCH WLASNYCH SIECIARZY Lucana, ktorzy siedza na tej
+      lace od t_091 i zbieraja owady zamiast pilnowac rewirow. MELDUNKI SIECI bez
+      zmian: wszystkie wezly odpowiadaja, ale z odleglosci kanal niesie OBECNOSC,
+      nie tresc. To, co Toby slyszal na zapleczu syndykatu, czeka, az Lucan przy nim
+      stanie. Tkacz - jedyny pelny odczyt: przez caly dzien do rampy nie podszedl
+      nikt poza grabarzem. RACHUNEK LUCANA: lup lezy na parceli, ktora MA przypisany
+      zmysl obszarowy, ale sieciarz jest od t_091 na lace. Zdjecie rozkazu to jedno
+      slowo i narrator go nie wypowiedzial. WORKI: dwadziescia. Rezerwa 14,6/15. OTWARTE:
+      czy schodza nizej dzis po ciemku, czy Lucan odsyla sieciarza na parcele garbarni,
+      czy ktos w koncu spi.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_300
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work.yaml
+prepared_at: '2026-09-14T13:22:21+02:00'
+committed_at: '2026-09-14T13:22:21+02:00'
