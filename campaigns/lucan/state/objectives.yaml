@@ -83,9 +83,31 @@ long_term_context:
     state: active_no_timer
     source_event_id: milestone_046_varkhen_oath_compact
     steps:
-      - {id: seal_one, state: broken, location: under_oldest_mausoleum}
-      - {id: seal_two, state: tainted, location: beneath_chapel}
-      - {id: seal_three, state: weakened_no_known_deadline, location: at_lower_gate}
+      - {id: seal_one, state: broken, location: under_oldest_mausoleum,
+         varkhen_reading_t_313: 'CISZA. Siega po nia i nie ma czego dotknac. Jego wlasne zdanie,
+         oznaczone przez niego jako wlasne: rzecz pekniata moze juz nie miec czym brzmiec.'}
+      - {id: seal_two, state: tainted, location: beneath_chapel,
+         varkhen_reading_t_313: 'BRUDNA I CORAZ GLOSNIEJSZA. Slyszy ja OD TRZECIEJ PIECZECI, przez
+         pol podziemi, i mimo to jest glosniejsza niz trzecia pod jego dlonia. Domyka to jedno
+         z nieustalonych z t_261: odleglosc nie znosi tego, co czuje. LEZY POD TA SAMA KAPLICA,
+         w ktorej polnocnym fundamencie od t_258 siedza trzy zakotwiczone okazy Lucana na trzech
+         kanalach rytualnych - ZADEN PLIK TYCH DWOCH RZECZY NIE LACZY (t_256) i narrator ich nie
+         laczy. Fakty leza obok siebie, domkniecie nalezy do gracza.'}
+      - {id: seal_three, state: weakened_no_known_deadline, location: at_lower_gate,
+         varkhen_reading_t_312_t_313: 'DOTKNIETA 21.08 o 03:11. Kamien dookola JEST zimny, ale BYL
+         ZIMNIEJSZY. Sama pieczec: CIENKA - trzyma, ale cienko. To jest pierwszy SWIEZY punkt
+         odniesienia, jaki Varkhen ma od Aktu 2; do tej pory porownywal wszystko z pamiecia sprzed
+         uszkodzenia. Pozwolilo mu to postawic rozroznienie, ktorego wczesniej nie stawial:
+         trzecia jest CIENKA, druga jest BRUDNA - dwa rozne rodzaje zepsucia, nie dwa stopnie
+         tego samego.'}
+    varkhen_limitation:
+      source: 'event_turn_interlude_262, powtorzone w t_312 i t_313'
+      text: >-
+        ZADNEJ MIARY NIE PODAJE I PODAWAC NIE BEDZIE. Byl caly, kiedy tu stal; dzis ma
+        integrity 11,7/65. Powiedzial wprost, ze nie rozdzieli, czy zmienily sie pieczecie,
+        czy on. "Coraz glosniejsza" jest porownaniem z jego wlasna pamiecia, NIE terminem,
+        NIE odliczaniem i NIE zegarem - narrator nie robi z tego presji (retcon_000015,
+        retcon_000055).
 
 external_pressures:
   - {id: pressure_varkhen_guild_basement_custody, severity: latent_institutional, source_event_id: event_act_02_closeout_interlude_import}
