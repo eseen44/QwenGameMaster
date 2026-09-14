@@ -368,6 +368,16 @@ tylko dlatego, że minęło osiem tur. Zawsze utrzymuj pliki pozwalające ją wz
   ograniczeniem, sprawdz, czy stoi w pliku - jesli nie, to jest wymyslone i gracz to wylapie.
   Prawdziwe ograniczenia tej kampanii sa **instytucjonalne i informacyjne** (przesluchania,
   swiadkowie, pasmo lacza, dowod rzeczowy), nie zasobowe. Patrz `retcon_000015`.
+- **PO ZAPISIE `outcome.yaml` SPRAWDŹ TREŚĆ, NIE ROZMIAR** (wyłapane 2026-09-14 przy t_307).
+  Heredoc z apostrofem w środku potrafi się w tym środowisku nie wykonać (`bash: unexpected EOF`),
+  a plik zostaje z poprzedniej tury. `wc -c` pokazuje wtedy sensowny rozmiar i wygląda na sukces.
+  Tak `turn commit turn_interlude_307` zapisał do dziennika całą turę 306 drugi raz — tę samą
+  prozę, to samo summary, to samo new_decision. Naprawa kosztowała supersesję ze scope `whole`,
+  `--no-verify`, `recover_superseded.py` i powtórkę przy czasie zero.
+  **Przed `turn commit` przeczytaj `outcome.yaml` z powrotem i sprawdź frazę, której w poprzedniej
+  turze nie było.** Do treści dłuższej niż kilka linii nie używaj heredoca — użyj narzędzia
+  zapisu pliku albo wpisz tekst z Pythona.
+
 - **REZERWĘ CZYTAJ Z PLIKU, NIE Z POPRZEDNIEJ NARRACJI** (wyłapane 2026-09-14 przy t_304).
   Silnik nalicza regenerację za `elapsed_since_last_event` **przed** kosztem, więc po dłuższej
   turze Lucan bywa z powrotem pod sufitem, a odjęcie 0,1 od liczby podanej w poprzedniej

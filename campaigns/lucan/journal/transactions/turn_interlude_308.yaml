@@ -1,0 +1,395 @@
+schema_version: 1
+id: turn_interlude_308
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-14T19:54:58+02:00'
+scene_id: scene_act_03_interlude_day5_morning_guild_return
+event_id: event_turn_interlude_308
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_308
+  declared_action: 'POWTORKA CALEJ TURY 307, zakres: whole, czas ZERO. Tresc t_307
+    zginela przez blad narzedziowy (heredoc sie nie wykonal, zacommitowal sie outcome
+    t_306 drugi raz). Zegar i 900 s z t_307 zostaja - to byl czas przetarcia sztuki
+    i powrotu Spideya. Tutaj wchodzi wlasciwa tresc: Boros przeciera jedna sztuke
+    z rzedu, Lucan odwoluje Spideya z hali.'
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Czym jest rzad pod nalotem, i co Spidey zastal na drugim koncu hali.
+  time_class: brief
+  time_seconds: 0
+  time_basis: canon_ref
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - exploration
+  - loot
+  - replay
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_308
+  status: preview
+  scene_id: scene_act_03_interlude_day5_morning_guild_return
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: 'POWTORKA CALEJ TURY 307, zakres: whole, czas ZERO. Tresc t_307 zginela
+    przez blad narzedziowy (heredoc sie nie wykonal, zacommitowal sie outcome t_306
+    drugi raz). Zegar i 900 s z t_307 zostaja - to byl czas przetarcia sztuki i powrotu
+    Spideya. Tutaj wchodzi wlasciwa tresc: Boros przeciera jedna sztuke z rzedu, Lucan
+    odwoluje Spideya z hali.'
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method,
+      time and certain costs.
+  roll_allowed: false
+  time_seconds: 0
+  time_guidance:
+    time_class: brief
+    tension: 0
+    engine_default_seconds: 300
+    declared_seconds: 0
+    matching_row: null
+    declared_outside_every_row: true
+    rows:
+    - id: pojedyncza_kwestia
+      seconds:
+      - 10
+      - 90
+      default_seconds: 30
+      applies_to: 'JEDNA kwestia albo krotka wymiana dwoch-trzech zdan bez rozwijania
+        tematu: rzucone pytanie, odpowiedz przez drzwi, pozegnanie, komenda, jedno
+        zdanie w przejsciu.'
+    - id: wymiana_zdan
+      seconds:
+      - 180
+      - 480
+      default_seconds: 300
+      applies_to: 'Jedna tura rozmowy: pytanie i odpowiedz, wymiana zdan, krotka reakcja.'
+    - id: rozporzadzenie_przy_stole
+      seconds:
+      - 60
+      - 300
+      default_seconds: 120
+      applies_to: 'Czynnosc bez rozmowy i bez przemieszczenia: wydanie rozkazu w siec,
+        odlozenie przedmiotu, wyniesienie czegos za prog. NIE jest to tura rozmowy.'
+    - id: rozmowa_w_gabinecie
+      seconds:
+      - 1500
+      - 2100
+      default_seconds: 1800
+      applies_to: Cala rozmowa z jedna osoba w jej gabinecie, od wejscia do wyjscia.
+    - id: negocjacja_w_pokoju
+      seconds:
+      - 1800
+      - 3600
+      default_seconds: 3600
+      applies_to: Pelna negocjacja wielostronna, kilka watkow, ustalanie warunkow.
+    - id: przejscie_przez_miasto
+      seconds:
+      - 1200
+      - 1500
+      default_seconds: 1200
+      applies_to: Przejscie z dzielnicy do dzielnicy wewnatrz Lumarii (targ - gildia).
+    - id: marsz_pod_mur
+      seconds:
+      - 2700
+      - 2700
+      default_seconds: 2700
+      applies_to: Trasa gildia/cela - baszta przy murze, w jedna strone.
+    - id: praca_reczna_przy_stole
+      seconds:
+      - 3600
+      - 7200
+      default_seconds: 3600
+      applies_to: Jeden trwaly krok modyfikacji okazu - przeszczep, wszczep, utrwalenie.
+        Okolo godziny, do dwoch przy wyzszej trudnosci, BEZ ESKALACJI.
+    basis: canon_ref
+    precedence: Jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc przez wymyslone
+      tarcie (retcon_000061). Pasma sa podpowiedzia, nie limitem.
+  numbers:
+    stock:
+      available: 3
+      consumed: 3
+      available_ids:
+      - ritual_salt
+      - corpse_drying_powder
+      - small_ritual_tool_set
+    clocks:
+    - id: clock_inquisition_attention
+      progress: 0
+      threshold: uncalibrated
+      remaining: null
+    - id: clock_father_arranges_academy_showing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    - id: clock_guild_leadership_hearing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    daily_balance_table: system/mechanics/daily-balance.yaml
+    durations_table: system/mechanics/durations.yaml
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 0
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  summary: 'POWTORKA CALEJ TURY 307, CZAS ZERO. t_307 dostal superseded_by ze scope
+    whole: heredoc zapisujacy outcome nie wykonal sie, a narrator sprawdzil rozmiar
+    pliku zamiast tresci, wiec turn commit zapisal outcome t_306 drugi raz. Zegar,
+    900 s i wszystkie pliki stanu z t_307 ZOSTAJA POPRAWNE - zmienia sie wylacznie
+    to, co lezy w dzienniku. PRZETARCIE ODPOWIADA PRZEZ WLASCIWY KANAL. retcon_000197
+    wiaze Stone Sense, nie oko i dlon handlarza; Boros sortuje kruszec zawodowo od
+    t_101 i po zdjeciu nalotu nazywa material natychmiast: SREBRO. Zadnej magii, zadnego
+    rzutu, zwykla kompetencja NPC. CO PRZETARCIE ROZSTRZYGA POZA MATERIALEM, i to
+    jest wazniejsze: sztuka jest GLADKA. Bez rytu, bez znaku wytworcy, bez ornamentu.
+    To ustawia ja w PIERWSZEJ kategorii Borosa z t_101 (anonimowy kruszec, idzie do
+    tygla i przestaje istniec), a nie w trzeciej, ktorej sam sie obawial w t_305.
+    DYLEMAT ZOSTAJE I JEST PRAWDZIWY: osiem gladkich sztuk osobno to metal bez historii,
+    osiem sztuk W KOMPLECIE to rzecz warta wielokrotnie wiecej i jednoczesnie zapamietywalna.
+    Wybor jest gracza; narrator go nie podejmuje i nie dopisuje terminu. KSZTALT WIDOCZNY
+    PO OCZYSZCZENIU, FUNKCJA NIE: smukly pret, jeden koniec splaszczony i lekko wygiety,
+    na trzonku plytki rowek po owinieciu, ktorego juz nie ma. To NARZEDZIE, nie ozdoba
+    i nie bron. CZYM DOKLADNIE - NIEUSTALONE. Lucan nie dostaje darmowego rozpoznania
+    tylko dlatego, ze jest nekromanta. SPIDEY WRACA PO SWOJEMU. traits#tells mowia
+    wprost "poganiany nie przyspiesza" i "nie chodzi dwa razy ta sama droga", wiec
+    komenda nie skraca drogi, a powrot idzie DRUGA sciana. Skutek jest informacyjny,
+    nie ozdobny: przeszedl obie sciany i moze podac obie. Kanal gestnieje, kiedy sie
+    zbliza (spy-series#link, potwierdzone w t_301). MELDUNEK W KSZTALTACH, NIE W SLOWACH.
+    low_bandwidth zostaje, a development_direction mowi, ze dialog przyjdzie dopiero
+    z wiekiem, wiec Spidey NIE mowi i narrator nie daje mu kwestii. CO PODAL: nisze
+    po OBU scianach, regularne, tej samej wielkosci, WSZYSTKIE ZAMKNIETE az do konca
+    jego drogi; hala ma koniec - cos pionowego przez cala szerokosc, i to NIE jest
+    kamien, bo echo wraca martwe zamiast dzwonic; powietrze idzie z cienkiej linii
+    przy dolnej krawedzi, wzdluz ktorej przeszedl i ktora jest dla niego ZA WASKA;
+    nigdzie nic zywego, zadnych pajeczyn ani owadow - trzecie potwierdzenie obserwacji
+    z t_294, ktorej nikt nadal nie tlumaczy. CZEGO NARRATOR NIE SKLEIL: ze to brama
+    Varkhena z t_296. Varkhen podal brame i trzecia pieczec Z PAMIECI; Spidey podal
+    pionowa przeszkode, ktora nie dzwoni. Zestawienie lezy obok siebie niedomkniete
+    (retcon_000136). NAJTANSZA WERSJA, NIE NAJEFEKTOWNIEJSZA: wszystkie nisze zamkniete.
+    Zaden plik nie mowi o wczesniejszych zlodziejach i narrator ich nie dopisuje (retcon_000058).
+    ODPOWIEDZ DLA MARY JEST UCZCIWA I NIELICZBOWA: geometry_is_approximate zostaje,
+    wiec Lucan nie podaje liczby nisz. Podaje ograniczenie, ktore i tak rozstrzyga
+    - schody, nie liczba plyt (to samo wiazanie co w t_298: 55 kg to trzy kursy).
+    KOSZT: zero. Komenda w siec jest darmowa, przetarcie tez.'
+  prose: 'Boros nie pyta drugi raz. Wyjmuje sztukę, którą ważył, siada na piętach
+    przy lampie i trze
+
+    ją kawałkiem sukna — krótko, w jednym miejscu, wielkości paznokcia.
+
+
+    Ciemność schodzi od razu.
+
+
+    Pod spodem jest biel. Nie połysk, bo połysku nie da mu suknem, ale ta szczególna,
+    chłodna
+
+    biel, którą ma jeden metal i tylko jeden.
+
+
+    — Srebro — mówi Boros.
+
+
+    I zaraz potem to, co jest ważniejsze, bo obraca rzecz w palcach i szuka jeszcze
+    przez
+
+    chwilę, zanim powie:
+
+
+    — Gładkie. Bez znaku.
+
+
+    Lucan rozumie, co właśnie usłyszał, bo Boros dzielił już przy nim towar na kategorie
+
+    i zrobił to dawno, na własnym stole. Anonimowy kruszec idzie do tygla i przestaje
+    istnieć.
+
+    Rzecz ryta trzeba stopić, żeby przestała. A to jest pierwsza kategoria: osiem
+    sztuk, żaden
+
+    znak, żadnej historii do wytłumaczenia.
+
+
+    Tyle że komplet ma swoją własną arytmetykę i obaj ją znają. Osiem gładkich sztuk
+    osobno to
+
+    waga srebra. Osiem sztuk razem, w kolejności, jest warte wielokrotnie więcej —
+    i dokładnie
+
+    dlatego ktoś je zapamięta.
+
+
+    Przy okazji przetarcia widać wreszcie, co to w ogóle jest. Smukły pręt. Jeden
+    koniec
+
+    spłaszczony i lekko wygięty, tak jak się wygina coś, czym się pracuje pod kątem.
+    Na trzonku
+
+    płytki rowek po owinięciu, którego już nie ma — skóra albo nić, zeszła dawno.
+
+
+    To jest narzędzie. Do czego — Lucan patrzy na nie dłużej, niż wypada, i nie ma
+    odpowiedzi.
+
+
+    A potem kanał gęstnieje.
+
+
+    Spidey nie przyspieszył, bo Spidey nigdy nie przyspiesza, kiedy się go wzywa.
+    Wraca drugą
+
+    ścianą, bo tą pierwszą już szedł, i właśnie dlatego to, co przynosi, jest warte
+    dwa razy
+
+    tyle, ile Lucan zamawiał.
+
+
+    Przychodzi kształtami, nie słowami.
+
+
+    Nisze są po obu stronach. Regularne, tej samej wielkości, w tych samych odstępach,
+    i idą tak
+
+    daleko, jak on doszedł. Wszystkie zamknięte. Ani jedna otwarta.
+
+
+    Hala ma koniec. Coś stoi w poprzek, pionowo, na całą szerokość — i to nie jest
+    kamień.
+
+    Kamień odpowiada dźwiękiem, który wraca. To wraca martwe.
+
+
+    Powietrze idzie z cienkiej linii przy dolnej krawędzi tej rzeczy. Spidey przeszedł
+    wzdłuż
+
+    niej całej, od brzegu do brzegu, i linia jest dla niego za wąska. Stąd wrócił.
+
+
+    I jeszcze jedno, po raz trzeci od wczoraj: nigdzie nic żywego. Żadnej pajęczyny,
+    żadnego
+
+    owada, żadnego ruchu. Suche, puste, stare.
+
+
+    Potem siada Lucanowi na ramieniu i zaczyna się czyścić. Dokładnie, bez pośpiechu,
+    odnóże
+
+    po odnóżu — to jest jego sposób na powiedzenie, że skończył, i on wie, że Lucan
+    to wie.
+
+
+    — To ile ich jest — mówi Mara. Tym razem jak pytanie.
+
+
+    — Więcej, niż zdążymy wynieść — mówi Lucan. — Wąskim gardłem są schody, nie płyty.
+
+    '
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - campaigns/lucan/state/instances/spidey.yaml#traits.tells
+  - event_turn_interlude_294
+  - event_turn_interlude_298
+  - event_turn_interlude_301
+  - retcon_000197
+  operations:
+  - *id002
+  scene_update: null
+  new_decision: 'Dolna hala, przy pierwszej oproznionej niszy, 23:50, dzien piaty.
+    Rezerwa 14,9/15 bez zmian - komenda w siec i przetarcie nic nie kosztuja. MATERIAL
+    NAZWANY: SREBRO. Odczyt Borosa po zdjeciu nalotu, zwykla kompetencja handlarza
+    (t_101), nie magia. SZTUKA JEST GLADKA - bez rytu, bez znaku wytworcy, bez ornamentu.
+    To PIERWSZA kategoria Borosa: anonimowy kruszec, idzie do tygla i przestaje istniec.
+    Obawa z t_305 o trzecia kategorie sie NIE potwierdzila. DYLEMAT, KTORY ZOSTAJE:
+    osiem gladkich sztuk osobno to waga srebra; osiem sztuk W KOMPLECIE warte jest
+    wielokrotnie wiecej i wlasnie dlatego zapamietywalne. Decyzja gracza, zadnego
+    terminu. CO TO JEST: smukly pret, jeden koniec splaszczony i lekko wygiety, na
+    trzonku plytki rowek po owinieciu (skora albo nic, dawno zeszla). NARZEDZIE, nie
+    ozdoba i nie bron. DO CZEGO - NIEUSTALONE; Lucan nie rozpoznaje. Varkhen lezy
+    w loc_varkhen_chamber na pojedynczej linii od Lucana i jest JEDYNYM zrodlem z
+    tamtej epoki w zasiegu. MELDUNEK SPIDEYA (ksztalty, low_bandwidth, bez slow):
+    NISZE PO OBU SCIANACH, regularne, tej samej wielkosci, w tych samych odstepach,
+    WSZYSTKIE ZAMKNIETE az do konca jego drogi. HALA MA KONIEC: cos pionowego w poprzek,
+    na cala szerokosc, i to NIE JEST KAMIEN - echo wraca martwe zamiast dzwonic. POWIETRZE
+    IDZIE Z CIENKIEJ LINII przy dolnej krawedzi tej rzeczy; Spidey przeszedl wzdluz
+    niej calej i linia jest dla niego ZA WASKA. Stamtad wrocil. NIGDZIE NIC ZYWEGO
+    - trzecie potwierdzenie obserwacji z t_294 (brak pajeczyn i owadow), ktorej nadal
+    NIKT NIE TLUMACZY i narrator tez nie. CZEGO NARRATOR NIE SKLEIL: ze to brama,
+    o ktorej Varkhen mowil w t_296 (brama plus trzecia pieczec). To jest JEGO PAMIEC,
+    a Spidey podal pionowa przeszkode, ktora nie dzwoni. SPIDEY SIEDZI LUCANOWI NA
+    RAMIENIU i sie czysci - jego sygnal, ze skonczyl. MARA POWTORZYLA PYTANIE O LICZBE,
+    Lucan odpowiedzial bez liczby: wiecej, niz zdazymy wyniesc, a waskim gardlem sa
+    schody. Zgodne z geometry_is_approximate i z t_298. OTWARTE: czy ida wzdluz wytartego
+    pasa do tej pionowej rzeczy, czy oprozniaja kolejne nisze tutaj, czy pytaja Varkhena
+    o srebrny pret przez lacze, czy wynosza pierwszy worek na gore.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: a7865d304c463a007425e97db6c83142508e4576f2abe4012f95cc50dbae4f10
+  after_hash: b5413676fdf0a7709ed72c53b33454e20a6ba1833ea3a4fabd4c433b54ab4eb0
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day5_morning_guild_return
+    location_ref: campaigns/lucan/locations/cemetery-underworks/location.yaml
+    started_at: '2026-08-20T07:31:40+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - npc_boros_keld
+    - npc_mara_teln
+    pressures: []
+    immediate_facts: []
+    immediate_questions:
+    - 'Dolna hala, przy pierwszej oproznionej niszy, 23:50, dzien piaty. Rezerwa 14,9/15
+      bez zmian - komenda w siec i przetarcie nic nie kosztuja. MATERIAL NAZWANY:
+      SREBRO. Odczyt Borosa po zdjeciu nalotu, zwykla kompetencja handlarza (t_101),
+      nie magia. SZTUKA JEST GLADKA - bez rytu, bez znaku wytworcy, bez ornamentu.
+      To PIERWSZA kategoria Borosa: anonimowy kruszec, idzie do tygla i przestaje
+      istniec. Obawa z t_305 o trzecia kategorie sie NIE potwierdzila. DYLEMAT, KTORY
+      ZOSTAJE: osiem gladkich sztuk osobno to waga srebra; osiem sztuk W KOMPLECIE
+      warte jest wielokrotnie wiecej i wlasnie dlatego zapamietywalne. Decyzja gracza,
+      zadnego terminu. CO TO JEST: smukly pret, jeden koniec splaszczony i lekko wygiety,
+      na trzonku plytki rowek po owinieciu (skora albo nic, dawno zeszla). NARZEDZIE,
+      nie ozdoba i nie bron. DO CZEGO - NIEUSTALONE; Lucan nie rozpoznaje. Varkhen
+      lezy w loc_varkhen_chamber na pojedynczej linii od Lucana i jest JEDYNYM zrodlem
+      z tamtej epoki w zasiegu. MELDUNEK SPIDEYA (ksztalty, low_bandwidth, bez slow):
+      NISZE PO OBU SCIANACH, regularne, tej samej wielkosci, w tych samych odstepach,
+      WSZYSTKIE ZAMKNIETE az do konca jego drogi. HALA MA KONIEC: cos pionowego w
+      poprzek, na cala szerokosc, i to NIE JEST KAMIEN - echo wraca martwe zamiast
+      dzwonic. POWIETRZE IDZIE Z CIENKIEJ LINII przy dolnej krawedzi tej rzeczy; Spidey
+      przeszedl wzdluz niej calej i linia jest dla niego ZA WASKA. Stamtad wrocil.
+      NIGDZIE NIC ZYWEGO - trzecie potwierdzenie obserwacji z t_294 (brak pajeczyn
+      i owadow), ktorej nadal NIKT NIE TLUMACZY i narrator tez nie. CZEGO NARRATOR
+      NIE SKLEIL: ze to brama, o ktorej Varkhen mowil w t_296 (brama plus trzecia
+      pieczec). To jest JEGO PAMIEC, a Spidey podal pionowa przeszkode, ktora nie
+      dzwoni. SPIDEY SIEDZI LUCANOWI NA RAMIENIU i sie czysci - jego sygnal, ze skonczyl.
+      MARA POWTORZYLA PYTANIE O LICZBE, Lucan odpowiedzial bez liczby: wiecej, niz
+      zdazymy wyniesc, a waskim gardlem sa schody. Zgodne z geometry_is_approximate
+      i z t_298. OTWARTE: czy ida wzdluz wytartego pasa do tej pionowej rzeczy, czy
+      oprozniaja kolejne nisze tutaj, czy pytaja Varkhena o srebrny pret przez lacze,
+      czy wynosza pierwszy worek na gore.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_308
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work.yaml
+prepared_at: '2026-09-14T19:54:58+02:00'
+committed_at: '2026-09-14T19:54:58+02:00'
