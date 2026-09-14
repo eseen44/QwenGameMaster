@@ -57,23 +57,21 @@ active_refs:
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Stara nizsza trasa, za zalomem przy skladzie, 18:27, dzien piaty. VARKHEN PODLACZONY
-  Z NADWYZKI: Wij 01, Wij 02 i General oddaja swoj overflow (0,5 + 0,5 + 0,3 = 1,3
-  na dobe), po stratach propagacji dochodzi okolo 0,8. integrity.repair 0,8 -> 1,6
-  na dobe, czyli okolo 35 dob do pelna zamiast 70. NIKOGO to nie kosztuje mierzalnie,
-  bo siec generuje 25,3 przy sufcie przyjecia Lucana 7,5. retcon_000113 nie uchylony
-  - racjonowanie bylo decyzja Lucana i nadal nia jest, tyle ze decyzja sie zmienila.
-  Varkhen odpowiedzial jednym slowem, nie ruszyl sie i o nic nie poprosil. SKLAD:
-  osiem workow, okolo 16 kg, przeniesione na strone ekipy i zlozone za zalomem, pietnascie
-  krokow od przebicia, poza linia wzroku z komory Varkhena. EKIPA JEST PODZIELONA
-  I OBOJE MAJA RACJE. Boros: zostawic i schodzic, bo worek nie ucieknie, a dziura
-  moze miec drugie wyjscie, ktorym ktos jutro wejdzie. Mara: wywiezc teraz, bo do
-  zmierzchu dwie godziny i jeden kurs przy swietle nie zwroci niczyjej uwagi, a po
-  ciemku ten sam woz przestaje byc wozem z gruzem. Boros sam oddal glos Lucanowi slowami,
-  ze pierwszy idzie ten, kto idzie pierwszy. OTWARTE I POSTAWIONE WPROST: kurs na
-  gore teraz czy zejscie. Rezerwa 14,6/15.'
-last_refreshed_event_id: event_turn_interlude_297
-context_bytes: 48235
+- 'Cmentarz, przy wozie u wylotu rampy, 20:27, dzien piaty. Zmierzch, do ciemnosci
+  okolo godziny. DOWOZ DO VARKHENA NA SUFICIE WOLNEJ NADWYZKI: 2,3 na dobe wychodzace
+  z pieciu wezlow (Wij 01, Wij 02, General, Szczur 01, Szczur 02), okolo 1,5 dochodzace.
+  Naprawa 2,3 na dobe, okolo 24 doby do pelna. Wiecej wymagaloby siegniecia wezlom
+  do wlasnego rozwoju - OSOBNA DECYZJA, nie podjeta. LUP NA WOZIE I SCHOWANY: osiem
+  workow, okolo 55 kg, w tym 9-10 kg metalu. Worki na dnie, deski na wierzchu, gruz
+  na deskach. Kto zajrzy pod plachte, zobaczy tynk i pol cegly. EKIPA ODPOCZELA. Zadnej
+  mechaniki z tego nie wynika - zaden plik nie daje Lucanowi zmeczenia jako warunku
+  - poza tym, ze pierwszy raz od dwoch dob nic nie robi. MARA POTWIERDZILA, ze o tej
+  godzinie woz jeszcze przechodzi jako woz z gruzem. BOROS PODAL PORE DNIA, nie nacisk:
+  za godzine bedzie ciemno. OTWARTE: czy woz jedzie dzis i kto z nim; czy schodza
+  nizej po ciemku; czy zostaja na noc. Rezerwa 14,6/15. Sklad w podziemiach juz nie
+  istnieje - wszystko jest na wozie.'
+last_refreshed_event_id: event_turn_interlude_298
+context_bytes: 48115
 context_budget_bytes: 98304
 context_warnings:
 - scene_position_mismatch:webber_anchored:loc_cemetery!=loc_cemetery_underworks
@@ -85,7 +83,7 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5468
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4636
+  bytes: 4660
 - ref: campaigns/lucan/state/obligations.yaml
   bytes: 3660
 conditional_sets:
@@ -121,8 +119,8 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 17609
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 27016
-    bytes: 44625
+      bytes: 28997
+    bytes: 46606
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -179,9 +177,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 36573
-  participant_cards: 19195
+  state_active: 36453
+  participant_cards: 19196
   participant_full_cards_available: 19698
-  participant_digests: 16492
-  conditional_heaviest: 44625
-context_total_bytes: 85625
+  participant_digests: 16493
+  conditional_heaviest: 46606
+context_total_bytes: 85506

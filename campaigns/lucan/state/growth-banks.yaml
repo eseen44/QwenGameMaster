@@ -133,9 +133,14 @@ varkhen_overflow_feed:
     DECYZJA LUCANA, NIE ZNIESIENIE RACJONOWANIA. retcon_000113 zostaje w mocy: Varkhen stoi
     poza drabina wzrostu i poza rozdzialem nadwyzki, a wielkosc strugi jest ustawieniem Lucana.
     Lucan ustawil ja inaczej niz dotad - z ZEROWEJ na mala.
-  sources: {spy_centipede_01: 0.5, spy_centipede_02: 0.5, spy_beetle_01: 0.3}
-  leaving_per_day: 1.3
-  arriving_per_day: 0.8
+  sources: {spy_centipede_01: 0.5, spy_centipede_02: 0.5, spy_beetle_01: 0.3,
+            spy_rat_01: 0.5, spy_rat_02: 0.5}
+  leaving_per_day: 2.3
+  arriving_per_day: 1.5
+  ceiling: >-
+    2,3 TO CALA WOLNA NADWYZKA W REJESTRZE. Gracz poprosil o dwa razy wiecej (2,6); tyle nie ma
+    skad wziac bez siegniecia wezlom do WLASNEGO rozwoju, a to jest osobna decyzja i nie zostala
+    podjeta. Podniesione do sufitu i sufit nazwany (retcon_000193).
   losses: >-
     Straty propagacji wedle companions/webber-network.yaml#network_cost_model, mnozne na
     przeskok. General siedzi w podziemiach cmentarza, blisko; oba wije pod dzielnica gildii,
@@ -152,7 +157,7 @@ varkhen_overflow_feed:
     innego niz to, co gracz zadeklarowal. Skutek zapisany jest wiec tam, gdzie silnik go widzi:
     varkhen.yaml#integrity.repair.units 0.8 -> 1.6.
   effect: >-
-    Odbudowa integralnosci Varkhena 0,8 -> 1,6 na dobe. Z 9,4 do 65 to okolo 35 dob zamiast 70.
+    Odbudowa integralnosci Varkhena 0,8 -> 2,3 na dobe. Z 9,4 do 65 to okolo 24 doby zamiast 70.
 
 distribution_priority:
   source: retcon_000141

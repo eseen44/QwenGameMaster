@@ -4,28 +4,28 @@ name: Varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 288
+revision: 289
 position:
   location_id: loc_varkhen_chamber
   zone_id: zone_sarcophagus
   formation: lying_in_his_own_open_sarcophagus_t_263_asked_to_feign_sleep_detached_from_the_network_single_line_from_lucan_only
 integrity:
-  current: 9.399999999999999
+  current: 11.7
   maximum: 65
   repair:
     interval_seconds: 86400
-    units: 1.6
+    units: 2.3
     requires:
     - env:death_field
     runtime:
-      repair_elapsed_seconds: 81780
+      repair_elapsed_seconds: 2580
     note: 'Tlo cmentarza daje 0,8 integralnosci na dobe - tyle samo, ile dawaly cztery
       lacza sieciarzy. Do 2026-09-12 byl to rejestr RECZNY, bo process_instance_time
       nie ruszal integralnosci. Teraz nalicza ja silnik, na tych samych warunkach
       co pule: przy env:death_field, czyli tak dlugo, jak cialo lezy w komnacie.'
 resources:
   ancient_necrotic_reservoir:
-    current: 21.4
+    current: 22.2
     capacity: 72
     regeneration:
       interval_seconds: 86400
@@ -42,7 +42,7 @@ resources:
         a flaga nie wie o przeprowadzce - zostawala w karcie i naliczanie szlo dalej.
         Flaga zostaje jako opis stanu, nie jest juz wyzwalaczem.'
     runtime:
-      regeneration_elapsed_seconds: 81780
+      regeneration_elapsed_seconds: 2580
 conditions:
 - id: formal_control_link_unenforced
   stacks: 1
@@ -84,7 +84,7 @@ status_flags:
 - in_cemetery_death_field
 - alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
 - feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_297
+last_event_id: event_turn_interlude_298
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

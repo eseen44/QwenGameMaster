@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **114** z 192 retconow.
+Regul z klauzula normatywna: **115** z 193 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -105,7 +105,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000188` — NIE WOLNO z samej dojrzalosci: nowej CZESCI CIALA ani przebudowy anatomii - dodatkowej konczyny, wszczepionego gruczolu, powiekszonego zbiornika ponad to, co daje szczebel,...
 - `retcon_000192` — TRESC WSZYSTKICH PIECIU TUR ZOSTAJE BEZ ZMIAN - zmieniaja sie wylacznie liczby sekund.
 
-## energia i ekonomia slug (14)
+## energia i ekonomia slug (15)
 
 - `retcon_000014` — Pojedynczy sieciarz może nie podołać każdemu zwierzęciu, lecz gatunek 'kot' nie jest zakazem ani fizyczną granicą; sieciarze mogą działać z zasadzki lub zespołowo.
 - `retcon_000019` — Uwaga na przyszlosc: migration/packages/02-lucan/package.yaml nadal zawiera stary opis z progiem 12 - to zrodlo migracyjne, uchylone przez retcon_000004 i ten, i NIE wolno go czytac w...
@@ -121,6 +121,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000175` — KONKRETNYCH STAWEK PER GATUNEK NIE MA i nie wolno ich wymyslic - dzis zaden okaz ssaczy nie stoi w rejestrze, wiec regula nie ma adresata.
 - `retcon_000179` — Lucan WOLI trzymac ich jako stalych kompanow niz pionki; MOTYW zostaje nieustalony i nie wolno go dopowiadac.
 - `retcon_000185` — Zakaz zostaje w mocy dla PRZELOTU NAD MIASTEM w dzien.
+- `retcon_000193` — DOWOZ DO VARKHENA PODWOJONY NA ZYCZENIE GRACZA, ale nie dokladnie dwa razy, bo SUFIT WOLNEJ NADWYZKI JEST NIZSZY.
 
 ## nawias i sprawczosc gracza (4)
 
