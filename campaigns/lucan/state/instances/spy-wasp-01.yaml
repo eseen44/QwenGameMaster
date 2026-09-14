@@ -4,7 +4,7 @@ name: Osa 01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 219
+revision: 220
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_meadows
@@ -32,8 +32,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 28660
-      hunting_recovery_elapsed_seconds: 8760
+      decay_elapsed_seconds: 30460
+      hunting_recovery_elapsed_seconds: 10560
     hunting_recovery_override:
       requires:
       - autonomous_hunting
@@ -55,7 +55,7 @@ status_flags:
 - buzz_draws_attention_and_violence
 - starves_at_a_static_indoor_post
 conditions: []
-last_event_id: event_turn_interlude_296
+last_event_id: event_turn_interlude_297
 source_refs:
 - event_turn_interlude_075
 - event_turn_interlude_076

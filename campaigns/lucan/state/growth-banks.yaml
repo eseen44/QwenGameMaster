@@ -126,6 +126,34 @@ surplus_economy:
   varkhen_excepted: >-
     Varkhen zostaje poza rozdzialem - cztery lacza podtrzymujace to racjonowana struga
     ustawiona przez Lucana (retcon_000113). Nie liczyc mu tego jako zmarnowanej okazji.
+varkhen_overflow_feed:
+  source_event_id: event_turn_interlude_297
+  declared_by: player_declaration_2026_09_14
+  rule: >-
+    DECYZJA LUCANA, NIE ZNIESIENIE RACJONOWANIA. retcon_000113 zostaje w mocy: Varkhen stoi
+    poza drabina wzrostu i poza rozdzialem nadwyzki, a wielkosc strugi jest ustawieniem Lucana.
+    Lucan ustawil ja inaczej niz dotad - z ZEROWEJ na mala.
+  sources: {spy_centipede_01: 0.5, spy_centipede_02: 0.5, spy_beetle_01: 0.3}
+  leaving_per_day: 1.3
+  arriving_per_day: 0.8
+  losses: >-
+    Straty propagacji wedle companions/webber-network.yaml#network_cost_model, mnozne na
+    przeskok. General siedzi w podziemiach cmentarza, blisko; oba wije pod dzielnica gildii,
+    daleko. Dochodzi okolo dwoch trzecich.
+  why_it_costs_nobody: >-
+    Zrodlem jest WYLACZNIE overflow_per_day, czyli nadmiar PONAD wlasny sufit rozwoju wezla -
+    nie jego zbiornik i nie jego bank. Siec generuje 25,3 na dobe przy sufcie przyjecia Lucana
+    7,5, wiec ponad siedemnascie jednostek dziennie i tak nie ma gdzie wejsc. Odciecie 1,3
+    z tego nadmiaru nie rusza niczyjej puli.
+  why_it_is_not_a_sustained_link: >-
+    process_sustained_links wymaga zrodla bedacego instancja i DEBETUJE jej pule, a ekonomia
+    foragingowa nie jest w runtime symulowana (patrz pc-lucan.yaml#regeneration.note). Lacze
+    typu feed zabieraloby wijom ze zbiornika 3/3 zamiast brac z nadmiaru, czyli robiloby cos
+    innego niz to, co gracz zadeklarowal. Skutek zapisany jest wiec tam, gdzie silnik go widzi:
+    varkhen.yaml#integrity.repair.units 0.8 -> 1.6.
+  effect: >-
+    Odbudowa integralnosci Varkhena 0,8 -> 1,6 na dobe. Z 9,4 do 65 to okolo 35 dob zamiast 70.
+
 distribution_priority:
   source: retcon_000141
   declared_by: player_declaration_2026_09_03
