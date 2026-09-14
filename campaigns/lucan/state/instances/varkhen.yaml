@@ -4,11 +4,15 @@ name: Varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 299
+revision: 300
 position:
-  location_id: loc_varkhen_chamber
-  zone_id: zone_sarcophagus
-  formation: lying_in_his_own_open_sarcophagus_t_263_asked_to_feign_sleep_detached_from_the_network_single_line_from_lucan_only
+  location_id: loc_cemetery_underworks
+  zone_id: zone_deep_hall
+  detail: on_foot_with_lucan_standing_on_the_worn_path_at_the_foot_of_the_forty_steps_head_bowed_under_the_hall_ceiling
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_311
+    source: transaction
 integrity:
   current: 11.7
   maximum: 65
@@ -83,8 +87,20 @@ status_flags:
 - confidentiality_accepted
 - in_cemetery_death_field
 - alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
-- feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_310
+orders:
+- id: order_varkhen_stay_and_feign_sleep
+  status: expired
+  source_event_id: event_turn_interlude_263
+  expired_event_id: event_turn_interlude_311
+  instruction: Zostac w wlasnej komorze i udawac, ze spi.
+  note: >-
+    WYGASLO SAMO W t_311. Byla to PROSBA, nie przysiega, i dotyczyla udawania PRZED LUDZMI.
+    Boros i Mara odjechali z lupem, a Lucan przyszedl po niego osobiscie; Varkhen kiwnal raz
+    i wstal. Zadnego nowego zobowiazania z tego nie powstalo, a narrator nie robi z tego ani
+    sceny wyzwolenia, ani zlamania ukladu. Pole position.formation, ktore powtarzalo te tresc,
+    zostalo w tej samej turze usuniete - bylo juz nieprawda, a set na formation jest zamkniete
+    od retcon_000171.
+last_event_id: event_turn_interlude_311
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md

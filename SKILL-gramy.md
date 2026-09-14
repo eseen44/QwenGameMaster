@@ -368,6 +368,17 @@ tylko dlatego, że minęło osiem tur. Zawsze utrzymuj pliki pozwalające ją wz
   ograniczeniem, sprawdz, czy stoi w pliku - jesli nie, to jest wymyslone i gracz to wylapie.
   Prawdziwe ograniczenia tej kampanii sa **instytucjonalne i informacyjne** (przesluchania,
   swiadkowie, pasmo lacza, dowod rzeczowy), nie zasobowe. Patrz `retcon_000015`.
+- **CO POSTAĆ MÓWI, NIE JEST TYM, CO POSTAĆ ROBI** (`retcon_000198`, żądanie gracza 14.09.2026:
+  „przestań implikować co robię z tego co im mówię"). Kwestia skierowana do NPC jest **zdarzeniem
+  w fikcji** — czymś, co Lucan powiedział — i rozstrzyga się ją jako wypowiedź: NPC to słyszą
+  i reagują. **Deklaracją akcji jest to, co gracz mówi narratorowi**, nie to, co Lucan mówi
+  Marze. Lucan może kłamać, upraszczać albo podać pretekst; rozbieżność między słowem a czynem
+  jest jego narzędziem, a nie niespójnością do naprawienia. Gdy wiadomość ma dwa człony —
+  kwestię do NPC i deklarację czynu — **pierwszeństwo ma czyn**. I nie dopowiadaj za Lucana
+  kwestii, których gracz nie napisał: jeśli NPC zadaje pytanie, na które szczera odpowiedź
+  zdradziłaby plan, pytanie **zostaje bez odpowiedzi**. Nie znosi to `retcon_000190` —
+  zadeklarowany dialog nadal idzie do prozy w całości.
+
 - **PO ZAPISIE `outcome.yaml` SPRAWDŹ TREŚĆ, NIE ROZMIAR** (wyłapane 2026-09-14 przy t_307).
   Heredoc z apostrofem w środku potrafi się w tym środowisku nie wykonać (`bash: unexpected EOF`),
   a plik zostaje z poprzedniej tury. `wc -c` pokazuje wtedy sensowny rozmiar i wygląda na sukces.

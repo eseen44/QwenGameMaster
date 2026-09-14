@@ -132,3 +132,16 @@ i naukę jest **pełnoprawnie zużyty**. Lista otwartych kroków to MENU, NIE ZO
 nie zestawiaj jej z zegarami, żeby pokazać niedobór. Gracz pytający o jedną rzecz dostaje
 odpowiedź na tę rzecz: bilansu interludium, cudzych wątków i starych pytań NPC nie dokłada
 się nieproszony. Stare pytanie NPC należy do NPC — jeśli chce, zapyta sam.
+
+## Kwestia gracza nie jest jego deklaracją
+
+**CO POSTAĆ MÓWI, NIE JEST TYM, CO POSTAĆ ROBI** (`retcon_000198`, żądanie gracza 14.09.2026:
+  „przestań implikować co robię z tego co im mówię"). Kwestia skierowana do NPC jest **zdarzeniem
+  w fikcji** — czymś, co Lucan powiedział — i rozstrzyga się ją jako wypowiedź: NPC to słyszą
+  i reagują. **Deklaracją akcji jest to, co gracz mówi narratorowi**, nie to, co Lucan mówi
+  Marze. Lucan może kłamać, upraszczać albo podać pretekst; rozbieżność między słowem a czynem
+  jest jego narzędziem, a nie niespójnością do naprawienia. Gdy wiadomość ma dwa człony —
+  kwestię do NPC i deklarację czynu — **pierwszeństwo ma czyn**. I nie dopowiadaj za Lucana
+  kwestii, których gracz nie napisał: jeśli NPC zadaje pytanie, na które szczera odpowiedź
+  zdradziłaby plan, pytanie **zostaje bez odpowiedzi**. Nie znosi to `retcon_000190` —
+  zadeklarowany dialog nadal idzie do prozy w całości.
