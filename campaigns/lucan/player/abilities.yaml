@@ -164,6 +164,28 @@ known:
     component_abilities: [ability_grave_sense, ability_stone_sense]
     casting_profile: {cantrip: true, energy_cost_per_declared_scan: 0.1, focus: required}
     limits: [combined_noise, component_results_must_be_interpreted_separately, repeated_detailed_scans_consume_time_and_attention]
+    channels:
+      source: retcon_000197
+      rule: >-
+        DWA KANALY WYKRYWAJA DWIE ROZNE RZECZY. STONE SENSE czyta STRUKTURE: pustki, drgania,
+        nieciaglosci (vector structural_detection). Gesta rzecz w kamieniu jest nieciagloscia
+        i czyta sie jako miejsce, w ktorym drganie urywa sie krotko - "twarde, geste, nie nalezy
+        do muru". NAZWY MATERIALU NIE PODAJE: poor_material_identification. GRAVE SENSE czyta
+        SMIERC I NASYCENIE: ciala oraz przedmioty naladowane na tyle, ze kanal sam sie od nich
+        zaklóca. REGULA: rzecz nasycona oglasza sie sama, zwykly metal nie.
+      precedents: >-
+        t_010 - relikwiarz w dloni: "Stone Sense nic nie daje (srebro, nie kamien), ale Grave
+        Sense uderza czysto i mocno". t_253/254/255 - polnocny fundament kaplicy: sygnatura
+        przeszla przez kamien i podala "pojedynczy, gesty, nieruchomy punkt bez cech ciala",
+        z jawnym zastrzezeniem "nie ma obietnicy, ze jest tam material"; przedmiot okazal sie
+        nasycony, a jego material do dzis NIEUSTALONY. t_303 - linia w scianie: "co to za
+        material, dlon nie powie". t_304 - zawartosc niszy: twarde rzeczy tylko na kanale
+        kamienia, cisza na kanale sygnatury.
+      reach: >-
+        Kanal SYGNATURY przechodzi przez kamien. Kanal KAMIENIA urywa sie na PIERWSZEJ
+        nieciaglosci za dlonia (weak_through_discontinuities) - przez plyte grobowa widac jedna
+        komore i nie dochodzi do sasiedniej niszy. To samo ograniczenie dalo w t_134 trwaly fakt
+        o lokacji: skrzydla pod rusztowaniem nie da sie sluchac przez kamien.
     standing_procedure:
       declared_by: player_declaration_2026_09_14
       source_event_id: event_turn_interlude_289
