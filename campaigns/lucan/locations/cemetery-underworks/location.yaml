@@ -12,6 +12,17 @@ connections:
   - {id: connection_chapel_stairs, zone_id: zone_chapel_link, leads_to: loc_cemetery_chapel, travel_time: 4 minutes}
   - {id: connection_oldest_mausoleum, zone_id: zone_heart_approach, leads_to: loc_cemetery, travel_time: 5 minutes}
   - {id: connection_varkhen_collapse, zone_id: zone_old_lower_route, leads_to: loc_varkhen_chamber, travel_time: uncertain_after_collapse}
+zones:
+  - {id: zone_lower_burial_chamber, note: 'KOMORA GROBOWA ZA ZAWALEM na starej nizszej trasie.
+      Zadeklarowana 2026-09-14 (t_290), bo scena jej wymagala, a plik lokacji nie mial zadnej
+      listy zon. Rozpoznana WYLACZNIE zmyslami Spideya przez szpare pod stropem: szeroka,
+      wysoka, zamknieta, echo odbija sie od rownych scian; nisze grobowe w rzedach na kamiennych
+      polkach, sucho i staro. ZADNEGO ZYWEGO CIALA w zasiegu (heat_and_life), a Geo z t_289
+      mowi, ze umarli leza plasko i nic nie drgnelo. UWAGA: okaz serii NIE WIDZI NIEUMARLEGO
+      (blind_to_undead), wiec brak odczytu u Spideya nie jest dowodem na brak martwych.
+      PRZECIAG MA ZRODLO GDZIES DALEJ - powietrze wchodzi do komory poza zasiegiem Spideya,
+      czyli istnieje DRUGIE WEJSCIE. Czym jest: NIEUSTALONE. Geometrii i miar brak; lokacja
+      pozostaje bez layoutu dla tej zony.'}
 map_refs:
   layout: campaigns/lucan/locations/cemetery-underworks/maps/layout.yaml
   gm: campaigns/lucan/locations/cemetery-underworks/maps/gm.svg
