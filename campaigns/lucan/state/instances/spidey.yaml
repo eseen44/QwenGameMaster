@@ -5,7 +5,7 @@ anchor_class: true
 object_type: entity_instance
 status: active
 definition_ref: candidate_companion_spidey
-revision: 301
+revision: 302
 position:
   location_id: loc_cemetery_underworks
   zone_id: zone_deep_hall
@@ -30,7 +30,7 @@ resources:
       - autonomous_hunting
     runtime:
       decay_elapsed_seconds: 73060
-      hunting_recovery_elapsed_seconds: 28960
+      hunting_recovery_elapsed_seconds: 32260
       overflow_pending: 2
     growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
   paralytic_toxin_reservoir:
@@ -43,7 +43,7 @@ resources:
       - functional_implanted_gland
       - fed_or_energized_state
     runtime:
-      regeneration_elapsed_seconds: 7360
+      regeneration_elapsed_seconds: 10660
       overflow_pending: 4
 conditions:
 - id: partial_hind_leg_loss
@@ -114,7 +114,7 @@ orders:
   instruction: 'Towarzyszyc Lucanowi poza baszta w dystansie ok. 50 m - nie na nim.
     Zadanie: oslona i wczesne dostrzezenie zagrozenia. Wybor trasy i stanowiska pozostawiony
     okazowi (karta: sam wybiera stanowisko, t_133).'
-last_event_id: event_turn_interlude_313
+last_event_id: event_turn_interlude_314
 source_refs:
 - source_luka_b_fragment#line:3869-4004
 - source_luka_b_fragment#line:4800-4906
