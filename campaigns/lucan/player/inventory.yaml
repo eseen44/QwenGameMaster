@@ -870,6 +870,30 @@ items:
       - {what: suszona zaba, reason: 'Material zbyt wysuszony - nie ma czego poruszyc, rozsypala sie w palcach.'}
     not_bodies: [pas skorzany, dwa kamienie, resztka kielbasy]
     source_refs: [event_turn_interlude_271, event_turn_interlude_272]
+  - id: item_lower_catacomb_grave_goods_first_three
+    name: Lup z trzech lepszych grobow dolnej komory
+    location: lower_burial_chamber_being_packed
+    acquired_event_id: event_turn_interlude_295
+    contents: >-
+      Z trzech nisz otwartych na probe w glebszej, bogatszej czesci komory: obrecz ramienna
+      z ciemnego metalu (wsunieta na kosc za zycia), okucie pasa wielkosci kciuka, noz
+      z rekojescia z kosci - ostrze przepadlo na rdze, sznur paciorkow z kamienia, szkla
+      i czegos mlecznego, dwie szpile, naczynie z polewa schodzaca platami, oraz CZARA ZE
+      SREBRA z patyna, na nozce, z obrzezem wyklepanym recznie i rowno. Razem okolo 2,5 kg
+      metalu.
+    why_it_is_a_problem: >-
+      TRZECIA KATEGORIA TOWARU, nazwana przez npc_boros_keld w t_295 i wynikajaca wprost
+      z jego wlasnego podzialu z t_101. Nie jest to rzecz RYTA (identyfikowalna nazwiskiem,
+      do przetopienia) ani anonimowy KRUSZEC (moneta, sprzedaje sie na wage). Jest to rzecz
+      TAK STARA, ze nikt zyjacy jej nie rozpozna - wiec sprzedaje sie bez nazwiska, ale
+      zaden zlotnik jej nie przetopi. Postawi ja na polce. Kazda sztuka jest jedyna i przez
+      to zapamietywalna. W lupie z Aktu 2 polowe ratowala MONETA; tutaj nie ma ani jednej.
+    what_it_does_not_do: >-
+      Nie jest dowodem na nic i nie uruchamia zadnego zegara ani sledztwa (retcon_000055).
+      Zaden plik nie przypisuje tych rzeczy zadnemu rodowi ani epoce; znak z plyt jest
+      NIECZYTELNY dla calej trojki (t_294) i narratorowi nie wolno go rozszyfrowac za nich
+      (retcon_000058).
+    source_refs: [event_turn_interlude_295, event_turn_interlude_294, event_turn_interlude_101]
 external_claims:
   - id: claim_three_bags_cemetery_goods
     custodian: npc_boros_keld
@@ -878,4 +902,4 @@ external_claims:
     status: opened_and_examined
     source_refs: [source_luka_b_fragment#line:8287-8301, event_turn_interlude_009_three_bags_opened]
 last_transaction_id: event_turn_interlude_011_reliquary_discretion_and_guild_plan
-last_updated_event_id: event_turn_interlude_279
+last_updated_event_id: event_turn_interlude_295
