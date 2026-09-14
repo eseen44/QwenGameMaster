@@ -46,7 +46,7 @@ importance: full_agent
 role: ancient_tomb_guardian
 lifecycle:
   state: undead_active
-  last_confirmed_event_id: event_turn_interlude_287
+  last_confirmed_event_id: event_turn_interlude_296
 current_location_id: loc_varkhen_chamber
 current_zone_id: zone_sarcophagus
 location_note: SAM, w podziemiach cmentarza; do t_257 z Lucanem, w pomieszczeniu pod polnocnym fundamentem
@@ -83,6 +83,14 @@ knowledge:
     pominiety ogon moze zawierac warunek lub zaprzeczenie. Glos jest na gorze.'
   claim_cap_chars: 420
   recent_confirmed:
+  - fact_id: fact_varkhen_answered_about_the_road_the_levels_and_his_own_repair
+    source_event_id: event_turn_interlude_296
+    claim: 'Zapytany przez linie alarmowa - kanal standby, adres bez przeplywu (retcon_000179) - odpowiedzial
+      na cztery rzeczy i przy kazdej sam postawil granice. (1) TO SA jego schody. Zawal, przez ktory ekipa
+      przebila sie dzis, to osuwisko z t_259: droga, ktora chodzil do dolnej bramy i ktora go stamtad
+      wyniesiono. Drogi nie umie podac w krokach - chodzil, nie mierzyl.'
+    claim_truncated: true
+    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_answered_about_the_road_the_levels_and_his_own_repair
   - fact_id: fact_varkhen_held_the_pretence_while_the_crew_passed
     source_event_id: event_turn_interlude_287
     claim: 'Ekipa - Lucan, Boros i Mara - przeszla przez jego komore w drodze do zawalu na starej nizszej
@@ -107,13 +115,8 @@ knowledge:
       tej nocy''.'
     claim_summarized: true
     claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_cannot_measure_how_much_worse_the_seal_is
-  - fact_id: fact_varkhen_feels_the_second_seal_fouled_and_the_third_holding_differently
-    source_event_id: event_turn_interlude_261
-    claim: Zapytany w komorze, czy czuje zmiany, powiedzial, ze druga pieczec jest brudna i czuc to mocniej
-      niz kiedys, a trzecia trzyma, ale nie tak jak trzymala - i ze nie umie powiedziec lepiej.
-    claim_summarized: true
-    claim_full: campaigns/lucan/entities/npcs/varkhen.yaml#fact_varkhen_feels_the_second_seal_fouled_and_the_third_holding_differently
   older_confirmed_index:
+  - fact_varkhen_feels_the_second_seal_fouled_and_the_third_holding_differently@261
   - fact_varkhen_reported_the_state_of_the_three_seals_and_named_the_collapse@259
   - fact_varkhen_saw_lucan_keep_the_vessel_and_leave_three_servants_in_the_niche@258
   - fact_varkhen_offered_to_carry_the_cold_vessel@257
@@ -149,11 +152,11 @@ knowledge:
   - whether_dump_bodies_still_exist
   - final_guild_or_church_verdict
 freshness:
-  confirmed_entries_total: 29
+  confirmed_entries_total: 30
   in_digest: 4
-  last_fact_from_turn: 287
-  current_turn: 295
-  turns_behind: 8
+  last_fact_from_turn: 296
+  current_turn: 296
+  turns_behind: 0
   warning: KARTA JEST TAK SWIEZA, JAK OSTATNI DOPISEK, NIE JAK OSTATNIA TURA (retcon_000121). Wpis w knowledge.confirmed
     to ZDARZENIE, nie stan biezacy. Jesli turns_behind jest duze, traktuj karte jako NIEKOMPLETNA i sprawdz
     recall/dziennik przed pierwsza kwestia tej postaci.
