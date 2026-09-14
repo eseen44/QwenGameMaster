@@ -4,7 +4,7 @@ name: Lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 295
+revision: 296
 position:
   location_id: loc_cemetery_underworks
   zone_id: zone_deep_hall
@@ -17,7 +17,7 @@ integrity:
   maximum: 19
 resources:
   lucan_necrotic_energy:
-    current: 15
+    current: 14.9
     capacity: 15
     comfortable_capacity: 15
     permanent_expansion: 3
@@ -28,24 +28,23 @@ resources:
     campaign_calibration: true
     decision_status: approved
     runtime:
-      regeneration_elapsed_seconds: 220
+      regeneration_elapsed_seconds: 400
       overflow_pending: 13.0
     regeneration:
       interval_seconds: 3600
       units: 0.25
       requires:
       - living
-      note: >-
-        OBNIZONE Z 0,75 NA 0,25 PRZEZ retcon_000196 - koniec podwojnego liczenia. 0,25 na godzine
-        to 6,0 na dobe i jest to WYLACZNIE wlasna regeneracja Lucana (retcon_000045). Dawne 0,50/h,
-        czyli 12,0 na dobe, opisane bylo jako DOWOZ Z SIECI - czyli ta sama energia, ktora rejestr
-        liczyl juz jako nadwyzke wezlow. Liczba pochodzila z retcon_000141, kiedy siec generowala
-        16,5, i nie byla nigdy przeliczona.
-        DOWOZ Z SIECI ISTNIEJE DALEJ, ale jako POZYCJA KASKADY, nie jako drugi wpis w tym polu:
-        surplus sieci wypelnia growth od gory - Lucan, zakotwiczone, reszta - a przydzial Lucana
-        idzie NAJPIERW w rezerwe do sufitu 15, potem w bank (retcon_000141, kolejnosc bez zmian).
-        Model w calosci: growth-banks.yaml#energy_model. Rachunek na zadanie:
-        python tools/energy_pl.py.
+      note: 'OBNIZONE Z 0,75 NA 0,25 PRZEZ retcon_000196 - koniec podwojnego liczenia.
+        0,25 na godzine to 6,0 na dobe i jest to WYLACZNIE wlasna regeneracja Lucana
+        (retcon_000045). Dawne 0,50/h, czyli 12,0 na dobe, opisane bylo jako DOWOZ
+        Z SIECI - czyli ta sama energia, ktora rejestr liczyl juz jako nadwyzke wezlow.
+        Liczba pochodzila z retcon_000141, kiedy siec generowala 16,5, i nie byla
+        nigdy przeliczona. DOWOZ Z SIECI ISTNIEJE DALEJ, ale jako POZYCJA KASKADY,
+        nie jako drugi wpis w tym polu: surplus sieci wypelnia growth od gory - Lucan,
+        zakotwiczone, reszta - a przydzial Lucana idzie NAJPIERW w rezerwe do sufitu
+        15, potem w bank (retcon_000141, kolejnosc bez zmian). Model w calosci: growth-banks.yaml#energy_model.
+        Rachunek na zadanie: python tools/energy_pl.py.'
 conditions: []
 retired_conditions:
 - id: elevated_energy_signature_above_old_threshold
@@ -61,7 +60,7 @@ status_flags:
 - permanently_expanded_reservoir
 - within_normal_capacity
 - running_on_life_energy_not_sleep
-last_event_id: event_turn_interlude_303
+last_event_id: event_turn_interlude_304
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409

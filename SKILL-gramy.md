@@ -368,6 +368,14 @@ tylko dlatego, że minęło osiem tur. Zawsze utrzymuj pliki pozwalające ją wz
   ograniczeniem, sprawdz, czy stoi w pliku - jesli nie, to jest wymyslone i gracz to wylapie.
   Prawdziwe ograniczenia tej kampanii sa **instytucjonalne i informacyjne** (przesluchania,
   swiadkowie, pasmo lacza, dowod rzeczowy), nie zasobowe. Patrz `retcon_000015`.
+- **REZERWĘ CZYTAJ Z PLIKU, NIE Z POPRZEDNIEJ NARRACJI** (wyłapane 2026-09-14 przy t_304).
+  Silnik nalicza regenerację za `elapsed_since_last_event` **przed** kosztem, więc po dłuższej
+  turze Lucan bywa z powrotem pod sufitem, a odjęcie 0,1 od liczby podanej w poprzedniej
+  prozie daje wynik, którego w `state/instances/pc-lucan.yaml` nie ma. Tak powstała rozbieżność
+  między t_303 („14,6 → 14,5") a plikiem (15,0). Po `turn commit` **przeczytaj
+  `resources.lucan_necrotic_energy.current`** i dopiero tę liczbę podawaj graczowi. Stan bije
+  dziennik (CLAUDE.md pkt 4), więc rozjazd nie wymaga retconu — wymaga przestania go robić.
+
 - **Nie rzucaj na zwykłych ludzi bez karty** (ustalone przez gracza, 2026-08-19). Osoba
   trzecia bez arkusza — portier, urzędnik, straganiarz, znudzony strażnik — nie jest
   przeciwnikiem w teście. Jeśli nie ma walki ani aktywnych poszukiwań, **rozstrzygnij

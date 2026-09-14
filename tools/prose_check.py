@@ -182,7 +182,7 @@ def wyceny_metaforyczne(text: str) -> list[str]:
 # wylacznie zaprzeczeniami: kwestie Mary w t_284 to 62 slowa, 6 wystapien "nie" (9,7%),
 # 5 z 7 zdan z zaprzeczeniem. To jest RAPORT, nie bramka - sceny odmowy istnieja i maja prawo
 # byc gesto zaprzeczone. Liczba ma tylko nie dac sie przeoczyc.
-NEGACJA = re.compile('(?<!\w)(?:nie|ani)(?!\w)', re.IGNORECASE)
+NEGACJA = re.compile(r'(?<!\w)(?:nie|ani)(?!\w)', re.IGNORECASE)
 
 
 def linie_dialogowe(text: str) -> list[str]:
