@@ -4,7 +4,7 @@ name: Szczur 01
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 41
+revision: 42
 position:
   location_id: loc_city_sewer
   zone_id: zone_sewer_tannery
@@ -25,8 +25,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 3000
-      hunting_recovery_elapsed_seconds: 3000
+      decay_elapsed_seconds: 3300
+      hunting_recovery_elapsed_seconds: 3300
       overflow_pending: 2
 status_flags:
 - newly_animated
@@ -37,7 +37,7 @@ status_flags:
 - unremarkable_in_a_sewer_nobody_looks_twice
 - mammal_ear_hears_the_human_band_natively
 conditions: []
-last_event_id: event_turn_interlude_316
+last_event_id: event_turn_interlude_317
 source_refs:
 - event_turn_interlude_271
 - event_turn_interlude_272
