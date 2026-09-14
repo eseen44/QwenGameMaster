@@ -4,7 +4,7 @@ name: Ćma 05
 object_type: entity_instance
 status: active
 definition_ref: candidate_spy_series_01
-revision: 42
+revision: 43
 position:
   location_id: loc_city_wall_hideout
   zone_id: zone_surrounding_meadows
@@ -32,8 +32,8 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 3300
-      hunting_recovery_elapsed_seconds: 3300
+      decay_elapsed_seconds: 6900
+      hunting_recovery_elapsed_seconds: 6900
       overflow_pending: 2
 status_flags:
 - bat_protocol_fold_and_drop_t_271
@@ -47,7 +47,7 @@ status_flags:
 - fragile_wings_first_to_break
 - sugar_feeder_must_leave_a_closed_post
 conditions: []
-last_event_id: event_turn_interlude_317
+last_event_id: event_turn_interlude_318
 source_refs:
 - event_turn_interlude_271
 - event_turn_interlude_272
