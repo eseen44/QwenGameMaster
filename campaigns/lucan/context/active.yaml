@@ -57,26 +57,25 @@ active_refs:
 - campaigns/lucan/state/instances/spidey.yaml
 - campaigns/lucan/state/instances/webber-anchored.yaml
 search_terms:
-- 'Cmentarz, przy rampie, 21:52, dzien piaty. Ciemno. Bez zmiany wzgledem t_299 -
-  ta tura nie zajela ani sekundy. LUP SCHOWANY W loc_tannery_cellar_hideout: osiem
-  workow, okolo 55 kg, w zawalonej piwnicy przy garbarni, ktora byla PIERWSZA KRYJOWKA
-  LUCANA (milestone_005). Drzwi od ulicy nie ma. Weszli OD LAKI ZA GARBARNIA - na
-  wpol zawalonymi schodami przy murze, zarosnietymi na tyle, ze trzeba wiedziec, gdzie
-  sie odgarnia. Druga droga, przez podziemia kopca, istnieje i nie byla dzis uzyta;
-  stan kopca po Akcie 1 pozostaje NIEUSTALONY. Boros byl tam raz - wywozil stamtad
-  papiery garbarnika do Seraphine - i nie skomentowal, ze ktos tam mieszkal. Mara
-  nie schodzila, zostala przy koniu. WEJSCIE DO SKLADU JEST DWADZIESCIA KROKOW OD
-  DWOCH WLASNYCH SIECIARZY Lucana, ktorzy siedza na tej lace od t_091 i zbieraja owady
-  zamiast pilnowac rewirow. MELDUNKI SIECI bez zmian: wszystkie wezly odpowiadaja,
-  ale z odleglosci kanal niesie OBECNOSC, nie tresc. To, co Toby slyszal na zapleczu
-  syndykatu, czeka, az Lucan przy nim stanie. Tkacz - jedyny pelny odczyt: przez caly
-  dzien do rampy nie podszedl nikt poza grabarzem. RACHUNEK LUCANA: lup lezy na parceli,
-  ktora MA przypisany zmysl obszarowy, ale sieciarz jest od t_091 na lace. Zdjecie
-  rozkazu to jedno slowo i narrator go nie wypowiedzial. WORKI: dwadziescia. Rezerwa
-  14,6/15. OTWARTE: czy schodza nizej dzis po ciemku, czy Lucan odsyla sieciarza na
-  parcele garbarni, czy ktos w koncu spi.'
-last_refreshed_event_id: event_turn_interlude_300
-context_bytes: 48491
+- 'Cmentarz, przy wozie, 22:07, dzien piaty. RAPORT SPIDEYA - piec godzin wlasnej
+  roboty w podziemiach, odebrany z pelnego pasma, bo stal obok. (1) KOMORA KONCZY
+  SIE SCHODAMI i nie ma na tym poziomie innego wyjscia; obszedl obie sciany i oba
+  konce, wracajac inna strona. Kto tam wejdzie, wejdzie przez ich przebicie albo od
+  dolu. (2) ZRODLO PRZECIAGU JEST NIZEJ - z kazdym stopniem powietrze mocniejsze.
+  Pytanie otwarte od t_290 rozstrzygniete: polaczenie ze swiatem jest POD nimi. (3)
+  NA DOLE JEST PRZESTRZEN, ktora oddaje dzwiek wolno, dlugo i nie ze wszystkich stron
+  - czesc dzwieku nie wraca wcale. (4) ZERO CIEPLA w tym, co objal. SPIDEY NIE ZSZEDL
+  DO KONCA I SAM PRZERWAL: stopnie strome, a on ma partial_hind_leg_loss. Zszedl tyle,
+  ile mogl zejsc z pewnoscia powrotu. Nic go nie zawrocilo - policzyl. OGRANICZENIE:
+  blind_to_undead. Cisza Spideya dotyczy ZYWYCH. Na martwych odpowiadalo Geo, ale
+  tylko w zasiegu reki na kamieniu. SIECIARZE POPRAWIENI (retcon_000195): sa na wlasnych
+  rewirach, rozkaz zbierania z t_091 zamkniety. Garbarnia - laka za garbarnia, czyli
+  DOKLADNIE tam, gdzie lezy sklad. Cmentarz - tutaj. Baszta (dawniej Wysypisko) -
+  laki przed baszta, kilometr do trzech dalej wzdluz muru, OSOBNY rewir. Nadwyzka
+  sieci 25,3 -> 28,3. OTWARTE: czy schodza dzis po ciemku, czy ktos spi, czy Lucan
+  idzie sam za przeciagiem.'
+last_refreshed_event_id: event_turn_interlude_301
+context_bytes: 48388
 context_budget_bytes: 98304
 context_warnings:
 - scene_position_mismatch:pc_lucan:loc_cemetery!=loc_cemetery_underworks
@@ -90,7 +89,7 @@ heaviest_refs:
 - ref: campaigns/lucan/state/objectives.yaml
   bytes: 5468
 - ref: campaigns/lucan/state/instances/spidey.yaml
-  bytes: 4639
+  bytes: 4641
 - ref: campaigns/lucan/state/obligations.yaml
   bytes: 3660
 conditional_sets:
@@ -126,8 +125,8 @@ conditional_sets:
     - ref: system/companion-growth.md
       bytes: 17609
     - ref: campaigns/lucan/state/growth-banks.yaml
-      bytes: 28997
-    bytes: 46606
+      bytes: 29610
+    bytes: 47219
   writing_npc_knowledge:
     refs:
     - ref: system/canon-policy.md
@@ -184,9 +183,9 @@ conditional_sets:
     bytes: 25096
 context_breakdown:
   rules_always: 29857
-  state_active: 36829
+  state_active: 36726
   participant_cards: 19196
   participant_full_cards_available: 19698
   participant_digests: 16493
-  conditional_heaviest: 46606
-context_total_bytes: 85882
+  conditional_heaviest: 47219
+context_total_bytes: 85779

@@ -4,11 +4,19 @@ name: Sieciarz Garbarnia
 object_type: entity_instance
 status: active
 definition_ref: candidate_webber_monitor
-revision: 290
+revision: 291
 position:
   location_id: loc_tannery
   zone_id: zone_upper_meadow
-  formation: meadow_foraging_t_091
+  fix:
+    status: confirmed
+    as_of_event_id: event_turn_interlude_301
+    source: report
+    note: 'Laka za garbarnia - jego wlasny rewir. Od t_301 lezy w nim takze sklad
+      w loc_tannery_cellar_hideout, do ktorego wejscie jest na tej samej lace. Rozkaz
+      order_collect_meadow_orthopterans z t_091 ZAMKNIETY (retcon_000195): narrator
+      przez cztery tury powtarzal, ze wszyscy trzej siedza na jednej lace i zbieraja
+      owady zamiast pilnowac rewirow, choc przydzial stref ustalono juz przy /minionki.'
 integrity:
   current: 13
   maximum: 13
@@ -25,14 +33,14 @@ resources:
       requires:
       - autonomous_hunting
     runtime:
-      decay_elapsed_seconds: 9520
-      hunting_recovery_elapsed_seconds: 9520
+      decay_elapsed_seconds: 10420
+      hunting_recovery_elapsed_seconds: 10420
       overflow_pending: 2
 conditions: []
 status_flags:
 - autonomous_hunting
 - at_tannery
-last_event_id: event_turn_interlude_299
+last_event_id: event_turn_interlude_301
 source_refs:
 - source_luka_b_fragment#line:4954-5082
 - source_luka_b_fragment#line:10555-10566
@@ -40,7 +48,7 @@ source_refs:
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
 orders:
 - id: order_collect_meadow_orthopterans
-  status: active
+  status: completed
   source_event_id: event_turn_interlude_091
   instruction: Lapac duze, skaczace rzeczy z trawy, nosic do baszty.
   definition_ref: campaigns/lucan/companions/webber-network.yaml#additional_order_3

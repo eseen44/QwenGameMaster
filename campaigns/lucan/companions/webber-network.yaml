@@ -155,25 +155,35 @@ sensing_model:
     OBSERWACJA JEST DARMOWA (retcon_000186). Sieciarz czuje swoj rewir niezaleznie od tego,
     czy aktualnie zbiera, poluje czy stoi. Stawke dobowa zeruje wylacznie ZADANIE ZAJMUJACE -
     zbieranie, noszenie, przekaznik w jednym punkcie - a nie samo patrzenie.
-  posts_currently_unmanned:
-    as_of_event_id: event_turn_interlude_279
+  posts_are_manned:
+    as_of_event_id: event_turn_interlude_301
     text: >-
-      ODCZYT STANU, NIE NOWY KANON: wszystkie trzy niezakotwiczone sieciarze sa OD t_091 poza
-      swoimi posterunkami, na rozkazie order_collect_meadow_orthopterans. Sieciarz Baszta
-      i Sieciarz Garbarnia stoja na gornej lace garbarni, Sieciarz Wysypisko przy wejsciu na
-      wysypisko. Ich wlasne rewiry nie sa wiec obsadzone zmyslem obszarowym. Rozkaz mozna
-      zdjac jednym slowem gracza.
+      UCHYLA DAWNY WPIS posts_currently_unmanned (retcon_000195). Wszystkie trzy niezakotwiczone
+      sieciarze SA NA WLASNYCH REWIRACH, a rozkaz order_collect_meadow_orthopterans z t_091 jest
+      ZAMKNIETY. Narrator przez cztery tury powtarzal, ze siedza razem na jednej lace i zbieraja
+      owady, choc przydzial stref ustalono juz przy przegladzie /minionki - to bylo nieprawda.
+      Kazdy z trzech czuje ruch przez swoja parcele i zaden nie powie, KTO to jest.
 
 control_zones:
-  source: Deklaracja gracza 2026-09-13, retcon_000187.
+  source: Deklaracja gracza 2026-09-13 (retcon_000187), obsada poprawiona 2026-09-14 (retcon_000195).
   text: >-
-    TRZY STREFY KONTROLI, po jednej na niezakotwiczonego sieciarza: CMENTARZ (webber_home),
-    GARBARNIA (webber_tannery), WYSYPISKO (webber_dump). Tkacz do stref sie nie liczy - chodzi
-    przy Lucanie. BASZTA PRZY MURZE NIE MA SIECIARZA i nie ma w niej zmyslu obszarowego; stoja
-    tam dwa punkty pajecze (Pajak 02 w skladziku, Pajak 05 przy wejsciu), a to jest co innego.
-  caveat: >-
-    Wszystkie trzy sieciarze sa OD t_091 poza swoimi strefami, na rozkazie
-    order_collect_meadow_orthopterans - patrz sensing_model.posts_currently_unmanned.
+    TRZY STREFY KONTROLI, po jednej na niezakotwiczonego sieciarza: CMENTARZ (webber_home,
+    Sieciarz Cmentarz), LAKA ZA GARBARNIA (webber_tannery, Sieciarz Garbarnia) oraz LAKI PRZED
+    BASZTA (webber_dump, Sieciarz Baszta). Tkacz jest czwarty i do stref sie nie liczy - chodzi
+    przy Lucanie.
+  dump_post_removed: >-
+    POSTERUNEK WYSYPISKA ZNIKA z przydzialu (retcon_000195). Trzecia strefa to laki przed
+    baszta; dawna nazwa "Sieciarz Wysypisko" byla pochodna nieaktualnego post_assignment.
+  two_meadows_are_two_territories: >-
+    LAKA ZA GARBARNIA (loc_tannery#zone_upper_meadow) i LAKI PRZED BASZTA
+    (loc_city_wall_hideout#zone_surrounding_meadows) leza wzdluz tego samego muru, ale dzieli je
+    KILOMETR DO TRZECH - za daleko, zeby jeden sieciarz obejmowal oba. Narrator traktowal je
+    dotad wymiennie i to byl blad.
+  what_each_zone_now_holds: >-
+    Laka za garbarnia: wejscie do loc_tannery_cellar_hideout, czyli SKLAD z lupem dolnej komory
+    (od t_300). Cmentarz: rampa i zejscie do podziemi. Laki przed baszta: sama baszta ma poza tym
+    dwa punkty pajecze - Pajak 02 w skladziku i Pajak 05 przy wejsciu - a to jest co innego niz
+    rewir obszarowy.
 class_growth_direction:
   source: Deklaracja gracza 2026-09-13, retcon_000187.
   archetype: INZYNIER
