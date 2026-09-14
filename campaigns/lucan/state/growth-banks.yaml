@@ -116,9 +116,29 @@ surplus_economy:
     CZESCIA ich rate_per_day, nie dodatkiem - wiec te 2,3 sa w 28,3 policzone i jednoczesnie
     juz rozdysponowane.
     NETTO DLA RESZTY SIECI: 28,3 - 2,3 = 26,0 na dobe.
-    W praktyce nie zmienia to niczego dla Lucana: jego sufit przyjecia wynosi 7,5 na dobe,
-    wiec nawet netto zostaje ponad osiemnascie jednostek, ktore i tak nie maja gdzie wejsc.
+    KOREKTA 2026-09-14, PO ZARZUCIE GRACZA: zdanie "nie zmienia to niczego" bylo BLEDNE
+    i narrator je wycofuje. Nadwyzka nie wyparowuje przy sufcie Lucana - schodzi DRABINA
+    z distribution_priority (retcon_000141): najpierw pc_lucan, potem okazy ZAKOTWICZONE,
+    na koncu reszta. To, czego Lucan nie przyjmie, ma wiec gdzie wejsc.
+    ILE TO NAPRAWDE KOSZTUJE - I JEST TO WIECEJ, NIZ SIE WYDAWALO. Kazdy wezel bankuje
+    WLASNA stawke do WLASNEGO sufitu bezposrednio; do rozdzialu idzie dopiero overflow_per_day,
+    czyli nadmiar PONAD ten sufit. Suma calego overflow w rejestrze wynosi dokladnie 2,3 na
+    dobe - i tyle wlasnie zabiera dowoz do Varkhena. ZNACZY TO, ZE NA SZCZEBLE 2 I 3 DRABINY
+    NIE SCHODZI DZIS NIC. Zakotwiczone i reszta dostaja z rozdzialu zero, bo caly rozdzial
+    poszedl do Varkhena.
+    Nie jest to zadna katastrofa - kazdy wezel dalej bankuje swoje - ale jest to REALNY WYBOR,
+    ktory gracz podjal, a nie darmowy ruch, za jaki narrator go podal.
   available_after_varkhen_feed_per_day: 26.0
+  known_inconsistency_to_settle:
+    flagged: 2026-09-14
+    text: >-
+      DWA ROWNOLEGLE RACHUNKI, KTORE SIE NIE SKLADAJA, i narrator to zglasza zamiast udawac,
+      ze liczby sa spojne. (1) Silnik daje Lucanowi 0,75 na godzine, czyli 18,0 na dobe,
+      z czego 0,50/h opisane jest w pc-lucan.yaml jako DOWOZ Z SIECI - liczba ustawiona
+      retconem 000141, kiedy siec generowala 16,5, i od tamtej pory nieruszana. (2) Rejestr
+      mowi, ze do rozdzialu idzie wylacznie overflow_per_day, ktorego suma wynosi 2,3.
+      12,0 na dobe z punktu (1) nie ma wiec pokrycia w punkcie (2).
+      NIE ZGADUJE, ktora liczba jest prawdziwa, i nie zmieniam zadnej bez decyzji gracza.
   growth_intake_cap: >-
     Wezel wchlania w ROZWOJ najwyzej POLOWE WLASNEJ POJEMNOSCI ZBIORNIKA na dobe.
     Zbiornik 3 daje wiec sufit 1,5 na dobe, zbiornik 6 sufit 3,0, zbiornik 12 sufit 6,0,
