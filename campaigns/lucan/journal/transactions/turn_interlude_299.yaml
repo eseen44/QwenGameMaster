@@ -1,0 +1,2519 @@
+schema_version: 1
+id: turn_interlude_299
+object_type: turn_transaction
+status: committed
+created_at: '2026-09-14T13:05:04+02:00'
+scene_id: scene_act_03_interlude_day5_morning_guild_return
+event_id: event_turn_interlude_299
+roll_id: null
+request:
+  schema_version: 1
+  turn_id: turn_interlude_299
+  declared_action: Lucan pyta, gdzie skladuja lup, i sam podpowiada piwnice za garbarnia
+    - mowi to do Borosa, ktory powinien ja pamietac. Prosi tez o wiecej workow. Jada
+    tam, zostawiaja ladunek i wracaja; do gildii dzis nie. W drodze Lucan przeglada
+    meldunki sieci i uprzedza tamtych dwoje, zeby go pacneli, jesli ktos ich zaczepi.
+  actor_id: pc_lucan
+  scope: execution
+  stakes: Lup znika z wozu w bezpieczne miejsce, ekipa ma czym pakowac dalej, a Lucan
+    sprawdza, co siec wie.
+  time_class: extended
+  time_seconds: 5100
+  time_basis: canon_ref
+  condition_ids: []
+  modifiers: []
+  situation_tags:
+  - interlude
+  - travel
+  - network
+  - npc_speaks
+  crisis_exploitable: false
+preview:
+  turn_id: turn_interlude_299
+  status: preview
+  scene_id: scene_act_03_interlude_day5_morning_guild_return
+  tension_level: 0
+  roll_policy_mode: disabled
+  declaration: Lucan pyta, gdzie skladuja lup, i sam podpowiada piwnice za garbarnia
+    - mowi to do Borosa, ktory powinien ja pamietac. Prosi tez o wiecej workow. Jada
+    tam, zostawiaja ladunek i wracaja; do gildii dzis nie. W drodze Lucan przeglada
+    meldunki sieci i uprzedza tamtych dwoje, zeby go pacneli, jesli ktos ich zaczepi.
+  parenthetical_action: false
+  assessment:
+    verdict: automatic
+    roll_allowed: false
+    test_guidance:
+      scope: null
+      suggested_difficulty: null
+    resource_costs: &id001 []
+    rule: Campaign phase disables rolls; resolve viable actions from capability, method,
+      time and certain costs.
+  roll_allowed: false
+  time_seconds: 5100
+  time_guidance:
+    time_class: extended
+    tension: 0
+    engine_default_seconds: null
+    declared_seconds: 5100
+    matching_row: praca_reczna_przy_stole
+    declared_outside_every_row: false
+    rows:
+    - id: pojedyncza_kwestia
+      seconds:
+      - 10
+      - 90
+      default_seconds: 30
+      applies_to: 'JEDNA kwestia albo krotka wymiana dwoch-trzech zdan bez rozwijania
+        tematu: rzucone pytanie, odpowiedz przez drzwi, pozegnanie, komenda, jedno
+        zdanie w przejsciu.'
+    - id: wymiana_zdan
+      seconds:
+      - 180
+      - 480
+      default_seconds: 300
+      applies_to: 'Jedna tura rozmowy: pytanie i odpowiedz, wymiana zdan, krotka reakcja.'
+    - id: rozporzadzenie_przy_stole
+      seconds:
+      - 60
+      - 300
+      default_seconds: 120
+      applies_to: 'Czynnosc bez rozmowy i bez przemieszczenia: wydanie rozkazu w siec,
+        odlozenie przedmiotu, wyniesienie czegos za prog. NIE jest to tura rozmowy.'
+    - id: rozmowa_w_gabinecie
+      seconds:
+      - 1500
+      - 2100
+      default_seconds: 1800
+      applies_to: Cala rozmowa z jedna osoba w jej gabinecie, od wejscia do wyjscia.
+    - id: negocjacja_w_pokoju
+      seconds:
+      - 1800
+      - 3600
+      default_seconds: 3600
+      applies_to: Pelna negocjacja wielostronna, kilka watkow, ustalanie warunkow.
+    - id: przejscie_przez_miasto
+      seconds:
+      - 1200
+      - 1500
+      default_seconds: 1200
+      applies_to: Przejscie z dzielnicy do dzielnicy wewnatrz Lumarii (targ - gildia).
+    - id: marsz_pod_mur
+      seconds:
+      - 2700
+      - 2700
+      default_seconds: 2700
+      applies_to: Trasa gildia/cela - baszta przy murze, w jedna strone.
+    - id: praca_reczna_przy_stole
+      seconds:
+      - 3600
+      - 7200
+      default_seconds: 3600
+      applies_to: Jeden trwaly krok modyfikacji okazu - przeszczep, wszczep, utrwalenie.
+        Okolo godziny, do dwoch przy wyzszej trudnosci, BEZ ESKALACJI.
+    basis: canon_ref
+    precedence: Jawnie podany czas ma pierwszenstwo i nie wolno go mnozyc przez wymyslone
+      tarcie (retcon_000061). Pasma sa podpowiedzia, nie limitem.
+  numbers:
+    stock:
+      available: 3
+      consumed: 3
+      available_ids:
+      - ritual_salt
+      - corpse_drying_powder
+      - small_ritual_tool_set
+    clocks:
+    - id: clock_inquisition_attention
+      progress: 0
+      threshold: uncalibrated
+      remaining: null
+    - id: clock_father_arranges_academy_showing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    - id: clock_guild_leadership_hearing
+      progress: 4
+      threshold: 15
+      remaining: 11 do progu
+    daily_balance_table: system/mechanics/daily-balance.yaml
+    durations_table: system/mechanics/durations.yaml
+  world_reactions_due_before: []
+  required_resource_costs: *id001
+  automatic_roll_modifiers: []
+roll: null
+required_operations: []
+time_operation: &id002
+  op: advance_time
+  seconds: 5100
+outcome:
+  schema_version: 1
+  intent_achieved: true
+  arrangement: improved
+  perspective: pc_lucan
+  summary: 'PIWNICA ZA GARBARNIA WYGENEROWANA, bo scena jej wymagala, a plik lokacji
+    mial tylko zone_yard, zone_workshop, zone_office, zone_descent i zone_upper_meadow
+    (zasada z 13.09.2026). Nowa zone_cellar w loc_tannery. Boros ja pamieta, bo byl
+    tam przy sprawie garbarni - i podaje wylacznie to, co wtedy widzial: kadzie byly
+    suche, zamkniete na klodke od podworza. CZY JEST TAM DZIS KTOKOLWIEK - NIE WIE
+    i tego nie udaje. Wlasciciel wyszedl z aresztu (t_032, Seraphine), wiec narrator
+    NIE oglasza garbarni ani pusta, ani czynna. MELDUNKI SIECI - I TU PADA REALNE
+    OGRANICZENIE Z KARTY, NIE WYMYSLONE: companions/spy-series mowi wprost, ze pozyczenie
+    zmyslu zalezy od PASMA slugi i od ODLEGLOSCI, a ta seria "moze zmysl pozyczyc,
+    ale slabo i tylko z bliska". Z cmentarza Lucan NIE dostanie wiec raportu z gildii
+    ani z targu - dostaje minimal_status, czyli jest/nie ma. To jest liczenie glow,
+    nie wywiad. Narrator tego nie obchodzi i nie podaje graczowi tresci, ktorej kanal
+    nie uniesie. CO REALNIE PRZYCHODZI: (1) wszystkie wezly odpowiadaja, nikogo nie
+    brakuje; (2) TKACZ JEST W ZASIEGU i ma pelny odczyt obszarowy - przez caly dzien
+    do rampy NIE PODSZEDL NIKT poza grabarzem o poludniu. To jest jedyny prawdziwy
+    meldunek tej tury i jest wart wiecej niz reszta razem. KONSEKWENCJA, KTORA WYNIKA
+    Z WLASNEGO STANU, NIE Z KARY: sieciarz przypisany do garbarni stoi OD t_091 na
+    lace przy zbieraniu prostoskrzydlych, a nie na swojej parceli. Lucan wlasnie wybral
+    na skladowisko jedyne miejsce, ktore ma przypisany zmysl obszarowy - i ten zmysl
+    jest teraz gdzie indziej. Naprawa to jedno slowo (zdjecie rozkazu) i narrator
+    jej NIE wykonuje za gracza. WORKI: Boros zalatwia dwadziescia bez pytania skad
+    - to jego rejestr (zamienia plan na czynnosci) i zadnego zegara z tego nie robie.
+    NIKT ICH NIE ZACZEPIL. Zadnej kontroli drogowej narrator nie produkuje, bo zaden
+    plik jej nie stawia (retcon_000015, retcon_000055).'
+  prose: '— Mamy to gdzie składować?
+
+
+    Boros myśli przez trzy kroki konia.
+
+
+    — Piwnica za garbarnią — mówi Lucan, zanim tamten skończy. — Powinieneś pamiętać.
+
+
+    — Pamiętam. — Boros kiwa głową raz. — Wchodzi się od podwórza, kłódka była na
+    skoblu, a nie
+
+    na sztabie. Kadzie stały suche. — Pauza. — To było w maju. Kto tam teraz jest,
+    nie wiem.
+
+
+    — To zobaczymy.
+
+
+    Wyjeżdżają bramą jak każdy wóz, który cały dzień woził gruz, i nikt na nich nie
+    patrzy,
+
+    bo nie ma po co. Grabarz siedzi przy szopie i je.
+
+
+    — Jakby ktoś nas zaczepiał, pacnijcie mnie — mówi Lucan i opiera głowę o deski.
+
+
+    Potem przez większość drogi go nie ma.
+
+
+    Sieć odpowiada cała i to jest pierwsza rzecz, którą sprawdza: nikogo nie brakuje.
+    Żuki
+
+    wokół baszty, pająki na swoich miejscach, ćmy i osa na łąkach, wije pod dzielnicą
+    gildii,
+
+    szczury w kanale pod garbarnią, do której właśnie jadą. Wszyscy są.
+
+
+    I to jest wszystko, co dostaje.
+
+
+    Bo z tej odległości kanał niesie obecność, a nie treść. Pająk siedzący w skrzynce
+    na
+
+    zapleczu syndykatu jest dla niego w tej chwili jedną rzeczą: *jest*. Co słyszał
+    przez cały
+
+    dzień, zostanie w nim do momentu, w którym Lucan stanie dwadzieścia kroków od
+    tej skrzynki
+
+    i weźmie to sam. Pasmo tej serii jest wąskie, a odległość zjada wszystko poza
+    sygnałem
+
+    życia.
+
+
+    Jeden węzeł jest wyjątkiem, bo został pół mili za nimi.
+
+
+    Tkacz oddaje pełny rewir i oddaje go tak, jak oddaje się rzecz prostą: przez cały
+    dzień
+
+    do rampy nie podszedł nikt poza jednym człowiekiem w południe, tym samym, który
+    potem
+
+    wrócił do swojej łopaty. Nikt nie krążył. Nikt nie stanął i nie patrzył. Nikt
+    nie wszedł
+
+    za nimi.
+
+
+    Lucan wraca do siebie gdzieś w połowie drogi i przez chwilę robi rachunek, którego
+    nie
+
+    robił przez cały dzień.
+
+
+    Sieciarz przypisany do garbarni siedzi od dwóch tygodni na łące i zbiera prostoskrzydłe,
+
+    bo ktoś kiedyś tak kazał. Jego parcela stoi pusta. A za pół godziny Lucan położy
+    na tej
+
+    parceli pięćdziesiąt pięć kilo czegoś, czego nie da się wytłumaczyć.
+
+
+    Nikt go nie pacnął przez całą drogę.
+
+
+    Garbarnia stoi ciemna. Kłódka jest ta sama i jest na tym samym skoblu, a skobel
+    siedzi
+
+    w desce, która przez trzy miesiące nie zrobiła się mocniejsza. Boros otwiera to
+    drągiem
+
+    w dwa ruchy i robi przy tym mniej hałasu niż koń.
+
+
+    Piwnica jest sucha, niska i pusta, jeśli nie liczyć dwóch beczek bez dna. Pachnie
+    wapnem
+
+    i tym, czym pachnie każda garbarnia, nawet gdy od miesięcy nic w niej nie moczą.
+
+
+    Osiem worków schodzi po schodkach i ląduje za beczkami, przykryte płachtą.
+
+
+    Worki Boros załatwia po drodze powrotnej, u kogoś, kogo nie przedstawia, i wraca
+    z pękiem
+
+    dwudziestu na ramieniu.
+
+
+    — Będzie — mówi. — Do gildii nie jedziemy?
+
+
+    — Nie dzisiaj.
+
+
+    — Dobrze.
+
+
+    Wóz zawraca pod cmentarz, a nad miastem jest już zupełnie ciemno.
+
+    '
+  apply_required_costs: true
+  resolved_world_reaction_ids: []
+  consequence_source_refs:
+  - campaigns/lucan/companions/spy-series.yaml#link
+  - event_turn_interlude_091
+  - event_turn_interlude_032
+  operations:
+  - op: set
+    instance_id: pc_lucan
+    path: position.location_id
+    value: loc_cemetery
+  - op: set
+    instance_id: pc_lucan
+    path: position.zone_id
+    value: zone_north_ramp
+  - op: set
+    instance_id: companion_spidey
+    path: position.location_id
+    value: loc_cemetery
+  - op: set
+    instance_id: companion_spidey
+    path: position.zone_id
+    value: zone_north_ramp
+  - *id002
+  scene_update: null
+  new_decision: 'Cmentarz, przy rampie, 21:52, dzien piaty. Ciemno. LUP SCHOWANY:
+    osiem workow, okolo 55 kg, w piwnicy za garbarnia (nowa zone_cellar w loc_tannery),
+    za beczkami, pod plachta. Klodka byla na skoblu w starej desce i Boros otworzyl
+    ja dragiem w dwa ruchy. Garbarnia stala ciemna; CZY KTOKOLWIEK TAM MIESZKA albo
+    pracuje - NIEUSTALONE, Boros pamieta ja z maja i sam powiedzial, ze nie wie. WORKI:
+    dwadziescia, zalatwione przez Borosa po drodze. MELDUNKI SIECI - CO KANAL UNIOSL:
+    wszystkie wezly odpowiadaja, nikogo nie brakuje. NIC WIECEJ. Z tej odleglosci
+    seria niesie obecnosc, a nie tresc (spy-series#link: pozyczenie zmyslu zalezy
+    od pasma i odleglosci, "slabo i tylko z bliska"). To, co Toby slyszal na zapleczu
+    syndykatu, czeka, az Lucan stanie przy nim. JEDYNY PELNY MELDUNK: Tkacz, bo zostala
+    przy rampie. Przez caly dzien do zjazdu nie podszedl nikt poza grabarzem w poludnie.
+    Nikt nie krazyl, nikt nie stanal, nikt nie wszedl za nimi. RACHUNEK, KTORY LUCAN
+    SAM ZROBIL W DRODZE: sieciarz przypisany do GARBARNI siedzi od t_091 na lace przy
+    zbieraniu prostoskrzydlych, a jego parcela stoi pusta - czyli lup lezy wlasnie
+    tam, gdzie zmysl obszarowy JEST przypisany, ale go nie ma. Zdjecie rozkazu to
+    jedno slowo i narrator go za gracza nie wypowiedzial. NIKT ICH NIE ZACZEPIL po
+    drodze. Rezerwa 14,6/15. OTWARTE: czy schodza nizej dzis po ciemku, czy Lucan
+    odsyla sieciarza na parcele garbarni, czy ktos w koncu spi.'
+prepared_writes:
+- path: context/scene.yaml
+  before_hash: 2009f0669b154d7a35bf2a6d6ccf9f62fa2219bda2dbd1d8b94d95c185deb422
+  after_hash: b4ef9bc4931f1153efc77568b1a7096354d70aaf2c3a16f6c0b6e4f75a6884e1
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    scene_id: scene_act_03_interlude_day5_morning_guild_return
+    location_ref: campaigns/lucan/locations/cemetery-underworks/location.yaml
+    started_at: '2026-08-20T07:31:40+02:00'
+    tension:
+      level: 0
+      reason: null
+    participants:
+    - pc_lucan
+    - companion_spidey
+    - webber_anchored
+    - npc_boros_keld
+    - npc_mara_teln
+    pressures: []
+    immediate_facts: []
+    immediate_questions:
+    - 'Cmentarz, przy rampie, 21:52, dzien piaty. Ciemno. LUP SCHOWANY: osiem workow,
+      okolo 55 kg, w piwnicy za garbarnia (nowa zone_cellar w loc_tannery), za beczkami,
+      pod plachta. Klodka byla na skoblu w starej desce i Boros otworzyl ja dragiem
+      w dwa ruchy. Garbarnia stala ciemna; CZY KTOKOLWIEK TAM MIESZKA albo pracuje
+      - NIEUSTALONE, Boros pamieta ja z maja i sam powiedzial, ze nie wie. WORKI:
+      dwadziescia, zalatwione przez Borosa po drodze. MELDUNKI SIECI - CO KANAL UNIOSL:
+      wszystkie wezly odpowiadaja, nikogo nie brakuje. NIC WIECEJ. Z tej odleglosci
+      seria niesie obecnosc, a nie tresc (spy-series#link: pozyczenie zmyslu zalezy
+      od pasma i odleglosci, "slabo i tylko z bliska"). To, co Toby slyszal na zapleczu
+      syndykatu, czeka, az Lucan stanie przy nim. JEDYNY PELNY MELDUNK: Tkacz, bo
+      zostala przy rampie. Przez caly dzien do zjazdu nie podszedl nikt poza grabarzem
+      w poludnie. Nikt nie krazyl, nikt nie stanal, nikt nie wszedl za nimi. RACHUNEK,
+      KTORY LUCAN SAM ZROBIL W DRODZE: sieciarz przypisany do GARBARNI siedzi od t_091
+      na lace przy zbieraniu prostoskrzydlych, a jego parcela stoi pusta - czyli lup
+      lezy wlasnie tam, gdzie zmysl obszarowy JEST przypisany, ale go nie ma. Zdjecie
+      rozkazu to jedno slowo i narrator go za gracza nie wypowiedzial. NIKT ICH NIE
+      ZACZEPIL po drodze. Rezerwa 14,6/15. OTWARTE: czy schodza nizej dzis po ciemku,
+      czy Lucan odsyla sieciarza na parcele garbarni, czy ktos w koncu spi.'
+    pending_world_reactions: []
+    last_event_id: event_turn_interlude_299
+    previous_scene_snapshot_ref: snapshots/scene_act_03_interlude_day5_morning_wall_tower_after_the_bench_work.yaml
+- path: state/clocks.yaml
+  before_hash: e75533794788342eb35a43bb4fd215e7d715b9189be561806817709debef4264
+  after_hash: 4aee487fd9c5288615c6063f9100bb3bdde9f456095d3ca97018d1cee7913838
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: accepted_by_user_pending_package_activation
+    rationale_store: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml
+    clocks:
+    - id: clock_inquisition_attention
+      label: Zainteresowanie Inkwizycji
+      status: dormant_event_trigger_only
+      progress: 0
+      threshold: uncalibrated
+      last_source_event_id: milestone_047_seraphine_risk_disclosure
+      trigger: guild_or_church_formally_escalates_lucans_case_or_necromantic_evidence_becomes_public
+      note: Nie przesuwa się z czasem ani od samego wypowiedzenia słowa; wymaga osobnego
+        wydarzenia eskalacyjnego.
+    - id: clock_father_arranges_academy_showing
+      label: Ojciec organizuje pokaz na Akademii - realnie wezwanie na seminarium
+      status: active_time_driven
+      progress: 4
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 69520
+      last_source_event_id: event_turn_interlude_030_the_seminar_problem
+      trigger: lucan_committed_to_at_least_one_specimen_for_the_discussion
+      effect: Co najmniej jeden okaz Lucana trafia do JUŻ WYZNACZONEJ otwartej dysputy
+        (ok. 16 dni, npc_neris_aldhen kontra npc_ivar_kolm). Dodatkowe jednostki mogą
+        posłużyć demonstracji i destrukcyjnej sekcji, ale ich liczba nie jest zobowiązaniem.
+        Wezwanie ma postać seminarium, a Gildia nie ma nad nim jurysdykcji.
+      world_test_required: false
+      reschedules: 3 -> 8 (event_turn_interlude_021) -> 15 (event_turn_interlude_022)
+      rationale_ref: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml#father_arranges_academy_showing
+    - id: clock_guild_leadership_hearing
+      label: Przesłuchanie przed kierownictwem gildii
+      status: active_time_driven
+      progress: 4
+      threshold: 15
+      seconds_per_step: 86400
+      elapsed_seconds: 64720
+      last_source_event_id: event_turn_interlude_024_seraphine_date_and_payments
+      lucan_knows_the_date: horizon_only
+      knowledge_note: Lucan zna HORYZONT od Seraphine (ok. dwa tygodni, jeszcze nie
+        ogłoszone oficjalnie), nie zna sztywnej daty. Nie pozwalać mu planować "na
+        piętnasty dzień" jak na datę pewną.
+      trigger: guild_leadership_review_of_the_cemetery_operation_folded_into_institutional_inquiry
+      effect: Wewnętrzne śledztwo gildii dochodzi do etapu rozstrzygnięcia przez kierownictwo;
+        Lucan może zostać wezwany. Dopiero po zakończeniu śledztwa gildia odblokuje
+        albo inaczej rozliczy nagrodę za Akt 2. Nagroda jest kijem i marchewką, ale
+        nie musi być rozstrzygana podczas jednego konkretnego przesłuchania.
+      world_test_required: false
+      rationale_ref: campaigns/lucan/planning/act-03-defence/clocks_rationale.yaml#guild_leadership_hearing
+- path: state/instances/pc-lucan.yaml
+  before_hash: 16243b10190adc1349570f8fbfb1298ed8473107de4f2953372979d2d88caf3c
+  after_hash: e61a9d6f69a6a90fafaad46cafeafd015f66cb6eb468e3cdba417400af513573
+  document:
+    schema_version: 1
+    id: pc_lucan
+    name: Lucan
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_pc_lucan_cutoff
+    revision: 292
+    position:
+      location_id: loc_cemetery
+      zone_id: zone_north_ramp
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_299
+        source: transaction
+    integrity:
+      current: 19
+      maximum: 19
+    resources:
+      lucan_necrotic_energy:
+        current: 15
+        capacity: 15
+        comfortable_capacity: 15
+        permanent_expansion: 3
+        expansion_source_event_id: milestone_043a_logistics_collector_overload
+        expansion_note: Przesyl energii z serca cmentarza (collector_overflow) trwale
+          podniosl rezerwe z 12 na 15. 15 jest nowa baza I NOWYM PROGIEM, nie stanem
+          przeciazenia; dawna dwunastka nie ma zadnych skutkow ubocznych - patrz retcon_000004
+          i retcon_000019.
+        campaign_calibration: true
+        decision_status: approved
+        runtime:
+          regeneration_elapsed_seconds: 2920
+          overflow_pending: 11.6
+        regeneration:
+          interval_seconds: 3600
+          units: 0.75
+          requires:
+          - living
+          note: 'PODNIESIONE Z 0,25 NA 0,75 PRZEZ retcon_000141. Rozklad: 0,25 na
+            godzine to wlasna regeneracja Lucana (6,0 na dobe, retcon_000045), a 0,50
+            na godzine to DOWOZONA NADWYZKA SIECI (12,0 na dobe po stratach propagacji),
+            ktora wedle retcon_000109 i retcon_000115 nalezala mu sie od 31.08.2026
+            i nie byla naliczana przez nic w silniku - w state/sustained-links.yaml
+            nie istnialo ani jedno lacze skierowane DO pc_lucan. Formy lacza tu nie
+            uzyto swiadomie: process_sustained_links wymaga zrodla bedacego istniejaca
+            instancja i DEBETUJE jej pule, a foragingowa ekonomia wezlow nie jest
+            w runtime symulowana w ogole - prowadzi ja recznie state/growth-banks.yaml.
+            Strumien jest wiec zapisany tam, gdzie silnik go widzi. LUCAN MA PRIORYTET
+            NAD WSZYSTKIMI WEZLAMI (deklaracja gracza 03.09.2026, to jego siec): dopoki
+            rezerwa nie stoi przy sufcie, nadwyzka idzie w nia. Po sufcie ten sam
+            strumien schodzi drabina z growth-banks#distribution_priority - najpierw
+            wlasny growth_bank Lucana, potem okazy ZAKOTWICZONE, na koncu pozostale.
+            Varkhen zostaje poza rozdzialem, racjonowany osobno (retcon_000113). ZMIANA
+            2026-09-11 (retcon_000167): 3,5 na dobe do zuka 01 JUZ NIE WYCHODZI -
+            lacze link_lucan_hand_charges_beetle_01 wylaczone jako zbedne, bo nisza
+            pod polnocnym fundamentem pokrywa caly sufit zuka. Netto przy pustej rezerwie:
+            +18,0 na dobe.'
+    conditions: []
+    retired_conditions:
+    - id: elevated_energy_signature_above_old_threshold
+      retired_by: retcon_000019
+      reason: Prog Lucana to 15, nie 12. Warunek naliczal podwyzszona detekowalnosc
+        w calym normalnym zakresie pracy po incydencie cmentarnym, co przeczylo retconowi
+        000004, ktory ustanawial 15 jako NOWA BAZE. Detekowalnosc jest funkcja tego,
+        co Lucan robi (slad czaru), nie tego, ile ma w rezerwie.
+    status_flags:
+    - living
+    - conscious
+    - post_overload_stable
+    - permanently_expanded_reservoir
+    - within_normal_capacity
+    - running_on_life_energy_not_sleep
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - retcon_000004
+    - source_luka_b_fragment#line:11251-11409
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spidey.yaml
+  before_hash: a101f089c30d2d4c2f64c915bf88fcd26b64270caf7d71f12b2df6cd2354de99
+  after_hash: 7e4e33577f9d4866acbe571594e66c259e5b36a36434eda46a3ee1448bdbef5a
+  document:
+    schema_version: 1
+    id: companion_spidey
+    name: Spidey
+    anchor_class: true
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_companion_spidey
+    revision: 289
+    position:
+      location_id: loc_cemetery
+      zone_id: zone_north_ramp
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_299
+        source: transaction
+    integrity:
+      current: 27
+      maximum: 33
+    resources:
+      necrotic_reservoir:
+        current: 12
+        capacity: 12
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 2
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 73060
+          hunting_recovery_elapsed_seconds: 9520
+          overflow_pending: 2
+        growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
+      paralytic_toxin_reservoir:
+        current: 4
+        capacity: 4
+        regeneration:
+          interval_seconds: 21600
+          units: 1
+          requires:
+          - functional_implanted_gland
+          - fed_or_energized_state
+        runtime:
+          regeneration_elapsed_seconds: 9520
+          overflow_pending: 3
+    conditions:
+    - id: partial_hind_leg_loss
+      mechanics_ref: condition_spidey_partial_hind_leg_loss
+      stacks: 1
+      magnitude: 30
+      source_event_id: milestone_042_spiders_steal_wagon_chest_contents
+    traits:
+      source: player_declaration_day3_evening_anchored_personalities
+      decided_on: '2026-08-26'
+      gender: male
+      list:
+      - diligent
+      - partner
+      - spec_ops
+      - professional
+      - proud_of_his_craft
+      - stylist
+      - daring
+      note: 'Pajeczy protagonista, nie narzedzie: James Bond skrzyzowany z ninja i
+        samurajem. Nie sluga i nie zwierze - wspolnik o kwalifikacjach, ktory sam
+        wybiera stanowisko (t_133: zszedl ze stolu, obszedl blat, sprawdzil parapet
+        i wybral miejsce z widokiem na oba okna i drzwi, bez polecenia punktowego).'
+      the_core: 'DUMA Z DOBRZE WYKONANEJ PRACY, nie honor. Nie ma kodeksu i nie ma
+        linii, ktorej nie przekroczy - brudna robota jest robota. Ma natomiast standard,
+        jak sie ja robi, i to jest jego cala tozsamosc. Obraza go nie zadanie, tylko
+        NIECHLUJSTWO: plan zrobiony na kolanie, halas, ktorego mozna bylo uniknac,
+        druga droga ta sama co pierwsza, zabicie czterech, gdy wystarczylo jedno.'
+      tells:
+      - Czysci sie po robocie. Zawsze, drobiazgowo, przy Lucanie i bez pospiechu -
+        to jest jego wytarcie ostrza i jednoczesnie komunikat, ze skonczyl.
+      - Nie chodzi dwa razy ta sama droga. Nawet gdy to nadklada. Nawet gdy nikt nie
+        patrzy.
+      - Czeka. Godzinami, bez ruchu, jak pajak - a potem dziala raz. Poganiany nie
+        przyspiesza.
+      - Trudniejsze wyjscie wybiera swiadomie, jesli jest czystsze. Ryzykuje ze stylu,
+        nie z brawury.
+      what_offends_him: 'Uzycie go jak przedmiotu tam, gdzie mogl byc operatorem:
+        wysłanie bez informacji, rozkaz punktowy na cos, co sam zrobilby lepiej, albo
+        praca, po ktorej ktos inny musi sprzatac. Nie klóci sie o to. Zapamietuje.'
+      contrast_with_the_moth: Cma jest prozna z POZYCJI, Spidey z WYKONANIA. Ona chce,
+        zeby jej sie nalezalo; on chce, zeby bylo zrobione dobrze. Zuk kaze robic,
+        Spidey robi sam - i o to mu chodzi.
+      development_direction: 'Dialog z Lucanem, gdy podrosnie wiekiem. Rejestr zawodowy,
+        nie sluzalczy: meldunek, nie prosba, i suchy komentarz do planu, ktory obrazil
+        jego rzemioslo.'
+    status_flags:
+    - death_anchored
+    - moth_tympanal_hearing_organ
+    - orthopteran_tympanal_hearing_organ
+    - hears_both_bands_words_and_ultrasonic_since_t_176
+    - decay_suppressed
+    - autonomous_hunting
+    - functional_implanted_gland
+    - fed_or_energized_state
+    - mobile_but_injured
+    - carried_concealed_with_lucan
+    orders:
+    - id: order_night_chapel_residue_cleanup
+      status: completed
+      source_event_id: event_act_02_closeout_interlude_import
+      instruction: Pomóc przenieść, wyssać i ukryć szczątki dwóch ofiar z kaplicy.
+      historical_parenthesis_exception: true
+      precedent_for_future_parenthetical_messages: false
+      time_advanced_when_issued: false
+      execution_started: true
+    - id: order_standoff_escort_fifty_metres
+      status: active
+      source_event_id: event_turn_interlude_276
+      instruction: 'Towarzyszyc Lucanowi poza baszta w dystansie ok. 50 m - nie na
+        nim. Zadanie: oslona i wczesne dostrzezenie zagrozenia. Wybor trasy i stanowiska
+        pozostawiony okazowi (karta: sam wybiera stanowisko, t_133).'
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:3869-4004
+    - source_luka_b_fragment#line:4800-4906
+    - source_luka_b_fragment#line:8504-8574
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - source_luka_b_fragment#line:11919-11927
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/spy-beetle-01.yaml
+  before_hash: 1a702e81832518a0340f0e63371f420a57f2c78e717cc1c12ffbc51106c86402
+  after_hash: e04a8feed8abb0ae4cb27018dd0711578374a4e7ba18eb8d9d7e91c7c6fdbf74
+  document:
+    schema_version: 1
+    id: spy_beetle_01
+    name: Generał
+    anchor_class: true
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 223
+    position:
+      location_id: loc_cemetery_underworks
+      zone_id: zone_relay_chamber
+      formation: alone_in_the_north_foundation_niche_since_t_259_at_the_junction_of_all_three_channels
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
+        runtime: {}
+    traits:
+      source: player_declaration_day3_evening_anchored_personalities
+      decided_on: '2026-08-26'
+      gender: male
+      list:
+      - lazy
+      - somnolent
+      - militaristic
+      - general_of_arms
+      note: Len, ktory z lenistwa zrobil doktryne. Nie rusza sie, jesli moze sie nie
+        ruszac - docelowo nauczy sie jesc bez poruszania sie. Ciezka muszla, maly
+        tank, ruchoma bateria dla innych owadow i punkt kontaktowy spajajacy siec
+        w gwiazde zamiast lancucha przeskokow.
+      development_direction: Dowodzenie. Nie robi sam - KAZE robic. Wlasne podlegle
+        robale wykonujace rozkazy w polu, podczas gdy on siedzi pod plyta na murze.
+        Docelowo dialog z Lucanem.
+    status_flags:
+    - death_anchored
+    - moth_tympanal_hearing_organ
+    - hears_ultrasonic_band_not_words
+    - newly_animated
+    - fresh_obedient_and_dull
+    - hand_charged_by_lucan_3_5_per_day
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_075
+    - event_turn_interlude_076
+    orders:
+    - id: order_surplus_to_lucan_then_network
+      status: active
+      source_event_id: event_turn_interlude_259
+      instruction: Nadwyzke oddawac Lucanowi, potem sieci.
+      note: 'Stawki NIE MA w tym polu: 1,8 na dobe przy sufcie przyjecia 1,5 stoi
+        w state/growth-banks.yaml#spy_beetle_01. Kopia liczby w lancuchu prozatorskim
+        byla wektorem rozjazdu.'
+- path: state/instances/spy-beetle-02.yaml
+  before_hash: 4cff3e1899e60326e1656541316c1038c15aa998aa119737bf1fdc876d35bd4b
+  after_hash: bc5d405593a218b229d6f41e75b47ffb638de26a58fc48039d626d06ef5621f7
+  document:
+    schema_version: 1
+    id: spy_beetle_02
+    name: Żuk 02
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-03.yaml
+  before_hash: 1aec3b6c50cd6efcc75c23d4aa990cfcab9171df08af2a8ad2b10c5f22579970
+  after_hash: 1e5e3ecd7f01db29e660b1bdfc5aef9204cd5a4137987d6204aff2e03a9f6acd
+  document:
+    schema_version: 1
+    id: spy_beetle_03
+    name: Żuk 03
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-04.yaml
+  before_hash: af4a9473087a3feddfdc27c4176b7882e721e45eceebd2e36ee27f390fa2f59e
+  after_hash: 22415a2f51d9e4f499f8833566151a785cf07dbbedd889ce3c5b71e4266089b1
+  document:
+    schema_version: 1
+    id: spy_beetle_04
+    name: Żuk 04
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-05.yaml
+  before_hash: d6bb407c9bd3cb500eb4cd3ba00d9a1952aff99ec2fb01260aec7faff4a115b8
+  after_hash: b38f3faf343c2a305ada12be162f8cb0b61bd1fbb4e387a2ea8df5cdc17ffc02
+  document:
+    schema_version: 1
+    id: spy_beetle_05
+    name: Żuk 05
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-06.yaml
+  before_hash: 4413929bda1661c459cf348b90a61e63a9d50f10ecccec68c036ba00fb2dd27f
+  after_hash: b536c3dd3255a9d0081c283eba340d113cb711e8b102d5693424191dafb8f080
+  document:
+    schema_version: 1
+    id: spy_beetle_06
+    name: Żuk 06
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-07.yaml
+  before_hash: 3c8b96c692665daee1c5b12f13b64959983c73ce1245b0afec2d160fc1ba4c20
+  after_hash: 66cf50ea38e1db3a83be27ac97011c17ae7e0e5914bc76c83ecd1705c945605c
+  document:
+    schema_version: 1
+    id: spy_beetle_07
+    name: Żuk 07
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-08.yaml
+  before_hash: 31450d83ffcf0c2b4b60dd4b42d1aae0190660061828a73a5e65d1682b634b9d
+  after_hash: e88af017e41d1e864d626c0cb06a53fa9706db2426ba63c67659a9256c7da662
+  document:
+    schema_version: 1
+    id: spy_beetle_08
+    name: Żuk 08
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-beetle-09.yaml
+  before_hash: 4893ed8ecda4a7a9cdc1945b92f5815f256d9b84f1b5039f178a8ad92e86032a
+  after_hash: 929acbefc3c5028237d57b6aba57a6fe1f22b031bc1cda0d3719834047c49f97
+  document:
+    schema_version: 1
+    id: spy_beetle_09
+    name: Żuk 09
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 25
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order_released_from_the_bench_t_274
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_272
+    - event_turn_interlude_274
+- path: state/instances/spy-beetle-10.yaml
+  before_hash: c1d5c4aeea4a304159f91677455797f9812746ed5cf31f5f951adfed86ad1790
+  after_hash: 073c263c08918608820117eecf96d93ed873355119fab742364182f34df0cf7b
+  document:
+    schema_version: 1
+    id: spy_beetle_10
+    name: Żuk 10
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 25
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_streets_and_refuse
+      formation: dispersed_solo_no_order_released_from_the_bench_t_274
+    integrity:
+      current: 10
+      maximum: 10
+    upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: ZUKI NIE MAJA DOBOWEGO UBYTKU I NIE POLUJA
+      (retcon_000167). Pola decay i hunting_recovery zdjete; padlinozerstwo z growth-banks
+      zostaje.
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        runtime: {}
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - feeds_on_rot_and_detritus_no_hunting_required
+    - armoured_survives_handling_and_pockets
+    - load_carrying_for_body_scale
+    - transportable_as_an_inert_object
+    - slow
+    - poor_climber_on_smooth_surfaces
+    - audible_clicking_on_stone
+    - scattered_no_standing_order_left_to_mature
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_272
+    - event_turn_interlude_274
+- path: state/instances/spy-cellar-spider-02.yaml
+  before_hash: 51a0b5a0642e269bdc405cb3b429fd59e9b6fa76a1dbbfa826e2863f9c082d6f
+  after_hash: a95744b5c3d492e45469120b0d6d26894dc3ce288b66e4d5246235d837a8ae82
+  document:
+    schema_version: 1
+    id: spy_cellar_spider_02
+    name: Pająk 02
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_storage
+      formation: paired_with_webber_home
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 38560
+          hunting_recovery_elapsed_seconds: 38560
+    orders:
+    - id: order_watch_the_tower_storage
+      status: active
+      source_event_id: event_turn_interlude_180
+      instruction: 'OBSERWACJA SKLADZIKU BASZTY, sparowany z webber_home. Siec w niszy
+        zostaje na stale: okaz widzi to pomieszczenie ZAWSZE, niezaleznie od tego,
+        czy aktualnie poluje (retcon_000186). Poluje przy okazji - stawka +1,0. Rozkaz
+        istnial w basis rejestru od t_180 i do retcon_000184 nie byl zapisany w polu,
+        ktore silnik czyta.'
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - static_post_capable
+    - sparse_web_capable
+    - near_blind_vibration_and_air_sensing_only
+    - destroyed_by_a_broom
+    - silhouette_ignored_by_everyone
+    - unmodified_by_choice
+    - not_anchored_by_choice
+    - paired_with_webber_home
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-cellar-spider-03.yaml
+  before_hash: c12e6cffb0b4d84937872245d657d33d39b65dab028ec0e7b245bc5a92ea4782
+  after_hash: 646a1e1a3f2263efdd018359820c205c245fa679b3ba1afe2bea8ce262f6c4e8
+  document:
+    schema_version: 1
+    id: spy_cellar_spider_03
+    name: Pająk 03
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_upper_offices
+      detail: hunting_freely_but_staying_within_reach_of_seraphines_office_her_agreed_alarm_channel_intact_retcon_000116
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 38560
+          hunting_recovery_elapsed_seconds: 38560
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - static_post_capable
+    - sparse_web_capable
+    - near_blind_vibration_and_air_sensing_only
+    - destroyed_by_a_broom
+    - silhouette_ignored_by_everyone
+    - unmodified_by_choice
+    - not_anchored_by_choice
+    - assigned_to_webber_tannery_pending_transit
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-cellar-spider-04.yaml
+  before_hash: 72c12badd83119be082fca70d47eef08573067e874f298d16e85bf0829798561
+  after_hash: 0cec6cb1b238f4207dd54e519eab398bdd9c71be76a0d9f15a8056430248dd56
+  document:
+    schema_version: 1
+    id: spy_cellar_spider_04
+    name: Pająk 04
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_lumaria_adventurers_guild
+      zone_id: zone_guild_upper_offices
+      detail: recalled_to_lucans_duty_room_as_search_sensor_again_rate_back_to_zero_per_day
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 38560
+          hunting_recovery_elapsed_seconds: 38560
+    orders:
+    - id: order_search_sensor_in_lucans_duty_room
+      status: active
+      source_event_id: event_turn_interlude_183
+      instruction: CZUJNIK PRZESZUKANIA w pokoju dyzurnym Lucana, od t_183, odkad
+        leza tam takze papiery z baszty. Widzi ten pokoj ZAWSZE; poluje przy tym w
+        pustkach scian, bo patrzenie nie jest zadaniem zajmujacym (retcon_000186)
+        - stawka +1,0.
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - static_post_capable
+    - sparse_web_capable
+    - near_blind_vibration_and_air_sensing_only
+    - destroyed_by_a_broom
+    - silhouette_ignored_by_everyone
+    - unmodified_by_choice
+    - not_anchored_by_choice
+    - assigned_to_webber_dump_pending_transit
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-cellar-spider-05.yaml
+  before_hash: a94e501602e2c122d14f225e66c2795120545915418be959f694288ade5d5ad2
+  after_hash: dd31dab8d48043a88821a4ec44d4dca9fce104dab62a3161e946723bb91d6e73
+  document:
+    schema_version: 1
+    id: spy_cellar_spider_05
+    name: Pająk 05
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_entry
+      formation: awaiting_next_webber_rotation
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 38560
+          hunting_recovery_elapsed_seconds: 38560
+          overflow_pending: 2
+    orders:
+    - id: order_free_hunt_around_the_tower
+      status: active
+      source_event_id: event_turn_interlude_279
+      instruction: 'SIEC NA WEJSCIU BASZTY ZOSTAJE - okaz zauwazy wtargniecie niezaleznie
+        od polowania (retcon_000186; dawny zapis o utracie czujnika byl bledem). Poza
+        tym poluje swobodnie w baszcie i wokol niej: pustki scian, zaulki, wejscie.
+        Stawka +1,0 od t_279.'
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - static_post_capable
+    - sparse_web_capable
+    - near_blind_vibration_and_air_sensing_only
+    - destroyed_by_a_broom
+    - silhouette_ignored_by_everyone
+    - unmodified_by_choice
+    - not_anchored_by_choice
+    - assigned_to_webber_anchored_pending_transit
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-cellar-spider-06.yaml
+  before_hash: 122b54caf93221fc654c51d2c29fdcbfdd5c9f1f72b591c8fea755173f883cf9
+  after_hash: b8d89c20313d46151c7bee162dd38103ed662f616145820e1bb580bb77f9de93
+  document:
+    schema_version: 1
+    id: spy_cellar_spider_06
+    name: Pająk 06
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 220
+    position:
+      location_id: loc_lumaria_market
+      zone_id: zone_market_back_alleys
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_202
+        source: transaction
+        note: Zaplecze syndykatu na targu. Dawne position.formation trzymalo tu CALA
+          HISTORIE posterunku wraz z czteroma fazami planu z retcon_000127 - czyli
+          dokladnie to, czego retcon_000171 zakazuje. Tresc przeniesiona do orders[],
+          pole zdjete (retcon_000185).
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 38560
+          hunting_recovery_elapsed_seconds: 38560
+        growth_bank:
+          units_earmarked: 0
+          note: 'Reczne karmienie ponad pojemnosc 3 nie powieksza zbiornika - nadwyzka
+            laduje w banku wzrostu tego slugi (system/companion-growth.md). KOREKTA
+            t_178: dawne zdanie "pierwszy trwaly krok wzrostu kosztuje 8" bylo pozostaloscia
+            po formule 8 x 1.5^n, skasowanej w calosci przez retcon_000024. Trwaly
+            krok kosztuje CZAS PRZY STOLE (ok. godziny), nie jednostki z banku; bank
+            finansuje mase i dojrzewanie.'
+    orders:
+    - id: order_syndicate_back_room_listening_post
+      status: active
+      source_event_id: event_turn_interlude_202
+      instruction: 'POSTERUNEK NA ZAPLECZU SYNDYKATU, w skrzynce na dolnej polce,
+        pod imieniem "Toby" nadanym mu przez ludzi syndykatu. Poluje swobodnie w zaulkach
+        i pustkach scian (zer normalny, +1,0), ale nie opuszcza zasiegu zaplecza.
+        Cztery fazy planu, wedle ktorych ma meldowac, zdefiniowano w t_202 i doprecyzowano
+        w retcon_000127: (1) faza pierwsza, (2) przesluchanie i disputa - obie odbyte,
+        (3) koniec burzy politycznej i sformowanie grupy, (4) wejscie oraz termin,
+        do ktorego mocodawca ma byc poza miastem.'
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - static_post_capable
+    - sparse_web_capable
+    - near_blind_vibration_and_air_sensing_only
+    - destroyed_by_a_broom
+    - silhouette_ignored_by_everyone
+    - unmodified_by_choice
+    - not_anchored_by_choice
+    - hand_fed_growth_program
+    - excluded_prey_children_and_cats
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_078
+- path: state/instances/spy-centipede-01.yaml
+  before_hash: 88479f6bd740ffa56e24f0cc45818f2579d65715572749f7f8344f972a9c51bd
+  after_hash: b6b749ce2d7da5a613a6f940dbf1cd7731ccc02bcdbe1930c6ef554b3ddd666d
+  document:
+    schema_version: 1
+    id: spy_centipede_01
+    name: Wij 01
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 222
+    position:
+      location_id: loc_city_sewer
+      zone_id: zone_sewer_guild_district
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: 'KOREKTA KANONU GRACZA, retcon_000184. Pozycja stala jako unknown/stale
+          od t_091 przez 190 tur. Gracz rozstrzygnal: wij byl tu CALY CZAS, w kanalach
+          pod dzielnica gildii, i ma tu zer obfity. Zrodlem nie jest obserwacja Lucana
+          - on tam nadal nie byl i loc_city_sewer zostaje known_by_proxy_unmapped.
+          Dawne position.formation zdjete razem z dawnym fix: mowilo "position_not_confirmed_since_t_091"
+          i po tej korekcie bylo juz nieprawda.'
+    integrity:
+      current: 7
+      maximum: 7
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 42760
+          hunting_recovery_elapsed_seconds: 42760
+          overflow_pending: 2
+    status_flags:
+    - newly_animated
+    - released_into_city_sewer
+    - standing_order_map_under_the_guild_since_t_186
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - wall_void_and_drain_infiltration
+    - tactile_full_body_sensing
+    - fast_over_short_distance
+    - no_useful_vision
+    - provokes_immediate_extermination_response_if_seen
+    - unmistakably_biological_in_motion
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_075
+    - event_turn_interlude_076
+    observation:
+      event_id: event_turn_interlude_091
+      channel: borrowed_sense
+      confidence: low
+      coordinates_recovered: false
+      text: 'Sygnal ROSNIE w drodze do gildii: gdzies pod dzielnica gildii, a kanaly
+        siegaja pod sama piwnice. Ciosany kamien i powietrze STOJACE, bez ciagu i
+        bez wody - to nie kanal, to czyjas piwnica, do ktorej wij wszedl otworem od
+        spodu. KTORA - NIE WIADOMO. Watek otwarty.'
+      method: krzywa straty jako dalmierz (pomiar z t_086)
+    orders:
+    - id: order_map_under_the_guild
+      status: active
+      source_event_id: event_turn_interlude_186
+      instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi
+        i halasu, idac w gore od kanalow dzielnicy muru.
+      issued_as: parenthetical_internal_act
+- path: state/instances/spy-centipede-02.yaml
+  before_hash: 4ae5470086bed6a7c41a755e1a479667234c9e7380a612fe6eb983845b7b77a9
+  after_hash: 4cdef1a8a61ceadc35b439d01688b4fb44103aa6ccb04104ddd4ce856a745b0f
+  document:
+    schema_version: 1
+    id: spy_centipede_02
+    name: Wij 02
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 222
+    position:
+      location_id: loc_city_sewer
+      zone_id: zone_sewer_guild_district
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: 'KOREKTA KANONU GRACZA, retcon_000184. Pozycja stala jako unknown/stale
+          od t_091 przez 190 tur. Gracz rozstrzygnal: wij byl tu CALY CZAS, w kanalach
+          pod dzielnica gildii, i ma tu zer obfity. Zrodlem nie jest obserwacja Lucana
+          - on tam nadal nie byl i loc_city_sewer zostaje known_by_proxy_unmapped.
+          Dawne position.formation zdjete razem z dawnym fix: mowilo "position_not_confirmed_since_t_091"
+          i po tej korekcie bylo juz nieprawda.'
+    integrity:
+      current: 7
+      maximum: 7
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 42760
+          hunting_recovery_elapsed_seconds: 42760
+          overflow_pending: 2
+    status_flags:
+    - newly_animated
+    - released_into_city_sewer
+    - standing_order_map_under_the_guild_since_t_186
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - wall_void_and_drain_infiltration
+    - tactile_full_body_sensing
+    - fast_over_short_distance
+    - no_useful_vision
+    - provokes_immediate_extermination_response_if_seen
+    - unmistakably_biological_in_motion
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_075
+    - event_turn_interlude_076
+    observation:
+      event_id: event_turn_interlude_091
+      channel: borrowed_sense
+      confidence: very_low
+      coordinates_recovered: false
+      text: Matowy, po stronie muru i garbarni. Zyje, syta, bez wspolrzednych.
+      method: krzywa straty jako dalmierz (pomiar z t_086)
+    orders:
+    - id: order_map_under_the_guild
+      status: active
+      source_event_id: event_turn_interlude_186
+      instruction: Aktywnie mapowac i eksplorowac teren POD GILDIA, unikajac ludzi
+        i halasu, idac w gore od kanalow dzielnicy muru.
+      issued_as: parenthetical_internal_act
+- path: state/instances/spy-hawk-moth-01.yaml
+  before_hash: adb7350a8665b19736200f68b5c58c3e15b842f30d9435f23b7dd2b401f873f2
+  after_hash: 34d9ced0d22e58a55303b82c65f14973f4af6ff46a601b25127465d8cc4251b5
+  document:
+    schema_version: 1
+    id: spy_hawk_moth_01
+    name: Zawisak
+    anchor_class: true
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 128
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_meadows
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Zawisak
+          zszedl z blatu na laki - zeruje i poluje aktywnie, nie czeka na zmierzch.
+          Laki przed murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym
+          i prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    integrity:
+      current: 6
+      maximum: 6
+    resources:
+      necrotic_reservoir:
+        current: 3.0
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+          suppressed_by: decay_suppressing_vial_applied_event_turn_interlude_090
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 580
+          hunting_recovery_elapsed_seconds: 63960
+    traits:
+      source: player_declaration_day3_evening_anchored_personalities
+      decided_on: '2026-08-26'
+      gender: female
+      list:
+      - glutton
+      - regal
+      - witty
+      - egotistic
+      subordination: Zwierzchnictwo Lucana uznaje bez sporu i bez ironii - to jedyna
+        rzecz, z ktorej nie zartuje. Wobec wszystkiego innego jest krolowa.
+      note: 'Zer traktuje jak nalezna danine, nie jak posilek - co ma oparcie w tym,
+        jak powstala: od pierwszego dnia karmiona z reki sila zyciowa jedwabnikow,
+        nigdy nie zerowala sama (flaga fed_on_silkworm_life_force_not_foraging, t_088/090).'
+      development_direction: Od lasucha do dworu. Wlasne owady-karmiciele przestaja
+        byc mechanika zasilania i zaczynaja byc SWITA - regal plus glutton daje krolowa,
+        ktora nie poluje, bo nie musi. Egotyzm i ciety jezyk rosna razem z liczba
+        poddanych. Docelowo dialog z Lucanem.
+    symbiont_upkeep_ref_DOKUMENTACJA_NIE_MECHANIKA: campaigns/lucan/planning/specimen-upgrades.yaml#builds.build_moth_glutton.energy_model.symbiont_upkeep.units_per_day
+    symbiont_upkeep_note_DOKUMENTACJA_NIE_MECHANIKA: 'Od t_271 zawisak nosi sordine
+      i porost slepy. planning/specimen-upgrades.yaml#builds.build_moth_glutton#energy_model
+      stawia utrzymanie kolonii na 2 jednostki na dobe z necrotic_reservoir, przy
+      POJEMNOSCI NIEZMIENIONEJ (3). Pole jest rejestrem RECZNYM: silnik czyta wylacznie
+      regeneration, decay i hunting_recovery, a decay zawisaka jest zniesione fiolka
+      z t_090 (decay_suppressed) i tego sie NIE rusza, zeby dwie rzeczy sie nie mieszaly.
+      Pokrycie: kosz jedwabnikow na stole w baszcie (inventory#item_live_silkworms,
+      fuel_use z retcon_000026).'
+    status_flags:
+    - newly_animated
+    - death_anchored
+    - decay_suppressed
+    - sound_dampening_symbiont
+    - symbiotic_parasite_load
+    - substrate_matching_lichen
+    - passive_concealment_when_still
+    - decay_suppressed_no_three_day_leash_DOKUMENTACJA_NIE_MECHANIKA
+    - bat_protocol_fold_and_drop_t_271
+    - necromantic_conduction_agent_applied
+    - silent_flight
+    - fast_flight
+    - can_hover_in_place
+    - nocturnal_and_only_nocturnal
+    - heavy_thorax_room_for_modifications
+    - carries_more_than_a_wasp
+    - conspicuous_in_daylight
+    - autonomous_hunting
+    - cleared_to_forage_nectar_on_the_meadows_t_274
+    - symbiont_upkeep_2_per_day_covered_by_own_nectar_foraging_net_zero_t_274_retcon_000172
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_088
+    - event_turn_interlude_090
+- path: state/instances/spy-moth-01.yaml
+  before_hash: 9f2f8ae8027e8b8215d3271cfc91a3d0df714302f36f612abaa2db26ed2d3699
+  after_hash: 12d2e31a0c26802115d70300be93c1be3fedc29771b1ec65569802494cef61e7
+  document:
+    schema_version: 1
+    id: spy_moth_01
+    name: Ćma 01
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 128
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_meadows
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta
+          z gornej laki garbarni na laki przed baszta, razem z Zawisakiem. Laki przed
+          murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym i
+          prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    integrity:
+      current: 4
+      maximum: 4
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 23440
+          hunting_recovery_elapsed_seconds: 23440
+          overflow_pending: 2
+    status_flags:
+    - bat_protocol_fold_and_drop_t_271
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - intact_wings_capable_of_flight
+    - silent_flight
+    - nocturnal
+    - drawn_to_light
+    - fragile_wings_first_to_break
+    - sugar_feeder_must_leave_a_closed_post
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_088
+    - event_turn_interlude_090
+- path: state/instances/spy-moth-05.yaml
+  before_hash: 9c420fc21e56f24b3e2202e7eb1ad82eeca89f289b0c3a468f00d1a92181a2fb
+  after_hash: 35e22029522a969868ea189fa5bc871fee6ae620cd8e4faaca3d50ef54395f8f
+  document:
+    schema_version: 1
+    id: spy_moth_05
+    name: Ćma 05
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 26
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_meadows
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta
+          z ulic wokol baszty na laki przed murem, razem z Zawisakiem. Laki przed
+          murem to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym i
+          prostoskrzydlymi w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    integrity:
+      current: 4
+      maximum: 4
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 65760
+          hunting_recovery_elapsed_seconds: 65760
+    status_flags:
+    - bat_protocol_fold_and_drop_t_271
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - intact_wings_capable_of_flight
+    - silent_flight
+    - nocturnal
+    - drawn_to_light
+    - fragile_wings_first_to_break
+    - sugar_feeder_must_leave_a_closed_post
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_271
+    - event_turn_interlude_272
+    - event_turn_interlude_273
+- path: state/instances/spy-rat-01.yaml
+  before_hash: bffb520beaab265553f334e947ce3ae96ddd1b7de91177a5093d01d613339e06
+  after_hash: 2009d8ac7c814ec998e57e9c995e158924eb7ab367b1e5c5ba01afb46afe8d4b
+  document:
+    schema_version: 1
+    id: spy_rat_01
+    name: Szczur 01
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 26
+    position:
+      location_id: loc_city_sewer
+      zone_id: zone_sewer_tannery
+      formation: tannery_sewer_post_since_t_273_corrected_by_retcon_000171_no_centipede_is_posted_there
+    integrity:
+      current: 5
+      maximum: 5
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 65760
+          hunting_recovery_elapsed_seconds: 65760
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - squeezes_through_grates_and_pipes
+    - climbs_rough_stone
+    - unremarkable_in_a_sewer_nobody_looks_twice
+    - mammal_ear_hears_the_human_band_natively
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_271
+    - event_turn_interlude_272
+    - event_turn_interlude_273
+    orders:
+    - id: order_confine_to_tannery_sewers
+      status: active
+      source_event_id: event_turn_interlude_276
+      instruction: Poruszac sie wylacznie po kanalach pod garbarnia. Poza ten obszar
+        nie wychodzic.
+- path: state/instances/spy-rat-02.yaml
+  before_hash: e9a068b045a62cc07b33893cad35ee0a17c9d368afb216a7ff7da88392bc16bf
+  after_hash: 88a7d11e9235c686fa3bba3c996a429bc1386f53b8d16a7305e6da72c8069743
+  document:
+    schema_version: 1
+    id: spy_rat_02
+    name: Szczur 02
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 26
+    position:
+      location_id: loc_city_sewer
+      zone_id: zone_sewer_tannery
+      formation: tannery_sewer_post_since_t_273_corrected_by_retcon_000171_no_centipede_is_posted_there
+    integrity:
+      current: 5
+      maximum: 5
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 65760
+          hunting_recovery_elapsed_seconds: 65760
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - squeezes_through_grates_and_pipes
+    - climbs_rough_stone
+    - unremarkable_in_a_sewer_nobody_looks_twice
+    - mammal_ear_hears_the_human_band_natively
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_271
+    - event_turn_interlude_272
+    - event_turn_interlude_273
+    orders:
+    - id: order_confine_to_tannery_sewers
+      status: active
+      source_event_id: event_turn_interlude_276
+      instruction: Poruszac sie wylacznie po kanalach pod garbarnia. Poza ten obszar
+        nie wychodzic.
+- path: state/instances/spy-rat-03.yaml
+  before_hash: 7cc033fed59b97ad307201b374c92ad595019018ea5e195aa30905b0c0e98b5d
+  after_hash: 742060a70b73a85684a347617572c0990b22a780b570da6d6fd588c29c1500d4
+  document:
+    schema_version: 1
+    id: spy_rat_03
+    name: Szczur 03
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 26
+    position:
+      location_id: loc_city_sewer
+      zone_id: zone_sewer_tannery
+      formation: tannery_sewer_static_post_three_legged_since_t_273_corrected_by_retcon_000171
+    integrity:
+      current: 4
+      maximum: 4
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 65760
+          hunting_recovery_elapsed_seconds: 65760
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - autonomous_hunting
+    - squeezes_through_grates_and_pipes
+    - climbs_rough_stone
+    - unremarkable_in_a_sewer_nobody_looks_twice
+    - mammal_ear_hears_the_human_band_natively
+    - hind_leg_lost_at_the_joint_walks_on_three
+    - static_post_only_not_a_runner
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_271
+    - event_turn_interlude_272
+    - event_turn_interlude_273
+    orders:
+    - id: order_confine_to_tannery_sewers
+      status: active
+      source_event_id: event_turn_interlude_276
+      instruction: Poruszac sie wylacznie po kanalach pod garbarnia. Poza ten obszar
+        nie wychodzic. Ograniczona ruchliwosc - trzy lapy.
+- path: state/instances/spy-wasp-01.yaml
+  before_hash: 55ad7906875900254b9f5f268522316aafe4c35f78482359fa66d06199648473
+  after_hash: e22773d549c9bb04b5c63674e1a3301cd376024d378ec4d97077930676ab9ff3
+  document:
+    schema_version: 1
+    id: spy_wasp_01
+    name: Osa 01
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_spy_series_01
+    revision: 222
+    position:
+      location_id: loc_city_wall_hideout
+      zone_id: zone_surrounding_meadows
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_279
+        source: report
+        note: ROZSTAWIENIE PODANE PRZEZ GRACZA 2026-09-13 (retcon_000185). Sciagnieta
+          z wejscia baszty na laki przed murem, razem z Zawisakiem. Laki przed murem
+          to obszar ZEWNETRZNY, poza geometria layoutu, z zerem nektarowym i prostoskrzydlymi
+          w sezonie (locations/wall-hideout#zone_surrounding_meadows).
+    integrity:
+      current: 4
+      maximum: 4
+    resources:
+      necrotic_reservoir:
+        current: 3
+        capacity: 3
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 1
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 42760
+          hunting_recovery_elapsed_seconds: 22860
+        hunting_recovery_override:
+          requires:
+          - autonomous_hunting
+          - access_to_forage_or_carrion
+          note: Osa nie wyzywi sie na parapecie w zamknietym pokoju - potrzebuje wyjscia
+            na zewnatrz albo padliny.
+        flight_surcharge:
+          units_per_long_flight: 1
+          note: Lot na dystans miasta zjada dodatkowa jednostke poza dobowym ubytkiem.
+    status_flags:
+    - newly_animated
+    - fresh_obedient_and_dull
+    - flight_capable
+    - compound_eye_motion_detection
+    - courier_capable_over_distance
+    - autonomous_hunting
+    - cleared_to_forage_small_prey_only_away_from_large_event_turn_interlude_177
+    - wings_end_on_first_hard_impact
+    - buzz_draws_attention_and_violence
+    - starves_at_a_static_indoor_post
+    conditions: []
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - event_turn_interlude_075
+    - event_turn_interlude_076
+- path: state/instances/varkhen.yaml
+  before_hash: 6ae21a640e7aaa5a567dd04e819615c63c931b7599844b1128eae2565eca0388
+  after_hash: 2ac9a9fda0ac7ef2d80704d104cdca15f613d1ac366790b5b605ea697a3c15f7
+  document:
+    schema_version: 1
+    id: companion_varkhen
+    name: Varkhen
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_varkhen_cutoff
+    revision: 290
+    position:
+      location_id: loc_varkhen_chamber
+      zone_id: zone_sarcophagus
+      formation: lying_in_his_own_open_sarcophagus_t_263_asked_to_feign_sleep_detached_from_the_network_single_line_from_lucan_only
+    integrity:
+      current: 11.7
+      maximum: 65
+      repair:
+        interval_seconds: 86400
+        units: 2.3
+        requires:
+        - env:death_field
+        runtime:
+          repair_elapsed_seconds: 7680
+        note: 'Tlo cmentarza daje 0,8 integralnosci na dobe - tyle samo, ile dawaly
+          cztery lacza sieciarzy. Do 2026-09-12 byl to rejestr RECZNY, bo process_instance_time
+          nie ruszal integralnosci. Teraz nalicza ja silnik, na tych samych warunkach
+          co pule: przy env:death_field, czyli tak dlugo, jak cialo lezy w komnacie.'
+    resources:
+      ancient_necrotic_reservoir:
+        current: 22.2
+        capacity: 72
+        regeneration:
+          interval_seconds: 86400
+          units: 0.8
+          requires:
+          - env:death_field
+          note: 'TLO CMENTARZA ZAMIAST SIECI (retcon_000168, deklaracja gracza). Zalozenie
+            gracza: tlo jest tu tak silne jak to, co Lucan mu wysylal, wiec podtrzymywanie
+            go jest zbedne. 0,8 na dobe to DOKLADNIE tyle, ile dawaly cztery lacza
+            sieciarzy na wyjsciu. WARUNEK JEST MIEJSCEM, NIE FLAGA (poprawione 2026-09-12):
+            requires env:death_field czyta locations/varkhen-chamber/state.yaml#environment.conditions,
+            wiec wyniesienie ciala z komnaty wylacza doplyw SAMO. Do tej poprawki
+            zdanie ponizej bylo nieprawdziwe: silnik sprawdzal flage in_cemetery_death_field,
+            a flaga nie wie o przeprowadzce - zostawala w karcie i naliczanie szlo
+            dalej. Flaga zostaje jako opis stanu, nie jest juz wyzwalaczem.'
+        runtime:
+          regeneration_elapsed_seconds: 7680
+    conditions:
+    - id: formal_control_link_unenforced
+      stacks: 1
+      magnitude: 70
+      source_event_id: milestone_045_varkhen_takeover
+    - id: severely_depleted
+      mechanics_ref: condition_recovery_suppressed
+      stacks: 1
+      magnitude: 75
+      source_event_id: milestone_045_varkhen_takeover
+    - id: bodily_integrity_compromised
+      stacks: 1
+      magnitude: 85
+      source_event_id: milestone_045_varkhen_takeover
+    - id: voluntary_oath_compact
+      stacks: 1
+      magnitude: 60
+      source_event_id: milestone_046_varkhen_oath_compact
+    - id: cemetery_ambient_upkeep
+      stacks: 1
+      magnitude: 80
+      note: 'KOREKTA retcon_000168: podtrzymuje go TLO CMENTARZA, nie Lucan. 0,8 na
+        dobe do puli (silnik: regeneration z requires in_cemetery_death_field) plus
+        0,8 integralnosci na dobe (rejestr reczny). Tyle samo, ile dawaly cztery lacza
+        sieciarzy. Miedzy nim a Lucanem zostala wylacznie linia alarmowa o zerowym
+        przeplywie, zrywalna ze strony Lucana.'
+      elapsed_seconds: 0
+      source_event_id: event_turn_interlude_263
+    status_flags:
+    - undead
+    - conscious
+    - critically_damaged
+    - guild_basement_custody
+    - full_free_will_default
+    - formal_control_link_unenforced
+    - control_mechanics_mutually_unknown
+    - voluntary_compact_active
+    - confidentiality_accepted
+    - in_cemetery_death_field
+    - alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
+    - feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:11251-12012
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+- path: state/instances/webber-anchored.yaml
+  before_hash: 5b2224e09d0f2c87becbdbf32763bb7c18f2439d367f1376a4e9522d66be5790
+  after_hash: 7e6a96a65bc18183ef93bd6e4148bc0487b9a808d50883b3437acbeafefaaeb9
+  document:
+    schema_version: 1
+    id: webber_anchored
+    name: Tkacz
+    anchor_class: true
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 289
+    position:
+      location_id: loc_cemetery
+      zone_id: zone_north_ramp
+      fix:
+        status: confirmed
+        as_of_event_id: event_turn_interlude_288
+        source: transaction
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 6
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 73060
+          hunting_recovery_elapsed_seconds: 9520
+          overflow_pending: 3
+        growth_bank_ref: campaigns/lucan/state/growth-banks.yaml
+    conditions: []
+    traits:
+      source: player_declaration_day3_evening_anchored_personalities
+      decided_on: '2026-08-26'
+      gender: female
+      list:
+      - sadistic
+      - subservient
+      - shy
+      note: 'Meczy inne okazy - nie z rozkazu, z wlasnej potrzeby. Wobec Lucana odwrotnie:
+        ulegla, podporzadkowana, wycofana. Dwie strony tego samego mechanizmu - w
+        dol okrutna, w gore bez wlasnej woli.'
+      development_direction: 'Yandere jako WZORZEC ZACHOWAN, nie watek fabularny.
+        Spina jej trzy cechy: okrucienstwo wobec pozostalych okazow nie jest sadyzmem
+        bez adresu, jest zazdroscia - kazdy inny sluga dostaje uwage, ktora mogla
+        byc jej, a ona jest ta, ktora zostala przy warsztacie. Uleglosc i niesmialosc
+        sa prawdziwe i wylacznie dla Lucana. Dialog, gdy podrosnie wiekiem: glos cichy,
+        krotki, chetny do przytakniecia - i zupelnie inny, gdy mowi o pozostalych
+        sieciarzach.'
+      hard_limits:
+      - NIE WOLNO JEJ REALNIE ZAATAKOWAC innego familiara ani go uszkodzic czy usunac.
+      - Wrogosc, zazdrosc, chlod, zlosliwosc i opieszalosc w pomocy - tak. Przemoc
+        - nie.
+      - Nie jest to watek kampanii. Jedno zdanie na scene, nie napedzanie scen.
+      - Zadnej niezaleznosci jeszcze dlugo - planning/anchored-companions.yaml#constraints.
+    status_flags:
+    - autonomous_hunting
+    - death_anchored
+    - decay_suppressed
+    - decay_suppressed_permanent_event_turn_interlude_177_DOKUMENTACJA_NIE_MECHANIKA
+    - moth_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
+    - orthopteran_tympanal_hearing_organ_DOKUMENTACJA_NIE_MECHANIKA
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:5351-5559
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+    orders:
+    - id: order_watch_the_ramp_and_the_ground_above
+      status: active
+      source_event_id: event_turn_interlude_288
+      instruction: 'Zabezpieczyc wejscie do podziemi i teren wokol zjazdu. Rozlozyc
+        czujki po parceli i meldowac KAZDE zblizenie sie kogokolwiek do rampy. Zmysl
+        obszarowy wedle retcon_000186: daje "ktos idzie i mniej wiecej ktoredy", NIE
+        daje rozpoznania, liczby osob ani zamiarow. Obserwacja jest darmowa, wiec
+        stawka dobowa bez zmian.'
+- path: state/instances/webber-dump.yaml
+  before_hash: f0f83c1361d44ebb99b849f1aef7fbf42234c144e89cb51d9190dbcb93c75a51
+  after_hash: 0ad852734f4e631101fc4f0e863a58c01c2620b276beca76920f4465441fff24
+  document:
+    schema_version: 1
+    id: webber_dump
+    name: Sieciarz Wysypisko
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 290
+    position:
+      location_id: loc_dump
+      zone_id: zone_entry
+      formation: travelling_to_the_meadow_t_091_degraded_by_distance
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 6
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 9520
+          hunting_recovery_elapsed_seconds: 9520
+          overflow_pending: 2
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_dump
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+    orders:
+    - id: order_collect_meadow_orthopterans
+      status: active
+      source_event_id: event_turn_interlude_091
+      instruction: Lapac duze, skaczace rzeczy z trawy, nosic do baszty.
+      definition_ref: campaigns/lucan/companions/webber-network.yaml#additional_order_3
+- path: state/instances/webber-home.yaml
+  before_hash: 252a3572d587c1793fa97c8395341ef94f063d876c716474bc82f78ddc9fcb72
+  after_hash: 97bd686c7fbd4118fc1c7e35e3a008db4e468537360a04f31551e32f554d08ff
+  document:
+    schema_version: 1
+    id: webber_home
+    name: Sieciarz Cmentarz
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 290
+    position:
+      location_id: loc_tannery
+      zone_id: zone_upper_meadow
+      formation: meadow_foraging_t_091
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 6
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 9520
+          hunting_recovery_elapsed_seconds: 9520
+          overflow_pending: 2
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - posted_at_tannery_meadow
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+    orders:
+    - id: order_collect_meadow_orthopterans
+      status: active
+      source_event_id: event_turn_interlude_091
+      instruction: Lapac duze, skaczace rzeczy z trawy, nosic do baszty.
+      definition_ref: campaigns/lucan/companions/webber-network.yaml#additional_order_3
+- path: state/instances/webber-tannery.yaml
+  before_hash: 944a589079eeac64201cb83ac2d3258f61bedc49eb23b37e8f9504148f7e1421
+  after_hash: f6d22eeb355529ab645ec5c9b41152169ff1991cd515e2e44ec1ab8e3711c56e
+  document:
+    schema_version: 1
+    id: webber_tannery
+    name: Sieciarz Garbarnia
+    object_type: entity_instance
+    status: active
+    definition_ref: candidate_webber_monitor
+    revision: 290
+    position:
+      location_id: loc_tannery
+      zone_id: zone_upper_meadow
+      formation: meadow_foraging_t_091
+    integrity:
+      current: 13
+      maximum: 13
+    resources:
+      necrotic_reservoir:
+        current: 6
+        capacity: 6
+        decay:
+          interval_seconds: 86400
+          units: 1
+        hunting_recovery:
+          interval_seconds: 86400
+          units: 3
+          requires:
+          - autonomous_hunting
+        runtime:
+          decay_elapsed_seconds: 9520
+          hunting_recovery_elapsed_seconds: 9520
+          overflow_pending: 2
+    conditions: []
+    status_flags:
+    - autonomous_hunting
+    - at_tannery
+    last_event_id: event_turn_interlude_299
+    source_refs:
+    - source_luka_b_fragment#line:4954-5082
+    - source_luka_b_fragment#line:10555-10566
+    - source_luka_b_fragment#line:11352-11368
+    - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
+    orders:
+    - id: order_collect_meadow_orthopterans
+      status: active
+      source_event_id: event_turn_interlude_091
+      instruction: Lapac duze, skaczace rzeczy z trawy, nosic do baszty.
+      definition_ref: campaigns/lucan/companions/webber-network.yaml#additional_order_3
+- path: state/sustained-links.yaml
+  before_hash: 0ef13f8783f1dd002d01a02804c47302b478f86529df591220097103940ec414
+  after_hash: 0ef13f8783f1dd002d01a02804c47302b478f86529df591220097103940ec414
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    links:
+    - id: link_lucan_hand_charges_beetle_01
+      active: false
+      deactivated_event_id: event_turn_interlude_260
+      deactivated_reason: ZBEDNE, NIE NIEMOZLIWE (retcon_000167). Nisza pokrywa caly
+        sufit rozwoju zuka (1,5 z dowozonych 1,8), wiec dokladanie 3,5 na dobe z rezerwy
+        Lucana byloby wylewaniem energii, ktora i tak wroci do sieci ze stratami.
+        Karmienie okazu ZAKOTWICZONEGO nie wymaga obecnosci Lucana - opis ladowania
+        z reki byl zapisem metody z t_179, nie ograniczeniem zasiegu. Wlaczyc z powrotem
+        jedna decyzja, gdy zuk dostanie wiekszy zbiornik albo wyjdzie z niszy.
+      controller_id: pc_lucan
+      source_instance_id: pc_lucan
+      source_pool_id: lucan_necrotic_energy
+      target_instance_id: spy_beetle_01
+      target_pool_id: necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 3.5
+      target_units_per_interval: 0
+      target_integrity_per_interval: 0
+      efficiency_percent: 100
+      purpose: hand_charging_for_growth_not_for_reservoir
+      source_event_id: event_turn_interlude_179
+      note: 'Deklaracja gracza w t_179: Lucan laduje zuka SAM, 3,5 jednostki na dobe.
+        target_units_per_interval jest ZEREM CELOWO - zbiornik zuka stoi pelny (3/3),
+        a dostarczone jednostki nie ida w zbiornik, tylko w bank wzrostu prowadzony
+        w campaigns/lucan/state/growth-banks.yaml. Podzial dostarczonych 3,5: 1,0
+        pokrywa dobowy ubytek posterunku bez zeru, 1,5 wchodzi w rozwoj (sufit polowy
+        zbiornika wg retcon_000115), 1,0 wraca w siec. Brak straty propagacji, bo
+        nie ma przeskoku - zuk siedzi w kieszeni i jest ladowany z reki, jak w hand_feeding_program.
+        Sufit rozwoju podnosi enlarge_reservoir_to_tank (3 -> 12), ok. godziny przy
+        stole.'
+      runtime:
+        elapsed_seconds: 62020
+        successful_intervals: 0
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_179
+      channel: feed
+    - id: link_webber_home_to_varkhen_upkeep
+      active: false
+      deactivated_event_id: event_turn_interlude_263
+      deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery
+        lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila
+        je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie
+        tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec.
+        Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie
+        zostalo zlozone bez terminu.
+      controller_id: pc_lucan
+      source_instance_id: webber_home
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.2
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 45640
+        successful_intervals: 3
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_183
+      channel: feed
+    - id: link_webber_tannery_to_varkhen_upkeep
+      active: false
+      deactivated_event_id: event_turn_interlude_263
+      deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery
+        lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila
+        je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie
+        tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec.
+        Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie
+        zostalo zlozone bez terminu.
+      controller_id: pc_lucan
+      source_instance_id: webber_tannery
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.2
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 45640
+        successful_intervals: 3
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_183
+      channel: feed
+    - id: link_webber_dump_to_varkhen_upkeep
+      active: false
+      deactivated_event_id: event_turn_interlude_263
+      deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery
+        lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila
+        je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie
+        tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec.
+        Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie
+        zostalo zlozone bez terminu.
+      controller_id: pc_lucan
+      source_instance_id: webber_dump
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.2
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 45640
+        successful_intervals: 3
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_183
+      channel: feed
+    - id: link_webber_meadow_to_varkhen_upkeep
+      active: false
+      deactivated_event_id: event_turn_interlude_263
+      deactivated_reason: ODPIECIE VARKHENA OD SIECI (t_263, decyzja Lucana). Cztery
+        lacza sieciarzy skladaly razem 1,0 na wejsciu i 0,8 na wyjsciu; zastapila
+        je jedna linia wprost od Lucana (link_lucan_single_line_to_varkhen) o dokladnie
+        tej samej racji - retcon_000113 bez zmian. Stawki sieciarzy wracaja w siec.
+        Wlaczyc z powrotem, jesli Varkhen zglosi che ponownego przylaczenia - zaproszenie
+        zostalo zlozone bez terminu.
+      controller_id: pc_lucan
+      source_instance_id: webber_anchored
+      source_pool_id: necrotic_reservoir
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0.25
+      target_units_per_interval: 0.2
+      target_integrity_per_interval: 0.2
+      efficiency_percent: 80
+      purpose: slow_distributed_repair
+      source_event_id: event_turn_interlude_055_distributed_varkhen_upkeep
+      runtime:
+        elapsed_seconds: 45640
+        successful_intervals: 3
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_183
+      channel: feed
+    - id: link_lucan_single_line_to_varkhen
+      active: true
+      controller_id: pc_lucan
+      source_instance_id: pc_lucan
+      source_pool_id: lucan_necrotic_energy
+      target_instance_id: companion_varkhen
+      target_pool_id: ancient_necrotic_reservoir
+      interval_seconds: 86400
+      source_units_per_interval: 0
+      target_units_per_interval: 0
+      target_integrity_per_interval: 0
+      efficiency_percent: 100
+      purpose: severable_alarm_line_not_a_feed
+      severable_from: pc_lucan
+      severance_cost: instant_and_free_from_lucans_side
+      source_event_id: event_turn_interlude_263
+      note: 'ADRES, NIE RURA. TO NIE JEST PRZESYL (korekta gracza, retcon_000168).
+        Jedyne, co zostalo miedzy Lucanem a Varkhenem po odpieciu od sieci, to LINIA
+        ALARMOWA: kanal sygnalowy o zerowym przeplywie, ktory Lucan moze zerwac ze
+        swojej strony natychmiast i za darmo - przecinak i nie ma. DOPRECYZOWANIE
+        GRACZA 2026-09-12: "de facto martwe lacze, nieuzywane, ale pozwalajace na
+        wznowienie. Sam adres. Otwarty port, o ktorym obie strony widza, ze moga go
+        uzyc, ale po ktorym samemu nic nie leci. Whitelist w firewallu." Zerowosc
+        jest teraz ZADEKLAROWANA przez channel: standby, a nie wynika z braku wpisanych
+        jednostek - silnik odrzuci kazda niezerowa wartosc przy tym laczu. Zasilania
+        Varkhen nie potrzebuje, bo tlo cmentarza daje mu tyle samo, ile dawaly cztery
+        lacza sieciarzy (state/instances/varkhen.yaml). Zeby cokolwiek plynelo, trzeba
+        jawnie zmienic channel na feed - czyli podjac decyzje, a nie wpisac liczbe.'
+      runtime:
+        elapsed_seconds: 0
+        successful_intervals: 0
+        missed_intervals: 0
+      last_event_id: event_turn_interlude_263
+      channel: standby
+- path: state/time.yaml
+  before_hash: 9086e462014547b679c52c9bc642fe5aa70e966f9539a951333ca13177adc87b
+  after_hash: 6b4af062328af29aa63b97814f94b0a561d35d746ecc73f7f9263d7ac799cb1f
+  document:
+    schema_version: 1
+    campaign_id: campaign_lucan
+    status: active
+    campaign_phase: interlude_before_act_03
+    roll_policy:
+      mode: disabled
+      until: first_of_two_act_03_hearings_begins
+      source_ref: retcon_000099
+      rule: W całym interludium nie wykonuje się rzutów. Możliwości, koszty, czas
+        i wymaganie nowej dźwigni nadal obowiązują. Akt 3 i rzuty zaczynają się wraz
+        z pierwszym z dwóch zapowiedzianych przesłuchań, niezależnie od tego, czy
+        Lucan zdążył wykonać wszystkie zamierzone prace interludium.
+    calendar: null
+    current_datetime: '2026-08-20T21:52:40+02:00'
+    current_time_scale: free
+    elapsed_since_last_event: 5100
+    last_event_id: event_turn_interlude_299
+    elapsed_seconds_total: 492760
+prepared_at: '2026-09-14T13:06:47+02:00'
+committed_at: '2026-09-14T13:06:48+02:00'

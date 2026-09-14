@@ -4,7 +4,7 @@ name: Varkhen
 object_type: entity_instance
 status: active
 definition_ref: candidate_varkhen_cutoff
-revision: 289
+revision: 290
 position:
   location_id: loc_varkhen_chamber
   zone_id: zone_sarcophagus
@@ -18,7 +18,7 @@ integrity:
     requires:
     - env:death_field
     runtime:
-      repair_elapsed_seconds: 2580
+      repair_elapsed_seconds: 7680
     note: 'Tlo cmentarza daje 0,8 integralnosci na dobe - tyle samo, ile dawaly cztery
       lacza sieciarzy. Do 2026-09-12 byl to rejestr RECZNY, bo process_instance_time
       nie ruszal integralnosci. Teraz nalicza ja silnik, na tych samych warunkach
@@ -42,7 +42,7 @@ resources:
         a flaga nie wie o przeprowadzce - zostawala w karcie i naliczanie szlo dalej.
         Flaga zostaje jako opis stanu, nie jest juz wyzwalaczem.'
     runtime:
-      regeneration_elapsed_seconds: 2580
+      regeneration_elapsed_seconds: 7680
 conditions:
 - id: formal_control_link_unenforced
   stacks: 1
@@ -84,7 +84,7 @@ status_flags:
 - in_cemetery_death_field
 - alarm_line_to_lucan_only_DOKUMENTACJA_NIE_MECHANIKA
 - feigning_dormancy_in_sarcophagus_DOKUMENTACJA_NIE_MECHANIKA
-last_event_id: event_turn_interlude_298
+last_event_id: event_turn_interlude_299
 source_refs:
 - source_luka_b_fragment#line:11251-12012
 - campaigns/lucan/journal/imports/luka-c-act-02-closeout.md
