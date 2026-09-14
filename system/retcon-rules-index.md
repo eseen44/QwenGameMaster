@@ -7,7 +7,7 @@
 python tools/build_rules_index.py
 ```
 
-Regul z klauzula normatywna: **118** z 199 retconow.
+Regul z klauzula normatywna: **119** z 200 retconow.
 
 Ten plik jest ADRESEM, nie streszczeniem: mowi, ktory retcon otworzyc. Skroty sa
 surowe, bo wycinane deterministycznie ze zdania z imperatywem - nie ufaj im
@@ -44,7 +44,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000186` — Narratorowi NIE WOLNO podawac przejscia okazu na wolne polowanie jako utraty czujnika.
 - `retcon_000195` — Trzecia strefa to LAKI PRZED BASZTA, nie wysypisko; nazwa 'Sieciarz Wysypisko' byla pochodna dawnego post_assignment i przestaje obowiazywac.
 
-## ekspozycja i wiedza NPC (39)
+## ekspozycja i wiedza NPC (40)
 
 - `retcon_000009` — Skorygowany sklad czworki ocalalych, obowiazujacy jako kanon: JEDEN nekromanta junior (fixture_corpse_shipment_handler - amator z waska rutyna transportowa, przygotowal cztery ciala do...
 - `retcon_000010` — context/scene.yaml przywrocona RECZNIE do wersji po retcon_000006/7/8 (czysty znik, urzednik domknal dyzur i poszedl do domu, BRAK incydentu) - prepared_writes z 038 zawieraja wersje...
@@ -85,6 +85,7 @@ zrodlem: duplikacja regul jest w tym repo choroba, nie rozwiazaniem.
 - `retcon_000190` — Wolno streszczic fragment powtarzajacy cos, co juz padlo - nigdy fragment wnoszacy nowy fakt, warunek albo deklaracje o nim samym.
 - `retcon_000191` — CO OBOWIAZUJE ZAMIAST.
 - `retcon_000198` — DEKLARACJA AKCJI TO TO, CO GRACZ MOWI NARRATOROWI.
+- `retcon_000200` — DO CZASU POTWIERDZENIA narrator NIE ORZEKA, ze gdziekolwiek nie ma przejscia.
 
 ## czas i tempo (19)
 
