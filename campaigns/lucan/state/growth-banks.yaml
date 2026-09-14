@@ -81,6 +81,40 @@ drain_yield:
   undead_targets: >-
     NIE DAJA ROZWOJU. Wyssany nieumarly oddaje swoj zbiornik do REZERWY i tyle - retcon_000018,
     pajak dal 3 jednostki. Ta czesc retcon_000151 zostaje w mocy.
+energy_model:
+  source: Deklaracja gracza 2026-09-14, retcon_000196.
+  step_1_wezel: >-
+    Kazdy wezel ma PRZYCHOD (wlasne zbieranie: regeneration plus hunting_recovery przy
+    autonomous_hunting) i UTRZYMANIE (decay, chyba ze decay_suppressed). Roznica to jego DELTA.
+  step_2_surplus: >-
+    SURPLUS SIECI = suma delt wszystkich wezlow PLUS zrodla spoza sieci MINUS to, co wychodzi
+    do Varkhena.
+  step_3_kaskada: >-
+    Z surplusu wypelnia sie GROWTH KASKADOWO OD GORY: pc_lucan, potem okazy ZAKOTWICZONE,
+    dopiero potem reszta. Nizszy szczebel dostaje to, czego wyzszy nie przyjal. Kolejnosc jest
+    twarda, nie proporcjonalna (retcon_000141). Przydzial Lucana idzie NAJPIERW w rezerwe do
+    sufitu, potem w bank.
+  step_4_sufit: >-
+    SUFIT GROWTH TO POLOWA POJEMNOSCI ZBIORNIKA, bez wyjatkow. Lucan 15 -> 7,5; Spidey 12 -> 6,0;
+    sieciarze 6 -> 3,0; wiekszosc okazow 3 -> 1,5.
+  settlement_2026_09_14:
+    suma_delt: 28.0
+    zrodlo_zewnetrzne: {spy_beetle_01: 1.8, note: 'trzy kanaly w niszy polnocnego fundamentu - jedyne zrodlo SPOZA sieci'}
+    do_varkhena: -2.3
+    surplus: 27.5
+    kaskada:
+      - {szczebel: 1, kto: pc_lucan, sufit: 7.5, dostaje: 7.5, zostaje: 20.0}
+      - {szczebel: 2, kto: 'zakotwiczone (Spidey 6,0 / Tkacz 3,0 / Zawisak 1,5 / General 1,5)', sufit: 12.0, dostaje: 12.0, zostaje: 8.0}
+      - {szczebel: 3, kto: 'reszta, 25 wezlow', sufit: 42.0, dostaje: 8.0, zostaje: 0.0}
+    wniosek: >-
+      Reszta dostaje niecale dwadziescia procent tego, co mogłaby przyjac - i to jest realne
+      wąskie gardlo sieci, a nie brak energii u gory.
+  not_settled_propagation_losses: >-
+    Straty propagacji (webber-network#network_cost_model: 80 procent na sieciarza, 70 na
+    Lucan-Spidey, mnozne na przeskok) NIE sa w kaskadzie stosowane, bo kaskada liczona jest na
+    sumie, a nie sciezka po sciezce. Przy dowozie do Varkhena SA stosowane, bo tam znana jest
+    trasa. Narrator tego nie usrednia i czeka na decyzje gracza.
+
 surplus_economy:
   source: retcon_000115
   declared_by: player_declaration_2026_08_31_bracket

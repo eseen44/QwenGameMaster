@@ -2,29 +2,30 @@
 
 POWOD ISTNIENIA. roster.py pokazuje, KTO gdzie stoi i co ma w zbiorniku. Nie pokazuje
 PRZEPLYWU: ile wezel dziennie bierze, ile na siebie zjada, ile zostaje i ile z tego idzie
-w rozwoj. Te cztery liczby leza w trzech roznych miejscach - regeneration i decay w plikach
-instancji, rate_per_day i sufity w growth-banks.yaml, a dowoz do Varkhena w osobnym bloku -
-i dopoki nie stoja obok siebie, nie da sie odpowiedziec na pytanie "kto na tym traci".
+w rozwoj. Te liczby leza w roznych miejscach - regeneracja, zer, decay i pojemnosc w plikach
+instancji, a dowoz do Varkhena w growth-banks.yaml - i dopoki nie stoja obok siebie, nie da
+sie odpowiedziec na pytanie "kto na tym traci".
 
-DWA ROWNOLEGLE RACHUNKI, KTORE SIE NIE SKLADAJA, i ta tabela ich NIE ukrywa:
+MODEL (retcon_000196, growth-banks.yaml#energy_model), cztery kroki:
 
-  PRZYCHOD / UTRZYMANIE / DELTA  - model ZBIORNIKA z silnika. regeneration i hunting_recovery
-                                   daja, decay zabiera, silnik nalicza to co tykniecie.
-  GROWTH                         - rejestr RECZNY z growth-banks.yaml. rate_per_day jest juz
-                                   wartoscia NETTO wedle daily-balance.yaml (posterunek 0,
-                                   wolny zer +1, obfity +2, padlinozerca +0,5).
+  1. Na wezel:  PRZYCHOD (regeneracja + zer) - UTRZYMANIE (decay) = DELTA.
+  2. Sieciowo:  suma delt + zrodla spoza sieci - dowoz do Varkhena = SURPLUS.
+  3. Kaskada:   surplus wypelnia growth OD GORY - Lucan, potem zakotwiczone, potem reszta.
+                Nizszy szczebel dostaje wylacznie to, czego wyzszy nie przyjal.
+  4. Sufit:     polowa pojemnosci zbiornika, dla kazdego bez wyjatku.
 
-Te dwie kolumny opisuja te sama sluge dwoma jezykami i nie musza sie zgadzac. Gdzie sie
-rozjezdzaja wyraznie, skrypt to WYPISUJE zamiast usredniac.
+Kolumna GROWTH z growth-banks.yaml zostala z tabeli USUNIETA. Byla recznym rejestrem
+rownoleglym do modelu zbiornika i pokazywanie ich obok siebie utrwalalo rozjazd, zamiast
+go rozstrzygac. Sufit liczy sie teraz z pliku instancji, a rozdzial - z kaskady.
 
 Uruchomienie:
     python tools/energy_pl.py
-    python tools/energy_pl.py --netto    # dopisz kolumne: ile z growth realnie schodzi drabina
 """
 
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import yaml
@@ -56,15 +57,13 @@ def per_day(rule: dict | None) -> float:
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="P&L energetyczny sieci.")
-    ap.add_argument("--netto", action="store_true",
-                    help="dopisz kolumne z tym, co realnie schodzi drabina rozdzialu")
-    args = ap.parse_args(argv)
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    argparse.ArgumentParser(description="P&L energetyczny sieci.").parse_args(argv)
 
     banks_doc = load(BANKS)
     rows = {r["id"]: r for r in (banks_doc.get("banks") or []) if r.get("id")}
     feed = banks_doc.get("varkhen_overflow_feed") or {}
-    feed_sources = feed.get("sources") or {}
     feed_arriving = float(feed.get("arriving_per_day") or 0)
 
     table = []
@@ -94,11 +93,7 @@ def main(argv: list[str] | None = None) -> int:
         if iid in OUTSIDE:
             income += feed_arriving
 
-        row = rows.get(iid, {})
-        growth = row.get("rate_per_day")
-        cap = row.get("growth_cap_per_day")
-        given = float(feed_sources.get(iid) or 0)
-
+        cap = float(pool["capacity"]) / 2.0 if pool and pool.get("capacity") else None
         if iid == PLAYER:
             group = 0
         elif iid in OUTSIDE:
@@ -115,28 +110,51 @@ def main(argv: list[str] | None = None) -> int:
             "przychod": income,
             "utrzymanie": upkeep,
             "delta": income - upkeep,
-            "growth": growth,
             "cap": cap,
-            "oddaje": given,
             "pool": f"{pool['current']}/{pool.get('capacity', '?')}" if pool else "-",
         })
 
-    table.sort(key=lambda r: (r["grupa"], -(r["growth"] or 0), r["id"]))
+    table.sort(key=lambda r: (r["grupa"], -(r["cap"] or 0), r["id"]))
 
     def fmt(x):
         if x is None:
             return "-"
         if isinstance(x, str):
             return x
-        return f"{x:+.2f}".rstrip("0").rstrip(".") if x else "0"
+        if not x:
+            return "0"
+        return f"{x:+.2f}".rstrip("0").rstrip(".")
 
-    head = ["NAZWA", "PRZYCHOD", "UTRZYM.", "DELTA", "GROWTH", "SUFIT", "ODDAJE", "POOL"]
-    keys = ["nazwa", "przychod", "utrzymanie", "delta", "growth", "cap", "oddaje", "pool"]
+    # --- KROK 2: surplus sieci ---
+    suma_delt = sum(r["delta"] for r in table if r["id"] not in (PLAYER,) and r["grupa"] != 1)
+    zrodlo_zew = float((rows.get("spy_beetle_01") or {}).get("rate_per_day") or 0)
+    do_varkhena = float(feed.get("leaving_per_day") or 0)
+    surplus = suma_delt + zrodlo_zew - do_varkhena
+
+    # --- KROK 3: kaskada od gory ---
+    # Szczeble ida po kolei: co przyjmie wyzszy, nie schodzi nizej. WEWNATRZ szczebla model
+    # gracza nie podaje kolejnosci, wiec skrypt dzieli PROPORCJONALNIE do sufitu - kazdy
+    # dostaje ten sam ulamek swojego. To wybor narratora, nie kanon; patrz stopka.
+    zostaje = surplus
+    for r in table:
+        r["dostaje"] = None if r["grupa"] == 1 else 0.0
+    for grupa in (0, 2, 3):
+        wezly = [r for r in table if r["grupa"] == grupa]
+        sufit = sum(r["cap"] or 0.0 for r in wezly)
+        if sufit <= 0 or zostaje <= 0:
+            continue
+        udzial = min(1.0, zostaje / sufit)
+        for r in wezly:
+            r["dostaje"] = (r["cap"] or 0.0) * udzial
+        zostaje -= sufit * udzial
+
+    head = ["NAZWA", "PRZYCHOD", "UTRZYM.", "DELTA", "SUFIT", "DOSTAJE", "POOL"]
+    keys = ["nazwa", "przychod", "utrzymanie", "delta", "cap", "dostaje", "pool"]
     cells = [[fmt(r[k]) for k in keys] for r in table]
     widths = [max(len(head[i]), *(len(c[i]) for c in cells)) for i in range(len(head))]
 
-    titles = {0: "LUCAN", 1: "VARKHEN (poza drabina, retcon_000113)",
-              2: "ZAKOTWICZONE (szczebel 2)", 3: "RESZTA (szczebel 3)"}
+    titles = {0: "LUCAN - szczebel 1", 1: "VARKHEN - poza drabina (retcon_000113)",
+              2: "ZAKOTWICZONE - szczebel 2", 3: "RESZTA - szczebel 3"}
     print("  ".join(h.ljust(w) for h, w in zip(head, widths)))
     print("-" * (sum(widths) + 2 * (len(widths) - 1)))
     last = None
@@ -147,31 +165,32 @@ def main(argv: list[str] | None = None) -> int:
         print("  ".join(x.ljust(w) for x, w in zip(c, widths)))
 
     print()
-    print("PRZYCHOD/UTRZYMANIE/DELTA - model ZBIORNIKA z silnika (regeneration, hunting_recovery,")
-    print("  decay). GROWTH - rejestr RECZNY z growth-banks, juz netto wedle daily-balance.")
-    print("  To sa DWA JEZYKI opisujace te sama sluge i nie musza sie zgadzac.")
-    print("ODDAJE - ile overflow tego wezla idzie dzis do Varkhena (varkhen_overflow_feed).")
-
-    total_growth = sum(r["growth"] for r in table if r["growth"] and r["id"] != PLAYER)
-    total_given = sum(r["oddaje"] for r in table)
+    print("SURPLUS SIECI (krok 2 modelu, growth-banks#energy_model):")
+    print(f"  suma delt wezlow          {suma_delt:+7.1f}")
+    print(f"  zrodlo spoza sieci        {zrodlo_zew:+7.1f}   (trzy kanaly w niszy, pije General)")
+    print(f"  do Varkhena               {-do_varkhena:+7.1f}   "
+          f"(dochodzi {feed_arriving:.1f} po stratach)")
+    print(f"  {'':-<28}")
+    print(f"  SURPLUS                   {surplus:+7.1f}")
     print()
-    print(f"suma GROWTH slug (bez Lucana): {total_growth:.1f} na dobe")
-    print(f"  z tego oddawane Varkhenowi:  {total_given:.1f} wychodzace, "
-          f"{feed_arriving:.1f} dochodzace po stratach")
-    overflow = sum(float(r.get("overflow_per_day") or 0) for r in rows.values())
-    print(f"caly OVERFLOW w rejestrze (jedyne, co schodzi drabina): {overflow:.1f} na dobe")
-    if abs(overflow - total_given) < 0.01:
-        print("  UWAGA: caly overflow idzie do Varkhena, wiec na szczeble 2 i 3 nie schodzi NIC.")
-
-    lucan_row = rows.get(PLAYER, {})
+    print("KASKADA (krok 3): od gory, nizszy szczebel dostaje to, czego wyzszy nie przyjal.")
+    for grupa, tytul in ((0, "Lucan"), (2, "zakotwiczone"), (3, "reszta")):
+        sufit = sum(r["cap"] or 0 for r in table if r["grupa"] == grupa)
+        dostaje = sum(r["dostaje"] or 0 for r in table if r["grupa"] == grupa)
+        ile = len([r for r in table if r["grupa"] == grupa])
+        proc = f"{dostaje / sufit * 100:.0f}%" if sufit else "-"
+        print(f"  {tytul:<14} sufit {sufit:6.1f}   dostaje {dostaje:6.1f}   ({proc} sufitu, "
+              f"{ile} wezlow)")
+    print(f"  niewykorzystane: {max(0.0, zostaje):.1f}")
     print()
-    print("NIESPOJNOSC, KTOREJ TA TABELA NIE ROZSTRZYGA (zgloszona 2026-09-14):")
-    print("  pc-lucan#regeneration mowi 0,75/h = 18,0 na dobe, w tym 0,50/h = 12,0 opisane jako")
-    print("  DOWOZ Z SIECI - liczba ustawiona retconem 000141 przy nadwyzce 16,5 i nieruszana.")
-    print(f"  Rejestr mowi, ze do rozdzialu idzie caly overflow, czyli {overflow:.1f}.")
-    print("  12,0 nie ma wiec pokrycia w 2,3. Skrypt tego NIE usrednia i nie zgaduje.")
-    print(f"  bank Lucana: {lucan_row.get('bank', '?')}, sufit przyjecia "
-          f"{lucan_row.get('growth_cap_per_day', '?')} na dobe.")
+    print("SUFIT GROWTH = POLOWA POJEMNOSCI ZBIORNIKA (krok 4), bez wyjatkow.")
+    print("PRZYCHOD to wlasne zbieranie wezla, UTRZYMANIE to jego decay. DELTA = roznica.")
+    print("KOLEJNOSC SZCZEBLI jest kanonem (retcon_000196). PODZIAL WEWNATRZ szczebla nie -")
+    print("  model nie mowi, kto w 'reszcie' ma pierwszenstwo, wiec skrypt dzieli PRO RATA:")
+    print("  kazdy wezel dostaje ten sam ulamek swojego sufitu. Kolejnosc w rzedzie wybralby")
+    print("  gracz, gdyby chcial - wtedy pierwsze wezly stoja pelne, a reszta pusta.")
+    print("Straty propagacji NIE sa w kaskadzie stosowane - patrz")
+    print("  growth-banks#energy_model.not_settled_propagation_losses.")
     return 0
 
 
