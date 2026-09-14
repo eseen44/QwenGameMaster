@@ -4,20 +4,20 @@ name: Lucan
 object_type: entity_instance
 status: active
 definition_ref: candidate_pc_lucan_cutoff
-revision: 283
+revision: 284
 position:
   location_id: loc_cemetery_underworks
-  zone_id: zone_old_lower_route
+  zone_id: zone_lower_burial_chamber
   fix:
     status: confirmed
-    as_of_event_id: event_turn_interlude_287
+    as_of_event_id: event_turn_interlude_291
     source: transaction
 integrity:
   current: 19
   maximum: 19
 resources:
   lucan_necrotic_energy:
-    current: 14.8
+    current: 15
     capacity: 15
     comfortable_capacity: 15
     permanent_expansion: 3
@@ -29,7 +29,7 @@ resources:
     decision_status: approved
     runtime:
       regeneration_elapsed_seconds: 1120
-      overflow_pending: 3.75
+      overflow_pending: 5.8
     regeneration:
       interval_seconds: 3600
       units: 0.75
@@ -68,7 +68,7 @@ status_flags:
 - permanently_expanded_reservoir
 - within_normal_capacity
 - running_on_life_energy_not_sleep
-last_event_id: event_turn_interlude_290
+last_event_id: event_turn_interlude_291
 source_refs:
 - retcon_000004
 - source_luka_b_fragment#line:11251-11409
