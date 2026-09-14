@@ -1,0 +1,41 @@
+# KONTRAKT GLOSU - Profesor Beatrix Witte
+# Jedyne zrodlo tego, JAK ta postac mowi. Fakty leza w karcie pod `knowledge` i NIE sa probka
+# mowy. Regula, kolejnosc osi i test na slepo: system/npc-voice.md.
+# Powstal 2026-09-14 na zadanie gracza ("ciagniemy do Betty White"), ZANIM weszla do sceny;
+# `speech_traits` zdjeto z karty w tej samej turze, bo dwa zrodla glosu sie rozjezdzaja.
+schema_version: 1
+object_type: npc_voice
+id: voice_npc_lucan_former_promoter
+npc_id: npc_lucan_former_promoter
+npc_ref: campaigns/lucan/entities/npcs/lucan-former-promoter.yaml
+voice_contract:
+  sentences: Krotkie i cale, w pogodnym rytmie. Ostrze siedzi w OSTATNIM zdaniu i to ostatnie
+    jest najkrotsze - buduje ciepla rame, a potem stawia kropke, ktora ja znosi.
+  answer_length: Dwa, trzy zdania. O cudzej pracy mowi dluzej, bo praca ja interesuje. Na cudza
+    wymowke odpowiada jednym pytaniem i cisza po nim.
+  register: 'Laboratoryjny konkret: preparat, proba, protokol, reka, dorobek, kto to robil.
+    Do wszystkich mowi zdrobnieniami - kochanie, zlotko, moje dziecko - bez wzgledu na wiek
+    i stanowisko; jest to u niej forma grzecznosciowa, a nie czulosc.'
+  evasion: Odpowiada wprost i od razu. Czego powiedziec nie chce, kwituje slowami "tego ci nie
+    powiem" i nazywa, czyja to sprawa. Tematu nie zmienia - zamyka go.
+  body: 'Przy rozmowie robi cos rekami: nalewa, poprawia komus kolnierz, przesuwa krzeslo.
+    Najciezsze zdanie pada, kiedy jest odwrocona plecami albo zajeta drobiazgiem.'
+  mistakes: Wypuszcza pointe, zanim sprawdzi, czy rozmowca ja zniesie. Orientuje sie z miny -
+    i zamiast cofnac, dolewa herbaty.
+  unnoticed: Ze jej troska czyta sie jako kontrola. Robi komus miejsce, trzyma je latami
+    i uwaza, ze tym powiedziala wszystko.
+  emotion: Przez KOLEJNOSC, nie przez ton. Najpierw sprawdza wzrokiem, czy ktos jest caly,
+    potem rozlicza go z lat. Ton zostaje pogodny bez wzgledu na tresc.
+  blind_spot: Strach nazywa robota. Zamiast powiedziec, ze sie bala, wymienia, co ktos stracil,
+    ile to trwalo i kto przez ten czas robil jego rzeczy.
+  money: 'Mowi o nich jak o etacie i grancie: kto placi, kto blokuje, ile pochlania jedna proba.
+    Wlasnych zarobkow nie rusza. Cudza fundacje nazywa po imieniu, bez zenady.'
+  avoid: >-
+    Zadnych wykladow i zadnego podnoszenia glosu; dluzej niz trzy zdania mowi wylacznie
+    o czyjejs pracy. Procedura i jurysdykcja to rejestr Seraphine. Zamiast pocieszenia podaje
+    robote do zrobienia.
+samples:
+- Siadaj, kochanie. Herbata swieza, a ty wygladasz jak preparat.
+- I kto to za ciebie robil przez te dwa lata?
+- Pokoj stoi. Kurz w nim moj, nie twoj.
+- 'Powiedz mi jedno: to jest twoja praca czy tylko twoje nazwisko?'
