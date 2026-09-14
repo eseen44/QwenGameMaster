@@ -107,6 +107,18 @@ surplus_economy:
     trzy kanaly w niszy pod polnocnym fundamentem kaplicy, odbierane przez spy_beetle_01.
     Nie jest to energia Lucana zawrocona drugi raz, wiec wchodzi do sumy sieci; dawne 3,5
     z jego rezerwy wypadlo, bo ladowanie z reki przestalo byc potrzebne.
+  what_the_number_does_not_include: >-
+    ODPOWIEDZ NA PYTANIE GRACZA 2026-09-14: NIE, daily_network_surplus_units NIE UWZGLEDNIA
+    dowozu do Varkhena. Liczba 28,3 to SUMA BRUTTO rate_per_day wezlow aktywnych - tak ja
+    definiuje daily_network_surplus_units_basis i tak sprawdza ja tools/reconcile_growth.py,
+    wiec nie wolno jej zmniejszyc bez zlamania bramki.
+    Dowoz do Varkhena bierze 2,3 na dobe z overflow_per_day pieciu wezlow, a overflow jest
+    CZESCIA ich rate_per_day, nie dodatkiem - wiec te 2,3 sa w 28,3 policzone i jednoczesnie
+    juz rozdysponowane.
+    NETTO DLA RESZTY SIECI: 28,3 - 2,3 = 26,0 na dobe.
+    W praktyce nie zmienia to niczego dla Lucana: jego sufit przyjecia wynosi 7,5 na dobe,
+    wiec nawet netto zostaje ponad osiemnascie jednostek, ktore i tak nie maja gdzie wejsc.
+  available_after_varkhen_feed_per_day: 26.0
   growth_intake_cap: >-
     Wezel wchlania w ROZWOJ najwyzej POLOWE WLASNEJ POJEMNOSCI ZBIORNIKA na dobe.
     Zbiornik 3 daje wiec sufit 1,5 na dobe, zbiornik 6 sufit 3,0, zbiornik 12 sufit 6,0,
