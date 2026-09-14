@@ -138,6 +138,36 @@ known:
         znaczy, ze Lucan jest w tym wezle. Nie tworzy nowej zdolnosci i nie podnosi mastery.
       precedent: campaigns/lucan/migration/mechanics/capabilities/oren-control.yaml
     source_refs: [source_luka_b_fragment#line:3869-4004, source_luka_b_fragment#line:5062-5072, retcon_000131]
+  - id: ability_visual_snapshot_over_bond
+    capability_ref: null
+    name: Migawka wzrokowa przez więź
+    mastery: 31
+    added_by: retcon_000199
+    why_it_was_missing: >-
+      ZDOLNOSC ISTNIALA OD AKTU 2 I NIGDY NIE WESZLA NA TE LISTE. Zyla w
+      journal/imports/luka-c-act-02-closeout.md oraz w nocie w companions/webber-network.yaml,
+      wiec narrator czytajacy abilities.yaml jej nie widzial i w t_310 orzekl przeciw niej.
+      Ta sama klasa bledu co przy durations.yaml: odpowiedz lezala w repo, tylko nic jej nie
+      wypisywalo.
+    directions:
+      lucan_to_servant: >-
+        Potwierdzone w Akcie 2 na Spideyu i Varkhenie. Lucan wysyla POJEDYNCZA, NIEWYRAZNA,
+        STATYCZNA klatke tego, co widzial sam.
+      servant_to_lucan: >-
+        low_bandwidth_visual_snapshot - to jest wlasnie ta rzecz, ktora Spidey ma, a Tkacz nie
+        (webber-network.yaml#both_bands_note). Stad przewaga Spideya mimo rownego pasma sluchu.
+    limits:
+      - one_still_frame_not_a_view
+      - blurry_by_definition
+      - not_continuous_shared_vision
+      - requires_that_the_sender_actually_saw_it
+    does_not_replace_borrowed_sense: >-
+      low_bandwidth ability_borrowed_sense ZOSTAJE. Meldunek okazu BEZ migawki jest ksztaltem
+      i obecnoscia, nie obrazem - dokladnie tak Spidey podal brame w t_308 (szerokosc, pion,
+      martwe echo, linia powietrza u dolu). Migawka jest osobna rzecza i nie zamienia
+      pozyczonego zmyslu w obraz ciagly.
+    source_refs: [campaigns/lucan/journal/imports/luka-c-act-02-closeout.md,
+      campaigns/lucan/companions/webber-network.yaml#both_bands_note, retcon_000199]
   - id: ability_network_energy_transfer
     capability_ref: capability_lucan_network_energy_transfer
     name: Transfer energii przez sieć sług
